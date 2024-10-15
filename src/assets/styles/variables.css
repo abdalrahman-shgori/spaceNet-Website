@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "English";
+    src: url(../fontFamily/Sora-Regular.ttf);
+}
+@font-face {
+    font-family: "SoraSemiBold";
+    src: url(../fontFamily/Sora-SemiBold.ttf);
+}
+@font-face {
+    font-family: "SoraSemiLight";
+    src: url(../fontFamily/Sora-Light.ttf);
+}
+:root{
+    --English-font:'English';
+    --English-font-semibold:'SoraSemiBold';
+    --English-font-light:'SoraSemiLight';
+    --Menu-Text-Color:#051A2F;
+
+}

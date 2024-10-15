@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import ThemeProvider, { useColorMode } from './ThemeProvider';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import SvgGroup1 from './assets/logoAnimation/group1';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
-
-function ToggleButton() {
-  const { toggleColorMode } = useColorMode();
-  return <Button onClick={toggleColorMode}>Toggle Theme</Button>;
-}
+import NavBar from './components/navbar/navbar';
+import Toggle from './components/toggleCompoent/toggle';
 
 const App = () => {
   const [showContent, setShowContent] = useState(false);
@@ -28,16 +25,15 @@ const App = () => {
 
 const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
   const theme = useTheme(); 
-
   const handleAnimationComplete = () => {
     setShowContent(true);
     setTimeout(() => {
       setShowLogo(false); 
     }, 500); 
   };
-
   return (
     <div
+    className='root-container'
       style={{
         minHeight: '100vh',
         background: showLogo ? '#051A2F' : 'transparent',
@@ -47,21 +43,18 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
       {showLogo && <SvgGroup1 onAnimationComplete={handleAnimationComplete} />}
 
       {showContent && (
+        <>
         <motion.div
           initial={{ y: '100%', opacity: 0,height:"100vh" }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
           style={{
-            padding: '20px',
-           
             background: theme.palette.background.default,
           }}
         >
-          <h1>SPACENET WEBSITE</h1>
-          <h2>Coming Soon</h2>
-          
-          <ToggleButton />
+          <NavBar/>
         </motion.div>
+        </>
       )}
     </div>
   );
