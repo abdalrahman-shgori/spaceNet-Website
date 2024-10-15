@@ -88,7 +88,12 @@ const NavBar = () => {
                                     transform: isDrawerOpen ? 'rotate(90deg)' : 'rotate(0)',
                                 }}
                             >
-                                <MenuRoundedIcon sx={{ width: 40, height: 35 }} />
+                                <MenuRoundedIcon
+                                    sx={{
+                                        width: 40,
+                                        height: 35,
+                                        color: theme.palette.mode === 'light' ? '#051A2F' : '#FFFFFF'
+                                    }} />
                             </IconButton>
                         </Box>
 
