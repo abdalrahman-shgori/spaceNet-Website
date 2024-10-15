@@ -40,7 +40,6 @@ export default function Toggle() {
                     border: isDarkMode && "2px solid #FFFFFF",
                 }}
             >
-                {/* Text label for Light/Dark */}
                 <Typography
                     variant="body2"
                     sx={{
