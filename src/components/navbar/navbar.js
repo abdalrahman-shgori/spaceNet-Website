@@ -197,7 +197,7 @@ const NavBar = () => {
                                                 rel="noopener"
                                                 sx={{ color: item.color, cursor: "pointer" }}
                                             >
-                                                {item.icon} {/* Render the SVG icon directly */}
+                                                {item.icon}
                                             </Box>
                                         ))}
                                     </Box>

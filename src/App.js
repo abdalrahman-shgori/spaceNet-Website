@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import ThemeProvider, { useColorMode } from './ThemeProvider';
-import { Box, Button } from '@mui/material';
 import SvgGroup1 from './assets/logoAnimation/group1';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
 import NavBar from './components/navbar/navbar';
-import Toggle from './components/toggleCompoent/toggle';
-
 const App = () => {
   const [showContent, setShowContent] = useState(false);
   const [showLogo, setShowLogo] = useState(true);
