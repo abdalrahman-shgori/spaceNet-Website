@@ -23,7 +23,7 @@ export default function Toggle({ drawerOpen }) {
                     zIndex: "9999",
                     position: 'fixed',
                     right: {
-                        lg: '60px',
+                        lg: '58px',
                         md: '60px',
                         sm: '15px',
                         xs: '15px'
