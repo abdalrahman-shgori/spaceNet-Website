@@ -128,7 +128,7 @@ export default function Services() {
                     userSelect: "none",
                 }}
             >
-                {localServices.map((item, index) => (
+                {servicesList?.data?.map((item, index) => (
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 30, rotate: 10 }}
@@ -192,7 +192,7 @@ export default function Services() {
                                     maxWidth: '550px',
                                 }}
                             >
-                                {item.name.length > 20 ? `${item.name.slice(0, 20)}...` : item.name}
+                                {item.title.length > 20 ? `${item.name.slice(0, 20)}...` : item.title}
                             </Typography>
 
                             <Box
