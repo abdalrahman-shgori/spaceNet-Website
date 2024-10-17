@@ -56,9 +56,9 @@ const NavBar = ({ setDrawerOpen }) => {
                     boxShadow: 'none',
                     border: 'none',
                     padding: {
-                        lg: '55px 75px 80px 75px',
-                        md: '55px 75px 80px 75px',
-                        sm: '45px 25px 80px 25px',
+                        lg: '55px 75px 70px 75px',
+                        md: '55px 75px 70px 75px',
+                        sm: '45px 25px 70px 25px',
                         xs: '25px 25px 40px 25px'
                     }
                 }}
