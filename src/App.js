@@ -4,10 +4,11 @@ import SvgGroup1 from './assets/logoAnimation/group1';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
 import NavBar from './components/navbar/navbar';
+import LandingPage from './components/LandingPage/landingPage';
+import Toggle from './components/toggleCompoent/toggle';
 const App = () => {
   const [showContent, setShowContent] = useState(false);
   const [showLogo, setShowLogo] = useState(true);
-
   return (
     <ThemeProvider>
       <InnerApp
@@ -16,11 +17,13 @@ const App = () => {
         showLogo={showLogo}
         setShowLogo={setShowLogo}
       />
+      
     </ThemeProvider>
   );
 };
 
 const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
+  const [draweOpen,setDrawerOpen]=useState(false)
   const theme = useTheme();
   const handleAnimationComplete = () => {
     setShowContent(true);
@@ -49,8 +52,12 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
               background: theme.palette.background.default,
             }}
           >
-            <NavBar />
+            <NavBar setDrawerOpen={setDrawerOpen}/>
+            <LandingPage/>
+
           </motion.div>
+          <Toggle drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
+
         </>
       )}
     </div>

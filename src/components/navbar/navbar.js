@@ -12,8 +12,9 @@ import InstaSvg from '../../assets/socialMediaIcons/instaGram';
 import LinkedInSvg from '../../assets/socialMediaIcons/linkedIn';
 import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
+import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
 
-const NavBar = () => {
+const NavBar = ({setDrawerOpen}) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isExiting, setIsExiting] = useState(false);
     const theme = useTheme();
@@ -31,6 +32,7 @@ const NavBar = () => {
 
     const toggleDrawer = (open) => {
         setIsDrawerOpen(open);
+        setDrawerOpen(true)
     };
 
     const handleCloseDrawer = () => {
@@ -38,7 +40,9 @@ const NavBar = () => {
         setTimeout(() => {
             toggleDrawer(false);
             setIsExiting(false);
-        }, 600);
+            setDrawerOpen(false)
+
+        }, 500);
     };
 
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -51,7 +55,12 @@ const NavBar = () => {
                     background: 'transparent',
                     boxShadow: 'none',
                     border: 'none',
-                    padding: { lg: '55px 75px', md: '55px 75px', sm: '45px 25px', xs: '45px 25px' }
+                    padding: {
+                         lg: '55px 75px 178px 75px',
+                          md: '55px 75px 115px 75px',
+                           sm: '45px 25px 115px 25px',
+                            xs: '45px 25px 115px 25px' 
+                        }
                 }}
             >
                 <Toolbar
@@ -64,16 +73,8 @@ const NavBar = () => {
                         paddingRight: "0px !important",
                     }}
                 >
-                    <Box
-                        component="img"
-                        src={ThemeCheck === "light" ? spaceNetLogoBlack : spaceNetLogo}
-                        alt="SpaceNet Logo"
-                        sx={{
-                            width: { lg: "879px", md: "579px", sm: "179px", xs: "179px" },
-                            height: { lg: "127px", md: "100px", sm: "26px", xs: "26px" }
-                        }}
-                    />
-
+                    
+<SvgSpaceNetLogo/>
                     <Box>
                         <Box sx={{ position: 'relative' }}>
                             <IconButton
@@ -86,11 +87,13 @@ const NavBar = () => {
                                     margin: "0px !important",
                                     transition: 'transform 0.3s ease',
                                     transform: isDrawerOpen ? 'rotate(90deg)' : 'rotate(0)',
+                                    position:"relative",
+                                    left:"10px"
                                 }}
                             >
                                 <MenuRoundedIcon
                                     sx={{
-                                        width: 40,
+                                        width: 35,
                                         height: 35,
                                         color: theme.palette.mode === 'light' ? '#051A2F' : '#FFFFFF'
                                     }} />
@@ -109,12 +112,13 @@ const NavBar = () => {
                                 onClose={handleCloseDrawer}
                                 PaperProps={{
                                     sx: {
-                                        width: isSmallScreen ? "80%" : isTabScreen ? '60%' : "40%",
+                                        width: isSmallScreen ? "80%" : isTabScreen ? '60%' : "42%",
                                         height: '100%',
                                         overflow: 'hidden',
                                         boxShadow: '0 0 20px rgba(0,0,0,0.1)',
                                         background: "#fff",
                                         clipPath: isSmallScreen ? 'none' : 'ellipse(100% 75% at 100% 50%)',
+
                                     },
                                 }}
                             >
@@ -140,7 +144,7 @@ const NavBar = () => {
                                             display: isSmallScreen ? "none" : "flex"
                                         }}
                                     >
-                                        <CloseRoundedIcon sx={{ width: 40, height: 35 }} />
+                                        <CloseRoundedIcon sx={{ width: 40, height: 35,color:"#000000" }} />
                                     </IconButton>
 
                                     <List sx={{ flexGrow: 1, marginTop: "50px" }}>
@@ -153,8 +157,10 @@ const NavBar = () => {
                                             >
                                                 <ListItem
                                                     button
-                                                    onClick={() => toggleDrawer(false)}
-                                                    sx={{
+                                                    onClick={() => {
+                                                        toggleDrawer(false);
+                                                        setDrawerOpen(false);
+                                                    }}                                                    sx={{
                                                         display: 'flex',
                                                         justifyContent: isSmallScreen ? "start" : 'center',
                                                         '&:hover': {
@@ -219,7 +225,6 @@ const NavBar = () => {
                     </Box>
                 </Toolbar>
             </AppBar>
-            <Toggle />
         </>
     );
 };

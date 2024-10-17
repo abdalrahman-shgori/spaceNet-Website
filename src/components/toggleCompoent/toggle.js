@@ -1,23 +1,26 @@
 import React, { useState } from "react";
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import ThemeProvider, { useColorMode } from '../../ThemeProvider';
 
-export default function Toggle() {
+export default function Toggle({ drawerOpen }) {
     const { toggleColorMode } = useColorMode();
     const [isDarkMode, setIsDarkMode] = useState(false);
     const theme = useTheme();
-
+    console.log(drawerOpen, "wewewe")
     const handleToggle = () => {
         toggleColorMode();
         setIsDarkMode((prev) => !prev);
     };
-
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const isTabScreen = useMediaQuery(theme.breakpoints.only('md'));
     return (
         <>
             <Box
+
                 onClick={handleToggle}
                 sx={{
+                    zIndex: "9999",
                     position: 'fixed',
                     right: {
                         lg: '70px',
@@ -28,8 +31,8 @@ export default function Toggle() {
                     top: {
                         lg: '328px',
                         md: '328px',
-                        sm: '256px',
-                        xs: '256px'
+                        sm: '200px',
+                        xs: '356px'
                     },
                     width: '38px',
                     height: '106px',
@@ -47,14 +50,14 @@ export default function Toggle() {
                         top: '-55px',
                         left: '50%',
                         transform: 'translateX(-50%) rotate(-90deg)',
-                        color: isDarkMode ? '#FFFFFF' : '#051A2F',
+                        color: drawerOpen === true && !isSmallScreen ? '#000000' : (isDarkMode ? '#FFFFFF' : '#051A2F'), // Check this line
                         fontWeight: "light",
                         fontFamily: "var( --English-font-light)",
                         fontSize: "23px"
 
                     }}
                 >
-                    {isDarkMode ? 'Dark' : 'Light'}
+                    {isDarkMode ? ' Light' : 'Dark'}
                 </Typography>
 
                 <Box

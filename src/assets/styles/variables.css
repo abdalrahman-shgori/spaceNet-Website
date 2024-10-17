@@ -10,10 +10,15 @@
     font-family: "SoraSemiLight";
     src: url(../fontFamily/Sora-Light.ttf);
 }
+@font-face {
+    font-family: "SoraExtraLight";
+    src: url(../fontFamily/Sora-ExtraLight.ttf);
+}
 :root{
     --English-font:'English';
     --English-font-semibold:'SoraSemiBold';
     --English-font-light:'SoraSemiLight';
+    --English-font-Extralight:'SoraExtraLight';
     --Menu-Text-Color:#051A2F;
 
 }
