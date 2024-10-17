@@ -186,7 +186,7 @@ export default function Services() {
                                         xs: "15px",
                                     },
                                     fontFamily: "var(--English-font-semibold)",
-                                    overflow: 'hidden',
+                                    overflowY: 'hidden',
                                     whiteSpace: 'nowrap',
                                     textOverflow: 'ellipsis',
                                     maxWidth: '550px',
