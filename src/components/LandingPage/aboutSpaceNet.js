@@ -35,8 +35,8 @@ export default function AboutSpaceNet() {
                         lg: "unset",
                         md: "unset",
                         sm: "unset",
-                        xs: "107px"
-                    }
+                        xs: "80px"
+                    },
                 }}
             >
                 <Grid item xs={12}>
@@ -50,11 +50,12 @@ export default function AboutSpaceNet() {
                             sx={{
                                 maxWidth: "100%",
                                 width: {
-                                    lg: "257px",
+                                    lg: "220px",
                                     md: "106px",
                                     sm: "106px",
                                     xs: "106px"
-                                }
+                                },
+                                position: "absolute"
                             }}
                         />
                     </motion.div>
@@ -70,11 +71,11 @@ export default function AboutSpaceNet() {
                             },
                             width: "100%",
                             position: "relative",
-                            bottom: {
-                                lg: "130px",
-                                md: "60px",
-                                sm: "60px",
-                                xs: "60px"
+                            top: {
+                                lg: "40px",
+                                md: "20px",
+                                sm: "20px",
+                                xs: "20px"
                             },
                             display: "flex",
                             flexDirection: "column",
@@ -107,7 +108,7 @@ export default function AboutSpaceNet() {
                             alt="SpaceNet Logo"
                             sx={{
                                 width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
-                                paddingBottom: "45px",
+                                marginBottom: "25px",
                                 paddingRight: "20px"
                             }}
                         />
@@ -121,24 +122,23 @@ export default function AboutSpaceNet() {
                                     xs: "15px"
                                 },
                                 fontFamily: "var(--English-font)",
-                                overflowY: "hidden",
-                                paddingRight: "10px",
-                                position: "relative",
-                                '&::-webkit-scrollbar': { display: 'none' },
-                                scrollbarWidth: "none",
+                                overflow: "hidden",
                                 maxHeight: {
-                                    lg: "300px",
-                                    md: "300px",
+                                    lg: "270px",
+                                    md: "270px",
                                     sm: "150px",
                                     xs: "250px"
                                 },
+                                paddingRight: "10px",
+                                paddingTop: "10px",
+                                position: "relative",
+                                '&::-webkit-scrollbar': { display: 'none' },
+                                scrollbarWidth: "none",
                             }}
                         >
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took Lorem Ipsum has
-                            Lorem Ipsum has Lorem Ipsum has.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,ptext of the printing and typesettin when an unknown printer took Lorem Ipsum has Lorem Ipsum has Lorem Ipsum has ptext of the printing and typesettinptext of the printing and typesettin .
                         </Typography>
+
                     </Box>
                 </Grid>
                 <Grid item xs={12}>
@@ -157,20 +157,21 @@ export default function AboutSpaceNet() {
                                     sm: "0px",
                                     xs: "0px"
                                 },
-                                position: "relative",
+                                position: "absolute",
                                 bottom: {
-                                    lg: "240px",
-                                    md: "100px",
-                                    sm: "100px",
-                                    xs: "100px"
+                                    lg: "-90px",
+                                    md: "-40px",
+                                    sm: "-40px",
+                                    xs: "-40px"
                                 },
+                                right: "0",
                                 maxWidth: "100%",
                                 width: {
-                                    lg: "unset",
+                                    lg: "280px",
                                     md: "106px",
                                     sm: "106px",
                                     xs: "106px"
-                                }
+                                },
                             }}
                         />
                     </motion.div>

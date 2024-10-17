@@ -50,7 +50,7 @@ const SvgSpaceNetLogo = (props) => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 879 128"
-        style={{ width: '64%', height: 'auto' }}
+        style={{ width: '30%', height: 'auto' }}
         fill="none"
         {...props}
       >

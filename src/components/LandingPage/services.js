@@ -1,13 +1,14 @@
 import { Box, Grid, Typography, useTheme } from "@mui/material";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Union from "../../assets/images/Union.svg";
 import customCursor from "../../assets/images/internet.svg";
-
+import { services as fetchServicesApi } from "../../services/websiteApis/services"; // Rename the import
 export default function Services() {
     const scrollRef = useRef(null);
-    const theme = useTheme()
-    const services = [
+    const theme = useTheme();
+
+    const localServices = [ // Rename this local array to avoid conflicts
         { name: "ACADEMICS", img: Union },
         { name: "INTERNET", img: Union },
         { name: "SOFTWARE", img: Union },
@@ -52,6 +53,26 @@ export default function Services() {
         scrollRef.current.addEventListener("touchend", handleTouchEnd);
     };
 
+    const [loading, setLoading] = useState(true);
+    const [servicesList, setServicesList] = useState([]);
+
+    useEffect(() => {
+        const fetchServices = async () => {
+            try {
+                setLoading(true);
+                const responseData = await fetchServicesApi(); // Use the renamed API call
+                setServicesList(responseData || []); // Make sure responseData is valid
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching services:", error);
+                setLoading(false);
+            }
+        };
+        fetchServices();
+    }, []);
+
+    console.log(servicesList, "Fetched services");
+
     return (
         <Grid
             sx={{
@@ -66,8 +87,8 @@ export default function Services() {
             <Typography
                 sx={{
                     fontSize: {
-                        lg: "50px",
-                        md: "50px",
+                        lg: "40px",
+                        md: "40px",
                         sm: "30px",
                     },
                     fontFamily: "var(--English-font-Extralight)",
@@ -107,7 +128,7 @@ export default function Services() {
                     userSelect: "none",
                 }}
             >
-                {services.map((item, index) => (
+                {localServices.map((item, index) => (
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 30, rotate: 10 }}
@@ -118,7 +139,6 @@ export default function Services() {
                             stiffness: 100,
                             delay: index * 0.5
                         }}
-
                     >
                         <Box
                             sx={{
@@ -126,14 +146,14 @@ export default function Services() {
                                 background: "#F4F4F4",
                                 borderRadius: "38.7px",
                                 marginTop: {
-                                    lg: "29px",
-                                    md: "29px",
-                                    sm: "29px",
+                                    lg: "20px",
+                                    md: "20px",
+                                    sm: "20px",
                                     xs: "unset",
                                 },
                                 height: {
-                                    lg: "89px",
-                                    md: "89px",
+                                    lg: "80px",
+                                    md: "80px",
                                     sm: "40px",
                                     xs: "40px",
                                 },
@@ -154,14 +174,13 @@ export default function Services() {
                                     transform: "scale(1.05) rotate(5deg)",
                                     background: theme.palette.mode === 'light' ? '#051A2F' : '#E9FA50',
                                     color: theme.palette.mode === 'light' ? '#FFFFFF' : '#051A2F',
-
                                 },
                             }}
                         >
                             <Typography
                                 sx={{
                                     fontSize: {
-                                        lg: "45px",
+                                        lg: "40px",
                                         md: "26px",
                                         sm: "15px",
                                         xs: "15px",
@@ -171,7 +190,6 @@ export default function Services() {
                                     whiteSpace: 'nowrap',
                                     textOverflow: 'ellipsis',
                                     maxWidth: '550px',
-
                                 }}
                             >
                                 {item.name.length > 20 ? `${item.name.slice(0, 20)}...` : item.name}

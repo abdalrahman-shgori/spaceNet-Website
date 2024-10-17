@@ -14,7 +14,7 @@ import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
 
-const NavBar = ({setDrawerOpen}) => {
+const NavBar = ({ setDrawerOpen }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isExiting, setIsExiting] = useState(false);
     const theme = useTheme();
@@ -56,11 +56,11 @@ const NavBar = ({setDrawerOpen}) => {
                     boxShadow: 'none',
                     border: 'none',
                     padding: {
-                         lg: '55px 75px 178px 75px',
-                          md: '55px 75px 115px 75px',
-                           sm: '45px 25px 115px 25px',
-                            xs: '45px 25px 115px 25px' 
-                        }
+                        lg: '55px 75px 100px 75px',
+                        md: '55px 75px 100px 75px',
+                        sm: '45px 25px 100px 25px',
+                        xs: '45px 25px 50px 25px'
+                    }
                 }}
             >
                 <Toolbar
@@ -73,8 +73,8 @@ const NavBar = ({setDrawerOpen}) => {
                         paddingRight: "0px !important",
                     }}
                 >
-                    
-<SvgSpaceNetLogo/>
+
+                    <SvgSpaceNetLogo />
                     <Box>
                         <Box sx={{ position: 'relative' }}>
                             <IconButton
@@ -87,8 +87,8 @@ const NavBar = ({setDrawerOpen}) => {
                                     margin: "0px !important",
                                     transition: 'transform 0.3s ease',
                                     transform: isDrawerOpen ? 'rotate(90deg)' : 'rotate(0)',
-                                    position:"relative",
-                                    left:"10px"
+                                    position: "relative",
+                                    left: "10px"
                                 }}
                             >
                                 <MenuRoundedIcon
@@ -144,7 +144,7 @@ const NavBar = ({setDrawerOpen}) => {
                                             display: isSmallScreen ? "none" : "flex"
                                         }}
                                     >
-                                        <CloseRoundedIcon sx={{ width: 40, height: 35,color:"#000000" }} />
+                                        <CloseRoundedIcon sx={{ width: 40, height: 35, color: "#000000" }} />
                                     </IconButton>
 
                                     <List sx={{ flexGrow: 1, marginTop: "50px" }}>
@@ -160,7 +160,7 @@ const NavBar = ({setDrawerOpen}) => {
                                                     onClick={() => {
                                                         toggleDrawer(false);
                                                         setDrawerOpen(false);
-                                                    }}                                                    sx={{
+                                                    }} sx={{
                                                         display: 'flex',
                                                         justifyContent: isSmallScreen ? "start" : 'center',
                                                         '&:hover': {
