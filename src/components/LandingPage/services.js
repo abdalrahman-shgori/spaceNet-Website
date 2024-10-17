@@ -60,8 +60,8 @@ export default function Services() {
         const fetchServices = async () => {
             try {
                 setLoading(true);
-                const responseData = await fetchServicesApi(); // Use the renamed API call
-                setServicesList(responseData || []); // Make sure responseData is valid
+                const responseData = await fetchServicesApi(); 
+                setServicesList(responseData || []); 
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching services:", error);
