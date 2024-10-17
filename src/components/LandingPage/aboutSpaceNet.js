@@ -127,7 +127,7 @@ export default function AboutSpaceNet() {
                                     lg: "270px",
                                     md: "270px",
                                     sm: "150px",
-                                    xs: "250px"
+                                    xs: "180px"
                                 },
                                 paddingRight: "10px",
                                 paddingTop: "10px",

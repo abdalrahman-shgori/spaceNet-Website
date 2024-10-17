@@ -171,7 +171,7 @@ export default function Services() {
                                 color: "#051A2F",
                                 transition: "transform 0.2s",
                                 "&:hover": {
-                                    transform: "scale(1.05) rotate(5deg)",
+                                    transform: "scale(1.05) rotate(2deg)",
                                     background: theme.palette.mode === 'light' ? '#051A2F' : '#E9FA50',
                                     color: theme.palette.mode === 'light' ? '#FFFFFF' : '#051A2F',
                                 },
