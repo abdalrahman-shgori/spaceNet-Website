@@ -1,0 +1,53 @@
+<svg 
+  width="25"
+  height="25"
+  viewBox="0 0 120 102"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  >
+ <style>
+    @keyframes colorChange {
+      0% {
+        stroke: black; 
+      }
+      25% {
+        stroke: #FF9F31;
+      }
+      50% {
+        stroke: #FF9F31;
+      }
+      75% {
+        stroke: #FFFFFF;
+      }
+      100% {
+        stroke: black;
+      }
+    }
+
+    path {
+      animation: colorChange 4s infinite;
+      transition: stroke 0.3s ease-in-out;
+    }
+
+    path:nth-of-type(1) {
+      animation-delay: 1s; 
+    }
+
+    path:nth-of-type(2) {
+      animation-delay: 0.5s;
+    }
+
+    path:nth-of-type(3) {
+      animation-delay: 0.5s;
+    }
+  </style>
+<path
+ d="M99.6209 88.0053V47.8013L65.7412 30.7485"
+  stroke="black"
+   stroke-width="6"
+   />
+<path d="M48.0117 54.1256L71.6146 64.7413L90.926 52.5446" stroke="black" stroke-width="6"/>
+<path d="M87.6501 85.7466H39.3151C36.1965 85.7466 33.6684 83.2185 33.6684 80.1V74.3404V51.5859C33.6684 48.5315 32.0862 45.6951 29.4872 44.0905L9 31.4421L23.5 24.9421" stroke="black" stroke-width="8"/>
+<path d="M7.91992 31.9908L67.2094 5L130 30.8615L106.397 43.397" stroke="black" stroke-width="8"/>
+<circle cx="99.5083" cy="96.7009" r="3.95263" fill="#051A2F"/>
+</svg>

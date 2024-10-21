@@ -13,7 +13,7 @@ const SvgSpaceNetLogo = (props) => {
                     stroke-width: 2; 
                     stroke-dasharray: 1000; 
                     stroke-dashoffset: 1000; 
-                    animation: typing 3.5s forwards; 
+                    animation: typing 1.5s forwards; 
                 }
 
                 @keyframes typing {
@@ -25,7 +25,7 @@ const SvgSpaceNetLogo = (props) => {
                 .fill {
                     fill:theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50"; 
                     opacity: 0; 
-                    animation: fillColor 3.5s forwards; 
+                    animation: fillColor 1.5s forwards; 
                     animation-delay: 0.5s;
                 }
 

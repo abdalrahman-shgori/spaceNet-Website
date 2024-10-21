@@ -33,7 +33,7 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
   };
   return (
     <div
-      className='root-container'
+    
       style={{
         minHeight: '100vh',
         background: showLogo ? '#051A2F' : 'transparent',
@@ -45,7 +45,8 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
       {showContent && (
         <>
           <motion.div
-            initial={{ y: '100%', opacity: 0, height: "100vh" }}
+          className='root-container'
+            initial={{ y: '100%', opacity: 0, height: "100dvh" }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
             style={{
@@ -54,9 +55,9 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
           >
             <NavBar setDrawerOpen={setDrawerOpen}/>
             <LandingPage/>
+          <Toggle drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
 
           </motion.div>
-          <Toggle drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
 
         </>
       )}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Vector1Yellow from "../../assets/images/Vector1Yellow.svg";
 import vector1White from "../../assets/images/Vector1White.svg";
 import Vector2Yellow from "../../assets/images/Vector2Yellow.svg";
@@ -8,25 +8,45 @@ import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogoAbout.svg";
 import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
 import { motion } from "framer-motion";
 
-export default function AboutSpaceNet() {
+export default function AboutSpaceNet({ hoveredService,hoveredServiceDescription,capture  }) {
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
     const paragraphRef = useRef(null);
+useEffect(()=>{
+    const paragraph = paragraphRef.current;
 
+    if(capture || !capture){
+        paragraph.scrollTop = 0;
+    }
+})
     useEffect(() => {
         const paragraph = paragraphRef.current;
+
         const scrollContent = () => {
             if (paragraph) {
                 paragraph.scrollTop += 1;
-                if (paragraph.scrollTop >= paragraph.scrollHeight - paragraph.clientHeight) {
+
+                if (paragraph.scrollTop >= paragraph.scrollHeight / 2) {
                     paragraph.scrollTop = 0;
                 }
+               
             }
         };
+
         const intervalId = setInterval(scrollContent, 50);
+
         return () => clearInterval(intervalId);
     }, []);
+    const [initialAnimation, setInitialAnimation] = useState(true);
 
+    useEffect(() => {
+      // Start the initial animation on component mount
+      const timer = setTimeout(() => {
+        setInitialAnimation(false); // Stop initial animation after some time
+      }, 2000); // Duration for the initial animation
+  
+      return () => clearTimeout(timer); // Cleanup on unmount
+    }, []);
     return (
         <>
             <Grid container
@@ -39,11 +59,17 @@ export default function AboutSpaceNet() {
                     },
                 }}
             >
-                <Grid item xs={12}>
-                    <motion.div
-                        animate={{ rotate: [0, 15, -15, 0] }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
-                    >
+                <Grid item xs={12} lg={6}>
+                <motion.div
+               animate={
+                initialAnimation
+                  ? {  y: [0, 150, 0], x: [0, 150, 0] } 
+                  : capture
+                  ? { y: [0, 150, 0], x: [0, 150, 0] } 
+                  : { y: 0, x: 0 }
+              }       
+              transition={{ duration:initialAnimation ? 0.4 : 0.5 , delay:initialAnimation ? 0.5 : 0 }} 
+>
                         <Box
                             component='img'
                             src={theme.palette.mode === 'light' ? vector1White : Vector1Yellow}
@@ -55,13 +81,20 @@ export default function AboutSpaceNet() {
                                     sm: "106px",
                                     xs: "106px"
                                 },
-                                position: "absolute"
+                                position: "absolute",
+                               
                             }}
                         />
                     </motion.div>
                 </Grid>
                 <Grid item xs={12}>
-                    <Box
+                    <motion.div
+                     initial={{ y: 0 }} 
+                     animate={ initialAnimation ? {scale:[0,1]} : capture ? { scale:[0,1] } : {scale:1}} 
+                     transition={{ duration:initialAnimation ? 0.8 : 0.3 , delay:initialAnimation ? 0.5 : 0.2 }} 
+
+                    >
+                           <Box
                         sx={{
                             paddingLeft: {
                                 lg: "55px",
@@ -100,7 +133,8 @@ export default function AboutSpaceNet() {
                                 fontFamily: "var(--English-font-Extralight)",
                             }}
                         >
-                            About
+                            {hoveredService || "About"}
+
                         </Typography>
                         <Box
                             component="img"
@@ -122,7 +156,7 @@ export default function AboutSpaceNet() {
                                     xs: "15px"
                                 },
                                 fontFamily: "var(--English-font)",
-                                overflow: "hidden",
+                                overflow: "auto",
                                 maxHeight: {
                                     lg: "270px",
                                     md: "270px",
@@ -133,19 +167,36 @@ export default function AboutSpaceNet() {
                                 paddingTop: "10px",
                                 position: "relative",
                                 '&::-webkit-scrollbar': { display: 'none' },
-                                scrollbarWidth: "none",
+                                scrollbarWidth: "0px",
+                                display: "flex",
+                                flexDirection: "column"
                             }}
                         >
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,ptext of the printing and typesettin when an unknown printer took Lorem Ipsum has Lorem Ipsum has Lorem Ipsum has ptext of the printing and typesettinptext of the printing and typesettin .
+                            {hoveredServiceDescription || <>  <span className="scrolling-content">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                when an unknown printer took Lorem Ipsum has Lorem Ipsum has Lorem Ipsum has 
+                                ptext of the printing and typesetting.
+                            </span>
+                            <span className="scrolling-content">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                when an unknown printer took Lorem Ipsum has Lorem Ipsum has Lorem Ipsum has 
+                                ptext of the printing and typesetting.
+                            </span></> }
+                          
                         </Typography>
-
                     </Box>
+                    </motion.div>
+                 
                 </Grid>
                 <Grid item xs={12}>
-                    <motion.div
-                        animate={{ rotate: [0, -15, 15, 0] }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
-                    >
+                <motion.div
+    initial={{ y: 0 }} 
+    animate={initialAnimation
+        ? { y: [0, -150, 0] , x: [0, -150, 0] } :capture ? { y: [0, -150, 0] , x: [0, -150, 0] } : { y: 0 , x:0 }} 
+    transition={{ duration:initialAnimation ? 0.4 : 0.5 , delay:initialAnimation ? 0.5 : 0 }} 
+>
                         <Box
                             component='img'
                             src={theme.palette.mode === 'light' ? vector2White : Vector2Yellow}

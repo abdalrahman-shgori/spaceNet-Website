@@ -56,7 +56,7 @@ const SvgGroup1 = (props) => {
             animate={{ scale: 1 }}   
             transition={{
               delay: 0.2,
-              duration: 1.2,  
+              duration: 0.6,  
               ease: [0.42, 0, 0.58, 1], 
             }}
           >

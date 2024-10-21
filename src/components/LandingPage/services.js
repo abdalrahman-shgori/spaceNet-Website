@@ -3,8 +3,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Union from "../../assets/images/Union.svg";
 import customCursor from "../../assets/images/internet.svg";
+import academy from "../../assets/images/academy.svg";
+import software from "../../assets/images/software.svg";
+import design from "../../assets/images/design.svg";
+
 import { services as fetchServicesApi } from "../../services/websiteApis/services"; // Rename the import
-export default function Services() {
+export default function Services({ setHoveredService,setHoveredServiceDescription,setCapture }) {
     const scrollRef = useRef(null);
     const theme = useTheme();
 
@@ -16,39 +20,43 @@ export default function Services() {
     ];
 
     const handleMouseDown = (e) => {
+        if (!scrollRef.current) return;
         const startX = e.pageX - scrollRef.current.offsetLeft;
         const scrollLeft = scrollRef.current.scrollLeft;
-
+    
         const handleMouseMove = (e) => {
+            if (!scrollRef.current) return;
             const x = e.pageX - scrollRef.current.offsetLeft;
-            const walk = (x - startX) * 2;
+            const walk = (x - startX) * 3; // Adjust multiplier for sensitivity
             scrollRef.current.scrollLeft = scrollLeft - walk;
         };
-
+    
         const handleMouseUp = () => {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("mouseup", handleMouseUp);
         };
-
+    
         window.addEventListener("mousemove", handleMouseMove);
         window.addEventListener("mouseup", handleMouseUp);
     };
-
+    
     const handleTouchStart = (e) => {
+        if (!scrollRef.current) return;
         const startX = e.touches[0].pageX - scrollRef.current.offsetLeft;
         const scrollLeft = scrollRef.current.scrollLeft;
-
+    
         const handleTouchMove = (e) => {
+            if (!scrollRef.current) return;
             const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
-            const walk = (x - startX) * 2;
+            const walk = (x - startX) * 3; // Adjust multiplier for sensitivity
             scrollRef.current.scrollLeft = scrollLeft - walk;
         };
-
+    
         const handleTouchEnd = () => {
-            scrollRef.current.removeEventListener("touchmove", handleTouchMove);
-            scrollRef.current.removeEventListener("touchend", handleTouchEnd);
+            scrollRef.current?.removeEventListener("touchmove", handleTouchMove);
+            scrollRef.current?.removeEventListener("touchend", handleTouchEnd);
         };
-
+    
         scrollRef.current.addEventListener("touchmove", handleTouchMove);
         scrollRef.current.addEventListener("touchend", handleTouchEnd);
     };
@@ -118,7 +126,7 @@ export default function Services() {
                         sm: "unset",
                         xs: "row",
                     },
-                    overflowX: "hidden",
+                    overflowX: "auto", 
                     whiteSpace: "nowrap",
                     paddingBottom: "10px",
                     scrollbarWidth: "none",
@@ -128,93 +136,112 @@ export default function Services() {
                     userSelect: "none",
                 }}
             >
-                {servicesList?.data?.map((item, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 30, rotate: 10 }}
-                        animate={{ opacity: 1, y: 0, rotate: 0 }}
-                        transition={{
-                            duration: 0.6,
-                            type: "spring",
-                            stiffness: 100,
-                            delay: index * 0.5
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                cursor: `url(${customCursor}), pointer`,
-                                background: "#F4F4F4",
-                                borderRadius: "38.7px",
-                                marginTop: {
-                                    lg: "20px",
-                                    md: "20px",
-                                    sm: "20px",
-                                    xs: "unset",
-                                },
-                                height: {
-                                    lg: "80px",
-                                    md: "80px",
-                                    sm: "40px",
-                                    xs: "40px",
-                                },
-                                display: "flex",
-                                alignItems: "center",
-                                paddingLeft: "32px",
-                                paddingRight: "32px",
-                                justifyContent: "space-between",
-                                marginRight: {
-                                    lg: "unset",
-                                    md: "unset",
-                                    sm: "6px",
-                                    xs: "6px",
-                                },
-                                color: "#051A2F",
-                                transition: "transform 0.2s",
-                                "&:hover": {
-                                    transform: "scale(1.05) rotate(2deg)",
-                                    background: theme.palette.mode === 'light' ? '#051A2F' : '#E9FA50',
-                                    color: theme.palette.mode === 'light' ? '#FFFFFF' : '#051A2F',
-                                },
-                            }}
-                        >
-                            <Typography
-                                sx={{
-                                    fontSize: {
-                                        lg: "40px",
-                                        md: "26px",
-                                        sm: "15px",
-                                        xs: "15px",
-                                    },
-                                    fontFamily: "var(--English-font-semibold)",
-                                    overflowY: 'hidden',
-                                    whiteSpace: 'nowrap',
-                                    textOverflow: 'ellipsis',
-                                    maxWidth: '550px',
-                                }}
-                            >
-                                {item.title.length > 20 ? `${item.name.slice(0, 20)}...` : item.title}
-                            </Typography>
+               {servicesList?.data?.map((item, index) => {
+    const image = localServices[index]; 
+    return (
+        <motion.div
+            key={item.id || index} 
+            initial={{ opacity: 0, y: 30, rotate: 10 }}
+            animate={{ opacity: 1, y: 0, rotate: 0 }}
+            transition={{
+                duration: 0.6,
+                type: "spring",
+                stiffness: 100,
+                delay: index * 0.5,
+            }}
+            onMouseEnter={() => {
+                setHoveredService(item.title);
+                setHoveredServiceDescription(item.description);
+                setCapture(true); // Trigger camera capture animation
 
-                            <Box
-                                component="img"
-                                src={item.img}
-                                sx={{
-                                    display: {
-                                        lg: "unset",
-                                        md: "unset",
-                                        sm: "unset",
-                                        xs: "none",
-                                    },
-                                    width: {
-                                        lg: "unset",
-                                        md: "25px",
-                                        sm: "25px"
-                                    }
-                                }}
-                            />
-                        </Box>
-                    </motion.div>
-                ))}
+            }} 
+            onMouseLeave={() => {
+                setHoveredService("");
+                setHoveredServiceDescription("");
+                setCapture(false); // Trigger camera capture animation
+
+            }}
+            
+        >
+            <Box
+                sx={{
+                    cursor: `url(${index === 0 ? customCursor : index === 1 ? academy : index === 2 ? software : index === 3 ? design : ''}), pointer`,
+                    background: "#F4F4F4",
+                    borderRadius: "38.7px",
+                    marginTop: {
+                        lg: "20px",
+                        md: "20px",
+                        sm: "20px",
+                        xs: "unset",
+                    },
+                    height: {
+                        lg: "80px",
+                        md: "80px",
+                        sm: "40px",
+                        xs: "40px",
+                    },
+                    display: "flex",
+                    alignItems: "center",
+                    paddingLeft: "32px",
+                    paddingRight: "32px",
+                    justifyContent: "space-between",
+                    marginRight: {
+                        lg: "unset",
+                        md: "unset",
+                        sm: "6px",
+                        xs: "6px",
+                    },
+                    color: "#051A2F",
+                    transition: "transform 0.2s",
+                    "&:hover": {
+                        transform: "scale(1.05) rotate(2deg)",
+                        color: theme.palette.mode === "light" ? "#FFFFFF" : "#051A2F",
+                        background: index === 0 ? "#E9FA50" : index === 1 ? "#FF9F31" : index === 2 ? "#011343" : index === 3 ? "#1CB786" : "",
+                    },
+                }}
+            >
+                <Typography
+                    sx={{
+                        fontSize: {
+                            lg: "40px",
+                            md: "26px",
+                            sm: "15px",
+                            xs: "15px",
+                        },
+                        fontFamily: "var(--English-font-semibold)",
+                        overflowY: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        maxWidth: "550px",
+                    }}
+                >
+                    {item.title.length > 20 ? `${item.title.slice(0, 20)}...` : item.title}
+                </Typography>
+
+                {image && (
+                    <Box
+                        component="img"
+                        src={image.img}
+                        sx={{
+                            display: {
+                                lg: "unset",
+                                md: "unset",
+                                sm: "unset",
+                                xs: "none",
+                            },
+                            width: {
+                                lg: "unset",
+                                md: "25px",
+                                sm: "25px",
+                            },
+                        }}
+                    />
+                )}
+            </Box>
+        </motion.div>
+    );
+})}
+
             </Grid>
         </Grid>
     );

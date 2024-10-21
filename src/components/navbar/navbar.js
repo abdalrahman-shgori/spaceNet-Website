@@ -6,7 +6,6 @@ import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogo.svg";
 import spaceNetLogoBlack from "../../assets/spacenetLogo/spaceNetLogoBlack.svg";
 import "../../assets/styles/variables.css";
 import { motion } from 'framer-motion';
-import Toggle from '../toggleCompoent/toggle';
 import FaceBookSvg from '../../assets/socialMediaIcons/facebook';
 import InstaSvg from '../../assets/socialMediaIcons/instaGram';
 import LinkedInSvg from '../../assets/socialMediaIcons/linkedIn';
@@ -50,7 +49,8 @@ const NavBar = ({ setDrawerOpen }) => {
 
     return (
         <>
-            <AppBar position="static"
+            <AppBar           
+ position="static"
                 sx={{
                     background: 'transparent',
                     boxShadow: 'none',
