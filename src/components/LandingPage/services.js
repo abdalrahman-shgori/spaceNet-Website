@@ -59,7 +59,7 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
         const handleMouseMove = (e) => {
             if (!scrollRef.current) return;
             const x = e.pageX - scrollRef.current.offsetLeft;
-            const walk = (x - startX) * 3; // Adjust multiplier for sensitivity
+            const walk = (x - startX) * 1; 
             scrollRef.current.scrollLeft = scrollLeft - walk;
         };
 
