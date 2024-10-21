@@ -8,17 +8,17 @@ import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogoAbout.svg";
 import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
 import { motion } from "framer-motion";
 import './about.css'
-export default function AboutSpaceNet({ hoveredService,hoveredServiceDescription,capture  }) {
+export default function AboutSpaceNet({ hoveredService, hoveredServiceDescription, capture }) {
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
     const paragraphRef = useRef(null);
-useEffect(()=>{
-    const paragraph = paragraphRef.current;
+    useEffect(() => {
+        const paragraph = paragraphRef.current;
 
-    if(capture || !capture){
-        paragraph.scrollTop = 0;
-    }
-})
+        if (capture || !capture) {
+            paragraph.scrollTop = 0;
+        }
+    })
     useEffect(() => {
         const paragraph = paragraphRef.current;
 
@@ -29,7 +29,7 @@ useEffect(()=>{
                 if (paragraph.scrollTop >= paragraph.scrollHeight / 2) {
                     paragraph.scrollTop = 0;
                 }
-               
+
             }
         };
 
@@ -40,11 +40,11 @@ useEffect(()=>{
     const [initialAnimation, setInitialAnimation] = useState(true);
 
     useEffect(() => {
-      const timer = setTimeout(() => {
-        setInitialAnimation(false);
-      }, 2000);
-  
-      return () => clearTimeout(timer); 
+        const timer = setTimeout(() => {
+            setInitialAnimation(false);
+        }, 2000);
+
+        return () => clearTimeout(timer);
     }, []);
     return (
         <>
@@ -59,16 +59,16 @@ useEffect(()=>{
                 }}
             >
                 <Grid item xs={12} lg={6}>
-                <motion.div
-               animate={
-                initialAnimation
-                  ? {  y: [0, 120, 0], x: [0, 120, 0] } 
-                  : capture
-                  ? { y: [0, 120, 0], x: [0, 120, 0] } 
-                  : { y: 0, x: 0 }
-              }       
-              transition={{ duration:initialAnimation ? 0.4 : 0.5 , delay:initialAnimation ? 0.5 : 0 }} 
->
+                    <motion.div
+                        animate={
+                            initialAnimation
+                                ? { y: [0, 120, 0], x: [0, 120, 0] }
+                                : capture
+                                    ? { y: [0, 120, 0], x: [0, 120, 0] }
+                                    : { y: 0, x: 0 }
+                        }
+                        transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
+                    >
                         <Box
                             component='img'
                             src={theme.palette.mode === 'light' ? vector1White : Vector1Yellow}
@@ -81,127 +81,127 @@ useEffect(()=>{
                                     xs: "106px"
                                 },
                                 position: "absolute",
-                               
+
                             }}
                         />
                     </motion.div>
                 </Grid>
                 <Grid item xs={12}>
                     <motion.div
-                     initial={{ y: 0 }} 
-                     animate={ initialAnimation ? {scale:[0,1]} : capture ? { scale:[0,1] } : {scale:1}} 
-                     transition={{ duration:initialAnimation ? 0.5 : 0.3 , delay:initialAnimation ? 0.6 : 0.2 }} 
+                        initial={{ y: 0 }}
+                        animate={initialAnimation ? { scale: [0, 1] } : capture ? { scale: [0, 1] } : { scale: 1 }}
+                        transition={{ duration: initialAnimation ? 0.5 : 0.3, delay: initialAnimation ? 0.6 : 0.2 }}
 
                     >
-                           <Box
-                           
-                        sx={{
-                            paddingLeft: {
-                                lg: "55px",
-                                md: "30px",
-                                sm: "30px",
-                                xs: "30px"
-                            },
-                            width: "100%",
-                            position: "relative",
-                            top: {
-                                lg: "40px",
-                                md: "20px",
-                                sm: "20px",
-                                xs: "20px"
-                            },
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "5px",
-                            paddingRight: {
-                                lg: "140px",
-                                md: "30px",
-                                sm: "30px",
-                                xs: "30px"
-                            },
-                        }}
-                    >
-                        <Typography
-                            sx={{
-                                fontSize: {
-                                    lg: "44px",
-                                    md: "44px",
-                                    sm: "32px",
-                                    xs: "32px"
-                                },
-                                fontFamily: "var(--English-font-Extralight)",
-                            }}
-                        >
-                            {hoveredService || "About"}
-
-                        </Typography>
                         <Box
-                            component="img"
-                            src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
-                            alt="SpaceNet Logo"
+
                             sx={{
-                                width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
-                                paddingBottom:{
-                                    lg: "20px",
-                                    md: "20px",
-                                    sm:"10px",
-                                    xs:"10px"
+                                paddingLeft: {
+                                    lg: "55px",
+                                    md: "30px",
+                                    sm: "30px",
+                                    xs: "30px"
                                 },
-                                paddingRight: "20px",
-                            }}
-                        />
-                        <Typography
-                            ref={paragraphRef}
-                            sx={{
-                                fontSize: {
-                                    lg: "32px",
-                                    md: "20px",
-                                    sm: "15px",
-                                    xs: "15px"
-                                },
-                                fontFamily: "var(--English-font)",
-                                overflow: "auto",
-                                maxHeight: {
-                                    lg: "270px",
-                                    md: "270px",
-                                    sm: "150px",
-                                    xs: "180px"
-                                },
-                                paddingRight: "10px",
-                                paddingTop: "10px",
+                                width: "100%",
                                 position: "relative",
-                                '&::-webkit-scrollbar': { display: 'none' },
-                                scrollbarWidth: "0px",
+                                top: {
+                                    lg: "40px",
+                                    md: "20px",
+                                    sm: "20px",
+                                    xs: "20px"
+                                },
                                 display: "flex",
                                 flexDirection: "column",
-                                textAlign:"justify"
+                                gap: "5px",
+                                paddingRight: {
+                                    lg: "140px",
+                                    md: "30px",
+                                    sm: "30px",
+                                    xs: "30px"
+                                },
                             }}
                         >
-                            {hoveredServiceDescription || <>  <span className="scrolling-content">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took Lorem Ipsum has Lorem Ipsum has Lorem Ipsum has 
-                                ptext of the printing and typesetting.
-                            </span>
-                            <span className="scrolling-content">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took Lorem Ipsum has Lorem Ipsum has Lorem Ipsum has 
-                                ptext of the printing and typesetting.
-                            </span></> }
-                          
-                        </Typography>
-                    </Box>
+                            <Typography
+                                sx={{
+                                    fontSize: {
+                                        lg: "44px",
+                                        md: "44px",
+                                        sm: "32px",
+                                        xs: "32px"
+                                    },
+                                    fontFamily: "var(--English-font-Extralight)",
+                                }}
+                            >
+                                {hoveredService || "About"}
+
+                            </Typography>
+                            <Box
+                                component="img"
+                                src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
+                                alt="SpaceNet Logo"
+                                sx={{
+                                    width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
+                                    paddingBottom: {
+                                        lg: "20px",
+                                        md: "20px",
+                                        sm: "10px",
+                                        xs: "10px"
+                                    },
+                                    paddingRight: "20px",
+                                }}
+                            />
+                            <Typography
+                                ref={paragraphRef}
+                                sx={{
+                                    fontSize: {
+                                        lg: "32px",
+                                        md: "20px",
+                                        sm: "15px",
+                                        xs: "15px"
+                                    },
+                                    fontFamily: "var(--English-font)",
+                                    overflow: "auto",
+                                    maxHeight: {
+                                        lg: "270px",
+                                        md: "270px",
+                                        sm: "150px",
+                                        xs: "180px"
+                                    },
+                                    paddingRight: "10px",
+                                    paddingTop: "10px",
+                                    position: "relative",
+                                    '&::-webkit-scrollbar': { display: 'none' },
+                                    scrollbarWidth: "0px",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    textAlign: "justify"
+                                }}
+                            >
+                                {hoveredServiceDescription || <>  <span className="scrolling-content">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                    when an unknown printer took Lorem Ipsum has Lorem Ipsum has Lorem Ipsum has
+                                    ptext of the printing and typesetting.
+                                </span>
+                                    <span className="scrolling-content">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                        when an unknown printer took Lorem Ipsum has Lorem Ipsum has Lorem Ipsum has
+                                        ptext of the printing and typesetting.
+                                    </span></>}
+
+                            </Typography>
+                        </Box>
                     </motion.div>
-                 
+
                 </Grid>
                 <Grid item xs={12}>
-                <motion.div
-    initial={{ y: 0 }} 
-    animate={initialAnimation
-        ? { y: [0, -120, 0] , x: [0, -120, 0] } :capture ? { y: [0, -120, 0] , x: [0, -120, 0] } : { y: 0 , x:0 }} 
-    transition={{ duration:initialAnimation ? 0.4 : 0.5 , delay:initialAnimation ? 0.5 : 0 }} 
->
+                    <motion.div
+                        initial={{ y: 0 }}
+                        animate={initialAnimation
+                            ? { y: [0, -120, 0], x: [0, -120, 0] } : capture ? { y: [0, -120, 0], x: [0, -120, 0] } : { y: 0, x: 0 }}
+                        transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
+                    >
                         <Box
                             component='img'
                             src={theme.palette.mode === 'light' ? vector2White : Vector2Yellow}

@@ -12,7 +12,8 @@ import { services as fetchServicesApi } from "../../services/websiteApis/service
 export default function Services({ setHoveredService, setHoveredServiceDescription, setCapture }) {
     const scrollRef = useRef(null);
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // Detect mobile screens
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const servicesRef = useRef(null);
 
     const localServices = [
         { name: "ACADEMICS", img: Union },
@@ -28,8 +29,8 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
         const fetchServices = async () => {
             try {
                 setLoading(true);
-                const responseData = await fetchServicesApi(); 
-                setServicesList(responseData || []); 
+                const responseData = await fetchServicesApi();
+                setServicesList(responseData || []);
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching services:", error);
@@ -39,8 +40,25 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
         fetchServices();
     }, []);
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (servicesRef.current && !servicesRef.current.contains(event.target)) {
+                setHoveredService("");
+                setHoveredServiceDescription("");
+                setCapture(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [setHoveredService, setHoveredServiceDescription, setCapture]);
+
     return (
         <Grid
+            ref={servicesRef}
             sx={{
                 paddingRight: {
                     lg: "100px",
@@ -121,9 +139,9 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                 stiffness: 100,
                                 delay: index * 0.5,
                             }}
-                            onMouseEnter={!isMobile ? handleHover : undefined} 
+                            onMouseEnter={!isMobile ? handleHover : undefined}
                             onMouseLeave={!isMobile ? handleLeave : undefined}
-                            onClick={isMobile ? handleClick : undefined} 
+                            onClick={isMobile ? handleClick : undefined}
                         >
                             <Box
                                 sx={{

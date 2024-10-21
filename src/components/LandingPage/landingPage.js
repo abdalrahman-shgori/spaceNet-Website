@@ -4,9 +4,9 @@ import Services from "./services";
 import AboutSpaceNet from "./aboutSpaceNet";
 
 export default function LandingPage() {
-    const [hoveredService, setHoveredService] = useState(""); // State for hovered service
-    const [hoveredServiceDescription, setHoveredServiceDescription] = useState(""); // State for hovered service
-    const [capture, setCapture] = useState(false); // State to trigger camera capture animation
+    const [hoveredService, setHoveredService] = useState("");
+    const [hoveredServiceDescription, setHoveredServiceDescription] = useState("");
+    const [capture, setCapture] = useState(false);
 
     return (
         <Grid

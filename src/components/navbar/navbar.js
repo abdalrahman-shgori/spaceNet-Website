@@ -49,8 +49,8 @@ const NavBar = ({ setDrawerOpen }) => {
 
     return (
         <>
-            <AppBar           
- position="static"
+            <AppBar
+                position="static"
                 sx={{
                     background: 'transparent',
                     boxShadow: 'none',
@@ -73,8 +73,8 @@ const NavBar = ({ setDrawerOpen }) => {
                         paddingRight: "0px !important",
                     }}
                 >
-                       
-                         <SvgSpaceNetLogo />
+
+                    <SvgSpaceNetLogo />
 
                     <Box>
                         <Box sx={{ position: 'relative' }}>
