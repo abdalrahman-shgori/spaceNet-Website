@@ -22,40 +22,40 @@ export default function Services({ setHoveredService,setHoveredServiceDescriptio
     const handleMouseDown = (e) => {
         const startX = e.pageX - scrollRef.current.offsetLeft;
         const scrollLeft = scrollRef.current.scrollLeft;
-
+    
         const handleMouseMove = (e) => {
-            const x = e.pageX - scrollRef.current.offsetLeft;
-            const walk = (x - startX) * 2;
-            scrollRef.current.scrollLeft = scrollLeft - walk;
+          const x = e.pageX - scrollRef.current.offsetLeft;
+          const walk = (x - startX) * 2;
+          scrollRef.current.scrollLeft = scrollLeft - walk;
         };
-
+    
         const handleMouseUp = () => {
-            window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("mouseup", handleMouseUp);
+          window.removeEventListener('mousemove', handleMouseMove);
+          window.removeEventListener('mouseup', handleMouseUp);
         };
-
-        window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("mouseup", handleMouseUp);
-    };
-
-    const handleTouchStart = (e) => {
+    
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
+      };
+    
+      const handleTouchStart = (e) => {
         const startX = e.touches[0].pageX - scrollRef.current.offsetLeft;
         const scrollLeft = scrollRef.current.scrollLeft;
-
+    
         const handleTouchMove = (e) => {
-            const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
-            const walk = (x - startX) * 2;
-            scrollRef.current.scrollLeft = scrollLeft - walk;
+          const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
+          const walk = (x - startX) * 2;
+          scrollRef.current.scrollLeft = scrollLeft - walk;
         };
-
+    
         const handleTouchEnd = () => {
-            scrollRef.current.removeEventListener("touchmove", handleTouchMove);
-            scrollRef.current.removeEventListener("touchend", handleTouchEnd);
+          scrollRef.current.removeEventListener('touchmove', handleTouchMove);
+          scrollRef.current.removeEventListener('touchend', handleTouchEnd);
         };
-
-        scrollRef.current.addEventListener("touchmove", handleTouchMove);
-        scrollRef.current.addEventListener("touchend", handleTouchEnd);
-    };
+    
+        scrollRef.current.addEventListener('touchmove', handleTouchMove);
+        scrollRef.current.addEventListener('touchend', handleTouchEnd);
+      };
 
     const [loading, setLoading] = useState(true);
     const [servicesList, setServicesList] = useState([]);
