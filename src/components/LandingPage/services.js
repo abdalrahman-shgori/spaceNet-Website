@@ -12,7 +12,7 @@ export default function Services({ setHoveredService,setHoveredServiceDescriptio
     const scrollRef = useRef(null);
     const theme = useTheme();
 
-    const localServices = [ // Rename this local array to avoid conflicts
+    const localServices = [ 
         { name: "ACADEMICS", img: Union },
         { name: "INTERNET", img: Union },
         { name: "SOFTWARE", img: Union },
@@ -148,13 +148,13 @@ export default function Services({ setHoveredService,setHoveredServiceDescriptio
             onMouseEnter={() => {
                 setHoveredService(item.title);
                 setHoveredServiceDescription(item.description);
-                setCapture(true); // Trigger camera capture animation
+                setCapture(true); 
 
             }} 
             onMouseLeave={() => {
                 setHoveredService("");
                 setHoveredServiceDescription("");
-                setCapture(false); // Trigger camera capture animation
+                setCapture(false);
 
             }}
             

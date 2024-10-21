@@ -45,7 +45,6 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
       {showContent && (
         <>
           <motion.div
-          className='root-container'
             initial={{ y: '100%', opacity: 0, height: "100dvh" }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}

@@ -24,20 +24,20 @@ const SvgGroup1 = (props) => {
             fill="none"
             {...props}
             initial={{ rotate: 0, scale: 1 }}
-            animate={{ rotate: 90, scale: 0.01 }}  
+            animate={{ rotate: 90, scale: 0.01 }}  // Rotate 90 degrees, then shrink
             transition={{
               rotate: {
                 delay: 0.5,
-                duration: 0.2,   
-                ease: [0.42, 0, 0.58, 1],
+                duration: 0.2,    // Rotate for 0.2 seconds
+                ease: [0.42, 0, 0.58, 1],  // EaseInOut for smoothness
               },
               scale: {
-                delay: 1,    
-                duration: 0.3,
-                ease: [0.42, 0, 0.58, 1], 
+                delay: 1,    // Start shrinking after rotation
+                duration: 0.2, // Duration of scaling
+                ease: [0.42, 0, 0.58, 1],  // EaseInOut for smooth shrinking
               },
             }}
-            onAnimationComplete={() => setShowSecondSvg(true)} 
+            onAnimationComplete={() => setShowSecondSvg(true)} // Show second SVG after animation
           >
             <path
               fill="#fff"
@@ -55,8 +55,8 @@ const SvgGroup1 = (props) => {
             initial={{ scale: 0.01 }}
             animate={{ scale: 1 }}   
             transition={{
-              delay: 0.2,
-              duration: 0.6,  
+              delay: 0,
+              duration: 0.5,  
               ease: [0.42, 0, 0.58, 1], 
             }}
           >

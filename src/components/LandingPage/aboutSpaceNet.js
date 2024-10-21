@@ -7,7 +7,7 @@ import { Box, Grid, Typography, useTheme } from "@mui/material";
 import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogoAbout.svg";
 import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
 import { motion } from "framer-motion";
-
+import './about.css'
 export default function AboutSpaceNet({ hoveredService,hoveredServiceDescription,capture  }) {
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
@@ -40,12 +40,11 @@ useEffect(()=>{
     const [initialAnimation, setInitialAnimation] = useState(true);
 
     useEffect(() => {
-      // Start the initial animation on component mount
       const timer = setTimeout(() => {
-        setInitialAnimation(false); // Stop initial animation after some time
-      }, 2000); // Duration for the initial animation
+        setInitialAnimation(false);
+      }, 2000);
   
-      return () => clearTimeout(timer); // Cleanup on unmount
+      return () => clearTimeout(timer); 
     }, []);
     return (
         <>
@@ -63,9 +62,9 @@ useEffect(()=>{
                 <motion.div
                animate={
                 initialAnimation
-                  ? {  y: [0, 150, 0], x: [0, 150, 0] } 
+                  ? {  y: [0, 120, 0], x: [0, 120, 0] } 
                   : capture
-                  ? { y: [0, 150, 0], x: [0, 150, 0] } 
+                  ? { y: [0, 120, 0], x: [0, 120, 0] } 
                   : { y: 0, x: 0 }
               }       
               transition={{ duration:initialAnimation ? 0.4 : 0.5 , delay:initialAnimation ? 0.5 : 0 }} 
@@ -95,6 +94,7 @@ useEffect(()=>{
 
                     >
                            <Box
+                           
                         sx={{
                             paddingLeft: {
                                 lg: "55px",
@@ -118,7 +118,7 @@ useEffect(()=>{
                                 md: "30px",
                                 sm: "30px",
                                 xs: "30px"
-                            }
+                            },
                         }}
                     >
                         <Typography
@@ -132,7 +132,7 @@ useEffect(()=>{
                                 fontFamily: "var(--English-font-Extralight)",
                             }}
                         >
-                            {hoveredService || "Design & Branding"}
+                            {hoveredService || "About"}
 
                         </Typography>
                         <Box
@@ -141,8 +141,8 @@ useEffect(()=>{
                             alt="SpaceNet Logo"
                             sx={{
                                 width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
-                                marginBottom: "25px",
-                                paddingRight: "20px"
+                                marginBottom: "20px",
+                                paddingRight: "20px",
                             }}
                         />
                         <Typography
@@ -194,7 +194,7 @@ useEffect(()=>{
                 <motion.div
     initial={{ y: 0 }} 
     animate={initialAnimation
-        ? { y: [0, -150, 0] , x: [0, -150, 0] } :capture ? { y: [0, -150, 0] , x: [0, -150, 0] } : { y: 0 , x:0 }} 
+        ? { y: [0, -120, 0] , x: [0, -120, 0] } :capture ? { y: [0, -120, 0] , x: [0, -120, 0] } : { y: 0 , x:0 }} 
     transition={{ duration:initialAnimation ? 0.4 : 0.5 , delay:initialAnimation ? 0.5 : 0 }} 
 >
                         <Box
