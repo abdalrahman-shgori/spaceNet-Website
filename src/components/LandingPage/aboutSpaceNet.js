@@ -141,7 +141,12 @@ useEffect(()=>{
                             alt="SpaceNet Logo"
                             sx={{
                                 width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
-                                marginBottom: "20px",
+                                paddingBottom:{
+                                    lg: "20px",
+                                    md: "20px",
+                                    sm:"10px",
+                                    xs:"10px"
+                                },
                                 paddingRight: "20px",
                             }}
                         />
