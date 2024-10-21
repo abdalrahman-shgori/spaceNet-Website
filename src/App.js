@@ -55,9 +55,9 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
           >
             <NavBar setDrawerOpen={setDrawerOpen}/>
             <LandingPage/>
-          <Toggle drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
 
           </motion.div>
+          <Toggle drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
 
         </>
       )}
