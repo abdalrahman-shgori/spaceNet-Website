@@ -91,7 +91,7 @@ useEffect(()=>{
                     <motion.div
                      initial={{ y: 0 }} 
                      animate={ initialAnimation ? {scale:[0,1]} : capture ? { scale:[0,1] } : {scale:1}} 
-                     transition={{ duration:initialAnimation ? 0.8 : 0.3 , delay:initialAnimation ? 0.5 : 0.2 }} 
+                     transition={{ duration:initialAnimation ? 0.5 : 0.3 , delay:initialAnimation ? 0.6 : 0.2 }} 
 
                     >
                            <Box
@@ -113,7 +113,6 @@ useEffect(()=>{
                             display: "flex",
                             flexDirection: "column",
                             gap: "5px",
-                            textAlign: "justify",
                             paddingRight: {
                                 lg: "140px",
                                 md: "30px",
@@ -133,7 +132,7 @@ useEffect(()=>{
                                 fontFamily: "var(--English-font-Extralight)",
                             }}
                         >
-                            {hoveredService || "About"}
+                            {hoveredService || "Design & Branding"}
 
                         </Typography>
                         <Box
@@ -169,7 +168,8 @@ useEffect(()=>{
                                 '&::-webkit-scrollbar': { display: 'none' },
                                 scrollbarWidth: "0px",
                                 display: "flex",
-                                flexDirection: "column"
+                                flexDirection: "column",
+                                textAlign:"justify"
                             }}
                         >
                             {hoveredServiceDescription || <>  <span className="scrolling-content">
