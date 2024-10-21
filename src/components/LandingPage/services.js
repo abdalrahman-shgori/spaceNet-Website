@@ -20,43 +20,39 @@ export default function Services({ setHoveredService,setHoveredServiceDescriptio
     ];
 
     const handleMouseDown = (e) => {
-        if (!scrollRef.current) return;
         const startX = e.pageX - scrollRef.current.offsetLeft;
         const scrollLeft = scrollRef.current.scrollLeft;
-    
+
         const handleMouseMove = (e) => {
-            if (!scrollRef.current) return;
             const x = e.pageX - scrollRef.current.offsetLeft;
-            const walk = (x - startX) * 3; // Adjust multiplier for sensitivity
+            const walk = (x - startX) * 2;
             scrollRef.current.scrollLeft = scrollLeft - walk;
         };
-    
+
         const handleMouseUp = () => {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("mouseup", handleMouseUp);
         };
-    
+
         window.addEventListener("mousemove", handleMouseMove);
         window.addEventListener("mouseup", handleMouseUp);
     };
-    
+
     const handleTouchStart = (e) => {
-        if (!scrollRef.current) return;
         const startX = e.touches[0].pageX - scrollRef.current.offsetLeft;
         const scrollLeft = scrollRef.current.scrollLeft;
-    
+
         const handleTouchMove = (e) => {
-            if (!scrollRef.current) return;
             const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
-            const walk = (x - startX) * 3; // Adjust multiplier for sensitivity
+            const walk = (x - startX) * 2;
             scrollRef.current.scrollLeft = scrollLeft - walk;
         };
-    
+
         const handleTouchEnd = () => {
-            scrollRef.current?.removeEventListener("touchmove", handleTouchMove);
-            scrollRef.current?.removeEventListener("touchend", handleTouchEnd);
+            scrollRef.current.removeEventListener("touchmove", handleTouchMove);
+            scrollRef.current.removeEventListener("touchend", handleTouchEnd);
         };
-    
+
         scrollRef.current.addEventListener("touchmove", handleTouchMove);
         scrollRef.current.addEventListener("touchend", handleTouchEnd);
     };
