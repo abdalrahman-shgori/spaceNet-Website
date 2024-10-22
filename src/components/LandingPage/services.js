@@ -102,7 +102,7 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                 ) : (
                     servicesList.length > 0 ? (
                         servicesList
-                            .filter(item => isMobile ? item.title : item.title !== "ABOUT")
+                            .filter(item => isMobile ? item.title : item.title !== "OUR SERVICES")
                             .map((item, index) => {
                                 const image = localServices[index];
                                 const handleHover = () => {
@@ -119,7 +119,7 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
 
                                 const handleClick = () => {
                                     handleHover();
-                                    if (item.title === 'ABOUT') {
+                                    if (item.title === 'OUR SERVICES') {
                                         setHoveredService('');
                                         setHoveredServiceDescription('');
                                     }
@@ -170,8 +170,8 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                                     xs: "6px",
                                                 },
                                                 height: {
-                                                    lg: "100px",
-                                                    md: "100px",
+                                                    lg: "80px",
+                                                    md: "80px",
                                                     sm: "50px",
                                                     xs: "50px",
                                                 },
