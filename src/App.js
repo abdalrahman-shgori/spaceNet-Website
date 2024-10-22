@@ -6,6 +6,9 @@ import { useTheme } from '@mui/material/styles';
 import NavBar from './components/navbar/navbar';
 import LandingPage from './components/LandingPage/landingPage';
 import Toggle from './components/toggleCompoent/toggle';
+import { Example } from './components/test/example';
+import { Box, Grid } from '@mui/material';
+
 const App = () => {
   const [showContent, setShowContent] = useState(false);
   const [showLogo, setShowLogo] = useState(true);
@@ -32,10 +35,15 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
     }, 500);
   };
   return (
-    <div
+    <Grid
     
-      style={{
-        minHeight: '100vh',
+      sx={{
+        minHeight:{
+          lg: '100vh',
+          md: '100vh',
+          sm: '100vh',
+          xs: '100dvh'
+        },
         background: showLogo ? '#051A2F' : 'transparent',
         overflow: showLogo ? 'hidden' : 'auto',
       }}
@@ -60,7 +68,7 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
 
         </>
       )}
-    </div>
+    </Grid>
   );
 };
 

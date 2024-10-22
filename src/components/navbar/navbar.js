@@ -13,6 +13,8 @@ import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
 
+
+
 const NavBar = ({ setDrawerOpen }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isExiting, setIsExiting] = useState(false);
@@ -56,6 +58,7 @@ const NavBar = ({ setDrawerOpen }) => {
                     boxShadow: 'none',
                     border: 'none',
                     padding: {
+                        xl: '55px 75px 140px 75px',
                         lg: '55px 75px 70px 75px',
                         md: '55px 75px 70px 75px',
                         sm: '45px 25px 70px 25px',

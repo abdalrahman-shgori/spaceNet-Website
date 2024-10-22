@@ -31,7 +31,7 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                 setLoading(true);
                 const responseData = await fetchServicesApi();
                 const fetchedServices = Array.isArray(responseData?.data) ? responseData.data : [];
-                const combinedServices = [{ id: 0, title: "ABOUT", description: "Description for About" }, ...fetchedServices];
+                const combinedServices = [{ id: 0, title: "OUR SERVICES", description: "Description for About" }, ...fetchedServices];
                 setServicesList(combinedServices);
                 setLoading(false);
             } catch (error) {
@@ -124,6 +124,11 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                         setHoveredServiceDescription('');
                                     }
                                     setActiveService(index); 
+                                    setCapture(true);
+                                    setTimeout(() => {
+                                        setCapture(false);
+                                    }, 200); 
+
                                 };
 
                                 return (
@@ -157,17 +162,18 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                                 }), pointer`,
                                                 background: isMobile && activeService === index ? "#E9FA50" : "#F4F4F4", 
                                                 borderRadius: "38.7px",
+                                                marginLeft:"2px",
                                                 marginTop: {
                                                     lg: "20px",
                                                     md: "20px",
                                                     sm: "20px",
-                                                    xs: "unset",
+                                                    xs: "6px",
                                                 },
                                                 height: {
-                                                    lg: "80px",
-                                                    md: "80px",
-                                                    sm: "40px",
-                                                    xs: "40px",
+                                                    lg: "100px",
+                                                    md: "100px",
+                                                    sm: "50px",
+                                                    xs: "50px",
                                                 },
                                                 display: "flex",
                                                 alignItems: "center",

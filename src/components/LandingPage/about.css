@@ -10,3 +10,9 @@
 .fade-out {
     animation: fadeOut 1s forwards;
 }
+.scrolling-text {
+    animation: scroll 10s linear infinite;
+ 
+  }
+ 
+  
