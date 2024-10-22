@@ -228,7 +228,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                             xl:"1400px",
                                             lg: '270px',
                                             md: '270px',
-                                            sm: '150px',
+                                            sm: '220px',
                                             xs: '220px',
                                         },
                                         paddingRight: '10px',

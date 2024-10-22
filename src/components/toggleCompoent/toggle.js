@@ -39,8 +39,8 @@ export default function Toggle({ drawerOpen }) {
                     },
                     top: {
                         lg: '328px',
-                        md: '328px',
-                        sm: '200px',
+                        md: '280px',
+                        sm: '220px',
                         xs: '260px'
                     },
                     width: '38px',
