@@ -41,7 +41,6 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
         fetchServices();
     }, []);
 
-
     return (
         <Grid
             ref={servicesRef}
@@ -127,7 +126,6 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                     setTimeout(() => {
                                         setCapture(false);
                                     }, 200);
-
                                 };
 
                                 return (
@@ -158,7 +156,11 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                                                 ? design
                                                                 : ""
                                                     }), pointer`,
-                                                background: isMobile && activeService === index && theme.palette.mode === 'light' ? "#051A2F" : isMobile && activeService === index && theme.palette.mode === 'dark' ? '#E9FA50' : '#F4F4F4',
+                                                background: isMobile && activeService === index
+                                                    ? theme.palette.mode === 'light'
+                                                        ? "#051A2F"
+                                                        : '#E9FA50'
+                                                    : '#F4F4F4',
                                                 borderRadius: "38.7px",
                                                 marginLeft: "2px",
                                                 marginTop: {
@@ -168,6 +170,7 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                                     xs: "6px",
                                                 },
                                                 height: {
+                                                    xl: "100px",
                                                     lg: "80px",
                                                     md: "80px",
                                                     sm: "50px",
@@ -185,32 +188,21 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                                     xs: "6px",
                                                 },
                                                 color: isMobile && activeService === index ? "#FFFFFF" : '#051A2F',
-                                                transition: "transform 0.2s",
+                                                transition: "background 0.5s ease, transform 0.2s",
                                                 "&:hover": {
                                                     transform: !isMobile && "scale(1.05) rotate(2deg)",
                                                     color: theme.palette.mode === "light" ? "#FFFFFF" : "#FFFFFF",
                                                     background:
                                                         !isMobile ?
-                                                            index === 1
-                                                                ? "#E9FA50"
-                                                                : index === 0
-                                                                    ? "#FF9F31"
-                                                                    : index === 2
-                                                                        ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC"
-                                                                        : index === 3
-                                                                            ? "#1CB786"
-                                                                            : "" :
-                                                            index === 1
-                                                                ? "#FF9F31"
-                                                                : index === 0
-                                                                    ? theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50"
-                                                                    : index === 3
-                                                                        ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC"
-                                                                        : index === 2
-                                                                            ? "#E9FA50"
-                                                                            : index === 4
-                                                                                ? "#1CB786" : ''
-
+                                                            index === 1 ? "#E9FA50" :
+                                                                index === 0 ? "#FF9F31" :
+                                                                    index === 2 ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC" :
+                                                                        index === 3 ? "#1CB786" : "" :
+                                                            index === 1 ? "#FF9F31" :
+                                                                index === 0 ? theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50" :
+                                                                    index === 3 ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC" :
+                                                                        index === 2 ? "#E9FA50" :
+                                                                            index === 4 ? "#1CB786" : ''
                                                 },
                                             }}
                                         >

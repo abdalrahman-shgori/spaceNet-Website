@@ -187,7 +187,18 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                     paddingRight: "20px",
                                 }}
                             />
-                            <div style={{ position: 'relative', maxHeight: '270px', overflow: 'hidden' }}>
+                            <Box 
+                            sx={{
+                                 position: 'relative',
+                                  maxHeight: {
+                                    xl:"350px",
+                                    lg:'270px',
+                                    md:'270px',
+                                    sm:'270px',
+                                    xs:'270px'
+                                  },
+                                   overflow: 'hidden' 
+                                   }}>
                                 <div
                                     style={{
                                         position: 'absolute',
@@ -214,6 +225,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                         fontFamily: 'var(--English-font)',
                                         overflow: 'auto',
                                         maxHeight: {
+                                            xl:"1400px",
                                             lg: '270px',
                                             md: '270px',
                                             sm: '150px',
@@ -232,7 +244,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                 >
                                     {scrollingContent}
                                 </Typography>
-                            </div>
+                            </Box>
                         </Box>
                     </motion.div>
                 </Grid>
