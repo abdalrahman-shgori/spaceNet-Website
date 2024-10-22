@@ -32,10 +32,16 @@ export default function Toggle({ drawerOpen }) {
                         lg: '328px',
                         md: '328px',
                         sm: '200px',
-                        xs: '300px'
+                        xs: '260px'
                     },
                     width: '38px',
                     height: '106px',
+                    scale:{
+                    lg:1,
+                    md:1,
+                    sm:1,
+                    xs:0.8
+                    },
                     backgroundColor: isDarkMode ? "#051A2F" : '#051A2F',
                     borderRadius: '20px',
                     cursor: 'pointer',
