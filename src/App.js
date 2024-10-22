@@ -6,7 +6,6 @@ import { useTheme } from '@mui/material/styles';
 import NavBar from './components/navbar/navbar';
 import LandingPage from './components/LandingPage/landingPage';
 import Toggle from './components/toggleCompoent/toggle';
-import { Example } from './components/test/example';
 import { Box, Grid } from '@mui/material';
 
 const App = () => {
@@ -20,13 +19,13 @@ const App = () => {
         showLogo={showLogo}
         setShowLogo={setShowLogo}
       />
-      
+
     </ThemeProvider>
   );
 };
 
 const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
-  const [draweOpen,setDrawerOpen]=useState(false)
+  const [draweOpen, setDrawerOpen] = useState(false)
   const theme = useTheme();
   const handleAnimationComplete = () => {
     setShowContent(true);
@@ -36,9 +35,9 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
   };
   return (
     <Grid
-    
+
       sx={{
-        minHeight:{
+        minHeight: {
           lg: '100vh',
           md: '100vh',
           sm: '100vh',
@@ -60,8 +59,8 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
               background: theme.palette.background.default,
             }}
           >
-            <NavBar setDrawerOpen={setDrawerOpen}/>
-            <LandingPage/>
+            <NavBar setDrawerOpen={setDrawerOpen} />
+            <LandingPage />
 
           </motion.div>
           <Toggle drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />

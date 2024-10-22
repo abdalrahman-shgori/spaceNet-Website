@@ -13,7 +13,8 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
     const paragraphRef = useRef(null);
-    
+    console.log(hoveredService)
+
     useEffect(() => {
         const paragraph = paragraphRef.current;
 
@@ -46,7 +47,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
         const timer = setTimeout(() => {
             setInitialAnimation(false);
         }, 2000);
-  
+
         return () => clearTimeout(timer);
     }, []);
 
@@ -84,7 +85,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                     marginTop: {
                         lg: "unset",
                         md: "unset",
-                        sm: "unset",
+                        sm: "20px",
                         xs: "80px"
                     },
                 }}
@@ -155,9 +156,18 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                         lg: "44px",
                                         md: "44px",
                                         sm: "32px",
-                                        xs: "32px"
+                                        xs: "28px"
                                     },
                                     fontFamily: "var(--English-font-Extralight)",
+                                    color:
+                                        hoveredService === 'ACADEMICS' ? "#FF9F31" :
+                                            hoveredService === 'INTERNET' ? "#E9FA50" :
+                                                hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
+                                                    hoveredService === 'DESIGN & BRANDING' ? "#1CB786" :
+                                                        ''
+
+
+
                                 }}
                             >
                                 {hoveredService || "About"}
@@ -234,32 +244,31 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                             : capture ? { y: [0, -120, 0], x: [0, -120, 0] } : { y: 0, x: 0 }}
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
                     >
-                         <Box
+                        <Box
                             component='img'
                             src={theme.palette.mode === 'light' ? vector2White : Vector2Yellow}
                             sx={{
-                                float: "right",
                                 paddingRight: {
                                     lg: "80px",
                                     md: "0px",
                                     sm: "0px",
                                     xs: "0px"
                                 },
-                                position: "absolute",
                                 bottom: {
                                     lg: "-90px",
                                     md: "-40px",
                                     sm: "-40px",
                                     xs: "-40px"
                                 },
-                                right: "0",
                                 maxWidth: "100%",
                                 width: {
-                                    lg: "280px",
+                                    lg: "300px",
                                     md: "106px",
                                     sm: "106px",
                                     xs: "106px"
                                 },
+                                position: "absolute",
+                                right: "0"
                             }}
                         />
                     </motion.div>

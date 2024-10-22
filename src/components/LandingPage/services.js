@@ -13,8 +13,7 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const servicesRef = useRef(null);
-    const [activeService, setActiveService] = useState(0); // Track the active service
-
+    const [activeService, setActiveService] = useState(0);
     const localServices = [
         { name: "ACADEMICS", img: Union },
         { name: "INTERNET", img: Union },
@@ -42,7 +41,7 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
         fetchServices();
     }, []);
 
-   
+
     return (
         <Grid
             ref={servicesRef}
@@ -123,11 +122,11 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                         setHoveredService('');
                                         setHoveredServiceDescription('');
                                     }
-                                    setActiveService(index); 
+                                    setActiveService(index);
                                     setCapture(true);
                                     setTimeout(() => {
                                         setCapture(false);
-                                    }, 200); 
+                                    }, 200);
 
                                 };
 
@@ -149,20 +148,19 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                         <Box
                                             onClick={handleClick}
                                             sx={{
-                                                cursor: `url(${
-                                                    index === 0
+                                                cursor: `url(${index === 0
+                                                    ? academy
+                                                    : index === 1
                                                         ? customCursor
-                                                        : index === 1
-                                                        ? academy
                                                         : index === 2
-                                                        ? software
-                                                        : index === 3
-                                                        ? design
-                                                        : ""
-                                                }), pointer`,
-                                                background: isMobile && activeService === index ? "#E9FA50" : "#F4F4F4", 
+                                                            ? software
+                                                            : index === 3
+                                                                ? design
+                                                                : ""
+                                                    }), pointer`,
+                                                background: isMobile && activeService === index && theme.palette.mode === 'light' ? "#051A2F" : isMobile && activeService === index && theme.palette.mode === 'dark' ? '#E9FA50' : '#F4F4F4',
                                                 borderRadius: "38.7px",
-                                                marginLeft:"2px",
+                                                marginLeft: "2px",
                                                 marginTop: {
                                                     lg: "20px",
                                                     md: "20px",
@@ -186,21 +184,33 @@ export default function Services({ setHoveredService, setHoveredServiceDescripti
                                                     sm: "6px",
                                                     xs: "6px",
                                                 },
-                                                color: "#051A2F",
+                                                color: isMobile && activeService === index ? "#FFFFFF" : '#051A2F',
                                                 transition: "transform 0.2s",
                                                 "&:hover": {
-                                                    transform: "scale(1.05) rotate(2deg)",
-                                                    color: theme.palette.mode === "light" ? "#FFFFFF" : "#051A2F",
+                                                    transform: !isMobile && "scale(1.05) rotate(2deg)",
+                                                    color: theme.palette.mode === "light" ? "#FFFFFF" : "#FFFFFF",
                                                     background:
-                                                        index === 0
-                                                            ? "#E9FA50"
-                                                            : index === 1
-                                                            ? "#FF9F31"
-                                                            : index === 2
-                                                            ? "#011343"
-                                                            : index === 3
-                                                            ? "#1CB786"
-                                                            : "",
+                                                        !isMobile ?
+                                                            index === 1
+                                                                ? "#E9FA50"
+                                                                : index === 0
+                                                                    ? "#FF9F31"
+                                                                    : index === 2
+                                                                        ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC"
+                                                                        : index === 3
+                                                                            ? "#1CB786"
+                                                                            : "" :
+                                                            index === 1
+                                                                ? "#FF9F31"
+                                                                : index === 0
+                                                                    ? theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50"
+                                                                    : index === 3
+                                                                        ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC"
+                                                                        : index === 2
+                                                                            ? "#E9FA50"
+                                                                            : index === 4
+                                                                                ? "#1CB786" : ''
+
                                                 },
                                             }}
                                         >
