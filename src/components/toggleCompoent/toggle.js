@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import ThemeProvider, { useColorMode } from '../../ThemeProvider';
@@ -6,18 +6,27 @@ import ThemeProvider, { useColorMode } from '../../ThemeProvider';
 export default function Toggle({ drawerOpen }) {
     const { toggleColorMode } = useColorMode();
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
     const theme = useTheme();
-    console.log(drawerOpen, "wewewe")
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     const handleToggle = () => {
         toggleColorMode();
         setIsDarkMode((prev) => !prev);
     };
+
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
-    const isTabScreen = useMediaQuery(theme.breakpoints.only('md'));
+
     return (
         <>
             <Box
-
                 onClick={handleToggle}
                 sx={{
                     zIndex: "9999",
@@ -36,17 +45,18 @@ export default function Toggle({ drawerOpen }) {
                     },
                     width: '38px',
                     height: '106px',
-                    scale:{
-                    lg:1,
-                    md:1,
-                    sm:1,
-                    xs:0.8
+                    scale: {
+                        lg: 1,
+                        md: 1,
+                        sm: 1,
+                        xs: 0.8
                     },
                     backgroundColor: isDarkMode ? "#051A2F" : '#051A2F',
                     borderRadius: '20px',
                     cursor: 'pointer',
-                    transition: 'background-color 0.3s ease',
+                    transition: 'background-color 0.3s ease, opacity 0.5s ease',
                     border: isDarkMode && "2px solid #FFFFFF",
+                    opacity: isVisible ? 1 : 0,
                 }}
             >
                 <Typography
@@ -56,11 +66,10 @@ export default function Toggle({ drawerOpen }) {
                         top: '-55px',
                         left: '50%',
                         transform: 'translateX(-50%) rotate(-90deg)',
-                        color: drawerOpen === true && !isSmallScreen ? '#000000' : (isDarkMode ? '#FFFFFF' : '#051A2F'), // Check this line
+                        color: drawerOpen === true && !isSmallScreen ? '#000000' : (isDarkMode ? '#FFFFFF' : '#051A2F'),
                         fontWeight: "light",
-                        fontFamily: "var( --English-font-light)",
+                        fontFamily: "var(--English-font-light)",
                         fontSize: "23px"
-
                     }}
                 >
                     {isDarkMode ? ' Light' : 'Dark'}
