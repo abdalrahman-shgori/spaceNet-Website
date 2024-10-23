@@ -22,6 +22,7 @@ export default function LandingPage() {
         >
             <Grid item lg={6} md={6.5} sm={6.5} xs={12}>
                 <Services
+                hoveredService={hoveredService}
                     setHoveredService={setHoveredService}
                     setHoveredServiceDescription={setHoveredServiceDescription}
                     setCapture={setCapture} // Pass down the capture setter

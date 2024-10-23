@@ -149,82 +149,130 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                 },
                             }}
                         >
-                            <Typography
-                                sx={{
-                                    fontSize: {
-                                        lg: "44px",
-                                        md: "44px",
-                                        sm: "32px",
-                                        xs: "28px"
-                                    },
-                                    fontFamily: "var(--English-font-Extralight)",
-                                    color:
-                                        hoveredService === 'ACADEMICS' ? "#FF9F31" :
-                                            hoveredService === 'INTERNET' ? "#E9FA50" :
-                                                hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
-                                                    hoveredService === 'DESIGN & BRANDING' ? "#1CB786" :
-                                                        ''
+                            {['ACADEMICS', 'INTERNET', 'SOFTWARE', 'DESIGN & BRANDING'].includes(hoveredService) ? (
+                                <>
+                                    <Box
+                                        component="img"
+                                        src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
+                                        alt="SpaceNet Logo"
+                                        sx={{
+                                            width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
+
+                                            paddingRight: "20px",
+                                            paddingTop: "10px"
+                                        }}
+                                    />
+                                    <Typography
+                                        sx={{
+                                            fontSize: {
+                                                lg: "40px",
+                                                md: "40px",
+                                                sm: "28px",
+                                                xs: "24px"
+                                            },
+
+                                            fontFamily: "var(--English-font-Extralight)",
+                                            color:
+                                                hoveredService === 'ACADEMICS' ? "#FF9F31" :
+                                                    hoveredService === 'INTERNET' ? "#E9FA50" :
+                                                        hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
+                                                            hoveredService === 'DESIGN & BRANDING' ? "#1CB786" :
+                                                                '',
+
+                                        }}
+                                    >
+                                        {hoveredService}
+                                    </Typography>
+
+                                </>
+
+                            ) : (
+                                <>
+                                    <Typography
+                                        sx={{
+                                            fontSize: {
+                                                lg: "44px",
+                                                md: "44px",
+                                                sm: "32px",
+                                                xs: "28px"
+                                            },
+
+                                            fontFamily: "var(--English-font-Extralight)",
+                                            color:
+                                                hoveredService === 'ACADEMICS' ? "#FF9F31" :
+                                                    hoveredService === 'INTERNET' ? "#E9FA50" :
+                                                        hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
+                                                            hoveredService === 'DESIGN & BRANDING' ? "#1CB786" :
+                                                                ''
 
 
 
-                                }}
-                            >
-                                {hoveredService || "About"}
-                            </Typography>
+                                        }}
+                                    >
+                                        {hoveredService || "About"}
+                                    </Typography>
+                                    <Box
+                                        component="img"
+                                        src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
+                                        alt="SpaceNet Logo"
+                                        sx={{
+                                            width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
+                                            paddingBottom: {
+                                                lg: "10px",
+                                                md: "10px",
+                                                sm: "10px",
+                                                xs: "10px"
+                                            },
+                                            paddingRight: "20px",
+                                        }}
+                                    />
+                                </>
+                            )}
+
                             <Box
-                                component="img"
-                                src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
-                                alt="SpaceNet Logo"
                                 sx={{
-                                    width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
-                                    paddingBottom: {
-                                        lg: "20px",
-                                        md: "20px",
-                                        sm: "10px",
-                                        xs: "10px"
+                                    position: 'relative',
+                                    maxHeight: {
+                                        xl: "350px",
+                                        lg: capture ? "auto" :'270px',
+                                        md: capture ? "auto" :'270px',
+                                        sm: capture ? "auto" :'270px',
+                                        xs: capture ? "auto" :'270px'
                                     },
-                                    paddingRight: "20px",
-                                }}
-                            />
-                            <Box 
-                            sx={{
-                                 position: 'relative',
-                                  maxHeight: {
-                                    xl:"350px",
-                                    lg:'270px',
-                                    md:'270px',
-                                    sm:'270px',
-                                    xs:'270px'
-                                  },
-                                   overflow: 'hidden' 
-                                   }}>
-                                <div
-                                    style={{
-                                        position: 'absolute',
-                                        top: "-2px",
-                                        left: 0,
-                                        right: 0,
-                                        height: '60px',
-                                        background: theme.palette.mode === 'light'
-                                            ? 'linear-gradient(to bottom, rgba(157, 137, 252, 1) 0%, rgba(157, 137, 252, 0) 100%)'
-                                            : 'linear-gradient(to bottom, rgba(5, 26, 47, 1) 0%, rgba(5, 26, 47, 0) 100%)',
-                                        filter: 'blur(0px)',
-                                        zIndex: 9999,
-                                    }}
-                                />
+                                    overflow: 'hidden'
+                                }}>
+                                {hoveredService === '' && (
+
+                                    <div
+                                        style={{
+                                            position: 'absolute',
+                                            top: "-2px",
+                                            left: 0,
+                                            right: 0,
+                                            height: '60px',
+                                            background: theme.palette.mode === 'light'
+                                                ? 'linear-gradient(to bottom, rgba(157, 137, 252, 1) 0%, rgba(157, 137, 252, 0) 100%)'
+                                                : 'linear-gradient(to bottom, rgba(5, 26, 47, 1) 0%, rgba(5, 26, 47, 0) 100%)',
+                                            filter: 'blur(0px)',
+                                            zIndex: 9999,
+                                        }}
+                                    />
+                                )}
+
+
                                 <Typography
                                     ref={paragraphRef}
                                     sx={{
                                         fontSize: {
-                                            lg: '26px',
-                                            md: '20px',
-                                            sm: '15px',
+                                            lg: capture ? '23px' : "32px",
+                                            md:  capture ? '20px' : "28px",
+                                            sm: capture ? '15px' : "20px",
                                             xs: '15px',
                                         },
                                         fontFamily: 'var(--English-font)',
                                         overflow: 'auto',
                                         maxHeight: {
-                                            xl:"1400px",
+                                            xl: "1400px",
                                             lg: '275px',
                                             md: '270px',
                                             sm: '220px',
@@ -243,6 +291,23 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                 >
                                     {scrollingContent}
                                 </Typography>
+                                {hoveredService === '' && (
+
+                                    <div
+                                        style={{
+                                            position: 'absolute',
+                                            bottom: "-1px",
+                                            left: 0,
+                                            right: 0,
+                                            height: '60px',
+                                            background: theme.palette.mode === 'light'
+                                                ? 'linear-gradient(to top, rgba(157, 137, 252, 1) 0%, rgba(157, 137, 252, 0) 100%)'
+                                                : 'linear-gradient(to top, rgba(5, 26, 47, 1) 0%, rgba(5, 26, 47, 0) 100%)',
+                                            filter: 'blur(0px)',
+                                            zIndex: 9999,
+                                        }}
+                                    />
+                                )}
                             </Box>
                         </Box>
                     </motion.div>
