@@ -7,6 +7,7 @@ import NavBar from './components/navbar/navbar';
 import LandingPage from './components/LandingPage/landingPage';
 import Toggle from './components/toggleCompoent/toggle';
 import { Box, Grid } from '@mui/material';
+import Transform from './assets/transfomationSvg/transform';
 
 const App = () => {
   const [showContent, setShowContent] = useState(false);
@@ -63,7 +64,7 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
             <LandingPage />
 
           </motion.div>
-         
+
           <Toggle drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
 
 

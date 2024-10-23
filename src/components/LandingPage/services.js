@@ -8,7 +8,7 @@ import software from "../../assets/images/software.svg";
 import design from "../../assets/images/design.svg";
 import { services as fetchServicesApi } from "../../services/websiteApis/services";
 
-export default function Services({  setHoveredService, setHoveredServiceDescription, setCapture }) {
+export default function Services({ hoveredService, setHoveredService, setHoveredServiceDescription, setCapture }) {
     const scrollRef = useRef(null);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -20,7 +20,7 @@ export default function Services({  setHoveredService, setHoveredServiceDescript
         { name: "SOFTWARE", img: Union },
         { name: "DESIGN & BRANDING", img: Union },
     ];
-
+    const [hoveredServiceIndex, setHoveredServiceIndex] = useState(null);
     const [loading, setLoading] = useState(true);
     const [servicesList, setServicesList] = useState([]);
     console.log(activeService)
@@ -55,6 +55,7 @@ export default function Services({  setHoveredService, setHoveredServiceDescript
         };
         fetchServices();
     }, []);
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
         <Grid
@@ -164,13 +165,21 @@ export default function Services({  setHoveredService, setHoveredServiceDescript
                                                     stiffness: 100,
                                                     delay: index * 0.5,
                                                 }}
-                                                onMouseEnter={!isMobile ? handleHover : undefined}
-                                                onMouseLeave={!isMobile ? handleLeave : undefined}
+                                                onMouseEnter={() => {
+                                                    if (!isMobile) {
+                                                        handleHover();
+                                                        setIsHovered(true);
+                                                    }
+                                                }}
+                                                onMouseLeave={() => {
+                                                    if (!isMobile) {
+                                                        handleLeave();
+                                                        setIsHovered(false);
+                                                    }
+                                                }}
                                             >
                                                 <Box
-
                                                     sx={{
-
                                                         cursor: `url(${index === 0
                                                             ? academy
                                                             : index === 1
@@ -179,8 +188,7 @@ export default function Services({  setHoveredService, setHoveredServiceDescript
                                                                     ? software
                                                                     : index === 3
                                                                         ? design
-                                                                        : ""
-                                                            }), pointer`,
+                                                                        : ""}), pointer`,
                                                         background: isMobile && activeService === index
                                                             ? theme.palette.mode === 'light'
                                                                 ? "#051A2F"
@@ -257,6 +265,7 @@ export default function Services({  setHoveredService, setHoveredServiceDescript
                                                     </Typography>
 
                                                     {image && (
+
                                                         <Box
                                                             component="img"
                                                             src={image.img}
@@ -274,6 +283,7 @@ export default function Services({  setHoveredService, setHoveredServiceDescript
                                                                 },
                                                             }}
                                                         />
+
                                                     )}
                                                 </Box>
                                             </motion.div>
@@ -363,7 +373,7 @@ export default function Services({  setHoveredService, setHoveredServiceDescript
                                                             sm: "6px",
                                                             xs: "6px",
                                                         },
-                                                        color: isMobile && activeService === index ? "#FFFFFF" : '#051A2F',
+                                                        color: activeService === item.title ? "#FFFFFF" : '#051A2F',
                                                         transition: "background 0.5s ease, transform 0.2s",
 
                                                     }}
@@ -388,27 +398,10 @@ export default function Services({  setHoveredService, setHoveredServiceDescript
                                                             : item.title}
                                                     </Typography>
 
-                                                    {image && (
-                                                        <Box
-                                                            component="img"
-                                                            src={image.img}
-                                                            sx={{
-                                                                display: {
-                                                                    lg: "unset",
-                                                                    md: "unset",
-                                                                    sm: "unset",
-                                                                    xs: "none",
-                                                                },
-                                                                width: {
-                                                                    lg: "unset",
-                                                                    md: "25px",
-                                                                    sm: "25px",
-                                                                },
-                                                            }}
-                                                        />
-                                                    )}
+
                                                 </Box>
                                             </motion.div>
+
                                         </Grid>
                                     </>
 

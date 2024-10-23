@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import React, { useState } from "react";
 import Services from "./services";
 import AboutSpaceNet from "./aboutSpaceNet";
+import Transform from "../../assets/transfomationSvg/transform";
 
 export default function LandingPage() {
     const [hoveredService, setHoveredService] = useState("");
@@ -21,18 +22,21 @@ export default function LandingPage() {
             }}
         >
             <Grid item lg={6} md={6.5} sm={6.5} xs={12}>
+                {/* <Transform/> */}
                 <Services
-                hoveredService={hoveredService}
+                    hoveredService={hoveredService}
                     setHoveredService={setHoveredService}
                     setHoveredServiceDescription={setHoveredServiceDescription}
-                    setCapture={setCapture} // Pass down the capture setter
+                    setCapture={setCapture}
+                    capture={capture}
+
                 />
             </Grid>
             <Grid item lg={6} md={5.5} sm={5.5} xs={12}>
                 <AboutSpaceNet
                     hoveredService={hoveredService}
                     hoveredServiceDescription={hoveredServiceDescription}
-                    capture={capture} // Pass down the capture state
+                    capture={capture}
                 />
             </Grid>
         </Grid>

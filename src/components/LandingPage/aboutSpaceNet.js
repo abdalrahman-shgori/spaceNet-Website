@@ -22,15 +22,26 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
             paragraph.scrollTop = 0;
         }
     });
+    const [displayedText, setDisplayedText] = useState("");
 
+    useEffect(() => {
+        setDisplayedText("");
+        if (hoveredService) {
+            let currentText = "";
+            hoveredService.split("").forEach((char, index) => {
+                setTimeout(() => {
+                    currentText += char;
+                    setDisplayedText(currentText);
+                }, index * 120);
+            });
+        }
+    }, [hoveredService]);
     useEffect(() => {
         const paragraph = paragraphRef.current;
 
         const scrollContent = () => {
             if (paragraph) {
                 paragraph.scrollTop += 1;
-
-                // Adjust the scroll height check to account for the duplicated content
                 if (paragraph.scrollTop >= paragraph.scrollHeight / 2) {
                     paragraph.scrollTop = 0;
                 }
@@ -65,7 +76,6 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                     <span className="scrolling-content">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                     </span>
-                    {/* Duplicate content for continuous scrolling */}
                     <span className="scrolling-content">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                     </span>
@@ -162,27 +172,31 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                             paddingTop: "10px"
                                         }}
                                     />
-                                    <Typography
-                                        sx={{
-                                            fontSize: {
-                                                lg: "40px",
-                                                md: "40px",
-                                                sm: "28px",
-                                                xs: "24px"
-                                            },
-
-                                            fontFamily: "var(--English-font-Extralight)",
-                                            color:
-                                                hoveredService === 'ACADEMICS' ? "#FF9F31" :
-                                                    hoveredService === 'INTERNET' ? "#E9FA50" :
-                                                        hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
-                                                            hoveredService === 'DESIGN & BRANDING' ? "#1CB786" :
-                                                                '',
-
-                                        }}
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.5 }}
                                     >
-                                        {hoveredService}
-                                    </Typography>
+                                        <Typography
+                                            sx={{
+                                                fontSize: {
+                                                    lg: "40px",
+                                                    md: "40px",
+                                                    sm: "28px",
+                                                    xs: "24px"
+                                                },
+                                                fontFamily: "var(--English-font-Extralight)",
+                                                color:
+                                                    hoveredService === 'ACADEMICS' ? "#FF9F31" :
+                                                        hoveredService === 'INTERNET' ? "#E9FA50" :
+                                                            hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
+                                                                hoveredService === 'DESIGN & BRANDING' ? "#1CB786" :
+                                                                    '',
+                                            }}
+                                        >
+                                            {displayedText}
+                                        </Typography>
+                                    </motion.div>
 
                                 </>
 
@@ -234,10 +248,10 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                     position: 'relative',
                                     maxHeight: {
                                         xl: "350px",
-                                        lg: capture ? "auto" :'270px',
-                                        md: capture ? "auto" :'270px',
-                                        sm: capture ? "auto" :'270px',
-                                        xs: capture ? "auto" :'270px'
+                                        lg: capture ? "auto" : '270px',
+                                        md: capture ? "auto" : '270px',
+                                        sm: capture ? "auto" : '270px',
+                                        xs: capture ? "auto" : '270px'
                                     },
                                     overflow: 'hidden'
                                 }}>
@@ -265,7 +279,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                     sx={{
                                         fontSize: {
                                             lg: capture ? '23px' : "32px",
-                                            md:  capture ? '20px' : "28px",
+                                            md: capture ? '20px' : "28px",
                                             sm: capture ? '15px' : "20px",
                                             xs: '15px',
                                         },
