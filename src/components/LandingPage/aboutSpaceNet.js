@@ -55,7 +55,6 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
         <>
             {hoveredServiceDescription ? (
                 <>
-                    <span className="scrolling-content">{hoveredServiceDescription}</span>
                     <span className="scrolling-content">{hoveredServiceDescription}</span> {/* Duplicate content for continuous scrolling */}
                 </>
             ) : (
@@ -217,7 +216,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                     ref={paragraphRef}
                                     sx={{
                                         fontSize: {
-                                            lg: '32px',
+                                            lg: '26px',
                                             md: '20px',
                                             sm: '15px',
                                             xs: '15px',
@@ -226,7 +225,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                         overflow: 'auto',
                                         maxHeight: {
                                             xl:"1400px",
-                                            lg: '270px',
+                                            lg: '275px',
                                             md: '270px',
                                             sm: '220px',
                                             xs: '220px',
