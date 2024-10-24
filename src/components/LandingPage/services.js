@@ -330,6 +330,7 @@ export default function Services({ hoveredService, setHoveredService, setHovered
                                                                         ? design
                                                                         : ""
                                                             }), pointer`,
+
                                                         background: activeService === item.title
                                                             ? activeService === "ABOUT"
                                                                 ? theme.palette.mode === 'light' ? "#E9FA50" : "#9D89FC"
@@ -375,7 +376,7 @@ export default function Services({ hoveredService, setHoveredService, setHovered
                                                             sm: "6px",
                                                             xs: "6px",
                                                         },
-                                                        color: activeService === item.title ? "#FFFFFF" : '#051A2F',
+                                                        color: activeService === item.title && activeService !== 'INTERNET' && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
                                                         transition: "background 0.5s ease, transform 0.2s",
 
                                                     }}
