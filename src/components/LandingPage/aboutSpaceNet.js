@@ -9,7 +9,7 @@ import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
 import { motion } from "framer-motion";
 import './about.css';
 
-export default function AboutSpaceNet({ hoveredService, hoveredServiceDescription, capture }) {
+export default function AboutSpaceNet({setHoveredService, hoveredService, hoveredServiceDescription, capture }) {
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
     const paragraphRef = useRef(null);
@@ -23,19 +23,29 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
         }
     });
     const [displayedText, setDisplayedText] = useState("");
+    const timeoutRef = useRef([]);
 
     useEffect(() => {
+        timeoutRef.current.forEach(timeout => clearTimeout(timeout));
+        timeoutRef.current = []; 
         setDisplayedText("");
         if (hoveredService) {
             let currentText = "";
             hoveredService.split("").forEach((char, index) => {
-                setTimeout(() => {
+                const timeout = setTimeout(() => {
                     currentText += char;
                     setDisplayedText(currentText);
                 }, index * 120);
+
+                timeoutRef.current.push(timeout);
             });
         }
+
+        return () => {
+            timeoutRef.current.forEach(timeout => clearTimeout(timeout));
+        };
     }, [hoveredService]);
+
     useEffect(() => {
         const paragraph = paragraphRef.current;
 
@@ -66,7 +76,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
         <>
             {hoveredServiceDescription ? (
                 <>
-                    <span className="scrolling-content">{hoveredServiceDescription}</span> {/* Duplicate content for continuous scrolling */}
+                    <span className="scrolling-content">{hoveredServiceDescription}</span> 
                 </>
             ) : (
                 <>
@@ -173,12 +183,15 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                         }}
                                     />
                                     <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ duration: 0.5 }}
+                                       initial={{ opacity: 0 }}
+                                       animate={{ opacity: 1 }}
+                                       exit={{ opacity: 0 }}
+                                       transition={{ duration: 0.5 }}
+
                                     >
                                         <Typography
                                             sx={{
+                                                fontWeight:"bold",
                                                 fontSize: {
                                                     lg: "40px",
                                                     md: "40px",
@@ -202,7 +215,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
 
                             ) : (
                                 <>
-                                    <Typography
+                                    {/* <Typography
                                         sx={{
                                             fontSize: {
                                                 lg: "44px",
@@ -224,7 +237,7 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                         }}
                                     >
                                         {hoveredService || "About"}
-                                    </Typography>
+                                    </Typography> */}
                                     <Box
                                         component="img"
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
@@ -232,6 +245,12 @@ export default function AboutSpaceNet({ hoveredService, hoveredServiceDescriptio
                                         sx={{
                                             width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
                                             paddingBottom: {
+                                                lg: "10px",
+                                                md: "10px",
+                                                sm: "10px",
+                                                xs: "10px"
+                                            },
+                                            paddingTop: {
                                                 lg: "10px",
                                                 md: "10px",
                                                 sm: "10px",

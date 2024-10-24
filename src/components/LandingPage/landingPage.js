@@ -37,6 +37,8 @@ export default function LandingPage() {
                     hoveredService={hoveredService}
                     hoveredServiceDescription={hoveredServiceDescription}
                     capture={capture}
+                    setHoveredService={setHoveredService}
+
                 />
             </Grid>
         </Grid>
