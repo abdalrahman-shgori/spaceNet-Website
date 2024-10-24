@@ -269,7 +269,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                     maxHeight: {
                                         xl: "400px",
                                         lg: capture ? "auto" : '320px',
-                                        md: capture ? "auto" : '270px',
+                                        md: capture ? "auto" : '300px',
                                         sm: capture ? "auto" : '270px',
                                         xs: capture ? "auto" : '270px'
                                     },
@@ -298,9 +298,9 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                     ref={paragraphRef}
                                     sx={{
                                         fontSize: {
-                                            lg: capture ? '23px' : "32px",
-                                            md: capture ? '20px' : "28px",
-                                            sm: capture ? '14px' : "20px",
+                                            lg: capture ? '24px' : "32px",
+                                            md: capture ? '21px' : "28px",
+                                            sm: capture ? '18px' : "20px",
                                             xs: '15px',
                                         },
                                         fontFamily: 'var(--English-font)',
@@ -308,7 +308,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                         maxHeight: {
                                             xl: "400px",
                                             lg: '320px',
-                                            md: '270px',
+                                            md: '300px',
                                             sm: '220px',
                                             xs: '220px',
                                         },

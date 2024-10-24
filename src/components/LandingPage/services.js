@@ -204,7 +204,7 @@ export default function Services({activeService,setActiveService, hoveredService
                                                         height: {
                                                             xl: "100px",
                                                             lg: "80px",
-                                                            md: "80px",
+                                                            md: "60px",
                                                             sm: "50px",
                                                             xs: "50px",
                                                         },
@@ -248,7 +248,7 @@ export default function Services({activeService,setActiveService, hoveredService
                                                         sx={{
                                                             fontSize: {
                                                                 lg: "40px",
-                                                                md: "26px",
+                                                                md: "24px",
                                                                 sm: "15px",
                                                                 xs: "15px",
                                                             },
