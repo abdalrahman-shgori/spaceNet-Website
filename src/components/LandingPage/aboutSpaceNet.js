@@ -266,8 +266,8 @@ export default function AboutSpaceNet({setHoveredService, hoveredService, hovere
                                 sx={{
                                     position: 'relative',
                                     maxHeight: {
-                                        xl: "350px",
-                                        lg: capture ? "auto" : '270px',
+                                        xl: "400px",
+                                        lg: capture ? "auto" : '320px',
                                         md: capture ? "auto" : '270px',
                                         sm: capture ? "auto" : '270px',
                                         xs: capture ? "auto" : '270px'
@@ -305,8 +305,8 @@ export default function AboutSpaceNet({setHoveredService, hoveredService, hovere
                                         fontFamily: 'var(--English-font)',
                                         overflow: 'auto',
                                         maxHeight: {
-                                            xl: "1400px",
-                                            lg: '275px',
+                                            xl: "400px",
+                                            lg: '320px',
                                             md: '270px',
                                             sm: '220px',
                                             xs: '220px',

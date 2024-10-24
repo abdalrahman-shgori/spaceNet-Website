@@ -7,7 +7,7 @@ import academy from "../../assets/images/academy.svg";
 import software from "../../assets/images/software.svg";
 import design from "../../assets/images/design.svg";
 import { services as fetchServicesApi } from "../../services/websiteApis/services";
-
+import UnionWhite from "../../assets/images/UnionWhite.svg"
 export default function Services({ hoveredService, setHoveredService, setHoveredServiceDescription, setCapture }) {
     const scrollRef = useRef(null);
     const theme = useTheme();
@@ -229,7 +229,8 @@ export default function Services({ hoveredService, setHoveredService, setHovered
                                                         transition: "background 0.5s ease, transform 0.2s",
                                                         "&:hover": {
                                                             transform: !isMobile && "scale(1.05) rotate(2deg)",
-                                                            color: theme.palette.mode === "light" ? "#FFFFFF" : "#FFFFFF",
+                                                            // color: theme.palette.mode === "light" ? "#FFFFFF" : "#FFFFFF",
+                                                            color: hoveredService === 'INTERNET' ? "#011343" : "#FFFFFF",
                                                             background:
                                                                 !isMobile ?
                                                                     index === 1 ? "#E9FA50" :
@@ -268,7 +269,7 @@ export default function Services({ hoveredService, setHoveredService, setHovered
 
                                                         <Box
                                                             component="img"
-                                                            src={image.img}
+                                                            src={hoveredService === 'SOFTWARE' && index === 2 && theme.palette.mode === 'light' ? UnionWhite : image.img}
                                                             sx={{
                                                                 display: {
                                                                     lg: "unset",
@@ -281,6 +282,7 @@ export default function Services({ hoveredService, setHoveredService, setHovered
                                                                     md: "25px",
                                                                     sm: "25px",
                                                                 },
+
                                                             }}
                                                         />
 
