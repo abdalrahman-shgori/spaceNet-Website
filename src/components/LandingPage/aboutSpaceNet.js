@@ -3,17 +3,18 @@ import Vector1Yellow from "../../assets/images/Vector1Yellow.svg";
 import vector1White from "../../assets/images/Vector1White.svg";
 import Vector2Yellow from "../../assets/images/Vector2Yellow.svg";
 import vector2White from "../../assets/images/Vector2White.svg";
-import { Box, Grid, Typography, useTheme } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogoAbout.svg";
 import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
 import { motion } from "framer-motion";
 import './about.css';
 
-export default function AboutSpaceNet({setHoveredService, hoveredService, hoveredServiceDescription, capture }) {
+export default function AboutSpaceNet({activeService,setHoveredService, hoveredService, hoveredServiceDescription, capture }) {
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
     const paragraphRef = useRef(null);
     console.log(hoveredService)
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
     useEffect(() => {
         const paragraph = paragraphRef.current;
@@ -195,7 +196,7 @@ export default function AboutSpaceNet({setHoveredService, hoveredService, hovere
                                                 fontSize: {
                                                     lg: "40px",
                                                     md: "40px",
-                                                    sm: "28px",
+                                                    sm: "24px",
                                                     xs: "24px"
                                                 },
                                                 fontFamily: "var(--English-font-Extralight)",
@@ -274,7 +275,7 @@ export default function AboutSpaceNet({setHoveredService, hoveredService, hovere
                                     },
                                     overflow: 'hidden'
                                 }}>
-                                {hoveredService === '' && (
+                                {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
                                     <div
                                         style={{
@@ -299,7 +300,7 @@ export default function AboutSpaceNet({setHoveredService, hoveredService, hovere
                                         fontSize: {
                                             lg: capture ? '23px' : "32px",
                                             md: capture ? '20px' : "28px",
-                                            sm: capture ? '15px' : "20px",
+                                            sm: capture ? '14px' : "20px",
                                             xs: '15px',
                                         },
                                         fontFamily: 'var(--English-font)',
@@ -312,7 +313,12 @@ export default function AboutSpaceNet({setHoveredService, hoveredService, hovere
                                             xs: '220px',
                                         },
                                         paddingRight: '10px',
-                                        paddingTop: '10px',
+                                        paddingTop:{
+                                            lg: '10px',
+                                            md: '10px',
+                                            sm: '4px',
+                                            xs: '4px'
+                                        },
                                         position: 'relative',
                                         '&::-webkit-scrollbar': { display: 'none' },
                                         scrollbarWidth: '0px',
@@ -324,7 +330,7 @@ export default function AboutSpaceNet({setHoveredService, hoveredService, hovere
                                 >
                                     {scrollingContent}
                                 </Typography>
-                                {hoveredService === '' && (
+                                {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
                                     <div
                                         style={{

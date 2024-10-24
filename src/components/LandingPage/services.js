@@ -8,12 +8,11 @@ import software from "../../assets/images/software.svg";
 import design from "../../assets/images/design.svg";
 import { services as fetchServicesApi } from "../../services/websiteApis/services";
 import UnionWhite from "../../assets/images/UnionWhite.svg"
-export default function Services({ hoveredService, setHoveredService, setHoveredServiceDescription, setCapture }) {
+export default function Services({activeService,setActiveService, hoveredService, setHoveredService, setHoveredServiceDescription, setCapture }) {
     const scrollRef = useRef(null);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const servicesRef = useRef(null);
-    const [activeService, setActiveService] = useState('ABOUT');
     const localServices = [
         { name: "ACADEMICS", img: Union },
         { name: "INTERNET", img: Union },
