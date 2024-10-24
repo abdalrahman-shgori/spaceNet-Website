@@ -300,7 +300,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                         fontSize: {
                                             lg: capture ? '24px' : "32px",
                                             md: capture ? '21px' : "28px",
-                                            sm: capture ? '18px' : "20px",
+                                            sm: capture ? '16px' : "20px",
                                             xs: '15px',
                                         },
                                         fontFamily: 'var(--English-font)',
