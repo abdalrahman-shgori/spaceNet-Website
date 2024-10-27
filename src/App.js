@@ -65,18 +65,14 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
       setShowLogo(false);
     }, 500);
   };
-  const [overflow, setOverflow] = useState('hidden');
 
-  useEffect(() => {
-    // Set a timeout to change overflow after 2 seconds
-    const timer = setTimeout(() => {
-      setOverflow('auto'); // Change to 'visible' or 'auto' as needed
+  const [overflow,setOverFlow]=useState('hidden')
+  useEffect(()=>{
+   const timer = setTimeout(() => {
+      setOverFlow('auto')
     }, 3000);
-
-    // Clean up the timer on component unmount
-    return () => clearTimeout(timer);
-  }, []);
-
+    return () => clearTimeout(timer)
+  },[])
   return (
     <Grid
  
@@ -87,7 +83,7 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
           sm: '100vh',
           xs: '100dvh'
         },
-        background: showLogo ? '#051A2F' : theme.palette.background.default,
+        background: showLogo ? '#051A2F' : 'transparent',
         overflow: overflow,
       }}
     >
@@ -101,7 +97,7 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
             style={{
-              background: showLogo ? theme.palette.background.default : theme.palette.background.default,
+              background: theme.palette.background.default,
             }}
           >
             <NavBar setDrawerOpen={setDrawerOpen} />
