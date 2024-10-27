@@ -36,7 +36,7 @@ export default function LandingPage() {
                 />
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>
-                {/* <AboutSpaceNet
+                <AboutSpaceNet
                     hoveredService={hoveredService}
                     hoveredServiceDescription={hoveredServiceDescription}
                     capture={capture}
@@ -44,7 +44,7 @@ export default function LandingPage() {
                     activeService={activeService}
 
 
-                /> */}
+                />
             </Grid>
         </Grid>
     );
