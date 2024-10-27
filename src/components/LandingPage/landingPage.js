@@ -24,7 +24,7 @@ export default function LandingPage() {
         >
             <Grid item lg={6} md={6} sm={12} xs={12}>
                 {/* <Transform/> */}
-                <Services
+                {/* <Services
                     hoveredService={hoveredService}
                     setHoveredService={setHoveredService}
                     setHoveredServiceDescription={setHoveredServiceDescription}
@@ -33,7 +33,7 @@ export default function LandingPage() {
                     setActiveService={setActiveService}
                     activeService={activeService}
 
-                />
+                /> */}
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>
                 <AboutSpaceNet
