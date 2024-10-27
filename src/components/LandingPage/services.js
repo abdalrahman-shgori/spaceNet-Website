@@ -175,13 +175,13 @@ export default function Services({
                                                 delay: index * 0.5,
                                             }}
                                             onMouseEnter={() => {
-                                                if (!isMobile) {
+                                                if (!isMobile && !isTabScreen) {
                                                     handleHover();
                                                     setIsHovered(true);
                                                 }
                                             }}
                                             onMouseLeave={() => {
-                                                if (!isMobile) {
+                                                if (!isMobile && !isTabScreen) {
                                                     handleLeave();
                                                     setIsHovered(false);
                                                 }
