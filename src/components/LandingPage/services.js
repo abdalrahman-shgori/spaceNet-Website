@@ -162,7 +162,8 @@ export default function Services({
                                                 md: "unset",
                                                 sm: "unset",
                                                 xs: "none"
-                                            }
+                                            },
+                                            overflow:"hidden"
                                         }}
                                     >
                                         <motion.div
@@ -175,13 +176,13 @@ export default function Services({
                                                 delay: index * 0.5,
                                             }}
                                             onMouseEnter={() => {
-                                                if (!isMobile && !isTabScreen) {
+                                                if (!isMobile) {
                                                     handleHover();
                                                     setIsHovered(true);
                                                 }
                                             }}
                                             onMouseLeave={() => {
-                                                if (!isMobile && !isTabScreen) {
+                                                if (!isMobile) {
                                                     handleLeave();
                                                     setIsHovered(false);
                                                 }
