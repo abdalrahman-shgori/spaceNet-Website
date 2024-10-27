@@ -32,6 +32,7 @@ export default function LandingPage({
                     setServicesList={setServicesList}
                     servicesList={servicesList}
                     loading={loading}
+                    hoveredServiceDescription={hoveredServiceDescription}
 
                 />
             </Grid>

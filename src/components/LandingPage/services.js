@@ -20,7 +20,8 @@ export default function Services({
     setHoveredServiceDescription,
     setCapture,
     servicesList,
-    loading
+    loading,
+    hoveredServiceDescription
 }) {
     const scrollRef = useRef(null);
     const theme = useTheme();
@@ -58,21 +59,24 @@ export default function Services({
     useEffect(() => {
         function handleClickOutside(event) {
             if (componentRef.current && !componentRef.current.contains(event.target)) {
-                setHoveredService("");
-                setHoveredServiceDescription("");
-                setActiveService('ABOUT')
-                setCapture(true)
-                setTimeout(() => {
-                    setCapture(false)
-                }, 200);
+                if (hoveredService !== "" || hoveredServiceDescription !== "") {
+                    setHoveredService("");
+                    setHoveredServiceDescription("");
+                    setActiveService('ABOUT');
+                    setCapture(true);
+                    setTimeout(() => {
+                        setCapture(false);
+                    }, 200);
+                }
             }
         }
-
+    
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [componentRef]);
+    }, [componentRef, hoveredService, hoveredServiceDescription]);
+    
     useEffect(() => {
         if (!isTabScreen && !isMobile) {
             setHoveredService("");
