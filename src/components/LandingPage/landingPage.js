@@ -4,7 +4,11 @@ import Services from "./services";
 import AboutSpaceNet from "./aboutSpaceNet";
 import Transform from "../../assets/transfomationSvg/transform";
 
-export default function LandingPage() {
+export default function LandingPage({
+    servicesList,
+    setServicesList,
+    loading
+}) {
     const [hoveredService, setHoveredService] = useState("");
     const [hoveredServiceDescription, setHoveredServiceDescription] = useState("");
     const [capture, setCapture] = useState(false);
@@ -13,15 +17,8 @@ export default function LandingPage() {
     return (
         <Grid
             container
-            sx={{
-                padding: {
-                    lg: "0px 75px 0px 55px",
-                    md: "0px 75px 0px 55px",
-                    sm: "0px 45px 0px 25px",
-                    xs: "0px 25px",
-                },
-            }}
         >
+            
             <Grid item lg={6} md={6} sm={12} xs={12}>
                 {/* <Transform/> */}
                 <Services
@@ -32,6 +29,9 @@ export default function LandingPage() {
                     capture={capture}
                     setActiveService={setActiveService}
                     activeService={activeService}
+                    setServicesList={setServicesList}
+                    servicesList={servicesList}
+                    loading={loading}
 
                 />
             </Grid>
@@ -42,8 +42,7 @@ export default function LandingPage() {
                     capture={capture}
                     setHoveredService={setHoveredService}
                     activeService={activeService}
-
-
+                    loading={loading}
                 />
             </Grid>
         </Grid>

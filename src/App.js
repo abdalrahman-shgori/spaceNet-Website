@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ThemeProvider, { useColorMode } from './ThemeProvider';
 import SvgGroup1 from './assets/logoAnimation/group1';
 import { motion } from 'framer-motion';
@@ -7,25 +7,56 @@ import NavBar from './components/navbar/navbar';
 import LandingPage from './components/LandingPage/landingPage';
 import Toggle from './components/toggleCompoent/toggle';
 import { Box, Grid } from '@mui/material';
-import Transform from './assets/transfomationSvg/transform';
+import { Route, Router, Routes } from 'react-router-dom';
+import { services as fetchServicesApi } from "../src/services/websiteApis/services";
+import ServicesLogo from './assets/spacenetLogo/servicesLogo';
 
 const App = () => {
   const [showContent, setShowContent] = useState(false);
   const [showLogo, setShowLogo] = useState(true);
+
   return (
     <ThemeProvider>
-      <InnerApp
+      <Routes>
+           <Route path='/' element={ <InnerApp
         showContent={showContent}
         setShowContent={setShowContent}
         showLogo={showLogo}
         setShowLogo={setShowLogo}
-      />
+      />}/>
+
+      </Routes>
+     
 
     </ThemeProvider>
   );
 };
 
 const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
+  const [servicesList, setServicesList] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+        try {
+            setLoading(true);
+            const responseData = await fetchServicesApi();
+            const fetchedServices = Array.isArray(responseData?.data)
+                ? responseData.data
+                : [];
+            const combinedServices = [
+                { id: 0, title: "ABOUT", description: "Description for About", img: <ServicesLogo /> },
+                ...fetchedServices,
+            ];
+            setServicesList(combinedServices);
+            setLoading(false);
+        } catch (error) {
+            console.error("Error fetching services:", error);
+            setLoading(false);
+        }
+    };
+    fetchServices();
+}, []);
   const [draweOpen, setDrawerOpen] = useState(false)
   const theme = useTheme();
   const handleAnimationComplete = () => {
@@ -34,6 +65,7 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
       setShowLogo(false);
     }, 500);
   };
+  
   return (
     <Grid
  
@@ -62,18 +94,16 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
             }}
           >
             <NavBar setDrawerOpen={setDrawerOpen} />
-            <LandingPage />
-            <Box
-            sx={{
-              display:"fixed"
-            }}
-            >
+            <LandingPage 
+            loading={loading}
+            servicesList={servicesList}
+            setServicesList={setServicesList}
+            />
             <Toggle drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
-
-            </Box>
 
           </motion.div>
         
+
 
 
         </>

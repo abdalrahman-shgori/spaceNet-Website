@@ -13,13 +13,11 @@ import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
 
-
-
 const NavBar = ({ setDrawerOpen }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const [isExiting, setIsExiting] = useState(false);
     const theme = useTheme();
-    const ThemeCheck = theme.palette.mode;
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const isTabScreen = useMediaQuery(theme.breakpoints.only('md'));
     const menuItems = ['Home', 'SERVICES', 'MARKETPLACE', 'BLOG & NEWS', 'CONTACT US'];
 
     const socialMedia = [
@@ -28,26 +26,17 @@ const NavBar = ({ setDrawerOpen }) => {
         { icon: <LinkedInSvg />, link: "", },
         { icon: <PaintrestSvg />, link: "", },
         { icon: <WhatsAppSvg />, link: "", },
-
     ];
 
     const toggleDrawer = (open) => {
         setIsDrawerOpen(open);
-        setDrawerOpen(true)
+        setDrawerOpen(true);
     };
 
     const handleCloseDrawer = () => {
-        setIsExiting(true);
-        setTimeout(() => {
-            toggleDrawer(false);
-            setIsExiting(false);
-            setDrawerOpen(false)
-
-        }, 500);
+        toggleDrawer(false);
+        setDrawerOpen(false);
     };
-
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
-    const isTabScreen = useMediaQuery(theme.breakpoints.only('md'));
 
     return (
         <>
@@ -76,7 +65,6 @@ const NavBar = ({ setDrawerOpen }) => {
                         paddingRight: "0px !important",
                     }}
                 >
-
                     <SvgSpaceNetLogo />
 
                     <Box>
@@ -98,17 +86,16 @@ const NavBar = ({ setDrawerOpen }) => {
                                 <MenuRoundedIcon
                                     sx={{
                                         width: {
-                                            xl:60,
-                                            lg:35,
-                                            sm:35,
-                                            xs:35
-                                            
+                                            xl: 60,
+                                            lg: 35,
+                                            sm: 35,
+                                            xs: 35
                                         },
                                         height: {
-                                            xl:60,
-                                            lg:35,
-                                            sm:35,
-                                            xs:35
+                                            xl: 60,
+                                            lg: 35,
+                                            sm: 35,
+                                            xs: 35
                                         },
                                         color: theme.palette.mode === 'light' ? '#051A2F' : '#FFFFFF'
                                     }} />
@@ -118,11 +105,9 @@ const NavBar = ({ setDrawerOpen }) => {
                         <motion.div
                             initial={{ opacity: 0, x: isSmallScreen ? '-100%' : '100%' }}
                             animate={{ opacity: isDrawerOpen ? 1 : 0, x: isDrawerOpen ? 0 : isSmallScreen ? '-100%' : '100%' }}
-                            exit={{ opacity: 0, x: isSmallScreen ? '-100%' : '100%' }}
                             transition={{ duration: 0.5 }}
                         >
                             <Drawer
-                            
                                 anchor={isSmallScreen ? "left" : "right"}
                                 open={isDrawerOpen}
                                 onClose={handleCloseDrawer}
@@ -134,7 +119,6 @@ const NavBar = ({ setDrawerOpen }) => {
                                         boxShadow: '0 0 20px rgba(0,0,0,0.1)',
                                         background: "#fff",
                                         clipPath: isSmallScreen ? 'none' : 'ellipse(100% 75% at 100% 50%)',
-
                                     },
                                 }}
                             >
@@ -160,17 +144,17 @@ const NavBar = ({ setDrawerOpen }) => {
                                             display: isSmallScreen ? "none" : "flex"
                                         }}
                                     >
-                                        <CloseRoundedIcon sx={{  width: {
-                                            xl:60,
-                                            lg:35,
-                                            
-                                        },
-                                        height: {
-                                            xl:60,
-                                            lg:35,
-                                            
-                                        },
-                                         color: "#000000" }} />
+                                        <CloseRoundedIcon sx={{
+                                            width: {
+                                                xl: 60,
+                                                lg: 35,
+                                            },
+                                            height: {
+                                                xl: 60,
+                                                lg: 35,
+                                            },
+                                            color: "#000000"
+                                        }} />
                                     </IconButton>
 
                                     <List sx={{ flexGrow: 1, marginTop: "50px" }}>
@@ -178,7 +162,7 @@ const NavBar = ({ setDrawerOpen }) => {
                                             <motion.div
                                                 key={index}
                                                 initial={{ opacity: 0, y: -20 }}
-                                                animate={!isExiting ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
+                                                animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                                             >
                                                 <ListItem
@@ -197,7 +181,7 @@ const NavBar = ({ setDrawerOpen }) => {
                                                     <Typography
                                                         sx={{
                                                             fontSize: {
-                                                                xl:"50px",
+                                                                xl: "50px",
                                                                 lg: "44px",
                                                                 md: "30px",
                                                                 sm: "28px",

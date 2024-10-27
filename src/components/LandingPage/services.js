@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, useTheme, useMediaQuery } from "@mui/material";
+import { Box, Grid, Typography, useTheme, useMediaQuery, Skeleton } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Union from "../../assets/images/Union.svg";
@@ -8,6 +8,9 @@ import software from "../../assets/images/software.svg";
 import design from "../../assets/images/design.svg";
 import { services as fetchServicesApi } from "../../services/websiteApis/services";
 import UnionWhite from "../../assets/images/UnionWhite.svg";
+import ServicesLogo from "../../assets/spacenetLogo/servicesLogo";
+import ServicesMobile from "./servicesMobile";
+import ServicesOriginal from "./servicesOriginal";
 
 export default function Services({
     activeService,
@@ -16,12 +19,13 @@ export default function Services({
     setHoveredService,
     setHoveredServiceDescription,
     setCapture,
+    servicesList,
+    loading
 }) {
     const scrollRef = useRef(null);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
-
     const servicesRef = useRef(null);
     const localServices = [
         { name: "ACADEMICS", img: Union },
@@ -30,8 +34,6 @@ export default function Services({
         { name: "DESIGN & BRANDING", img: Union },
     ];
     const [hoveredServiceIndex, setHoveredServiceIndex] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [servicesList, setServicesList] = useState([]);
     console.log(activeService);
 
     const handleClicks = (item) => {
@@ -49,30 +51,39 @@ export default function Services({
         }, 200);
     };
 
-    useEffect(() => {
-        const fetchServices = async () => {
-            try {
-                setLoading(true);
-                const responseData = await fetchServicesApi();
-                const fetchedServices = Array.isArray(responseData?.data)
-                    ? responseData.data
-                    : [];
-                const combinedServices = [
-                    { id: 0, title: "ABOUT", description: "Description for About" },
-                    ...fetchedServices,
-                ];
-                setServicesList(combinedServices);
-                setLoading(false);
-            } catch (error) {
-                console.error("Error fetching services:", error);
-                setLoading(false);
-            }
-        };
-        fetchServices();
-    }, []);
+ 
 
     const [isHovered, setIsHovered] = useState(false);
+    const componentRef = useRef(null);
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (componentRef.current && !componentRef.current.contains(event.target)) {
+                setHoveredService("");
+                setHoveredServiceDescription("");
+                setActiveService('ABOUT')
+                setCapture(true)
+                setTimeout(() => {
+                    setCapture(false)
+                }, 200);
+            }
+        }
 
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [componentRef]);
+    useEffect(() => {
+        if (!isTabScreen && !isMobile) {
+            setHoveredService("");
+            setHoveredServiceDescription("");
+            setCapture(true);
+            setActiveService('ABOUT')
+            setTimeout(() => {
+                setCapture(false)
+            }, 200);
+        }
+    }, [isTabScreen, isMobile]);
     return (
         <Grid
             ref={servicesRef}
@@ -82,6 +93,12 @@ export default function Services({
                     md: "50px",
                     sm: "20px",
                     xs: "0px",
+                },
+                padding: {
+                    lg: "0px 75px 0px 55px",
+                    md: "0px 75px 0px 55px",
+                    sm: "0px 45px 0px 25px",
+                    xs: "0px 0px 0px 25px",
                 },
             }}
         >
@@ -103,7 +120,7 @@ export default function Services({
                 Our Services
             </Typography>
             <Grid
-                ref={scrollRef}
+                ref={isTabScreen ? componentRef : scrollRef}
                 {...(!isMobile && { container: true })}
                 sx={{
                     display: {
@@ -129,7 +146,26 @@ export default function Services({
                 }}
             >
                 {loading ? (
-                    <Typography>Loading...</Typography>
+                  Array(4).fill().map((_, index) => (
+                    <Skeleton 
+                        key={index} 
+                        animation="wave" 
+                        sx={{
+                            height: {
+                                xl: "100px",
+                                lg: "100px",
+                                md: "60px",
+                                sm: "50px",
+                                xs: "50px",
+                            },
+                            width:"100%",
+                            marginRight:"20px",
+                            
+                        }} 
+                    />
+                ))
+                
+
                 ) : servicesList.length > 0 ? (
                     servicesList
                         .filter((item) => (isMobile ? item.title : item.title !== "ABOUT"))
@@ -149,286 +185,34 @@ export default function Services({
 
                             return (
                                 <>
-                                    <Grid
-                                        key={item.id || index}
-                                        item
-                                        xs={12}
-                                        sm={6}
-                                        md={12}
-                                        lg={12}
-                                        sx={{
-                                            display: {
-                                                lg: "unset",
-                                                md: "unset",
-                                                sm: "unset",
-                                                xs: "none"
-                                            },
-                                            overflow:"hidden"
-                                        }}
-                                    >
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 30, rotate: 10 }}
-                                            animate={{ opacity: 1, y: 0, rotate: 0 }}
-                                            transition={{
-                                                duration: 0.6,
-                                                type: "spring",
-                                                stiffness: 100,
-                                                delay: index * 0.5,
-                                            }}
-                                            onMouseEnter={() => {
-                                                if (!isMobile) {
-                                                    handleHover();
-                                                    setIsHovered(true);
-                                                }
-                                            }}
-                                            onMouseLeave={() => {
-                                                if (!isMobile) {
-                                                    handleLeave();
-                                                    setIsHovered(false);
-                                                }
-                                            }}
-                                        >
-                                            <Box
-                                                onClick={() => isTabScreen && handleClicks(item)}
-                                                sx={{
-                                                    cursor: `url(${index === 0
-                                                        ? academy
-                                                        : index === 1
-                                                            ? customCursor
-                                                            : index === 2
-                                                                ? software
-                                                                : index === 3
-                                                                    ? design
-                                                                    : ""}), pointer`,
-                                                    background:
-                                                        isMobile && activeService === index
-                                                            ? theme.palette.mode === "light"
-                                                                ? "#051A2F"
-                                                                : "#E9FA50"
-                                                            : "#F4F4F4",
-                                                    borderRadius: "38.7px",
-                                                    marginLeft: "2px",
-                                                    marginTop: {
-                                                        lg: "20px",
-                                                        md: "20px",
-                                                        sm: "20px",
-                                                        xs: "6px",
-                                                    },
-                                                    height: {
-                                                        xl: "100px",
-                                                        lg: "80px",
-                                                        md: "60px",
-                                                        sm: "50px",
-                                                        xs: "50px",
-                                                    },
-                                                    display: "flex",
-                                                    alignItems: "center",
-                                                    paddingLeft: "32px",
-                                                    paddingRight: "32px",
-                                                    justifyContent: "space-between",
-                                                    marginRight: {
-                                                        lg: "unset",
-                                                        md: "unset",
-                                                        sm: "6px",
-                                                        xs: "6px",
-                                                    },
-                                                    color:
-                                                        isMobile && activeService === index
-                                                            ? "#FFFFFF"
-                                                            : "#051A2F",
-                                                    transition: "background 0.5s ease, transform 0.2s",
-                                                    "&:hover": {
-                                                        transform:
-                                                            !isMobile && !isTabScreen && "scale(1.05) rotate(2deg)",
-                                                        color:
-                                                            hoveredService === "INTERNET"
-                                                                ? "#011343"
-                                                                : "#FFFFFF",
-                                                        background: !isMobile
-                                                            ? index === 1
-                                                                ? "#E9FA50"
-                                                                : index === 0
-                                                                    ? "#FF9F31"
-                                                                    : index === 2
-                                                                        ? theme.palette.mode === "light"
-                                                                            ? "#011343"
-                                                                            : "#9D89FC"
-                                                                        : index === 3
-                                                                            ? "#1CB786"
-                                                                            : ""
-                                                            : index === 1
-                                                                ? "#FF9F31"
-                                                                : index === 0
-                                                                    ? theme.palette.mode === "light"
-                                                                        ? "#051A2F"
-                                                                        : "#E9FA50"
-                                                                    : index === 3
-                                                                        ? theme.palette.mode === "light"
-                                                                            ? "#011343"
-                                                                            : "#9D89FC"
-                                                                        : index === 2
-                                                                            ? "#E9FA50"
-                                                                            : index === 4
-                                                                                ? "#1CB786"
-                                                                                : "",
-                                                    },
-                                                }}
-                                            >
-                                                <Typography
-                                                    sx={{
-                                                        fontSize: {
-                                                            lg: "40px",
-                                                            md: "24px",
-                                                            sm: "15px",
-                                                            xs: "15px",
-                                                        },
-                                                        fontFamily: "var(--English-font-semibold)",
-                                                        overflow: "hidden",
-                                                        whiteSpace: "nowrap",
-                                                        textOverflow: "ellipsis",
-                                                        maxWidth: "550px",
-                                                    }}
-                                                >
-                                                    {item.title.length > 20
-                                                        ? `${item.title.slice(0, 20)}...`
-                                                        : item.title}
-                                                </Typography>
-
-                                                {image && (
-                                                    <Box
-                                                        component="img"
-                                                        src={
-                                                            hoveredService === "SOFTWARE" &&
-                                                                index === 2 &&
-                                                                theme.palette.mode === "light"
-                                                                ? UnionWhite
-                                                                : image.img
-                                                        }
-                                                        sx={{
-                                                            width: {
-                                                                lg: "unset",
-                                                                md: "25px",
-                                                                sm: "25px",
-                                                            },
-                                                        }}
-                                                    />
-                                                )}
-                                            </Box>
-                                        </motion.div>
-                                    </Grid>
-                                    <Grid
-                                        sx={{
-                                            display: {
-                                                lg: "none",
-                                                md: "none",
-                                                sm: "none",
-                                                xs: "unset"
-                                            }
-                                        }}
-                                    >
-
-                                        <motion.div
-                                            key={item.id || index}
-                                            initial={{ opacity: 0, y: 30, rotate: 10 }}
-                                            animate={{ opacity: 1, y: 0, rotate: 0 }}
-                                            transition={{
-                                                duration: 0.6,
-                                                type: "spring",
-                                                stiffness: 100,
-                                                delay: index * 0.5,
-                                            }}
-                                        >
-                                            <Box
-
-                                                onClick={() => handleClicks(item)}
-                                                sx={{
-
-                                                    cursor: `url(${index === 0
-                                                        ? academy
-                                                        : index === 1
-                                                            ? customCursor
-                                                            : index === 2
-                                                                ? software
-                                                                : index === 3
-                                                                    ? design
-                                                                    : ""
-                                                        }), pointer`,
-
-                                                    background: activeService === item.title
-                                                        ? activeService === "ABOUT"
-                                                            ? theme.palette.mode === 'light' ? "#E9FA50" : "#9D89FC"
-                                                            : activeService === "ACADEMICS"
-                                                                ? "#FF9F31"
-                                                                : activeService === "INTERNET"
-                                                                    ? "#E9FA50"
-                                                                    : activeService === "SOFTWARE"
-                                                                        ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC"
-                                                                        : activeService === "DESIGN & BRANDING"
-                                                                            ? "#1CB786"
-                                                                            : "#F5F5F5"
-                                                        : "#F5F5F5",
-
-                                                    borderRadius: "38.7px",
-                                                    marginLeft: "2px",
-                                                    marginTop: {
-                                                        lg: "20px",
-                                                        md: "20px",
-                                                        sm: "20px",
-                                                        xs: "6px",
-                                                    },
-                                                    height: {
-                                                        xl: "100px",
-                                                        lg: "80px",
-                                                        md: "80px",
-                                                        sm: "50px",
-                                                        xs: "50px",
-                                                    },
-                                                    display: {
-                                                        lg: "none",
-                                                        md: "none",
-                                                        sm: "none",
-                                                        xs: "flex"
-                                                    },
-                                                    alignItems: "center",
-                                                    paddingLeft: "32px",
-                                                    paddingRight: "32px",
-                                                    justifyContent: "space-between",
-                                                    marginRight: {
-                                                        lg: "unset",
-                                                        md: "unset",
-                                                        sm: "6px",
-                                                        xs: "6px",
-                                                    },
-                                                    color: activeService === item.title && activeService !== 'INTERNET' && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
-                                                    transition: "background 0.5s ease, transform 0.2s",
-
-                                                }}
-                                            >
-                                                <Typography
-                                                    sx={{
-                                                        fontSize: {
-                                                            lg: "40px",
-                                                            md: "26px",
-                                                            sm: "15px",
-                                                            xs: "15px",
-                                                        },
-                                                        fontFamily: "var(--English-font-semibold)",
-                                                        overflowY: "hidden",
-                                                        whiteSpace: "nowrap",
-                                                        textOverflow: "ellipsis",
-                                                        maxWidth: "550px",
-                                                    }}
-                                                >
-                                                    {item.title.length > 20
-                                                        ? `${item.title.slice(0, 20)}...`
-                                                        : item.title}
-                                                </Typography>
-
-
-                                            </Box>
-                                        </motion.div>
-
-                                    </Grid>
+                                    <ServicesOriginal
+                                     activeService={activeService}
+                                     setActiveService={setActiveService}
+                                     hoveredService={hoveredService}
+                                     setHoveredService={setHoveredService}
+                                     setHoveredServiceDescription={setHoveredServiceDescription}
+                                     setCapture={setCapture}
+                                     item={item}
+                                     index={index}
+                                     isMobile={isMobile}
+                                     isTabScreen={isTabScreen}
+                                     handleHover={handleHover}
+                                     setIsHovered={setIsHovered}
+                                     handleLeave={handleLeave}
+                                     handleClicks={handleClicks}
+                                     theme={theme}
+                                     image={image}
+                                    />
+                                   <ServicesMobile
+                                    activeService={activeService}
+                                    setActiveService={setActiveService}
+                                    hoveredService={hoveredService}
+                                    setHoveredService={setHoveredService}
+                                    setHoveredServiceDescription={setHoveredServiceDescription}
+                                    setCapture={setCapture}
+                                    item={item}
+                                    index={index}
+                                    />
                                 </>
 
                             );

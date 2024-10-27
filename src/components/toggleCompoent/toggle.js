@@ -27,8 +27,10 @@ export default function Toggle({ drawerOpen }) {
     return (
         <>
             <Box
+            className='root-container'
                 onClick={handleToggle}
                 sx={{
+                    
                     zIndex: "9999",
                     position: 'fixed',
                     right: {
@@ -40,11 +42,11 @@ export default function Toggle({ drawerOpen }) {
                     top: {
                         lg: '328px',
                         md: '280px',
-                        sm: '200px',
+                        sm: '400px',
                         xs: '260px'
                     },
-                    width: '38px',
-                    height: '106px',
+                    width: '30px',
+                    height: '92px',
                     scale: {
                         lg: 1,
                         md: 1,

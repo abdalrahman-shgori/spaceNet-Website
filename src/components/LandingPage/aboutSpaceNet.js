@@ -3,13 +3,20 @@ import Vector1Yellow from "../../assets/images/Vector1Yellow.svg";
 import vector1White from "../../assets/images/Vector1White.svg";
 import Vector2Yellow from "../../assets/images/Vector2Yellow.svg";
 import vector2White from "../../assets/images/Vector2White.svg";
-import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Grid, Skeleton, Typography, useMediaQuery, useTheme } from "@mui/material";
 import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogoAbout.svg";
 import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
 import { motion } from "framer-motion";
 import './about.css';
 
-export default function AboutSpaceNet({activeService,setHoveredService, hoveredService, hoveredServiceDescription, capture }) {
+export default function AboutSpaceNet({
+    activeService,
+    setHoveredService,
+     hoveredService, 
+     hoveredServiceDescription,
+      capture,
+      loading
+     }) {
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
     const paragraphRef = useRef(null);
@@ -109,6 +116,15 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                         sm: "80px",
                         xs: "80px"
                     },
+                   
+                        padding: {
+                            lg: "0px 75px 0px 0px",
+                            md: "0px 75px 0px 0px",
+                            sm: "0px 45px 0px 25px",
+                            xs: "0px 25px",
+                        },
+                        overflow:"hidden"
+
                 }}
             >
                 <Grid item xs={12} lg={6}>
@@ -171,6 +187,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                     sm: "30px",
                                     xs: "30px"
                                 },
+
                             }}
                         >
                             {['ACADEMICS', 'INTERNET', 'SOFTWARE', 'DESIGN & BRANDING'].includes(hoveredService) ? (
@@ -191,6 +208,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                        animate={{ opacity: 1 }}
                                        exit={{ opacity: 0 }}
                                        transition={{ duration: 0.5 }}
+                                       
 
                                     >
                                         <Typography
@@ -209,6 +227,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                                             hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
                                                                 hoveredService === 'DESIGN & BRANDING' ? "#1CB786" :
                                                                     '',
+
                                             }}
                                         >
                                             {displayedText}
@@ -219,29 +238,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
 
                             ) : (
                                 <>
-                                    {/* <Typography
-                                        sx={{
-                                            fontSize: {
-                                                lg: "44px",
-                                                md: "44px",
-                                                sm: "32px",
-                                                xs: "28px"
-                                            },
-
-                                            fontFamily: "var(--English-font-Extralight)",
-                                            color:
-                                                hoveredService === 'ACADEMICS' ? "#FF9F31" :
-                                                    hoveredService === 'INTERNET' ? "#E9FA50" :
-                                                        hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
-                                                            hoveredService === 'DESIGN & BRANDING' ? "#1CB786" :
-                                                                ''
-
-
-
-                                        }}
-                                    >
-                                        {hoveredService || "About"}
-                                    </Typography> */}
+                                   
                                     <Box
                                         component="img"
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
@@ -261,6 +258,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                                 xs: "10px"
                                             },
                                             paddingRight: "20px",
+
                                         }}
                                     />
                                 </>
@@ -276,7 +274,8 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                         sm: capture ? "auto" : '270px',
                                         xs: capture ? "auto" : '270px'
                                     },
-                                    overflow: 'hidden'
+                                   
+
                                 }}>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
@@ -296,7 +295,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                     />
                                 )}
 
-
+        
                                 <Typography
                                     ref={paragraphRef}
                                     sx={{
@@ -332,7 +331,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                         
                                     }}
                                 >
-                                    {scrollingContent}
+                                    {loading ? <Skeleton animation="wave" sx={{height:"200px"}}/> : scrollingContent}
                                 </Typography>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
@@ -391,8 +390,13 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                     sm: "106px",
                                     xs: "106px"
                                 },
-                                position: "absolute",
-                                right: "0"
+                                float:"right",
+                                marginTop:{
+                                    lg:"-60px",
+                                    md:"-30px",
+                                    sm:"-20px",
+                                    xs:"-20px"
+                                }
                             }}
                         />
                     </motion.div>

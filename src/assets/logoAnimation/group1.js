@@ -30,6 +30,7 @@ const SvgGroup1 = (props) => {
                 delay: 0.5,
                 duration: 0.2,    
                 ease: [0.42, 0, 0.58, 1],  
+                Infinity:true
               },
               scale: {
                 delay: 1,    
