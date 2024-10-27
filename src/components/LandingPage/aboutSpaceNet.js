@@ -109,6 +109,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                         sm: "80px",
                         xs: "80px"
                     },
+                    overflow:"hidden"
                 }}
             >
                 <Grid item xs={12} lg={6}>
