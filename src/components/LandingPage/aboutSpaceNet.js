@@ -15,6 +15,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
     const paragraphRef = useRef(null);
     console.log(hoveredService)
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
 
     useEffect(() => {
         const paragraph = paragraphRef.current;
@@ -105,7 +106,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                     marginTop: {
                         lg: "unset",
                         md: "unset",
-                        sm: "20px",
+                        sm: "80px",
                         xs: "80px"
                     },
                 }}
@@ -116,7 +117,9 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                             initialAnimation
                                 ? { y: [0, 120, 0], x: [0, 120, 0] }
                                 : capture
-                                    ? { y: [0, 120, 0], x: [0, 120, 0] }
+                                    ? isMobile ? { y: [0, 80, 0], x: [0, 80, 0] }
+                                      : isTabScreen ? { y: [0, 80, 0], x: [0, 80, 0] } :
+                                       { y: [0, 120, 0], x: [0, 120, 0] }
                                     : { y: 0, x: 0 }
                         }
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
@@ -280,7 +283,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                     <div
                                         style={{
                                             position: 'absolute',
-                                            top: "-2px",
+                                            top: "-4px",
                                             left: 0,
                                             right: 0,
                                             height: '60px',
@@ -335,7 +338,7 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                     <div
                                         style={{
                                             position: 'absolute',
-                                            bottom: "-1px",
+                                            bottom: "-22px",
                                             left: 0,
                                             right: 0,
                                             height: '60px',
@@ -356,7 +359,12 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                         initial={{ y: 0 }}
                         animate={initialAnimation
                             ? { y: [0, -120, 0], x: [0, -120, 0] }
-                            : capture ? { y: [0, -120, 0], x: [0, -120, 0] } : { y: 0, x: 0 }}
+                            : capture
+                                    ? isMobile ? { y: [0, -80, 0], x: [0, -80, 0] }
+                                      : isTabScreen ? { y: [0, -80, 0], x: [0, -80, 0] } :
+                                       { y: [0, -120, 0], x: [0, -120, 0] }
+                                    : { y: 0, x: 0 }
+                            }
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
                     >
                         <Box

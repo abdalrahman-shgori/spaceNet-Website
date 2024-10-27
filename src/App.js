@@ -36,7 +36,7 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
   };
   return (
     <Grid
-
+ 
       sx={{
         minHeight: {
           lg: '100vh',
@@ -53,6 +53,7 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
       {showContent && (
         <>
           <motion.div
+          className={!showLogo && 'root-container'}
             initial={{ y: '100%', opacity: 0, height: "100dvh" }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -62,10 +63,17 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
           >
             <NavBar setDrawerOpen={setDrawerOpen} />
             <LandingPage />
+            <Box
+            sx={{
+              display:"fixed"
+            }}
+            >
+            <Toggle drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
+
+            </Box>
 
           </motion.div>
-
-          <Toggle drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
+        
 
 
         </>

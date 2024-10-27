@@ -61,7 +61,7 @@ const NavBar = ({ setDrawerOpen }) => {
                         xl: '55px 75px 60px 75px',
                         lg: '55px 75px 70px 75px',
                         md: '55px 75px 70px 75px',
-                        sm: '45px 25px 70px 25px',
+                        sm: '45px 25px 40px 25px',
                         xs: '25px 25px 40px 25px'
                     }
                 }}
@@ -97,8 +97,19 @@ const NavBar = ({ setDrawerOpen }) => {
                             >
                                 <MenuRoundedIcon
                                     sx={{
-                                        width: 35,
-                                        height: 35,
+                                        width: {
+                                            xl:60,
+                                            lg:35,
+                                            sm:35,
+                                            xs:35
+                                            
+                                        },
+                                        height: {
+                                            xl:60,
+                                            lg:35,
+                                            sm:35,
+                                            xs:35
+                                        },
                                         color: theme.palette.mode === 'light' ? '#051A2F' : '#FFFFFF'
                                     }} />
                             </IconButton>
@@ -111,6 +122,7 @@ const NavBar = ({ setDrawerOpen }) => {
                             transition={{ duration: 0.5 }}
                         >
                             <Drawer
+                            
                                 anchor={isSmallScreen ? "left" : "right"}
                                 open={isDrawerOpen}
                                 onClose={handleCloseDrawer}
@@ -118,7 +130,7 @@ const NavBar = ({ setDrawerOpen }) => {
                                     sx: {
                                         width: isSmallScreen ? "80%" : isTabScreen ? '60%' : "42%",
                                         height: '100%',
-                                        overflow: 'hidden',
+                                        overflow: 'auto',
                                         boxShadow: '0 0 20px rgba(0,0,0,0.1)',
                                         background: "#fff",
                                         clipPath: isSmallScreen ? 'none' : 'ellipse(100% 75% at 100% 50%)',
@@ -148,7 +160,17 @@ const NavBar = ({ setDrawerOpen }) => {
                                             display: isSmallScreen ? "none" : "flex"
                                         }}
                                     >
-                                        <CloseRoundedIcon sx={{ width: 40, height: 35, color: "#000000" }} />
+                                        <CloseRoundedIcon sx={{  width: {
+                                            xl:60,
+                                            lg:35,
+                                            
+                                        },
+                                        height: {
+                                            xl:60,
+                                            lg:35,
+                                            
+                                        },
+                                         color: "#000000" }} />
                                     </IconButton>
 
                                     <List sx={{ flexGrow: 1, marginTop: "50px" }}>
@@ -175,6 +197,7 @@ const NavBar = ({ setDrawerOpen }) => {
                                                     <Typography
                                                         sx={{
                                                             fontSize: {
+                                                                xl:"50px",
                                                                 lg: "44px",
                                                                 md: "30px",
                                                                 sm: "28px",
