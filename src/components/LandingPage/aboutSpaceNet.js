@@ -109,7 +109,6 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                         sm: "80px",
                         xs: "80px"
                     },
-                    overflow:"hidden"
                 }}
             >
                 <Grid item xs={12} lg={6}>
@@ -325,11 +324,12 @@ export default function AboutSpaceNet({activeService,setHoveredService, hoveredS
                                         },
                                         position: 'relative',
                                         '&::-webkit-scrollbar': { display: 'none' },
-                                        scrollbarWidth: '0px',
+                                        scrollbarWidth: 'none',
                                         display: 'flex',
                                         flexDirection: 'column',
                                         textAlign: 'justify',
                                         zIndex: 2,
+                                        
                                     }}
                                 >
                                     {scrollingContent}
