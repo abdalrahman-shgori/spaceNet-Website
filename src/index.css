@@ -8,6 +8,11 @@ body {
   overscroll-behavior: none;
 
 }
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: #051A2F; /* Set your desired background color */
+}
 
 .root-container {
   margin: auto;

@@ -76,7 +76,7 @@ const InnerApp = ({ showContent, setShowContent, showLogo, setShowLogo }) => {
           sm: '100vh',
           xs: '100dvh'
         },
-        background: showLogo ? '#051A2F' : '#051A2F',
+        background: showLogo ? '#051A2F' : 'transparent',
         overflow: showLogo ? 'hidden' : 'auto',
       }}
     >
