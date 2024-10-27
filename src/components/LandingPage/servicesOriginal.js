@@ -116,14 +116,14 @@ export default function ServicesOriginal({
                         color: activeService === item.title && activeService !== 'INTERNET' && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
 
                         transition: "background 0.5s ease, transform 0.2s",
-                        "&:hover": {
+                        "&:hover":!isMobile && !isTabScreen && {
                             transform:
                                 !isMobile && !isTabScreen && "scale(1.05) rotate(2deg)",
                             color:
                                 !isTabScreen && hoveredService === "INTERNET"
                                     ? "#011343"
                                     : "#FFFFFF",
-                            background: !isMobile || !isTabScreen
+                            background: !isMobile && !isTabScreen
                                 ? index === 1
                                     ? "#E9FA50"
                                     : index === 0
