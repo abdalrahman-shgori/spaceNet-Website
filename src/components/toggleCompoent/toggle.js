@@ -48,7 +48,7 @@ export default function Toggle({ drawerOpen }) {
                 position: 'fixed',
                 right: {
                     xl: '70px',
-                    lg: '65px',
+                    lg: '70px',
                     md: '60px',
                     sm: '10px',
                     xs: '15px',
@@ -60,6 +60,7 @@ export default function Toggle({ drawerOpen }) {
                     sm: dimension, 
                     xs: "280px", 
                 },
+               
              
                 width: '30px',
                 height: '92px',
