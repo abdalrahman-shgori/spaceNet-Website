@@ -26,7 +26,7 @@ export default function Toggle({ drawerOpen }) {
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const handleResize = () => {
       if (window.innerHeight > 600) {
-        setDimension("500px");
+        setDimension("450px");
       } else {
         setDimension("60%");
       }
@@ -41,44 +41,47 @@ export default function Toggle({ drawerOpen }) {
     }, []);
     return (
         <>
-            <Box
-                onClick={handleToggle}
-                sx={{
-
-                    zIndex: "9999",
-                    position: 'fixed',
-                    right: {
-                        xl:"70px",
-                        lg: '70px',
-                        md: '60px',
-                        sm: '10px',
-                        xs: '15px'
-                    },
-                    top: {
-                        lg: '328px',
-                        md: '280px',
-                        sm:dimension,
-                        xs: '260px'
-                    },
-                    width: '30px',
-                    height: '92px',
-                    scale: {
-                        lg: 1,
-                        md: 1,
-                        sm: 1,
-                        xs: 0.8
-                    },
-                    backgroundColor:'#051A2F',
-                    borderRadius: '18px',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.3s ease, opacity 0.5s ease',
-                    border: isDarkMode && !drawerOpen && "2px solid #FFFFFF",
-                    opacity: isVisible ? 1 : 0,
-                    paddingLeft:isDarkMode && "12px",
-                    paddingRight:isDarkMode && "12px"
-
-                }}
-            >
+           <Box
+            onClick={handleToggle}
+            sx={{
+                zIndex: 9999,
+                position: 'fixed',
+                right: {
+                    xl: '70px',
+                    lg: '70px',
+                    md: '60px',
+                    sm: '10px',
+                    xs: '15px',
+                },
+                top: {
+                    xl: '328px',
+                    lg: '328px',
+                    md: '280px',
+                    sm: dimension, // Center vertically for small screens
+                    xs: '38%', // Center vertically for extra small screens
+                },
+                transform: {
+                    sm: 'translateY(-50%)', // Adjust to center vertically
+                    xs: 'translateY(-50%)', // Adjust to center vertically
+                },
+                width: '30px',
+                height: '92px',
+                scale: {
+                    lg: 1,
+                    md: 1,
+                    sm: 1,
+                    xs: 0.8,
+                },
+                backgroundColor: '#051A2F',
+                borderRadius: '18px',
+                cursor: 'pointer',
+                transition: 'background-color 0.3s ease, opacity 0.5s ease',
+                border: isDarkMode && !drawerOpen ? '2px solid #FFFFFF' : 'none',
+                opacity: isVisible ? 1 : 0,
+                paddingLeft: isDarkMode ? '12px' : '0',
+                paddingRight: isDarkMode ? '12px' : '0',
+            }}
+        >
                 <Typography
                     variant="body2"
                     sx={{
