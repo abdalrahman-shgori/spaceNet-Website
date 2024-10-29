@@ -57,12 +57,15 @@ export default function AboutSpaceNet({
         const paragraph = paragraphRef.current;
 
         const scrollContent = () => {
-            if (paragraph) {
-                paragraph.scrollTop += 1;
-                if (paragraph.scrollTop >= paragraph.scrollHeight / 2) {
-                    paragraph.scrollTop = 0;
+            setTimeout(() => {
+                if (paragraph) {
+                    paragraph.scrollTop += 1;
+                    if (paragraph.scrollTop >= paragraph.scrollHeight / 2) {
+                        paragraph.scrollTop = 0;
+                    }
                 }
-            }
+            }, 3000);
+           
         };
 
         const intervalId = setInterval(scrollContent, 50);

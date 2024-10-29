@@ -34,16 +34,16 @@ export default function Toggle({ drawerOpen }) {
                     position: 'fixed',
                     right: {
                         xl:"70px",
-                        lg: '65px',
+                        lg: '70px',
                         md: '60px',
                         sm: '10px',
                         xs: '15px'
                     },
                     top: {
-                        lg: '40%',
-                        md: '40%',
-                        sm: '60%',
-                        xs: '40%'
+                        lg: '328px',
+                        md: '280px',
+                        sm: '300px',
+                        xs: '260px'
                     },
                     width: '30px',
                     height: '92px',
