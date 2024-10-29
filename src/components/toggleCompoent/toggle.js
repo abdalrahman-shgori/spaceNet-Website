@@ -7,6 +7,7 @@ export default function Toggle({ drawerOpen }) {
     const { toggleColorMode } = useColorMode();
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [dimension, setDimension] = useState("30%");
     const theme = useTheme();
 
     useEffect(() => {
@@ -23,7 +24,21 @@ export default function Toggle({ drawerOpen }) {
     };
 
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
-
+    const handleResize = () => {
+      if (window.innerHeight > 600) {
+        setDimension("500px");
+      } else {
+        setDimension("60%");
+      }
+    };
+  
+    useEffect(() => {
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
     return (
         <>
             <Box
@@ -42,7 +57,7 @@ export default function Toggle({ drawerOpen }) {
                     top: {
                         lg: '328px',
                         md: '280px',
-                        sm: '250px',
+                        sm:dimension,
                         xs: '260px'
                     },
                     width: '30px',
