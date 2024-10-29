@@ -15,7 +15,9 @@ export default function Services({
     loading,
     hoveredServiceDescription,
     isAboutActive,
-    setIsAboutActive
+    setIsAboutActive,
+    outOfServicesHover,
+    setOutOfServicesHover
 
 }) {
     console.log(isAboutActive, "abb")
@@ -175,12 +177,18 @@ export default function Services({
                                 setHoveredService(item.title);
                                 setHoveredServiceDescription(item.description);
                                 setCapture(true);
+                                setOutOfServicesHover(false)
                             };
 
                             const handleLeave = () => {
                                 setHoveredService("");
                                 setHoveredServiceDescription("");
                                 setCapture(false);
+                                setOutOfServicesHover(true)
+                                setTimeout(() => {
+                                    setOutOfServicesHover(false)
+                                }, 1000);
+
                             };
 
                             return (

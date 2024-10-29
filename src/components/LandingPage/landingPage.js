@@ -13,6 +13,8 @@ export default function LandingPage({
     const [hoveredService, setHoveredService] = useState("");
     const [hoveredServiceDescription, setHoveredServiceDescription] = useState("");
     const [capture, setCapture] = useState(false);
+    const [outOfServicesHover, setOutOfServicesHover] = useState(false);
+
     const [activeService, setActiveService] = useState('ABOUT');
 
     return (
@@ -36,7 +38,8 @@ export default function LandingPage({
                     hoveredServiceDescription={hoveredServiceDescription}
                     isAboutActive={isAboutActive}
                     setIsAboutActive={setIsAboutActive}
-
+                    outOfServicesHover={outOfServicesHover}
+                    setOutOfServicesHover={setOutOfServicesHover}
                 />
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -47,6 +50,8 @@ export default function LandingPage({
                     setHoveredService={setHoveredService}
                     activeService={activeService}
                     loading={loading}
+                    outOfServicesHover={outOfServicesHover}
+
                 />
             </Grid>
         </Grid>

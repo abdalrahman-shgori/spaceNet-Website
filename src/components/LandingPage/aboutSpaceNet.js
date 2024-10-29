@@ -14,7 +14,8 @@ export default function AboutSpaceNet({
     hoveredService,
     hoveredServiceDescription,
     capture,
-    loading
+    loading,
+    outOfServicesHover
 }) {
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
@@ -82,6 +83,8 @@ export default function AboutSpaceNet({
         return () => clearTimeout(timer);
     }, []);
 
+ 
+
     const scrollingContent = (
         <>
             {hoveredServiceDescription ? (
@@ -131,13 +134,13 @@ export default function AboutSpaceNet({
                 <Grid item xs={12} lg={6}>
                     <motion.div
                         animate={
-                            initialAnimation
+                            initialAnimation 
                                 ? { y: [0, 120, 0], x: [0, 120, 0] }
-                                : capture
+                                : capture 
                                     ? isMobile ? { y: [0, 80, 0], x: [0, 80, 0] }
                                         : isTabScreen ? { y: [0, 80, 0], x: [0, 80, 0] } :
                                             { y: [0, 120, 0], x: [0, 120, 0] }
-                                    : { y: 0, x: 0 }
+                                    : outOfServicesHover ?  { y: [0, 80, 0], x: [0, 80, 0] }: { y: 0, x: 0 }
                         }
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
                     >
@@ -160,8 +163,14 @@ export default function AboutSpaceNet({
                 <Grid item xs={12}>
                     <motion.div
                         initial={{ y: 0 }}
-                        animate={initialAnimation ? { scale: [0, 1] } : capture ? { scale: [0, 1] } : { scale: 1 }}
-                        transition={{ duration: initialAnimation ? 0.5 : 0.3, delay: initialAnimation ? 0.6 : 0.2 }}
+                        animate={
+                            initialAnimation ? 
+                            { scale: [0, 1] }
+                             : capture ?
+                              { scale: [0, 1] }
+                               : outOfServicesHover ? { scale: [1,0,1] } : { scale: 1 }
+                            }
+                        transition={{ duration: initialAnimation ? 0.5 : outOfServicesHover ? 0.5 : 0.3, delay: initialAnimation ? 0.6 : outOfServicesHover ? 0 : 0.2 }}
                     >
                         <Box
                             sx={{
@@ -363,7 +372,7 @@ export default function AboutSpaceNet({
                                 ? isMobile ? { y: [0, -80, 0], x: [0, -80, 0] }
                                     : isTabScreen ? { y: [0, -80, 0], x: [0, -80, 0] } :
                                         { y: [0, -120, 0], x: [0, -120, 0] }
-                                : { y: 0, x: 0 }
+                                : outOfServicesHover ? { y: [0, -80, 0], x: [0, -80, 0] } : { y: 0, x: 0 }
                         }
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
                     >
