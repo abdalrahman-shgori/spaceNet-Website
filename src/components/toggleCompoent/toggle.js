@@ -28,7 +28,7 @@ export default function Toggle({ drawerOpen }) {
       if (window.innerHeight > 600) {
         setDimension("450px");
       } else {
-        setDimension("70%");
+        setDimension("75%");
       }
     };
   
@@ -58,7 +58,7 @@ export default function Toggle({ drawerOpen }) {
                     lg: '328px',
                     md: '280px',
                     sm: dimension, // Center vertically for small screens
-                    xs: '40%', // Center vertically for extra small screens
+                    xs: '45%', // Center vertically for extra small screens
                 },
                 transform: {
                     sm: 'translateY(-50%)', // Adjust to center vertically
