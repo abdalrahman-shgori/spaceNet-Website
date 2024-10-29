@@ -43,7 +43,7 @@ export default function Toggle({ drawerOpen }) {
                         lg: '40%',
                         md: '40%',
                         sm: '60%',
-                        xs: '35%'
+                        xs: '40%'
                     },
                     width: '30px',
                     height: '92px',
