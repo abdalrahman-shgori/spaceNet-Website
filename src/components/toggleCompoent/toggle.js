@@ -28,7 +28,7 @@ export default function Toggle({ drawerOpen }) {
       if (window.innerHeight > 600) {
         setDimension("450px");
       } else {
-        setDimension("75%");
+        setDimension("200px");
       }
     };
   
@@ -48,7 +48,7 @@ export default function Toggle({ drawerOpen }) {
                 position: 'fixed',
                 right: {
                     xl: '70px',
-                    lg: '70px',
+                    lg: '65px',
                     md: '60px',
                     sm: '10px',
                     xs: '15px',
@@ -57,13 +57,10 @@ export default function Toggle({ drawerOpen }) {
                     xl: '328px',
                     lg: '328px',
                     md: '280px',
-                    sm: dimension, // Center vertically for small screens
-                    xs: '45%', // Center vertically for extra small screens
+                    sm: dimension, 
+                    xs: "280px", 
                 },
-                transform: {
-                    sm: 'translateY(-50%)', // Adjust to center vertically
-                    xs: 'translateY(-50%)', // Adjust to center vertically
-                },
+             
                 width: '30px',
                 height: '92px',
                 scale: {
