@@ -40,10 +40,10 @@ export default function Toggle({ drawerOpen }) {
                         xs: '15px'
                     },
                     top: {
-                        lg: '328px',
-                        md: '280px',
-                        sm: '250px',
-                        xs: '260px'
+                        lg: '40%',
+                        md: '40%',
+                        sm: '60%',
+                        xs: '35%'
                     },
                     width: '30px',
                     height: '92px',
