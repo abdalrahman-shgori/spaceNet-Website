@@ -4,9 +4,9 @@
     position: absolute;
     top: 0;
     right: 100px;
-    width: 6100px; /* Width of your sidebar */
-    height: 100%; /* Full height */
-    overflow: hidden; /* Hide overflow when closed */
+    width: 6100px; 
+    height: 100%; 
+    overflow: hidden; 
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
   }
@@ -15,10 +15,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    right: 0; /* Cover the whole sidebar area */
-    bottom: 0; /* Cover the whole sidebar area */
-    background: #fff; /* Background color of the sidebar */
-    clip-path: ellipse(100% 75% at 100% 50%); /* Default clip-path for closed state */
+    right: 0; 
+    bottom: 0; 
+    background: #fff;
+    clip-path: ellipse(100% 75% at 100% 50%); 
   }
   
   

@@ -2,12 +2,13 @@ import { Grid } from "@mui/material";
 import React, { useState } from "react";
 import Services from "./services";
 import AboutSpaceNet from "./aboutSpaceNet";
-import Transform from "../../assets/transfomationSvg/transform";
 
 export default function LandingPage({
     servicesList,
     setServicesList,
-    loading
+    loading,
+    isAboutActive,
+    setIsAboutActive
 }) {
     const [hoveredService, setHoveredService] = useState("");
     const [hoveredServiceDescription, setHoveredServiceDescription] = useState("");
@@ -18,7 +19,7 @@ export default function LandingPage({
         <Grid
             container
         >
-            
+
             <Grid item lg={6} md={6} sm={12} xs={12}>
                 {/* <Transform/> */}
                 <Services
@@ -33,6 +34,8 @@ export default function LandingPage({
                     servicesList={servicesList}
                     loading={loading}
                     hoveredServiceDescription={hoveredServiceDescription}
+                    isAboutActive={isAboutActive}
+                    setIsAboutActive={setIsAboutActive}
 
                 />
             </Grid>

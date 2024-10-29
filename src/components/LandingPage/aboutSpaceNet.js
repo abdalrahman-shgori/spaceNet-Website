@@ -11,16 +11,14 @@ import './about.css';
 
 export default function AboutSpaceNet({
     activeService,
-    setHoveredService,
-     hoveredService, 
-     hoveredServiceDescription,
-      capture,
-      loading
-     }) {
+    hoveredService,
+    hoveredServiceDescription,
+    capture,
+    loading
+}) {
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
     const paragraphRef = useRef(null);
-    console.log(hoveredService)
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
 
@@ -36,7 +34,7 @@ export default function AboutSpaceNet({
 
     useEffect(() => {
         timeoutRef.current.forEach(timeout => clearTimeout(timeout));
-        timeoutRef.current = []; 
+        timeoutRef.current = [];
         setDisplayedText("");
         if (hoveredService) {
             let currentText = "";
@@ -85,7 +83,7 @@ export default function AboutSpaceNet({
         <>
             {hoveredServiceDescription ? (
                 <>
-                    <span className="scrolling-content">{hoveredServiceDescription}</span> 
+                    <span className="scrolling-content">{hoveredServiceDescription}</span>
                 </>
             ) : (
                 <>
@@ -116,14 +114,14 @@ export default function AboutSpaceNet({
                         sm: "80px",
                         xs: "80px"
                     },
-                   
-                        padding: {
-                            lg: "0px 75px 0px 0px",
-                            md: "0px 75px 0px 0px",
-                            sm: "0px 45px 0px 25px",
-                            xs: "0px 25px",
-                        },
-                        overflow:"hidden"
+
+                    padding: {
+                        lg: "0px 75px 0px 0px",
+                        md: "0px 75px 0px 0px",
+                        sm: "0px 45px 20px 25px",
+                        xs: "0px 25px",
+                    },
+                    overflow: "hidden"
 
                 }}
             >
@@ -134,8 +132,8 @@ export default function AboutSpaceNet({
                                 ? { y: [0, 120, 0], x: [0, 120, 0] }
                                 : capture
                                     ? isMobile ? { y: [0, 80, 0], x: [0, 80, 0] }
-                                      : isTabScreen ? { y: [0, 80, 0], x: [0, 80, 0] } :
-                                       { y: [0, 120, 0], x: [0, 120, 0] }
+                                        : isTabScreen ? { y: [0, 80, 0], x: [0, 80, 0] } :
+                                            { y: [0, 120, 0], x: [0, 120, 0] }
                                     : { y: 0, x: 0 }
                         }
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
@@ -204,16 +202,16 @@ export default function AboutSpaceNet({
                                         }}
                                     />
                                     <motion.div
-                                       initial={{ opacity: 0 }}
-                                       animate={{ opacity: 1 }}
-                                       exit={{ opacity: 0 }}
-                                       transition={{ duration: 0.5 }}
-                                       
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 0.5 }}
+
 
                                     >
                                         <Typography
                                             sx={{
-                                                fontWeight:"bold",
+                                                fontWeight: "bold",
                                                 fontSize: {
                                                     lg: "40px",
                                                     md: "40px",
@@ -221,24 +219,23 @@ export default function AboutSpaceNet({
                                                     xs: "24px"
                                                 },
                                                 fontFamily: "var(--English-font-Extralight)",
-                                                color:
-                                                    hoveredService === 'ACADEMICS' ? "#FF9F31" :
-                                                        hoveredService === 'INTERNET' ? "#E9FA50" :
-                                                            hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
-                                                                hoveredService === 'DESIGN & BRANDING' ? "#1CB786" :
-                                                                    '',
-
+                                                color: hoveredService === 'ACADEMICS' ? "#FF9F31" :
+                                                    hoveredService === 'INTERNET' ? "#E9FA50" :
+                                                        hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
+                                                            hoveredService === 'DESIGN & BRANDING' ? "#1CB786" : '',
+                                                textShadow: '0.5px 0.5px 0 #fff, -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff'
                                             }}
                                         >
                                             {displayedText}
                                         </Typography>
+
                                     </motion.div>
 
                                 </>
 
                             ) : (
                                 <>
-                                   
+
                                     <Box
                                         component="img"
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
@@ -274,7 +271,7 @@ export default function AboutSpaceNet({
                                         sm: capture ? "auto" : '270px',
                                         xs: capture ? "auto" : '270px'
                                     },
-                                   
+
 
                                 }}>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
@@ -295,7 +292,7 @@ export default function AboutSpaceNet({
                                     />
                                 )}
 
-        
+
                                 <Typography
                                     ref={paragraphRef}
                                     sx={{
@@ -315,7 +312,7 @@ export default function AboutSpaceNet({
                                             xs: '220px',
                                         },
                                         paddingRight: '10px',
-                                        paddingTop:{
+                                        paddingTop: {
                                             lg: '10px',
                                             md: '10px',
                                             sm: '4px',
@@ -328,10 +325,10 @@ export default function AboutSpaceNet({
                                         flexDirection: 'column',
                                         textAlign: 'justify',
                                         zIndex: 2,
-                                        
+
                                     }}
                                 >
-                                    {loading ? <Skeleton animation="wave" sx={{height:"200px"}}/> : scrollingContent}
+                                    {loading ? <Skeleton animation="wave" sx={{ height: "200px" }} /> : scrollingContent}
                                 </Typography>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
@@ -360,11 +357,11 @@ export default function AboutSpaceNet({
                         animate={initialAnimation
                             ? { y: [0, -120, 0], x: [0, -120, 0] }
                             : capture
-                                    ? isMobile ? { y: [0, -80, 0], x: [0, -80, 0] }
-                                      : isTabScreen ? { y: [0, -80, 0], x: [0, -80, 0] } :
-                                       { y: [0, -120, 0], x: [0, -120, 0] }
-                                    : { y: 0, x: 0 }
-                            }
+                                ? isMobile ? { y: [0, -80, 0], x: [0, -80, 0] }
+                                    : isTabScreen ? { y: [0, -80, 0], x: [0, -80, 0] } :
+                                        { y: [0, -120, 0], x: [0, -120, 0] }
+                                : { y: 0, x: 0 }
+                        }
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
                     >
                         <Box
@@ -390,12 +387,12 @@ export default function AboutSpaceNet({
                                     sm: "106px",
                                     xs: "106px"
                                 },
-                                float:"right",
-                                marginTop:{
-                                    lg:"-60px",
-                                    md:"-30px",
-                                    sm:"-20px",
-                                    xs:"-20px"
+                                float: "right",
+                                marginTop: {
+                                    lg: "-60px",
+                                    md: "-30px",
+                                    sm: "-20px",
+                                    xs: "-20px"
                                 }
                             }}
                         />

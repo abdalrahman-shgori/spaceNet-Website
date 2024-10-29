@@ -13,7 +13,8 @@ export default function ServicesMobile({
     setHoveredServiceDescription,
     setCapture,
     item,
-    index
+    index,
+    setIsAboutActive
 }) {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -22,18 +23,20 @@ export default function ServicesMobile({
     const handleClicks = (item) => {
         if (item.title === "ABOUT") {
             setHoveredServiceDescription("");
+            setIsAboutActive(true);
         } else {
             setHoveredServiceDescription(item.description);
+            setIsAboutActive(false);
         }
 
         setActiveService(item.title);
         setHoveredService(item.title);
         setCapture(true);
+
         setTimeout(() => {
             setCapture(false);
         }, 200);
     };
-
     const componentRef = useRef(null);
     useEffect(() => {
         function handleClickOutside(event) {
@@ -44,7 +47,6 @@ export default function ServicesMobile({
                 setActiveService('ABOUT')
             }
         }
-
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
@@ -99,7 +101,7 @@ export default function ServicesMobile({
 
                         background: activeService === item.title
                             ? activeService === "ABOUT"
-                                ? theme.palette.mode === 'light' ? "#E9FA50" : "#9D89FC"
+                                ? theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50"
                                 : activeService === "ACADEMICS"
                                     ? "#FF9F31"
                                     : activeService === "INTERNET"

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import ThemeProvider, { useColorMode } from '../../ThemeProvider';
+import { useColorMode } from '../../ThemeProvider';
 
 export default function Toggle({ drawerOpen }) {
     const { toggleColorMode } = useColorMode();
@@ -27,17 +27,17 @@ export default function Toggle({ drawerOpen }) {
     return (
         <>
             <Box
-            className='root-container'
                 onClick={handleToggle}
                 sx={{
-                    
+
                     zIndex: "9999",
                     position: 'fixed',
                     right: {
-                        lg: '58px',
+                        xl:"70px",
+                        lg: '65px',
                         md: '60px',
                         sm: '10px',
-                        xs: '10px'
+                        xs: '15px'
                     },
                     top: {
                         lg: '328px',
@@ -53,12 +53,15 @@ export default function Toggle({ drawerOpen }) {
                         sm: 1,
                         xs: 0.8
                     },
-                    backgroundColor: isDarkMode ? "#051A2F" : '#051A2F',
-                    borderRadius: '20px',
+                    backgroundColor:'#051A2F',
+                    borderRadius: '18px',
                     cursor: 'pointer',
                     transition: 'background-color 0.3s ease, opacity 0.5s ease',
-                    border: isDarkMode && "2px solid #FFFFFF",
+                    border: isDarkMode && !drawerOpen && "2px solid #FFFFFF",
                     opacity: isVisible ? 1 : 0,
+                    paddingLeft:isDarkMode && "12px",
+                    paddingRight:isDarkMode && "12px"
+
                 }}
             >
                 <Typography
@@ -80,11 +83,11 @@ export default function Toggle({ drawerOpen }) {
                 <Box
                     sx={{
                         position: 'absolute',
-                        bottom: isDarkMode ? '6px' : 'calc(100% - 36px)',
+                        bottom: isDarkMode ? '6px' : 'calc(100% - 28px)',
                         left: '50%',
                         transform: 'translateX(-50%)',
-                        width: '26px',
-                        height: '26px',
+                        width: '22px',
+                        height: '22px',
                         backgroundColor: isDarkMode ? '#E9FA50' : "#9D89FC",
                         borderRadius: '50%',
                         transition: 'bottom 0.3s ease',

@@ -1,14 +1,6 @@
-import { Box, Grid, Typography, useTheme, useMediaQuery, Skeleton } from "@mui/material";
+import { Grid, Typography, useTheme, useMediaQuery, Skeleton } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import Union from "../../assets/images/Union.svg";
-import customCursor from "../../assets/images/internet.svg";
-import academy from "../../assets/images/academy.svg";
-import software from "../../assets/images/software.svg";
-import design from "../../assets/images/design.svg";
-import { services as fetchServicesApi } from "../../services/websiteApis/services";
-import UnionWhite from "../../assets/images/UnionWhite.svg";
-import ServicesLogo from "../../assets/spacenetLogo/servicesLogo";
 import ServicesMobile from "./servicesMobile";
 import ServicesOriginal from "./servicesOriginal";
 
@@ -21,8 +13,12 @@ export default function Services({
     setCapture,
     servicesList,
     loading,
-    hoveredServiceDescription
+    hoveredServiceDescription,
+    isAboutActive,
+    setIsAboutActive
+
 }) {
+    console.log(isAboutActive, "abb")
     const scrollRef = useRef(null);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -34,14 +30,14 @@ export default function Services({
         { name: "SOFTWARE", img: Union },
         { name: "DESIGN & BRANDING", img: Union },
     ];
-    const [hoveredServiceIndex, setHoveredServiceIndex] = useState(null);
-    console.log(activeService);
 
     const handleClicks = (item) => {
         if (item.title === "ABOUT") {
             setHoveredServiceDescription("");
+            setIsAboutActive(false)
         } else {
             setHoveredServiceDescription(item.description);
+            setIsAboutActive(true)
         }
 
         setActiveService(item.title);
@@ -52,7 +48,7 @@ export default function Services({
         }, 200);
     };
 
- 
+
 
     const [isHovered, setIsHovered] = useState(false);
     const componentRef = useRef(null);
@@ -70,13 +66,13 @@ export default function Services({
                 }
             }
         }
-    
+
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [componentRef, hoveredService, hoveredServiceDescription]);
-    
+
     useEffect(() => {
         if (!isTabScreen && !isMobile) {
             setHoveredService("");
@@ -150,25 +146,25 @@ export default function Services({
                 }}
             >
                 {loading ? (
-                  Array(4).fill().map((_, index) => (
-                    <Skeleton 
-                        key={index} 
-                        animation="wave" 
-                        sx={{
-                            height: {
-                                xl: "100px",
-                                lg: "100px",
-                                md: "60px",
-                                sm: "50px",
-                                xs: "50px",
-                            },
-                            width:"100%",
-                            marginRight:"20px",
-                            
-                        }} 
-                    />
-                ))
-                
+                    Array(4).fill().map((_, index) => (
+                        <Skeleton
+                            key={index}
+                            animation="wave"
+                            sx={{
+                                height: {
+                                    xl: "100px",
+                                    lg: "100px",
+                                    md: "60px",
+                                    sm: "50px",
+                                    xs: "50px",
+                                },
+                                width: "100%",
+                                marginRight: "20px",
+
+                            }}
+                        />
+                    ))
+
 
                 ) : servicesList.length > 0 ? (
                     servicesList
@@ -190,32 +186,34 @@ export default function Services({
                             return (
                                 <>
                                     <ServicesOriginal
-                                     activeService={activeService}
-                                     setActiveService={setActiveService}
-                                     hoveredService={hoveredService}
-                                     setHoveredService={setHoveredService}
-                                     setHoveredServiceDescription={setHoveredServiceDescription}
-                                     setCapture={setCapture}
-                                     item={item}
-                                     index={index}
-                                     isMobile={isMobile}
-                                     isTabScreen={isTabScreen}
-                                     handleHover={handleHover}
-                                     setIsHovered={setIsHovered}
-                                     handleLeave={handleLeave}
-                                     handleClicks={handleClicks}
-                                     theme={theme}
-                                     image={image}
+                                        activeService={activeService}
+                                        setActiveService={setActiveService}
+                                        hoveredService={hoveredService}
+                                        setHoveredService={setHoveredService}
+                                        setHoveredServiceDescription={setHoveredServiceDescription}
+                                        setCapture={setCapture}
+                                        item={item}
+                                        index={index}
+                                        isMobile={isMobile}
+                                        isTabScreen={isTabScreen}
+                                        handleHover={handleHover}
+                                        setIsHovered={setIsHovered}
+                                        handleLeave={handleLeave}
+                                        handleClicks={handleClicks}
+                                        theme={theme}
+                                        image={image}
                                     />
-                                   <ServicesMobile
-                                    activeService={activeService}
-                                    setActiveService={setActiveService}
-                                    hoveredService={hoveredService}
-                                    setHoveredService={setHoveredService}
-                                    setHoveredServiceDescription={setHoveredServiceDescription}
-                                    setCapture={setCapture}
-                                    item={item}
-                                    index={index}
+                                    <ServicesMobile
+                                        activeService={activeService}
+                                        setActiveService={setActiveService}
+                                        hoveredService={hoveredService}
+                                        setHoveredService={setHoveredService}
+                                        setHoveredServiceDescription={setHoveredServiceDescription}
+                                        setCapture={setCapture}
+                                        item={item}
+                                        index={index}
+                                        isAboutActive={isAboutActive}
+                                        setIsAboutActive={setIsAboutActive}
                                     />
                                 </>
 

@@ -116,7 +116,7 @@ export default function ServicesOriginal({
                         color: activeService === item.title && activeService !== 'INTERNET' && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
 
                         transition: "background 0.5s ease, transform 0.2s",
-                        "&:hover":!isMobile && !isTabScreen && {
+                        "&:hover": !isMobile && !isTabScreen && {
                             transform:
                                 !isMobile && !isTabScreen && "scale(1.05) rotate(2deg)",
                             color:
@@ -189,7 +189,6 @@ export default function ServicesOriginal({
                                     md: "25px",
                                     sm: "25px",
                                 },
-
                             }}
                         />
                     )}

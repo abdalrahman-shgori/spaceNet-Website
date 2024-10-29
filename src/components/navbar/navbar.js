@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Box, List, ListItem, Typography, useTheme, useMediaQuery, Drawer } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogo.svg";
-import spaceNetLogoBlack from "../../assets/spacenetLogo/spaceNetLogoBlack.svg";
 import "../../assets/styles/variables.css";
 import { motion } from 'framer-motion';
 import FaceBookSvg from '../../assets/socialMediaIcons/facebook';
@@ -97,7 +95,7 @@ const NavBar = ({ setDrawerOpen }) => {
                                             sm: 35,
                                             xs: 35
                                         },
-                                        color: theme.palette.mode === 'light' ? '#051A2F' : '#FFFFFF'
+                                        color: theme.palette.mode === 'light' ? '#051A2F' : '#E9FA50'
                                     }} />
                             </IconButton>
                         </Box>
@@ -138,8 +136,8 @@ const NavBar = ({ setDrawerOpen }) => {
                                         onClick={handleCloseDrawer}
                                         sx={{
                                             position: 'absolute',
-                                            top: '50px',
-                                            right: '65px',
+                                            top: '60px',
+                                            right: '55px',
                                             color: theme.palette.text.primary,
                                             display: isSmallScreen ? "none" : "flex"
                                         }}
