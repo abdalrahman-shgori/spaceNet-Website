@@ -95,21 +95,21 @@ export default function AboutSpaceNet({
                 <>
                     <span className="scrolling-content"
                         style={{
-                            paddingBottom: "10px"
+                            paddingBottom: "24px"
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
                     </span>
                     <span className="scrolling-content"
                         style={{
-                            paddingBottom: "10px"
+                            paddingBottom: "24px"
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
                     </span>
                     <span className="scrolling-content"
                         style={{
-                            paddingBottom: "10px"
+                            paddingBottom: "24px"
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
