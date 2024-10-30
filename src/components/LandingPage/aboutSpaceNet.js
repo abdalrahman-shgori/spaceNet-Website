@@ -66,7 +66,7 @@ export default function AboutSpaceNet({
                     }
                 }
             }, 3000);
-           
+
         };
 
         const intervalId = setInterval(scrollContent, 50);
@@ -83,7 +83,7 @@ export default function AboutSpaceNet({
         return () => clearTimeout(timer);
     }, []);
 
- 
+
 
     const scrollingContent = (
         <>
@@ -93,17 +93,29 @@ export default function AboutSpaceNet({
                 </>
             ) : (
                 <>
-                    <span className="scrolling-content">
-                    We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                  
-                      </span>
-                    <span className="scrolling-content">
-                    We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                  
+                    <span className="scrolling-content"
+                        style={{
+                            paddingBottom: "10px"
+                        }}
+                    >
+                        We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
+                    </span>
+                    <span className="scrolling-content"
+                        style={{
+                            paddingBottom: "10px"
+                        }}
+                    >
+                        We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
+                    </span>
+                    <span className="scrolling-content"
+                        style={{
+                            paddingBottom: "10px"
+                        }}
+                    >
+                        We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
                     </span>
                     <span className="scrolling-content">
-                    We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                  
-                    </span>
-                    <span className="scrolling-content">
-                    We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                  
+                        We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
                     </span>
                 </>
             )}
@@ -134,13 +146,13 @@ export default function AboutSpaceNet({
                 <Grid item xs={12} lg={6}>
                     <motion.div
                         animate={
-                            initialAnimation 
+                            initialAnimation
                                 ? { y: [0, 120, 0], x: [0, 120, 0] }
-                                : capture 
+                                : capture
                                     ? isMobile ? { y: [0, 80, 0], x: [0, 80, 0] }
                                         : isTabScreen ? { y: [0, 80, 0], x: [0, 80, 0] } :
                                             { y: [0, 120, 0], x: [0, 120, 0] }
-                                    : outOfServicesHover ?  { y: [0, 80, 0], x: [0, 80, 0] }: { y: 0, x: 0 }
+                                    : outOfServicesHover ? { y: [0, 80, 0], x: [0, 80, 0] } : { y: 0, x: 0 }
                         }
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
                     >
@@ -164,12 +176,12 @@ export default function AboutSpaceNet({
                     <motion.div
                         initial={{ y: 0 }}
                         animate={
-                            initialAnimation ? 
-                            { scale: [0, 1] }
-                             : capture ?
-                              { scale: [0, 1] }
-                               : outOfServicesHover ? { scale: [1,0,1] } : { scale: 1 }
-                            }
+                            initialAnimation ?
+                                { scale: [0, 1] }
+                                : capture ?
+                                    { scale: [0, 1] }
+                                    : outOfServicesHover ? { scale: [1, 0, 1] } : { scale: 1 }
+                        }
                         transition={{ duration: initialAnimation ? 0.5 : outOfServicesHover ? 0.5 : 0.3, delay: initialAnimation ? 0.6 : outOfServicesHover ? 0 : 0.2 }}
                     >
                         <Box
