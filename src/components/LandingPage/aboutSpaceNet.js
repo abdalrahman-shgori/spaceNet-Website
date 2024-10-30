@@ -43,7 +43,7 @@ export default function AboutSpaceNet({
                 const timeout = setTimeout(() => {
                     currentText += char;
                     setDisplayedText(currentText);
-                }, index * 120);
+                }, hoveredService === "DESIGN & BRANDING" ? index * 50 : index * 80);
 
                 timeoutRef.current.push(timeout);
             });
@@ -94,16 +94,16 @@ export default function AboutSpaceNet({
             ) : (
                 <>
                     <span className="scrolling-content">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                  
+                      </span>
+                    <span className="scrolling-content">
+                    We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                  
                     </span>
                     <span className="scrolling-content">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                  
                     </span>
                     <span className="scrolling-content">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                    </span>
-                    <span className="scrolling-content">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                  
                     </span>
                 </>
             )}
@@ -294,7 +294,7 @@ export default function AboutSpaceNet({
                                             top: "-4px",
                                             left: 0,
                                             right: 0,
-                                            height: '60px',
+                                            height: '50px',
                                             background: theme.palette.mode === 'light'
                                                 ? 'linear-gradient(to bottom, rgba(157, 137, 252, 1) 0%, rgba(157, 137, 252, 0) 100%)'
                                                 : 'linear-gradient(to bottom, rgba(5, 26, 47, 1) 0%, rgba(5, 26, 47, 0) 100%)',
