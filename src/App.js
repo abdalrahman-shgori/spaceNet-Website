@@ -73,7 +73,7 @@ console.log(theme.palette.background.default)
       }}
       style={{
         background: themeColor,
-        minHeight: '100vh',
+        minHeight: '100dvh',
         position: 'relative',
         zIndex: 2,
         backgroundSize: '200% 100%',

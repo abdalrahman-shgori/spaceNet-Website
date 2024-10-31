@@ -80,12 +80,6 @@ const InnerApp = ({
 
       sx={{
         background: showLogo ? '#051A2F' : 'transparent',
-        height:{
-          lg:"unset",
-          md:"unset",
-          sm:"unset",
-          xs:"100svh"
-        }
       }}
     >
 
