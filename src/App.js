@@ -59,7 +59,7 @@ console.log(theme.palette.background.default)
 
       {logoAnimationComplete && (
         <motion.div
-      initial={{ y: '80%', opacity: 0 }}
+      initial={{ y: '100dvh', opacity: 0 }}
       animate={{ 
         y: 0, 
         opacity: 1,
