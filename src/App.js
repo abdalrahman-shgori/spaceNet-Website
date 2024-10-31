@@ -38,7 +38,7 @@ console.log(theme.palette.background.default)
   return (
     <ThemeProvider>
       <motion.div
-        initial={{ height: "100vh" }}
+        initial={{ height: "100dvh" }}
         animate={{ height: showContent ? "0%" : "100%" }}
         transition={{ duration: 1 }}
         style={{
