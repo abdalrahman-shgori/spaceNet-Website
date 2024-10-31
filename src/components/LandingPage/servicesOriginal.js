@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import customCursor from "../../assets/images/internet.svg";
 import academy from "../../assets/images/academy.svg";
@@ -13,15 +13,37 @@ export default function ServicesOriginal({
     index,
     isMobile,
     isTabScreen,
-    handleHover,
-    setIsHovered,
-    handleLeave,
     handleClicks,
     theme,
     hoveredService,
-    image
+    image,
+    handleServiceClick,
+    setHoveredService,
+    setHoveredServiceDescription,
+    setCapture,
+    setOutOfServicesHover,
+    setActiveService
 }) {
+    const [isHovered, setIsHovered] = useState(false);
 
+    const handleHover = () => {
+        setHoveredService(item.title);
+        setHoveredServiceDescription(item.description);
+        setCapture(true);
+        setOutOfServicesHover(false)
+    };
+
+    const handleLeave = () => {
+        setHoveredService("");
+        setHoveredServiceDescription("");
+        setActiveService("ABOUT")
+        setCapture(false);
+        setOutOfServicesHover(true)
+        setTimeout(() => {
+            setOutOfServicesHover(false)
+        }, 1000);
+
+    };
     return (
         <Grid
             key={item.id || index}
@@ -63,8 +85,14 @@ export default function ServicesOriginal({
                 }}
             >
                 <Box
-                    onClick={() => isTabScreen && handleClicks(item)}
-                    sx={{
+                    onClick={() => {
+                        if (isTabScreen) {
+                            handleClicks(item);
+                        }
+                        if(!isTabScreen ){
+                            handleServiceClick(image.url);
+                        }
+                    }} sx={{
                         cursor: `url(${index === 0
                             ? academy
                             : index === 1
@@ -96,7 +124,6 @@ export default function ServicesOriginal({
                             xs: "6px",
                         },
                         height: {
-                            xl: "100px",
                             lg: "80px",
                             md: "60px",
                             sm: "50px",

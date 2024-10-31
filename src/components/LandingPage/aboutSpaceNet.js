@@ -289,7 +289,6 @@ export default function AboutSpaceNet({
                                 sx={{
                                     position: 'relative',
                                     maxHeight: {
-                                        xl: "400px",
                                         lg: capture ? "auto" : '320px',
                                         md: capture ? "auto" : '300px',
                                         sm: capture ? "auto" : '270px',
@@ -300,17 +299,18 @@ export default function AboutSpaceNet({
                                 }}>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
-                                    <div
-                                        style={{
+                                    <motion.div
+                                    
+                                    style={{
                                             position: 'absolute',
-                                            top: "-4px",
+                                            top: "-6px",
                                             left: 0,
                                             right: 0,
                                             height: '50px',
                                             background: theme.palette.mode === 'light'
                                                 ? 'linear-gradient(to bottom, rgba(157, 137, 252, 1) 0%, rgba(157, 137, 252, 0) 100%)'
                                                 : 'linear-gradient(to bottom, rgba(5, 26, 47, 1) 0%, rgba(5, 26, 47, 0) 100%)',
-                                            filter: 'blur(0px)',
+                                            filter: 'blur(10px)',
                                             zIndex: 9999,
                                         }}
                                     />
@@ -329,7 +329,6 @@ export default function AboutSpaceNet({
                                         fontFamily: 'var(--English-font)',
                                         overflow: 'auto',
                                         maxHeight: {
-                                            xl: "400px",
                                             lg: '320px',
                                             md: '300px',
                                             sm: '220px',
@@ -356,7 +355,8 @@ export default function AboutSpaceNet({
                                 </Typography>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
-                                    <div
+                                    <motion.div
+                                  
                                         style={{
                                             position: 'absolute',
                                             bottom: "-22px",
@@ -366,7 +366,7 @@ export default function AboutSpaceNet({
                                             background: theme.palette.mode === 'light'
                                                 ? 'linear-gradient(to top, rgba(157, 137, 252, 1) 0%, rgba(157, 137, 252, 0) 100%)'
                                                 : 'linear-gradient(to top, rgba(5, 26, 47, 1) 0%, rgba(5, 26, 47, 0) 100%)',
-                                            filter: 'blur(0px)',
+                                            filter: 'blur(10px)',
                                             zIndex: 9999,
                                         }}
                                     />

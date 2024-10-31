@@ -10,14 +10,20 @@ import LinkedInSvg from '../../assets/socialMediaIcons/linkedIn';
 import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
+import { useNavigate } from 'react-router-dom';
 
-const NavBar = ({ setDrawerOpen }) => {
+const NavBar = ({ setDrawerOpen, showContent }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isTabScreen = useMediaQuery(theme.breakpoints.only('md'));
-    const menuItems = ['Home', 'SERVICES', 'MARKETPLACE', 'BLOG & NEWS', 'CONTACT US'];
-
+    const menuItems = [
+        { text: 'Home', route: '/' },
+        { text: 'SERVICES', route: '/services' },
+        { text: 'MARKETPLACE', route: '/marketplace' },
+        { text: 'BLOG & NEWS', route: '/blog' },
+        { text: 'CONTACT US', route: '/contact' },
+    ];
     const socialMedia = [
         { icon: <FaceBookSvg />, link: "", },
         { icon: <InstaSvg />, link: "", },
@@ -25,6 +31,7 @@ const NavBar = ({ setDrawerOpen }) => {
         { icon: <PaintrestSvg />, link: "", },
         { icon: <WhatsAppSvg />, link: "", },
     ];
+    const navigate = useNavigate(); // Initialize navigate
 
     const toggleDrawer = (open) => {
         setIsDrawerOpen(open);
@@ -39,13 +46,13 @@ const NavBar = ({ setDrawerOpen }) => {
     return (
         <>
             <AppBar
+                className='root-container'
                 position="static"
                 sx={{
                     background: 'transparent',
                     boxShadow: 'none',
                     border: 'none',
                     padding: {
-                        xl: '55px 75px 60px 75px',
                         lg: '55px 75px 70px 75px',
                         md: '55px 75px 70px 75px',
                         sm: '45px 25px 40px 25px',
@@ -84,13 +91,11 @@ const NavBar = ({ setDrawerOpen }) => {
                                 <MenuRoundedIcon
                                     sx={{
                                         width: {
-                                            xl: 60,
                                             lg: 35,
                                             sm: 35,
                                             xs: 35
                                         },
                                         height: {
-                                            xl: 60,
                                             lg: 35,
                                             sm: 35,
                                             xs: 35
@@ -144,11 +149,11 @@ const NavBar = ({ setDrawerOpen }) => {
                                     >
                                         <CloseRoundedIcon sx={{
                                             width: {
-                                                xl: 60,
+
                                                 lg: 35,
                                             },
                                             height: {
-                                                xl: 60,
+
                                                 lg: 35,
                                             },
                                             color: "#000000"
@@ -156,7 +161,7 @@ const NavBar = ({ setDrawerOpen }) => {
                                     </IconButton>
 
                                     <List sx={{ flexGrow: 1, marginTop: "50px" }}>
-                                        {menuItems.map((text, index) => (
+                                        {menuItems.map(({ text, route }, index) => (
                                             <motion.div
                                                 key={index}
                                                 initial={{ opacity: 0, y: -20 }}
@@ -168,7 +173,9 @@ const NavBar = ({ setDrawerOpen }) => {
                                                     onClick={() => {
                                                         toggleDrawer(false);
                                                         setDrawerOpen(false);
-                                                    }} sx={{
+                                                        navigate(route);
+                                                    }}
+                                                    sx={{
                                                         display: 'flex',
                                                         justifyContent: isSmallScreen ? "start" : 'center',
                                                         '&:hover': {
@@ -179,7 +186,6 @@ const NavBar = ({ setDrawerOpen }) => {
                                                     <Typography
                                                         sx={{
                                                             fontSize: {
-                                                                xl: "50px",
                                                                 lg: "44px",
                                                                 md: "30px",
                                                                 sm: "28px",
@@ -195,7 +201,7 @@ const NavBar = ({ setDrawerOpen }) => {
                                                             cursor: "pointer"
                                                         }}
                                                     >
-                                                        {text}
+                                                        {text} {/* Now this is valid */}
                                                     </Typography>
                                                 </ListItem>
                                             </motion.div>

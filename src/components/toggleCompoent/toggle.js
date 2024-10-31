@@ -3,13 +3,15 @@ import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useColorMode } from '../../ThemeProvider';
 
-export default function Toggle({ drawerOpen }) {
+export default function Toggle({ drawerOpen,setThemeColor }) {
     const { toggleColorMode } = useColorMode();
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [dimension, setDimension] = useState("30%");
     const theme = useTheme();
-
+     useEffect(()=>{
+        setThemeColor(theme.palette.background.default)
+     },[theme])
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(true);
@@ -47,14 +49,13 @@ export default function Toggle({ drawerOpen }) {
                 zIndex: 9999,
                 position: 'fixed',
                 right: {
-                    xl: '70px',
-                    lg: '70px',
+                    lg: '60px',
                     md: '60px',
-                    sm: '10px',
+                    sm: '15px',
                     xs: '15px',
                 },
                 top: {
-                    xl: '328px',
+                    xl: '128px',
                     lg: '328px',
                     md: '280px',
                     sm: dimension, 
@@ -74,7 +75,7 @@ export default function Toggle({ drawerOpen }) {
                 borderRadius: '18px',
                 cursor: 'pointer',
                 transition: 'background-color 0.3s ease, opacity 0.5s ease',
-                border: isDarkMode && !drawerOpen ? '2px solid #FFFFFF' : 'none',
+                border: theme.palette.mode === 'dark' && !drawerOpen ? '2px solid #FFFFFF' : 'none',
                 opacity: isVisible ? 1 : 0,
                 paddingLeft: isDarkMode ? '12px' : '0',
                 paddingRight: isDarkMode ? '12px' : '0',
@@ -87,13 +88,13 @@ export default function Toggle({ drawerOpen }) {
                         top: '-55px',
                         left: '50%',
                         transform: 'translateX(-50%) rotate(-90deg)',
-                        color: drawerOpen === true && !isSmallScreen ? '#000000' : (isDarkMode ? '#FFFFFF' : '#051A2F'),
+                        color: drawerOpen === true && !isSmallScreen ? '#000000' : (theme.palette.mode === 'dark' ? '#FFFFFF' : '#051A2F'),
                         fontWeight: "light",
                         fontFamily: "var(--English-font-light)",
                         fontSize: "23px"
                     }}
                 >
-                    {isDarkMode ? ' Light' : 'Dark'}
+                    {theme.palette.mode === 'dark' ? 'Dark' : 'Light'}
                 </Typography>
 
                 <Box
