@@ -10,7 +10,7 @@ import { Box, useTheme } from '@mui/material';
 import Toggle from './components/toggleCompoent/toggle';
 
 const App = () => {
-  const [drawerOpen,setDrawerOpen]=useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false); // For tracking logo animation completion
   const theme = useTheme()
@@ -48,8 +48,19 @@ const App = () => {
     };
   }, [location]);
 
+  const [showToggle, setShowToggle] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowToggle(true);
+    }, 2500); // 1000 milliseconds = 1 second
+
+    return () => clearTimeout(timer); // Cleanup the timer on unmount
+  }, []);
+
   return (
     <ThemeProvider>
+       
       <motion.div
         initial={{ height: "100dvh" }}
         animate={{ height: showContent ? "0%" : "100%" }}
@@ -72,68 +83,58 @@ const App = () => {
 
       {logoAnimationComplete && (
         <>
-            <motion.div
-            className='root-container'
-          initial={{ y: '100dvh', opacity: 0 }}
-          animate={{
-            y: 0,
-            opacity: 1,
-            background: themeColor,
-          }}
-          exit={{ y: '-100%', opacity: 0 }}
-          transition={{
-            duration: 1,
-            ease: 'easeInOut',
-            background: { duration: 0.3 },
-          }}
-          style={{
-            background: themeColor,
-            minHeight: '100dvh',
-            position: 'relative',
-            zIndex: 2,
-            backgroundSize: '200% 100%',
-            animation: 'moveBackground 5s linear infinite',
-          }}
-        >
-          {showContent && (
-            <>
-              <NavBar showContent={showContent}  setDrawerOpen={setDrawerOpen} />
-              <Box
-               
-              sx={{
-                display: {
-                  xl: "unset",
-                  lg: "none",
-                  md: "none",
-                  sm: "none",
-                  xs: "none"
-                }
-              }}
-            >
-              <Toggle setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen}/>
+      
+       
+          <motion.div
+            initial={{ y: '100dvh', opacity: 0 }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              background: themeColor,
+            }}
+            exit={{ y: '-100%', opacity: 0 }}
+            transition={{
+              duration: 1,
+              ease: 'easeInOut',
+              background: { duration: 0.3 },
+            }}
+            style={{
+              background: themeColor,
+              minHeight: '100dvh',
+              position: 'relative',
+              zIndex: 2,
+              backgroundSize: '200% 100%',
+              animation: 'moveBackground 5s linear infinite',
+            }}
+          >
 
-            </Box>
-              <Routes>
-                <Route
-                  path='/'
-                  element={
-                    <InnerApp
-                      showContent={showContent}
-                      setShowContent={setShowContent}
-                      setThemeColor={setThemeColor}
-                      draweOpen={drawerOpen}
-                      setDrawerOpen={setDrawerOpen}
-                    />
-                  }
-                />
-                <Route path='/software' element={<Software />} />
-              </Routes>
-            </>
-            
-          )}
-        </motion.div>
-        
-        <Box
+            {showContent && (
+              <>
+                <NavBar showContent={showContent} setDrawerOpen={setDrawerOpen} />
+              
+                <Routes>
+                  <Route
+                    path='/'
+                    element={
+                      <InnerApp
+                        showContent={showContent}
+                        setShowContent={setShowContent}
+                        setThemeColor={setThemeColor}
+                        draweOpen={drawerOpen}
+                        setDrawerOpen={setDrawerOpen}
+                      />
+                    }
+                  />
+                  <Route path='/software' element={<Software />} />
+                </Routes>
+
+              </>
+
+            )}
+
+          </motion.div>
+
+          <Box
             sx={{
               display: {
                 xl: "none",
@@ -144,12 +145,11 @@ const App = () => {
               }
             }}
           >
-            <Toggle  setThemeColor={setThemeColor}  drawerOpen={drawerOpen}/>
-
+            {showToggle && (
+              <Toggle setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+            )}
           </Box>
         </>
-    
-        
       )}
     </ThemeProvider>
   );

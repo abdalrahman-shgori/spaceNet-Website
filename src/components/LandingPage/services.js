@@ -17,10 +17,9 @@ export default function Services({
     hoveredServiceDescription,
     isAboutActive,
     setIsAboutActive,
-    outOfServicesHover,
     setOutOfServicesHover
 }) {
-    
+
     const scrollRef = useRef(null);
     const theme = useTheme();
     const navigate = useNavigate();
@@ -37,7 +36,7 @@ export default function Services({
 
     const handleServiceClick = (url) => {
         if (url) {
-            navigate(url); 
+            navigate(url);
         }
     };
 
@@ -82,7 +81,7 @@ export default function Services({
             setTimeout(() => setCapture(false), 200);
         }
     }, [isTabScreen, isMobile]);
- 
+
     return (
         <Grid
             ref={servicesRef}
@@ -121,7 +120,7 @@ export default function Services({
                             key={index}
                             animation="wave"
                             sx={{
-                                height: {  lg: "100px", md: "60px", sm: "50px", xs: "50px" },
+                                height: { lg: "100px", md: "60px", sm: "50px", xs: "50px" },
                                 width: "100%",
                                 marginRight: "20px",
                             }}
@@ -131,7 +130,7 @@ export default function Services({
                     servicesList
                         .filter((item) => isMobile || item.title !== "ABOUT")
                         .map((item, index) => (
-                            
+
                             <>
                                 <ServicesOriginal
                                     activeService={activeService}

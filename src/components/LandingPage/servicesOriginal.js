@@ -89,7 +89,7 @@ export default function ServicesOriginal({
                         if (isTabScreen) {
                             handleClicks(item);
                         }
-                        if(!isTabScreen ){
+                        if (!isTabScreen) {
                             handleServiceClick(image.url);
                         }
                     }} sx={{

@@ -19,6 +19,7 @@ export default function ServicesMobile({
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
+    const componentRef = useRef(null);
 
     const handleClicks = (item) => {
         if (item.title === "ABOUT") {
@@ -37,7 +38,6 @@ export default function ServicesMobile({
             setCapture(false);
         }, 200);
     };
-    const componentRef = useRef(null);
     useEffect(() => {
         function handleClickOutside(event) {
             if (componentRef.current && !componentRef.current.contains(event.target)) {
@@ -71,7 +71,6 @@ export default function ServicesMobile({
                 }
             }}
         >
-
             <motion.div
                 key={item.id || index}
                 initial={{ opacity: 0, y: 30, rotate: 10 }}

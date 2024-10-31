@@ -15,7 +15,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const NavBar = ({ setDrawerOpen, showContent }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const theme = useTheme();
-    const location = useLocation(); // Hook to get current location
+    const location = useLocation();
     const { pathname } = location;
 
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -74,7 +74,6 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                     }}
                 >
                     <SvgSpaceNetLogo />
-
                     <Box>
                         <Box sx={{ position: 'relative' }}>
                             <IconButton
@@ -109,6 +108,8 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                         </Box>
 
                         <motion.div
+
+
                             initial={{ opacity: 0, x: isSmallScreen ? '-100%' : '100%' }}
                             animate={{ opacity: isDrawerOpen ? 1 : 0, x: isDrawerOpen ? 0 : isSmallScreen ? '-100%' : '100%' }}
                             transition={{ duration: 0.5 }}

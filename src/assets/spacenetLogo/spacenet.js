@@ -56,8 +56,6 @@ const SvgSpaceNetLogo = (props) => {
         fill="none"
         {...props}
       >
-
-
         <path
           className="fill"
           fill={theme.palette.mode === 'dark' && pathname === '/' ? "#E9FA50" : "#051A2F"}

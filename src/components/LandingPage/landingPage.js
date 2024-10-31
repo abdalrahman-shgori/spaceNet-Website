@@ -14,15 +14,10 @@ export default function LandingPage({
     const [hoveredServiceDescription, setHoveredServiceDescription] = useState("");
     const [capture, setCapture] = useState(false);
     const [outOfServicesHover, setOutOfServicesHover] = useState(false);
-
     const [activeService, setActiveService] = useState('ABOUT');
 
     return (
-        <Grid
-            container
-          
-        >
-
+        <Grid container >
             <Grid item lg={6} md={6} sm={12} xs={12}>
                 {/* <Transform/> */}
                 <Services

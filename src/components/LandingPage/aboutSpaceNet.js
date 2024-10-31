@@ -22,6 +22,9 @@ export default function AboutSpaceNet({
     const paragraphRef = useRef(null);
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
+    const [displayedText, setDisplayedText] = useState("");
+    const timeoutRef = useRef([]);
+    const [initialAnimation, setInitialAnimation] = useState(true);
 
     useEffect(() => {
         const paragraph = paragraphRef.current;
@@ -30,8 +33,7 @@ export default function AboutSpaceNet({
             paragraph.scrollTop = 0;
         }
     });
-    const [displayedText, setDisplayedText] = useState("");
-    const timeoutRef = useRef([]);
+
 
     useEffect(() => {
         timeoutRef.current.forEach(timeout => clearTimeout(timeout));
@@ -73,7 +75,6 @@ export default function AboutSpaceNet({
         return () => clearInterval(intervalId);
     }, []);
 
-    const [initialAnimation, setInitialAnimation] = useState(true);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -82,7 +83,6 @@ export default function AboutSpaceNet({
 
         return () => clearTimeout(timer);
     }, []);
-
 
 
     const scrollingContent = (
@@ -132,7 +132,6 @@ export default function AboutSpaceNet({
                         sm: "80px",
                         xs: "80px"
                     },
-
                     padding: {
                         lg: "0px 75px 0px 0px",
                         md: "0px 75px 0px 0px",
@@ -300,8 +299,8 @@ export default function AboutSpaceNet({
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
                                     <motion.div
-                                    
-                                    style={{
+
+                                        style={{
                                             position: 'absolute',
                                             top: "-6px",
                                             left: 0,
@@ -356,7 +355,7 @@ export default function AboutSpaceNet({
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
                                     <motion.div
-                                  
+
                                         style={{
                                             position: 'absolute',
                                             bottom: "-22px",

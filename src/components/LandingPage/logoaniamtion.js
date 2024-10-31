@@ -4,15 +4,15 @@ import { Box } from "@mui/material";
 
 export default function LogoAnimation({
     handleAnimationComplete
-}){
+}) {
 
-    return(
+    return (
         <Box sx={{
-            background:"#051A2F",
-            height:"100dvh"
-        }}> 
+            background: "#051A2F",
+            height: "100dvh"
+        }}>
 
-<SvgGroup1 onAnimationComplete={handleAnimationComplete} />
+            <SvgGroup1 onAnimationComplete={handleAnimationComplete} />
 
         </Box>
 
