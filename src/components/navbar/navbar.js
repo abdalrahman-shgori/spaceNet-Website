@@ -10,11 +10,14 @@ import LinkedInSvg from '../../assets/socialMediaIcons/linkedIn';
 import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const NavBar = ({ setDrawerOpen, showContent }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const theme = useTheme();
+    const location = useLocation(); // Hook to get current location
+    const { pathname } = location;
+
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isTabScreen = useMediaQuery(theme.breakpoints.only('md'));
     const menuItems = [
@@ -31,11 +34,11 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
         { icon: <PaintrestSvg />, link: "", },
         { icon: <WhatsAppSvg />, link: "", },
     ];
-    const navigate = useNavigate(); // Initialize navigate
+    const navigate = useNavigate();
 
     const toggleDrawer = (open) => {
         setIsDrawerOpen(open);
-        setDrawerOpen(true);
+        setDrawerOpen(open);
     };
 
     const handleCloseDrawer = () => {
@@ -100,7 +103,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                                             sm: 35,
                                             xs: 35
                                         },
-                                        color: theme.palette.mode === 'light' ? '#051A2F' : '#E9FA50'
+                                        color: theme.palette.mode === 'dark' && pathname === '/' ? '#E9FA50' : '#051A2F'
                                     }} />
                             </IconButton>
                         </Box>

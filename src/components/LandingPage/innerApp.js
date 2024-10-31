@@ -79,7 +79,6 @@ const InnerApp = ({
     <Grid
 
       sx={{
-        background: showLogo ? '#051A2F' : 'transparent',
       }}
     >
 
@@ -102,35 +101,9 @@ const InnerApp = ({
               isAboutActive={isAboutActive}
               setIsAboutActive={setIsAboutActive}
             />
-            <Box
-              sx={{
-                display: {
-                  xl: "unset",
-                  lg: "none",
-                  md: "none",
-                  sm: "none",
-                  xs: "none"
-                }
-              }}
-            >
-              <Toggle setThemeColor={setThemeColor} drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
-
-            </Box>
+           
           </motion.div>
-          <Box
-            sx={{
-              display: {
-                xl: "none",
-                lg: "unset",
-                md: "unset",
-                sm: "unset",
-                xs: "unset"
-              }
-            }}
-          >
-            <Toggle setThemeColor={setThemeColor} drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
-
-          </Box>
+        
 
         </>
       )}
