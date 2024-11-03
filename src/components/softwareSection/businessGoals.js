@@ -11,6 +11,7 @@ export default function ResponsiveComponent({ goalDescription }) {
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isMeduimMobile = useMediaQuery(theme.breakpoints.down("600"));
     const isExtraSmallMobile = useMediaQuery(theme.breakpoints.down("363"));
+    const addBreakLine = useMediaQuery(theme.breakpoints.down("500"));
 
     const serviceTypes = [
         "Website Development",
@@ -59,12 +60,12 @@ export default function ResponsiveComponent({ goalDescription }) {
                     maxWidth: "100%",
                     width: {
                         lg: "106px",
-                        md: "106px",
+                        md: "80px",
                         sm: "80px",
                         xs: isMeduimMobile ? "60px" : "31px"
                     },
                     position: "absolute",
-                    top: -10,
+                    top: -30,
                     right: 0,
                     transition: "right 0.3s ease",
                 }}
@@ -75,15 +76,21 @@ export default function ResponsiveComponent({ goalDescription }) {
                     fontFamily: "var(--English-font)",
                     fontSize: {
                         lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
-                        md: "45px",
-                        sm: "42px",
+                        md: "38px",
+                        sm: "38px",
                         xs: "26.6px",
                     },
                     textAlign: "left",
-                    paddingRight: "12px"
+                    paddingRight: {
+                        lg:"unset",
+                        md:"unset",
+                        sm:"unset",
+                        xs:"12px"
+                    }
                 }}
             >
-                {goalDescription}
+               {goalDescription} 
+              {addBreakLine && <br/>}  
                 <AnimatePresence mode='wait'>
                     <motion.span
                         key={currentServiceType}
@@ -119,8 +126,8 @@ export default function ResponsiveComponent({ goalDescription }) {
                                 fontFamily: "var(--English-font-semibold)",
                                 fontSize: {
                                     lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
-                                    md: "45px",
-                                    sm: "34px",
+                                    md: "28px",
+                                    sm: "28px",
                                     xs: isExtraSmallMobile ? "16px" : "22px",
                                 },
                                 padding:{
@@ -155,7 +162,7 @@ export default function ResponsiveComponent({ goalDescription }) {
                                     }
                                 }}
                             >
-                                {currentServiceType}
+                              {currentServiceType}
                             </motion.div>
 
                         </Typography>
@@ -168,8 +175,8 @@ export default function ResponsiveComponent({ goalDescription }) {
                     fontFamily: "var(--English-font)",
                     fontSize: {
                         lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
-                        md: "45px",
-                        sm: "42px",
+                        md: "38px",
+                        sm: "38px",
                         xs: "26px",
                     },
                     paddingLeft: {
@@ -197,15 +204,15 @@ export default function ResponsiveComponent({ goalDescription }) {
                     maxWidth: "100%",
                     width: {
                         lg: "106px",
-                        md: "106px",
+                        md: "80px",
                         sm: "80px",
                         xs: isMeduimMobile ? "60px" : "31px"
                     },
                     position: "absolute",
                     bottom: {
                         lg: -12,
-                        md: -32,
-                        sm: -6,
+                        md: -12,
+                        sm: -12,
                         xs: isMeduimMobile ? -16 : -6
                     },
                     left: 0,

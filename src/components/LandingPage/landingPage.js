@@ -22,8 +22,8 @@ export default function LandingPage({
         <Grid container 
         sx={{
             paddingTop: {
-                lg: is14Inch ? "50px" : "70px",
-                md: "70px",
+                lg: is14Inch ? "50px" : "50px",
+                md: "30px",
                 sm:"40px",
                 xs: "40px"
             }  

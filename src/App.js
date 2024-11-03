@@ -60,7 +60,7 @@ const App = () => {
   }, []);
 
   return (
-    <ThemeProvider>
+    <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
        
       <motion.div
         initial={{ height: "100dvh" }}

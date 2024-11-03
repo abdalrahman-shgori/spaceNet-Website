@@ -124,13 +124,13 @@ export default function ServicesOriginal({
                         marginLeft: "2px",
                         marginTop: {
                             lg: is14Inch ? "12px" : is15Inch ? "15px" : "20px",
-                            md: "20px",
+                            md: "10px",
                             sm: "20px",
                             xs: "6px",
                         },
                         height: {
                             lg: is14Inch ? "55px" : is15Inch ? "65px" : "80px",
-                            md: "60px",
+                            md: "55px",
                             sm: "50px",
                             xs: "50px",
                         },

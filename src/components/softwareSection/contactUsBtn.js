@@ -19,19 +19,19 @@ sx={{
         sm:"53px",
         xs:"53px"
       },
-    border: theme.palette.mode === 'light' ? "2px solid black": "2px solid #FAFAFA",
+    border: theme.palette.mode === 'light' ? "2px solid black": "2px solid #F4F4F4",
     display:"inline-flex",
     height:{
         lg:"80px",
-        md:"80px",
-        sm:"80px",
+        md:"60px",
+        sm:"60px",
         xs:"42px"
     },
     borderRadius: "52px",
     maxWidth: {
         lg: "302px",
-        md: "302px",
-        sm: "302px",
+        md: "250px",
+        sm: "250px",
         xs: "165px",
       },
       transition: "background 0.3s ease, border-color 0.3s ease", 
@@ -60,22 +60,22 @@ sx={{
 >
     <Box
     sx={{
-        border: btnHovered && theme.palette.mode !== 'dark' ? "2px solid transparent" : theme.palette.mode === 'light' ? '2px solid black' : '2px solid #FAFAFA', 
-        background: theme.palette.mode === "light" ? "#FAFAFA" : "transparent",
+        border: btnHovered && theme.palette.mode !== 'dark' ? "2px solid transparent" : theme.palette.mode === 'light' ? '2px solid black' : '2px solid #F4F4F4', 
+        background: theme.palette.mode === "light" ? "#F4F4F4" : "transparent",
         borderRadius: '50%',
         display:"flex",
         alignItems:"center",
         justifyContent:"center",
         height:{
             lg:"72px",
-            md:"72px",
-            sm:"72px",
+            md:"50px",
+            sm:"50px",
             xs:"35px"
         },
         width:{
             lg:"72px",
-            md:"72px",
-            sm:"72px",
+            md:"50px",
+            sm:"50px",
             xs:"35px"
         },
     }}
@@ -98,7 +98,7 @@ sx={{
       sx={{
         fontSize: {
           lg: "30px",
-          md: "30px",
+          md: "24px",
           sm: "18px", // Increased for better readability on small screens
           xs: "16px", // Slightly larger font size for better touch targets
         },

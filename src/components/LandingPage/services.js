@@ -86,12 +86,15 @@ export default function Services({
         <Grid
             ref={servicesRef}
             sx={{
-                padding: { lg: "0px 75px 0px 75px", md: "0px 75px 0px 55px", sm: "0px 45px 0px 25px", xs: "0px 0px 0px 25px" },
+                padding: 
+                { lg: "0px 75px 0px 75px",
+                     md: "0px 75px 0px 55px",
+                      sm: "0px 45px 0px 25px", xs: "0px 0px 0px 25px" },
             }}
         >
             <Typography
                 sx={{
-                    fontSize: { lg: "40px", md: "40px", sm: "30px" },
+                    fontSize: { lg: "40px", md: "30px", sm: "30px" },
                     fontFamily: "var(--English-font-Extralight)",
                     display: { sm: "block", xs: "none", md: "block" },
                 }}
@@ -119,7 +122,7 @@ export default function Services({
                             key={index}
                             animation="wave"
                             sx={{
-                                height: { lg: "100px", md: "60px", sm: "50px", xs: "50px" },
+                                height: { lg: "100px", md: "50px", sm: "50px", xs: "50px" },
                                 width: "100%",
                                 marginRight: "20px",
                             }}

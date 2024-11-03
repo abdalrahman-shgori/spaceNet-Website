@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 export const useColorMode = () => useContext(ColorModeContext);
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children, logoAnimationComplete }) => {
   const [mode, setMode] = useState('light');
   const location=useLocation()
   const {pathname}=location
@@ -50,7 +50,7 @@ const ThemeProvider = ({ children }) => {
                   logo:"#051A2F"
                 },
                 background: {
-                  default: pathname === '/' ? '#9D89FC' : "#FAFAFA",  
+                  default: pathname === '/' ? '#9D89FC' : logoAnimationComplete ? "#051A2F" : "#F4F4F4",  
                   paper: '#F4F4F4',    
                 },
                 text: {
