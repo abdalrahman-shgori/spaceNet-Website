@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Software from './components/softwareService/software';
 import InnerApp from './components/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import LogoAnimation from './components/LandingPage/logoaniamtion';
 import { motion } from 'framer-motion';
 import { Box, useTheme } from '@mui/material';
 import Toggle from './components/toggleCompoent/toggle';
+import SoftwareSection from './pages/softwarePage';
 
 const App = () => {
+  const location = useLocation();
+  const { pathname } = location;
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false); // For tracking logo animation completion
@@ -26,7 +28,6 @@ const App = () => {
       }, 0);
     }
   }, [logoAnimationComplete]);
-  const location = useLocation();
 
   useEffect(() => {
     const handleOverflow = () => {
@@ -110,7 +111,7 @@ const App = () => {
 
             {showContent && (
               <>
-                <NavBar showContent={showContent} setDrawerOpen={setDrawerOpen} />
+                <NavBar showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
               
                 <Routes>
                   <Route
@@ -125,7 +126,7 @@ const App = () => {
                       />
                     }
                   />
-                  <Route path='/software' element={<Software />} />
+                  <Route path='/software' element={<SoftwareSection />} />
                 </Routes>
 
               </>
@@ -145,7 +146,7 @@ const App = () => {
               }
             }}
           >
-            {showToggle && (
+            {showToggle &&  (
               <Toggle setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
             )}
           </Box>

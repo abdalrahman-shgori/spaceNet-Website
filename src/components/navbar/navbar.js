@@ -11,8 +11,15 @@ import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Toggle from '../toggleCompoent/toggle';
 
-const NavBar = ({ setDrawerOpen, showContent }) => {
+const NavBar = ({ 
+    setDrawerOpen,
+     showContent,
+     themeColor,
+     setThemeColor,
+     drawerOpen
+     }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const theme = useTheme();
     const location = useLocation();
@@ -57,10 +64,10 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                     boxShadow: 'none',
                     border: 'none',
                     padding: {
-                        lg: is14Inch ? '55px 75px 50px 75px' : '55px 75px 70px 75px',
-                        md: '55px 75px 70px 75px',
-                        sm: '45px 25px 40px 25px',
-                        xs: '25px 25px 40px 25px'
+                        lg: is14Inch ? '55px 75px 0px 75px' : '55px 75px 0px 75px',
+                        md: '55px 75px 0px 75px',
+                        sm: '45px 25px 0px 25px',
+                        xs: '25px 25px 0px 25px'
                     }
                 }}
             >
@@ -115,6 +122,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                             animate={{ opacity: isDrawerOpen ? 1 : 0, x: isDrawerOpen ? 0 : isSmallScreen ? '-100%' : '100%' }}
                             transition={{ duration: 0.5 }}
                         >
+                            
                             <Drawer
                                 anchor={isSmallScreen ? "left" : "right"}
                                 open={isDrawerOpen}
@@ -130,6 +138,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                                     },
                                 }}
                             >
+
                                 <Box
                                     sx={{
                                         display: 'flex',
@@ -166,6 +175,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                                     </IconButton>
 
                                     <List sx={{ flexGrow: 1, marginTop: "50px" }}>
+
                                         {menuItems.map(({ text, route }, index) => (
                                             <motion.div
                                                 key={index}
@@ -173,6 +183,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                                             >
+                                                
                                                 <ListItem
                                                     button
                                                     onClick={() => {
@@ -207,6 +218,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                                                         }}
                                                     >
                                                         {text} {/* Now this is valid */}
+
                                                     </Typography>
                                                 </ListItem>
                                             </motion.div>

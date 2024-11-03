@@ -3,7 +3,7 @@ import * as React from "react"
 const ServicesLogo = (props) => {
     const theme=useTheme();
     const isAboutActive =props.isaboutactive
-    console.log(isAboutActive,"1212121")
+   
 
     return(
         <svg
