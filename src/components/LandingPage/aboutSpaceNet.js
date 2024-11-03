@@ -335,7 +335,7 @@ export default function AboutSpaceNet({
                                     ref={paragraphRef}
                                     sx={{
                                         fontSize: {
-                                            lg: capture ? is14Inch ? '20px'
+                                            lg: capture ? is14Inch || is15Inch ? '20px'
                                                 : '24px'
                                                 : is14Inch || is15Inch ? "24px" :
                                                     "32px",
