@@ -11,7 +11,7 @@ export default function ResponsiveComponent({ goalDescription }) {
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isMeduimMobile = useMediaQuery(theme.breakpoints.down("600"));
     const isExtraSmallMobile = useMediaQuery(theme.breakpoints.down("363"));
-    const breakLine = useMediaQuery(theme.breakpoints.down("500"));
+    const breakLine = useMediaQuery(theme.breakpoints.down("666"));
     const serviceTypes = [
         "Website Development",
         "Mobile App",
@@ -49,7 +49,7 @@ export default function ResponsiveComponent({ goalDescription }) {
         <Box sx={{
              position: 'relative', 
              height: 'auto',
-              maxWidth:is14Inch ? "680px" : is15Inch ? '820px' :  "1000px", 
+              maxWidth:is14Inch ? "700px" : is15Inch ? '820px' :  "1000px", 
               width: "100%" 
               }}>
             <Box
@@ -64,7 +64,12 @@ export default function ResponsiveComponent({ goalDescription }) {
                         xs: isMeduimMobile ? "60px" : "31px"
                     },
                     position: "absolute",
-                    top: -40,
+                    top: {
+                        lg:-40 ,
+                        md:-40,
+                        sm:-30,
+                        xs:-30
+                    },
                     right: 0,
                     transition: "right 0.3s ease",
                 }}
@@ -77,10 +82,17 @@ export default function ResponsiveComponent({ goalDescription }) {
                         lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
                         md: "45px",
                         sm: "42px",
-                        xs: "26.6px",
+                        xs: isExtraSmallMobile ? "16px" : "26px",
                     },
                     textAlign: "left",
-                    // paddingRight: "24px"
+                    paddingRight: {
+                        lg:"24px",
+                        md:"0px",
+                        sm:"12px",
+                        xs:"12px"
+                        
+                        
+                    }
                 }}
             >
                 {goalDescription}
@@ -171,7 +183,8 @@ export default function ResponsiveComponent({ goalDescription }) {
                         lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
                         md: "45px",
                         sm: "42px",
-                        xs: "26px",
+                        xs: isExtraSmallMobile ? "16px" : "26px",
+
                     },
                     paddingLeft: {
                         lg: "30px",
@@ -200,12 +213,12 @@ export default function ResponsiveComponent({ goalDescription }) {
                         lg: "106px",
                         md: "106px",
                         sm: "80px",
-                        xs: isMeduimMobile ? "60px" : "31px"
+                        xs: isExtraSmallMobile ? "60px" : isMeduimMobile ? "60px" : "31px"
                     },
                     position: "absolute",
                     bottom: {
                         lg: -12,
-                        md: -32,
+                        md: -12,
                         sm: -6,
                         xs: isMeduimMobile ? -16 : -6
                     },
