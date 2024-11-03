@@ -304,7 +304,7 @@ export default function AboutSpaceNet({
                                 sx={{
                                     position: 'relative',
                                     maxHeight: {
-                                        lg: capture ? is14Inch ? "220px" : "auto" : is14Inch ? "220px" : '320px',
+                                        lg: capture ? is14Inch || is15Inch ? "220px" : "auto" : is14Inch ? "220px" : is15Inch ? "240px" : '320px',
                                         md: capture ? "auto" : '300px',
                                         sm: capture ? "auto" : '270px',
                                         xs: capture ? "auto" : '270px'
@@ -346,7 +346,7 @@ export default function AboutSpaceNet({
                                         fontFamily: 'var(--English-font)',
                                         overflow: 'auto',
                                         maxHeight: {
-                                            lg: is14Inch ? "220px" : is15Inch ? "280px" : '320px',
+                                            lg: is14Inch ? "220px" : is15Inch ? "240px" : '320px',
                                             md: '300px',
                                             sm: '220px',
                                             xs: '220px',
