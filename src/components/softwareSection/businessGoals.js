@@ -11,8 +11,7 @@ export default function ResponsiveComponent({ goalDescription }) {
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isMeduimMobile = useMediaQuery(theme.breakpoints.down("600"));
     const isExtraSmallMobile = useMediaQuery(theme.breakpoints.down("363"));
-    const addBreakLine = useMediaQuery(theme.breakpoints.down("500"));
-
+    const breakLine = useMediaQuery(theme.breakpoints.down("500"));
     const serviceTypes = [
         "Website Development",
         "Mobile App",
@@ -60,12 +59,12 @@ export default function ResponsiveComponent({ goalDescription }) {
                     maxWidth: "100%",
                     width: {
                         lg: "106px",
-                        md: "80px",
+                        md: "106px",
                         sm: "80px",
                         xs: isMeduimMobile ? "60px" : "31px"
                     },
                     position: "absolute",
-                    top: -30,
+                    top: -40,
                     right: 0,
                     transition: "right 0.3s ease",
                 }}
@@ -76,21 +75,16 @@ export default function ResponsiveComponent({ goalDescription }) {
                     fontFamily: "var(--English-font)",
                     fontSize: {
                         lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
-                        md: "38px",
-                        sm: "38px",
+                        md: "45px",
+                        sm: "42px",
                         xs: "26.6px",
                     },
                     textAlign: "left",
-                    paddingRight: {
-                        lg:"unset",
-                        md:"unset",
-                        sm:"unset",
-                        xs:"12px"
-                    }
+                    // paddingRight: "24px"
                 }}
             >
-               {goalDescription} 
-              {addBreakLine && <br/>}  
+                {goalDescription}
+                {breakLine && <br/>}
                 <AnimatePresence mode='wait'>
                     <motion.span
                         key={currentServiceType}
@@ -123,11 +117,11 @@ export default function ResponsiveComponent({ goalDescription }) {
                     >
                         <Typography
                             sx={{
-                                fontFamily: "var(--English-font-semibold)",
+                                fontFamily: "var(--English-font)",
                                 fontSize: {
                                     lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
-                                    md: "28px",
-                                    sm: "28px",
+                                    md: "45px",
+                                    sm: "34px",
                                     xs: isExtraSmallMobile ? "16px" : "22px",
                                 },
                                 padding:{
@@ -137,7 +131,7 @@ export default function ResponsiveComponent({ goalDescription }) {
                                     xs: "4px 20px 4px 20px"
                                 },
 
-                                color: currentServiceType === 'Mobile App' ? "#051A2F" : "#FFFFFF",
+                                color: currentServiceType === 'Mobile App' ? "#000000" : "#FFFFFF",
                                 textAlign: "center",
                                 display: "inline-block",
                                 marginLeft: {
@@ -152,7 +146,7 @@ export default function ResponsiveComponent({ goalDescription }) {
                             <motion.div
                                 initial={{ opacity: 0, y: isSmallScreen ? 10 : 30 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: isSmallScreen ? [10, -20]: [20, -40] }}
+                                exit={{ opacity: 0, y: isSmallScreen ? [10, -20]: [20, -50] }}
                                 transition={{
                                     opacity: { duration: 0.3, ease: "easeInOut" },
                                     y: { duration: 0.3, ease: "easeInOut" },
@@ -162,7 +156,7 @@ export default function ResponsiveComponent({ goalDescription }) {
                                     }
                                 }}
                             >
-                              {currentServiceType}
+                                {currentServiceType}
                             </motion.div>
 
                         </Typography>
@@ -175,14 +169,14 @@ export default function ResponsiveComponent({ goalDescription }) {
                     fontFamily: "var(--English-font)",
                     fontSize: {
                         lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
-                        md: "38px",
-                        sm: "38px",
+                        md: "45px",
+                        sm: "42px",
                         xs: "26px",
                     },
                     paddingLeft: {
-                        lg: "24px",
-                        md: "24px",
-                        sm: "24px",
+                        lg: "30px",
+                        md: "30px",
+                        sm: "30px",
                         xs: isMeduimMobile ? "18px" : "12px"
                     },
                     textAlign: 'left',
@@ -204,15 +198,15 @@ export default function ResponsiveComponent({ goalDescription }) {
                     maxWidth: "100%",
                     width: {
                         lg: "106px",
-                        md: "80px",
+                        md: "106px",
                         sm: "80px",
                         xs: isMeduimMobile ? "60px" : "31px"
                     },
                     position: "absolute",
                     bottom: {
                         lg: -12,
-                        md: -12,
-                        sm: -12,
+                        md: -32,
+                        sm: -6,
                         xs: isMeduimMobile ? -16 : -6
                     },
                     left: 0,

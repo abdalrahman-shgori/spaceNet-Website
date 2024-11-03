@@ -12,7 +12,7 @@ return (
             <Grid className="root-container"
                 sx={{
                     padding: {
-                        lg: "80px 0px 0 75px",
+                        lg: "100px 0px 0 75px",
                         md: "90px 75px 0 75px",
                         sm: "100px 25px 0 25px",
                         xs: "100px 25px 0 25px",
