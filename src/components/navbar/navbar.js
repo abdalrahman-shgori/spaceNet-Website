@@ -45,7 +45,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
         toggleDrawer(false);
         setDrawerOpen(false);
     };
-    const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
+    const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
 
     return (
         <>
@@ -57,7 +57,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                     boxShadow: 'none',
                     border: 'none',
                     padding: {
-                        lg: is14Inch ? '55px 75px 55px 75px' : '55px 75px 70px 75px',
+                        lg: is14Inch ? '55px 75px 50px 75px' : '55px 75px 70px 75px',
                         md: '55px 75px 70px 75px',
                         sm: '45px 25px 40px 25px',
                         xs: '25px 25px 40px 25px'
@@ -103,7 +103,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                                             sm: 35,
                                             xs: 35
                                         },
-                                        color: theme.palette.mode === 'dark' && pathname === '/' ? '#E9FA50' : '#051A2F'
+                                        color: pathname === '/' ? theme.palette.primary.BurgerMenu : theme.palette.text.BurgerMenu
                                     }} />
                             </IconButton>
                         </Box>
@@ -121,7 +121,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                                 onClose={handleCloseDrawer}
                                 PaperProps={{
                                     sx: {
-                                        width: isSmallScreen ? "80%" : isTabScreen ? '60%' : "42%",
+                                        width: isSmallScreen ? "80%" : isTabScreen ? '60%' : is14Inch ? "45%" : "42%",
                                         height: '100%',
                                         overflow: 'auto',
                                         boxShadow: '0 0 20px rgba(0,0,0,0.1)',
@@ -191,7 +191,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                                                     <Typography
                                                         sx={{
                                                             fontSize: {
-                                                                lg: "44px",
+                                                                lg: is14Inch ? "40px" :"44px",
                                                                 md: "30px",
                                                                 sm: "28px",
                                                                 xs: "28px",

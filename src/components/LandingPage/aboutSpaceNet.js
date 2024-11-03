@@ -168,8 +168,8 @@ export default function AboutSpaceNet({
                                 maxWidth: "100%",
                                 width: {
                                     lg: is14Inch ?
-                                        "150px" :
-                                        is15Inch ? '200px' :
+                                        "140px" :
+                                        is15Inch ? '180px' :
                                             "220px",
                                     md: "106px",
                                     sm: "106px",
@@ -228,9 +228,16 @@ export default function AboutSpaceNet({
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
                                         alt="SpaceNet Logo"
                                         sx={{
-                                            width: { lg: is14Inch ? "250px" : is15Inch ? "275px" : "287px", md: "287px", sm: "179px", xs: "179px" },
+                                            width: { lg: is14Inch ? "250px" : is15Inch ? "260px" : "287px", md: "287px", sm: "179px", xs: "179px" },
                                             paddingRight: "20px",
-                                            paddingTop: is14Inch ? "0px" : "10px"
+                                            paddingTop:
+                                            {
+                                                lg:is14Inch ? "0px" : "10px",
+                                                md:"10px",
+                                                sm:"10px",
+                                                xs:"10px"
+                                            }
+                                            
                                         }}
                                     />
                                     <motion.div
@@ -245,7 +252,7 @@ export default function AboutSpaceNet({
                                             sx={{
                                                 fontWeight: "bold",
                                                 fontSize: {
-                                                    lg: is14Inch ? "30px" : is15Inch ? "35px" : "40px",
+                                                    lg: is14Inch ? "30px" : is15Inch ? "33px" : "40px",
                                                     md: "40px",
                                                     sm: "24px",
                                                     xs: "24px"
@@ -273,7 +280,7 @@ export default function AboutSpaceNet({
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
                                         alt="SpaceNet Logo"
                                         sx={{
-                                            width: { lg: is14Inch ? "250px" : is15Inch ? "275px" : "287px", md: "287px", sm: "179px", xs: "179px" },
+                                            width: { lg: is14Inch ? "250px" : is15Inch ? "260px" : "287px", md: "287px", sm: "179px", xs: "179px" },
                                             paddingBottom: {
                                                 lg: "10px",
                                                 md: "10px",
@@ -297,7 +304,7 @@ export default function AboutSpaceNet({
                                 sx={{
                                     position: 'relative',
                                     maxHeight: {
-                                        lg: capture ? is14Inch ? "220px" : "auto" : is14Inch ? "260px" : '320px',
+                                        lg: capture ? is14Inch ? "220px" : "auto" : is14Inch ? "220px" : '320px',
                                         md: capture ? "auto" : '300px',
                                         sm: capture ? "auto" : '270px',
                                         xs: capture ? "auto" : '270px'
@@ -308,7 +315,6 @@ export default function AboutSpaceNet({
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
                                     <motion.div
-
                                         style={{
                                             position: 'absolute',
                                             top: is14Inch || is15Inch ? "-10px" : "-6px",
@@ -329,7 +335,7 @@ export default function AboutSpaceNet({
                                     ref={paragraphRef}
                                     sx={{
                                         fontSize: {
-                                            lg: capture ? is14Inch ? '22px'
+                                            lg: capture ? is14Inch ? '20px'
                                                 : '24px'
                                                 : is14Inch || is15Inch ? "24px" :
                                                     "32px",
@@ -340,7 +346,7 @@ export default function AboutSpaceNet({
                                         fontFamily: 'var(--English-font)',
                                         overflow: 'auto',
                                         maxHeight: {
-                                            lg: is14Inch ? "250px" : is15Inch ? "275px" : '320px',
+                                            lg: is14Inch ? "220px" : is15Inch ? "280px" : '320px',
                                             md: '300px',
                                             sm: '220px',
                                             xs: '220px',
@@ -417,14 +423,14 @@ export default function AboutSpaceNet({
                                 },
                                 maxWidth: "100%",
                                 width: {
-                                    lg: is14Inch ? "220px" : is15Inch ? "275px" : "300px",
+                                    lg: is14Inch ? "210px" : is15Inch ? "250px" : "300px",
                                     md: "106px",
                                     sm: "106px",
                                     xs: "106px"
                                 },
                                 float: "right",
                                 marginTop: {
-                                    lg: is14Inch ? "-20px" : is15Inch ? "-50px" : "-60px",
+                                    lg: is14Inch ? "-20px" : is15Inch ? "-40px" : "-60px",
                                     md: "-30px",
                                     sm: "-20px",
                                     xs: "-20px"

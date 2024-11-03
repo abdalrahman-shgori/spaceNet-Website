@@ -123,13 +123,13 @@ export default function ServicesOriginal({
                         borderRadius: "38.7px",
                         marginLeft: "2px",
                         marginTop: {
-                            lg: is14Inch ? "15px" : is15Inch ? "18px" : "20px",
+                            lg: is14Inch ? "12px" : is15Inch ? "15px" : "20px",
                             md: "20px",
                             sm: "20px",
                             xs: "6px",
                         },
                         height: {
-                            lg: is14Inch ? "60px" : is15Inch ? "70px" : "80px",
+                            lg: is14Inch ? "55px" : is15Inch ? "65px" : "80px",
                             md: "60px",
                             sm: "50px",
                             xs: "50px",
@@ -188,7 +188,7 @@ export default function ServicesOriginal({
                     <Typography
                         sx={{
                             fontSize: {
-                                lg: is14Inch ? "28px" : is15Inch ? "35px" : "40px",
+                                lg: is14Inch ? "24px" : is15Inch ? "32px" : "40px",
                                 md: "24px",
                                 sm: "15px",
                                 xs: "15px",
@@ -217,7 +217,7 @@ export default function ServicesOriginal({
                             }
                             sx={{
                                 width: {
-                                    lg: is14Inch || is15Inch ? "30px" : "unset",
+                                    lg: is14Inch ? "25px" : is15Inch ? "28px" : "unset",
                                     md: "25px",
                                     sm: "25px",
                                 },

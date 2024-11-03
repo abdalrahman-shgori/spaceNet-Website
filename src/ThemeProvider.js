@@ -26,25 +26,36 @@ const ThemeProvider = ({ children }) => {
             ? {
                 primary: {
                   main: '#fafafa', 
+                  BurgerMenu:"#FFFFFF",
+                  logo:"#E9FA50"
                 },
                 background: {
                   default: '#051A2F',
-                  paper: '#1a1a1a',  
+                  paper: '#051A2F',  
                 },
                 text: {
                   primary: '#ffffff', 
+                  BurgerMenu:"#FFFFFF",
+                  logo:"#FFFFFF"
+
                 },
               }
             : {
                 primary: {
                   main: '#1976d2',
+                  BurgerMenu:"#051A2F",
+                  logo:"#051A2F"
                 },
                 background: {
                   default: '#9D89FC',  
-                  paper: '#f5f5f5',    
+                  paper: '#F4F4F4',    
                 },
                 text: {
                   primary: '#000000',  
+                  BurgerMenu:"#051A2F",
+                  logo:"#051A2F"
+
+
                 },
               }),
         },

@@ -31,7 +31,7 @@ export default function Toggle({ drawerOpen, setThemeColor, themeColor }) {
     useEffect(() => {
         const newThemeColor = pathname === '/' 
         ? theme.palette.background.default :
-           theme.palette.mode === 'light' ? "#fafafa" : "#051A2F" ;
+           theme.palette.background.paper
         setThemeColor(newThemeColor);
     }, [pathname, theme]);
 
