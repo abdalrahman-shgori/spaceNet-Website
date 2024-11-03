@@ -1,4 +1,4 @@
-import React, { useState, useMemo, createContext, useContext } from 'react';
+import React, { useState, useMemo, createContext, useContext, useEffect } from 'react';
 import { ThemeProvider as MUIThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useLocation } from 'react-router-dom';
@@ -8,8 +8,13 @@ export const useColorMode = () => useContext(ColorModeContext);
 
 const ThemeProvider = ({ children, logoAnimationComplete }) => {
   const [mode, setMode] = useState('light');
-  const location=useLocation()
-  const {pathname}=location
+  const location = useLocation();
+  const { pathname } = location;
+
+  // If you need to handle any side effects based on pathname changes, you can implement it here
+  useEffect(() => {
+    // Add logic if needed, e.g., tracking or state update based on location changes
+  }, [pathname]);
 
   const colorMode = useMemo(
     () => ({
@@ -28,42 +33,39 @@ const ThemeProvider = ({ children, logoAnimationComplete }) => {
           ...(mode === 'dark'
             ? {
                 primary: {
-                  main: '#fafafa', 
-                  BurgerMenu:"#FFFFFF",
-                  logo:"#E9FA50"
+                  main: '#fafafa',
+                  BurgerMenu: '#FFFFFF',
+                  logo: '#E9FA50',
                 },
                 background: {
-                  default: pathname === '/' ? '#051A2F' : "#051A2F",
-                  paper: '#051A2F',  
+                  default: '#051A2F',
+                  paper: '#051A2F',
                 },
                 text: {
-                  primary: '#ffffff', 
-                  BurgerMenu:"#FFFFFF",
-                  logo:"#FFFFFF"
-
+                  primary: '#ffffff',
+                  BurgerMenu: '#FFFFFF',
+                  logo: '#FFFFFF',
                 },
               }
             : {
                 primary: {
                   main: '#1976d2',
-                  BurgerMenu:"#051A2F",
-                  logo:"#051A2F"
+                  BurgerMenu: '#051A2F',
+                  logo: '#051A2F',
                 },
                 background: {
-                  default: pathname === '/' ? '#9D89FC' : logoAnimationComplete ? "#051A2F" : "#F4F4F4",  
-                  paper: '#F4F4F4',    
+                  default: pathname === '/' ? '#9D89FC' : logoAnimationComplete ? '#051A2F' : '#F4F4F4',
+                  paper: '#F4F4F4',
                 },
                 text: {
-                  primary: '#000000',  
-                  BurgerMenu:"#051A2F",
-                  logo:"#051A2F"
-
-
+                  primary: '#000000',
+                  BurgerMenu: '#051A2F',
+                  logo: '#051A2F',
                 },
               }),
         },
       }),
-    [mode],
+    [mode, pathname, logoAnimationComplete],
   );
 
   return (
