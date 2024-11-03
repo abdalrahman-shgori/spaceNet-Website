@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import customCursor from "../../assets/images/internet.svg";
@@ -44,6 +44,10 @@ export default function ServicesOriginal({
         }, 1000);
 
     };
+    const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
+    const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
+
+    console.log(is14Inch, "14")
     return (
         <Grid
             key={item.id || index}
@@ -59,7 +63,7 @@ export default function ServicesOriginal({
                     sm: "unset",
                     xs: "none"
                 },
-                overflow: "hidden"
+                overflow: "hidden",
             }}
         >
             <motion.div
@@ -93,6 +97,7 @@ export default function ServicesOriginal({
                             handleServiceClick(image.url);
                         }
                     }} sx={{
+
                         cursor: `url(${index === 0
                             ? academy
                             : index === 1
@@ -118,13 +123,13 @@ export default function ServicesOriginal({
                         borderRadius: "38.7px",
                         marginLeft: "2px",
                         marginTop: {
-                            lg: "20px",
+                            lg: is14Inch ? "15px" : is15Inch ? "18px" : "20px",
                             md: "20px",
                             sm: "20px",
                             xs: "6px",
                         },
                         height: {
-                            lg: "80px",
+                            lg: is14Inch ? "60px" : is15Inch ? "70px" : "80px",
                             md: "60px",
                             sm: "50px",
                             xs: "50px",
@@ -183,7 +188,7 @@ export default function ServicesOriginal({
                     <Typography
                         sx={{
                             fontSize: {
-                                lg: "40px",
+                                lg: is14Inch ? "28px" : is15Inch ? "35px" : "40px",
                                 md: "24px",
                                 sm: "15px",
                                 xs: "15px",
@@ -212,7 +217,7 @@ export default function ServicesOriginal({
                             }
                             sx={{
                                 width: {
-                                    lg: "unset",
+                                    lg: is14Inch || is15Inch ? "30px" : "unset",
                                     md: "25px",
                                     sm: "25px",
                                 },

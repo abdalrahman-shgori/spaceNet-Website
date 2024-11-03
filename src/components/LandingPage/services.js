@@ -86,7 +86,6 @@ export default function Services({
         <Grid
             ref={servicesRef}
             sx={{
-                paddingRight: { lg: "100px", md: "50px", sm: "20px", xs: "0px" },
                 padding: { lg: "0px 75px 0px 55px", md: "0px 75px 0px 55px", sm: "0px 45px 0px 25px", xs: "0px 0px 0px 25px" },
             }}
         >

@@ -45,6 +45,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
         toggleDrawer(false);
         setDrawerOpen(false);
     };
+    const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
 
     return (
         <>
@@ -56,7 +57,7 @@ const NavBar = ({ setDrawerOpen, showContent }) => {
                     boxShadow: 'none',
                     border: 'none',
                     padding: {
-                        lg: '55px 75px 70px 75px',
+                        lg: is14Inch ? '55px 75px 55px 75px' : '55px 75px 70px 75px',
                         md: '55px 75px 70px 75px',
                         sm: '45px 25px 40px 25px',
                         xs: '25px 25px 40px 25px'

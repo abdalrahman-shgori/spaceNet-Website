@@ -17,11 +17,15 @@ export default function AboutSpaceNet({
     loading,
     outOfServicesHover
 }) {
+
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
     const paragraphRef = useRef(null);
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
+    const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
+    const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
+
     const [displayedText, setDisplayedText] = useState("");
     const timeoutRef = useRef([]);
     const [initialAnimation, setInitialAnimation] = useState(true);
@@ -95,21 +99,21 @@ export default function AboutSpaceNet({
                 <>
                     <span className="scrolling-content"
                         style={{
-                            paddingBottom: "24px"
+                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px"
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
                     </span>
                     <span className="scrolling-content"
                         style={{
-                            paddingBottom: "24px"
+                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px"
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
                     </span>
                     <span className="scrolling-content"
                         style={{
-                            paddingBottom: "24px"
+                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px"
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
@@ -133,7 +137,9 @@ export default function AboutSpaceNet({
                         xs: "80px"
                     },
                     padding: {
-                        lg: "0px 75px 0px 0px",
+                        lg: is14Inch ? "0px 35px 0px 0px" :
+                            is15Inch ? "0px 35px 0px 0px" :
+                                "0px 75px 0px 0px",
                         md: "0px 75px 0px 0px",
                         sm: "0px 45px 20px 25px",
                         xs: "0px 25px",
@@ -161,7 +167,10 @@ export default function AboutSpaceNet({
                             sx={{
                                 maxWidth: "100%",
                                 width: {
-                                    lg: "220px",
+                                    lg: is14Inch ?
+                                        "150px" :
+                                        is15Inch ? '200px' :
+                                            "220px",
                                     md: "106px",
                                     sm: "106px",
                                     xs: "106px"
@@ -186,7 +195,8 @@ export default function AboutSpaceNet({
                         <Box
                             sx={{
                                 paddingLeft: {
-                                    lg: "55px",
+                                    lg: is14Inch ? "40px" :
+                                        is15Inch ? "45px" : "55px",
                                     md: "30px",
                                     sm: "30px",
                                     xs: "30px"
@@ -203,7 +213,7 @@ export default function AboutSpaceNet({
                                 flexDirection: "column",
                                 gap: "5px",
                                 paddingRight: {
-                                    lg: "140px",
+                                    lg: is14Inch ? "110px" : is15Inch ? "120px" : "140px",
                                     md: "30px",
                                     sm: "30px",
                                     xs: "30px"
@@ -218,10 +228,9 @@ export default function AboutSpaceNet({
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
                                         alt="SpaceNet Logo"
                                         sx={{
-                                            width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
-
+                                            width: { lg: is14Inch ? "250px" : is15Inch ? "275px" : "287px", md: "287px", sm: "179px", xs: "179px" },
                                             paddingRight: "20px",
-                                            paddingTop: "10px"
+                                            paddingTop: is14Inch ? "0px" : "10px"
                                         }}
                                     />
                                     <motion.div
@@ -236,7 +245,7 @@ export default function AboutSpaceNet({
                                             sx={{
                                                 fontWeight: "bold",
                                                 fontSize: {
-                                                    lg: "40px",
+                                                    lg: is14Inch ? "30px" : is15Inch ? "35px" : "40px",
                                                     md: "40px",
                                                     sm: "24px",
                                                     xs: "24px"
@@ -264,7 +273,7 @@ export default function AboutSpaceNet({
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
                                         alt="SpaceNet Logo"
                                         sx={{
-                                            width: { lg: "287px", md: "287px", sm: "179px", xs: "179px" },
+                                            width: { lg: is14Inch ? "250px" : is15Inch ? "275px" : "287px", md: "287px", sm: "179px", xs: "179px" },
                                             paddingBottom: {
                                                 lg: "10px",
                                                 md: "10px",
@@ -272,7 +281,7 @@ export default function AboutSpaceNet({
                                                 xs: "10px"
                                             },
                                             paddingTop: {
-                                                lg: "10px",
+                                                lg: is14Inch ? "0px" : "10px",
                                                 md: "10px",
                                                 sm: "10px",
                                                 xs: "10px"
@@ -288,7 +297,7 @@ export default function AboutSpaceNet({
                                 sx={{
                                     position: 'relative',
                                     maxHeight: {
-                                        lg: capture ? "auto" : '320px',
+                                        lg: capture ? is14Inch ? "220px" : "auto" : is14Inch ? "260px" : '320px',
                                         md: capture ? "auto" : '300px',
                                         sm: capture ? "auto" : '270px',
                                         xs: capture ? "auto" : '270px'
@@ -302,7 +311,7 @@ export default function AboutSpaceNet({
 
                                         style={{
                                             position: 'absolute',
-                                            top: "-6px",
+                                            top: is14Inch || is15Inch ? "-10px" : "-6px",
                                             left: 0,
                                             right: 0,
                                             height: '50px',
@@ -320,7 +329,10 @@ export default function AboutSpaceNet({
                                     ref={paragraphRef}
                                     sx={{
                                         fontSize: {
-                                            lg: capture ? '24px' : "32px",
+                                            lg: capture ? is14Inch ? '22px'
+                                                : '24px'
+                                                : is14Inch || is15Inch ? "24px" :
+                                                    "32px",
                                             md: capture ? '21px' : "28px",
                                             sm: capture ? '16px' : "20px",
                                             xs: '15px',
@@ -328,14 +340,14 @@ export default function AboutSpaceNet({
                                         fontFamily: 'var(--English-font)',
                                         overflow: 'auto',
                                         maxHeight: {
-                                            lg: '320px',
+                                            lg: is14Inch ? "250px" : is15Inch ? "275px" : '320px',
                                             md: '300px',
                                             sm: '220px',
                                             xs: '220px',
                                         },
                                         paddingRight: '10px',
                                         paddingTop: {
-                                            lg: '10px',
+                                            lg: is14Inch || is15Inch ? "0px" : '10px',
                                             md: '10px',
                                             sm: '4px',
                                             xs: '4px'
@@ -405,14 +417,14 @@ export default function AboutSpaceNet({
                                 },
                                 maxWidth: "100%",
                                 width: {
-                                    lg: "300px",
+                                    lg: is14Inch ? "220px" : is15Inch ? "275px" : "300px",
                                     md: "106px",
                                     sm: "106px",
                                     xs: "106px"
                                 },
                                 float: "right",
                                 marginTop: {
-                                    lg: "-60px",
+                                    lg: is14Inch ? "-20px" : is15Inch ? "-50px" : "-60px",
                                     md: "-30px",
                                     sm: "-20px",
                                     xs: "-20px"

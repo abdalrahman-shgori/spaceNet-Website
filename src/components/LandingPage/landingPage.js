@@ -18,7 +18,9 @@ export default function LandingPage({
 
     return (
         <Grid container >
-            <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Grid item lg={6} md={6} sm={12} xs={12} sx={{
+                paddingBottom:"12px"
+            }}>
                 {/* <Transform/> */}
                 <Services
                     hoveredService={hoveredService}
