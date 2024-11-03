@@ -1,12 +1,15 @@
 import React, { useState, useMemo, createContext, useContext } from 'react';
 import { ThemeProvider as MUIThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { useLocation } from 'react-router-dom';
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 export const useColorMode = () => useContext(ColorModeContext);
 
 const ThemeProvider = ({ children }) => {
   const [mode, setMode] = useState('light');
+  const location=useLocation()
+  const {pathname}=location
 
   const colorMode = useMemo(
     () => ({
@@ -30,7 +33,7 @@ const ThemeProvider = ({ children }) => {
                   logo:"#E9FA50"
                 },
                 background: {
-                  default: '#051A2F',
+                  default: pathname === '/' ? '#051A2F' : "#051A2F",
                   paper: '#051A2F',  
                 },
                 text: {
@@ -47,7 +50,7 @@ const ThemeProvider = ({ children }) => {
                   logo:"#051A2F"
                 },
                 background: {
-                  default: '#9D89FC',  
+                  default: pathname === '/' ? '#9D89FC' : "#FAFAFA",  
                   paper: '#F4F4F4',    
                 },
                 text: {
