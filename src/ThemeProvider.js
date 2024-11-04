@@ -54,7 +54,7 @@ const ThemeProvider = ({ children, logoAnimationComplete }) => {
                 background: {
                   // default: pathname === '/' ? '#9D89FC' : logoAnimationComplete && pathname === '/' ? '#051A2F' : '#F4F4F4',
                   paper: '#F4F4F4',
-                  default:logoAnimationComplete ? "#9D89FC" : "#051A2F"  
+                  default:logoAnimationComplete ? "#9D89FC" : pathname !== '/' && logoAnimationComplete ? "#F4F4F4" : "#051A2F" 
                 },
                 text: {
                   primary: '#000000',
