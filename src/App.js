@@ -132,23 +132,25 @@ const App = () => {
             )}
 
           </motion.div>
+          
           <Box
             sx={{
               display: {
-                xl: "",
+                xl: "unset",
                 lg: "unset",
                 md: "unset",
                 sm: "unset",
                 xs: "unset"
               },
-            
-              
             }}
           >
-            {showToggle  &&  (
-              <Toggle setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-            )}
+         
+              <Toggle 
+            showToggle={showToggle}  setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+           
           </Box>
+         
+        
         
         </>
       )}
