@@ -11,7 +11,7 @@ export default function ResponsiveComponent({ goalDescription }) {
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isMeduimMobile = useMediaQuery(theme.breakpoints.down("600"));
     const isExtraSmallMobile = useMediaQuery(theme.breakpoints.down("363"));
-    const breakLine = useMediaQuery(theme.breakpoints.down("666"));
+    const breakLine = useMediaQuery(theme.breakpoints.down("500"));
     const serviceTypes = [
         "Website Development",
         "Mobile App",
@@ -49,7 +49,7 @@ export default function ResponsiveComponent({ goalDescription }) {
         <Box sx={{
              position: 'relative', 
              height: 'auto',
-              maxWidth:is14Inch ? "700px" : is15Inch ? '820px' :  "1000px", 
+              maxWidth:is14Inch ? "800px" : is15Inch ? '820px' :  "900px", 
               width: "100%" 
               }}>
             <Box
@@ -79,15 +79,15 @@ export default function ResponsiveComponent({ goalDescription }) {
                 sx={{
                     fontFamily: "var(--English-font)",
                     fontSize: {
-                        lg: is14Inch ? "40px" : is15Inch ? "50px" : "53px",
-                        md: "45px",
-                        sm: "42px",
+                        lg: is14Inch ? "40px" : is15Inch ? "45px" : "53px",
+                        md: "38px",
+                        sm: "34px",
                         xs: isExtraSmallMobile ? "16px" : "26px",
                     },
                     textAlign: "left",
                     paddingRight: {
                         lg:"0px",
-                        md:"0px",
+                        md:"20px",
                         sm:"12px",
                         xs:"12px"
                         
@@ -131,9 +131,9 @@ export default function ResponsiveComponent({ goalDescription }) {
                             sx={{
                                 fontFamily: "var(--English-font)",
                                 fontSize: {
-                                    lg: is14Inch ? "40px" : is15Inch ? "44px" : "48px",
-                                    md: "45px",
-                                    sm: "34px",
+                                    lg: is14Inch ? "40px" : is15Inch ? "40px" : "48px",
+                                    md: "37px",
+                                    sm: "32px",
                                     xs: isExtraSmallMobile ? "16px" : "22px",
                                 },
                                 padding:{
@@ -182,16 +182,16 @@ export default function ResponsiveComponent({ goalDescription }) {
                 sx={{
                     fontFamily: "var(--English-font)",
                     fontSize: {
-                        lg: is14Inch ? "40px" : is15Inch ? "50px" : "53px",
-                        md: "45px",
-                        sm: "42px",
+                        lg: is14Inch ? "40px" : is15Inch ? "45px" : "53px",
+                        md: "38px",
+                        sm: "34px",
                         xs: isExtraSmallMobile ? "16px" : "26px",
 
                     },
                     paddingLeft: {
                         lg: "30px",
                         md: "30px",
-                        sm: "30px",
+                        sm: "20px",
                         xs: isMeduimMobile ? "18px" : "12px"
                     },
                     textAlign: 'left',
@@ -220,8 +220,8 @@ export default function ResponsiveComponent({ goalDescription }) {
                     position: "absolute",
                     bottom: {
                         lg: -12,
-                        md: -12,
-                        sm: -6,
+                        md: -32,
+                        sm: -12,
                         xs: isMeduimMobile ? -16 : -6
                     },
                     left: 0,

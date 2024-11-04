@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, useTheme } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import Arrow from "../../assets/sectionsImages/contactusArrow.svg";
 import ArrowWight from "../../assets/sectionsImages/contactUsArrowWhite.svg";
@@ -6,6 +6,8 @@ import ArrowWight from "../../assets/sectionsImages/contactUsArrowWhite.svg";
 export default function ContactUsBtn() {
     const [btnHovered,setBtnHovered]= useState(false)
     const theme=useTheme()
+    const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
+
   return (
 <>
 <Grid
@@ -14,7 +16,7 @@ export default function ContactUsBtn() {
 sx={{
     cursor:"pointer",
     marginTop: {
-        lg: "70px",
+        lg: is15Inch ? "50px" : "70px",
         md:"50px",
         sm:"53px",
         xs:"53px"
@@ -99,8 +101,8 @@ sx={{
         fontSize: {
           lg: "22px",
           md: "20px",
-          sm: "18px", // Increased for better readability on small screens
-          xs: "16px", // Slightly larger font size for better touch targets
+          sm: "18px", 
+          xs: "16px", 
         },
         fontFamily: "var(--English-font)",
         textAlign: "center",
