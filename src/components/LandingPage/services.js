@@ -88,13 +88,13 @@ export default function Services({
             sx={{
                 padding: 
                 { lg: "0px 75px 0px 75px",
-                     md: "0px 75px 0px 55px",
-                      sm: "0px 45px 0px 25px", xs: "0px 0px 0px 25px" },
+                    md: '0px 75px 0px 75px',
+                    sm: "0px 45px 0px 25px", xs: "0px 0px 0px 25px" },
             }}
         >
             <Typography
                 sx={{
-                    fontSize: { lg: "40px", md: "30px", sm: "30px" },
+                    fontSize: { lg: "38px", md: "30px", sm: "30px" },
                     fontFamily: "var(--English-font-Extralight)",
                     display: { sm: "block", xs: "none", md: "block" },
                 }}

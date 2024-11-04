@@ -30,13 +30,12 @@ export default function AboutSpaceNet({
     const timeoutRef = useRef([]);
     const [initialAnimation, setInitialAnimation] = useState(true);
 
-    useEffect(() => {
-        const paragraph = paragraphRef.current;
-
-        if (capture || !capture) {
-            paragraph.scrollTop = 0;
-        }
-    });
+    // useEffect(() => {
+    //     const paragraph = paragraphRef.current;
+    //     if (capture || !capture) {
+    //         paragraph.scrollTop = 0;
+    //     }
+    // });
 
 
     useEffect(() => {
@@ -170,7 +169,7 @@ export default function AboutSpaceNet({
                                     lg: is14Inch ?
                                         "140px" :
                                         is15Inch ? '180px' :
-                                            "220px",
+                                            "180px",
                                     md: "106px",
                                     sm: "106px",
                                     xs: "106px"
@@ -214,7 +213,7 @@ export default function AboutSpaceNet({
                                 gap: "5px",
                                 paddingRight: {
                                     lg: is14Inch ? "110px" : is15Inch ? "120px" : "140px",
-                                    md: "30px",
+                                    md: "50px",
                                     sm: "30px",
                                     xs: "30px"
                                 },
@@ -252,10 +251,10 @@ export default function AboutSpaceNet({
                                             sx={{
                                                 fontWeight: "bold",
                                                 fontSize: {
-                                                    lg: is14Inch ? "30px" : is15Inch ? "33px" : "40px",
+                                                    lg: is14Inch ? "30px" : is15Inch ? "33px" : "38px",
                                                     md: "24px",
                                                     sm: "24px",
-                                                    xs: "24px"
+                                                    xs: "18px"
                                                 },
                                                 fontFamily: "var(--English-font-Extralight)",
                                                 color: hoveredService === 'ACADEMICS' ? "#FF9F31" :
@@ -338,7 +337,7 @@ export default function AboutSpaceNet({
                                             lg: capture ? is14Inch || is15Inch ? '20px'
                                                 : '24px'
                                                 : is14Inch || is15Inch ? "24px" :
-                                                    "32px",
+                                                    "28px",
                                             md: capture ? '18px' : "22px",
                                             sm: capture ? '16px' : "20px",
                                             xs: '15px',
@@ -392,7 +391,17 @@ export default function AboutSpaceNet({
                         </Box>
                     </motion.div>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12}
+                sx={{
+                    position:"relative",
+                    right:{
+                        lg:"80px",
+                        md:"30px",
+                        sm:"0px",
+                        xs:"0px"
+                    }
+                }}
+                >
                     <motion.div
                         initial={{ y: 0 }}
                         animate={initialAnimation
@@ -409,12 +418,7 @@ export default function AboutSpaceNet({
                             component='img'
                             src={theme.palette.mode === 'light' ? vector2White : Vector2Yellow}
                             sx={{
-                                paddingRight: {
-                                    lg: "80px",
-                                    md: "0px",
-                                    sm: "0px",
-                                    xs: "0px"
-                                },
+                               
                                 bottom: {
                                     lg: "-90px",
                                     md: "-40px",
@@ -423,14 +427,14 @@ export default function AboutSpaceNet({
                                 },
                                 maxWidth: "100%",
                                 width: {
-                                    lg: is14Inch ? "210px" : is15Inch ? "250px" : "300px",
+                                    lg: is14Inch ? "140px" : is15Inch ? "180px" : "180px",
                                     md: "106px",
                                     sm: "106px",
                                     xs: "106px"
                                 },
                                 float: "right",
                                 marginTop: {
-                                    lg: is14Inch ? "-20px" : is15Inch ? "-40px" : "-60px",
+                                    lg: is14Inch ? "-20px" : is15Inch ? "-40px" : "-40px",
                                     md: "-30px",
                                     sm: "-20px",
                                     xs: "-20px"

@@ -14,7 +14,7 @@ export default function ContactUsBtn() {
 sx={{
     cursor:"pointer",
     marginTop: {
-        lg: "50px",
+        lg: "70px",
         md:"50px",
         sm:"53px",
         xs:"53px"
@@ -97,8 +97,8 @@ sx={{
     <Typography
       sx={{
         fontSize: {
-          lg: "30px",
-          md: "24px",
+          lg: "22px",
+          md: "20px",
           sm: "18px", // Increased for better readability on small screens
           xs: "16px", // Slightly larger font size for better touch targets
         },

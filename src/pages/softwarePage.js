@@ -21,7 +21,7 @@ return (
 
             >
                 <BusinessGoals 
-goalDescription={`Achieve your business goals with ${isSmallMobile ? "our" : ""}`}
+goalDescription={`Achieve your business goals with our`}
 serviceType="Website Development"
                 serviceBgColor="#9D89FC"
                 />

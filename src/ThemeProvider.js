@@ -11,9 +11,7 @@ const ThemeProvider = ({ children, logoAnimationComplete }) => {
   const location = useLocation();
   const { pathname } = location;
 
-  // If you need to handle any side effects based on pathname changes, you can implement it here
   useEffect(() => {
-    // Add logic if needed, e.g., tracking or state update based on location changes
   }, [pathname]);
 
   const colorMode = useMemo(
@@ -54,7 +52,7 @@ const ThemeProvider = ({ children, logoAnimationComplete }) => {
                   logo: '#051A2F',
                 },
                 background: {
-                  default: pathname === '/' ? '#9D89FC' : logoAnimationComplete ? '#051A2F' : '#F4F4F4',
+                  default: pathname === '/' ? '#9D89FC' : logoAnimationComplete && pathname === '/' ? '#051A2F' : '#F4F4F4',
                   paper: '#F4F4F4',
                 },
                 text: {

@@ -79,14 +79,14 @@ export default function ResponsiveComponent({ goalDescription }) {
                 sx={{
                     fontFamily: "var(--English-font)",
                     fontSize: {
-                        lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
+                        lg: is14Inch ? "40px" : is15Inch ? "50px" : "53px",
                         md: "45px",
                         sm: "42px",
                         xs: isExtraSmallMobile ? "16px" : "26px",
                     },
                     textAlign: "left",
                     paddingRight: {
-                        lg:"24px",
+                        lg:"0px",
                         md:"0px",
                         sm:"12px",
                         xs:"12px"
@@ -131,7 +131,7 @@ export default function ResponsiveComponent({ goalDescription }) {
                             sx={{
                                 fontFamily: "var(--English-font)",
                                 fontSize: {
-                                    lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
+                                    lg: is14Inch ? "40px" : is15Inch ? "44px" : "48px",
                                     md: "45px",
                                     sm: "34px",
                                     xs: isExtraSmallMobile ? "16px" : "22px",
@@ -146,6 +146,7 @@ export default function ResponsiveComponent({ goalDescription }) {
                                 color: currentServiceType === 'Mobile App' ? "#000000" : "#FFFFFF",
                                 textAlign: "center",
                                 display: "inline-block",
+                            
                                 marginLeft: {
                                     lg: "10px",
                                     md: "0px",
@@ -153,6 +154,7 @@ export default function ResponsiveComponent({ goalDescription }) {
                                     xs: "0px"
                                 },
                                 transition: "background 1s linear",
+                                
                             }}
                         >
                             <motion.div
@@ -180,7 +182,7 @@ export default function ResponsiveComponent({ goalDescription }) {
                 sx={{
                     fontFamily: "var(--English-font)",
                     fontSize: {
-                        lg: is14Inch ? "40px" : is15Inch ? "50px" : "62px",
+                        lg: is14Inch ? "40px" : is15Inch ? "50px" : "53px",
                         md: "45px",
                         sm: "42px",
                         xs: isExtraSmallMobile ? "16px" : "26px",

@@ -129,7 +129,7 @@ export default function ServicesOriginal({
                             xs: "6px",
                         },
                         height: {
-                            lg: is14Inch ? "55px" : is15Inch ? "65px" : "80px",
+                            lg: is14Inch ? "55px" : is15Inch ? "65px" : "75px",
                             md: "55px",
                             sm: "50px",
                             xs: "50px",
@@ -188,7 +188,7 @@ export default function ServicesOriginal({
                     <Typography
                         sx={{
                             fontSize: {
-                                lg: is14Inch ? "24px" : is15Inch ? "32px" : "40px",
+                                lg: is14Inch ? "24px" : is15Inch ? "32px" : "38px",
                                 md: "24px",
                                 sm: "15px",
                                 xs: "15px",
