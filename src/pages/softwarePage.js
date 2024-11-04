@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BusinessGoals from "../components/softwareSection/businessGoals";
 import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import ContactUsBtn from "../components/softwareSection/contactUsBtn";
+import { useLocation } from "react-router-dom";
 
 
-export default function SoftwareSection() {
+export default function SoftwareSection({setThemeColor}) {
 const theme=useTheme()
+const location=useLocation()
+const pathname=location
+
+
 const isSmallMobile = useMediaQuery(theme.breakpoints.down("sm"));
 return (
         <>

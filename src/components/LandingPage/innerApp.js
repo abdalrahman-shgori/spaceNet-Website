@@ -114,7 +114,7 @@ const InnerApp = ({
                 }
               }}
             >
-              <Toggle setThemeColor={setThemeColor} drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} />
+              {/* <Toggle setThemeColor={setThemeColor} drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} /> */}
 
             </Box>
           </motion.div>

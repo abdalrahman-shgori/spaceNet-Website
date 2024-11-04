@@ -47,7 +47,6 @@ export default function ServicesOriginal({
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
     const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
 
-    console.log(is14Inch, "14")
     return (
         <Grid
             key={item.id || index}

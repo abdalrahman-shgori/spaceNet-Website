@@ -168,8 +168,8 @@ export default function AboutSpaceNet({
                                 width: {
                                     lg: is14Inch ?
                                         "140px" :
-                                        is15Inch ? '180px' :
-                                            "180px",
+                                        is15Inch ? '160px' :
+                                            "160px",
                                     md: "106px",
                                     sm: "106px",
                                     xs: "106px"
@@ -195,7 +195,7 @@ export default function AboutSpaceNet({
                             sx={{
                                 paddingLeft: {
                                     lg: is14Inch ? "40px" :
-                                        is15Inch ? "45px" : "55px",
+                                        is15Inch ? "45px" : "45px",
                                     md: "30px",
                                     sm: "30px",
                                     xs: "30px"
@@ -212,7 +212,7 @@ export default function AboutSpaceNet({
                                 flexDirection: "column",
                                 gap: "5px",
                                 paddingRight: {
-                                    lg: is14Inch ? "110px" : is15Inch ? "120px" : "140px",
+                                    lg: is14Inch ? "110px" : is15Inch ? "120px" : "120px",
                                     md: "50px",
                                     sm: "30px",
                                     xs: "30px"
@@ -227,7 +227,7 @@ export default function AboutSpaceNet({
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
                                         alt="SpaceNet Logo"
                                         sx={{
-                                            width: { lg: is14Inch ? "250px" : is15Inch ? "260px" : "287px", md: "187px", sm: "179px", xs: "179px" },
+                                            width: { lg: is14Inch ? "250px" : is15Inch ? "260px" : "260px", md: "187px", sm: "179px", xs: "179px" },
                                             paddingRight: "20px",
                                             paddingTop:
                                             {
@@ -251,7 +251,7 @@ export default function AboutSpaceNet({
                                             sx={{
                                                 fontWeight: "bold",
                                                 fontSize: {
-                                                    lg: is14Inch ? "30px" : is15Inch ? "33px" : "38px",
+                                                    lg: is14Inch ? "30px" : is15Inch ? "33px" : "36px",
                                                     md: "24px",
                                                     sm: "24px",
                                                     xs: "18px"
@@ -279,7 +279,12 @@ export default function AboutSpaceNet({
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
                                         alt="SpaceNet Logo"
                                         sx={{
-                                            width: { lg: is14Inch ? "250px" : is15Inch ? "260px" : "287px", md: "187px", sm: "179px", xs: "179px" },
+                                            width: {
+                                                 lg: is14Inch ? "250px" : is15Inch ? "260px" : "260px",
+                                                  md: "187px",
+                                                   sm: "179px",
+                                                    xs: "179px" 
+                                                },
                                             paddingBottom: {
                                                 lg: "10px",
                                                 md: "10px",
@@ -337,7 +342,7 @@ export default function AboutSpaceNet({
                                             lg: capture ? is14Inch || is15Inch ? '20px'
                                                 : '24px'
                                                 : is14Inch || is15Inch ? "24px" :
-                                                    "28px",
+                                                    "27px",
                                             md: capture ? '18px' : "22px",
                                             sm: capture ? '16px' : "20px",
                                             xs: '15px',
@@ -345,14 +350,14 @@ export default function AboutSpaceNet({
                                         fontFamily: 'var(--English-font)',
                                         overflow: 'auto',
                                         maxHeight: {
-                                            lg: is14Inch ? "220px" : is15Inch ? "240px" : '320px',
+                                            lg: is14Inch ? "220px" : is15Inch ? "240px" : '300px',
                                             md: '220px',
                                             sm: '220px',
                                             xs: '220px',
                                         },
                                         paddingRight: '10px',
                                         paddingTop: {
-                                            lg: is14Inch || is15Inch ? "0px" : '10px',
+                                            lg: is14Inch || is15Inch ? "0px" : capture ? "0px" : '10px',
                                             md: '0px',
                                             sm: '4px',
                                             xs: '4px'
@@ -427,15 +432,15 @@ export default function AboutSpaceNet({
                                 },
                                 maxWidth: "100%",
                                 width: {
-                                    lg: is14Inch ? "140px" : is15Inch ? "180px" : "180px",
+                                    lg: is14Inch ? "140px" : is15Inch ? "160px" : "160px",
                                     md: "106px",
                                     sm: "106px",
                                     xs: "106px"
                                 },
                                 float: "right",
                                 marginTop: {
-                                    lg: is14Inch ? "-20px" : is15Inch ? "-40px" : "-40px",
-                                    md: "-30px",
+                                    lg: is14Inch ? "-20px" : is15Inch ? "-25px" : "-25px",
+                                    md: "-25px",
                                     sm: "-20px",
                                     xs: "-20px"
                                 }

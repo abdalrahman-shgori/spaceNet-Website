@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppBar, Toolbar, IconButton, Box, List, ListItem, Typography, useTheme, useMediaQuery, Drawer } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
@@ -53,7 +53,7 @@ const NavBar = ({
         setDrawerOpen(false);
     };
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
-
+  
     return (
         <>
             <AppBar
@@ -252,6 +252,7 @@ const NavBar = ({
                                         </Typography>
                                     </Box>
                                 </Box>
+
                             </Drawer>
                         </motion.div>
                     </Box>

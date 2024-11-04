@@ -20,7 +20,6 @@ const App = () => {
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
   };
-  console.log(theme.palette.background.default)
   useEffect(() => {
     if (logoAnimationComplete) {
       setTimeout(() => {
@@ -54,9 +53,9 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowToggle(true);
-    }, 2500); // 1000 milliseconds = 1 second
+    }, 2500);
 
-    return () => clearTimeout(timer); // Cleanup the timer on unmount
+    return () => clearTimeout(timer); 
   }, []);
 
   return (
@@ -67,7 +66,7 @@ const App = () => {
         animate={{ height: showContent ? "0%" : "100%" }}
         transition={{ duration: 1 }}
         style={{
-          backgroundColor: '#051A2F',
+          background: '#051A2F',
           position: 'absolute',
           top: 0,
           left: 0,
@@ -104,7 +103,6 @@ const App = () => {
               minHeight: '100dvh',
               position: 'relative',
               zIndex: 2,
-              backgroundSize: '200% 100%',
               animation: 'moveBackground 5s linear infinite',
             }}
           >
@@ -126,7 +124,7 @@ const App = () => {
                       />
                     }
                   />
-                  <Route path='/software' element={<SoftwareSection />} />
+                  <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor}/>} />
                 </Routes>
 
               </>
@@ -134,22 +132,24 @@ const App = () => {
             )}
 
           </motion.div>
-
           <Box
             sx={{
               display: {
-                xl: "none",
+                xl: "",
                 lg: "unset",
                 md: "unset",
                 sm: "unset",
                 xs: "unset"
-              }
+              },
+            
+              
             }}
           >
-            {showToggle &&  (
+            {showToggle  &&  (
               <Toggle setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
             )}
           </Box>
+        
         </>
       )}
     </ThemeProvider>
