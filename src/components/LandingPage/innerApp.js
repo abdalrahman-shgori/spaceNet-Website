@@ -3,11 +3,8 @@ import { services as fetchServicesApi } from "../../services/websiteApis/service
 import ServicesLogo from '../../assets/spacenetLogo/servicesLogo';
 import { useTheme } from "@mui/material";
 import { Box, Grid } from '@mui/material';
-import SvgGroup1 from '../../assets/logoAnimation/group1';
 import { motion } from 'framer-motion';
-import NavBar from "../navbar/navbar";
 import LandingPage from "./landingPage";
-import Toggle from "../toggleCompoent/toggle";
 
 
 const InnerApp = ({
@@ -15,9 +12,6 @@ const InnerApp = ({
   setShowContent,
   showLogo,
   setShowLogo,
-  draweOpen,
-  setDrawerOpen,
-  setThemeColor
 }) => {
   const [servicesList, setServicesList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -60,13 +54,7 @@ const InnerApp = ({
       return updatedServices;
     });
   }, [isAboutActive]);
-  const theme = useTheme();
-  const handleAnimationComplete = () => {
-    setShowContent(true);
-    setTimeout(() => {
-      setShowLogo(false);
-    }, 500);
-  };
+
 
   const [overflow, setOverFlow] = useState('hidden')
   useEffect(() => {
@@ -77,7 +65,6 @@ const InnerApp = ({
   }, [])
   return (
     <Grid
-
       sx={{
         background: showLogo ? '#051A2F' : 'transparent',
         overflow: 'hidden',
@@ -95,7 +82,6 @@ const InnerApp = ({
               duration: 1
             }}
           >
-            {/* <NavBar setDrawerOpen={setDrawerOpen} /> */}
             <LandingPage
               loading={loading}
               servicesList={servicesList}
@@ -114,12 +100,8 @@ const InnerApp = ({
                 }
               }}
             >
-              {/* <Toggle setThemeColor={setThemeColor} drawerOpen={draweOpen} setDrawerOpen={setDrawerOpen} /> */}
-
             </Box>
           </motion.div>
-        
-
         </>
       )}
     </Grid>

@@ -30,14 +30,6 @@ export default function AboutSpaceNet({
     const timeoutRef = useRef([]);
     const [initialAnimation, setInitialAnimation] = useState(true);
 
-    // useEffect(() => {
-    //     const paragraph = paragraphRef.current;
-    //     if (capture || !capture) {
-    //         paragraph.scrollTop = 0;
-    //     }
-    // });
-
-
     useEffect(() => {
         timeoutRef.current.forEach(timeout => clearTimeout(timeout));
         timeoutRef.current = [];
@@ -61,7 +53,6 @@ export default function AboutSpaceNet({
 
     useEffect(() => {
         const paragraph = paragraphRef.current;
-
         const scrollContent = () => {
             setTimeout(() => {
                 if (paragraph) {
@@ -71,7 +62,6 @@ export default function AboutSpaceNet({
                     }
                 }
             }, 3000);
-
         };
 
         const intervalId = setInterval(scrollContent, 50);
@@ -231,12 +221,12 @@ export default function AboutSpaceNet({
                                             paddingRight: "20px",
                                             paddingTop:
                                             {
-                                                lg:is14Inch ? "0px" : "10px",
-                                                md:"10px",
-                                                sm:"10px",
-                                                xs:"10px"
+                                                lg: is14Inch ? "0px" : "10px",
+                                                md: "10px",
+                                                sm: "10px",
+                                                xs: "10px"
                                             }
-                                            
+
                                         }}
                                     />
                                     <motion.div
@@ -280,11 +270,11 @@ export default function AboutSpaceNet({
                                         alt="SpaceNet Logo"
                                         sx={{
                                             width: {
-                                                 lg: is14Inch ? "250px" : is15Inch ? "260px" : "260px",
-                                                  md: "187px",
-                                                   sm: "179px",
-                                                    xs: "179px" 
-                                                },
+                                                lg: is14Inch ? "250px" : is15Inch ? "260px" : "260px",
+                                                md: "187px",
+                                                sm: "179px",
+                                                xs: "179px"
+                                            },
                                             paddingBottom: {
                                                 lg: "10px",
                                                 md: "10px",
@@ -397,15 +387,15 @@ export default function AboutSpaceNet({
                     </motion.div>
                 </Grid>
                 <Grid item xs={12}
-                sx={{
-                    position:"relative",
-                    right:{
-                        lg:"80px",
-                        md:"30px",
-                        sm:"0px",
-                        xs:"0px"
-                    }
-                }}
+                    sx={{
+                        position: "relative",
+                        right: {
+                            lg: "80px",
+                            md: "30px",
+                            sm: "0px",
+                            xs: "0px"
+                        }
+                    }}
                 >
                     <motion.div
                         initial={{ y: 0 }}
@@ -423,7 +413,7 @@ export default function AboutSpaceNet({
                             component='img'
                             src={theme.palette.mode === 'light' ? vector2White : Vector2Yellow}
                             sx={{
-                               
+
                                 bottom: {
                                     lg: "-90px",
                                     md: "-40px",

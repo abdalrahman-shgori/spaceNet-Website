@@ -11,9 +11,7 @@ export default function LogoAnimation({
             background: "#051A2F",
             height: "100dvh"
         }}>
-
             <SvgGroup1 onAnimationComplete={handleAnimationComplete} />
-
         </Box>
 
     )

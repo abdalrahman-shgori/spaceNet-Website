@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Box, List, ListItem, Typography, useTheme, useMediaQuery, Drawer } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
@@ -11,15 +11,10 @@ import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Toggle from '../toggleCompoent/toggle';
 
-const NavBar = ({ 
+const NavBar = ({
     setDrawerOpen,
-     showContent,
-     themeColor,
-     setThemeColor,
-     drawerOpen
-     }) => {
+}) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const theme = useTheme();
     const location = useLocation();
@@ -53,7 +48,7 @@ const NavBar = ({
         setDrawerOpen(false);
     };
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
-  
+
     return (
         <>
             <AppBar
@@ -122,7 +117,7 @@ const NavBar = ({
                             animate={{ opacity: isDrawerOpen ? 1 : 0, x: isDrawerOpen ? 0 : isSmallScreen ? '-100%' : '100%' }}
                             transition={{ duration: 0.5 }}
                         >
-                            
+
                             <Drawer
                                 anchor={isSmallScreen ? "left" : "right"}
                                 open={isDrawerOpen}
@@ -183,7 +178,7 @@ const NavBar = ({
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                                             >
-                                                
+
                                                 <ListItem
                                                     button
                                                     onClick={() => {
@@ -202,7 +197,7 @@ const NavBar = ({
                                                     <Typography
                                                         sx={{
                                                             fontSize: {
-                                                                lg: is14Inch ? "40px" :"44px",
+                                                                lg: is14Inch ? "40px" : "44px",
                                                                 md: "30px",
                                                                 sm: "28px",
                                                                 xs: "28px",

@@ -18,6 +18,8 @@ export default function LandingPage({
     const [activeService, setActiveService] = useState('ABOUT');
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
 
+ 
+
     return (
         <Grid container 
         sx={{
