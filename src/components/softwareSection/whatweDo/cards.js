@@ -37,7 +37,7 @@ export default function Cards({
                         position: "relative",
                         zIndex: data.length + index,  // Higher index cards will be on top
                         marginTop: index === 0 ? "0" : "-70px",  // Adjust overlap amount
-                        transition: "margin 0.2s ease-out",  // Smooth transition
+                        transition: "margin 0.4s ",  // Smooth transition
                         width: "100%",  // Ensure cards take full width
                         maxWidth: "400px",  // Set a maximum width for the cards
                         cursor: "pointer",
@@ -85,7 +85,7 @@ export default function Cards({
                                 sm: "30px",
                                 xs: "30px"
                             },
-                            transition: "max-height 0.2s ease-out, border-radius 0.2s ease-out", // Smooth transition for height, max-height, and border-radius
+                            transition: "max-height 0.4s , border-radius 0.4s ", // Smooth transition for height, max-height, and border-radius
                             padding: {
                                 lg: "72px 0px 0px 40px",
                                 md: "72px 0px 0px 40px",
@@ -118,7 +118,7 @@ export default function Cards({
                                             sm: "33px",
                                             xs: "33px",
                                         },
-                                        transition: "transform 0.2s linear", // Add smooth transition for rotation
+                                        transition: "transform 0.4s linear", // Add smooth transition for rotation
                                         transform: expandedCard === card.id ? "rotate(-90deg)" : "rotate(0deg)",
                                     }}
                                     src={index === 1 ? arrowWhite : arrow}
