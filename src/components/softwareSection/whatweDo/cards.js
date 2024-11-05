@@ -216,9 +216,6 @@ export default function Cards({
                                             marginRight:"15px",
                                             marginBottom:"10px",
                                             transition: "background-color 0.3s ease", // Transition for hover effect
-                                            '&:hover': {
-                                                backgroundColor: index === 1 ? "#ffffff" : "#E0E0E0" // Change this to your desired color
-                                            }
                                         }}
                                         >
                                             {item}
