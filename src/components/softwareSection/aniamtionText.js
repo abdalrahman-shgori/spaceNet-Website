@@ -11,7 +11,33 @@ export default function AnimatedText({
     nextServiceType,
     serviceColors
 }) {
+    const currentServiceTypeStyle = {
+        fontFamily: "var(--English-font)",
+        fontSize: {
+            lg: is14Inch ? "40px" : is15Inch ? "40px" : "48px",
+            md: "37px",
+            sm: "32px",
+            xs: isExtraSmallMobile ? "16px" : "22px",
+        },
+        padding: {
+            lg: "8px 20px 8px 20px",
+            md: "8px 20px 8px 20px",
+            sm: "8px 20px 8px 20px",
+            xs: "4px 20px 4px 20px"
+        },
 
+        color: currentServiceType === 'Mobile App' ? "#000000" : "#FFFFFF",
+        textAlign: "center",
+        display: "inline-block",
+        marginLeft: {
+            lg: "10px",
+            md: "0px",
+            sm: "0px",
+            xs: "0px"
+        },
+        transition: "background 1s linear",
+
+    }
     return (
         <>
             <AnimatePresence mode='wait'>
@@ -58,32 +84,7 @@ export default function AnimatedText({
                     >
                         <Typography
                             sx={{
-                                fontFamily: "var(--English-font)",
-                                fontSize: {
-                                    lg: is14Inch ? "40px" : is15Inch ? "40px" : "48px",
-                                    md: "37px",
-                                    sm: "32px",
-                                    xs: isExtraSmallMobile ? "16px" : "22px",
-                                },
-                                padding: {
-                                    lg: "8px 20px 8px 20px",
-                                    md: "8px 20px 8px 20px",
-                                    sm: "8px 20px 8px 20px",
-                                    xs: "4px 20px 4px 20px"
-                                },
-
-                                color: currentServiceType === 'Mobile App' ? "#000000" : "#FFFFFF",
-                                textAlign: "center",
-                                display: "inline-block",
-
-                                marginLeft: {
-                                    lg: "10px",
-                                    md: "0px",
-                                    sm: "0px",
-                                    xs: "0px"
-                                },
-                                transition: "background 1s linear",
-
+                                ...currentServiceTypeStyle
                             }}
                         >
                             <motion.div

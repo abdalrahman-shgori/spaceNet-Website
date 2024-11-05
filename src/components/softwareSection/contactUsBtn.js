@@ -22,7 +22,7 @@ export default function ContactUsBtn() {
             xs: "53px"
           },
           border: theme.palette.mode === 'light' ? "2px solid black" : "2px solid #F4F4F4",
-          display: "inline-flex",
+          display: "flex",
           height: {
             lg: "80px",
             md: "60px",
