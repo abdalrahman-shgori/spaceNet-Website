@@ -42,15 +42,18 @@ transition={{duration:0.5}}
 style={{ height: "100%", overflowX:"hidden" }}
             >
             <Box
-              onMouseEnter={() => {
-                sethoveredcardid(item.id)
-              }}
-              onMouseLeave={() => {
-
-                sethoveredcardid(null)
-              }}
-
-
+             onMouseEnter={() => {
+              sethoveredcardid(item.id);
+            }}
+            onMouseLeave={() => {
+              sethoveredcardid(null);
+            }}
+            onTouchStart={() => {
+              sethoveredcardid(item.id); 
+            }}
+            onTouchEnd={() => {
+              sethoveredcardid(null); 
+            }}
               sx={{
                 background: "#FFFFFF",
                 padding: {
