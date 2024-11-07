@@ -71,7 +71,7 @@ export default function AnimatedText({
                         borderRadius: "75.4px",
                         display: 'inline-block',
                         transition: "width 0.2s ease",
-                        marginLeft: lgscreen ? "12px" : mdscreen ? "12px" : smscreen ? "6px" : xsscreen ? "60px" : ''
+                        marginLeft: lgscreen ? "12px" : mdscreen ? "12px" : smscreen ? "6px" : xsscreen ? "6px" : ''
                         
                     }}
                 >
