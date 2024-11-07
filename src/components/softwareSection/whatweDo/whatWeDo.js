@@ -1,11 +1,11 @@
 import { Grid } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import WhatWeDoText from "./whatWeDoText";
-import Cards from "./cards";
+import Cards from "../../cards";
 
 
 
-export default function WhatWeDo({ setData, data, lastCardId }) {
+export default function WhatWeDo({ setData, data, lastCardId ,loading}) {
 
     return (
         <>
@@ -20,8 +20,10 @@ export default function WhatWeDo({ setData, data, lastCardId }) {
 
                 }}
             >
-                <WhatWeDoText />
-                <Cards data={data} lastCardId={lastCardId} />
+                <WhatWeDoText 
+                text="What we are doing"
+                />
+                <Cards data={data} lastCardId={lastCardId} loading={loading}/>
             </Grid>
         </>
     )

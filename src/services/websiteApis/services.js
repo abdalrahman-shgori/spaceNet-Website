@@ -9,3 +9,13 @@ export const services = async () => {
     throw error;
   }
 };
+
+
+export const subServices = async (id) => {
+  try {
+    const response = await axiosInstance.get(`/subservices?id=${id}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

@@ -4,7 +4,6 @@ import vector2 from "../../assets/sectionsImages/vectorSections2.svg";
 import vectorWhite1 from "../../assets/sectionsImages/vectorSectionsWhite1.svg";
 import vectorWhite2 from "../../assets/sectionsImages/vectorSectionsWhite2.svg";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { motion, AnimatePresence } from "framer-motion";
 import AnimatedText from "./aniamtionText";
 
 export default function ResponsiveComponent({
@@ -42,7 +41,9 @@ export default function ResponsiveComponent({
             position: 'relative',
             height: 'auto',
             maxWidth: is14Inch ? "800px" : is15Inch ? '820px' : "900px",
-            width: "100%"
+            width: "100%",
+
+
         }}>
             <Box
                 component='img'

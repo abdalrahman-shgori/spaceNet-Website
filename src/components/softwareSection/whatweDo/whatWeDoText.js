@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import React from "react";
 
 const textStyle = {
@@ -25,12 +25,12 @@ const textStyle = {
 
 }
 
-export default function WhatWeDoText() {
+export default function WhatWeDoText({ text }) {
 
     return (
         <>
             <Typography sx={{ ...textStyle }} >
-                What we are doing?
+                {text}
             </Typography>
         </>
     )
