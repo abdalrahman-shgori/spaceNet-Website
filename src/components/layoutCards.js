@@ -51,9 +51,8 @@ style={{ height: "100%", overflowX:"hidden" }}
             onTouchStart={() => {
               sethoveredcardid(item.id); 
             }}
-            onTouchEnd={() => {
-              sethoveredcardid(null); 
-            }}
+          
+            
               sx={{
                 background: "#FFFFFF",
                 padding: {
