@@ -80,7 +80,7 @@ const App = () => {
       {logoAnimationComplete && (
         <>
           <motion.div
-            initial={location.pathname === '/' && { y: '100vh', opacity: 0 }}
+            initial={location.pathname === '/' && { y: '100dvh', opacity: 0 }}
             animate={{
               y: 0,
               opacity: 1,
