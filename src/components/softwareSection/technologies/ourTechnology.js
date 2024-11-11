@@ -4,7 +4,6 @@ import techImg from "../../../assets/sectionsImages/technologiesImage.svg"
 import meetImg from "../../../assets/sectionsImages/meetingImg.svg"
 import lang1 from "../../../assets/sectionsImages/programmingLang/programLang.svg"
 
-
 const programmingLang = [
   { id: 1, img: lang1 },
   { id: 2, img: lang1 },
@@ -129,10 +128,10 @@ const OurTechnologies = () => {
                     component="img"
                     src={item.img}
                     sx={{
-                     width:"100%",
-                     height:"100%",
+                      width: "100%",
+                      height: "100%",
                       paddingTop: "10px",
-                      paddingRight:"10px"
+                      paddingRight: "10px"
                     }}
                   />
                 </Grid>
@@ -193,15 +192,12 @@ const OurTechnologies = () => {
           >
             <Typography
               sx={{
-                fontSize: {
-                  lg: "33px",
-                  md: "28px",
-                  sm: "22px"
-                },
+                fontSize: "18px",
                 fontFamily: "var(--English-font)",
                 padding: {
                   xs: "56px 26px 56px 26px"
                 },
+                textAlign: "center"
 
               }}
             >
@@ -247,7 +243,7 @@ const OurTechnologies = () => {
 
             }}
           >
-            <Grid container spacing={0.5} // Add spacing between grid items
+            <Grid container spacing={0.5}
               sx={{
                 padding: {
                   xs: "27px 10px 27px 10px",
@@ -256,26 +252,26 @@ const OurTechnologies = () => {
               }}
             >
               {programmingLang.map((item, index) => (
-               <Grid item lg={3} md={3} sm={4} xs={4}  key={index}
-               sx={{
-                 display: "flex",
-                 justifyContent: "center",
-                 alignItems: "center",
-                 marginTop: "6px",
-               }}
-             >
-               <Box
-                 component="img"
-                 src={item.img}
-                 sx={{
-                   maxWidth: "100%", // Ensures the image doesn't stretch beyond the container
-                   maxHeight: "100%", // Keeps the image proportions
-                   objectFit: "contain", // Ensures the image is contained within the Box
-              
+                <Grid item lg={3} md={3} sm={4} xs={4} key={index}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginTop: "6px",
                   }}
-               />
-             </Grid>
-             
+                >
+                  <Box
+                    component="img"
+                    src={item.img}
+                    sx={{
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                      objectFit: "contain",
+
+                    }}
+                  />
+                </Grid>
+
               ))}
             </Grid>
           </Grid>
@@ -294,22 +290,6 @@ const OurTechnologies = () => {
               }}
             />
           </Grid>
-          {/* <Grid item lg={4} md={5} sm={5} xs={12} 
-    sx={{
-      paddingLeft: "20px"
-    }}
-  >
-    <Box
-      component="img"
-      src={meetImg}
-      sx={{
-        borderRadius: "23px",
-        height: "100%",
-        width: "100%",
-        objectFit: "cover"
-      }}
-    />
-  </Grid> */}
         </Grid>
 
 
