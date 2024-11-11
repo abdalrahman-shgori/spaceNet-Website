@@ -121,7 +121,7 @@ export default function SoftwareSection() {
                  <SectionDescription
                     text1="Our Technologies"
                 />
-                {/* <OurTechnologies/> */}
+                <OurTechnologies/>
             </Grid>
             <LetsProject 
             text1="Start your project with us or have a great idea?"

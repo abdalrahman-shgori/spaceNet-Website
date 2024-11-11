@@ -1,93 +1,319 @@
 import React from 'react';
-import { Box, Typography, Grid, CardMedia } from '@mui/material';
+import { Box, Typography, Grid, CardMedia, useMediaQuery, useTheme } from '@mui/material';
 import techImg from "../../../assets/sectionsImages/technologiesImage.svg"
+import meetImg from "../../../assets/sectionsImages/meetingImg.svg"
+import lang1 from "../../../assets/sectionsImages/programmingLang/programLang.svg"
+
+
+const programmingLang = [
+  { id: 1, img: lang1 },
+  { id: 2, img: lang1 },
+  { id: 3, img: lang1 },
+  { id: 4, img: lang1 },
+  { id: 5, img: lang1 },
+  { id: 6, img: lang1 },
+  { id: 7, img: lang1 },
+  { id: 8, img: lang1 },
+]
 const OurTechnologies = () => {
+  const theme = useTheme()
+  const isXsmallScreen = useMediaQuery(theme.breakpoints.down(322))
   return (
     <>
-    <Grid container sx={{position:"relative"}}>
-      <Grid lg={11}>
       <Box
         sx={{
-          background: "#9D89FC",
-          maxWidth: "80%",
-          display: "flex",
-          justifyContent: "flex-end",
-          alignItems: "center",
-          borderTopRightRadius: "15px",
-          borderTopLeftRadius: "15px",
-          borderBottomLeftRadius:"15px",
-          paddingBottom: "16px", // Added padding to create space between the lines
+          padding: {
+            lg: "47px 75px 149px 75px",
+            md: "0px 0px 149px 0px",
+            sm: "0px 0px 149px 0px",
+
+
+          },
+          display: {
+            lg: "block",
+            md: "block",
+            sm: "block",
+            xs: "none"
+          }
+
         }}
+
       >
-        <Typography
-          sx={{
-            fontSize: "60px",
-            fontFamily: "var(--English-StintUltraCondensed)",
-          }}
-        >
-          Our team makes use of the newest
-        </Typography>
-      </Box>
-
-      {/* Grid for the second and third text */}
-      <Grid container justifyContent="flex-end" sx={{ maxWidth: "80%", marginTop: "-16px" }}>
-        <Grid item xs={12}>
-          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-            <Typography
-              sx={{
-                fontSize: "60px",
-                fontFamily: "var(--English-StintUltraCondensed)",
-                background: "#9D89FC",
-                borderBottomLeftRadius:"15px",
-
-
-              }}
-            >
-              technology and finest
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-      <Box 
-          sx={{
-            background: "#9D89FC",
-            width: "800px",
-            display: "flex",
-            justifyContent: "flex-end", // Align content to the right
-            alignItems: "center", // Center vertically if necessary
-            marginLeft: "auto", // Push the Box to the right within the flex container
-            borderTopRightRadius: "15px",
-                borderBottomLeftRadius:"15px", 
-                borderBottomRightRadius:"15px", 
-
-        }}
+        <Grid container>
+          <Grid lg={8.5} md={8} sm={8}
+            sx={{
+              background: "#9D89FC",
+              borderRadius: "22px",
+              display: "flex",
+              alignItems: "center",
+            }}
           >
             <Typography
               sx={{
-                fontSize: "60px",
-                fontFamily: "var(--English-StintUltraCondensed)",
-              
+                fontSize: {
+                  lg: "34px",
+                  md: "28px",
+                  sm: "22px"
+                },
+                fontFamily: "var(--English-font)",
+                padding: {
+                  lg: "80px 86.3px 80px 86.3px",
+                  md: "40px 40px 40px 40px",
+                  sm: "40px 40px 40px 40px",
+                },
+                textAlign: "center",
               }}
             >
-              development processes.
+              Our team makes use of the newest technology and finest development processes.
             </Typography>
-          </Box>
-      </Grid>
-      <Grid lg={1}>
-      <CardMedia
-        component="img"
-        image={techImg} // Replace with your image URL
-        alt="Team Working"
-        sx={{
-          height: '150px',
-          width: '150px',
-          borderRadius: '10px',
-       
-        }}
-      />
+          </Grid>
+          <Grid lg={3.5} md={4} sm={4}
+            sx={{
+              paddingLeft: "20px"
+            }}
+          >
+            <Box
+              component="img"
+              src={techImg}
+              sx={{
+                borderRadius: "23px",
+                height: "100%",
+                width: "100%",
+                objectFit: "cover"
+
+              }}
+            />
+          </Grid>
         </Grid>
-    </Grid>
- 
+
+
+
+
+        <Grid container
+          sx={{
+            marginTop: {
+              lg: "20px",
+              md: "20px",
+              sm: "20px"
+            }
+          }}
+        >
+          <Grid item lg={7} md={7} sm={6}
+            sx={{
+              background: "#9D89FC",
+              borderRadius: "22px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
+            <Grid container
+              sx={{
+                padding: {
+                  lg: "50px 88px 50px 88px",
+                  md: "30px 30px 30px 30px",
+                  sm: "30px 30px 30px 30px"
+                },
+
+              }}
+            >
+              {programmingLang.map((item, index) => (
+                <Grid item lg={3} md={3} sm={4} xs={6} key={index}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={item.img}
+                    sx={{
+                     width:"100%",
+                     height:"100%",
+                      paddingTop: "10px",
+                      paddingRight:"10px"
+                    }}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+
+          <Grid item lg={5} md={5} sm={6}
+            sx={{
+              paddingLeft: "20px"
+            }}
+          >
+
+            <Box
+              component="img"
+              src={meetImg}
+              sx={{
+                borderRadius: "23px",
+                height: "100%",
+                width: "100%",
+                objectFit: "cover",
+              }}
+            />
+
+
+          </Grid>
+        </Grid>
+
+
+      </Box>
+
+      {/* //sm xs  */}
+
+      <Box
+        sx={{
+          padding: {
+            xs: "0px 0px 72px 0px",
+
+          },
+          display: {
+            lg: "none",
+            md: "none",
+            sm: "none",
+            xs: "block"
+          }
+
+        }}
+
+      >
+        <Grid container>
+          <Grid sm={12} xs={12}
+            sx={{
+              background: "#9D89FC",
+              borderRadius: "22px",
+              display: "flex",
+              alignItems: "center"
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: {
+                  lg: "33px",
+                  md: "28px",
+                  sm: "22px"
+                },
+                fontFamily: "var(--English-font)",
+                padding: {
+                  xs: "56px 26px 56px 26px"
+                },
+
+              }}
+            >
+              Our team makes use of the newest technology and finest development processes.
+            </Typography>
+          </Grid>
+
+        </Grid>
+
+
+
+
+        <Grid container
+          sx={{
+            marginTop: {
+              xs: "15px"
+            }
+          }}
+        >
+          <Grid xs={6}
+            sx={{
+              paddingRight: "10px"
+            }}
+          >
+            <Box
+              component="img"
+              src={techImg}
+              sx={{
+                borderRadius: "15px",
+                height: "100%",
+                width: "100%",
+                objectFit: "cover"
+              }}
+            />
+          </Grid>
+          <Grid item xs={6}
+            sx={{
+              background: "#9D89FC",
+              borderRadius: "15px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+
+            }}
+          >
+            <Grid container spacing={0.5} // Add spacing between grid items
+              sx={{
+                padding: {
+                  xs: "27px 10px 27px 10px",
+                },
+
+              }}
+            >
+              {programmingLang.map((item, index) => (
+               <Grid item lg={3} md={3} sm={4} xs={4}  key={index}
+               sx={{
+                 display: "flex",
+                 justifyContent: "center",
+                 alignItems: "center",
+                 marginTop: "6px",
+               }}
+             >
+               <Box
+                 component="img"
+                 src={item.img}
+                 sx={{
+                   maxWidth: "100%", // Ensures the image doesn't stretch beyond the container
+                   maxHeight: "100%", // Keeps the image proportions
+                   objectFit: "contain", // Ensures the image is contained within the Box
+              
+                  }}
+               />
+             </Grid>
+             
+              ))}
+            </Grid>
+          </Grid>
+          <Grid item xs={12}
+          >
+            <Box
+              component="img"
+              src={meetImg}
+              sx={{
+                borderRadius: "23px",
+                height: "145px",
+                width: "100%",
+                objectFit: "cover",
+                marginTop: "10px"
+
+              }}
+            />
+          </Grid>
+          {/* <Grid item lg={4} md={5} sm={5} xs={12} 
+    sx={{
+      paddingLeft: "20px"
+    }}
+  >
+    <Box
+      component="img"
+      src={meetImg}
+      sx={{
+        borderRadius: "23px",
+        height: "100%",
+        width: "100%",
+        objectFit: "cover"
+      }}
+    />
+  </Grid> */}
+        </Grid>
+
+
+      </Box>
     </>
   );
 };
