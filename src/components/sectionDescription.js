@@ -1,8 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-
-export default function SectionDescription({ text1, text2,top }) {
+export default function SectionDescription({ text1, text2, top }) {
     const text1Style = {
         fontSize: {
             lg: "50px",
@@ -37,8 +36,6 @@ export default function SectionDescription({ text1, text2,top }) {
         },
         width: "100%",
         textAlign: "center"
-
-
     }
     return (
         <>
@@ -53,20 +50,17 @@ export default function SectionDescription({ text1, text2,top }) {
                         sm: "16px",
                         xs: "16px"
                     },
-                    marginTop:{
-                        lg:"130px",
-                        md:"100px",
-                        sm:top,
-                        xs:top
+                    marginTop: {
+                        lg: "130px",
+                        md: "100px",
+                        sm: top,
+                        xs: top
                     }
-
-
                 }}
             >
                 <Typography
                     sx={{
                         ...text1Style,
-
                     }}
                 >
                     {text1}

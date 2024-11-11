@@ -3,10 +3,7 @@ import React from "react";
 import WhatWeDoText from "./whatWeDoText";
 import Cards from "../../cards";
 
-
-
-export default function WhatWeDo({ setData, data, lastCardId ,loading}) {
-
+export default function WhatWeDo({ setData, data, lastCardId, loading }) {
     return (
         <>
             <Grid
@@ -17,13 +14,12 @@ export default function WhatWeDo({ setData, data, lastCardId ,loading}) {
                         sm: "54px",
                         xs: "54px"
                     }
-
                 }}
             >
-                <WhatWeDoText 
-                text="What we are doing"
+                <WhatWeDoText
+                    text="What we are doing"
                 />
-                <Cards data={data} lastCardId={lastCardId} loading={loading}/>
+                <Cards data={data} lastCardId={lastCardId} loading={loading} />
             </Grid>
         </>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid, CardMedia, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Typography, Grid, useTheme } from '@mui/material';
 import techImg from "../../../assets/sectionsImages/technologiesImage.svg"
 import meetImg from "../../../assets/sectionsImages/meetingImg.svg"
 import lang1 from "../../../assets/sectionsImages/programmingLang/programLang.svg"
@@ -15,8 +15,6 @@ const programmingLang = [
   { id: 8, img: lang1 },
 ]
 const OurTechnologies = () => {
-  const theme = useTheme()
-  const isXsmallScreen = useMediaQuery(theme.breakpoints.down(322))
   return (
     <>
       <Box
@@ -25,8 +23,6 @@ const OurTechnologies = () => {
             lg: "47px 75px 149px 75px",
             md: "0px 0px 149px 0px",
             sm: "0px 0px 149px 0px",
-
-
           },
           display: {
             lg: "block",
@@ -34,12 +30,10 @@ const OurTechnologies = () => {
             sm: "block",
             xs: "none"
           }
-
         }}
-
       >
         <Grid container>
-          <Grid lg={8.5} md={8} sm={8}
+          <Grid lg={8.5} md={8} sm={8} item
             sx={{
               background: "#9D89FC",
               borderRadius: "22px",
@@ -61,13 +55,13 @@ const OurTechnologies = () => {
                   sm: "40px 40px 40px 40px",
                 },
                 textAlign: "center",
-                color:"#051A2F"
+                color: "#051A2F"
               }}
             >
               Our team makes use of the newest technology and finest development processes.
             </Typography>
           </Grid>
-          <Grid lg={3.5} md={4} sm={4}
+          <Grid lg={3.5} md={4} sm={4} item
             sx={{
               paddingLeft: "20px"
             }}
@@ -85,10 +79,6 @@ const OurTechnologies = () => {
             />
           </Grid>
         </Grid>
-
-
-
-
         <Grid container
           sx={{
             marginTop: {
@@ -145,7 +135,6 @@ const OurTechnologies = () => {
               paddingLeft: "20px"
             }}
           >
-
             <Box
               component="img"
               src={meetImg}
@@ -156,21 +145,16 @@ const OurTechnologies = () => {
                 objectFit: "cover",
               }}
             />
-
-
           </Grid>
         </Grid>
-
-
       </Box>
 
-      {/* //sm xs  */}
+      {/* // xs  */}
 
       <Box
         sx={{
           padding: {
             xs: "0px 0px 72px 0px",
-
           },
           display: {
             lg: "none",
@@ -178,12 +162,10 @@ const OurTechnologies = () => {
             sm: "none",
             xs: "block"
           }
-
         }}
-
       >
         <Grid container>
-          <Grid sm={12} xs={12}
+          <Grid sm={12} xs={12} item
             sx={{
               background: "#9D89FC",
               borderRadius: "22px",
@@ -199,19 +181,14 @@ const OurTechnologies = () => {
                   xs: "56px 26px 56px 26px"
                 },
                 textAlign: "center",
-                color:"#051A2F"
+                color: "#051A2F"
 
               }}
             >
               Our team makes use of the newest technology and finest development processes.
             </Typography>
           </Grid>
-
         </Grid>
-
-
-
-
         <Grid container
           sx={{
             marginTop: {
@@ -219,7 +196,7 @@ const OurTechnologies = () => {
             }
           }}
         >
-          <Grid xs={6}
+          <Grid xs={6} item
             sx={{
               paddingRight: "10px"
             }}
@@ -277,8 +254,7 @@ const OurTechnologies = () => {
               ))}
             </Grid>
           </Grid>
-          <Grid item xs={12}
-          >
+          <Grid item xs={12}>
             <Box
               component="img"
               src={meetImg}
@@ -293,8 +269,6 @@ const OurTechnologies = () => {
             />
           </Grid>
         </Grid>
-
-
       </Box>
     </>
   );

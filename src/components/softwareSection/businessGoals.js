@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import vector1 from "../../assets/sectionsImages/vectorSections1.svg";
 import vector2 from "../../assets/sectionsImages/vectorSections2.svg";
 import vectorWhite1 from "../../assets/sectionsImages/vectorSectionsWhite1.svg";
@@ -13,7 +13,8 @@ export default function ResponsiveComponent({
     currentServiceType,
     setCurrentServiceType,
     nextServiceType,
-    setNextServiceType
+    setNextServiceType,
+    data
 }) {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -40,7 +41,7 @@ export default function ResponsiveComponent({
         <Box sx={{
             position: 'relative',
             height: 'auto',
-            maxWidth: is14Inch ? "800px" : is15Inch ? '820px' : "900px",
+            maxWidth: is14Inch ? "800px" : is15Inch ? '820px' : "1000px",
             width: "100%",
         }}>
             <Box
@@ -81,8 +82,6 @@ export default function ResponsiveComponent({
                         md: "20px",
                         sm: "12px",
                         xs: "12px"
-
-
                     }
                 }}
             >
@@ -96,6 +95,8 @@ export default function ResponsiveComponent({
                     is15Inch={is15Inch}
                     is14Inch={is14Inch}
                     isExtraSmallMobile={isExtraSmallMobile}
+                    data={data}
+                    serviceTypes={serviceTypes}
                 />
             </Typography>
 

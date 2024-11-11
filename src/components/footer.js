@@ -46,9 +46,9 @@ const Footer = () => {
       >
         {footerSections.map((section, index) => (
           <Grid key={index} item
-            lg={index === 2 ? "2" : '5'}
-            md={index === 2 ? "2" : '5'}
-            sm={index === 2 ? "2" : '5'}
+            lg={index === 2 ? 2 : 5}
+            md={index === 2 ? 2 : 5}
+            sm={index === 2 ? 2 : 5}
             xs={12}
           >
             <Typography
@@ -59,7 +59,7 @@ const Footer = () => {
                   lg: "unset",
                   md: "unset",
                   sm: "unset",
-                  xs: index > 0 && "28px"
+                  xs: index > 0 ? "28px" : "0px"
                 },
                 color: "#222222",
 
@@ -194,7 +194,8 @@ const Footer = () => {
 
           }}
         >
-          Developed By: SpaceNetiq.com          </Typography>
+          Developed By: SpaceNetiq.com
+        </Typography>
       </Box>
     </Box>
   );
