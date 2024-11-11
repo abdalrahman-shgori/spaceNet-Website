@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 
 
-export default function SectionDescription({ text1, text2,maxWidth }) {
+export default function SectionDescription({ text1, text2,top }) {
     const text1Style = {
         fontSize: {
             lg: "50px",
@@ -56,8 +56,8 @@ export default function SectionDescription({ text1, text2,maxWidth }) {
                     marginTop:{
                         lg:"130px",
                         md:"100px",
-                        sm:"80px",
-                        xs:"80px"
+                        sm:top,
+                        xs:top
                     }
 
 

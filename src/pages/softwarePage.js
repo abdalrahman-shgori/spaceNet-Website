@@ -112,7 +112,8 @@ export default function SoftwareSection() {
                 <SectionDescription
                     text1="Which technologies will bring maximum value to your business?"
                     text2="Solve customer problems by choosing cutting-edge technologies for your stack. Take your business to the next level with the right  solutions tailored to your own requirements."
-               />
+              top="80px"
+              />
                 <LayoutCards
                     technologiesData={technologiesData}
                     sethoveredcardid={sethoveredcardid}
@@ -120,6 +121,7 @@ export default function SoftwareSection() {
                 />
                  <SectionDescription
                     text1="Our Technologies"
+                    top="43px"
                 />
                 <OurTechnologies/>
             </Grid>
