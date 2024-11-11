@@ -71,7 +71,7 @@ const App = () => {
             transformOrigin: "bottom",
           }}
         >
-          <LogoAnimation handleAnimationComplete={handleAnimationComplete} />
+          <LogoAnimation handleAnimationComplete={handleAnimationComplete} logoAnimationComplete={logoAnimationComplete}/>
         </motion.div>
       )}
 
