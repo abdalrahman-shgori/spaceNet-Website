@@ -4,7 +4,8 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import InnerApp from './components/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import LogoAnimation from './components/LandingPage/logoaniamtion';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Box, useTheme } from '@mui/material';
 import Toggle from './components/toggleCompoent/toggle';
 import SoftwareSection from './pages/softwarePage';
 import Footer from './components/footer';
@@ -13,7 +14,7 @@ const App = () => {
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
-  const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
+  const [logoAnimationComplete, setLogoAnimationComplete] = useState(false); // For tracking logo animation completion
   const [themeColor, setThemeColor] = useState('')
 
   const handleAnimationComplete = () => {
@@ -50,6 +51,8 @@ const App = () => {
     };
   }, [location]);
 
+
+
   return (
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
       {location.pathname === '/' && (
@@ -66,16 +69,18 @@ const App = () => {
             bottom: 0,
             zIndex: 1,
             transformOrigin: "bottom",
+
           }}
         >
           <LogoAnimation handleAnimationComplete={handleAnimationComplete} />
         </motion.div>
       )}
 
+
       {logoAnimationComplete && (
         <>
           <motion.div
-            initial={location.pathname === '/' && { y: '100dvh', opacity: 0 }}
+            initial={location.pathname === '/' && { y: '100vh', opacity: 0 }}
             animate={{
               y: 0,
               opacity: 1,
@@ -115,9 +120,11 @@ const App = () => {
               {location.pathname !== '/' && (
                 <Footer />
               )}
+
             </>
           </motion.div>
           <Toggle setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+
         </>
       )}
     </ThemeProvider>

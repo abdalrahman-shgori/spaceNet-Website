@@ -81,7 +81,7 @@ export default function AnimatedText({
                 <Typography
                     sx={{
                         ...currentServiceTypeStyle,
-                        whiteSpace:"nowrap"
+                        whiteSpace: "nowrap"
                     }}
                 >
                     <motion.div
