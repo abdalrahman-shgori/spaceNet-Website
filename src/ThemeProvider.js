@@ -53,9 +53,7 @@ const ThemeProvider = ({ children, logoAnimationComplete }) => {
                 },
                 background: {
                   paper: '#F4F4F4',
-                  default: logoAnimationComplete 
-                  ? (pathname === '/' ? "#9D89FC" : "#F4F4F4")
-                  : "#051A2F"                },
+                  default: logoAnimationComplete && (pathname === '/' ? "#9D89FC" : "#F4F4F4")},
                 text: {
                   primary: '#000000',
                   BurgerMenu: '#051A2F',

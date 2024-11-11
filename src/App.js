@@ -49,7 +49,7 @@ const App = () => {
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [location]);
+  }, [location,location.pathname]);
 
 
 
@@ -69,7 +69,6 @@ const App = () => {
             bottom: 0,
             zIndex: 1,
             transformOrigin: "bottom",
-
           }}
         >
           <LogoAnimation handleAnimationComplete={handleAnimationComplete} />
@@ -124,7 +123,6 @@ const App = () => {
             </>
           </motion.div>
           <Toggle setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-
         </>
       )}
     </ThemeProvider>

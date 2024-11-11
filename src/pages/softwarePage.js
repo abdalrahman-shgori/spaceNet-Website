@@ -76,8 +76,12 @@ export default function SoftwareSection() {
     return (
         <>
             <motion.div
-                animate={{ opacity: [0, 1] }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, y: 150 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 0 }}
+                transition={{
+                  duration: 1
+                }}
             >
                 <Grid className="root-container"
                     sx={{

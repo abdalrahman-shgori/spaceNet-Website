@@ -70,10 +70,8 @@ const InnerApp = ({
         overflow: 'hidden',
       }}
     >
-
       {showContent && (
         <>
-       
           <motion.div
             className={!showLogo && 'root-container'}
             initial={{ opacity: 0, y: 150 }}
