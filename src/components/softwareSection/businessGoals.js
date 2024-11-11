@@ -20,7 +20,7 @@ export default function ResponsiveComponent({
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isMeduimMobile = useMediaQuery(theme.breakpoints.down("600"));
     const isExtraSmallMobile = useMediaQuery(theme.breakpoints.down("363"));
-    const breakLine = useMediaQuery(theme.breakpoints.down("500"));
+    const breakLine = useMediaQuery(theme.breakpoints.down("520"));
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
     const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
 

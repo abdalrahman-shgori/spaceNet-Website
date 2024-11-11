@@ -18,7 +18,7 @@ export default function AnimatedText({
             lg: is14Inch ? "40px" : is15Inch ? "40px" : "48px",
             md: "37px",
             sm: "32px",
-            xs: isExtraSmallMobile ? "16px" : "18px",
+            xs: isExtraSmallMobile ? "16px" : "20px",
         },
         padding: {
             lg: "8px 20px 8px 20px",
@@ -73,7 +73,7 @@ export default function AnimatedText({
                     borderRadius: "75.4px",
                     display: 'inline-block',
                     transition: "width 0.2s ease",
-                    marginLeft: lgscreen ? "12px" : mdscreen ? "12px" : smscreen ? "6px" : xsscreen ? "2px" : '10px',
+                    marginLeft: lgscreen ? "12px" : mdscreen ? "12px" : smscreen ? "6px" : xsscreen ? "6px" : '10px',
                     marginBottom: isExtraSmallMobile ? "6px" : "0px"
 
                 }}
@@ -81,6 +81,7 @@ export default function AnimatedText({
                 <Typography
                     sx={{
                         ...currentServiceTypeStyle,
+                        whiteSpace:"nowrap"
                     }}
                 >
                     <motion.div
