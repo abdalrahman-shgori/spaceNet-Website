@@ -61,6 +61,7 @@ const OurTechnologies = () => {
                   sm: "40px 40px 40px 40px",
                 },
                 textAlign: "center",
+                color:"#051A2F"
               }}
             >
               Our team makes use of the newest technology and finest development processes.
@@ -197,7 +198,8 @@ const OurTechnologies = () => {
                 padding: {
                   xs: "56px 26px 56px 26px"
                 },
-                textAlign: "center"
+                textAlign: "center",
+                color:"#051A2F"
 
               }}
             >
