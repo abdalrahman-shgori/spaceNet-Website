@@ -49,9 +49,7 @@ const App = () => {
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [location,location.pathname]);
-
-
+  }, [location]);
 
   return (
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
@@ -96,7 +94,7 @@ const App = () => {
               minHeight: '100dvh',
               position: 'relative',
               zIndex: 2,
-              animation: 'moveBackground 5s linear infinite',
+              animation: 'moveBackground 5s linear',
             }}
           >
             <>
