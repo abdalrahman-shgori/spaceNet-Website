@@ -14,7 +14,6 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
             sm: "16px",
             xs: "16px",
           },
-          paddingBottom: "50px"
 
         }}
         spacing={2}

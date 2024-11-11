@@ -12,38 +12,11 @@ import FullStackSvg from "../assets/sectionsImages/fullstack";
 import LowCodeSvg from "../assets/sectionsImages/lowcode";
 import CloudDevelopmentSvg from "../assets/sectionsImages/clouddevelopment";
 import { subServices } from "../services/websiteApis/services";
+import {motion} from "framer-motion"
+import OurTechnologies from "../components/softwareSection/technologies/ourTechnology";
+import LetsProject from "../components/letsProject";
+import SpaceNetLayout from "../components/spaceNetLayout";
 
-const mockData = [
-    {
-        id: 1,
-        title: "Website Development",
-        subService: ['website', 'dahsboards', 'landing pages'],
-        content: "We provide modern and latest design websites for you. Attractive and informative Websites increases the level of business. We provide modern and latest design websites for you. Attractive and informative Websites increases the level of business.We offer comprehensive mobile application development services, including design, coding, and integration, catering to start-ups and large enterprises.",
-        backgroundColor: "#E9FA50"
-    },
-    {
-        id: 2,
-        title: "Mobile App",
-        subService: ['website', 'dahsboards', 'landing pages'],
-
-        content: "We offer comprehensive mobile application development services, including design, coding, and integration, catering to start-ups and large enterprises. We offer comprehensive mobile application development services, including design, coding, and integration, catering to start-ups and large enterprises.",
-        backgroundColor: "#FA6423"
-    },
-    {
-        id: 3, title: "Web App Development",
-        subService: ['website', 'dahsboards', 'landing pages'],
-
-        content: "Our custom web app development services align with your business objectives, ensuring growth at a low cost. We offer comprehensive mobile application development services, including design, coding, and integration, catering to start-ups and large enterprises.",
-        backgroundColor: "#9D89FC"
-    },
-    {
-        id: 4, title: "Desktop Application",
-        subService: ['website', 'dahsboards', 'landing pages'],
-
-        content: "We specialize in crafting user-friendly desktop application solutions to meet your business needs. We offer comprehensive mobile application development services, including design, coding, and integration, catering to start-ups and large enterprises.",
-        backgroundColor: "#FFFFFF"
-    },
-];
 const serviceTypes = [
     "Website Development",
     "Mobile App",
@@ -58,7 +31,6 @@ const serviceColors = {
     "Desktop Application": "#FF621F"
 };
 export default function SoftwareSection() {
-
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const [data, setData] = useState([])
     const [loading , setLoading]=useState(false)
@@ -77,29 +49,38 @@ export default function SoftwareSection() {
 
     ];
 
-    console.log(pathname.pathname.split('/').filter(Boolean));
-        useEffect(() => {
-            setLoading(true)
-            const fetchSubServices = async () => {
-              try {
-                const response = await subServices(id); 
-                setData(response.data) // Use the id to fetch data
+    useEffect(() => {
+        setLoading(true)
+        const fetchSubServices = async () => {
+            try {
+                const response = await subServices(id);
+                setData(response.data) 
                 setLoading(false)
-                console.log("Sub-service data: ", response.data);
-                // Update your state with the fetched data as needed
-              } catch (error) {
+            } catch (error) {
                 console.error('Error fetching sub-service data: ', error);
-              }
-            };
-
-            if (id) {
-              fetchSubServices();  // Call the API when the id is available
             }
-          }, []);
-
+        };
+        if (id) {
+            fetchSubServices();
+        }
+    }, []);
+    const [scroll,setScroll]=useState(false)
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }, []); 
+    
     return (
         <>
-            <Grid className="root-container"
+     
+    
+        <motion.div
+        animate={{opacity:[0,1]}}
+        transition={{duration:0.5}}
+        >
+        <Grid className="root-container"
                 sx={{
                     padding: {
                         lg: "100px 75px 0 75px",
@@ -107,8 +88,8 @@ export default function SoftwareSection() {
                         sm: "100px 25px 0 25px",
                         xs: "100px 25px 0 25px",
                     },
+                    
                 }}
-
             >
                 <BusinessGoals
                     currentServiceType={currentServiceType}
@@ -131,13 +112,26 @@ export default function SoftwareSection() {
                 <SectionDescription
                     text1="Which technologies will bring maximum value to your business?"
                     text2="Solve customer problems by choosing cutting-edge technologies for your stack. Take your business to the next level with the right  solutions tailored to your own requirements."
-                />
+               />
                 <LayoutCards
                     technologiesData={technologiesData}
                     sethoveredcardid={sethoveredcardid}
                     hoveredcardid={hoveredcardid}
                 />
+                 <SectionDescription
+                    text1="Our Technologies"
+                />
+                {/* <OurTechnologies/> */}
             </Grid>
+            <LetsProject 
+            text1="Start your project with us or have a great idea?"
+            text2="A SpacenNet technology company can help you improve your idea and turn it into reality if you're facing a challenge."
+          btnText="Let’s Talk business"
+          />
+          <SpaceNetLayout/>
+
+        </motion.div>
+          
 
         </>
     )

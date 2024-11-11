@@ -42,8 +42,6 @@ export default function ResponsiveComponent({
             height: 'auto',
             maxWidth: is14Inch ? "800px" : is15Inch ? '820px' : "900px",
             width: "100%",
-
-
         }}>
             <Box
                 component='img'

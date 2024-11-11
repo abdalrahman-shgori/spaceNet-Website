@@ -26,7 +26,6 @@ export default function Cards({
             alignItems="center"
             sx={{
                 marginTop: "20px",
-                paddingBottom: "110px"
             }}
             ref={containerRef}
         >
