@@ -41,13 +41,13 @@ const text2Style = {
   width: "100%",
   textAlign: "center"
 }
-export default function LetsProject({ text1, text2, btnText }) {
+export default function LetsProject({ text1, text2, btnText, cardBg, text1Color, text2Color }) {
   return (
     <>
       <Grid
         className="root-container"
         sx={{
-          background: "#9D89FC",
+          background: cardBg,
           padding: {
             lg: "94px 190px 94px 190px",
             md: "94px 75px 94px 75px",
@@ -85,10 +85,10 @@ export default function LetsProject({ text1, text2, btnText }) {
             flexDirection: "column",
             alignItems: "center",
             gap: {
-              lg: "28px",
-              md: "28px",
-              sm: "16px",
-              xs: "16px"
+              lg: "30px",
+              md: "30px",
+              sm: "20px",
+              xs: "20px"
             },
             marginTop: {
               lg: "123px",
@@ -101,13 +101,16 @@ export default function LetsProject({ text1, text2, btnText }) {
           <Typography
             sx={{
               ...text1Style,
+              color: text1Color
             }}
           >
             {text1}
           </Typography>
           <Typography
             sx={{
-              ...text2Style
+              ...text2Style,
+              color: text2Color
+
             }}
           >
             {text2}
@@ -132,7 +135,8 @@ export default function LetsProject({ text1, text2, btnText }) {
                 xs: "16px"
               },
               fontFamily: "var(--English-font)",
-              cursor: "pointer"
+              cursor: "pointer",
+
             }}
           >
             {btnText}

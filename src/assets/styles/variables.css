@@ -18,13 +18,17 @@
     font-family: "StintUltraCondensed";
     src: url(../fontFamily/Sora-ExtraLight.ttf);
 }
+@font-face {
+    font-family: "SoraThin";
+    src: url(../fontFamily/Sora-Thin.ttf);
+}
 :root{
     --English-font:'English';
     --English-font-semibold:'SoraSemiBold';
     --English-font-light:'SoraSemiLight';
     --English-font-Extralight:'SoraExtraLight';
+    --English-font-SoraThin:'SoraThin';
     --English-StintUltraCondensed:'StintUltraCondensed';
-
     --Menu-Text-Color:#051A2F;
 
 }

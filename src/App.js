@@ -9,6 +9,7 @@ import { Box, useTheme } from '@mui/material';
 import Toggle from './components/toggleCompoent/toggle';
 import SoftwareSection from './pages/softwarePage';
 import Footer from './components/footer';
+import DesignAndBranding from './pages/design&branding';
 
 const App = () => {
   const location = useLocation();
@@ -113,6 +114,8 @@ const App = () => {
                   }
                 />
                 <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} />} />
+                <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} />} />
+
               </Routes>
               {location.pathname !== '/' && (
                 <Footer />

@@ -80,14 +80,14 @@ export default function SoftwareSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 0 }}
                 transition={{
-                  duration: 1
+                    duration: 1
                 }}
             >
                 <Grid className="root-container"
                     sx={{
                         padding: {
-                            lg: "100px 75px 0 75px",
-                            md: "90px 75px 0 75px",
+                            lg: "134px 75px 0 75px",
+                            md: "124px 75px 0 75px",
                             sm: "100px 25px 0 25px",
                             xs: "100px 25px 0 25px",
                         },
@@ -132,6 +132,9 @@ export default function SoftwareSection() {
                     text1="Start your project with us or have a great idea?"
                     text2="A SpacenNet technology company can help you improve your idea and turn it into reality if you're facing a challenge."
                     btnText="Let’s Talk business"
+                    cardBg="#9D89FC"
+                    text1Color="#051A2F"
+                    text2Color="#051A2F"
                 />
                 <SpaceNetLayout />
             </motion.div>
