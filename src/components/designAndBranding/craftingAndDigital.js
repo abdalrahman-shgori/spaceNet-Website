@@ -57,10 +57,10 @@ export default function Crafting({
               initial={{ rotate: "0deg", opacity: 1 }}
               animate={{
                 rotate: ["0deg", item.rotate],
-                y: reset || scrollIndex <= index || index === designAndBrandingList.length - 1 ? 0 : -800,
+                y: reset || scrollIndex <= index || index === designAndBrandingList.length - 1 ? 0 : -500,
                 // opacity: reset || scrollIndex <= index || index === designAndBrandingList.length - 1 ? 1 : 0,
               }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.1,ease:"linear" }}
               style={{
                 backgroundColor: item.color,
                 display: "flex",
