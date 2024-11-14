@@ -51,10 +51,9 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                 onTouchStart={() => {
                   sethoveredcardid(item.id);
                 }}
-                onTouchEnd={()=>{
+                onTouchEnd={() => {
                   sethoveredcardid(null)
                 }}
-
                 sx={{
                   background: hoveredcardid === item.id ? location.pathname === '/software' ? "#9D89FC" : "#1CB786" : "#FFFFFF",
                   padding: {
@@ -73,7 +72,6 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                   //       "#9D89FC" : "#1CB786"
                   // },
                   transition: "background 0.5s"
-
                 }}
               >
                 <Box
@@ -113,7 +111,6 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                 >
                   {item.description}
                 </Typography>
-
 
               </Box>
             </motion.div>

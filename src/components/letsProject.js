@@ -2,6 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import vector1White from "../assets/images/Vector1White.svg";
 import vector2White from "../assets/images/Vector2White.svg";
+import {motion} from "framer-motion"
 const text1Style = {
   fontSize: {
     xl: "62px",
@@ -58,6 +59,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
         }}
       >
         <Grid sx={{ position: "relative" }}>
+          
           <Box
             component="img"
             src={vector1White}
@@ -78,7 +80,15 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
               }
             }}
           />
+
+       
         </Grid>
+        <motion.div
+        whileInView={{
+          scale:[0,1]
+        }}
+        transition={{duration:0.5}}
+        >
         <Box
           sx={{
             display: "flex",
@@ -142,6 +152,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
             {btnText}
           </Box>
         </Box>
+        </motion.div>
         <Box
           component="img"
           src={vector2White}
@@ -162,6 +173,8 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
             }
           }}
         />
+    
+      
       </Grid>
     </>
   );

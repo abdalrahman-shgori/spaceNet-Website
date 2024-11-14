@@ -144,8 +144,19 @@ const SpaceNetLayout = () => {
 
               }}>
                 <Stack direction="row" sx={{ gap: "12px" }}>
-                  {['Academics', 'Internet', 'Software', 'Design & Branding'].map((item, index) => (
-                    <Button
+                  {['Academics', 'Internet', 'Software', 'Design & Branding'].map((item, index,array) => (
+                    <motion.div
+                    whileInView={{
+                      x:[-100,0],
+                      opacity:[0,1]
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.1 * (array.length - 1 - index) // Reverse the delay
+                    }}
+                    key={index} 
+                    >
+                        <Button
                       key={index}
                       variant="outlined"
                       sx={{
@@ -171,6 +182,8 @@ const SpaceNetLayout = () => {
                     >
                       {item} &nbsp; <img src={ArrowWight}></img>
                     </Button>
+                    </motion.div>
+                  
                   ))}
                 </Stack>
               </Box>
