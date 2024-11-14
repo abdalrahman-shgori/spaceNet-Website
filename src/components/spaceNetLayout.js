@@ -147,7 +147,6 @@ const SpaceNetLayout = () => {
                   {['Academics', 'Internet', 'Software', 'Design & Branding'].map((item, index,array) => (
                     <motion.div
                     whileInView={{
-                      x:[-100,0],
                       opacity:[0,1]
                     }}
                     transition={{
