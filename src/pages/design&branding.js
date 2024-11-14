@@ -18,12 +18,6 @@ const designAndBrandingList = [
 ];
 
 export default function DesignAndBranding() {
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    }, []);
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const theme = useTheme()
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
@@ -149,7 +143,6 @@ export default function DesignAndBranding() {
         // }
         fetchSubServices();
     }, []);
- 
 
     const [scrollIndex, setScrollIndex] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
@@ -190,19 +183,30 @@ export default function DesignAndBranding() {
     }, [scrollIndex, isScrolling]);
 
 
-    
+
     useEffect(() => {
-        document.body.style.overflow = "hidden"
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+        document.body.style.overflow = "hidden";
+
         if (reset) {
-            document.body.style.overflow = "auto"
+            document.body.style.overflow = "auto";
         }
+
         if (scrollIndex === designAndBrandingList.length) {
             setTimeout(() => {
                 setReset(true);
             }, 0);
         }
-    }, [scrollIndex, reset]);
- 
+
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+
+    }, [scrollIndex, reset, designAndBrandingList.length]);
+
     return (
         <>
             <motion.div
