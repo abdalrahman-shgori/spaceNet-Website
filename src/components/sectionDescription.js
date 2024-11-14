@@ -31,7 +31,7 @@ export default function SectionDescription({ text1, text2, top }) {
         maxWidth: {
             lg: "679px",
             md: "679px",
-            sm: "225px",
+            sm: "300px",
             xs: "275px",
         },
         width: "100%",
