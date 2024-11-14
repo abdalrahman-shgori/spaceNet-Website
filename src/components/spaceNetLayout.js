@@ -146,14 +146,15 @@ const SpaceNetLayout = () => {
                 <Stack direction="row" sx={{ gap: "12px" }}>
                   {['Academics', 'Internet', 'Software', 'Design & Branding'].map((item, index,array) => (
                     <motion.div
+                    initial={{opacity:0}}
                     whileInView={{
-                      opacity:[0,1]
+                      opacity:1
                     }}
                     transition={{
                       duration: 0.5,
                       delay: 0.1 * index 
                     }}
-                    
+                    key={index} 
                     >
                         <Button
                       key={index}
