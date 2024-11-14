@@ -151,9 +151,9 @@ const SpaceNetLayout = () => {
                     }}
                     transition={{
                       duration: 0.5,
-                      delay: 0.1 * index // Reverse the delay
+                      delay: 0.1 * index 
                     }}
-                    key={index} 
+                    
                     >
                         <Button
                       key={index}
