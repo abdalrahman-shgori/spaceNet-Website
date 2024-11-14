@@ -17,7 +17,7 @@ const App = () => {
   const [showContent, setShowContent] = useState(false);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false); // For tracking logo animation completion
   const [themeColor, setThemeColor] = useState('')
-
+  const theme=useTheme()
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
   };
@@ -51,6 +51,9 @@ const App = () => {
       document.body.style.overflow = 'auto';
     };
   }, [location]);
+ 
+  
+  
 
   return (
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>

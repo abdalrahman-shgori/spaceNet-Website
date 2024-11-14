@@ -113,8 +113,8 @@ export default function SoftwareSection() {
                         loading={loading}
                     />
                     <SectionDescription
-                        text1="Which technologies will bring maximum value to your business?"
-                        text2="Solve customer problems by choosing cutting-edge technologies for your stack. Take your business to the next level with the right  solutions tailored to your own requirements."
+                        text1="Unlock Maximum Value with the Right Technologies"
+                        text2="Drive your business forward by tackling customer challenges with a cutting-edge tech stack. Choosing the right solutions, tailored to your needs, can boost growth, efficiency, and innovation. Here’s how we make it happen."
                         top="80px"
                     />
                     <LayoutCards
@@ -129,8 +129,8 @@ export default function SoftwareSection() {
                     <OurTechnologies />
                 </Grid>
                 <LetsProject
-                    text1="Start your project with us or have a great idea?"
-                    text2="A SpacenNet technology company can help you improve your idea and turn it into reality if you're facing a challenge."
+                    text1="Got a Great Idea? Ready to Bring it to Life?"
+                    text2="Let’s make it happen"
                     btnText="Let’s Talk business"
                     cardBg="#9D89FC"
                     text1Color="#051A2F"

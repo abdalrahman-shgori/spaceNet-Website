@@ -154,19 +154,25 @@ export default function DesignAndBranding() {
     const [isScrolling, setIsScrolling] = useState(false);
     const [reset, setReset] = useState(false);
 
-    const handleScroll = () => {
-        if (isScrolling) return;
+    const [hasReachedEnd, setHasReachedEnd] = useState(false);
 
+    const handleScroll = () => {
+        if (isScrolling || hasReachedEnd) return;
         setIsScrolling(true);
 
         if (scrollIndex < designAndBrandingList.length) {
             setScrollIndex((prev) => prev + 1);
         }
 
+        if (scrollIndex === designAndBrandingList.length - 1) {
+            setHasReachedEnd(true);
+        }
         setTimeout(() => {
             setIsScrolling(false);
         }, 500);
     };
+
+
 
     const handleKeydown = (e) => {
         if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === ' ') {
@@ -186,7 +192,7 @@ export default function DesignAndBranding() {
 
         document.body.style.overflow = "hidden"
 
-        if (scrollIndex === 4) {
+        if (reset) {
             document.body.style.overflow = "auto"
 
         }
@@ -196,7 +202,7 @@ export default function DesignAndBranding() {
                 setReset(true);
             }, 0);
         }
-    }, [scrollIndex]);
+    }, [scrollIndex, reset]);
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -231,6 +237,7 @@ export default function DesignAndBranding() {
                         reset={reset}
                         scrollIndex={scrollIndex}
                         handleScroll={handleScroll}
+                        setScrollIndex={setScrollIndex}
                     />
                     <WhatWeDo data={data} loading={loading} lastCardId={lastCardId} />
                     <SectionDescription

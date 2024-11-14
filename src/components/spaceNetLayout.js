@@ -178,54 +178,52 @@ const SpaceNetLayout = () => {
           </Stack>
         </Box>
         <Box
-          sx={{
-            display: "flex",
-            alignItems: "flex-end",
-            overflow: "hidden",
-          }}
-        >
-          <motion.div
-
-
-            whileInView={{
-              x: ["0%", "2%", "-1%", '-27%', "-30%", '0%'],
-              transition: {
-                duration: 10,
-                repeatType: "loop",
-                repeat: Infinity,
-                ease: "linear",
+      sx={{
+        display: "flex",
+        alignItems: "flex-end",
+        overflow: "hidden",
+        width: "100%", // Ensure it fills the container width
+      }}
+    >
+      <motion.div
+        animate={{ x: ['10%', '-100%'] }} 
+        transition={{
+          repeat: Infinity,
+          duration: 60,    
+          ease: "linear",   
+        }}
+        style={{
+          display: "flex", 
+          whiteSpace: "nowrap",
+        }}
+      >
+        {[...Array(10)].map((_, index) => (
+          <Typography
+            key={index}
+            sx={{
+              marginTop: {
+                lg: "102px",
+                md: "102px",
+                sm: "65px",
+                xs: "65px",
               },
+              fontSize: {
+                lg: "75px",
+                md: "75px",
+                sm: "43px",
+                xs: "43px",
+              },
+              color: "#FFFFFF",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              paddingRight: "50px",
             }}
           >
-            <Typography
-              sx={{
-                marginTop: {
-                  lg: "102px",
-                  md: "102px",
-                  sm: "65px",
-                  xs: "65px"
-                },
-                fontSize: {
-                  lg: "75px",
-                  md: "75px",
-                  sm: "43px",
-                  xs: "43px"
-                },
-                color: "#FFFFFF",
-                whiteSpace: "nowrap",
-                '&::-webkit-scrollbar': {
-                  display: 'none',
-                },
-                overflow: "hidden",
-              }}
-            >
-              Your <Box component="span"><span style={{ color: "#9D89FC" }}>[</span>All-in-One<span style={{ color: "#9D89FC" }}>]</span></Box> Tech Partner
-              Your <Box component="span"><span style={{ color: "#9D89FC" }}>[</span>All-in-One<span style={{ color: "#9D89FC" }}>]</span></Box> Tech Partner
-              Your <Box component="span"><span style={{ color: "#9D89FC" }}>[</span>All-in-One<span style={{ color: "#9D89FC" }}>]</span></Box> Tech Partner
-              Your <Box component="span"><span style={{ color: "#9D89FC" }}>[</span>All-in-One<span style={{ color: "#9D89FC" }}>]</span></Box> Tech Partner
-            </Typography>
-          </motion.div>
-        </Box>
+            Your <Box component="span"><span style={{ color: "#9D89FC" }}>[</span>All-in-One<span style={{ color: "#9D89FC" }}>]</span></Box> Tech Partner
+          </Typography>
+        ))}
+      </motion.div>
+    </Box>
       </Box>
 
     </>

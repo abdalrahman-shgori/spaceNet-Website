@@ -16,7 +16,7 @@ export default function CreatingSolution() {
     },
     {
       id: 2,
-      title: "Why we are doing this?",
+      title: "Our Technologies",
       description:
         "Lorem simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.",
     },
@@ -63,7 +63,6 @@ export default function CreatingSolution() {
                 sm: index > 1 ? "25px" : "0px",
                 xs: index > 0 ? "25px" : "0px"
               },
-              alignItems: "center",
             }}
           >
             <Typography

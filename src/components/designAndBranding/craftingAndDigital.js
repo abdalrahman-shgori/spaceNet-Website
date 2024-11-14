@@ -1,11 +1,11 @@
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-
 export default function Crafting({
   designAndBrandingList,
   reset,
   scrollIndex,
+  setScrollIndex
 }) {
 
   const theme = useTheme();
@@ -15,7 +15,16 @@ export default function Crafting({
   const xs = useMediaQuery(theme.breakpoints.only('xs'));
   const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
   const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
-
+  useEffect(() => {
+    if (scrollIndex === 4) {
+      setScrollIndex(0)
+    }
+  }, [scrollIndex])
+  const click = () => {
+    if (reset) {
+      setScrollIndex((prev) => prev + 1)
+    }
+  }
   return (
     <Grid container >
       <Grid item lg={3} md={3} sm={3} xs={12} container justifyContent="start" alignItems="center">
@@ -31,7 +40,7 @@ export default function Crafting({
             textAlign: "center",
           }}
         >
-          Crafting
+          Crafting      
         </Typography>
       </Grid>
 
@@ -53,15 +62,16 @@ export default function Crafting({
         >
           {designAndBrandingList.map((item, index) => (
             <motion.div
+              onClick={click}
               key={index}
               initial={{ rotate: "0deg", opacity: 1 }}
               animate={{
                 rotate: ["0deg", item.rotate],
-                y: reset || scrollIndex <= index || index === designAndBrandingList.length - 1 ? 0 : -500,
-                // opacity: reset || scrollIndex <= index || index === designAndBrandingList.length - 1 ? 1 : 0,
+                y: scrollIndex <= index || index === designAndBrandingList.length - 1 ? 0 : -500,
               }}
-              transition={{ duration: 0.1,ease:"linear" }}
+              transition={{ duration: 0.1, ease: "linear" }}
               style={{
+                cursor:"pointer",
                 backgroundColor: item.color,
                 display: "flex",
                 justifyContent: "center",
@@ -103,7 +113,7 @@ export default function Crafting({
                     lg: "65px",
                     md: "40px",
                     sm: "30px",
-                    xs: "40px"
+                    xs: "38px"
                   },
                   fontFamily: "var(--English-font-SoraThin)",
                   transform:
@@ -163,7 +173,7 @@ export default function Crafting({
             }
           }}
         >
-          & digital{" "}
+          & Digital{" "}
           <Typography
             component={xs && "span"}
             sx={{
@@ -175,7 +185,7 @@ export default function Crafting({
               fontFamily: "var(--English-font-SoraThin)",
             }}
           >
-            experience
+            Experience
           </Typography>
         </Typography>
       </Grid>
