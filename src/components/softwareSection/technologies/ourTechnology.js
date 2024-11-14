@@ -33,7 +33,11 @@ const OurTechnologies = () => {
         }}
       >
         <Grid container>
-          <Grid lg={8.5} md={8} sm={8} item>
+          <Grid lg={8.5} md={8} sm={8} item
+          sx={{
+            overflow:"hidden"
+          }}
+          >
             <motion.div
               initial={{ x: -100 }}
               whileInView={{ x: 0 }}
@@ -77,6 +81,7 @@ const OurTechnologies = () => {
           <Grid lg={3.5} md={4} sm={4} item
             sx={{
               paddingLeft: "20px",
+              overflow:"hidden"
             }}
           >
             <motion.div
