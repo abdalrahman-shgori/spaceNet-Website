@@ -84,8 +84,9 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
        
         </Grid>
         <motion.div
+        initial={{scale:0}}
         whileInView={{
-          scale:[0,1]
+          scale:1
         }}
         transition={{duration:0.5}}
         >

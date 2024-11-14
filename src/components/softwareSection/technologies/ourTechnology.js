@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box, Typography, Grid, useTheme } from '@mui/material';
+import { Box, Typography, Grid, useTheme, duration } from '@mui/material';
 import techImg from "../../../assets/sectionsImages/technologiesImage.svg"
 import meetImg from "../../../assets/sectionsImages/meetingImg.svg"
 import lang1 from "../../../assets/sectionsImages/programmingLang/programLang.svg"
-
+import {motion} from "framer-motion"
 const programmingLang = [
   { id: 1, img: lang1 },
   { id: 2, img: lang1 },
@@ -33,14 +33,28 @@ const OurTechnologies = () => {
         }}
       >
         <Grid container>
+        
           <Grid lg={8.5} md={8} sm={8} item
-            sx={{
+         
+          >
+            <motion.div
+            initial={{x:-100}}
+            whileInView={{x:0}}
+            transition={{duration:0.5}}
+              style={{
+                height:"100%"
+               }}
+            >
+            <Grid
+             sx={{
               background: "#9D89FC",
               borderRadius: "22px",
               display: "flex",
               alignItems: "center",
+              height:"100%"
+
             }}
-          >
+            >
             <Typography
               sx={{
                 fontSize: {
@@ -60,12 +74,26 @@ const OurTechnologies = () => {
             >
               Our team makes use of the newest technology and finest development processes.
             </Typography>
+            </Grid>
+            </motion.div>
+        
+           
           </Grid>
           <Grid lg={3.5} md={4} sm={4} item
             sx={{
-              paddingLeft: "20px"
+              paddingLeft: "20px",
             }}
           >
+            <motion.div
+            initial={{x:100}}
+            whileInView={{
+              x:0
+            }}
+            transition={{duration:0.5}}
+            style={{
+              height:"100%"
+            }}
+            >
             <Box
               component="img"
               src={techImg}
@@ -77,9 +105,20 @@ const OurTechnologies = () => {
 
               }}
             />
+            </motion.div>
+          
           </Grid>
         </Grid>
-        <Grid container
+
+      
+<motion.div
+initial={{y:100}}
+whileInView={{
+  y:0,
+}}
+transition={{duration:0.5}}
+>
+<Grid container
           sx={{
             marginTop: {
               lg: "20px",
@@ -147,6 +186,8 @@ const OurTechnologies = () => {
             />
           </Grid>
         </Grid>
+</motion.div>
+        
       </Box>
 
       {/* // xs  */}
