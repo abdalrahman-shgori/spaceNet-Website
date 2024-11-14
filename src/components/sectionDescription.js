@@ -14,7 +14,7 @@ export default function SectionDescription({ text1, text2, top }) {
             lg: "898px",
             md: "898px",
             sm: "498px",
-            xs: "400px",
+            xs: "295px",
         },
         width: "100%",
         textAlign: "center"
@@ -32,7 +32,7 @@ export default function SectionDescription({ text1, text2, top }) {
             lg: "679px",
             md: "679px",
             sm: "300px",
-            xs: "275px",
+            xs: "255px",
         },
         width: "100%",
         textAlign: "center"
