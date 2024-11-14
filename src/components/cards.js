@@ -18,7 +18,6 @@ export default function Cards({
     };
     const [inView, setInView] = useState(false);
 
-
     return (
         <Grid item
             container
@@ -53,9 +52,9 @@ export default function Cards({
                         onClick={() => handleCardClick(card.id)}
                     >
                         <motion.div
-
-                            whileInView={{ y: [100, 0] }}
-                            transition={{ duration: 0.3 }}
+                            initial={{ y: 100 }}
+                            whileInView={{ y: 0 }}
+                            transition={{ duration: 0.5 }}
                         >
                             <Card
                                 sx={{
