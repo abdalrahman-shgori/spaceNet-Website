@@ -55,9 +55,8 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                   sethoveredcardid(null)
                 }}
 
-
                 sx={{
-                  background: "#FFFFFF",
+                  background: hoveredcardid === item.id ? location.pathname === '/software' ? "#9D89FC" : "#1CB786" : "#FFFFFF",
                   padding: {
                     lg: "34px 26px 89px 34px",
                     md: "34px 26px 89px 34px",
@@ -68,11 +67,11 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                   display: "flex",
                   flexDirection: "column",
                   height: "100%",
-                  "&:hover": {
-                    background:
-                      location.pathname === '/software' ?
-                        "#9D89FC" : "#1CB786"
-                  },
+                  // "&:hover": {
+                  //   background:
+                  //     location.pathname === '/software' ?
+                  //       "#9D89FC" : "#1CB786"
+                  // },
                   transition: "background 0.5s"
 
                 }}
