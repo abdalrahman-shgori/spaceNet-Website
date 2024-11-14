@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import InnerApp from './components/LandingPage/innerApp';
+import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import LogoAnimation from './components/LandingPage/logoaniamtion';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Box, useTheme } from '@mui/material';
+import { motion } from 'framer-motion';
+import { useTheme } from '@mui/material';
 import Toggle from './components/toggleCompoent/toggle';
 import SoftwareSection from './pages/softwarePage';
 import Footer from './components/footer';
@@ -15,7 +15,7 @@ const App = () => {
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
-  const [logoAnimationComplete, setLogoAnimationComplete] = useState(false); // For tracking logo animation completion
+  const [logoAnimationComplete, setLogoAnimationComplete] = useState(false); 
   const [themeColor, setThemeColor] = useState('')
   const theme=useTheme()
   const handleAnimationComplete = () => {
@@ -51,9 +51,6 @@ const App = () => {
       document.body.style.overflow = 'auto';
     };
   }, [location]);
- 
-  
-  
 
   return (
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>

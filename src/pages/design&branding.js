@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Crafting from "../components/designAndBranding/craftingAndDigital";
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import WhatWeDo from "../components/softwareSection/whatweDo/whatWeDo";
+import WhatWeDo from "../components/whatweDo/whatWeDo";
 import { subServices } from "../services/websiteApis/services";
 import SectionDescription from "../components/sectionDescription";
 import LayoutCards from "../components/layoutCards";
@@ -188,28 +188,24 @@ export default function DesignAndBranding() {
         };
     }, [scrollIndex, isScrolling]);
 
-    useEffect(() => {
 
-        document.body.style.overflow = "hidden"
-
-        if (reset) {
-            document.body.style.overflow = "auto"
-
-        }
-
-        if (scrollIndex === designAndBrandingList.length) {
-            setTimeout(() => {
-                setReset(true);
-            }, 0);
-        }
-    }, [scrollIndex, reset]);
     useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
         });
     }, []);
-
+    useEffect(() => {
+        document.body.style.overflow = "hidden"
+        if (reset) {
+            document.body.style.overflow = "auto"
+        }
+        if (scrollIndex === designAndBrandingList.length) {
+            setTimeout(() => {
+                setReset(true);
+            }, 0);
+        }
+    }, [scrollIndex, reset]);
     return (
         <>
             <motion.div
@@ -253,9 +249,7 @@ export default function DesignAndBranding() {
                         text1={<><span>Creating Solutions,</span><br /><span>Creating Achievement</span></>}
                         top="43px"
                     />
-
                     <CreatingSolution />
-
                 </Grid>
                 <LetsProject
                     text1="Let’s discuss your project"

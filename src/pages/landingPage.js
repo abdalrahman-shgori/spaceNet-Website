@@ -1,7 +1,7 @@
 import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState } from "react";
-import Services from "./services";
-import AboutSpaceNet from "./aboutSpaceNet";
+import Services from "./LandingPage/services";
+import AboutSpaceNet from "./LandingPage/aboutSpaceNet";
 
 export default function LandingPage({
     servicesList,
@@ -10,7 +10,7 @@ export default function LandingPage({
     isAboutActive,
     setIsAboutActive
 }) {
-    const theme=useTheme()
+    const theme = useTheme()
     const [hoveredService, setHoveredService] = useState("");
     const [hoveredServiceDescription, setHoveredServiceDescription] = useState("");
     const [capture, setCapture] = useState(false);
@@ -18,21 +18,19 @@ export default function LandingPage({
     const [activeService, setActiveService] = useState('ABOUT');
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
 
- 
-
     return (
-        <Grid container 
-        sx={{
-            paddingTop: {
-                lg: is14Inch ? "50px" : "70px",
-                md: "30px",
-                sm:"40px",
-                xs: "40px"
-            }  
-        }}
+        <Grid container
+            sx={{
+                paddingTop: {
+                    lg: is14Inch ? "50px" : "70px",
+                    md: "30px",
+                    sm: "40px",
+                    xs: "40px"
+                }
+            }}
         >
             <Grid item lg={6} md={6} sm={12} xs={12} sx={{
-                paddingBottom:"12px"
+                paddingBottom: "12px"
             }}>
                 {/* <Transform/> */}
                 <Services
@@ -62,7 +60,6 @@ export default function LandingPage({
                     activeService={activeService}
                     loading={loading}
                     outOfServicesHover={outOfServicesHover}
-
                 />
             </Grid>
         </Grid>

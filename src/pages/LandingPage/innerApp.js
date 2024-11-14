@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { services as fetchServicesApi } from "../../services/websiteApis/services";
 import ServicesLogo from '../../assets/spacenetLogo/servicesLogo';
-import { useTheme } from "@mui/material";
 import { Box, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
-import LandingPage from "./landingPage";
+import LandingPage from "../landingPage";
 
 
 const InnerApp = ({

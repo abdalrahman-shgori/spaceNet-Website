@@ -25,6 +25,7 @@ export default function Crafting({
       setScrollIndex((prev) => prev + 1)
     }
   }
+
   return (
     <Grid container >
       <Grid item lg={3} md={3} sm={3} xs={12} container justifyContent="start" alignItems="center">
@@ -40,7 +41,7 @@ export default function Crafting({
             textAlign: "center",
           }}
         >
-          Crafting      
+          Crafting
         </Typography>
       </Grid>
 
@@ -71,7 +72,7 @@ export default function Crafting({
               }}
               transition={{ duration: 0.1, ease: "linear" }}
               style={{
-                cursor:"pointer",
+                cursor: "pointer",
                 backgroundColor: item.color,
                 display: "flex",
                 justifyContent: "center",

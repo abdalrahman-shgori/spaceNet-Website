@@ -22,11 +22,9 @@ const textStyle = {
         sm: "unset",
         xs: "unset"
     },
-
 }
 
 export default function WhatWeDoText({ text }) {
-
     return (
         <>
             <Typography sx={{ ...textStyle }} >

@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import WhatWeDoText from "./whatWeDoText";
-import Cards from "../../cards";
+import Cards from "../cards";
 
 export default function WhatWeDo({ setData, data, lastCardId, loading }) {
     return (

@@ -174,8 +174,6 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
             }
           }}
         />
-    
-      
       </Grid>
     </>
   );

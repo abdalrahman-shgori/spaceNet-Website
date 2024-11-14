@@ -3,7 +3,7 @@ import BusinessGoals from "../components/softwareSection/businessGoals";
 import { Grid } from "@mui/material";
 import ContactUsBtn from "../components/softwareSection/contactUsBtn";
 import { useLocation } from "react-router-dom";
-import WhatWeDo from "../components/softwareSection/whatweDo/whatWeDo";
+import WhatWeDo from "../components/whatweDo/whatWeDo";
 import SectionDescription from "../components/sectionDescription";
 import LayoutCards from "../components/layoutCards";
 import FrontEndSvg from "../assets/sectionsImages/frontEndImage";
@@ -13,7 +13,7 @@ import LowCodeSvg from "../assets/sectionsImages/lowcode";
 import CloudDevelopmentSvg from "../assets/sectionsImages/clouddevelopment";
 import { subServices } from "../services/websiteApis/services";
 import { motion } from "framer-motion"
-import OurTechnologies from "../components/softwareSection/technologies/ourTechnology";
+import OurTechnologies from "../components/softwareSection/Our technologies Section/ourTechnology";
 import LetsProject from "../components/letsProject";
 import SpaceNetLayout from "../components/spaceNetLayout";
 
