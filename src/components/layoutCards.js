@@ -51,6 +51,9 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                 onTouchStart={() => {
                   sethoveredcardid(item.id);
                 }}
+                onTouchEnd={()=>{
+                  sethoveredcardid(null)
+                }}
 
 
                 sx={{
