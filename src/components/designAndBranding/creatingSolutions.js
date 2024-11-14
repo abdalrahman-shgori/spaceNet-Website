@@ -75,6 +75,7 @@ export default function CreatingSolution() {
                 },
                 fontFamily: "var(--English-font)",
                 textAlign: "left",
+                color:"#000000"
               }}
             >
               {item.title}
@@ -89,7 +90,12 @@ export default function CreatingSolution() {
                   xs: "18px",
                 },
                 fontFamily: "var(--English-font)",
-                marginTop: "83px"
+                marginTop:{
+                  lg: "83px",
+                  md: "83px",
+                  sm: "60px",
+                  xs: "60px"
+                }
               }}
             >
               {Array.isArray(item.description)
@@ -123,7 +129,18 @@ export default function CreatingSolution() {
                     {desc}
                   </Box>
                 ))
-                : item.description}
+                : <Typography
+                sx={{
+                  fontSize: {
+                    lg: "18px",
+                    md: "18px",
+                    sm: "15px",
+                    xs: "15px",
+                  },
+                  color:"#000000",
+                  fontFamily: "var(--English-font)",
+                }}
+                >{item.description}</Typography> }
             </Typography>
           </Box>
         </Grid>
