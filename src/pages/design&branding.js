@@ -18,6 +18,12 @@ const designAndBrandingList = [
 ];
 
 export default function DesignAndBranding() {
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }, []);
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const theme = useTheme()
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
@@ -143,12 +149,7 @@ export default function DesignAndBranding() {
         // }
         fetchSubServices();
     }, []);
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    }, []);
+ 
 
     const [scrollIndex, setScrollIndex] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
@@ -201,12 +202,7 @@ export default function DesignAndBranding() {
             }, 0);
         }
     }, [scrollIndex, reset]);
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    }, []);
+ 
     return (
         <>
             <motion.div
