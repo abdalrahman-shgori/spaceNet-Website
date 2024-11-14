@@ -189,12 +189,7 @@ export default function DesignAndBranding() {
     }, [scrollIndex, isScrolling]);
 
 
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    }, []);
+    
     useEffect(() => {
         document.body.style.overflow = "hidden"
         if (reset) {
@@ -206,6 +201,12 @@ export default function DesignAndBranding() {
             }, 0);
         }
     }, [scrollIndex, reset]);
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }, []);
     return (
         <>
             <motion.div

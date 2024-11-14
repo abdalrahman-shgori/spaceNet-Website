@@ -3,13 +3,13 @@ import ThemeProvider from './ThemeProvider';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
-import LogoAnimation from './components/LandingPage/logoaniamtion';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material';
 import Toggle from './components/toggleCompoent/toggle';
 import SoftwareSection from './pages/softwarePage';
 import Footer from './components/footer';
 import DesignAndBranding from './pages/design&branding';
+import LogoAnimation from './pages/LandingPage/logoaniamtion';
 
 const App = () => {
   const location = useLocation();
