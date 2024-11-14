@@ -34,9 +34,10 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
             }}
           >
             <motion.div
+            initial={{x: index === 0 ? -200 : index === 1 ? 200 : 0,  y: index > 1 ? 200 : 0}}
               whileInView={{
-                x: index === 0 ? [-100, 0] : index === 1 ? [100, 0] : 0,
-                y: index > 1 ? [100, 0] : 0
+                x: index === 0 ? 0 : index === 1 ? 0 : 0,
+                y: index > 1 ? 0 : 0
               }}
               transition={{ duration: 0.5 }}
               style={{ height: "100%", overflowX: "hidden" }}
