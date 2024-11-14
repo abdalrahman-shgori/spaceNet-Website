@@ -3,7 +3,7 @@ import { Box, Typography, Grid, useTheme, duration } from '@mui/material';
 import techImg from "../../../assets/sectionsImages/technologiesImage.svg"
 import meetImg from "../../../assets/sectionsImages/meetingImg.svg"
 import lang1 from "../../../assets/sectionsImages/programmingLang/programLang.svg"
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 const programmingLang = [
   { id: 1, img: lang1 },
   { id: 2, img: lang1 },
@@ -33,51 +33,46 @@ const OurTechnologies = () => {
         }}
       >
         <Grid container>
-        
-          <Grid lg={8.5} md={8} sm={8} item
-         
-          >
+          <Grid lg={8.5} md={8} sm={8} item>
             <motion.div
-            initial={{x:-100}}
-            whileInView={{x:0}}
-            transition={{duration:0.5}}
+              initial={{ x: -100 }}
+              whileInView={{ x: 0 }}
+              transition={{ duration: 0.5 }}
               style={{
-                height:"100%"
-               }}
-            >
-            <Grid
-             sx={{
-              background: "#9D89FC",
-              borderRadius: "22px",
-              display: "flex",
-              alignItems: "center",
-              height:"100%"
-
-            }}
-            >
-            <Typography
-              sx={{
-                fontSize: {
-                  lg: "34px",
-                  md: "28px",
-                  sm: "22px"
-                },
-                fontFamily: "var(--English-font)",
-                padding: {
-                  lg: "80px 86.3px 80px 86.3px",
-                  md: "40px 40px 40px 40px",
-                  sm: "40px 40px 40px 40px",
-                },
-                textAlign: "center",
-                color: "#051A2F"
+                height: "100%"
               }}
             >
-              Our team makes use of the newest technology and finest development processes.
-            </Typography>
-            </Grid>
+              <Grid
+                sx={{
+                  background: "#9D89FC",
+                  borderRadius: "22px",
+                  display: "flex",
+                  alignItems: "center",
+                  height: "100%"
+
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: {
+                      lg: "34px",
+                      md: "28px",
+                      sm: "22px"
+                    },
+                    fontFamily: "var(--English-font)",
+                    padding: {
+                      lg: "80px 86.3px 80px 86.3px",
+                      md: "40px 40px 40px 40px",
+                      sm: "40px 40px 40px 40px",
+                    },
+                    textAlign: "center",
+                    color: "#051A2F"
+                  }}
+                >
+                  Our team makes use of the newest technology and finest development processes.
+                </Typography>
+              </Grid>
             </motion.div>
-        
-           
           </Grid>
           <Grid lg={3.5} md={4} sm={4} item
             sx={{
@@ -85,109 +80,106 @@ const OurTechnologies = () => {
             }}
           >
             <motion.div
-            initial={{x:100}}
-            whileInView={{
-              x:0
-            }}
-            transition={{duration:0.5}}
-            style={{
-              height:"100%"
-            }}
-            >
-            <Box
-              component="img"
-              src={techImg}
-              sx={{
-                borderRadius: "23px",
-                height: "100%",
-                width: "100%",
-                objectFit: "cover"
-
+              initial={{ x: 100 }}
+              whileInView={{
+                x: 0
               }}
-            />
+              transition={{ duration: 0.5 }}
+              style={{
+                height: "100%"
+              }}
+            >
+              <Box
+                component="img"
+                src={techImg}
+                sx={{
+                  borderRadius: "23px",
+                  height: "100%",
+                  width: "100%",
+                  objectFit: "cover"
+
+                }}
+              />
             </motion.div>
-          
           </Grid>
         </Grid>
-
-      
-<motion.div
-initial={{y:100}}
-whileInView={{
-  y:0,
-}}
-transition={{duration:0.5}}
->
-<Grid container
-          sx={{
-            marginTop: {
-              lg: "20px",
-              md: "20px",
-              sm: "20px"
-            }
+        <motion.div
+          initial={{ y: 100 }}
+          whileInView={{
+            y: 0,
           }}
+          transition={{ duration: 0.5 }}
         >
-          <Grid item lg={7} md={7} sm={6}
+          <Grid container
             sx={{
-              background: "#9D89FC",
-              borderRadius: "22px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
+              marginTop: {
+                lg: "20px",
+                md: "20px",
+                sm: "20px"
+              }
             }}
           >
-            <Grid container
+            <Grid item lg={7} md={7} sm={6}
               sx={{
-                padding: {
-                  lg: "50px 88px 50px 88px",
-                  md: "30px 30px 30px 30px",
-                  sm: "30px 30px 30px 30px"
-                },
-
+                background: "#9D89FC",
+                borderRadius: "22px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
               }}
             >
-              {programmingLang.map((item, index) => (
-                <Grid item lg={3} md={3} sm={4} xs={6} key={index}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}
-                >
-                  <Box
-                    component="img"
-                    src={item.img}
+              <Grid container
+                sx={{
+                  padding: {
+                    lg: "50px 88px 50px 88px",
+                    md: "30px 30px 30px 30px",
+                    sm: "30px 30px 30px 30px"
+                  },
+
+                }}
+              >
+                {programmingLang.map((item, index) => (
+                  <Grid item lg={3} md={3} sm={4} xs={6} key={index}
                     sx={{
-                      width: "100%",
-                      height: "100%",
-                      paddingTop: "10px",
-                      paddingRight: "10px"
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
                     }}
-                  />
-                </Grid>
-              ))}
+                  >
+                    <Box
+                      component="img"
+                      src={item.img}
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                        paddingTop: "10px",
+                        paddingRight: "10px"
+                      }}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+
+            <Grid item lg={5} md={5} sm={6}
+              sx={{
+                paddingLeft: "20px"
+              }}
+            >
+              <Box
+                component="img"
+                src={meetImg}
+                sx={{
+                  borderRadius: "23px",
+                  height: "100%",
+                  width: "100%",
+                  objectFit: "cover",
+                }}
+              />
             </Grid>
           </Grid>
+        </motion.div>
 
-          <Grid item lg={5} md={5} sm={6}
-            sx={{
-              paddingLeft: "20px"
-            }}
-          >
-            <Box
-              component="img"
-              src={meetImg}
-              sx={{
-                borderRadius: "23px",
-                height: "100%",
-                width: "100%",
-                objectFit: "cover",
-              }}
-            />
-          </Grid>
-        </Grid>
-</motion.div>
-        
       </Box>
 
       {/* // xs  */}
@@ -206,28 +198,39 @@ transition={{duration:0.5}}
         }}
       >
         <Grid container>
-          <Grid sm={12} xs={12} item
-            sx={{
-              background: "#9D89FC",
-              borderRadius: "22px",
-              display: "flex",
-              alignItems: "center"
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: "18px",
-                fontFamily: "var(--English-font)",
-                padding: {
-                  xs: "56px 26px 56px 26px"
-                },
-                textAlign: "center",
-                color: "#051A2F"
-
+          <Grid sm={12} xs={12} item>
+            <motion.div
+              initial={{ y: 100 }}
+              whileInView={{ y: 0 }}
+              transition={{ duration: 0.5 }}
+              style={{
+                height: "100%"
               }}
             >
-              Our team makes use of the newest technology and finest development processes.
-            </Typography>
+              <Grid
+                sx={{
+                  background: "#9D89FC",
+                  borderRadius: "22px",
+                  display: "flex",
+                  alignItems: "center"
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: "18px",
+                    fontFamily: "var(--English-font)",
+                    padding: {
+                      xs: "56px 26px 56px 26px"
+                    },
+                    textAlign: "center",
+                    color: "#051A2F"
+
+                  }}
+                >
+                  Our team makes use of the newest technology and finest development processes.
+                </Typography>
+              </Grid>
+            </motion.div>
           </Grid>
         </Grid>
         <Grid container
@@ -239,75 +242,121 @@ transition={{duration:0.5}}
         >
           <Grid xs={6} item
             sx={{
-              paddingRight: "10px"
-            }}
-          >
-            <Box
-              component="img"
-              src={techImg}
-              sx={{
-                borderRadius: "15px",
-                height: "100%",
-                width: "100%",
-                objectFit: "cover"
-              }}
-            />
-          </Grid>
-          <Grid item xs={6}
-            sx={{
-              background: "#9D89FC",
-              borderRadius: "15px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
+              paddingRight: "10px",
+              overflow: "hidden"
 
             }}
           >
-            <Grid container spacing={0.5}
-              sx={{
-                padding: {
-                  xs: "27px 10px 27px 10px",
-                },
+            <motion.div
+              initial={{ x: -100 }}
+              whileInView={{
+                x: 0
+              }}
+              transition={{ duration: 0.5 }}
+              style={{
+                height: "100%",
 
               }}
             >
-              {programmingLang.map((item, index) => (
-                <Grid item lg={3} md={3} sm={4} xs={4} key={index}
+              <Box
+                component="img"
+                src={techImg}
+                sx={{
+                  borderRadius: "15px",
+                  height: "100%",
+                  width: "100%",
+                  objectFit: "cover"
+                }}
+              />
+            </motion.div>
+
+          </Grid>
+          <Grid item xs={6}
+            sx={{
+              overflow: "hidden"
+
+            }}
+          >
+            <motion.div
+              initial={{ x: 100 }}
+              whileInView={{
+                x: 0
+              }}
+              transition={{ duration: 0.5 }}
+              style={{
+                height: "100%",
+              }}
+            >
+              <Grid
+                sx={{
+                  background: "#9D89FC",
+                  borderRadius: "15px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
+
+                }}
+              >
+
+                <Grid container spacing={0.5}
                   sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginTop: "6px",
+                    padding: {
+                      xs: "27px 10px 27px 10px",
+                    },
+
                   }}
                 >
-                  <Box
-                    component="img"
-                    src={item.img}
-                    sx={{
-                      maxWidth: "100%",
-                      maxHeight: "100%",
-                      objectFit: "contain",
+                  {programmingLang.map((item, index) => (
+                    <Grid item lg={3} md={3} sm={4} xs={4} key={index}
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        marginTop: "6px",
+                      }}
+                    >
+                      <Box
+                        component="img"
+                        src={item.img}
+                        sx={{
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                          objectFit: "contain",
 
-                    }}
-                  />
+                        }}
+                      />
+                    </Grid>
+
+                  ))}
                 </Grid>
-
-              ))}
-            </Grid>
+              </Grid>
+            </motion.div>
           </Grid>
           <Grid item xs={12}>
-            <Box
-              component="img"
-              src={meetImg}
-              sx={{
-                borderRadius: "23px",
-                height: "145px",
-                width: "100%",
-                objectFit: "cover",
-                marginTop: "10px"
-
+            <motion.div
+              initial={{ y: 100 }}
+              whileInView={{
+                y: 0
               }}
-            />
+              transition={{ duration: 0.5 }}
+              style={{
+                height: "100%"
+              }}
+            >
+              <Box
+                component="img"
+                src={meetImg}
+                sx={{
+                  borderRadius: "23px",
+                  height: "145px",
+                  width: "100%",
+                  objectFit: "cover",
+                  marginTop: "10px"
+
+                }}
+              />
+            </motion.div>
+
           </Grid>
         </Grid>
       </Box>
