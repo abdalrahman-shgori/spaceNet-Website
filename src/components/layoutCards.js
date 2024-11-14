@@ -52,7 +52,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                   sethoveredcardid(item.id);
                 }}
                 onTouchEnd={()=>{
-                  sethoveredcardid(item.id)
+                  sethoveredcardid(null)
                 }}
 
 
