@@ -18,7 +18,7 @@ export default function SectionDescription({ text1, text2, top }) {
         },
         width: "100%",
         textAlign: "center",
-        
+
 
     }
     const text2Style = {

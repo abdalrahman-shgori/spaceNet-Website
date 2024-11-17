@@ -248,13 +248,13 @@ export default function DesignAndBranding() {
                         hoveredcardid={hoveredcardid}
                     />
                     <SectionDescription
-                        text1={<>Designing Solutions,<br/>Achieving Greatness.</>}
+                        text1={<>Designing Solutions,<br />Achieving Greatness.</>}
                         top="43px"
                     />
                     <CreatingSolution />
                 </Grid>
                 <LetsProject
-                    text1={<>Got a Great Idea?<br/> Ready to Bring it to Life?</>}
+                    text1={<>Got a Great Idea?<br /> Ready to Bring it to Life?</>}
                     text2="Let’s make it happen"
                     btnText="Let’s Talk business!"
                     cardBg="#1CB786"

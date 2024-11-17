@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import vector1White from "../assets/images/Vector1White.svg";
 import vector2White from "../assets/images/Vector2White.svg";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 const text1Style = {
   fontSize: {
     xl: "62px",
@@ -59,7 +59,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
         }}
       >
         <Grid sx={{ position: "relative" }}>
-          
+
           <Box
             component="img"
             src={vector1White}
@@ -81,78 +81,78 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
             }}
           />
 
-       
+
         </Grid>
         <motion.div
-        initial={{scale:0}}
-        whileInView={{
-          scale:1
-        }}
-        transition={{duration:0.5}}
-        >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: {
-              lg: "30px",
-              md: "30px",
-              sm: "20px",
-              xs: "20px"
-            },
-            marginTop: {
-              lg: "123px",
-              md: "100px",
-              sm: "80px",
-              xs: "123px"
-            }
+          initial={{ scale: 0 }}
+          whileInView={{
+            scale: 1
           }}
+          transition={{ duration: 0.5 }}
         >
-          <Typography
-            sx={{
-              ...text1Style,
-              color: text1Color
-            }}
-          >
-            {text1}
-          </Typography>
-          <Typography
-            sx={{
-              ...text2Style,
-              color: text2Color
-
-            }}
-          >
-            {text2}
-          </Typography>
           <Box
-            component="button"
             sx={{
-              background: "#051A2F",
-              color: "#FFFFFF",
-              padding: {
-                lg: "14px 30px 14px 30px",
-                md: "14px 30px 14px 30px",
-                sm: "10px 36px 10px 36px",
-                xs: "10px 36px 10px 36px"
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: {
+                lg: "30px",
+                md: "30px",
+                sm: "20px",
+                xs: "20px"
               },
-              borderRadius: "46px",
-              border: "none",
-              fontSize: {
-                lg: "20px",
-                md: "20px",
-                sm: "16px",
-                xs: "16px"
-              },
-              fontFamily: "var(--English-font)",
-              cursor: "pointer",
-
+              marginTop: {
+                lg: "123px",
+                md: "100px",
+                sm: "80px",
+                xs: "123px"
+              }
             }}
           >
-            {btnText}
+            <Typography
+              sx={{
+                ...text1Style,
+                color: text1Color
+              }}
+            >
+              {text1}
+            </Typography>
+            <Typography
+              sx={{
+                ...text2Style,
+                color: text2Color
+
+              }}
+            >
+              {text2}
+            </Typography>
+            <Box
+              component="button"
+              sx={{
+                background: "#051A2F",
+                color: "#FFFFFF",
+                padding: {
+                  lg: "14px 30px 14px 30px",
+                  md: "14px 30px 14px 30px",
+                  sm: "10px 36px 10px 36px",
+                  xs: "10px 36px 10px 36px"
+                },
+                borderRadius: "46px",
+                border: "none",
+                fontSize: {
+                  lg: "20px",
+                  md: "20px",
+                  sm: "16px",
+                  xs: "16px"
+                },
+                fontFamily: "var(--English-font)",
+                cursor: "pointer",
+
+              }}
+            >
+              {btnText}
+            </Box>
           </Box>
-        </Box>
         </motion.div>
         <Box
           component="img"

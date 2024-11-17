@@ -29,15 +29,15 @@ export default function Crafting({
 
   return (
     <Grid container >
-      <Grid item lg={3} md={3} sm={3} xs={12} container  alignItems="center"
-      sx={{
-        justifyContent:{
-          lg:"end",
-          md:"end",
-          sm:"end",
-          xs:"start"
-        }
-      }}
+      <Grid item lg={3} md={3} sm={3} xs={12} container alignItems="center"
+        sx={{
+          justifyContent: {
+            lg: "end",
+            md: "end",
+            sm: "end",
+            xs: "start"
+          }
+        }}
       >
         <Typography
           sx={{
@@ -51,7 +51,7 @@ export default function Crafting({
             textAlign: "end",
           }}
         >
-          Crafty   
+          Crafty
         </Typography>
       </Grid>
 

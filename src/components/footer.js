@@ -16,10 +16,13 @@ const Footer = () => {
     {
       title: 'Social Media',
       content: [
-        { name: 'Facebook', link: 'https://facebook.com' },
-        { name: 'Twitter', link: 'https://twitter.com' },
-        { name: 'LinkedIn', link: 'https://linkedin.com' },
-        { name: 'Instagram', link: 'https://instagram.com' },
+        { name: 'Instagram', link: 'https://facebook.com' },
+        { name: 'Whatsapp', link: 'https://twitter.com' },
+        { name: 'Facebook', link: 'https://linkedin.com' },
+        { name: 'Dribble', link: 'https://instagram.com' },
+        { name: 'Linkedln', link: 'https://Linkedln.com' },
+        { name: 'Behance', link: 'https://Behance.com' },
+
       ],
     },
     {

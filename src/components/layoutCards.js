@@ -34,7 +34,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
             }}
           >
             <motion.div
-            initial={{x: index === 0 ? -200 : index === 1 ? 200 : 0,  y: index > 1 ? 200 : 0}}
+              initial={{ x: index === 0 ? -200 : index === 1 ? 200 : 0, y: index > 1 ? 200 : 0 }}
               whileInView={{
                 x: index === 0 ? 0 : index === 1 ? 0 : 0,
                 y: index > 1 ? 0 : 0
@@ -108,8 +108,8 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                     fontFamily: "var(--English-font)",
                     marginTop: "20px",
                     color: "#051A2F",
-                    maxWidth:"574px",
-                    width:"100%"
+                    maxWidth: "574px",
+                    width: "100%"
                   }}
                 >
                   {item.description}

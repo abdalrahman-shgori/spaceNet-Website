@@ -129,7 +129,7 @@ export default function SoftwareSection() {
                     <OurTechnologies />
                 </Grid>
                 <LetsProject
-                    text1={<>Got a Great Idea?<br/> Ready to Bring it to Life?</>}
+                    text1={<>Got a Great Idea?<br /> Ready to Bring it to Life?</>}
                     text2="Let’s make it happen"
                     btnText="Let’s Talk business!"
                     cardBg="#9D89FC"

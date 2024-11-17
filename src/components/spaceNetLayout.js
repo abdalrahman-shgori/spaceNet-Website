@@ -87,7 +87,7 @@ const SpaceNetLayout = () => {
                 marginTop: "10px"
               }}>
                 <Stack direction="row" sx={{ gap: "12px" }}>
-                  {['Home','Blog & News', 'Contact Us'].map((item, index) => (
+                  {['Home', 'Blog & News', 'Contact Us'].map((item, index) => (
                     <motion.div
                       initial={{ opacity: 0 }}
                       whileInView={{
