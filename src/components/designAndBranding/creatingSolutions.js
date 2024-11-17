@@ -16,14 +16,14 @@ export default function CreatingSolution() {
     {
       id: 1,
       title: "The Process",
-      description:"",
-        img:processImg
+      description: "",
+      img: processImg
     },
     {
       id: 2,
       title: "Our Technologies",
-      description:"",
-      img:[PSImg,figma,adobeXd,AI]
+      description: "",
+      img: [PSImg, figma, adobeXd, AI]
     },
   ];
 
@@ -68,7 +68,7 @@ export default function CreatingSolution() {
                 sm: index > 1 ? "25px" : "0px",
                 xs: index > 0 ? "25px" : "0px"
               },
-              minHeight:"350px"
+              minHeight: "350px"
             }}
           >
             <Typography
@@ -81,7 +81,7 @@ export default function CreatingSolution() {
                 },
                 fontFamily: "var(--English-font)",
                 textAlign: "left",
-                color:"#000000"
+                color: "#000000"
               }}
             >
               {item.title}
@@ -96,7 +96,7 @@ export default function CreatingSolution() {
                   xs: "18px",
                 },
                 fontFamily: "var(--English-font)",
-                marginTop:{
+                marginTop: {
                   lg: "83px",
                   md: "83px",
                   sm: "60px",
@@ -135,55 +135,55 @@ export default function CreatingSolution() {
                     {desc}
                   </Box>
                 ))
-                :item.description ? (
+                : item.description ? (
                   <Typography
-                  sx={{
-                    fontSize: {
-                      lg: "18px",
-                      md: "18px",
-                      sm: "15px",
-                      xs: "15px",
-                    },
-                    color: "#000000",
-                    fontFamily: "var(--English-font)",
-                  }}
-                >{item.description}
-                </Typography>
-                ):(
-                 Array.isArray(item.img) ? (
-                  <Grid container justifyContent="center" alignItems="center">
-  {item.img.map((item,index)=>(
-    <Grid item lg={3} md={3} sm={3} xs={3} key={index} sx={{ paddingRight:"10px" }}
-  
-    >
-       <Box
-                    component="img"
-                    src={item}
                     sx={{
-                      maxWidth: "105px",
-                      width: "100%"
+                      fontSize: {
+                        lg: "18px",
+                        md: "18px",
+                        sm: "15px",
+                        xs: "15px",
+                      },
+                      color: "#000000",
+                      fontFamily: "var(--English-font)",
                     }}
-              />
-    </Grid>
+                  >{item.description}
+                  </Typography>
+                ) : (
+                  Array.isArray(item.img) ? (
+                    <Grid container justifyContent="center" alignItems="center">
+                      {item.img.map((item, index) => (
+                        <Grid item lg={3} md={3} sm={3} xs={3} key={index} sx={{ paddingRight: "10px" }}
 
-                   
-                  ))}
-                  </Grid>
-                
-                     
-                 ) : 
-                 (
-                  <Box
-                  component="img"
-                  src={item.img}
-                  sx={{
-                    maxWidth:"481px",
-                    width:"100%"
-                  }}
-                  />
-                 )
+                        >
+                          <Box
+                            component="img"
+                            src={item}
+                            sx={{
+                              maxWidth: "105px",
+                              width: "100%"
+                            }}
+                          />
+                        </Grid>
+
+
+                      ))}
+                    </Grid>
+
+
+                  ) :
+                    (
+                      <Box
+                        component="img"
+                        src={item.img}
+                        sx={{
+                          maxWidth: "481px",
+                          width: "100%"
+                        }}
+                      />
+                    )
                 )
-                }
+              }
             </Typography>
           </Box>
         </Grid>

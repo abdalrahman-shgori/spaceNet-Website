@@ -209,8 +209,9 @@ export default function Cards({
                                                         lg: "78px",
                                                         md: "78px",
                                                         sm: "28px",
-                                                        xs: "18px"
-                                                    }
+                                                        xs: "18px",
+                                                    },
+
                                                 }}
                                             >
 
