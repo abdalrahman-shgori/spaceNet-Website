@@ -5,7 +5,8 @@ export default function Crafting({
   designAndBrandingList,
   reset,
   scrollIndex,
-  setScrollIndex
+  setScrollIndex,
+  data
 }) {
 
   const theme = useTheme();
@@ -28,7 +29,16 @@ export default function Crafting({
 
   return (
     <Grid container >
-      <Grid item lg={3} md={3} sm={3} xs={12} container justifyContent="start" alignItems="center">
+      <Grid item lg={3} md={3} sm={3} xs={12} container  alignItems="center"
+      sx={{
+        justifyContent:{
+          lg:"end",
+          md:"end",
+          sm:"end",
+          xs:"start"
+        }
+      }}
+      >
         <Typography
           sx={{
             fontSize: {
@@ -38,10 +48,10 @@ export default function Crafting({
               xs: "35px"
             },
             fontFamily: "var(--English-font)",
-            textAlign: "center",
+            textAlign: "end",
           }}
         >
-          Crafting
+          Crafty   
         </Typography>
       </Grid>
 

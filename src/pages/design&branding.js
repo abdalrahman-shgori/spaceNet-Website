@@ -12,8 +12,8 @@ import CreatingSolution from "../components/designAndBranding/creatingSolutions"
 
 const designAndBrandingList = [
     { title: "Design Strategy", color: "#1CB786", rotate: "5.28deg" },
-    { title: "Website Design", color: "#E9FA50", rotate: "-3.6deg" },
-    { title: "Mobile Design", color: "#F29111", rotate: "-11.1deg" },
+    { title: "Web & Mobile Design", color: "#E9FA50", rotate: "-3.6deg" },
+    { title: "Consulting", color: "#F29111", rotate: "-11.1deg" },
     { title: "Branding &Printables", color: "#9D89FC", rotate: "-19.3deg" },
 ];
 
@@ -131,7 +131,7 @@ export default function DesignAndBranding() {
         setLoading(true)
         const fetchSubServices = async () => {
             try {
-                const response = await subServices('software');
+                const response = await subServices('design-branding');
                 setData(response.data)
                 setLoading(false)
             } catch (error) {
@@ -235,10 +235,11 @@ export default function DesignAndBranding() {
                         scrollIndex={scrollIndex}
                         handleScroll={handleScroll}
                         setScrollIndex={setScrollIndex}
+                        data={data}
                     />
                     <WhatWeDo data={data} loading={loading} lastCardId={lastCardId} />
                     <SectionDescription
-                        text1="The following is the process for working with us"
+                        text1="Elevate Your Brand With Our Proven 5-Step Transformation Process"
                         top="80px"
                     />
                     <LayoutCards
@@ -247,15 +248,15 @@ export default function DesignAndBranding() {
                         hoveredcardid={hoveredcardid}
                     />
                     <SectionDescription
-                        text1={<><span>Creating Solutions,</span><br /><span>Creating Achievement</span></>}
+                        text1={<>Designing Solutions,<br/>Achieving Greatness.</>}
                         top="43px"
                     />
                     <CreatingSolution />
                 </Grid>
                 <LetsProject
-                    text1="Let’s discuss your project"
-                    text2="A SpacenNet technology company can help you improve your idea and turn it into reality if you're facing a challenge"
-                    btnText="Contact Us"
+                    text1={<>Got a Great Idea?<br/> Ready to Bring it to Life?</>}
+                    text2="Let’s make it happen"
+                    btnText="Let’s Talk business!"
                     cardBg="#1CB786"
                     text1Color="#FFFFFF"
                     text2Color="#FFFFFF"

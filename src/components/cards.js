@@ -32,7 +32,6 @@ export default function Cards({
                 <>
                     <Skeleton variant="rounded" width="100%" height={150} />
                     <Skeleton variant="rounded" width="100%" height={150} sx={{ marginTop: "20px" }} />
-
                 </>
             ) : (
 

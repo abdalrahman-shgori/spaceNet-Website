@@ -1,24 +1,29 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
+import processImg from "../../assets/sectionsImages/design-branding/processImg.svg"
+import PSImg from "../../assets/sectionsImages/design-branding/photoshop.svg"
+import figma from "../../assets/sectionsImages/design-branding/figma.svg"
+import adobeXd from "../../assets/sectionsImages/design-branding/adobeXd.svg"
+import AI from "../../assets/sectionsImages/design-branding/AI.svg"
 
 export default function CreatingSolution() {
   const solutions = [
     {
       id: 0,
-      title: "What we are doing?",
+      title: "What We Do Best",
       description: ["Design System", "Branding", "Web Design", "Development", "Creative consulting", "Logo", "Mobile application"],
     },
     {
       id: 1,
-      title: "How we are doing it?",
-      description:
-        "Lorem simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.",
+      title: "The Process",
+      description:"",
+        img:processImg
     },
     {
       id: 2,
       title: "Our Technologies",
-      description:
-        "Lorem simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.",
+      description:"",
+      img:[PSImg,figma,adobeXd,AI]
     },
   ];
 
@@ -63,6 +68,7 @@ export default function CreatingSolution() {
                 sm: index > 1 ? "25px" : "0px",
                 xs: index > 0 ? "25px" : "0px"
               },
+              minHeight:"350px"
             }}
           >
             <Typography
@@ -129,18 +135,55 @@ export default function CreatingSolution() {
                     {desc}
                   </Box>
                 ))
-                : <Typography
-                sx={{
-                  fontSize: {
-                    lg: "18px",
-                    md: "18px",
-                    sm: "15px",
-                    xs: "15px",
-                  },
-                  color:"#000000",
-                  fontFamily: "var(--English-font)",
-                }}
-                >{item.description}</Typography> }
+                :item.description ? (
+                  <Typography
+                  sx={{
+                    fontSize: {
+                      lg: "18px",
+                      md: "18px",
+                      sm: "15px",
+                      xs: "15px",
+                    },
+                    color: "#000000",
+                    fontFamily: "var(--English-font)",
+                  }}
+                >{item.description}
+                </Typography>
+                ):(
+                 Array.isArray(item.img) ? (
+                  <Grid container justifyContent="center" alignItems="center">
+  {item.img.map((item,index)=>(
+    <Grid item lg={3} md={3} sm={3} xs={3} key={index} sx={{ paddingRight:"10px" }}
+  
+    >
+       <Box
+                    component="img"
+                    src={item}
+                    sx={{
+                      maxWidth: "105px",
+                      width: "100%"
+                    }}
+              />
+    </Grid>
+
+                   
+                  ))}
+                  </Grid>
+                
+                     
+                 ) : 
+                 (
+                  <Box
+                  component="img"
+                  src={item.img}
+                  sx={{
+                    maxWidth:"481px",
+                    width:"100%"
+                  }}
+                  />
+                 )
+                )
+                }
             </Typography>
           </Box>
         </Grid>

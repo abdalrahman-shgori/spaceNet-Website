@@ -17,7 +17,7 @@ export default function WhatWeDo({ setData, data, lastCardId, loading }) {
                 }}
             >
                 <WhatWeDoText
-                    text="What we are doing"
+                    text="What We Do"
                 />
                 <Cards data={data} lastCardId={lastCardId} loading={loading} />
             </Grid>

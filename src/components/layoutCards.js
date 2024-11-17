@@ -107,7 +107,9 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                     fontSize: "14px",
                     fontFamily: "var(--English-font)",
                     marginTop: "20px",
-                    color: "#051A2F"
+                    color: "#051A2F",
+                    maxWidth:"574px",
+                    width:"100%"
                   }}
                 >
                   {item.description}

@@ -4,7 +4,7 @@ import React from "react";
 export default function SectionDescription({ text1, text2, top }) {
     const text1Style = {
         fontSize: {
-            lg: "50px",
+            lg: "48px",
             md: "40px",
             sm: "26px",
             xs: "26px"
@@ -14,10 +14,11 @@ export default function SectionDescription({ text1, text2, top }) {
             lg: "898px",
             md: "898px",
             sm: "498px",
-            xs: "295px",
+            xs: "375px",
         },
         width: "100%",
-        textAlign: "center"
+        textAlign: "center",
+        
 
     }
     const text2Style = {

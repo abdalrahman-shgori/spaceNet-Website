@@ -137,7 +137,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
                 sm: "10px 36px 10px 36px",
                 xs: "10px 36px 10px 36px"
               },
-              borderRadius: "20px",
+              borderRadius: "46px",
               border: "none",
               fontSize: {
                 lg: "20px",
