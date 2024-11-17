@@ -146,8 +146,8 @@ export default function Cards({
                                                     maxWidth: {
                                                         lg: "405px",
                                                         md: "405px",
-                                                        sm: "221px",
-                                                        xs: "221px",
+                                                        sm: "248px",
+                                                        xs: "248px",
                                                     },
                                                     width: "100%",
                                                     color: index === 1 ? "#FFFFFF" : "#000000",

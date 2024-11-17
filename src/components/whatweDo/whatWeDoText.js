@@ -14,7 +14,7 @@ const textStyle = {
         lg: "unset",
         md: "unset",
         sm: "unset",
-        xs: "185px"
+        xs: "unset"
     },
     height: {
         lg: "174px",
