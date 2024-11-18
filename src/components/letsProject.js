@@ -20,7 +20,19 @@ const text1Style = {
     xs: "333px",
   },
   width: "100%",
-  textAlign: "center"
+  textAlign: "center",
+  lineHeight: {
+    lg: "54px",
+    md: "54px",
+    sm: "30px",
+    xs: "30px"
+  },
+  paddingBottom: {
+    lg: "25px",
+    md: "25px",
+    sm: "22px",
+    xs: "22px"
+  }
 
 }
 const text2Style = {
@@ -40,11 +52,19 @@ const text2Style = {
     xs: "100%",
   },
   width: "100%",
-  textAlign: "center"
+  textAlign: "center",
+  paddingBottom: {
+    lg: "71px",
+    md: "71px",
+    sm: "69px",
+    xs: "69px"
+  },
+
 }
 export default function LetsProject({ text1, text2, btnText, cardBg, text1Color, text2Color }) {
   return (
     <>
+
       <Grid
         className="root-container"
         sx={{
@@ -58,6 +78,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
           position: "relative",
         }}
       >
+
         <Grid sx={{ position: "relative" }}>
 
           <Box
@@ -66,7 +87,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
             sx={{
               maxWidth: "100%",
               width: {
-                lg: "180px",
+                lg: "193px",
                 md: "160px",
                 sm: "120px",
                 xs: "110px",
@@ -80,8 +101,6 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
               }
             }}
           />
-
-
         </Grid>
         <motion.div
           initial={{ scale: 0 }}
@@ -95,12 +114,6 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              gap: {
-                lg: "30px",
-                md: "30px",
-                sm: "20px",
-                xs: "20px"
-              },
               marginTop: {
                 lg: "123px",
                 md: "100px",
@@ -160,16 +173,16 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
           sx={{
             maxWidth: "100%",
             width: {
-              lg: "180px",
-              md: "160px",
-              sm: "120px",
-              xs: "110px",
+              lg: "337px",
+              md: "280px",
+              sm: "192px",
+              xs: "192px",
             },
             transform: "scaleX(-1)",
             marginTop: {
-              lg: "0px",
-              md: "0px",
-              sm: "0px",
+              lg: "-112px",
+              md: "-100px",
+              sm: "-30px",
               xs: "70px"
             }
           }}

@@ -10,7 +10,7 @@ export default function OurTechnologiesRegular({ programmingLang }) {
             <Box
                 sx={{
                     padding: {
-                        lg: "47px 75px 149px 75px",
+                        lg: "0px 120px 149px 120px",
                         md: "0px 0px 149px 0px",
                         sm: "0px 0px 149px 0px",
                     },
@@ -49,7 +49,7 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                                 <Typography
                                     sx={{
                                         fontSize: {
-                                            lg: "34px",
+                                            lg: "33px",
                                             md: "28px",
                                             sm: "22px"
                                         },
@@ -60,7 +60,13 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                                             sm: "40px 40px 40px 40px",
                                         },
                                         textAlign: "center",
-                                        color: "#051A2F"
+                                        color: "#051A2F",
+                                        lineHeight:{
+                                            lg:"43.8px",
+                                            md:"43.8px",
+                                            sm:"24px",
+                                            xs:"24px"
+                                        }
                                     }}
                                 >
                                     Our team makes use of the newest technology and finest development processes.

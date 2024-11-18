@@ -18,6 +18,12 @@ export default function SectionDescription({ text1, text2, top }) {
         },
         width: "100%",
         textAlign: "center",
+        lineHeight:{
+            lg: "57px",
+            md: "57px",
+            sm: "28px",
+            xs: "28px",
+        }
 
 
     }
@@ -36,7 +42,13 @@ export default function SectionDescription({ text1, text2, top }) {
             xs: "255px",
         },
         width: "100%",
-        textAlign: "center"
+        textAlign: "center",
+        lineHeight:{
+            lg: "24px",
+            md: "24px",
+            sm: "17px",
+            xs: "17px",
+        }
     }
     return (
         <>

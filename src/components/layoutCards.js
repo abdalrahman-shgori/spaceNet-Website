@@ -17,6 +17,12 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
             sm: "16px",
             xs: "16px",
           },
+          padding: {
+            lg: "0px 120px 0 120px",
+            md: "0px 0px 0 0px",
+            sm: "0px 0px 0 0px",
+            xs: "0px 0px 0 0px",
+        },
 
         }}
         spacing={2}
@@ -58,10 +64,10 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                 sx={{
                   background: hoveredcardid === item.id ? location.pathname === '/software' ? "#9D89FC" : "#1CB786" : "#FFFFFF",
                   padding: {
-                    lg: "34px 26px 89px 34px",
-                    md: "34px 26px 89px 34px",
-                    sm: "34px 26px 89px 34px",
-                    xs: "34px 26px 44px 34px"
+                    lg: "34px 17px 38px 34px",
+                    md: "34px 17px 89px 34px",
+                    sm: "34px 17px 89px 34px",
+                    xs: "34px 17px 44px 34px"
                   },
                   borderRadius: "30px",
                   display: "flex",
@@ -78,8 +84,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                 <Box
                   sx={{
                     color: hoveredcardid === item.id ? "#FFFFFF" : "#000000",
-                    transition: "color 0.5s"
-
+                    transition: "color 0.5s",
                   }}>
                   {item.image}
                 </Box>
@@ -87,8 +92,8 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                 <Typography
                   sx={{
                     fontSize: {
-                      lg: "30px",
-                      md: "30px",
+                      lg: "27px",
+                      md: "27px",
                       sm: "28px",
                       xs: "28px"
                     },
@@ -97,7 +102,11 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                     color: hoveredcardid === item.id ? "#FFFFFF" : "#051A2F",
                     transition: "color 0.5s",
                     maxWidth: "422px",
-                    width: "100%"
+                    width: "100%",
+                    lineHeight: "30px",
+                    minHeight:"50px",
+                    display:"flex",
+                    alignItems:"end"
                   }}
                 >
                   {item.title}

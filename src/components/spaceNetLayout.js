@@ -8,6 +8,7 @@ const SpaceNetLayout = () => {
   return (
     <>
       <Box
+      className="root-container"
         sx={{ backgroundColor: '#051A2F', }}
       >
         <Box sx={{ color: 'white', }}>

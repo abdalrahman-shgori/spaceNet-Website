@@ -23,9 +23,7 @@ export default function Cards({
             container
             direction="column"
             alignItems="center"
-            sx={{
-                marginTop: "20px",
-            }}
+           
             ref={containerRef}
         >
             {loading ? (
@@ -151,6 +149,12 @@ export default function Cards({
                                                     },
                                                     width: "100%",
                                                     color: index === 1 ? "#FFFFFF" : "#000000",
+                                                    lineHeight:{
+                                                        lg:"58px",
+                                                        md:"58px",
+                                                        sm:"32px",
+                                                        xs:"32px"
+                                                    }
                                                 }}
                                             >
                                                 {card.title}
@@ -198,6 +202,12 @@ export default function Cards({
                                                         md: "60px",
                                                         sm: "30px",
                                                         xs: "0px"
+                                                    },
+                                                    lineHeight:{
+                                                        lg:"32px",
+                                                        md:"32px",
+                                                        sm:"25px",
+                                                        xs:"25px"
                                                     }
                                                 }}
                                             >

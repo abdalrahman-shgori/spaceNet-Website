@@ -35,7 +35,7 @@ const Footer = () => {
   ];
 
   return (
-    <Box sx={{}}>
+    <Box sx={{}} className="root-container">
       <Grid container
         sx={{
           background: "#F4F4F4",

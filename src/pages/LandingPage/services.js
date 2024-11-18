@@ -90,7 +90,8 @@ export default function Services({
                 {
                     lg: "0px 75px 0px 75px",
                     md: '0px 75px 0px 75px',
-                    sm: "0px 45px 0px 25px", xs: "0px 0px 0px 25px"
+                    sm: "0px 45px 0px 25px", 
+                    xs: "0px 0px 0px 25px"
                 },
             }}
         >

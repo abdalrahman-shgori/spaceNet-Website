@@ -10,6 +10,7 @@ import SoftwareSection from './pages/softwarePage';
 import Footer from './components/footer';
 import DesignAndBranding from './pages/design&branding';
 import LogoAnimation from './pages/LandingPage/logoaniamtion';
+import Academics from './pages/academics';
 
 const App = () => {
   const location = useLocation();
@@ -115,6 +116,7 @@ const App = () => {
                 />
                 <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} />} />
                 <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} />} />
+                <Route path='/academics' element={<Academics setThemeColor={setThemeColor} />} />
 
               </Routes>
               {location.pathname !== '/' && (
