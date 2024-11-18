@@ -85,6 +85,12 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                   sx={{
                     color: hoveredcardid === item.id ? "#FFFFFF" : "#000000",
                     transition: "color 0.5s",
+                    maxHeight:{
+                      lg:"55px",
+                      md:"55px",
+                      sm:"65px",
+                      xs:"65px"
+                    }
                   }}>
                   {item.image}
                 </Box>
@@ -104,7 +110,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                     maxWidth: "422px",
                     width: "100%",
                     lineHeight: "30px",
-                    minHeight:"50px",
+                    minHeight:"60px",
                     display:"flex",
                     alignItems:"end"
                   }}
