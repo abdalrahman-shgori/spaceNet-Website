@@ -1,13 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 export default function SectionDescription({ text1, text2, top }) {
+   const location=useLocation()
+   const pathname=location.pathname
     const text1Style = {
         fontSize: {
             lg: "48px",
             md: "40px",
             sm: "26px",
-            xs: "26px"
+            xs: pathname === '/academics' ? "28px" : "26px"
         },
         fontFamily: "var(--English-font)",
         maxWidth: {
@@ -23,8 +26,7 @@ export default function SectionDescription({ text1, text2, top }) {
             md: "57px",
             sm: "28px",
             xs: "28px",
-        }
-
+        },
 
     }
     const text2Style = {
@@ -38,14 +40,14 @@ export default function SectionDescription({ text1, text2, top }) {
         maxWidth: {
             lg: "679px",
             md: "679px",
-            sm: "300px",
-            xs: "280px",
+            sm: pathname === '/academics' ? "100%" : "300px",
+            xs: pathname === '/academics' ? "100%" : "280px",
         },
         width: "100%",
         textAlign: "center",
         lineHeight:{
-            lg: "24px",
-            md: "24px",
+            lg: pathname === '/academics' ? "38px" : "24px",
+            md: pathname === '/academics' ? "38px" : "24px",
             sm: "17px",
             xs: "17px",
         }
