@@ -154,7 +154,6 @@ export default function CreatingSolution() {
                     <Grid container justifyContent="center" alignItems="center">
                       {item.img.map((item, index) => (
                         <Grid item lg={3} md={3} sm={3} xs={3} key={index} sx={{ paddingRight: "10px" }}
-
                         >
                           <Box
                             component="img"

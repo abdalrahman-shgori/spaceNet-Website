@@ -1,11 +1,14 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
-export default function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid }) {
+export default function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, technologiesDataImage }) {
 
   const location = useLocation()
+  const pathname = location.pathname;
+  const theme = useTheme()
+  const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down('354'))
   return (
     <>
       <Grid
@@ -18,123 +21,199 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
             xs: "16px",
           },
           padding: {
-            lg: "0px 120px 0 120px",
+            lg: pathname !== '/academics' ? "0px 110px 0 110px" : "0px 57px 0 57px",
             md: "0px 0px 0 0px",
             sm: "0px 0px 0 0px",
             xs: "0px 0px 0 0px",
-        },
+          },
 
         }}
         spacing={2}
       >
-        {technologiesData.map((item, index) => (
-          <Grid
-            key={item.id}
-            item
-            lg={index < 2 ? (index === 1 ? 8 : 4) : 4}
-            md={6}
-            sm={6}
-            xs={12}
-            sx={{
-              overflow: "hidden",
-            }}
-          >
-            <motion.div
-              initial={{ x: index === 0 ? -200 : index === 1 ? 200 : 0, y: index > 1 ? 200 : 0 }}
-              whileInView={{
-                x: index === 0 ? 0 : index === 1 ? 0 : 0,
-                y: index > 1 ? 0 : 0
+        {technologiesData.map((item, index) => {
+          // Find the corresponding image for the current item (e.g., using the index)
+          const img = pathname !== '/academics' && technologiesDataImage[index];
+
+          return (
+            <Grid
+              key={item.id}
+              item
+              lg={location.pathname === '/academics' ? 4 : (index < 2 ? (location.pathname !== '/academics' && index === 1 ? 8 : 4) : 4)}
+              md={6}
+              sm={pathname === '/academics' ? 6 : 6}
+              xs={12}
+              sx={{
+                overflow: "hidden",
+                cursor: "pointer",
+
               }}
-              transition={{ duration: 0.5 }}
-              style={{ height: "100%", overflowX: "hidden" }}
             >
-              <Box
-                onMouseEnter={() => {
-                  sethoveredcardid(item.id);
+              <motion.div
+                initial={pathname !== "/academics" ? ({ x: index === 0 ? -200 : index === 1 ? 200 : 0, y: index > 1 ? 200 : 0 }) : ({ y: 200 })}
+                whileInView={{
+                  x: index === 0 ? 0 : index === 1 ? 0 : 0,
+                  y: index > 1 ? 0 : 0
                 }}
-                onMouseLeave={() => {
-                  sethoveredcardid(null);
-                }}
-                onTouchStart={() => {
-                  sethoveredcardid(item.id);
-                }}
-                onTouchEnd={() => {
-                  sethoveredcardid(null)
-                }}
-                sx={{
-                  background: hoveredcardid === item.id ? location.pathname === '/software' ? "#9D89FC" : "#1CB786" : "#FFFFFF",
-                  padding: {
-                    lg: "34px 17px 38px 34px",
-                    md: "34px 17px 89px 34px",
-                    sm: "34px 17px 89px 34px",
-                    xs: "34px 17px 44px 34px"
-                  },
-                  borderRadius: "30px",
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                  // "&:hover": {
-                  //   background:
-                  //     location.pathname === '/software' ?
-                  //       "#9D89FC" : "#1CB786"
-                  // },
-                  transition: "background 0.5s"
-                }}
+                transition={{ duration: 0.5 }}
+                style={{ height: "100%", overflowX: "hidden" }}
               >
-                <Box
+                <Grid
+                  onMouseEnter={() => {
+                    sethoveredcardid(item.id);
+                  }}
+                  onMouseLeave={() => {
+                    sethoveredcardid(null);
+                  }}
+                  onTouchStart={() => {
+                    sethoveredcardid(item.id);
+                  }}
+                  onTouchEnd={() => {
+                    sethoveredcardid(null)
+                  }}
                   sx={{
-                    color: hoveredcardid === item.id ? "#FFFFFF" : "#000000",
-                    transition: "color 0.5s",
-                    maxHeight:{
-                      lg:"55px",
-                      md:"55px",
-                      sm:"65px",
-                      xs:"65px"
-                    }
-                  }}>
-                  {item.image}
-                </Box>
-
-                <Typography
-                  sx={{
-                    fontSize: {
-                      lg: "27px",
-                      md: "27px",
-                      sm: "28px",
-                      xs: "28px"
+                    background: hoveredcardid === item.id ? pathname === '/software' ? "#9D89FC" : pathname === "/design-branding" ? "#1CB786" : "#FA6423" : "#FFFFFF",
+                    padding: pathname !== '/academics' ? {
+                      lg: "34px 17px 38px 34px",
+                      md: "34px 17px 89px 34px",
+                      sm: "34px 17px 89px 34px",
+                      xs: "34px 17px 44px 34px"
+                    } : {
+                      lg: "74px 34px 59px 34px",
+                      md: "34px 17px 89px 17px",
+                      sm: "34px 17px 89px 17px",
+                      xs: "34px 17px 44px 17px"
                     },
-                    fontFamily: "var(--English-font-semibold)",
-                    marginTop: "50px",
-                    color: hoveredcardid === item.id ? "#FFFFFF" : "#051A2F",
-                    transition: "color 0.5s",
-                    maxWidth: "422px",
-                    width: "100%",
-                    lineHeight: "30px",
-                    minHeight:"60px",
-                    display:"flex",
-                    alignItems:"end"
+                    borderRadius: "30px",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                    transition: "background 0.5s"
                   }}
                 >
-                  {item.title}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "14px",
-                    fontFamily: "var(--English-font)",
-                    marginTop: "20px",
-                    color: "#051A2F",
-                    maxWidth: "574px",
-                    width: "100%"
-                  }}
-                >
-                  {item.description}
-                </Typography>
+                  {location.pathname !== '/academics' && (
+                    <Box
+                      key={index}
+                      sx={{
+                        color: hoveredcardid === item.id ? "#FFFFFF" : "#000000",
+                        transition: "color 0.5s",
+                        maxHeight: {
+                          lg: "55px",
+                          md: "55px",
+                          sm: "65px",
+                          xs: "65px"
+                        }
+                      }}
+                    >
+                      {img && img.image}
+                    </Box>
+                  )}
 
-              </Box>
-            </motion.div>
+                  <Grid>
+                    <Typography
+                      sx={{
+                        fontSize: {
+                          lg: "27px",
+                          md: "27px",
+                          sm: "28px",
+                          xs: "28px"
+                        },
+                        fontFamily: "var(--English-font-semibold)",
+                        marginTop: "50px",
+                        color: hoveredcardid === item.id ? "#FFFFFF" : "#051A2F",
+                        transition: "color 0.5s",
+                        maxWidth: pathname === '/academics' ? "261px" : "422px",
+                        width: "100%",
+                        lineHeight: "30px",
+                        minHeight: pathname === '/academics' ? "0px" : "60px",
+                        display: "flex",
+                        alignItems: pathname !== '/academics' && "end",
+                        justifyContent: pathname === '/academics' ? "center" : "unset",
+                        textAlign: pathname === '/academics' ? "center" : "unset",
+                        margin: pathname === '/academics' ? "0 auto" : "none"
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Grid>
 
-          </Grid>
-        ))}
+                  <Grid lg={12} md={12} sm={12}>
+                    <Typography
+                      sx={{
+                        fontSize: "14px",
+                        fontFamily: "var(--English-font)",
+                        marginTop: "20px",
+                        color: "#051A2F",
+                        maxWidth: "574px",
+                        width: "100%",
+                        textAlign: pathname === '/academics' ? "center" : "unset",
+                        color: pathname === '/academics' && hoveredcardid === item.id ? "#FFFFFF" : "#051A2F",
+                        transition: "color 0.5s",
+                      }}
+                    >
+                      {item.description}
+                    </Typography>
+                  </Grid>
+
+                  <Grid lg={12}>
+                    {location.pathname === "/academics" && item.image && (
+                      <Box
+                        sx={{
+                          color: hoveredcardid === item.id ? "#FFFFFF" : "#000000",
+                          transition: "color 0.5s",
+                          textAlign: "center",
+                          marginTop: {
+                            lg: "120px",
+                            md: "120px",
+                            sm: index === 2 ? "120px" : "60px",
+                            xs: index === 2 ? "120px" : "60px",
+                          },
+                        }}
+                      >
+                        {Array.isArray(item.image) ? (
+                          <Grid container justifyContent="center" sx={{ position: "relative", gap: { lg: "5px", md: "5px", sm: "3px", xs: "3px" } }}>
+                            {item.image.map((img, idx) => (
+                              <Grid
+                                key={idx}
+                                sx={{
+                                  border: hoveredcardid === item.id ? "1px solid #FFFFFF" : "1px solid #FA6423",
+                                  padding: "11px 17px 11px 17px",
+                                  borderRadius: "28px",
+                                  color: hoveredcardid === item.id ? "#FFFFFF" : "#FA6423",
+                                  width: "fit-content",
+                                  transition: "border 0.5s , color 0.5s",
+                                }}
+                              >
+                                <Typography
+                                  sx={{
+                                    fontSize: {
+                                      lg: "16px",
+                                      md: "16px",
+                                      sm: "14px",
+                                      xs: "14px"
+                                    },
+                                    fontFamily: "var(--English-font)",
+                                  }}
+                                >
+                                  {img}
+                                </Typography>
+                              </Grid>
+                            ))}
+                          </Grid>
+                        ) : (
+                          <Grid>
+                            {item.image}
+                          </Grid>
+                        )}
+                      </Box>
+                    )}
+                  </Grid>
+
+                </Grid>
+              </motion.div>
+            </Grid>
+          );
+        })}
+
       </Grid>
     </>
   );

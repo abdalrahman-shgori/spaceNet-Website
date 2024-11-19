@@ -16,6 +16,7 @@ import { motion } from "framer-motion"
 import OurTechnologies from "../components/softwareSection/Our technologies Section/ourTechnology";
 import LetsProject from "../components/letsProject";
 import SpaceNetLayout from "../components/spaceNetLayout";
+import { ServiceCategories } from "../services/websiteApis/serviceCategories";
 
 const serviceTypesMock = [
     "Website Development",
@@ -42,14 +43,15 @@ export default function SoftwareSection() {
     const lastCardId = data.length > 0 ? data[data.length - 1].id : null;
     const pathname = useLocation()
     const id = pathname.pathname.split('/').filter(Boolean)
-    const technologiesData = [
-        { id: 0, title: "Frontend Development", description: "We can develop the product's surface layer by using the most widely used frontend frameworks, such as Angular, Vue, and React.We can develop the product's surface layer by using the most widely used frontend frameworks, such as Angular, Vue, and React.", image: <FrontEndSvg hoveredcardid={hoveredcardid} itemID={0} /> },
-        { id: 1, title: "Backend Development", description: "We design and prototype web programs quickly and scalablely using server-side technologies like Node.js, Ruby on Rails, and Python.", image: <BackEndSvg hoveredcardid={hoveredcardid} itemID={1} /> },
-        { id: 2, title: "Fullstack Development", description: "We provide end-to-end web development, integrating backend and frontend solutions with additional technologies required to ensure the success of your product.", image: <FullStackSvg hoveredcardid={hoveredcardid} itemID={2} /> },
-        { id: 3, title: "Low-Code Development", description: "Additionally, we are experts at creating low-code and no-code web solutions that help customers save time and money. We make use of platforms such as Mendix and Webflow.", image: <LowCodeSvg hoveredcardid={hoveredcardid} itemID={3} /> },
-        { id: 4, title: "Cloud Development", description: "For quick and safe application deployment, we also make use of cloud services like Microsoft Azure, Amazon Web Services, and Google Cloud.", image: <CloudDevelopmentSvg hoveredcardid={hoveredcardid} itemID={4} /> },
+    const technologiesDataImage = [
+        { id: 0, image: <CloudDevelopmentSvg hoveredcardid={hoveredcardid} itemID={9} /> },
+        { id: 1, image: <LowCodeSvg hoveredcardid={hoveredcardid} itemID={8} /> },
+        { id: 2, image: <FullStackSvg hoveredcardid={hoveredcardid} itemID={7} /> },
+        { id: 3, image: <BackEndSvg hoveredcardid={hoveredcardid} itemID={6} /> },
+        { id: 4, image: <FrontEndSvg hoveredcardid={hoveredcardid} itemID={5} /> },
 
     ];
+    const [technologiesData, setTechnologiesData] = useState([])
 
     useEffect(() => {
         setLoading(true)
@@ -64,6 +66,21 @@ export default function SoftwareSection() {
         };
         if (id) {
             fetchSubServices();
+        }
+    }, []);
+    useEffect(() => {
+        setLoading(true)
+        const fetchServiceCategories = async () => {
+            try {
+                const response = await ServiceCategories(id);
+                setTechnologiesData(response.data)
+                setLoading(false)
+            } catch (error) {
+                console.error('Error fetching sub-service data: ', error);
+            }
+        };
+        if (id) {
+            fetchServiceCategories();
         }
     }, []);
     useEffect(() => {
@@ -88,8 +105,8 @@ export default function SoftwareSection() {
                         padding: {
                             lg: "134px 75px 0 75px",
                             md: "124px 75px 0 75px",
-                            sm: "100px 25px 0 25px",
-                            xs: "100px 25px 0 25px",
+                            sm: "100px 20px 0 20px",
+                            xs: "100px 20px 0 20px",
                         },
                     }}
                 >
@@ -121,6 +138,7 @@ export default function SoftwareSection() {
                         technologiesData={technologiesData}
                         sethoveredcardid={sethoveredcardid}
                         hoveredcardid={hoveredcardid}
+                        technologiesDataImage={technologiesDataImage}
                     />
                     <SectionDescription
                         text1="Our Technologies"

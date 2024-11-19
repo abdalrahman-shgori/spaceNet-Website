@@ -8,7 +8,7 @@ const SpaceNetLayout = () => {
   return (
     <>
       <Box
-      className="root-container"
+        className="root-container"
         sx={{ backgroundColor: '#051A2F', }}
       >
         <Box sx={{ color: 'white', }}>
@@ -17,8 +17,8 @@ const SpaceNetLayout = () => {
               padding: {
                 lg: '70px 75px 0px 75px',
                 md: '70px 75px 0px 75px',
-                sm: '70px 25px 0px 25px',
-                xs: '78px 0px 0px 25px'
+                sm: '70px 20px 0px 20px',
+                xs: '78px 0px 0px 20px'
               }
             }}
           >

@@ -72,8 +72,8 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
           padding: {
             lg: "94px 190px 94px 190px",
             md: "94px 75px 94px 75px",
-            sm: "86px 25px 86px 25px",
-            xs: "86px 25px 86px 25px",
+            sm: "86px 20px 86px 20px",
+            xs: "86px 20px 86px 20px",
           },
           position: "relative",
         }}
