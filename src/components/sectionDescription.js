@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-export default function SectionDescription({ text1, text2, top }) {
+export default function SectionDescription({ text1, text2, top,academicsSection }) {
     const location = useLocation()
     const pathname = location.pathname
     const text1Style = {
@@ -41,7 +41,7 @@ export default function SectionDescription({ text1, text2, top }) {
             lg: "679px",
             md: "679px",
             sm: pathname === '/academics' ? "223px" : "300px",
-            xs: pathname === '/academics' ? "223px" : "280px",
+            xs: pathname === '/academics' && academicsSection === "first" ? "223px" : pathname === '/academics' && academicsSection === "sec" ? "100%" : "280px",
         },
         width: "100%",
         textAlign: "center",

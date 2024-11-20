@@ -56,12 +56,15 @@ export default function Academics() {
                     <SectionDescription
                         text1="Our Courses"
                         text2="Explore Our Courses Now and Choose What You Need"
+                        academicsSection="first"
+
                     />
                     <OurCourses />
                     <SectionDescription
                         text1="Our features"
                         text2="Full features that offer a practical experience. This is an interactive educational experience rather than a follow-along tutorial. Learn new things and become an expert at what you do."
                         top="80px"
+                        academicsSection="sec"
                     />
                     <LayoutCards
                         technologiesData={technologiesData}
