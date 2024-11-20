@@ -2,13 +2,12 @@ import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-
 export default function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, technologiesDataImage }) {
-
   const location = useLocation()
   const pathname = location.pathname;
   const theme = useTheme()
   const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down('354'))
+  const spesificLgScreen = useMediaQuery(theme.breakpoints.between("890", '1292'))
   return (
     <>
       <Grid
@@ -78,10 +77,10 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                       sm: "34px 17px 89px 34px",
                       xs: "34px 17px 44px 34px"
                     } : {
-                      lg: "74px 34px 59px 34px",
-                      md: "34px 17px 89px 17px",
-                      sm: "34px 17px 89px 17px",
-                      xs: "34px 17px 44px 17px"
+                      lg: "74px 0px 59px 0px",
+                      md: "34px 0px 59px 0px",
+                      sm: "50px 0px 51px 0px",
+                      xs: "50px 0px 51px 0px"
                     },
                     borderRadius: "30px",
                     display: "flex",
@@ -129,7 +128,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                         alignItems: pathname !== '/academics' && "end",
                         justifyContent: pathname === '/academics' ? "center" : "unset",
                         textAlign: pathname === '/academics' ? "center" : "unset",
-                        margin: pathname === '/academics' ? "0 auto" : "none"
+                        margin: pathname === '/academics' ? "0 auto" : "none",
                       }}
                     >
                       {item.title}
@@ -148,6 +147,12 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                         textAlign: pathname === '/academics' ? "center" : "unset",
                         color: pathname === '/academics' && hoveredcardid === item.id ? "#FFFFFF" : "#051A2F",
                         transition: "color 0.5s",
+                        padding: pathname === "/academics" && {
+                          lg: "0px 41px 0px 41px",
+                          md: "0px 36px 0px 36px",
+                          sm: "0px 30px 0px 30px",
+                          xs: "0px 30px 0px 30px"
+                        }
                       }}
                     >
                       {item.description}
@@ -162,26 +167,62 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                           transition: "color 0.5s",
                           textAlign: "center",
                           marginTop: {
-                            lg: "120px",
-                            md: "120px",
-                            sm: index === 2 ? "120px" : "60px",
-                            xs: index === 2 ? "120px" : "60px",
+                            lg: "100px",
+                            md: "100px",
+                            sm: index === 2 && !ExtraSmallScreen ? "100px" : "60px",
+                            xs: index === 2 && !ExtraSmallScreen ? "100px" : "60px",
                           },
                         }}
                       >
                         {Array.isArray(item.image) ? (
-                          <Grid container justifyContent="center" sx={{ position: "relative", gap: { lg: "5px", md: "5px", sm: "3px", xs: "3px" } }}>
+                          <Grid container
+                            sx={{
+                              position: "relative",
+                              gap: { lg: "5px", md: "5px", sm: "3px", xs: "3px" },
+                              paddingLeft: {
+                                lg: "17px",
+                                md: "17px",
+                                sm: "12px",
+                                xs: "17px"
+                              },
+                              paddingRight: {
+                                lg: "6px",
+                                md: "6px",
+                                sm: "6px",
+                                xs: "6px"
+                              }
+
+
+                            }}>
                             {item.image.map((img, idx) => (
                               <Grid
                                 key={idx}
+
+                                // lg={index === 2 && idx === 2 && 5}
+                                // sm={ !spesificLgScreen && index === 2 && idx === 2 && 5.8}
+                                // xs={index === 2 && idx === 2 && 5.5}
+
+                                // sx={{
+                                //   border: hoveredcardid === item.id ? "1px solid #FFFFFF" : "1px solid #FA6423",
+                                //   padding: "11px 17px 11px 17px",
+                                //   borderRadius: "28px",
+                                //   color: hoveredcardid === item.id ? "#FFFFFF" : "#FA6423",
+                                //   width: "fit-content",
+                                //   transition: "border 0.5s , color 0.5s",
+                                // }}
                                 sx={{
+
                                   border: hoveredcardid === item.id ? "1px solid #FFFFFF" : "1px solid #FA6423",
                                   padding: "11px 17px 11px 17px",
                                   borderRadius: "28px",
-                                  color: hoveredcardid === item.id ? "#FFFFFF" : "#FA6423",
-                                  width: "fit-content",
-                                  transition: "border 0.5s , color 0.5s",
+                                  color: hoveredcardid === item.id ? "#FFFFFF" : "#FA6423", width: "fit-content",
+                                  transform: index === 2 && idx === 1 && !ExtraSmallScreen && !spesificLgScreen && "rotate(-31.72deg)",
+                                  position: index === 2 && idx === 1 && !ExtraSmallScreen && !spesificLgScreen ? "absolute" : "relative",
+                                  top: !ExtraSmallScreen && index === 2 && idx === 1 && !spesificLgScreen && "-40px",
+                                  left: !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "100px", md: "100px", sm: "86px", xs: "92px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "70px", md: "70px", sm: "58px", xs: "60px" },
+
                                 }}
+
                               >
                                 <Typography
                                   sx={{
@@ -200,7 +241,13 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                             ))}
                           </Grid>
                         ) : (
-                          <Grid>
+                          <Grid
+                            sx={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "end"
+                            }}
+                          >
                             {item.image}
                           </Grid>
                         )}

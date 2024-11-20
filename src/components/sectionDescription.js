@@ -3,8 +3,8 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 export default function SectionDescription({ text1, text2, top }) {
-   const location=useLocation()
-   const pathname=location.pathname
+    const location = useLocation()
+    const pathname = location.pathname
     const text1Style = {
         fontSize: {
             lg: "48px",
@@ -21,7 +21,7 @@ export default function SectionDescription({ text1, text2, top }) {
         },
         width: "100%",
         textAlign: "center",
-        lineHeight:{
+        lineHeight: {
             lg: "57px",
             md: "57px",
             sm: "28px",
@@ -40,12 +40,12 @@ export default function SectionDescription({ text1, text2, top }) {
         maxWidth: {
             lg: "679px",
             md: "679px",
-            sm: pathname === '/academics' ? "100%" : "300px",
-            xs: pathname === '/academics' ? "100%" : "280px",
+            sm: pathname === '/academics' ? "223px" : "300px",
+            xs: pathname === '/academics' ? "223px" : "280px",
         },
         width: "100%",
         textAlign: "center",
-        lineHeight:{
+        lineHeight: {
             lg: pathname === '/academics' ? "38px" : "24px",
             md: pathname === '/academics' ? "38px" : "24px",
             sm: "17px",
@@ -60,10 +60,10 @@ export default function SectionDescription({ text1, text2, top }) {
                     flexDirection: "column",
                     alignItems: "center",
                     gap: {
-                        lg: "28px",
-                        md: "28px",
-                        sm: "16px",
-                        xs: "16px"
+                        lg: pathname === '/academics' ? "12px" : "28px",
+                        md: pathname === '/academics' ? "12px" : "28px",
+                        sm: pathname === '/academics' ? "12px" : "16px",
+                        xs: pathname === '/academics' ? "12px" : "16px"
                     },
                     marginTop: {
                         lg: "130px",

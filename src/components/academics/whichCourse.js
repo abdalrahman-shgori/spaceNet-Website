@@ -29,11 +29,11 @@ export default function WhichCourse() {
             sm: "193px",
             xs: "193px"
           },
-          marginTop:{
-            lg:"100px",
-            md:"100px",
-            sm:"70px",
-            xs:"70px"
+          marginTop: {
+            lg: "100px",
+            md: "100px",
+            sm: "70px",
+            xs: "70px"
           }
         }}
       >
@@ -102,7 +102,16 @@ export default function WhichCourse() {
                   sm: "17px 24px 17px 24px",
                   xs: "17px 24px 17px 24px",
                 },
-                cursor: "pointer"
+                cursor: "pointer",
+                color: "#FFFFFF",
+                "&:hover": {
+                  color: "#FFFFFF",
+                  border: "2px solid transparent",
+                  background: "#FA6423"
+                },
+                transition: "all 0.5s"
+
+
               }}
             >
               <Typography
@@ -113,7 +122,6 @@ export default function WhichCourse() {
                     sm: "23px",
                     xs: "23px",
                   },
-                  color: "#FFFFFF",
                 }}
               >
                 {item.title}
@@ -121,8 +129,6 @@ export default function WhichCourse() {
             </Box>
           ))}
         </Box>
-
-
       </Box>
 
     </>
