@@ -11,6 +11,8 @@ import ClassRoom from "../assets/sectionsImages/academics/classRoom";
 import OnlineCourses from "../assets/sectionsImages/academics/onlineCourses";
 import BootCamp from "../assets/sectionsImages/academics/bootCamp";
 import OurCourses from "../components/academics/ourCourses";
+import DevelopSkillsText from "../components/academics/developSkillsText";
+import DevelopSkills from "../components/academics/developSkills";
 
 export default function Academics() {
     const [hoveredcardid, sethoveredcardid] = useState(null);
@@ -46,13 +48,18 @@ export default function Academics() {
                 <Grid className="root-container"
                     sx={{
                         padding: {
-                            lg: "134px 116px 0 116px",
+                            lg: "60px 116px 0 116px",
                             md: "124px 75px 0 75px",
                             sm: "100px 20px 0 20px",
                             xs: "100px 20px 0 20px",
                         },
+                        overflowX: "hidden"
                     }}
                 >
+                    <DevelopSkillsText
+                        text="Develop your skills in "
+                    />
+                    <DevelopSkills />
                     <SectionDescription
                         text1="Our Courses"
                         text2="Explore Our Courses Now and Choose What You Need"

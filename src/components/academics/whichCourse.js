@@ -11,6 +11,7 @@ export default function WhichCourse() {
   return (
     <>
       <Box
+      className="root-container"
         sx={{
           background: "#051A2F",
           padding: {
