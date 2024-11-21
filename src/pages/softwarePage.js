@@ -44,11 +44,11 @@ export default function SoftwareSection() {
     const pathname = useLocation()
     const id = pathname.pathname.split('/').filter(Boolean)
     const technologiesDataImage = [
-        { id: 0, image: <CloudDevelopmentSvg hoveredcardid={hoveredcardid} itemID={9} /> },
-        { id: 1, image: <LowCodeSvg hoveredcardid={hoveredcardid} itemID={8} /> },
+        { id: 0, image:<FrontEndSvg hoveredcardid={hoveredcardid} itemID={9} />  },
+        { id: 1, image: <BackEndSvg hoveredcardid={hoveredcardid} itemID={8} />},
         { id: 2, image: <FullStackSvg hoveredcardid={hoveredcardid} itemID={7} /> },
-        { id: 3, image: <BackEndSvg hoveredcardid={hoveredcardid} itemID={6} /> },
-        { id: 4, image: <FrontEndSvg hoveredcardid={hoveredcardid} itemID={5} /> },
+        { id: 3, image:  <LowCodeSvg hoveredcardid={hoveredcardid} itemID={6} /> },
+        { id: 4, image: <CloudDevelopmentSvg hoveredcardid={hoveredcardid} itemID={5} /> },
 
     ];
     const [technologiesData, setTechnologiesData] = useState([])
