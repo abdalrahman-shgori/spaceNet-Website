@@ -199,8 +199,8 @@ export default function DevelopSkills() {
                                 },
                                 position: "absolute",
                                 top: {
-                                    lg: !start ? "110px" : "127px",
-                                    md: !start ? "110px" : "127px",
+                                    lg: !start ? "120px" : "127px",
+                                    md: !start ? "120px" : "127px",
                                     sm: !start ? "100px" : "110px",
                                     xs: !start ? "58px" : "62px",
                                 },
@@ -225,8 +225,8 @@ export default function DevelopSkills() {
                                     gap: "9px",
                                     position: "absolute",
                                     bottom: {
-                                        lg: 52,
-                                        md: 52,
+                                        lg: 42,
+                                        md: 42,
                                         sm: 40
                                     },
                                 }}
