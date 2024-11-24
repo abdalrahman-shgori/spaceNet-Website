@@ -169,6 +169,7 @@ export default function DevelopSkills() {
                                 <Box
                                     component="img"
                                     src={SkillsType[skills].img}
+                                    alt="Skills Color Gradiant"
                                     sx={{
                                         maxWidth: {
                                             lg: "225px",

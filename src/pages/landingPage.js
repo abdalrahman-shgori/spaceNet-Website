@@ -2,6 +2,7 @@ import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import Services from "./LandingPage/services";
 import AboutSpaceNet from "./LandingPage/aboutSpaceNet";
+import { Helmet } from "react-helmet";
 
 export default function LandingPage({
     servicesList,
@@ -30,6 +31,11 @@ export default function LandingPage({
                 }
             }}
         >
+             <Helmet>
+                    <meta charSet="utf-8"/>
+                    <title>SPACENET LANDING PAGE</title>
+                    <link rel="canonical" href="https://space-net-website.vercel.app/"/>
+                </Helmet>
             <Grid item lg={6} md={6} sm={12} xs={12} sx={{
                 paddingBottom: "12px"
             }}>

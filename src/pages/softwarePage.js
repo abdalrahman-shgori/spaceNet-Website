@@ -104,7 +104,7 @@ export default function SoftwareSection() {
                 <Helmet>
                     <meta charSet="utf-8"/>
                     <title>SPACENET SOFTWARE</title>
-                    <link rel="canonical" href="http://localhost:3000/software"/>
+                    <link rel="canonical" href="https://space-net-website.vercel.app/software"/>
                 </Helmet>
                 <Grid className="root-container"
                     sx={{

@@ -4,7 +4,25 @@ import logo from "../assets/sectionsImages/sapceLogo.svg";
 import { motion } from "framer-motion"
 import ArrowWight from "../assets/sectionsImages/spacenetLayoutArrow.svg";
 import spaceNet from "../assets/spacenetLogo/spaceNetLogoWhite.svg"
+import { useNavigate } from 'react-router-dom';
 const SpaceNetLayout = () => {
+  const navigate=useNavigate()
+  const companyLinks = [
+    { name: 'Home', href: '/' },           // Assuming '/' is the home route
+    { name: 'Blog & News', href: '/blog' }, 
+    { name: 'Contact Us', href: '/contact' }
+  ];
+
+  const servicesLinks = [
+    { name: 'Academics', href: '/academics' },
+    { name: 'Internet', href: '/internet' },
+    { name: 'Software', href: '/software' },
+    { name: 'Design & Branding', href: '/design-branding' }
+  ];
+
+  const handleClick=(href)=>{
+    navigate(href)
+  }
   return (
     <>
       <Box
@@ -24,6 +42,7 @@ const SpaceNetLayout = () => {
           >
             <Box
               component="img"
+              alt='logo'
               src={logo}
               sx={{
                 width: {
@@ -42,6 +61,7 @@ const SpaceNetLayout = () => {
             />
             <Box
               component="img"
+              alt='logoText'
               src={spaceNet}
               sx={{
                 width: {
@@ -88,7 +108,7 @@ const SpaceNetLayout = () => {
                 marginTop: "10px"
               }}>
                 <Stack direction="row" sx={{ gap: "12px" }}>
-                  {['Home', 'Blog & News', 'Contact Us'].map((item, index) => (
+                  {companyLinks.map((item, index) => (
                     <motion.div
                       initial={{ opacity: 0 }}
                       whileInView={{
@@ -101,6 +121,7 @@ const SpaceNetLayout = () => {
                       key={index}
                     >
                       <Button
+                      
                         key={index}
                         variant="outlined"
                         sx={{
@@ -123,7 +144,7 @@ const SpaceNetLayout = () => {
                           }
                         }}
                       >
-                        {item} &nbsp; <img src={ArrowWight}></img>
+                        {item.name} &nbsp; <img alt='arrow' src={ArrowWight}></img>
                       </Button>
                     </motion.div>
 
@@ -157,7 +178,7 @@ const SpaceNetLayout = () => {
 
               }}>
                 <Stack direction="row" sx={{ gap: "12px" }}>
-                  {['Academics', 'Internet', 'Software', 'Design & Branding'].map((item, index, array) => (
+                  {servicesLinks.map((item, index, array) => (
                     <motion.div
                       initial={{ opacity: 0 }}
                       whileInView={{
@@ -170,6 +191,7 @@ const SpaceNetLayout = () => {
                       key={index}
                     >
                       <Button
+                      onClick={()=>handleClick(item.href)}
                         key={index}
                         variant="outlined"
                         sx={{
@@ -193,7 +215,7 @@ const SpaceNetLayout = () => {
 
                         }}
                       >
-                        {item} &nbsp; <img src={ArrowWight}></img>
+                        {item.name} &nbsp; <img alt='arrow' src={ArrowWight}></img>
                       </Button>
                     </motion.div>
 

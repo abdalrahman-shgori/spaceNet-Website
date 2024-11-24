@@ -158,6 +158,7 @@ export default function CreatingSolution() {
                           <Box
                             component="img"
                             src={item}
+                            alt="process technologies"
                             sx={{
                               maxWidth: "105px",
                               width: "100%"
@@ -175,6 +176,7 @@ export default function CreatingSolution() {
                       <Box
                         component="img"
                         src={item.img}
+                        alt="process"
                         sx={{
                           maxWidth: "481px",
                           width: "100%"

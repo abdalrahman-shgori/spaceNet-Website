@@ -198,7 +198,7 @@ export default function DesignAndBranding() {
                  <Helmet>
                     <meta charSet="utf-8"/>
                     <title>SPACENET DESIGN & BRANDING</title>
-                    <link rel="canonical" href="http://localhost:3000/design-branding"/>
+                    <link rel="canonical" href="https://space-net-website.vercel.app/design-branding"/>
                 </Helmet>
                 <Grid
                     className="root-container"

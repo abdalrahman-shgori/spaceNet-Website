@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SpaceNetLayout from "../components/spaceNetLayout";
 import { motion } from "framer-motion"
 import LetsProject from "../components/letsProject";
@@ -43,13 +43,20 @@ export default function Academics() {
         { id: 5, title: "Bootcamp course", description: "Lorem  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.", image: <BootCamp hoveredcardid={hoveredcardid} itemID={5} /> },
 
     ];
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }, []);
+
     return (
         <>
             <motion.div>
             <Helmet>
                     <meta charSet="utf-8"/>
                     <title>SPACENET ACADEMICS</title>
-                    <link rel="canonical" href="http://localhost:3000/academics"/>
+                    <link rel="canonical" href="https://space-net-website.vercel.app/academics"/>
                 </Helmet>
                 <Grid className="root-container"
                     sx={{

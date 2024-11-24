@@ -181,6 +181,7 @@ export default function OurCourses() {
                                     <Box
                                         component="img"
                                         src={item.img}
+                                        alt="our courses"
                                         sx={{
                                             maxWidth: "304px",
                                             width: "100%",

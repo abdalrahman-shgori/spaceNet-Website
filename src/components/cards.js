@@ -130,6 +130,7 @@ export default function Cards({
                                                 transform: expandedCard === card.id ? "rotate(-90deg)" : "rotate(0deg)",
                                             }}
                                             src={index === 1 ? arrowWhite : arrow}
+                                            alt="arrow"
                                         />
                                         <Grid item lg={4} sm={4} xs={12}>
                                             <Typography

@@ -143,8 +143,7 @@ const Footer = () => {
                   {text.img && (
                     <img
                       src={text.img}
-                      style={{
-                      }}
+                     alt='arrow'
                     />
                   )}
                 </Grid>

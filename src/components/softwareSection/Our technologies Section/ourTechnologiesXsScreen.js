@@ -84,6 +84,7 @@ export default function OurTechnologiesXsScreen({ programmingLang }) {
                             <Box
                                 component="img"
                                 src={techImg}
+                                alt='women in meeting'
                                 sx={{
                                     borderRadius: "15px",
                                     height: "100%",
@@ -141,6 +142,7 @@ export default function OurTechnologiesXsScreen({ programmingLang }) {
                                             <Box
                                                 component="img"
                                                 src={item.img}
+                                                alt='technologies languages'
                                                 sx={{
                                                     maxWidth: "100%",
                                                     maxHeight: "100%",
@@ -169,6 +171,7 @@ export default function OurTechnologiesXsScreen({ programmingLang }) {
                             <Box
                                 component="img"
                                 src={meetImg}
+                                alt='meeting'
                                 sx={{
                                     borderRadius: "23px",
                                     height: "145px",

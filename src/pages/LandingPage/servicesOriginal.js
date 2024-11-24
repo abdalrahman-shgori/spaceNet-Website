@@ -214,6 +214,7 @@ export default function ServicesOriginal({
                                     ? UnionWhite
                                     : image.img
                             }
+                            alt="arrow"
                             sx={{
                                 width: {
                                     lg: is14Inch ? "25px" : is15Inch ? "28px" : "unset",

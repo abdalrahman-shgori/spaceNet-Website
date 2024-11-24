@@ -92,6 +92,7 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                         >
                             <Box
                                 component="img"
+                                alt='women in meet'
                                 src={techImg}
                                 sx={{
                                     borderRadius: "23px",
@@ -150,6 +151,7 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                                         <Box
                                             component="img"
                                             src={item.img}
+                                            alt='technologies languages'
                                             sx={{
                                                 width: "100%",
                                                 height: "100%",
@@ -170,6 +172,7 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                             <Box
                                 component="img"
                                 src={meetImg}
+                                alt='meet Image'
                                 sx={{
                                     borderRadius: "23px",
                                     height: "100%",

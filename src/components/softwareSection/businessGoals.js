@@ -46,6 +46,7 @@ export default function ResponsiveComponent({
         }}>
             <Box
                 component='img'
+                alt="bracket"
                 src={theme.palette.mode === 'light' ? vector1 : vectorWhite1}
                 sx={{
                     maxWidth: "100%",
@@ -130,6 +131,7 @@ export default function ResponsiveComponent({
 
             <Box
                 component='img'
+                alt="bracket"
                 src={theme.palette.mode === 'light' ? vector2 : vectorWhite2}
                 sx={{
                     maxWidth: "100%",

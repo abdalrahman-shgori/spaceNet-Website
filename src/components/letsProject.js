@@ -83,6 +83,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
 
           <Box
             component="img"
+            alt="bracket"
             src={vector1White}
             sx={{
               maxWidth: "100%",
@@ -169,6 +170,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
         </motion.div>
         <Box
           component="img"
+          alt="bracket"
           src={vector2White}
           sx={{
             maxWidth: "100%",

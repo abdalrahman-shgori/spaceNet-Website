@@ -184,6 +184,7 @@ export default function AboutSpaceNet({
                     >
                         <Box
                             component='img'
+                            alt="bracket"
                             src={theme.palette.mode === 'light' ? vector1White : Vector1Yellow}
                             sx={{
                                 maxWidth: "100%",
@@ -412,6 +413,7 @@ export default function AboutSpaceNet({
                     >
                         <Box
                             component='img'
+                            alt="bracket"
                             src={theme.palette.mode === 'light' ? vector2White : Vector2Yellow}
                             sx={{
 

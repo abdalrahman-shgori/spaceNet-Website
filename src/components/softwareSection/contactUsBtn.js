@@ -84,6 +84,7 @@ export default function ContactUsBtn() {
           >
             <Box
               component="img"
+              alt="arrow"
               src={theme.palette.mode === 'light' ? Arrow : ArrowWight}
               sx={{
                 width: {
