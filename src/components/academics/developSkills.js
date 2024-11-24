@@ -78,7 +78,8 @@ export default function DevelopSkills() {
             sm: "31px",
             xs: "15px"
         },
-        fontFamily: "var(--English-font)"
+        fontFamily: "var(--English-font)",
+        color:"#051A2F"
 
 
     }
@@ -215,7 +216,8 @@ export default function DevelopSkills() {
                                         md: "65px",
                                         sm: "40px",
                                         xs: "30px"
-                                    }
+                                    },
+                                    color:"#051A2F"
                                 }}
                             >
                                 {SkillsType[skills].title}

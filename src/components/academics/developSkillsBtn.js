@@ -85,7 +85,8 @@ export default function DevelopBtn({
                                                 sm: "18.5px",
                                                 sm: "16px",
                                                 xs: "17px"
-                                            }
+                                            },
+                                            
                                         }}
                                     >
                                         Get Start Now
