@@ -14,6 +14,7 @@ const categories = [
     {
       name: "Development & IT",
       subcategories: ["Software Development", "Cyber Security"],
+     
     },
     {
       name: "Software",

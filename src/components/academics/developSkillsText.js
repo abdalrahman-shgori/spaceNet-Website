@@ -20,8 +20,8 @@ export default function DevelopSkillsText({ text }) {
         width: "100%",
         margin: "0 auto",
         paddingBottom: {
-            lg: "20px",
-            md: "30px",
+            lg: "40px",
+            md: "40px",
             sm: "30px",
             xs: "40px"
         }

@@ -13,6 +13,7 @@ import BootCamp from "../assets/sectionsImages/academics/bootCamp";
 import OurCourses from "../components/academics/ourCourses";
 import DevelopSkillsText from "../components/academics/developSkillsText";
 import DevelopSkills from "../components/academics/developSkills";
+import { Helmet } from "react-helmet";
 
 export default function Academics() {
     const [hoveredcardid, sethoveredcardid] = useState(null);
@@ -45,6 +46,11 @@ export default function Academics() {
     return (
         <>
             <motion.div>
+            <Helmet>
+                    <meta charSet="utf-8"/>
+                    <title>SPACENET ACADEMICS</title>
+                    <link rel="canonical" href="http://localhost:3000/academics"/>
+                </Helmet>
                 <Grid className="root-container"
                     sx={{
                         padding: {
@@ -56,6 +62,7 @@ export default function Academics() {
                         overflowX: "hidden"
                     }}
                 >
+
                     <DevelopSkillsText
                         text="Develop your skills in "
                     />

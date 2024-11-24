@@ -10,6 +10,7 @@ import LetsProject from "../components/letsProject";
 import SpaceNetLayout from "../components/spaceNetLayout";
 import CreatingSolution from "../components/designAndBranding/creatingSolutions";
 import { ServiceCategories } from "../services/websiteApis/serviceCategories";
+import { Helmet } from "react-helmet";
 
 const technologiesDataImage = [
     {
@@ -194,6 +195,11 @@ export default function DesignAndBranding() {
                     duration: 1
                 }}
             >
+                 <Helmet>
+                    <meta charSet="utf-8"/>
+                    <title>SPACENET DESIGN & BRANDING</title>
+                    <link rel="canonical" href="http://localhost:3000/design-branding"/>
+                </Helmet>
                 <Grid
                     className="root-container"
                     sx={{

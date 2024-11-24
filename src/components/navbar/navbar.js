@@ -25,7 +25,7 @@ const NavBar = ({
     const menuItems = [
         { text: 'Home', route: '/' },
         { text: 'SERVICES', route: '/services' },
-        { text: 'MARKETPLACE', route: '/marketplace' },
+        // { text: 'MARKETPLACE', route: '/marketplace' },
         { text: 'BLOG & NEWS', route: '/blog' },
         { text: 'CONTACT US', route: '/contact' },
     ];

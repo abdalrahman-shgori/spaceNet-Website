@@ -31,7 +31,7 @@ export default function Services({
         { name: "ACADEMICS", img: Union, url: "/academics" },
         { name: "INTERNET", img: Union, url: "/internet" },
         { name: "SOFTWARE", img: Union, url: "/software" },
-        { name: "DESIGN & BRANDING", img: Union, url: "/design-branding" },
+        { name: "DIGITAL DESIGN", img: Union, url: "/design-branding" },
     ];
 
     const handleServiceClick = (url) => {
