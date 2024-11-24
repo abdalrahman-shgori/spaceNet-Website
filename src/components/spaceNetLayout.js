@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const SpaceNetLayout = () => {
   const navigate=useNavigate()
   const companyLinks = [
-    { name: 'Home', href: '/' },           // Assuming '/' is the home route
+    { name: 'Home', href: '/' },
     { name: 'Blog & News', href: '/blog' }, 
     { name: 'Contact Us', href: '/contact' }
   ];
@@ -121,7 +121,7 @@ const SpaceNetLayout = () => {
                       key={index}
                     >
                       <Button
-                      
+                        onClick={()=>handleClick(item.href)}
                         key={index}
                         variant="outlined"
                         sx={{
