@@ -8,7 +8,6 @@ import DevelopBtn from "./developSkillsBtn";
 
 export default function DevelopSkills() {
     const [start, setStart] = useState(false)
-    const [isWork, setIsWork] = useState(false)
     const theme = useTheme()
     const extraSmallScreen = useMediaQuery(theme.breakpoints.down("348"))
     const [skills, setSkills] = useState(0)
@@ -243,27 +242,27 @@ export default function DevelopSkills() {
                             }}
                         >
                             <motion.div
-                             initial={{ x: 0, opacity: 1 }}
-                             animate={{ x: -300, opacity: 0 }}
-                             transition={{
-                                 duration: 0.2,
-                                 repeat: Infinity,
-                                 repeatType: "reverse",
-                                 repeatDelay: 1,
-                                 delay: 1
-                             }}
-                             onUpdate={({ x }) => {
-                                 if (x <= -250) {
-                                     setStart(false);
-                                 } else if (x <= 0) { // Set to true when x is close to -300
-                                     setStart(true);
-                                 }
-                             
-                                 if (x === -300) { // Update skills when close to -300
-                                     setSkills(prevSkills => (prevSkills + 1) % SkillsType.length);
-                                 }
-                             }}
-                             
+                                initial={{ x: 0, opacity: 1 }}
+                                animate={{ x: -300, opacity: 0 }}
+                                transition={{
+                                    duration: 0.2,
+                                    repeat: Infinity,
+                                    repeatType: "reverse",
+                                    repeatDelay: 1,
+                                    delay: 1
+                                }}
+                                onUpdate={({ x }) => {
+                                    if (x <= -250) {
+                                        setStart(false);
+                                    } else if (x <= 0) {
+                                        setStart(true);
+                                    }
+
+                                    if (x === -300) {
+                                        setSkills(prevSkills => (prevSkills + 1) % SkillsType.length);
+                                    }
+                                }}
+
                             >
 
                                 <Typography sx={{ ...subCatStyle }}>
