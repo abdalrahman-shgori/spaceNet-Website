@@ -214,7 +214,7 @@ export default function DevelopSkills() {
                                         lg: "65px",
                                         md: "65px",
                                         sm: "40px",
-                                        xs: "40px"
+                                        xs: "30px"
                                     }
                                 }}
                             >

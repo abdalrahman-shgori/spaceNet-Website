@@ -56,7 +56,7 @@ export default function Academics() {
                         padding: {
                             xl: "100px 116px 0 116px",
                             lg: "60px 116px 0 116px",
-                            md: "124px 75px 0 75px",
+                            md: "100px 75px 0 75px",
                             sm: "100px 20px 0 20px",
                             xs: "100px 20px 0 20px",
                         },
