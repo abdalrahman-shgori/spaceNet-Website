@@ -54,6 +54,7 @@ export default function Academics() {
                 <Grid className="root-container"
                     sx={{
                         padding: {
+                            xl: "100px 116px 0 116px",
                             lg: "60px 116px 0 116px",
                             md: "124px 75px 0 75px",
                             sm: "100px 20px 0 20px",
