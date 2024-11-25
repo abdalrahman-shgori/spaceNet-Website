@@ -490,8 +490,9 @@ export default function BasicModal({ setOpen, open }) {
                         xs:"13.5px"
                       },
                       fontFamily:"var(--English-font-semibold)",
-                      borderRadius:"34px"
-                       }}>
+                      borderRadius:"34px",
+                      textTransform: "capitalize",
+                    }}>
                 Submit Now
               </Button>
              </Box>
