@@ -87,7 +87,13 @@ export default function Toggle({ drawerOpen, setThemeColor, themeColor,open }) {
                                     mdscreen ? "55px" :
                                         smscreen ? "10px" :
                                             xsscreen && "12px",
-                        top: '280px',
+                        top: 
+                        xlgscreen ? "280px" :
+                        lgscreen ?'280px':
+                        mdscreen?'280px':
+                        smscreen?'210px':
+                        xsscreen &&'280px',
+                        
                         zIndex: 9999,
                         display:open && "none"
 
