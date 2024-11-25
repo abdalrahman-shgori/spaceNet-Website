@@ -243,7 +243,7 @@ export default function AboutSpaceNet({
 
                             }}
                         >
-                            {['ACADEMICS', 'INTERNET', 'SOFTWARE', 'DESIGN & BRANDING'].includes(hoveredService) ? (
+                            {['ACADEMICS', 'INTERNET', 'SOFTWARE', 'DIGITAL DESIGN'].includes(hoveredService) ? (
                                 <>
                                     <Box
                                         component="img"
@@ -283,7 +283,7 @@ export default function AboutSpaceNet({
                                                 color: hoveredService === 'ACADEMICS' ? "#FF9F31" :
                                                     hoveredService === 'INTERNET' ? "#E9FA50" :
                                                         hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
-                                                            hoveredService === 'DESIGN & BRANDING' ? "#1CB786" : '',
+                                                            hoveredService === 'DIGITAL DESIGN' ? "#1CB786" : '',
                                                 textShadow: '0.5px 0.5px 0 #fff, -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff'
                                             }}
                                         >
