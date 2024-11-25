@@ -5,6 +5,9 @@ import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton'; 
 import { Button, Grid, TextField, useTheme } from '@mui/material';
 import EmailIcon from "../../assets/contactUs/emailIcon.svg"
+import CallIcon from "../../assets/contactUs/callIcon.svg"
+import LocationIncon from "../../assets/contactUs/locationIcon.svg"
+
 import FaceBookSvg from '../../assets/socialMediaIcons/facebook';
 import InstaSvg from '../../assets/socialMediaIcons/instaGram';
 import LinkedInSvg from '../../assets/socialMediaIcons/linkedIn';
@@ -33,8 +36,8 @@ const closeIconStyle = {
 
 const contactUsWays = [
     { id: 0, img: EmailIcon, title: "www.spacenetiq.com" },
-    { id: 1, img: EmailIcon, title: "+964 (0) 750 555 0558" },
-    { id: 2, img: EmailIcon, title: <>empire business towers <br/> building T4, floor 13, office 3. </> },
+    { id: 1, img: CallIcon, title: "+964 (0) 750 555 0558" },
+    { id: 2, img: LocationIncon, title: <>empire business towers <br/> building T4, floor 13, office 3. </> },
 ]
 const socialMedia = [
     { icon: <FaceBookSvg />, link: "", },
@@ -309,10 +312,10 @@ export default function BasicModal({ setOpen, open }) {
                                                             xs: "7px"
                                                         },
                                                         marginTop: {
-                                                            lg: index > 0 && "9.6px",
-                                                            md: index > 0 && "9.6px",
-                                                            sm: index > 0 && "7.6px",
-                                                            xs: index > 0 && "7.6px"
+                                                            lg: index === 1 ? "9px" : index === 2 && "1px",
+                                                            md:  index === 1 ? "9px" : index === 2 && "1px",
+                                                            sm: index === 1 ? "7px" : index === 2 && "5px",
+                                                            xs: index === 1 ? "7px" : index === 2 && "5px"
                                                         }
 
                                                     }}
