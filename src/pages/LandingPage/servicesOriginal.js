@@ -111,7 +111,7 @@ export default function ServicesOriginal({
                                 ? theme.palette.mode === 'light' ? "#E9FA50" : "#9D89FC"
                                 : activeService === "ACADEMICS"
                                     ? "#FF9F31"
-                                    : activeService === "INTERNET"
+                                    : activeService === "CORE IT"
                                         ? "#E9FA50"
                                         : activeService === "SOFTWARE"
                                             ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC"
@@ -144,7 +144,7 @@ export default function ServicesOriginal({
                             sm: "6px",
                             xs: "6px",
                         },
-                        color: activeService === item.title && activeService !== 'INTERNET' && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
+                        color: activeService === item.title && activeService !== 'CORE IT' && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
 
                         transition: "background 0.5s ease, transform 0.2s",
                         "&:hover": !isMobile && !isTabScreen && {

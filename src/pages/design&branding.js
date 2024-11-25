@@ -87,7 +87,7 @@ const designAndBrandingList = [
     { title: "Branding &Printables", color: "#9D89FC", rotate: "-19.3deg" },
 ];
 
-export default function DesignAndBranding() {
+export default function DesignAndBranding({setOpen}) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const theme = useTheme()
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
@@ -244,7 +244,7 @@ export default function DesignAndBranding() {
                     text1Color="#FFFFFF"
                     text2Color="#FFFFFF"
                 />
-                <SpaceNetLayout />
+                <SpaceNetLayout setOpen={setOpen}/>
             </motion.div>
         </>
     )

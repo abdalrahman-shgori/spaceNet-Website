@@ -11,6 +11,7 @@ const InnerApp = ({
   setShowContent,
   showLogo,
   setShowLogo,
+  setOpen
 }) => {
   const [servicesList, setServicesList] = useState([]);
   const [loading, setLoading] = useState(true);

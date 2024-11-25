@@ -5,7 +5,7 @@ import { useColorMode } from '../../ThemeProvider';
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
-export default function Toggle({ drawerOpen, setThemeColor, themeColor }) {
+export default function Toggle({ drawerOpen, setThemeColor, themeColor,open }) {
     const { toggleColorMode } = useColorMode();
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
@@ -89,6 +89,7 @@ export default function Toggle({ drawerOpen, setThemeColor, themeColor }) {
                                             xsscreen && "12px",
                         top: '280px',
                         zIndex: 9999,
+                        display:open && "none"
 
                     }}
                 >

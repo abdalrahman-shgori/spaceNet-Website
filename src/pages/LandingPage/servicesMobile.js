@@ -103,11 +103,11 @@ export default function ServicesMobile({
                                 ? theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50"
                                 : activeService === "ACADEMICS"
                                     ? "#FF9F31"
-                                    : activeService === "INTERNET"
+                                    : activeService === "CORE IT"
                                         ? "#E9FA50"
                                         : activeService === "SOFTWARE"
                                             ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC"
-                                            : activeService === "DESIGN & BRANDING"
+                                            : activeService === "DIGITAL DESIGN"
                                                 ? "#1CB786"
                                                 : "#F5F5F5"
                             : "#F5F5F5",
@@ -143,7 +143,7 @@ export default function ServicesMobile({
                             sm: "6px",
                             xs: "6px",
                         },
-                        color: activeService === item.title && activeService !== 'INTERNET' && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
+                        color: activeService === item.title && activeService !== 'CORE IT' && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
                         transition: "background 0.5s ease, transform 0.2s",
 
                     }}

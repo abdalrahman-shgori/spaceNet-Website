@@ -14,6 +14,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const NavBar = ({
     setDrawerOpen,
+    setOpen
 }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const theme = useTheme();
@@ -27,7 +28,7 @@ const NavBar = ({
         { text: 'SERVICES', route: '/services' },
         // { text: 'MARKETPLACE', route: '/marketplace' },
         { text: 'BLOG & NEWS', route: '/blog' },
-        { text: 'CONTACT US', route: '/contact' },
+        { text: 'CONTACT US'},
     ];
     const socialMedia = [
         { icon: <FaceBookSvg />, link: "", },
@@ -185,6 +186,9 @@ const NavBar = ({
                                                         toggleDrawer(false);
                                                         setDrawerOpen(false);
                                                         navigate(route);
+                                                        if(text === 'CONTACT US'){
+                                                            setOpen(true)
+                                                        }
                                                     }}
                                                     sx={{
                                                         display: 'flex',
@@ -212,7 +216,7 @@ const NavBar = ({
                                                             cursor: "pointer"
                                                         }}
                                                     >
-                                                        {text} {/* Now this is valid */}
+                                                        {text}
 
                                                     </Typography>
                                                 </ListItem>

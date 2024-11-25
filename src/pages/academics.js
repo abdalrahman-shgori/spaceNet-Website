@@ -15,7 +15,7 @@ import DevelopSkillsText from "../components/academics/developSkillsText";
 import DevelopSkills from "../components/academics/developSkills";
 import { Helmet } from "react-helmet";
 
-export default function Academics() {
+export default function Academics({setOpen}) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
 
     const technologiesData = [
@@ -104,7 +104,7 @@ export default function Academics() {
                     text1Color="#FFFFFF"
                     text2Color="#FFFFFF"
                 />
-                <SpaceNetLayout />
+                <SpaceNetLayout setOpen={setOpen}/>
             </motion.div>
 
         </>

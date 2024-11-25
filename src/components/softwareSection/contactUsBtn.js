@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Arrow from "../../assets/sectionsImages/contactusArrow.svg";
 import ArrowWight from "../../assets/sectionsImages/contactUsArrowWhite.svg";
 
-export default function ContactUsBtn() {
+export default function ContactUsBtn({setOpen}) {
   const [btnHovered, setBtnHovered] = useState(false)
   const theme = useTheme()
   const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
@@ -13,6 +13,7 @@ export default function ContactUsBtn() {
       <Grid
         onMouseEnter={() => setBtnHovered(true)}
         onMouseLeave={() => setBtnHovered(false)}
+        onClick={()=>setOpen(true)}
         sx={{
           cursor: "pointer",
           marginTop: {

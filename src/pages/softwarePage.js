@@ -32,7 +32,7 @@ const serviceColors = {
     "Web App Development": "#1CB786",
     "Desktop App Development": "#FF621F"
 };
-export default function SoftwareSection() {
+export default function SoftwareSection({setOpen}) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const [data, setData] = useState([])
     const serviceTypes = Array.isArray(data) && data.length > 0
@@ -128,7 +128,7 @@ export default function SoftwareSection() {
                         serviceBgColor="#9D89FC"
                         data={data}
                     />
-                    <ContactUsBtn />
+                    <ContactUsBtn setOpen={setOpen}/>
                     <WhatWeDo
                         setData={setData}
                         data={data}
@@ -160,7 +160,7 @@ export default function SoftwareSection() {
                     text1Color="#051A2F"
                     text2Color="#051A2F"
                 />
-                <SpaceNetLayout />
+                <SpaceNetLayout setOpen={setOpen}/>
             </motion.div>
 
         </>

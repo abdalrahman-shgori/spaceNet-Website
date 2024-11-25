@@ -5,12 +5,12 @@ import { motion } from "framer-motion"
 import ArrowWight from "../assets/sectionsImages/spacenetLayoutArrow.svg";
 import spaceNet from "../assets/spacenetLogo/spaceNetLogoWhite.svg"
 import { useNavigate } from 'react-router-dom';
-const SpaceNetLayout = () => {
+const SpaceNetLayout = ({setOpen}) => {
   const navigate=useNavigate()
   const companyLinks = [
     { name: 'Home', href: '/' },
     { name: 'Blog & News', href: '/blog' }, 
-    { name: 'Contact Us', href: '/contact' }
+    { name: 'Contact Us',  }
   ];
 
   const servicesLinks = [
@@ -121,7 +121,7 @@ const SpaceNetLayout = () => {
                       key={index}
                     >
                       <Button
-                        onClick={()=>handleClick(item.href)}
+                        onClick={()=>item.name !== 'Contact Us' ? handleClick(item.href) : setOpen(true)}
                         key={index}
                         variant="outlined"
                         sx={{

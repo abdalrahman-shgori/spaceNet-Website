@@ -11,8 +11,11 @@ import Footer from './components/footer';
 import DesignAndBranding from './pages/design&branding';
 import LogoAnimation from './pages/LandingPage/logoaniamtion';
 import Academics from './pages/academics';
+import BasicModal from './components/contactUs/contactUs';
 
 const App = () => {
+  const [open, setOpen] = React.useState(false);
+
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
@@ -100,7 +103,7 @@ const App = () => {
             }}
           >
             <>
-              <NavBar showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+              <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
               <Routes>
                 <Route
                   path='/'
@@ -111,12 +114,13 @@ const App = () => {
                       setThemeColor={setThemeColor}
                       draweOpen={drawerOpen}
                       setDrawerOpen={setDrawerOpen}
+                      setOpen={setOpen}
                     />
                   }
                 />
-                <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} />} />
-                <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} />} />
-                <Route path='/academics' element={<Academics setThemeColor={setThemeColor} />} />
+                <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen}/>} />
+                <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen}/>} />
+                <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen}/>} />
 
               </Routes>
               {location.pathname !== '/' && (
@@ -125,7 +129,8 @@ const App = () => {
 
             </>
           </motion.div>
-          <Toggle setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+          <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+      <BasicModal setOpen={setOpen} open={open}/>
         </>
       )}
     </ThemeProvider>
