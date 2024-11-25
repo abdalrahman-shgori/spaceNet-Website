@@ -93,10 +93,8 @@ export default function Toggle({ drawerOpen, setThemeColor, themeColor,open }) {
                         mdscreen?'280px':
                         smscreen?'210px':
                         xsscreen &&'280px',
-                        
                         zIndex: 9999,
                         display:open && "none"
-
                     }}
                 >
                     <Box

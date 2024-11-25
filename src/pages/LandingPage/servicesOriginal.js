@@ -115,7 +115,7 @@ export default function ServicesOriginal({
                                         ? "#E9FA50"
                                         : activeService === "SOFTWARE"
                                             ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC"
-                                            : activeService === "DESIGN & BRANDING"
+                                            : activeService === "DIGITAL DESIGN"
                                                 ? "#1CB786"
                                                 : "#F5F5F5"
                             : "#F5F5F5",
