@@ -190,12 +190,13 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                 md: "6px",
                                 sm: "6px",
                                 xs: "6px"
-                              }
+                              },
 
 
                             }}>
                             {item.image.map((img, idx) => (
                               <Grid
+                              item
                                 key={idx}
 
                                 // lg={index === 2 && idx === 2 && 5}
