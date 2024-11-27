@@ -130,7 +130,6 @@ export default function SecFormSection({
                         <RadioGroup row>
                             <FormControlLabel
                                 sx={{
-                                    marginRight: { lg: "10px", md: "6px", sm: "10px", xs: "7px" },
                                     ...radioStyle(theme),
                                     '& .MuiCheckbox-root':
                                     {
@@ -146,6 +145,8 @@ export default function SecFormSection({
                                     '& .Mui-checked': {
                                         color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F ',
                                     },
+                                    marginRight: { lg: "10px", md: "6px", sm: "10px", xs: "7px" },
+
                                 }}
                                 value="networking"
                                 control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />}
