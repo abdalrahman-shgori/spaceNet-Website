@@ -167,10 +167,20 @@ export default function FirstFormSection({
 
                             <InputBase
                                 placeholder="Your Phone Number"
+                                type="number"
                                 value={phoneNumber}
                                 onChange={handlePhoneChange}
                                 fullWidth
-                                sx={inputFieldStyle(theme)}
+                                sx={{
+                                    ...inputFieldStyle(theme),
+                                    '& input[type=number]': {
+                                        MozAppearance: 'textfield',
+                                    },
+                                    '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
+                                        WebkitAppearance: 'none',
+                                        margin: 0,
+                                    },
+                                }}
                                 startAdornment={<InputAdornment position="start">{ }</InputAdornment>}
                             />
                         </Box>
@@ -183,6 +193,13 @@ export default function FirstFormSection({
                             placeholder="Your Age"
                             sx={{
                                 ...textFieldStyle(theme),
+                                '& input[type=number]': {
+                                    MozAppearance: 'textfield',
+                                },
+                                '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
+                                    WebkitAppearance: 'none',
+                                    margin: 0,
+                                },
                             }}
                         />
 
