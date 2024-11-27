@@ -130,6 +130,7 @@ export default function SecFormSection({
                         <RadioGroup row>
                             <FormControlLabel
                                 sx={{
+                                    marginRight: { lg: "10px", md: "6px", sm: "10px", xs: "7px" },
                                     ...radioStyle(theme),
                                     '& .MuiCheckbox-root':
                                     {
@@ -143,9 +144,8 @@ export default function SecFormSection({
 
                                     },
                                     '& .Mui-checked': {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F ',
+                                        color: theme.palette.mode === "dark" ? "#FFFFFF !important" : '#051A2F !important',
                                     },
-                                    marginRight: { lg: "10px", md: "6px", sm: "10px", xs: "7px" },
 
                                 }}
                                 value="networking"
@@ -168,7 +168,7 @@ export default function SecFormSection({
                                         }
                                     },
                                     '& .Mui-checked': {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F ',
+                                        color: theme.palette.mode === "dark" ? "#FFFFFF !important" : '#051A2F !important',
                                     },
                                 }}
                                 value="design"
@@ -189,9 +189,10 @@ export default function SecFormSection({
                                         }
                                     },
                                     '& .Mui-checked': {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F ',
+                                        color: theme.palette.mode === "dark" ? "#FFFFFF !important" : '#051A2F !important',
                                     },
-                                }} value="software & it" control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Software & IT"
+                                }} 
+                                value="software & it" control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Software & IT"
                             />
                         </RadioGroup>
                     </Box>
