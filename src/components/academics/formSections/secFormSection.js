@@ -309,7 +309,7 @@ export default function SecFormSection({
 
                                         },
                                         '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
-                                            padding: "0 !important",
+                                            padding: "0px !important",
 
 
                                         },
