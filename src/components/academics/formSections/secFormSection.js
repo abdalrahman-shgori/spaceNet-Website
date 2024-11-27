@@ -299,6 +299,7 @@ export default function SecFormSection({
                                         },
                                         '& .css-elo8k2-MuiInputAdornment-root': {
                                             margin: "0 !important",
+                                            padding:"0",
                                             paddingRight: {
                                                 lg: "18.55px",
                                                 md: "12.55px",
