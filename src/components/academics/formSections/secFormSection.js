@@ -190,151 +190,152 @@ export default function SecFormSection({
                                     '& .Mui-checked': {
                                         color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F ',
                                     },
-                                }} value="software & it" control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm:20, xs: 15 } } }} />} label="Software & IT"
+                                }} value="software & it" control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Software & IT"
                             />
                         </RadioGroup>
                     </Box>
 
-                    <Grid container 
-                    sx={{
-                        gap:"10px"
-                    }}
+                    <Grid container
+                        sx={{
+                            gap: "10px"
+                        }}
                     >
-                       
-                            <Box
+
+                        <Box
                             sx={{
-                                maxWidth:{
-                                    lg:"170px",
-                                    md:"170px",
-                                    sm:"170px",
-                                    xs:"130px"
+                                maxWidth: {
+                                    lg: "170px",
+                                    md: "170px",
+                                    sm: "170px",
+                                    xs: "130px"
                                 }
                             }}
-                            >
-                                <Typography sx={{ ...fieldTextStyle(theme) }}>Start Day</Typography>
-                                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                    <DatePicker
-                                        sx={{
-                                            height: {
-                                                lg: "58px",
-                                                md: "58px",
-                                                sm: "58px",
-                                                xs: "39px"
+                        >
+                            <Typography sx={{ ...fieldTextStyle(theme) }}>Start Day</Typography>
+                            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                <DatePicker
+                                    sx={{
+                                        height: {
+                                            lg: "58px",
+                                            md: "58px",
+                                            sm: "58px",
+                                            xs: "39px"
+                                        },
+                                        ...textFieldStyle(theme),
+                                        '& input': {},
+                                        '& .css-elo8k2-MuiInputAdornment-root': {
+                                            margin: "0 !important",
+                                            paddingRight: {
+                                                lg: "18.55px",
+                                                md: "12.55px",
+                                                sm: "18.55px",
+                                                xs: "12px"
                                             },
-                                            ...textFieldStyle(theme),
-                                            '& input': {},
-                                            '& .css-elo8k2-MuiInputAdornment-root': {
-                                                margin:"0 !important",
-                                                paddingRight:{
-                                                    lg:"18.55px",
-                                                    md:"12.55px",
-                                                    sm:"18.55px",
-                                                    xs:"12px"
-                                                },
-                                                
-
-                                            },
-                                            '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root':{
-                                                padding:"0 !important",
 
 
+                                        },
+                                        '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
+                                            padding: "0 !important",
+
+
+                                        },
+                                        '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
+                                            padding: "0",
+                                            paddingLeft: {
+                                                lg: "18.55px",
+                                                md: "12.55px",
+                                                sm: "18.55px",
+                                                xs: "12px"
                                             },
-                                            '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input':{
-                                                    padding:"0",
-                                                    paddingLeft:{
-                                                        lg:"18.55px",
-                                                        md:"12.55px",
-                                                        sm:"18.55px",
-                                                        xs:"12px"
-                                                    },                                            }
-                                        }}
-                                        slots={{
-                                            openPickerIcon: CalenderIcon
-                                        }}
-                                        desktopModeMediaQuery="(min-width: 0px)"
-                                        renderInput={(params) => (
-                                            <TextField
-                                                {...params}
-                                                InputProps={{
-                                                    ...params.InputProps,
-                                                }}
-                                            />
-                                        )}
-                                    />
-                                </LocalizationProvider>
-                            </Box>
-                      
-                      
-                            <Box
+                                        }
+                                    }}
+                                    slots={{
+                                        openPickerIcon: CalenderIcon
+                                    }}
+                                    desktopModeMediaQuery="(min-width: 0px)"
+                                    renderInput={(params) => (
+                                        <TextField
+                                            {...params}
+                                            InputProps={{
+                                                ...params.InputProps,
+                                            }}
+                                        />
+                                    )}
+                                />
+                            </LocalizationProvider>
+                        </Box>
+
+
+                        <Box
                             sx={{
-                                maxWidth:{
-                                    lg:"140px",
-                                    md:"140px",
-                                    sm:"140px",
-                                    xs:"111px"
+                                maxWidth: {
+                                    lg: "140px",
+                                    md: "140px",
+                                    sm: "140px",
+                                    xs: "111px"
                                 }
                             }}
-                            >
-                                <Typography sx={{ ...fieldTextStyle(theme) }}>Time</Typography>
-                                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                    <TimePicker
-                                        sx={{
-                                            height: {
-                                                lg: "58px",
-                                                md: "58px",
-                                                sm: "58px",
-                                                xs: "39px"
-                                            },
-                                            ...textFieldStyle(theme),
-                                            '& input': {
-                                                margin:"0 !important",
+                        >
+                            <Typography sx={{ ...fieldTextStyle(theme) }}>Time</Typography>
+                            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                <TimePicker
+                                    sx={{
+                                        height: {
+                                            lg: "58px",
+                                            md: "58px",
+                                            sm: "58px",
+                                            xs: "39px"
+                                        },
+                                        ...textFieldStyle(theme),
+                                        '& input': {
+                                            margin: "0 !important",
 
-                                            },
-                                            '& .css-elo8k2-MuiInputAdornment-root': {
-                                                margin:"0 !important",
+                                        },
+                                        '& .css-elo8k2-MuiInputAdornment-root': {
+                                            margin: "0 !important",
 
+                                        },
+                                        '& .css-elo8k2-MuiInputAdornment-root': {
+                                            margin: "0 !important",
+                                            paddingRight: {
+                                                lg: "18.55px",
+                                                md: "12.55px",
+                                                sm: "18.55px",
+                                                xs: "12px"
                                             },
-                                            '& .css-elo8k2-MuiInputAdornment-root': {
-                                                margin:"0 !important",
-                                                paddingRight:{
-                                                    lg:"18.55px",
-                                                    md:"12.55px",
-                                                    sm:"18.55px",
-                                                    xs:"12px"
-                                                },
-                                                
-
-                                            },
-                                            '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root':{
-                                                padding:"0 !important",
 
 
+                                        },
+                                        '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
+                                            padding: "0 !important",
+
+
+                                        },
+                                        '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
+                                            padding: "0",
+                                            paddingLeft: {
+                                                lg: "18.55px",
+                                                md: "12.55px",
+                                                sm: "18.55px",
+                                                xs: "12px"
                                             },
-                                            '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input':{
-                                                    padding:"0",
-                                                    paddingLeft:{
-                                                        lg:"18.55px",
-                                                        md:"12.55px",
-                                                        sm:"18.55px",
-                                                        xs:"12px"
-                                                    },    
-                                                }
-                                        }}
-                                        slots={{
-                                            
-                                            openPickerIcon: TimePickerIcon
-                                        }}
-                                        desktopModeMediaQuery="(min-width: 0px)"
-                                        renderInput={(params) => (
-                                            <TextField
-                                                {...params}
-                                                sx={textFieldStyle(theme)}
-                                            />
-                                        )}
-                                    />
-                                </LocalizationProvider>
-                            </Box>
-                      
+                                        }
+                                    }}
+                                    slots={{
+
+                                        openPickerIcon: TimePickerIcon
+                                    }}
+                                    desktopModeMediaQuery="(min-width: 0px)"
+                                    renderInput={(params) => (
+                                        <TextField
+                                            {...params}
+                                            sx={textFieldStyle(theme)}
+                                        />
+                                    )}
+                                />
+                            </LocalizationProvider>
+                        </Box>
+
                     </Grid>
                     <Box
                         sx={{
