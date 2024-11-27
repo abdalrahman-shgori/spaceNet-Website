@@ -19,9 +19,9 @@ const App = () => {
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
-  const [logoAnimationComplete, setLogoAnimationComplete] = useState(false); 
+  const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
   const [themeColor, setThemeColor] = useState('')
-  const theme=useTheme()
+  const theme = useTheme()
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
   };
@@ -74,7 +74,7 @@ const App = () => {
             transformOrigin: "bottom",
           }}
         >
-          <LogoAnimation handleAnimationComplete={handleAnimationComplete} logoAnimationComplete={logoAnimationComplete}/>
+          <LogoAnimation handleAnimationComplete={handleAnimationComplete} logoAnimationComplete={logoAnimationComplete} />
         </motion.div>
       )}
 
@@ -118,19 +118,18 @@ const App = () => {
                     />
                   }
                 />
-                <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen}/>} />
-                <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen}/>} />
-                <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen}/>} />
+                <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
 
               </Routes>
               {location.pathname !== '/' && (
                 <Footer />
               )}
-
             </>
           </motion.div>
           <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-      <BasicModal setOpen={setOpen} open={open}/>
+          <BasicModal setOpen={setOpen} open={open} />
         </>
       )}
     </ThemeProvider>

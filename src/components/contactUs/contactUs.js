@@ -87,6 +87,9 @@ const textFieldStyle = {
             color: '#29547E',
             fontFamily: "var(--English-font)"
         },
+        '& .MuiInputBase-input': {
+            color: '#29547E',
+          },
     },
 }
 export default function BasicModal({ setOpen, open }) {

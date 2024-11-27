@@ -40,7 +40,7 @@ export default function AboutSpaceNet({
                 const timeout = setTimeout(() => {
                     currentText += char;
                     setDisplayedText(currentText);
-                }, hoveredService === "DESIGN & BRANDING" ? index * 50 : index * 80);
+                }, hoveredService === "DIGITAL DESIGN" ? index * 50 : index * 100);
 
                 timeoutRef.current.push(timeout);
             });
@@ -88,7 +88,8 @@ export default function AboutSpaceNet({
                 <>
                     <span className="scrolling-content"
                         style={{
-                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px"
+                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
+                            marginTop:"25%"
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting edge solutions. we offer various services in technology such as: internet, software development and Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options to small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!
@@ -243,7 +244,7 @@ export default function AboutSpaceNet({
 
                             }}
                         >
-                            {['ACADEMICS', 'CORE IT', 'SOFTWARE', 'DIGITAL DESIGN'].includes(hoveredService) ? (
+                            {hoveredService ? (
                                 <>
                                     <Box
                                         component="img"
@@ -287,7 +288,7 @@ export default function AboutSpaceNet({
                                                 textShadow: '0.5px 0.5px 0 #fff, -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff'
                                             }}
                                         >
-                                            {displayedText}
+                                            {displayedText !== "ABOUT" && displayedText}
                                         </Typography>
 
                                     </motion.div>

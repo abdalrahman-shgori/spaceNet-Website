@@ -14,6 +14,7 @@ import OurCourses from "../components/academics/ourCourses";
 import DevelopSkillsText from "../components/academics/developSkillsText";
 import DevelopSkills from "../components/academics/developSkills";
 import { Helmet } from "react-helmet";
+import AcademicsForm from "../components/academics/academicsFrom";
 
 export default function Academics({setOpen}) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
@@ -49,7 +50,7 @@ export default function Academics({setOpen}) {
             behavior: 'smooth',
         });
     }, []);
-
+   const [enroll,setEnroll]=useState(false)
     return (
         <>
             <motion.div>
@@ -58,6 +59,7 @@ export default function Academics({setOpen}) {
                     <title>SPACENET ACADEMICS</title>
                     <link rel="canonical" href="https://space-net-website.vercel.app/academics"/>
                 </Helmet>
+                <AcademicsForm enroll={enroll} setEnroll={setEnroll}/>
                 <Grid className="root-container"
                     sx={{
                         padding: {
@@ -81,7 +83,7 @@ export default function Academics({setOpen}) {
                         academicsSection="first"
 
                     />
-                    <OurCourses />
+                    <OurCourses setEnroll={setEnroll} enroll={enroll}/>
                     <SectionDescription
                         text1="Our features"
                         text2="Full features that offer a practical experience. This is an interactive educational experience rather than a follow-along tutorial. Learn new things and become an expert at what you do."

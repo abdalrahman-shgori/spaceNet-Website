@@ -4,7 +4,7 @@ import Illustration from "../../assets/sectionsImages/academics/Illustration.svg
 import Network from "../../assets/sectionsImages/academics/network.svg";
 import complexProject from "../../assets/sectionsImages/academics/complexProject.svg";
 import { motion } from "framer-motion"
-export default function OurCourses() {
+export default function OurCourses({setEnroll}) {
     const text1Style = {
         fontSize: {
             lg: "14px",
@@ -223,7 +223,7 @@ export default function OurCourses() {
                                 <Typography sx={text1Style}>{item.title1}</Typography>
                                 <Typography sx={text2Style}>{item.title2}</Typography>
                                 <Typography sx={descriptionStyle}>{item.description}</Typography>
-                                <Button sx={btnStyle}>{item.btnText}</Button>
+                                <Button sx={btnStyle} onClick={()=> setEnroll(true)}>{item.btnText}</Button>
                             </Box>
                         </motion.div>
                     )}

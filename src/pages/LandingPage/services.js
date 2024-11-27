@@ -19,7 +19,6 @@ export default function Services({
     setIsAboutActive,
     setOutOfServicesHover
 }) {
-
     const scrollRef = useRef(null);
     const theme = useTheme();
     const navigate = useNavigate();

@@ -25,10 +25,11 @@ export default function ServicesOriginal({
     setActiveService
 }) {
     const [isHovered, setIsHovered] = useState(false);
-
+    const [id, setId] = useState()
     const handleHover = () => {
         setHoveredService(item.title);
         setHoveredServiceDescription(item.description);
+        setId(item.id)
         setCapture(true);
         setOutOfServicesHover(false)
     };
@@ -109,13 +110,13 @@ export default function ServicesOriginal({
                         background: isTabScreen && activeService === item.title
                             ? activeService === "ABOUT"
                                 ? theme.palette.mode === 'light' ? "#E9FA50" : "#9D89FC"
-                                : activeService === "ACADEMICS"
+                                : index === 0
                                     ? "#FF9F31"
-                                    : activeService === "CORE IT"
+                                    : index === 1
                                         ? "#E9FA50"
-                                        : activeService === "SOFTWARE"
+                                        : index === 2
                                             ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC"
-                                            : activeService === "DIGITAL DESIGN"
+                                            : index === 3
                                                 ? "#1CB786"
                                                 : "#F5F5F5"
                             : "#F5F5F5",
@@ -144,14 +145,14 @@ export default function ServicesOriginal({
                             sm: "6px",
                             xs: "6px",
                         },
-                        color: activeService === item.title && activeService !== 'CORE IT' && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
+                        color: activeService === item.title && index !== 1 && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
 
                         transition: "background 0.5s ease, transform 0.2s",
                         "&:hover": !isMobile && !isTabScreen && {
                             transform:
                                 !isMobile && !isTabScreen && "scale(1.05) rotate(2deg)",
                             color:
-                                !isTabScreen && hoveredService === "INTERNET"
+                                !isTabScreen && index === 1
                                     ? "#011343"
                                     : "#FFFFFF",
                             background: !isMobile && !isTabScreen
@@ -208,7 +209,7 @@ export default function ServicesOriginal({
                         <Box
                             component="img"
                             src={
-                                hoveredService === "SOFTWARE" &&
+                                index === "SOFTWARE" &&
                                     index === 2 &&
                                     theme.palette.mode === "light"
                                     ? UnionWhite
