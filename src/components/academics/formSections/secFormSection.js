@@ -312,6 +312,9 @@ export default function SecFormSection({
                                         '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
                                             padding:0,
                                         },
+                                        "& .css-15guoxn":{
+                                         padding:0
+                                        },
                                         '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
                                             padding: "0",
                                             paddingLeft: {
