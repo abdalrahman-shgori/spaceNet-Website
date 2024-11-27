@@ -251,7 +251,13 @@ export default function SecFormSection({
                                                 sm: "18.55px",
                                                 xs: "12px"
                                             },
-                                        }
+                                        },
+                                        '& .MuiOutlinedInput-root:hover': {
+                                            backgroundColor: 'transparent', 
+                                          },
+                                          '& .MuiButtonBase-root:hover': {
+                                            backgroundColor: 'transparent',
+                                          }
                                     }}
                                     slots={{
                                         openPickerIcon: CalenderIcon
@@ -328,7 +334,13 @@ export default function SecFormSection({
                                                 sm: "18.55px",
                                                 xs: "12px"
                                             },
-                                        }
+                                        },
+                                        '& .MuiOutlinedInput-root:hover': {
+                                            backgroundColor: 'transparent', 
+                                          },
+                                          '& .MuiButtonBase-root:hover': {
+                                            backgroundColor: 'transparent',
+                                          }
                                     }}
                                     slots={{
 
