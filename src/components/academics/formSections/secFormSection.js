@@ -130,8 +130,8 @@ export default function SecFormSection({
                         <RadioGroup row>
                             <FormControlLabel
                                 sx={{
-                                    ...radioStyle(theme),
                                     marginRight: { lg: "10px", md: "6px", sm: "10px", xs: "7px" },
+                                    ...radioStyle(theme),
                                     '& .MuiCheckbox-root':
                                     {
                                         color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
@@ -154,8 +154,8 @@ export default function SecFormSection({
 
                             <FormControlLabel
                                 sx={{
-                                    ...radioStyle(theme),
                                     marginRight: { lg: "10px", md: "6px", sm: "10px", xs: "7px" },
+                                    ...radioStyle(theme),
                                     '& .MuiCheckbox-root':
                                     {
                                         color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
@@ -164,7 +164,7 @@ export default function SecFormSection({
                                             md: "30px",
                                             sm: "30px",
                                             xs: "10px"
-                                        },
+                                        }
                                     },
                                     '& .Mui-checked': {
                                         color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F ',
