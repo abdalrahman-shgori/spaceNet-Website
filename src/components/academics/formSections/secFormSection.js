@@ -237,7 +237,8 @@ export default function SecFormSection({
 
                                         },
                                         "& .css-15guoxn":{
-                                            padding:0
+                                            padding:0,
+                                            paddingRight:"12px"
                                            },
                                         '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
                                             padding:0,
@@ -312,9 +313,12 @@ export default function SecFormSection({
                                         },
                                         '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
                                             padding:0,
+
                                         },
                                         "& .css-15guoxn":{
-                                         padding:0
+                                         padding:0,
+                                         paddingRight:"12px"
+
                                         },
                                         '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
                                             padding: "0",
