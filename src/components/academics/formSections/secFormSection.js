@@ -236,10 +236,11 @@ export default function SecFormSection({
 
 
                                         },
+                                        "& .css-15guoxn":{
+                                            padding:0
+                                           },
                                         '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
                                             padding:0,
-
-
                                         },
                                         '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
                                             padding: "0",
