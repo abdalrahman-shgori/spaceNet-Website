@@ -38,7 +38,7 @@ const FrontEndSvg = (props) => {
       />
       <motion.path
         d="M29.13 18.19 17.595 29.723 29.13 41.256M44.506 18.19 56.04 29.723 44.506 41.256"
-        stroke={props.hoveredcardid === props.itemID ? "#FFFFFF" : "#9D89FC"}
+        stroke={props.hoveredcardid === props.itemID ? "#051A2F" : "#9D89FC"}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={3.802}
