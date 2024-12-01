@@ -44,12 +44,7 @@ export default function Academics({setOpen}) {
         { id: 5, title: "Bootcamp course", description: "Lorem  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.", image: <BootCamp hoveredcardid={hoveredcardid} itemID={5} /> },
 
     ];
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    }, []);
+
    const [enroll,setEnroll]=useState(false)
     return (
         <>

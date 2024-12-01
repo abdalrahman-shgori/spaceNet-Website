@@ -121,7 +121,7 @@ export default function Crafting({
               <Typography
                 sx={{
                   fontSize: {
-                    lg: "65px",
+                    lg: is14Inch ? "55px" : is15Inch ? "60px" : "65px",
                     md: "40px",
                     sm: "30px",
                     xs: "38px"

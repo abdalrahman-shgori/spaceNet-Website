@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Router, Routes, useLocation } from 'react-router-dom';
 import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import { motion } from 'framer-motion';
@@ -12,6 +12,7 @@ import DesignAndBranding from './pages/design&branding';
 import LogoAnimation from './pages/LandingPage/logoaniamtion';
 import Academics from './pages/academics';
 import BasicModal from './components/contactUs/contactUs';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
@@ -57,6 +58,7 @@ const App = () => {
   }, [location]);
 
   return (
+    
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
       {location.pathname === '/' && (
         <motion.div
@@ -103,7 +105,8 @@ const App = () => {
             }}
           >
             <>
-              <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+            <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+             <ScrollToTop/>
               <Routes>
                 <Route
                   path='/'
@@ -123,6 +126,7 @@ const App = () => {
                 <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
 
               </Routes>
+           
               {location.pathname !== '/' && (
                 <Footer />
               )}
