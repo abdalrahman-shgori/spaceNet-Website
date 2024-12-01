@@ -319,7 +319,7 @@ export default function WhichCourse() {
                     }}
                   >
                     <Bracket index={index} />
-                  </Box>
+                    </Box>
                   <Typography
                     sx={{
                       fontSize: {
@@ -461,8 +461,10 @@ export default function WhichCourse() {
 
               >
               </Box>
+
             </motion.div>
           </Box>
+
         </Box>
       </motion.div>
     </>

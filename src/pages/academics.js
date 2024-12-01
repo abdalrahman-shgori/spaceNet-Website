@@ -46,6 +46,13 @@ export default function Academics({setOpen}) {
     ];
 
    const [enroll,setEnroll]=useState(false)
+   
+   useEffect(()=>{
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+   },[])
     return (
         <>
             <motion.div>
