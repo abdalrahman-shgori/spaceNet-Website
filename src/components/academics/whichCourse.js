@@ -50,7 +50,6 @@ export default function WhichCourse() {
     },
   ]
   const [cardAnimationStart, setCardAnimationStart] = useState(false)
-  console.log(cardAnimationStart)
   const [test, setTest] = useState(false)
   const theme = useTheme()
   const xl = useMediaQuery(theme.breakpoints.only('xl'));
@@ -71,8 +70,9 @@ export default function WhichCourse() {
       lg: "82px 56px 48px 56px",
       md: "82px 20px 48px 20px",
       sm: "82px 20px 48px 20px",
-      xs: test ? "70px 20px 20px 20px" : "70px 20px 116px 20px"
+      xs: test ? "70px 20px 20px 20px" : "70px 20px 116px 20px" || "0px"
     },
+
 
     gap: {
       lg: "214px",
@@ -175,9 +175,9 @@ export default function WhichCourse() {
                   display: "flex",
 
                   paddingRight: {
-                    lg: test && index === 0 && "67px",
-                    md: test && index === 0 && "67px",
-                    sm: test && index === 0 && "20px",
+                    lg: test ? index === 0 ? "67px" : '0px' : '',
+                    md: test ? index === 0 ? "67px" : '0px' : '',
+                    sm: test ? index === 0 ? "20px" : '0px' : '',
                     xs: test ? "35px" : 'unset'
                   },
 
@@ -193,17 +193,17 @@ export default function WhichCourse() {
                       lg: index === 3 ? "50px" :
                         index === 2 ? "90px" :
                           index === 1 ? "130px" :
-                            index === 0 && "180px",
+                            index === 0 ? "180px" : '',
                       //MD
                       md: index === 3 ? "40px" :
                         index === 2 ? "65px" :
                           index === 1 ? "95px" :
-                            index === 0 && "140px",
+                            index === 0 ? "140px" : '',
                       //SM
                       sm: index === 3 ? "40px" :
                         index === 2 ? "65px" :
                           index === 1 ? "95px" :
-                            index === 0 && "140px",
+                            index === 0 ? "140px" : '',
                       //XS
                       xs:
                         index === 3 ? "10px" :
@@ -213,39 +213,39 @@ export default function WhichCourse() {
                     } : 'unset',
 
                   marginTop: test ? {
-                    lg: index > 1 && "-100px",
-                    md: index > 1 && "-100px",
-                    sm: index > 1 && "-60px",
-                    xs: index > 0 && "-90px"
+                    lg: index > 1 ? "-100px" : '',
+                    md: index > 1 ? "-100px" : '',
+                    sm: index > 1 ? "-60px" : '',
+                    xs: index > 0 ? "-90px" : ''
                   } : {
                     lg: index === 3 ? "-50px" :
                       index === 2 ? "-70px" :
                         index === 1 ? '-90px' :
-                          index === 0 && "-106px",
+                          index === 0 ? "-106px" : '',
 
                     //MD
                     md: index === 3 ? "-30px" :
                       index === 2 ? "-50px" :
                         index === 1 ? '-60px' :
-                          index === 0 && "-75px",
+                          index === 0 ? "-75px" : '',
                     //SM
                     sm: index === 3 ? "-30px" :
                       index === 2 ? "-50px" :
                         index === 1 ? '-60px' :
-                          index === 0 && "-75px",
+                          index === 0 ? "-75px" : '',
                     //XS
                     xs: index === 3 ? "-25px" :
                       index === 2 ? "-34px" :
                         index === 1 ? '-45px' :
-                          index === 0 && "-55px",
+                          index === 0 ? "-55px" : '',
                   },
 
-                  marginLeft: !test && {
+                  marginLeft: !test ? {
                     lg: "120px",
                     md: "120px",
                     sm: "120px",
                     xs: "unset"
-                  },
+                  } : '',
                   transition: "justifyContent 10s"
                 }}
               >
@@ -259,10 +259,13 @@ export default function WhichCourse() {
                   transition={{
                     duration: 0.1,
                     ease: "linear",
-                    delay: !test && index * 2
+                    delay: !test ? index * 2 : ''
                   }}
                   onAnimationStart={() => !test && setCardAnimationStart(true)}
-
+                  onViewportLeave={() => {
+                    setCardAnimationStart(false);
+                    // setTest(false);
+                  }}
                   onClick={() => setTest(true)}
 
                   style={{
@@ -319,7 +322,7 @@ export default function WhichCourse() {
                     }}
                   >
                     <Bracket index={index} />
-                    </Box>
+                  </Box>
                   <Typography
                     sx={{
                       fontSize: {
@@ -433,7 +436,7 @@ export default function WhichCourse() {
               transition={{
                 duration: cardAnimationStart ? 0.8 : 0.2,
                 ease: "linear",
-                delay: cardAnimationStart ? 8.5 : 0.1,
+                delay: cardAnimationStart ? 8.5 : '',
               }}
               style={{
                 position: "absolute",
@@ -443,7 +446,7 @@ export default function WhichCourse() {
                     lg ? 90 :
                       md ? 30 :
                         sm ? spesificTabScreen ? 15 : 50 :
-                          xs && ExtraSmallScreen ? -30 : spesificSmallScreen ? 0 : spesificSmallScreen2 ? -20 : 0,
+                          xs ? ExtraSmallScreen ? -30 : spesificSmallScreen ? 0 : spesificSmallScreen2 ? -20 : 0 : 0,
                 zIndex: 0,
                 width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "60%" : "50%",
                 height: xl ? "300px" : lg ? "300px" : md ? "300px" : sm ? "250px" : "300px",
