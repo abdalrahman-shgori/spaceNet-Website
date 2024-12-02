@@ -79,7 +79,7 @@ export default function DevelopSkills() {
             xs: "15px"
         },
         fontFamily: "var(--English-font)",
-        color:"#051A2F"
+        color: "#051A2F"
 
 
     }
@@ -217,7 +217,7 @@ export default function DevelopSkills() {
                                         sm: "40px",
                                         xs: "30px"
                                     },
-                                    color:"#051A2F"
+                                    color: "#051A2F"
                                 }}
                             >
                                 {SkillsType[skills].title}
@@ -278,7 +278,6 @@ export default function DevelopSkills() {
                                     duration: 0.2, repeat: Infinity,
                                     repeatType: "reverse", repeatDelay: 1, delay: 1
                                 }}
-
                             >
                                 <Typography sx={{ ...subCatStyle }} >
                                     {SkillsType[skills].subCat[1]}
@@ -326,7 +325,6 @@ export default function DevelopSkills() {
                     Register Now
                 </Button>
             </Grid>
-
         </>
     )
 }

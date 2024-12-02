@@ -133,9 +133,9 @@ export default function OurCourses({setEnroll}) {
                             sm: 'unset'
                         },
                         marginTop: {
-                            lg: index > 1 && "66px",
-                            md: index > 1 && "50px",
-                            sm: index > 1 && "50px",
+                            lg: index > 1 ? "66px" : undefined,
+                            md: index > 1 ? "50px" : undefined,
+                            sm: index > 1 ? "50px" : undefined,
                             xs: item.id === 1 ? "6px" : item.id === 3 ? "50px" : item.id === 2 ? "6px" : item.id === 4 ? "50px" : item.id === 5 ? "6px" : ''
                         },
                         paddingRight: index % 2 === 0 ? "5.9px" : "0",

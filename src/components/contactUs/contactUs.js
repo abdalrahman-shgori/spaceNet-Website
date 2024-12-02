@@ -153,7 +153,7 @@ export default function BasicModal({ setOpen, open }) {
                             </Box>
                         </Box>
 
-                        <Grid
+                        <Grid item
                             sx={{
                                 display: "flex",
                                 alignItems: "center",
@@ -295,8 +295,8 @@ export default function BasicModal({ setOpen, open }) {
                                             }}
                                         >
                                             {contactUsWays.map((item, index) => (
-                                                <>
                                                     <Box
+                                                    key={index}
                                                         sx={{
                                                             display: "flex",
                                                             alignItems: "center",
@@ -331,9 +331,6 @@ export default function BasicModal({ setOpen, open }) {
                                                             {item.title}
                                                         </Typography>
                                                     </Box>
-
-                                                </>
-
                                             ))}
                                         </Box>
                                         <Box

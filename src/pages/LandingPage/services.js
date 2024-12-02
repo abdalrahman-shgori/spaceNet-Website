@@ -134,7 +134,6 @@ export default function Services({
                     servicesList
                         .filter((item) => isMobile || item.title !== "ABOUT")
                         .map((item, index) => (
-
                             <>
                                 <ServicesOriginal
                                     activeService={activeService}

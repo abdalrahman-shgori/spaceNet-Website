@@ -210,7 +210,7 @@ export default function ServicesOriginal({
                             component="img"
                             src={
                                 hoveredService === 'SOFTWARE' &&
-                                index === 2 &&
+                                    index === 2 &&
                                     theme.palette.mode === "light"
                                     ? UnionWhite
                                     : image.img

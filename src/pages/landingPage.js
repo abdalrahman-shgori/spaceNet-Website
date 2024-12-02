@@ -31,11 +31,7 @@ export default function LandingPage({
                 }
             }}
         >
-             <Helmet>
-                    <meta charSet="utf-8"/>
-                    <title>SPACENET LANDING PAGE</title>
-                    <link rel="canonical" href="https://space-net-website.vercel.app/"/>
-                </Helmet>
+           
             <Grid item lg={6} md={6} sm={12} xs={12} sx={{
                 paddingBottom: "12px"
             }}>

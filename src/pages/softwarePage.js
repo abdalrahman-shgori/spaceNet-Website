@@ -32,7 +32,7 @@ const serviceColors = {
     "Web App Development": "#1CB786",
     "Desktop App Development": "#FF621F"
 };
-export default function SoftwareSection({setOpen}) {
+export default function SoftwareSection({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const [data, setData] = useState([])
     const serviceTypes = Array.isArray(data) && data.length > 0
@@ -45,10 +45,10 @@ export default function SoftwareSection({setOpen}) {
     const pathname = useLocation()
     const id = pathname.pathname.split('/').filter(Boolean)
     const technologiesDataImage = [
-        { id: 0, image:<FrontEndSvg hoveredcardid={hoveredcardid} itemID={5} />  },
-        { id: 1, image: <BackEndSvg hoveredcardid={hoveredcardid} itemID={6} />},
+        { id: 0, image: <FrontEndSvg hoveredcardid={hoveredcardid} itemID={5} /> },
+        { id: 1, image: <BackEndSvg hoveredcardid={hoveredcardid} itemID={6} /> },
         { id: 2, image: <FullStackSvg hoveredcardid={hoveredcardid} itemID={7} /> },
-        { id: 3, image:  <LowCodeSvg hoveredcardid={hoveredcardid} itemID={8} /> },
+        { id: 3, image: <LowCodeSvg hoveredcardid={hoveredcardid} itemID={8} /> },
         { id: 4, image: <CloudDevelopmentSvg hoveredcardid={hoveredcardid} itemID={9} /> },
 
     ];
@@ -96,9 +96,9 @@ export default function SoftwareSection({setOpen}) {
                 }}
             >
                 <Helmet>
-                    <meta charSet="utf-8"/>
+                    <meta charSet="utf-8" />
                     <title>SPACENET SOFTWARE</title>
-                    <link rel="canonical" href="https://space-net-website.vercel.app/software"/>
+                    <link rel="canonical" href="https://space-net-website.vercel.app/software" />
                 </Helmet>
                 <Grid className="root-container"
                     sx={{
@@ -122,7 +122,7 @@ export default function SoftwareSection({setOpen}) {
                         serviceBgColor="#9D89FC"
                         data={data}
                     />
-                    <ContactUsBtn setOpen={setOpen}/>
+                    <ContactUsBtn setOpen={setOpen} />
                     <WhatWeDo
                         setData={setData}
                         data={data}
@@ -154,7 +154,7 @@ export default function SoftwareSection({setOpen}) {
                     text1Color="#051A2F"
                     text2Color="#051A2F"
                 />
-                <SpaceNetLayout setOpen={setOpen}/>
+                <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
 
         </>

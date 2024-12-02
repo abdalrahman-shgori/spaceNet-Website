@@ -16,7 +16,7 @@ import DevelopSkills from "../components/academics/developSkills";
 import { Helmet } from "react-helmet";
 import AcademicsForm from "../components/academics/academicsFrom";
 
-export default function Academics({setOpen}) {
+export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
 
     const technologiesData = [
@@ -45,23 +45,23 @@ export default function Academics({setOpen}) {
 
     ];
 
-   const [enroll,setEnroll]=useState(false)
-   
-   useEffect(()=>{
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-    });
-   },[])
+    const [enroll, setEnroll] = useState(false)
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }, [])
     return (
         <>
             <motion.div>
-            <Helmet>
-                    <meta charSet="utf-8"/>
+                <Helmet>
+                    <meta charSet="utf-8" />
                     <title>SPACENET ACADEMICS</title>
-                    <link rel="canonical" href="https://space-net-website.vercel.app/academics"/>
+                    <link rel="canonical" href="https://space-net-website.vercel.app/academics" />
                 </Helmet>
-                <AcademicsForm enroll={enroll} setEnroll={setEnroll}/>
+                <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                 <Grid className="root-container"
                     sx={{
                         padding: {
@@ -85,7 +85,7 @@ export default function Academics({setOpen}) {
                         academicsSection="first"
 
                     />
-                    <OurCourses setEnroll={setEnroll} enroll={enroll}/>
+                    <OurCourses setEnroll={setEnroll} enroll={enroll} />
                     <SectionDescription
                         text1="Our features"
                         text2="Full features that offer a practical experience. This is an interactive educational experience rather than a follow-along tutorial. Learn new things and become an expert at what you do."
@@ -108,7 +108,7 @@ export default function Academics({setOpen}) {
                     text1Color="#FFFFFF"
                     text2Color="#FFFFFF"
                 />
-                <SpaceNetLayout setOpen={setOpen}/>
+                <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
 
         </>
