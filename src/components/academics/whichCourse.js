@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import hand from "../../assets/sectionsImages/academics/hand.svg"
 import hand2 from "../../assets/sectionsImages/academics/hand2.svg"
@@ -22,15 +22,46 @@ export default function WhichCourse() {
   const spesificTabScreen = useMediaQuery(theme.breakpoints.down("765"));
   const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down("345"));
 
+  const sectionRef = useRef(null); // Ref to attach to the element
+  const [inView, setInView] = useState(false); // State to track if the element is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true); // Set to true when the section is in view
+        } else {
+          setInView(false); // Set to false when the section is out of view
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 50% of the element is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current); // Observe the section
+    }
+
+    // Cleanup observer on component unmount
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <>
       <motion.div className="root-container"
+                                      ref={sectionRef}
+
         style={{ background: "#051A2F", height: "100%" }}
         onViewportLeave={() => {
           setCardAnimationStart(false);
         }}
       >
         <Box
+
           onClick={() => {
             if (cardAnimationStart === true) {
               setTest(true)
@@ -73,24 +104,25 @@ export default function WhichCourse() {
                 }}
               >
                 <motion.div
-                  whileInView={{
-                    y: [-300, 0],
-                    rotate: test ? (xs ? item.rotateXs : "-4deg") : item.rotate,
-                    opacity: [0, 1],
-                  }}
-                  transition={{
-                    duration: 0.1,
-                    ease: "linear",
-                    delay: !test ? index === 0 ? 0.8 : !test ? index * 2 : undefined : undefined
-                  }}
-                  onUpdate={({ y }) => {
-                    if (index === 4 && y === 0) {
-                      setCardAnimationStart(true);
-                    }
-                  }}
-                  style={{
-                    ...cardStyle(test, is15Inch, is14Inch, item, lg, md, sm, xs)
-                  }}
+
+                 animate={{
+                  y: inView ? [-300, 0] : [-300, -300], // Start animation when in view
+                  rotate: inView ? (test ? (xs ? item.rotateXs : "-4deg") : item.rotate) : item.rotate,
+                  opacity: inView ? [0, 1] : [0, 0], // Fade in when in view
+                }}
+                transition={{
+                  duration: 0.1,
+                  ease: "linear",
+                  delay: !test ? (index === 0 ? 0.8 : index * 2) : (index === 0 ? 0.1 : index * 0.2),
+                }}
+                onUpdate={({ y }) => {
+                  if (index === 4 && y === 0) {
+                    setCardAnimationStart(true);
+                  }
+                }}
+                style={{
+                  ...cardStyle(test, is15Inch, is14Inch, item, lg, md, sm, xs),
+                }}
                 >
                   <Box
                     sx={{
