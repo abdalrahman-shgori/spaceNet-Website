@@ -209,8 +209,8 @@ export default function ServicesOriginal({
                         <Box
                             component="img"
                             src={
-                                index === "SOFTWARE" &&
-                                    index === 2 &&
+                                hoveredService === 'SOFTWARE' &&
+                                index === 2 &&
                                     theme.palette.mode === "light"
                                     ? UnionWhite
                                     : image.img
