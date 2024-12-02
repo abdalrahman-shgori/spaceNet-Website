@@ -78,11 +78,10 @@ export default function WhichCourse() {
                     rotate: test ? (xs ? item.rotateXs : "-4deg") : item.rotate,
                     opacity: [0, 1],
                   }}
-                  exit={{ y: [0, -300], rotate: xs ? item.rotateXs : item.rotate, opacity: [1, 0] }}
                   transition={{
                     duration: 0.1,
                     ease: "linear",
-                    delay: !test ? index === 0 ? 0.5 : !test ? index * 2 : undefined : undefined
+                    delay: !test ? index === 0 ? 0.8 : !test ? index * 2 : undefined : undefined
                   }}
                   onUpdate={({ y }) => {
                     if (index === 4 && y === 0) {
