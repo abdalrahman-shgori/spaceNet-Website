@@ -1,8 +1,12 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import vector1White from "../assets/images/Vector1White.svg";
+import Vector1Black from "../assets/images/Vector1Black.svg";
 import vector2White from "../assets/images/Vector2White.svg";
+import vector2Black from "../assets/images/Vector2Black.svg";
+
 import { motion } from "framer-motion"
+import { useLocation } from "react-router-dom";
 const text1Style = {
   fontSize: {
     xl: "62px",
@@ -62,6 +66,7 @@ const text2Style = {
 
 }
 export default function LetsProject({ text1, text2, btnText, cardBg, text1Color, text2Color }) {
+  const location = useLocation()
   return (
     <>
 
@@ -76,7 +81,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
             xs: "86px 20px 86px 20px",
           },
           position: "relative",
-          zIndex:99999
+          zIndex: 99999
         }}
       >
 
@@ -85,7 +90,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
           <Box
             component="img"
             alt="bracket"
-            src={vector1White}
+            src={location.pathname === "/core-it" ? Vector1Black : vector1White}
             sx={{
               maxWidth: "100%",
               width: {
@@ -172,7 +177,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
         <Box
           component="img"
           alt="bracket"
-          src={vector2White}
+          src={location.pathname === "/core-it" ? vector2Black : vector2White}
           sx={{
             maxWidth: "100%",
             width: {

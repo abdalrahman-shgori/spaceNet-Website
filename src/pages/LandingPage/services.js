@@ -28,7 +28,7 @@ export default function Services({
 
     const localServices = [
         { name: "ACADEMICS", img: Union, url: "/academics" },
-        { name: "CORE IT", img: Union, url: "/internet" },
+        { name: "CORE IT", img: Union, url: "/core-it" },
         { name: "SOFTWARE", img: Union, url: "/software" },
         { name: "DIGITAL DESIGN", img: Union, url: "/design-branding" },
     ];

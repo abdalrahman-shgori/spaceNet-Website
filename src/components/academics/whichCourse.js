@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import hand from "../../assets/sectionsImages/academics/hand.svg"
+import back from "../../assets/sectionsImages/academics/HandTest.svg"
+import front from "../../assets/sectionsImages/academics/Front.svg"
+
 import hand2 from "../../assets/sectionsImages/academics/hand2.svg"
 import { motion } from "framer-motion"
 import Bracket from "../../assets/sectionsImages/academics/academicsBracket.";
@@ -229,12 +232,7 @@ export default function WhichCourse() {
                 display: test ? 'none' : 'unset',
                 position: "absolute",
                 bottom: -10,
-                left:
-                  xl ? 90 :
-                    lg ? 90 :
-                      md ? 30 :
-                        sm ? spesificTabScreen ? 15 : 50 :
-                          xs ? ExtraSmallScreen ? -30 : spesificSmallScreen ? 0 : spesificSmallScreen2 ? -20 : 0 : 0,
+               translateX:xl || lg || md || sm ? "10%" : "-10%",
                 zIndex: 0,
                 width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "60%" : "50%",
                 height: xl ? "300px" : lg ? "300px" : md ? "300px" : sm ? "250px" : "300px",
@@ -251,6 +249,7 @@ export default function WhichCourse() {
                 }}
               >
               </Box>
+              
             </motion.div>
           </Box>
         </Box>

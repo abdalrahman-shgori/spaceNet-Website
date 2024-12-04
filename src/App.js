@@ -13,6 +13,7 @@ import LogoAnimation from './pages/LandingPage/logoaniamtion';
 import Academics from './pages/academics';
 import BasicModal from './components/contactUs/contactUs';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import CoreIt from './pages/coreIt';
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
@@ -124,6 +125,7 @@ const App = () => {
                 <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
                 <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
                 <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
 
               </Routes>
            
