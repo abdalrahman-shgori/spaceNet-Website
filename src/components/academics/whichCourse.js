@@ -24,6 +24,7 @@ export default function WhichCourse() {
   const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
   const spesificTabScreen = useMediaQuery(theme.breakpoints.down("685"));
   const spesifico = useMediaQuery(theme.breakpoints.down("600"));
+  const spesific2 = useMediaQuery(theme.breakpoints.down("500"));
   const spesificSmallScreen = useMediaQuery(theme.breakpoints.down("380"));
 
   const sectionRef = useRef(null); // Ref to attach to the element
@@ -90,8 +91,8 @@ export default function WhichCourse() {
               style={{
                 display: test ? 'none' : 'unset',
                 position: "absolute",
-                bottom: xl || lg || md ? -55 : sm ? -35 : xs ? -30 : '',
-                translateX: xl || lg || md ? "5.6%" : sm ? spesificTabScreen ? "-5%" : "3%" : xs ? spesificSmallScreen ? "-39%" : spesifico ? "-37%" : '' : '',
+                bottom: xl || lg || md ? -55 : sm ? -25 : xs ? -30 : '',
+                translateX: xl || lg || md ? "5.6%" : sm ? spesificTabScreen ? "-5%" : "3%" : xs ? spesificSmallScreen ? "-39%" : spesific2 ? "-45%" : spesifico ? "-37%" : '' : '',
                 zIndex: 0,
                 width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "100%" : "100%",
                 height: xl ? "310px" : lg ? "310px" : md ? "300px" : sm ? "200px" : "50%",
@@ -265,8 +266,8 @@ export default function WhichCourse() {
               style={{
                 display: test ? 'none' : 'unset',
                 position: "absolute",
-                bottom: xl || lg || md ? -150 : sm ? -140 : -80,
-                translateX: xl || lg || md ? "10%" : sm ? spesificTabScreen ? "-4%" : "4%" : xs ? spesifico ? "-30%" : "-38%" : "",
+                bottom: xl || lg || md ? -150 : sm ? -130 : -80,
+                translateX: xl || lg || md ? "10%" : sm ? spesificTabScreen ? "-4%" : "4%" : xs ? spesificSmallScreen ? "-30%" : spesific2 ? "-38%" : spesifico ? "-30%" : "-38%" : "",
                 zIndex: 4,
                 width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "100%" : "100%",
                 height: xl ? "400px" : lg ? "400px" : md ? "400px" : sm ? "300px" : "55%",
@@ -288,6 +289,7 @@ export default function WhichCourse() {
           </Box>
         </Box>
       </motion.div>
+
     </>
   )
 }

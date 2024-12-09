@@ -23,13 +23,13 @@ export default function Academics({ setOpen }) {
         {
             id: 0,
             title: "Courses in English & Kurdish & Arabic",
-            description: "Lorem  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+            description: "Our courses are delivered in Kurdish, Arabic, and English, making it easy for you to learn in the language you’re most comfortable with. Whether it’s coding, designing, or networking, we ensure every lesson is clear, accessible, and tailored to your needs.",
             image: ['English', 'Kurdish', 'Arabic']
         },
         {
             id: 1,
             title: "Lifetime Access"
-            , description: "Get lifetime access to the resources and course materials, enabling you to keep learning and growing over time. ",
+            , description: "Get lifetime access to the resources and course materials, enabling you to keep learning and growing over time.",
             image: <LifeTime hoveredcardid={hoveredcardid} itemID={1} />
         },
         {
@@ -40,8 +40,8 @@ export default function Academics({ setOpen }) {
 
         },
         { id: 3, title: "Virtual Classroom course", description: "Make use of a platform that offers an engaging and dynamic educational experience at your convenience.", image: <ClassRoom hoveredcardid={hoveredcardid} itemID={3} /> },
-        { id: 4, title: "Online course", description: "Lorem  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.", image: <OnlineCourses hoveredcardid={hoveredcardid} itemID={4} /> },
-        { id: 5, title: "Bootcamp course", description: "Lorem  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.", image: <BootCamp hoveredcardid={hoveredcardid} itemID={5} /> },
+        { id: 4, title: "Online course", description: "Our pre-made courses deliver expert-designed content that’s practical, engaging, and ready to go. Perfect for individuals or teams, they fast-track skill-building with structured, interactive modules tailored to your goals. Learn smarter, not harder!", image: <OnlineCourses hoveredcardid={hoveredcardid} itemID={4} /> },
+        { id: 5, title: "Bootcamp course", description: "Our bootcamp courses in each field provide an intensive, hands-on learning experience. Guided by industry experts, you'll master essential skills through real-world projects and focused training. Perfect for those ready to level up quickly and confidently in their careers!", image: <BootCamp hoveredcardid={hoveredcardid} itemID={5} /> },
 
     ];
 
@@ -101,9 +101,8 @@ export default function Academics({ setOpen }) {
                 </Grid>
                 <WhichCourse />
                 <LetsProject
-                    text1={<>Got a Great Idea?<br /> Ready to Bring it to Life?</>}
-                    text2="Let’s make it happen"
-                    btnText="Let’s Talk business!"
+                    text1={<>Ready to kickstart your tech journey?</>}
+                    btnText="Start now!"
                     cardBg="#FA6423"
                     text1Color="#FFFFFF"
                     text2Color="#FFFFFF"

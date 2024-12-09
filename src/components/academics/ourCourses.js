@@ -90,7 +90,7 @@ export default function OurCourses({setEnroll}) {
     };
 
     const coursesData = [
-        { id: 0, title1: "Start Learning", title2: "Complex product design", description: "We offer clients our most sought-after service — complete product design cycle covering branding with logo design, UX research & analysis, UI design, and user testing.", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
+        { id: 0, title1: "Start Learning", title2: "Digital Design", description: "We offer clients our most sought-after service — complete product design cycle covering branding with logo design, UX research & analysis, UI design, and user testing.", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
         { id: 1, img: complexProject, bg: "#1CB786" },
         { id: 2, bg: "#9D89FC", img: Illustration },
         { id: 3, title1: "Start Learning", title2: "Software Development", description: "Software development specializations and courses focus on creating software, including tools, methodologies, programming languages, architecture, and testing, such as Agile development and Scala.", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
