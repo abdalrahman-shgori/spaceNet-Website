@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import hand from "../../assets/sectionsImages/academics/hand.svg"
-import back from "../../assets/sectionsImages/academics/HandTest.svg"
-import front from "../../assets/sectionsImages/academics/Front.svg"
+import back from "../../assets/sectionsImages/academics/first.svg"
+import front from "../../assets/sectionsImages/academics/second.svg"
+import firstMobile from "../../assets/sectionsImages/academics/firstMobile.svg"
+import secondMobile from "../../assets/sectionsImages/academics/secondMobile.svg"
 
 import hand2 from "../../assets/sectionsImages/academics/hand2.svg"
 import { motion } from "framer-motion"
@@ -20,10 +22,9 @@ export default function WhichCourse() {
   const xs = useMediaQuery(theme.breakpoints.only('xs'));
   const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
   const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
-  const spesificSmallScreen = useMediaQuery(theme.breakpoints.down("377"));
-  const spesificSmallScreen2 = useMediaQuery(theme.breakpoints.down("483"));
-  const spesificTabScreen = useMediaQuery(theme.breakpoints.down("765"));
-  const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down("345"));
+  const spesificTabScreen = useMediaQuery(theme.breakpoints.down("685"));
+  const spesifico = useMediaQuery(theme.breakpoints.down("600"));
+  const spesificSmallScreen = useMediaQuery(theme.breakpoints.down("380"));
 
   const sectionRef = useRef(null); // Ref to attach to the element
   const [inView, setInView] = useState(false); // State to track if the element is in view
@@ -56,7 +57,7 @@ export default function WhichCourse() {
   return (
     <>
       <motion.div className="root-container"
-                                      ref={sectionRef}
+        ref={sectionRef}
 
         style={{ background: "#051A2F", height: "100%" }}
         onViewportLeave={() => {
@@ -78,6 +79,39 @@ export default function WhichCourse() {
           >
             The power to
           </Typography>
+          <Box>
+            <motion.div
+              animate={cardAnimationStart === true ? { y: [200, 0], opacity: [0, 1] } : { opacity: 0 }}
+              transition={{
+                duration: cardAnimationStart ? 0.8 : 0.2,
+                ease: "linear",
+                delay: cardAnimationStart ? 0.5 : 0.1,
+              }}
+              style={{
+                display: test ? 'none' : 'unset',
+                position: "absolute",
+                bottom: xl || lg || md ? -55 : sm ? -35 : xs ? -30 : '',
+                translateX: xl || lg || md ? "5.6%" : sm ? spesificTabScreen ? "-5%" : "3%" : xs ? spesificSmallScreen ? "-39%" : spesifico ? "-37%" : '' : '',
+                zIndex: 0,
+                width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "100%" : "100%",
+                height: xl ? "310px" : lg ? "310px" : md ? "300px" : sm ? "200px" : "50%",
+              }}
+            >
+              <Box
+                component="img"
+                src={xl || lg || md || sm ? back : firstMobile}
+                sx={{
+                  overflow: "hidden",
+                  maxWidth: "1400px",
+                  width: "100%",
+                  height: "100%",
+
+                }}
+              >
+              </Box>
+
+            </motion.div>
+          </Box>
           <Grid container
             sx={{
               position: "relative",
@@ -108,24 +142,24 @@ export default function WhichCourse() {
               >
                 <motion.div
 
-                 animate={{
-                  y: inView ? [-300, 0] : [-300, -300], // Start animation when in view
-                  rotate: inView ? (test ? (xs ? item.rotateXs : "-4deg") : item.rotate) : item.rotate,
-                  opacity: inView ? [0, 1] : [0, 0], // Fade in when in view
-                }}
-                transition={{
-                  duration: 0.1,
-                  ease: "linear",
-                  delay: !test ? (index === 0 ? 0.8 : index * 2) : (index === 0 ? 0.1 : index * 0.2),
-                }}
-                onUpdate={({ y }) => {
-                  if (index === 4 && y === 0) {
-                    setCardAnimationStart(true);
-                  }
-                }}
-                style={{
-                  ...cardStyle(test, is15Inch, is14Inch, item, lg, md, sm, xs),
-                }}
+                  animate={{
+                    y: inView ? [-300, 0] : [-300, -300], // Start animation when in view
+                    rotate: inView ? (test ? (xs ? item.rotateXs : "-4deg") : item.rotate) : item.rotate,
+                    opacity: inView ? [0, 1] : [0, 0], // Fade in when in view
+                  }}
+                  transition={{
+                    duration: 0.1,
+                    ease: "linear",
+                    delay: !test ? (index === 0 ? 0.8 : index * 2) : (index === 0 ? 0.1 : index * 0.2),
+                  }}
+                  onUpdate={({ y }) => {
+                    if (index === 4 && y === 0) {
+                      setCardAnimationStart(true);
+                    }
+                  }}
+                  style={{
+                    ...cardStyle(test, is15Inch, is14Inch, item, lg, md, sm, xs),
+                  }}
                 >
                   <Box
                     sx={{
@@ -231,16 +265,16 @@ export default function WhichCourse() {
               style={{
                 display: test ? 'none' : 'unset',
                 position: "absolute",
-                bottom: -10,
-               translateX:xl || lg || md || sm ? "10%" : "-10%",
-                zIndex: 0,
-                width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "60%" : "50%",
-                height: xl ? "300px" : lg ? "300px" : md ? "300px" : sm ? "250px" : "300px",
+                bottom: xl || lg || md ? -150 : sm ? -140 : -80,
+                translateX: xl || lg || md ? "10%" : sm ? spesificTabScreen ? "-4%" : "4%" : xs ? spesifico ? "-30%" : "-38%" : "",
+                zIndex: 4,
+                width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "100%" : "100%",
+                height: xl ? "400px" : lg ? "400px" : md ? "400px" : sm ? "300px" : "55%",
               }}
             >
               <Box
                 component="img"
-                src={xl || lg || md || sm ? hand : hand2}
+                src={xl || lg || md || sm ? front : secondMobile}
                 sx={{
                   overflow: "hidden",
                   maxWidth: "1400px",
@@ -249,7 +283,7 @@ export default function WhichCourse() {
                 }}
               >
               </Box>
-              
+
             </motion.div>
           </Box>
         </Box>
