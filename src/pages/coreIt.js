@@ -1,12 +1,7 @@
 
 import React, { useEffect, useState } from "react";
-import BusinessGoals from "../components/softwareSection/businessGoals";
-import { Grid } from "@mui/material";
-import ContactUsBtn from "../components/softwareSection/contactUsBtn";
+import { Grid, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
-import WhatWeDo from "../components/whatweDo/whatWeDo";
-import SectionDescription from "../components/sectionDescription";
-import LayoutCards from "../components/layoutCards";
 import FrontEndSvg from "../assets/sectionsImages/frontEndImage";
 import BackEndSvg from "../assets/sectionsImages/backendImage";
 import FullStackSvg from "../assets/sectionsImages/fullstack";
@@ -14,11 +9,11 @@ import LowCodeSvg from "../assets/sectionsImages/lowcode";
 import CloudDevelopmentSvg from "../assets/sectionsImages/clouddevelopment";
 import { subServices } from "../services/websiteApis/services";
 import { motion } from "framer-motion"
-import OurTechnologies from "../components/softwareSection/Our technologies Section/ourTechnology";
 import LetsProject from "../components/letsProject";
 import SpaceNetLayout from "../components/spaceNetLayout";
 import { ServiceCategories } from "../services/websiteApis/serviceCategories";
 import { Helmet } from "react-helmet";
+import CoreItSection1 from "../components/coreIt/coreIt";
 
 const serviceTypesMock = [
     "Website Development",
@@ -111,8 +106,24 @@ export default function CoreIt({ setOpen }) {
                         },
                     }}
                 >
-                 
+                    <Typography
+                    sx={{
+                        fontSize:{
+                            lg:"104px",
+                            md:"80px",
+                            sm:"60px",
+                            xs:"35px"
+                        },
+                        textAlign:"center",
+                        fontFamily:"var(--English-font)"
+                    }}
+                    >
+                        CORE-IT
+                    </Typography>
+
                 </Grid>
+                <CoreItSection1/>
+
                 <LetsProject
                     text1={<>IT Management</>}
                     text2="Managed network infostructure, Monitoring, Optimizing(Performance tuning) , Security management, Monitoring, Detection, Response system & Infrastructure management, Backup services management."

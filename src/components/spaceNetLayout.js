@@ -15,7 +15,7 @@ const SpaceNetLayout = ({setOpen}) => {
 
   const servicesLinks = [
     { name: 'Academics', href: '/academics' },
-    { name: 'Internet', href: '/core-it' },
+    { name: 'Core It', href: '/core-it' },
     { name: 'Software', href: '/software' },
     { name: 'Design & Branding', href: '/design-branding' }
   ];
