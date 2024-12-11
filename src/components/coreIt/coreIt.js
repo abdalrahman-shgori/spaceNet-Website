@@ -104,7 +104,7 @@ const FallingItems = () => {
         const { width, height } = getBoxDimensions(label);
         const padding = getPadding();
         const fallingAreaWidth = getFallingAreaWidth();
-        const areaStartX = (canvas.width - fallingAreaWidth) / 2 + padding; // Start of falling area
+        const areaStartX = (canvas.width - fallingAreaWidth - 600); // Start of falling area
         const areaEndX = (canvas.width + fallingAreaWidth) / 2 - padding; // End of falling area
         const xMin = areaStartX + width / 2;
         const xMax = areaEndX - width / 2;
