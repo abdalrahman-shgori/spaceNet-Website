@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useCallback, useState } from "react";
 import Matter from "matter-js";
 import { useTheme } from "@mui/material";
-
+import './coreit.css'
 const FallingItems = () => {
   const canvasRef = useRef(null);
   const intervalRef = useRef(null);
@@ -39,7 +39,7 @@ const FallingItems = () => {
   };
 
   const setCanvasSize = useCallback((canvas) => {
-    canvas.width = window.innerWidth;
+    canvas.width = window.innerWidth ;
 
     if (window.innerWidth < 768) {
       canvas.height = window.innerHeight - 300;
@@ -62,7 +62,7 @@ const FallingItems = () => {
 
   const getFontSize = () => {
     if (window.innerWidth < 768) {
-      return "14px Arial";
+      return "20px Arial";
     } else {
       return "42px Arial";
     }
@@ -215,7 +215,7 @@ const FallingItems = () => {
 
   return (
     <div style={{ overflowX: "hidden" }}>
-      <canvas style={{ overflowY: "scroll" }} ref={canvasRef} />
+      <canvas  ref={canvasRef} />
     </div>
   );
 };
