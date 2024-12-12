@@ -44,12 +44,11 @@ const FallingItems = () => {
     if (window.innerWidth < 768) {
       canvas.height = window.innerHeight - 300;
     }
-    else if (window.innerHeight < 600) {
-      canvas.height = 500;
-
-    }
     else {
       canvas.height = window.innerHeight - 280;
+    }
+    if (window.innerHeight < 650) {
+      canvas.height = 500;
     }
   }, []);
 
