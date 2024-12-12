@@ -27,7 +27,7 @@ const NavBar = ({
         { text: 'Home', route: '/' },
         { text: 'SERVICES', route: '/services' },
         // { text: 'MARKETPLACE', route: '/marketplace' },
-        { text: 'BLOG & NEWS', route: '/blog' },
+        // { text: 'BLOG & NEWS', route: '/blog' },
         { text: 'CONTACT US'},
     ];
     const socialMedia = [

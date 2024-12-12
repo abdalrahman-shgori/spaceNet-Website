@@ -243,6 +243,7 @@ export default function DesignAndBranding({setOpen}) {
                     cardBg="#1CB786"
                     text1Color="#FFFFFF"
                     text2Color="#FFFFFF"
+                    setOpen={setOpen}
                 />
                 <SpaceNetLayout setOpen={setOpen}/>
             </motion.div>

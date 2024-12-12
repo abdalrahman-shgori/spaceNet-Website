@@ -3,8 +3,12 @@ import { Button, Grid } from "@mui/material";
 export default function DevelopBtn({
     SkillsType,
     skills,
-    start
+    start,
+    setOpen
 }) {
+    const handleOpenContactUS=()=>{
+        setOpen(true)
+    }
 
     return (
         <>
@@ -53,7 +57,7 @@ export default function DevelopBtn({
                     transition: "all 0.5s"
                 }}
             >
-                <Grid
+                {/* <Grid
                     sx={{
                         display: {
                             lg: "flex",
@@ -83,6 +87,8 @@ export default function DevelopBtn({
                                 sm: "16px",
                                 xs: "17px"
                             },
+                            cursor:"pointer !important",
+                            zIndex:99999
 
                         }}
                     >
@@ -105,7 +111,7 @@ export default function DevelopBtn({
                     >
                         Register Now
                     </Button>
-                </Grid>
+                </Grid> */}
             </Grid>
 
 

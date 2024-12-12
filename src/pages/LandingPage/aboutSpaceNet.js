@@ -8,6 +8,8 @@ import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogoAbout.svg";
 import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
 import { motion } from "framer-motion";
 import learnMoreArrow from "../../assets/images/learnMoreArrow.svg"
+import learnMoreArrowBlack from "../../assets/images/learnMoreArrowBlack.svg"
+
 import './about.css';
 import { useNavigate } from "react-router-dom";
 
@@ -458,7 +460,7 @@ export default function AboutSpaceNet({
                 </Grid>
                 {(hoveredService !== '' && hoveredService !== 'ABOUT') && (
   <motion.div
-    key={hoveredService}  // This ensures the animation restarts on hover
+    key={hoveredService}  
     animate={{ opacity: [0, 1] }}
     transition={{ duration: 0.5,delay:0.5 }}
   >
@@ -466,7 +468,12 @@ export default function AboutSpaceNet({
       onClick={handlelearnMoreBtn}
       component="button"
       sx={{
-        background: "#051A2F",
+        background:
+        hoveredService=== "ACADEMICS" ? "#FF9F31;" :
+        hoveredService === 'CORE IT' ? "#E9FA50" : 
+        hoveredService === 'SOFTWARE' ? theme.palette.mode === 'light' ? "#051A2F" : "#9D89FC" : 
+        hoveredService === 'DIGITAL DESIGN' ? "#1CB786" : "#E9FA50" ,
+       
         border: "unset",
         padding: "8px 18px 8px 18px",
         borderRadius: "116px",
@@ -485,21 +492,17 @@ export default function AboutSpaceNet({
         sx={{
           fontSize: "14px",
           fontFamily: "var(--English-font)",
-          color: "#FFF",
+          color:hoveredService === 'CORE IT' ? "#000" : "#FFF",
         }}
       >
         learn more
       </Typography>
-      <Box component="img" src={learnMoreArrow} />
+      <Box component="img" src={hoveredService === "CORE IT" ? learnMoreArrowBlack : learnMoreArrow} />
     </Box>
   </motion.div>
 )}
-
-
-              
-              
-               
             </Grid>
         </>
     );
 }
+

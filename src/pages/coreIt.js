@@ -39,8 +39,8 @@ export default function CoreIt({ setOpen }) {
     const technologiesDataImage = [
         { id: 0, image: <NetworkSolution hoveredcardid={hoveredcardid} itemID={5} /> },
         { id: 1, image: <Security hoveredcardid={hoveredcardid} itemID={6} /> },
-        { id: 2, image: <ServicesSvg hoveredcardid={hoveredcardid} itemID={7} /> },
-        { id: 3, image: <SystemSvg hoveredcardid={hoveredcardid} itemID={8} /> },
+        { id: 2, image: <SystemSvg hoveredcardid={hoveredcardid} itemID={7} /> },
+        { id: 3, image: <ServicesSvg hoveredcardid={hoveredcardid} itemID={8} /> },
 
     ];
     const technologiesData = [
@@ -87,8 +87,8 @@ export default function CoreIt({ setOpen }) {
                 <Grid className="root-container"
                     sx={{
                         padding: {
-                            lg: "50px 75px 0 75px",
-                            md: "50px 75px 0 75px",
+                            lg: "75px 75px 0 75px",
+                            md: "75px 75px 0 75px",
                             sm: "100px 20px 0 20px",
                             xs: "100px 20px 0 20px",
                         },
@@ -97,16 +97,16 @@ export default function CoreIt({ setOpen }) {
                     <Typography
                         sx={{
                             fontSize: {
-                                lg: "70px",
-                                md: "70px",
-                                sm: "60px",
-                                xs: "35px"
+                                lg: "53px",
+                                md: "53px",
+                                sm: "40px",
+                                xs: "30px"
                             },
                             textAlign: "center",
                             fontFamily: "var(--English-font)"
                         }}
                     >
-                        CORE-IT
+                        Make Use Of Our Tailored Solutions
                     </Typography>
 
                 </Grid>
@@ -151,7 +151,7 @@ export default function CoreIt({ setOpen }) {
                     }}
                 >
                     <SectionDescription
-                        text1="Design & Deployment & Consultancy"
+                        text1=" What We Design, Deploy & Manage"
                         top="80px"
                     />
                     <LayoutCards
@@ -165,10 +165,11 @@ export default function CoreIt({ setOpen }) {
                 <LetsProject
                     text1={<>Want to Build or Rebuild your IT Infrastructure?</>}
                     text2="Schedule a free Consultation!"
-                    btnText="Contact Us"
+                    btnText="Let’s Talk!"
                     cardBg="#E9FA50"
                     text1Color="#051A2F"
                     text2Color="#051A2F"
+                    setOpen={setOpen}
                 />
                 <SpaceNetLayout setOpen={setOpen} />
             </motion.div>

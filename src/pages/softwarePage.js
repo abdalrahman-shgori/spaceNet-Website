@@ -153,6 +153,7 @@ export default function SoftwareSection({ setOpen }) {
                     cardBg="#9D89FC"
                     text1Color="#051A2F"
                     text2Color="#051A2F"
+                    setOpen={setOpen}
                 />
                 <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
