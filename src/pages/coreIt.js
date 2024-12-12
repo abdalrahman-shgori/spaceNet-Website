@@ -89,8 +89,8 @@ export default function CoreIt({ setOpen }) {
                         padding: {
                             lg: "75px 75px 0 75px",
                             md: "75px 75px 0 75px",
-                            sm: "100px 20px 0 20px",
-                            xs: "100px 20px 0 20px",
+                            sm: "75px 20px 0 20px",
+                            xs: "75px 20px 0 20px",
                         },
                     }}
                 >
