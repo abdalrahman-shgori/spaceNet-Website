@@ -6,7 +6,7 @@ import softwareGradiant from "../../assets/sectionsImages/academics/softwareGrad
 import networkGradiant from "../../assets/sectionsImages/academics/netwrokGradiant.svg"
 import DevelopBtn from "./developSkillsBtn";
 
-export default function DevelopSkills(setOpen) {
+export default function DevelopSkills({ setOpen, setEnroll }) {
     const [start, setStart] = useState(false)
     const theme = useTheme()
     const extraSmallScreen = useMediaQuery(theme.breakpoints.down("348"))
@@ -83,6 +83,13 @@ export default function DevelopSkills(setOpen) {
 
 
     }
+    const handleOpenContactUS = () => {
+        setOpen(true)
+    }
+    const handleOpenRegister = () => {
+        setEnroll(true)
+    }
+
     return (
         <>
             <Grid>
@@ -105,7 +112,7 @@ export default function DevelopSkills(setOpen) {
                                 sm: "450px",
                                 xs: "calc(100% - 60px)"
                             },
-                            minWidth:{
+                            minWidth: {
                                 lg: "645px",
                                 md: "614px",
                                 sm: "450px",
@@ -290,69 +297,71 @@ export default function DevelopSkills(setOpen) {
                                 </Typography>
                             </motion.div>
                         </Box>
-                        
+
                         <DevelopBtn SkillsType={SkillsType} skills={skills} start={start} setOpen={setOpen} />
                         <Grid
-                    sx={{
-                        display: {
-                            lg: "flex",
-                            md: "flex",
-                            sm: "flex",
-                            xs: "none"
-                        },
-                        whiteSpace:"nowrap",
-                        gap: "9px",
-                        position: "absolute",
-                        bottom: {
-                            lg: -80,
-                            md: -80,
-                            sm: -70
-                        },
-                        left:{
-                            lg:180,
-                            md:210,
-                            sm:95
-                        }
-                    }}
-                >
-                    <Button
-                        sx={{
-                            background: "#FA6423",
-                            borderRadius: "50px",
-                            color: "#FFFFFF",
-                            padding: "13px 33px 13px 33px",
-                            fontFamily: "var(--English-font)",
-                            fontSize: {
-                                lg: "18.5px",
-                                sm: "18.5px",
-                                sm: "14px",
-                                xs: "17px"
-                            },
-                            cursor:"pointer !important",
-                            zIndex:99999
+                            sx={{
+                                display: {
+                                    lg: "flex",
+                                    md: "flex",
+                                    sm: "flex",
+                                    xs: "none"
+                                },
+                                whiteSpace: "nowrap",
+                                gap: "9px",
+                                position: "absolute",
+                                bottom: {
+                                    lg: -80,
+                                    md: -80,
+                                    sm: -70
+                                },
+                                left: {
+                                    lg: 180,
+                                    md: 210,
+                                    sm: 95
+                                }
+                            }}
+                        >
+                            <Button
+                                onClick={handleOpenContactUS}
+                                sx={{
+                                    background: "#FA6423",
+                                    borderRadius: "50px",
+                                    color: "#FFFFFF",
+                                    padding: "13px 33px 13px 33px",
+                                    fontFamily: "var(--English-font)",
+                                    fontSize: {
+                                        lg: "18.5px",
+                                        sm: "18.5px",
+                                        sm: "14px",
+                                        xs: "17px"
+                                    },
+                                    cursor: "pointer !important",
+                                    zIndex: 99999
 
-                        }}
-                    >
-                        Get Start Now
-                    </Button>
-                    <Button
-                        sx={{
-                            background: "#FFFFFF",
-                            borderRadius: "50px",
-                            color: "#000000",
-                            padding: "13px 33px 13px 33px",
-                            fontSize: {
-                                lg: "18.5px",
-                                sm: "18.5px",
-                                sm: "14px",
-                                xs: "17px"
-                            },
-                            fontFamily: "var(--English-font)",
-                        }}
-                    >
-                        Register Now
-                    </Button>
-                </Grid>
+                                }}
+                            >
+                                Get Start Now
+                            </Button>
+                            <Button
+                                onClick={handleOpenRegister}
+                                sx={{
+                                    background: "#FFFFFF",
+                                    borderRadius: "50px",
+                                    color: "#000000",
+                                    padding: "13px 33px 13px 33px",
+                                    fontSize: {
+                                        lg: "18.5px",
+                                        sm: "18.5px",
+                                        sm: "14px",
+                                        xs: "17px"
+                                    },
+                                    fontFamily: "var(--English-font)",
+                                }}
+                            >
+                                Register Now
+                            </Button>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
@@ -388,7 +397,7 @@ export default function DevelopSkills(setOpen) {
                         color: "#FFFFFF",
                         padding: "13px 33px 13px 33px",
                         marginTop: "27px",
-                        
+
                     }}
                 >
                     Register Now

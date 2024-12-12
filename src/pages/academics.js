@@ -78,7 +78,7 @@ export default function Academics({ setOpen }) {
                     <DevelopSkillsText
                         text="Develop your skills in "
                     />
-                    <DevelopSkills setOpen={setOpen}/>
+                    <DevelopSkills setOpen={setOpen} setEnroll={setEnroll}/>
                     <SectionDescription
                         text1="What We Teach"
                         text2="Explore Our Courses Now and Choose What You Need"

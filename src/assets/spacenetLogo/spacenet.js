@@ -1,11 +1,15 @@
 import { useTheme } from "@mui/material";
 import * as React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SvgSpaceNetLogo = (props) => {
   const theme = useTheme();
   const location = useLocation()
   const { pathname } = location
+  const navigate = useNavigate()
+  const backToHomePage = () => {
+    navigate('/')
+  }
   return (
     <>
       <style>
@@ -52,9 +56,10 @@ const SvgSpaceNetLogo = (props) => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 879 128"
-        style={{ width: '32%', height: 'auto' }}
+        style={{ width: '32%', height: 'auto', cursor: "pointer" }}
         fill="none"
         {...props}
+        onClick={backToHomePage}
       >
         <path
           className="fill"

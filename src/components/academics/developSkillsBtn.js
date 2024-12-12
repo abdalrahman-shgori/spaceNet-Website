@@ -6,10 +6,7 @@ export default function DevelopBtn({
     start,
     setOpen
 }) {
-    const handleOpenContactUS=()=>{
-        setOpen(true)
-    }
-
+    
     return (
         <>
 
