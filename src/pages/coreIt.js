@@ -44,10 +44,10 @@ export default function CoreIt({ setOpen }) {
 
     ];
     const technologiesData = [
-        { id: 0, title: "Network Solutions", description: "Network architecture planing, Network expansion and scalability planning, Installation and configuration of router, Switches, Fiber optics." },
-        { id: 1, title: "Security Solutions", description: "Firewall setup and advanced configuration implementation of endpoint protection solutions." },
-        { id: 2, title: "System & Infrastructure", description: "Lorem We can develop the product's surface layer by using the most widely used frontend frameworks, such as Angular, Vue, and React.We can develop the product's surface layer by using the most widely used frontend frameworks, such as Angular, Vue, and React." },
-        { id: 3, title: "Consultancy Services", description: "Lorem We can develop the product's surface layer by using the most widely used frontend frameworks, such as Angular, Vue, and React.We can develop the product's surface layer by using the most widely used frontend frameworks, such as Angular, Vue, and React." },
+        { id: 0, title: "Network Solutions", description: "We Offer Network architecture planning, Network expansion and scalability planning, Installation and configuration of routers, Switches, Fiber optics." },
+        { id: 1, title: "Security Solutions", description: "Our security solutions are designed to protect your business with comprehensive, multi-layered defense strategies. From robust system design to secure deployment and continuous monitoring, we safeguard your data, networks, and infrastructure against evolving threats. With a focus on cybersecurity, compliance, and risk management, we ensure your business stays secure, resilient, and prepared for the future." },
+        { id: 2, title: "System & Infrastructure", description: "Our system and infrastructure solutions deliver tailored designs, efficient deployment, and proactive management to ensure your IT foundation is scalable, secure, and optimized for seamless operations and growth." },
+        { id: 3, title: "Consultancy Services", description: "We also offer free consultancy services for all solutions and processes, helping you build or rebuild your IT infrastructure with expert guidance tailored to your needs." },
 
     ];
 
@@ -131,7 +131,7 @@ export default function CoreIt({ setOpen }) {
                 >
 
                     <SectionDescription
-                        text1="What we are doing"
+                        text1="What We Do"
                         academicsSection="first"
                         top="0px"
 
@@ -163,9 +163,9 @@ export default function CoreIt({ setOpen }) {
                 </Box>
 
                 <LetsProject
-                    text1={<>IT Management</>}
-                    text2="Managed network infostructure, Monitoring, Optimizing(Performance tuning) , Security management, Monitoring, Detection, Response system & Infrastructure management, Backup services management."
-                    btnText="Let’s Talk business!"
+                    text1={<>Want to Build or Rebuild your IT Infrastructure?</>}
+                    text2="Schedule a free Consultation!"
+                    btnText="Contact Us"
                     cardBg="#E9FA50"
                     text1Color="#051A2F"
                     text2Color="#051A2F"

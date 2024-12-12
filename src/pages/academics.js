@@ -102,7 +102,8 @@ export default function Academics({ setOpen }) {
                 <WhichCourse />
                 <LetsProject
                     text1={<>Ready to kickstart your tech journey?</>}
-                    btnText="Start now!"
+                    // text2="A SpacenNet technology company can help you improve your idea and turn it into reality if you're facing a challenge"
+                    // btnText="Contact Us"
                     cardBg="#FA6423"
                     text1Color="#FFFFFF"
                     text2Color="#FFFFFF"

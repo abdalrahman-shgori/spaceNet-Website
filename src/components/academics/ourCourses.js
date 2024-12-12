@@ -96,18 +96,18 @@ export default function OurCourses({setEnroll}) {
     };
 
     const coursesData = location.pathname === '/core-it' ? [
-        { id: 0, title1: "", title2: "Design", description: "Lorem We offer clients our most sought-after service — complete product design cycle covering branding with logo design, UX research & analysis, UI design, and user testing.", bg: "#F4F4F4", img: undefined },
+        { id: 0, title1: "", title2: "Design", description: "Our design process begins with understanding your goals and assessing your current setup. We then create tailored blueprints focused on scalability, efficiency, and security, ensuring a strong foundation for seamless deployment and long-term success.", bg: "#F4F4F4", img: undefined },
         { id: 1, img:  designImg, bg: "#E9FA50" },
         { id: 2, bg: "#FA6423", img: deployment  },
-        { id: 3,  title2: "Deployment", description: "Lorem Software development specializations and courses focus on creating software, including tools, methodologies, programming languages, architecture, and testing, such as Agile development and Scala.", btnText: "Enroll Now!", bg: "#F4F4F4", img: undefined },
-        { id: 4,  title2: "Consultancy", description: "Lorem We offer clients our most sought-after service — complete product design cycle covering branding with logo design, UX research & analysis, UI design, and user testing.", btnText: "Enroll Now!", bg: "#F4F4F4", img: undefined },
+        { id: 3,  title2: "Deployment", description: "Our deployment process brings your solutions to life with precision and efficiency. We implement the designed systems seamlessly, minimizing disruptions and ensuring a smooth transition. With expert execution and attention to detail, we deliver scalable, secure, and fully functional solutions ready to drive your success.", btnText: "Enroll Now!", bg: "#F4F4F4", img: undefined },
+        { id: 4,  title2: "Management", description: "Our management and monitoring process ensures your systems run smoothly and securely. We provide ongoing support, proactive monitoring, and regular maintenance to optimize performance and address issues before they arise. With us, your solutions stay reliable, efficient, and ready to grow with your business.", btnText: "Enroll Now!", bg: "#F4F4F4", img: undefined },
         { id: 5, bg: "#1CB786", img: Consultancy }
     ] : [
-        { id: 0, title1: "Start Learning", title2: "Digital Design", description: "We offer clients our most sought-after service — complete product design cycle covering branding with logo design, UX research & analysis, UI design, and user testing.", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
+        { id: 0, title1: "Start Learning", title2: "Digital Design", description: "Dive into digital design with our courses in graphics, UI/UX, product design, and branding. Learn from experts, work on real-world projects, and turn your creativity into career success. Start designing today!", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
         { id: 1, img: complexProject, bg: "#1CB786" },
         { id: 2, bg: "#9D89FC", img: Illustration },
-        { id: 3, title1: "Start Learning", title2: "Software Development", description: "Software development specializations and courses focus on creating software, including tools, methodologies, programming languages, architecture, and testing, such as Agile development and Scala.", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
-        { id: 4, title1: "Start Learning", title2: "Network", description: "Lorem We offer clients our most sought-after service — complete product design cycle covering branding with logo design, UX research & analysis, UI design, and user testing.", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
+        { id: 3, title1: "Start Learning", title2: "Software Development", description: "Launch your tech career with our software development and IT courses. Learn coding, app development, and IT management through hands-on projects and expert guidance. Build your skills and start innovating today!", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
+        { id: 4, title1: "Start Learning", title2: "Network", description: "Build your future in tech with our networking courses. Learn to design, manage, and secure networks with hands-on training and expert guidance. Gain the skills to connect the world—start today!", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
         { id: 5, bg: "#E9FA50", img: Network }
     ];
     
