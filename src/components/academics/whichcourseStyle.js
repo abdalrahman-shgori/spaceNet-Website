@@ -1,102 +1,102 @@
-export const powerOf =[
-    
-        {
-          id: 0,
-          title: 'Achieve expert software development skills.',
-          bg: "#9D89FC",
-          rotate: "-28deg",
-          rotateXs: "6deg"
-        },
-        {
-          id: 1,
-          title: 'Create stunning digital designs.',
-          bg: "#1CB786",
-          rotate: "-20.76deg"
-          ,
-          rotateXs: "-6deg"
-        },
-        {
-          id: 2,
-          title: 'Build secure networking infrastructures.',
-          bg: "#F4F4F4",
-          rotate: "-15.73deg"
-          ,
-          rotateXs: "6deg"
-        },
-        {
-          id: 3,
-          title: 'Innovate with real-world coding expertise.',
-          bg: "#E9FA50",
-          rotate: "-10.57deg"
-          ,
-          rotateXs: "-6deg"
-        },
-        {
-          id: 4,
-          title: 'Elevate yourself in any area of technology.',
-          bg: "#FA6423",
-          rotate: "-2.7deg"
-          ,
-          rotateXs: "6deg"
-    
-        },
-      ]
+export const powerOf = [
+
+  {
+    id: 0,
+    title: 'Achieve expert software development skills.',
+    bg: "#9D89FC",
+    rotate: "-28deg",
+    rotateXs: "6deg"
+  },
+  {
+    id: 1,
+    title: 'Create stunning digital designs.',
+    bg: "#1CB786",
+    rotate: "-20.76deg"
+    ,
+    rotateXs: "-6deg"
+  },
+  {
+    id: 2,
+    title: 'Build secure networking infrastructures.',
+    bg: "#F4F4F4",
+    rotate: "-15.73deg"
+    ,
+    rotateXs: "6deg"
+  },
+  {
+    id: 3,
+    title: 'Innovate with real-world coding expertise.',
+    bg: "#E9FA50",
+    rotate: "-10.57deg"
+    ,
+    rotateXs: "-6deg"
+  },
+  {
+    id: 4,
+    title: 'Elevate yourself in any area of technology.',
+    bg: "#FA6423",
+    rotate: "-2.7deg"
+    ,
+    rotateXs: "6deg"
+
+  },
+]
 
 
-export const pageStyle =(test) => ({
-    position: "relative",
-    cursor:"pointer",
-    padding: {
-      lg: "82px 56px 48px 56px",
-      md: "82px 20px 48px 20px",
-      sm: "82px 20px 25px 20px",
-      xs: test ? "70px 20px 20px 20px" : "70px 20px 116px 20px"
-    },
+export const pageStyle = (test) => ({
+  position: "relative",
+  cursor: "pointer",
+  padding: {
+    lg: "82px 56px 48px 56px",
+    md: "82px 20px 48px 20px",
+    sm: "82px 20px 25px 20px",
+    xs: test ? "70px 20px 20px 20px" : "70px 20px 116px 20px"
+  },
 
-    gap: {
-      lg: "214px",
-      md: "214px",
-      sm: "19px",
-      xs: "193px"
-    },
-    marginTop: {
-      lg: "100px",
-      md: "100px",
-      sm: "70px",
-      xs: "70px"
-    },
-    maxWidth: "1440px",
-    margin: "0 auto",
+  gap: {
+    lg: "214px",
+    md: "214px",
+    sm: "19px",
+    xs: "193px"
+  },
+  marginTop: {
+    lg: "100px",
+    md: "100px",
+    sm: "70px",
+    xs: "70px"
+  },
+  maxWidth: "1440px",
+  margin: "0 auto",
 })
 
 
-export const textStyle =(test) => ({
-    fontSize: {
-        lg: "62px",
-        md: "62px",
-        sm: "30px",
-        xs: "30px"
-      },
-      color: "#FFFFFF",
-      maxWidth: {
-        lg: "885px",
-        md: "885px",
-        sm: "329px",
-        xs: "329px"
-      },
-      width: "100%",
-  
-      lineHeight: {
-        lg: "75px",
-        md: "75px",
-        sm: "35px",
-        xs: "35px"
-      },
-      fontFamily: "var(--English-font-semibold)"
-  
+export const textStyle = (test) => ({
+  fontSize: {
+    lg: "62px",
+    md: "62px",
+    sm: "30px",
+    xs: "30px"
+  },
+  color: "#FFFFFF",
+  maxWidth: {
+    lg: "885px",
+    md: "885px",
+    sm: "329px",
+    xs: "329px"
+  },
+  width: "100%",
+
+  lineHeight: {
+    lg: "75px",
+    md: "75px",
+    sm: "35px",
+    xs: "35px"
+  },
+  fontFamily: "var(--English-font-semibold)"
+
 })
 
-export const bracketStyle=(test,index)=>({
+export const bracketStyle = (test, index) => ({
   position: "absolute",
   top: {
     xl: test ? 20 : 30,
@@ -123,7 +123,7 @@ export const bracketStyle=(test,index)=>({
 
 })
 
-export const cardTitle =(test,index) =>({
+export const cardTitle = (test, index) => ({
   fontSize: {
     xl: test ? "31px" : "30px",
     lg: test ? "23.32px" : "30px",
@@ -159,7 +159,7 @@ export const cardTitle =(test,index) =>({
   maxHeight: "140px"
 })
 
-export const cardStyle=(
+export const cardStyle = (
   test,
   is15Inch,
   is14Inch,
@@ -168,7 +168,7 @@ export const cardStyle=(
   md,
   sm,
   xs
-)=>({
+) => ({
   background: item.bg,
   maxWidth:
     lg ? is14Inch ? "340px" : is15Inch ? "350px" : test ? "301px" : "384px" :
@@ -187,7 +187,7 @@ export const cardStyle=(
     md ? "300px" :
       sm ? test ? "300px" : "300px" :
         xs ? test ? "220px" : "220px" :
-          "384px" ,
+          "384px",
   height: "100%",
   display: "flex",
   justifyContent: "center",
@@ -196,7 +196,7 @@ export const cardStyle=(
   transform: `rotate(${item.rotate})`,
 })
 
-export const cardStyle2=(test,index)=>({
+export const cardStyle2 = (test, index) => ({
   position: test ? "relative" : "absolute",
   zIndex: 2,
   justifyContent: test ?

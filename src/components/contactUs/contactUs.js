@@ -89,7 +89,7 @@ const textFieldStyle = {
         },
         '& .MuiInputBase-input': {
             color: '#29547E',
-          },
+        },
     },
 }
 export default function BasicModal({ setOpen, open }) {
@@ -295,42 +295,42 @@ export default function BasicModal({ setOpen, open }) {
                                             }}
                                         >
                                             {contactUsWays.map((item, index) => (
-                                                    <Box
+                                                <Box
                                                     key={index}
-                                                        sx={{
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            gap: {
-                                                                lg: "9px",
-                                                                md: "9px",
-                                                                sm: "7px",
-                                                                xs: "7px"
-                                                            },
-                                                            marginTop: {
-                                                                lg: index === 1 ? "9px" : index === 2 && "1px",
-                                                                md: index === 1 ? "9px" : index === 2 && "1px",
-                                                                sm: index === 1 ? "7px" : index === 2 && "5px",
-                                                                xs: index === 1 ? "7px" : index === 2 && "5px"
-                                                            }
+                                                    sx={{
+                                                        display: "flex",
+                                                        alignItems: "center",
+                                                        gap: {
+                                                            lg: "9px",
+                                                            md: "9px",
+                                                            sm: "7px",
+                                                            xs: "7px"
+                                                        },
+                                                        marginTop: {
+                                                            lg: index === 1 ? "9px" : index === 2 && "1px",
+                                                            md: index === 1 ? "9px" : index === 2 && "1px",
+                                                            sm: index === 1 ? "7px" : index === 2 && "5px",
+                                                            xs: index === 1 ? "7px" : index === 2 && "5px"
+                                                        }
 
+                                                    }}
+                                                >
+                                                    <img src={item.img} />
+                                                    <Typography
+                                                        sx={{
+                                                            fontSize: {
+                                                                lg: "19px",
+                                                                md: "19px",
+                                                                sm: "15px",
+                                                                xs: "15px"
+                                                            },
+                                                            fontFamily: "var(--English-font)",
+                                                            color: "#FFFFFF"
                                                         }}
                                                     >
-                                                        <img src={item.img} />
-                                                        <Typography
-                                                            sx={{
-                                                                fontSize: {
-                                                                    lg: "19px",
-                                                                    md: "19px",
-                                                                    sm: "15px",
-                                                                    xs: "15px"
-                                                                },
-                                                                fontFamily: "var(--English-font)",
-                                                                color: "#FFFFFF"
-                                                            }}
-                                                        >
-                                                            {item.title}
-                                                        </Typography>
-                                                    </Box>
+                                                        {item.title}
+                                                    </Typography>
+                                                </Box>
                                             ))}
                                         </Box>
                                         <Box
@@ -488,7 +488,6 @@ export default function BasicModal({ setOpen, open }) {
                                                     Submit Now
                                                 </Button>
                                             </Box>
-
                                         </Box>
                                     </Grid>
                                 </Grid>

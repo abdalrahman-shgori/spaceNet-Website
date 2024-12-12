@@ -127,7 +127,7 @@ export default function Toggle({ drawerOpen, setThemeColor, themeColor,open }) {
                             {theme.palette.mode === 'dark' ? 'Dark' : 'Light'}
                         </Typography>
 
-                        {ballVisible && ( // Only render the ball if visible
+                        {ballVisible && (
 
                             <Box
                                 sx={{

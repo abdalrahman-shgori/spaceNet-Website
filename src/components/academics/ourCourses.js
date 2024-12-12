@@ -1,10 +1,16 @@
 import { Box, Grid, Typography, Button } from "@mui/material";
 import React from "react";
+import deployment from "../../assets/sectionsImages/coteIt/deployment.svg";
+import Consultancy from "../../assets/sectionsImages/coteIt/Consultancy.svg";
+import designImg from "../../assets/sectionsImages/coteIt/designImg.svg";
 import Illustration from "../../assets/sectionsImages/academics/Illustration.svg";
 import Network from "../../assets/sectionsImages/academics/network.svg";
 import complexProject from "../../assets/sectionsImages/academics/complexProject.svg";
 import { motion } from "framer-motion"
+import { useLocation } from "react-router-dom";
+import SectionDescription from "../sectionDescription";
 export default function OurCourses({setEnroll}) {
+    const location =useLocation()
     const text1Style = {
         fontSize: {
             lg: "14px",
@@ -89,17 +95,28 @@ export default function OurCourses({setEnroll}) {
 
     };
 
-    const coursesData = [
+    const coursesData = location.pathname === '/core-it' ? [
+        { id: 0, title1: "", title2: "Design", description: "Lorem We offer clients our most sought-after service — complete product design cycle covering branding with logo design, UX research & analysis, UI design, and user testing.", bg: "#F4F4F4", img: undefined },
+        { id: 1, img:  designImg, bg: "#E9FA50" },
+        { id: 2, bg: "#FA6423", img: deployment  },
+        { id: 3,  title2: "Deployment", description: "Lorem Software development specializations and courses focus on creating software, including tools, methodologies, programming languages, architecture, and testing, such as Agile development and Scala.", btnText: "Enroll Now!", bg: "#F4F4F4", img: undefined },
+        { id: 4,  title2: "Consultancy", description: "Lorem We offer clients our most sought-after service — complete product design cycle covering branding with logo design, UX research & analysis, UI design, and user testing.", btnText: "Enroll Now!", bg: "#F4F4F4", img: undefined },
+        { id: 5, bg: "#1CB786", img: Consultancy }
+    ] : [
         { id: 0, title1: "Start Learning", title2: "Digital Design", description: "We offer clients our most sought-after service — complete product design cycle covering branding with logo design, UX research & analysis, UI design, and user testing.", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
         { id: 1, img: complexProject, bg: "#1CB786" },
         { id: 2, bg: "#9D89FC", img: Illustration },
         { id: 3, title1: "Start Learning", title2: "Software Development", description: "Software development specializations and courses focus on creating software, including tools, methodologies, programming languages, architecture, and testing, such as Agile development and Scala.", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
         { id: 4, title1: "Start Learning", title2: "Network", description: "Lorem We offer clients our most sought-after service — complete product design cycle covering branding with logo design, UX research & analysis, UI design, and user testing.", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
-        { id: 5, bg: "#E9FA50", img: Network },
+        { id: 5, bg: "#E9FA50", img: Network }
     ];
+    
+   
 
     return (
-        <Grid container
+        <>
+        
+                       <Grid container
             sx={{
                 marginTop: {
                     lg: "50px",
@@ -109,6 +126,7 @@ export default function OurCourses({setEnroll}) {
                 }
             }}
         >
+             
             {coursesData.map((item, index) => (
 
                 <Grid
@@ -140,7 +158,7 @@ export default function OurCourses({setEnroll}) {
                         },
                         paddingRight: index % 2 === 0 ? "5.9px" : "0",
                         maxHeight: "601px",
-                        overflow: "hidden"
+                        overflow: "hidden",
 
                     }}
                 >
@@ -154,13 +172,19 @@ export default function OurCourses({setEnroll}) {
                         >
                             <Box
                                 sx={{
-                                    padding: {
+                                    padding: location.pathname === "/core-it" ? {
+                                        lg: "43px 42px 43px 37px",
+                                        md: "43px 42px 43px 37px",
+                                        sm: "52px 42px 52px 37px",
+                                        xs: "52px 42px 52px 37px"
+                                    }:{
                                         lg: "80px 42px 80px 37px",
                                         md: "80px 42px 80px 37px",
                                         sm: "52px 42px 52px 37px",
                                         xs: "52px 42px 52px 37px"
                                     },
                                     background: item.bg,
+
                                     borderRadius: {
                                         lg: "55px",
                                         md: "55px",
@@ -182,11 +206,18 @@ export default function OurCourses({setEnroll}) {
                                         component="img"
                                         src={item.img}
                                         alt="our courses"
-                                        sx={{
+                                        sx={
+                                            location.pathname !== '/core-it' ?
+                                            {
                                             maxWidth: "304px",
                                             width: "100%",
-
-                                        }}
+                                        }: 
+                                        {
+                                            maxWidth:index === 1 ? "322px" : index === 2 ? "341px" : index === 5 ? "380px" : '',
+                                            width:"100%",
+                                            height:"296px"
+                                        }
+                                    }
                                     />
                                 </Box>
                             </Box>
@@ -201,7 +232,9 @@ export default function OurCourses({setEnroll}) {
                             }}
                         >
                             <Box
-                                sx={{
+                                sx={
+                                    location.pathname !== '/core-it' ? 
+                                    {
                                     padding: {
                                         lg: "59px 37px 81px 42px",
                                         md: "59px 37px 81px 42px",
@@ -216,19 +249,45 @@ export default function OurCourses({setEnroll}) {
                                         xs: "30px"
                                     },
                                     height: "100%",
-                                    overflow: "hidden"
+                                    overflow: "hidden",
 
-                                }}
+                                } : 
+                                {
+                                    padding: {
+                                        lg: "59px 37px 81px 42px",
+                                        md: "59px 37px 81px 42px",
+                                        sm: "32px 43px 53px 23px",
+                                        xs: "32px 43px 53px 23px",
+                                    },
+                                    background: item.bg,
+                                    borderRadius: {
+                                        lg: "55px",
+                                        md: "55px",
+                                        sm: "30px",
+                                        xs: "30px"
+                                    },
+                                    height: "100%",
+                                    overflow: "hidden",
+                                    display:'flex',
+                                    flexDirection:'column',
+                                    justifyContent:"center",
+
+                                }
+                            }
                             >
                                 <Typography sx={text1Style}>{item.title1}</Typography>
                                 <Typography sx={text2Style}>{item.title2}</Typography>
                                 <Typography sx={descriptionStyle}>{item.description}</Typography>
+                                {location.pathname !== '/core-it' && (
                                 <Button sx={btnStyle} onClick={()=> setEnroll(true)}>{item.btnText}</Button>
+                                )}
                             </Box>
                         </motion.div>
                     )}
                 </Grid>
             ))}
         </Grid>
+        </>
+     
     );
 }

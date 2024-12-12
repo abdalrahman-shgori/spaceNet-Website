@@ -1,24 +1,34 @@
 import React, { useEffect, useRef, useCallback, useState } from "react";
 import Matter from "matter-js";
+import { useTheme } from "@mui/material";
 
 const FallingItems = () => {
   const canvasRef = useRef(null);
   const intervalRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: window.innerWidth, height: window.innerHeight });
-
+  const theme = useTheme()
   const labels = [
     "Network", "Network", "Network", "Network",
     "Security", "Security", "Security", "Security",
     "IT", "IT", "IT"
   ];
 
-  const colors = [
-    "#1CB786", "#1CB786", // 2 times
-    "#9D89FC", "#9D89FC", // 2 times
-    "#051A2F", "#051A2F", "#051A2F", // 3 times
-    "#FA6423", "#FA6423", // 2 times
-    "#E9FA50", "#E9FA50"  // 2 times
-  ];
+  const colors = theme.palette.mode === 'light'
+    ? [
+      ...Array(2).fill("#1CB786"),
+      ...Array(2).fill("#9D89FC"),
+      ...Array(3).fill("#011343"),
+      ...Array(2).fill("#FA6423"),
+      ...Array(2).fill("#E9FA50")
+    ]
+    : [
+      ...Array(2).fill("#1CB786"),
+      ...Array(2).fill("#9D89FC"),
+      ...Array(3).fill("#FFFFFF"),
+      ...Array(2).fill("#FA6423"),
+      ...Array(2).fill("#E9FA50")
+    ];
+
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -31,11 +41,15 @@ const FallingItems = () => {
   const setCanvasSize = useCallback((canvas) => {
     canvas.width = window.innerWidth;
 
-    // Check if the screen width is under 768px
     if (window.innerWidth < 768) {
-      canvas.height = window.innerHeight - 300; // Adjusted height for small screens
-    } else {
-      canvas.height = window.innerHeight - 100; // Default height for larger screens
+      canvas.height = window.innerHeight - 300;
+    }
+    else if (window.innerHeight < 600) {
+      canvas.height = 500;
+
+    }
+    else {
+      canvas.height = window.innerHeight - 280;
     }
   }, []);
 
@@ -61,9 +75,9 @@ const FallingItems = () => {
     const textWidth = context.measureText(text).width;
 
     if (window.innerWidth < 768) {
-      return { width: textWidth + 20, height: 43 }; // Adding padding for small screens
+      return { width: textWidth + 40, height: 43 };
     } else {
-      const width = Math.min(Math.max(textWidth + 40, 192), 261); // Min width 192px, max width 261px
+      const width = Math.min(Math.max(textWidth + 40, 192), 261);
       return { width, height: 95 };
     }
   };
@@ -94,7 +108,6 @@ const FallingItems = () => {
 
       setCanvasSize(canvas);
 
-      // Create the ground within the visible canvas area
       const ground = Matter.Bodies.rectangle(canvas.width / 2, canvas.height + 30, canvas.width, 60, { isStatic: true });
       const wallLeft = Matter.Bodies.rectangle(-30, canvas.height / 2, 60, canvas.height, { isStatic: true });
       const wallRight = Matter.Bodies.rectangle(canvas.width + 30, canvas.height / 2, 60, canvas.height, { isStatic: true });
@@ -104,8 +117,8 @@ const FallingItems = () => {
         const { width, height } = getBoxDimensions(label);
         const padding = getPadding();
         const fallingAreaWidth = getFallingAreaWidth();
-        const areaStartX = (canvas.width - fallingAreaWidth - 600); // Start of falling area
-        const areaEndX = (canvas.width + fallingAreaWidth) / 2 - padding; // End of falling area
+        const areaStartX = (canvas.width - fallingAreaWidth) / 2 - padding;
+        const areaEndX = (canvas.width + fallingAreaWidth) / 2 - padding;
         const xMin = areaStartX + width / 2;
         const xMax = areaEndX - width / 2;
 
@@ -134,10 +147,8 @@ const FallingItems = () => {
         box.bg = bgColor;
       };
 
-      // Shuffle the colors array for random assignment
       const shuffledColors = shuffleArray(colors);
 
-      // Shuffle the labels array to randomize the order
       const shuffledLabels = labels.sort(() => Math.random() - 0.5);
 
       intervalRef.current = setInterval(() => {
@@ -156,15 +167,14 @@ const FallingItems = () => {
 
         const padding = getPadding();
         Matter.Composite.allBodies(world).forEach((body) => {
-          if (body === ground || body === wallLeft || body === wallRight) return; // Skip rendering the ground and walls
+          if (body === ground || body === wallLeft || body === wallRight) return;
 
           context.save();
           context.translate(body.position.x, body.position.y);
           context.rotate(body.angle);
 
           const { width, height } = getBoxDimensions(body.title);
-          const radius = 19; // Border radius
-
+          const radius = 19;
           context.beginPath();
           context.moveTo(-width / 2 + radius, -height / 2);
           context.lineTo(width / 2 - radius, -height / 2);
@@ -180,8 +190,8 @@ const FallingItems = () => {
           context.fill();
 
           if (body.title) {
-            context.font = getFontSize(); // Dynamic font size based on screen width
-            context.fillStyle = "#fff";
+            context.font = getFontSize();
+            context.fillStyle = (body.bg === '#FFFFFF' || body.bg === "#E9FA50") ? "#000" : "#fff";
             context.textAlign = "center";
             context.textBaseline = "middle";
             context.fillText(body.title, 0, 0);
@@ -205,7 +215,7 @@ const FallingItems = () => {
   }, [setCanvasSize, dimensions.width]);
 
   return (
-    <div style={{ overflowX: "hidden"}}>
+    <div style={{ overflowX: "hidden" }}>
       <canvas style={{ overflowY: "scroll" }} ref={canvasRef} />
     </div>
   );

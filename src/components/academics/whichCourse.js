@@ -1,12 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import hand from "../../assets/sectionsImages/academics/hand.svg"
 import back from "../../assets/sectionsImages/academics/first.svg"
 import front from "../../assets/sectionsImages/academics/second.svg"
 import firstMobile from "../../assets/sectionsImages/academics/firstMobile.svg"
 import secondMobile from "../../assets/sectionsImages/academics/secondMobile.svg"
-
-import hand2 from "../../assets/sectionsImages/academics/hand2.svg"
 import { motion } from "framer-motion"
 import Bracket from "../../assets/sectionsImages/academics/academicsBracket.";
 import { powerOf, pageStyle, textStyle, cardTitle, bracketStyle, cardStyle, cardStyle2 } from "./whichcourseStyle";
@@ -27,27 +24,26 @@ export default function WhichCourse() {
   const spesific2 = useMediaQuery(theme.breakpoints.down("500"));
   const spesificSmallScreen = useMediaQuery(theme.breakpoints.down("380"));
 
-  const sectionRef = useRef(null); // Ref to attach to the element
-  const [inView, setInView] = useState(false); // State to track if the element is in view
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false); 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setInView(true); // Set to true when the section is in view
+          setInView(true); 
         } else {
-          setInView(false); // Set to false when the section is out of view
+          setInView(false); 
         }
       },
       {
-        threshold: 0.1, // Trigger when 50% of the element is visible
+        threshold: 0.1, 
       }
     );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current); // Observe the section
+      observer.observe(sectionRef.current);
     }
 
-    // Cleanup observer on component unmount
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
@@ -144,9 +140,9 @@ export default function WhichCourse() {
                 <motion.div
 
                   animate={{
-                    y: inView ? [-300, 0] : [-300, -300], // Start animation when in view
+                    y: inView ? [-300, 0] : [-300, -300],
                     rotate: inView ? (test ? (xs ? item.rotateXs : "-4deg") : item.rotate) : item.rotate,
-                    opacity: inView ? [0, 1] : [0, 0], // Fade in when in view
+                    opacity: inView ? [0, 1] : [0, 0], 
                   }}
                   transition={{
                     duration: 0.1,
@@ -185,7 +181,7 @@ export default function WhichCourse() {
                             top: `${idx * 1.4}em`,
                             left: 0,
                             right: 0,
-                            borderBottom: `1px solid ${index === 2 ? "#FA6423" : index === 3 ? "#FA6423" : "#FAFAFA"}`,  // Underline style
+                            borderBottom: `1px solid ${index === 2 ? "#FA6423" : index === 3 ? "#FA6423" : "#FAFAFA"}`,
                             margin: {
                               lg: test ? "0px 28px 0px 28px" : "0px 32px 0px 32px",
                               md: "0px 37px 0px 37px",

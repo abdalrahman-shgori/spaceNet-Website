@@ -14,7 +14,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
         container
         sx={{
           marginTop: {
-            lg: "68px",
+            lg:location.pathname === "/core-it" ? "0px" : "68px",
             md: "68px",
             sm: "16px",
             xs: "16px",
@@ -30,14 +30,27 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
         spacing={2}
       >
         {technologiesData.map((item, index) => {
-          // Find the corresponding image for the current item (e.g., using the index)
           const img = pathname !== '/academics' && technologiesDataImage[index];
 
           return (
             <Grid
               key={item.id}
               item
-              lg={location.pathname === '/academics' ? 4 : (index < 2 ? (location.pathname !== '/academics' && index === 1 ? 8 : 4) : 4)}
+              lg={
+                location.pathname === '/academics'
+                  ? 4
+                  : (
+                    index < 2
+                      ? (location.pathname !== '/academics' && index === 1
+                        ? 7.5
+                        : 4.5)
+                      : (location.pathname === '/core-it' && index === 1
+                        ? 1
+                        : index === 2 ? 7.5 : index === 3 ? 4.5 : index === 4 ? 8 : 4
+                      )
+                  )
+              }
+
               md={6}
               sm={pathname === '/academics' ? 6 : 6}
               xs={12}
@@ -70,7 +83,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                     sethoveredcardid(null)
                   }}
                   sx={{
-                    background: hoveredcardid === item.id ? pathname === '/software' ? "#9D89FC" : pathname === "/design-branding" ? "#1CB786" : "#FA6423" : "#FFFFFF",
+                    background: hoveredcardid === item.id ? pathname === '/software' ? "#9D89FC" : pathname === "/design-branding" ? "#1CB786" : pathname === '/academics' ? "#FA6423" : pathname === '/core-it' ? "#E9FA50" : "#FFFFFF" : "#FFFFFF",
                     padding: pathname !== '/academics' ? {
                       lg: "34px 17px 38px 34px",
                       md: "34px 17px 89px 34px",
@@ -118,7 +131,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                         },
                         fontFamily: "var(--English-font-semibold)",
                         marginTop: "50px",
-                        color: hoveredcardid === item.id ? "#FFFFFF" : "#051A2F",
+                        color: hoveredcardid === item.id && location.pathname !== '/core-it' ? "#FFFFFF" : "#051A2F",
                         transition: "color 0.5s",
                         maxWidth: pathname === '/academics' ? "261px" : "422px",
                         width: "100%",
@@ -159,7 +172,8 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                     </Typography>
                   </Grid>
 
-                  <Grid lg={12}>
+                  <Grid lg={12}
+                  >
                     {location.pathname === "/academics" && item.image && (
                       <Box
                         sx={{
@@ -167,11 +181,12 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                           transition: "color 0.5s",
                           textAlign: "center",
                           marginTop: {
-                            lg: "100px",
+                            lg: index === 2 ? "120px" : "60px",
                             md: "100px",
                             sm: index === 2 && !ExtraSmallScreen ? "100px" : "60px",
                             xs: index === 2 && !ExtraSmallScreen ? "100px" : "60px",
                           },
+
                         }}
                       >
                         {Array.isArray(item.image) ? (
@@ -192,25 +207,11 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                 xs: "6px"
                               },
 
-
                             }}>
                             {item.image.map((img, idx) => (
                               <Grid
-                              item
+                                item
                                 key={idx}
-
-                                // lg={index === 2 && idx === 2 && 5}
-                                // sm={ !spesificLgScreen && index === 2 && idx === 2 && 5.8}
-                                // xs={index === 2 && idx === 2 && 5.5}
-
-                                // sx={{
-                                //   border: hoveredcardid === item.id ? "1px solid #FFFFFF" : "1px solid #FA6423",
-                                //   padding: "11px 17px 11px 17px",
-                                //   borderRadius: "28px",
-                                //   color: hoveredcardid === item.id ? "#FFFFFF" : "#FA6423",
-                                //   width: "fit-content",
-                                //   transition: "border 0.5s , color 0.5s",
-                                // }}
                                 sx={{
 
                                   border: hoveredcardid === item.id ? "1px solid #FFFFFF" : "1px solid #FA6423",

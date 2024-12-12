@@ -14,8 +14,8 @@ export default function SectionDescription({ text1, text2, top,academicsSection 
         },
         fontFamily: "var(--English-font)",
         maxWidth: {
-            lg: "898px",
-            md: "898px",
+            lg: pathname === '/core-it' ? "1150px" : "898px",
+            md:  pathname === '/core-it' ? "1150px" : "898px",
             sm: "498px",
             xs: "375px",
         },
@@ -66,7 +66,7 @@ export default function SectionDescription({ text1, text2, top,academicsSection 
                         xs: pathname === '/academics' ? "12px" : "16px"
                     },
                     marginTop: {
-                        lg: "130px",
+                        lg: location.pathname === "/core-it" ? "0px" : "130px",
                         md: "100px",
                         sm: top,
                         xs: top
