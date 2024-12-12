@@ -381,22 +381,40 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
                 }}
             >
                 <Button
+                    onClick={handleOpenContactUS}
+
                     sx={{
                         background: "#FA6423",
                         borderRadius: "50px",
                         color: "#FFFFFF",
                         padding: "13px 33px 13px 33px",
+                        fontFamily: "var(--English-font)",
+                        fontSize: {
+                            lg: "18.5px",
+                            sm: "18.5px",
+                            sm: "14px",
+                            xs: "17px"
+                        },
+
                     }}
                 >
                     Get Start Now
                 </Button>
                 <Button
+                    onClick={handleOpenRegister}
                     sx={{
                         background: "#000000",
                         borderRadius: "50px",
                         color: "#FFFFFF",
                         padding: "13px 33px 13px 33px",
                         marginTop: "27px",
+                        fontFamily: "var(--English-font)",
+                        fontSize: {
+                            lg: "18.5px",
+                            sm: "18.5px",
+                            sm: "14px",
+                            xs: "17px"
+                        },
 
                     }}
                 >
