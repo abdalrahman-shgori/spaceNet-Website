@@ -1,11 +1,13 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import React from "react";
 import { useLocation } from "react-router-dom";
 
 export default function SectionDescription({ text1, text2, top,academicsSection }) {
     const location = useLocation()
     const pathname = location.pathname
+    const theme=useTheme()
     const text1Style = {
+
         fontSize: {
             lg: "48px",
             md: "40px",
@@ -27,7 +29,6 @@ export default function SectionDescription({ text1, text2, top,academicsSection 
             sm: "28px",
             xs: "28px",
         },
-
     }
     const text2Style = {
         fontSize: {

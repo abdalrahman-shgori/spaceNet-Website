@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, useTheme } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import { subServices } from "../services/websiteApis/services";
 import { motion } from "framer-motion"
@@ -67,7 +67,7 @@ export default function CoreIt({ setOpen }) {
         }
     }, []);
 
-
+ const theme=useTheme()
     return (
         <>
             <motion.div
@@ -113,7 +113,7 @@ export default function CoreIt({ setOpen }) {
                 <CoreItSection1 />
                 <Box
                     sx={{
-                        background: "#fff",
+                        background: theme.palette.mode === 'dark' ? "#05203B" : "#FFFFFF",
                         padding: {
                             xl: "50px 116px 103px 116px",
                             lg: "50px 116px 103px 116px",
@@ -151,7 +151,7 @@ export default function CoreIt({ setOpen }) {
                     }}
                 >
                     <SectionDescription
-                        text1=" What We Design, Deploy & Manage"
+                        text1="What We Design, Deploy & Manage"
                         top="80px"
                     />
                     <LayoutCards
