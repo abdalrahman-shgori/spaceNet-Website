@@ -7,7 +7,9 @@ import { Box, Grid, Skeleton, Typography, useMediaQuery, useTheme } from "@mui/m
 import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogoAbout.svg";
 import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
 import { motion } from "framer-motion";
+import learnMoreArrow from "../../assets/images/learnMoreArrow.svg"
 import './about.css';
+import { useNavigate } from "react-router-dom";
 
 export default function AboutSpaceNet({
     activeService,
@@ -143,6 +145,22 @@ export default function AboutSpaceNet({
         flexDirection: 'column',
         textAlign: 'justify',
         zIndex: 2,
+    }
+    const navigate=useNavigate()
+    console.log(hoveredService)
+    const handlelearnMoreBtn=()=>{
+      if(hoveredService === 'ACADEMICS'){
+        navigate('/academics')
+      }
+      else if (hoveredService === 'CORE IT') {
+        navigate('/core-it')
+      }
+      else if (hoveredService === 'SOFTWARE') {
+        navigate('/software')
+      }
+      else if (hoveredService === 'DIGITAL DESIGN') {
+        navigate('/design-branding')
+      }
     }
     return (
         <>
@@ -438,6 +456,49 @@ export default function AboutSpaceNet({
                         />
                     </motion.div>
                 </Grid>
+                {(hoveredService !== '' && hoveredService !== 'ABOUT') && (
+  <motion.div
+    key={hoveredService}  // This ensures the animation restarts on hover
+    animate={{ opacity: [0, 1] }}
+    transition={{ duration: 0.5,delay:0.5 }}
+  >
+    <Box
+      onClick={handlelearnMoreBtn}
+      component="button"
+      sx={{
+        background: "#051A2F",
+        border: "unset",
+        padding: "8px 18px 8px 18px",
+        borderRadius: "116px",
+        display: {
+          lg: "none",
+          md: "none",
+          sm: "flex",
+          xs: "flex",
+        },
+        alignItems: "center",
+        gap: "8px",
+        marginTop: "20px",
+      }}
+    >
+      <Typography
+        sx={{
+          fontSize: "14px",
+          fontFamily: "var(--English-font)",
+          color: "#FFF",
+        }}
+      >
+        learn more
+      </Typography>
+      <Box component="img" src={learnMoreArrow} />
+    </Box>
+  </motion.div>
+)}
+
+
+              
+              
+               
             </Grid>
         </>
     );

@@ -170,8 +170,9 @@ export default function ServicesMobile({
                             : item.img : item.title}
                     </Typography>
 
-
+            
                 </Box>
+                
             </motion.div>
 
         </Grid>

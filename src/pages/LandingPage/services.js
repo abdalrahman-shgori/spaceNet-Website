@@ -30,7 +30,7 @@ export default function Services({
         { name: "ACADEMICS", img: Union, url: "/academics" },
         { name: "CORE IT", img: Union, url: "/core-it" },
         { name: "SOFTWARE", img: Union, url: "/software" },
-        { name: "DIGITAL DESIGN", img: Union, url: "/design-branding" },
+        { name: "DESIGN & BRANDING", img: Union, url: "/design-branding" },
     ];
 
     const handleServiceClick = (url) => {
