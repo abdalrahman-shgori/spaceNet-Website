@@ -37,9 +37,11 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
               key={item.id}
               item
               lg={
-                location.pathname === '/academics'
-                  ? 4
-                  : (
+                location.pathname !== '/core-it' && location.pathname !== '/academics'
+                  ? index === 0 ? 4 : index === 1 ? 8 : 4
+                  :
+                  location.pathname === '/academics' ? 4 :
+                  (
                     index < 2
                       ? (location.pathname !== '/academics' && index === 1
                         ? 7.5
@@ -206,6 +208,13 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                 sm: "6px",
                                 xs: "6px"
                               },
+                              display:'flex',
+                              justifyContent:{
+                                lg:"unset",
+                                md:"center",
+                                sm:"unset",
+                                xs:"unset"
+                              }
 
                             }}>
                             {item.image.map((img, idx) => (
@@ -221,7 +230,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                   transform: index === 2 && idx === 1 && !ExtraSmallScreen && !spesificLgScreen && "rotate(-31.72deg)",
                                   position: index === 2 && idx === 1 && !ExtraSmallScreen && !spesificLgScreen ? "absolute" : "relative",
                                   top: !ExtraSmallScreen && index === 2 && idx === 1 && !spesificLgScreen && "-40px",
-                                  left: !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "100px", md: "100px", sm: "86px", xs: "92px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "70px", md: "70px", sm: "58px", xs: "60px" },
+                                  left: !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "90px", md: "100px", sm: "80px", xs: "85px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "60px", md: "1000px", sm: "58px", xs: "52px" },
 
                                 }}
 

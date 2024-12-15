@@ -16,12 +16,12 @@ const Footer = () => {
     {
       title: 'Social Media',
       content: [
-        { name: 'Instagram', link: 'https://facebook.com' },
-        { name: 'Whatsapp', link: 'https://twitter.com' },
-        { name: 'Facebook', link: 'https://linkedin.com' },
-        { name: 'Dribble', link: 'https://instagram.com' },
-        { name: 'Linkedln', link: 'https://Linkedln.com' },
-        { name: 'Behance', link: 'https://Behance.com' },
+        { name: 'Instagram', link: 'https://www.instagram.com/spacenetiq/profilecard/?igsh=MWYxc2dldmFzamV2OQ==' },
+        { name: 'Whatsapp', link: 'https://wa.me/9647505550558' },
+        { name: 'Facebook', link: 'https://www.facebook.com/share/19yTYEYifS/?mibextid=wwXIfr' },
+        // { name: 'Dribble', link: 'https://instagram.com' },
+        { name: 'Linkedln', link: 'https://www.linkedin.com/company/spacenetiq/' },
+        // { name: 'Behance', link: 'https://Behance.com' },
 
       ],
     },

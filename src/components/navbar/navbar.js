@@ -25,17 +25,19 @@ const NavBar = ({
     const isTabScreen = useMediaQuery(theme.breakpoints.only('md'));
     const menuItems = [
         { text: 'Home', route: '/' },
-        { text: 'SERVICES', route: '/services' },
+        // { text: 'SERVICES', route: '/services' },
         // { text: 'MARKETPLACE', route: '/marketplace' },
         // { text: 'BLOG & NEWS', route: '/blog' },
         { text: 'CONTACT US'},
+        { text: 'COMING SOON...', route: '/' },
+
     ];
     const socialMedia = [
-        { icon: <FaceBookSvg />, link: "", },
-        { icon: <InstaSvg />, link: "", },
-        { icon: <LinkedInSvg />, link: "", },
+        { icon: <FaceBookSvg />, link: "https://www.facebook.com/share/19yTYEYifS/?mibextid=wwXIfr", },
+        { icon: <InstaSvg />, link: "https://www.instagram.com/spacenetiq/profilecard/?igsh=MWYxc2dldmFzamV2OQ==", },
+        { icon: <LinkedInSvg />, link: "https://www.linkedin.com/company/spacenetiq/", },
         { icon: <PaintrestSvg />, link: "", },
-        { icon: <WhatsAppSvg />, link: "", },
+        { icon: <WhatsAppSvg />, link: "https://wa.me/9647505550558", },
     ];
     const navigate = useNavigate();
 

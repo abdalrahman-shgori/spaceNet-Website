@@ -22,7 +22,7 @@ export default function Academics({ setOpen }) {
     const technologiesData = [
         {
             id: 0,
-            title: "Courses in English & Kurdish & Arabic",
+            title: "Courses in English , Kurdish & Arabic",
             description: "Our courses are delivered in Kurdish, Arabic, and English, making it easy for you to learn in the language you’re most comfortable with. Whether it’s coding, designing, or networking, we ensure every lesson is clear, accessible, and tailored to your needs.",
             image: ['English', 'Kurdish', 'Arabic']
         },

@@ -14,8 +14,8 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
     const SkillsType = [
         {
             id: 0,
-            title: "Design",
-            subCat: ["Graphic", "UI/UX"],
+            title: "Digital Design",
+            subCat: ["Graphics", "UI/UX"],
             bg: "#1CB786",
             boxShadow: "0px 4px 15px rgba(28, 183, 134, 0.5)",
             img: designGradiant
@@ -341,7 +341,7 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
 
                                 }}
                             >
-                                Get Start Now
+                                Get Started Now
                             </Button>
                             <Button
                                 onClick={handleOpenRegister}
@@ -398,7 +398,7 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
 
                     }}
                 >
-                    Get Start Now
+                    Get Started Now
                 </Button>
                 <Button
                     onClick={handleOpenRegister}

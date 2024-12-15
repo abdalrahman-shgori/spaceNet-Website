@@ -14,6 +14,8 @@ import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { motion } from "framer-motion"
+import { useState } from 'react';
+import { ContactUsApi } from '../../services/websiteApis/services';
 const style = {
     width: "100%",
     bgcolor: 'background.paper',
@@ -95,7 +97,29 @@ const textFieldStyle = {
 export default function BasicModal({ setOpen, open }) {
     const handleClose = () => setOpen(false);
     const theme = useTheme()
-
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState(null);
+console.log(name)
+    const handleSubmit = async () => {
+        if (!name || !email || !message) {
+          setError('All fields are required');
+          return;
+        }
+        try {
+          const response = await ContactUsApi(name, email, message);
+          console.log('Message sent successfully', response);
+          // Clear the form on successful submission
+          setName('');
+          setEmail('');
+          setMessage('');
+          setError(null);
+        } catch (error) {
+          setError('Failed to send the message');
+          console.error(error);
+        }
+      };
     return (
         <div>
             <Modal
@@ -194,7 +218,7 @@ export default function BasicModal({ setOpen, open }) {
 
                                 }}
                             >
-                                Encourage Innovation in Your Business-Contact Us
+                                We’d Love to Hear from You!
 
 
                             </Typography>
@@ -261,7 +285,7 @@ export default function BasicModal({ setOpen, open }) {
                                                     color: "#000000"
                                                 }}
                                             >
-                                                get in Touch
+                                              get in Touch
                                             </Typography>
                                             <Typography
                                                 sx={{
@@ -282,7 +306,8 @@ export default function BasicModal({ setOpen, open }) {
                                                     width: "100%"
                                                 }}
                                             >
-                                                Lorem  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text eve 1500s.                                    </Typography>
+                                                Get in touch today to discuss your needs, ask questions, or schedule a free consultation. Let’s build something amazing together!                 
+                                                                  </Typography>
                                         </Box>
                                         <Box
                                             sx={{
@@ -385,111 +410,82 @@ export default function BasicModal({ setOpen, open }) {
                                         </Box>
                                     </Grid>
                                     <Grid item lg={6} md={6} sm={6} xs={12}>
-                                        <Box>
-                                            <Typography
-                                                sx={{
-                                                    fontSize: {
-                                                        lg: "28px",
-                                                        md: "28px",
-                                                        sm: "24px",
-                                                        xs: "24px"
-                                                    },
-                                                    fontFamily: "var(--English-font-semibold)",
-                                                    textTransform: "capitalize",
-                                                    marginTop: {
-                                                        lg: "unset",
-                                                        md: "unset",
-                                                        sm: "unset",
-                                                        xs: "67px"
-                                                    },
-                                                    color: "#000000"
-                                                }}
-                                            >
-                                                Send A Message
-                                            </Typography>
-                                            <Box
-                                                sx={{
-                                                    marginTop: {
-                                                        lg: "37px",
-                                                        md: "37px",
-                                                        sm: "37px",
-                                                        xs: "21px"
-                                                    }
-                                                }}
-                                            >
-                                                <Box>
-                                                    <Typography sx={{ ...fieldTextStyle }}>Name</Typography>
-                                                    <TextField
-                                                        fullWidth
-                                                        placeholder="Your Name"
-                                                        sx={{
-                                                            ...textFieldStyle
-                                                        }}
-                                                    />
-
-                                                </Box>
-                                                <Box>
-                                                    <Typography sx={{ ...fieldTextStyle }}>Email</Typography>
-                                                    <TextField
-                                                        fullWidth
-                                                        placeholder='Your Email'
-                                                        sx={{
-                                                            ...textFieldStyle
-                                                        }}
-                                                    />
-                                                </Box>
-                                                <Box>
-                                                    <Typography sx={{ ...fieldTextStyle }}>Message</Typography>
-                                                    <TextField
-                                                        fullWidth
-                                                        multiline
-                                                        rows={4}
-                                                        placeholder="Your Message"
-                                                        sx={{
-                                                            ...textFieldStyle
-                                                        }}
-                                                    />
-                                                </Box>
-
-                                            </Box>
-                                            <Box
-                                                sx={{
-                                                    display: "flex",
-                                                    justifyContent: "end",
-                                                    marginTop: {
-                                                        lg: "30px",
-                                                        md: "30px",
-                                                        sm: "30px",
-                                                        xs: "32px"
-                                                    }
-                                                }}
-                                            >
-                                                <Button
-                                                    sx={{
-                                                        bgcolor: '#000',
-                                                        color: '#fff',
-                                                        width: "fit-content",
-                                                        padding: {
-                                                            lg: "12px 27px 12px 27px",
-                                                            md: "12px 27px 12px 27px",
-                                                            sm: "12px 27px 12px 27px",
-                                                            xs: "9px 21px 9px 21px"
-                                                        },
-                                                        fontSize: {
-                                                            lg: "17px",
-                                                            md: "17px",
-                                                            sm: "17px",
-                                                            xs: "13.5px"
-                                                        },
-                                                        fontFamily: "var(--English-font-semibold)",
-                                                        borderRadius: "34px",
-                                                        textTransform: "capitalize",
-                                                    }}>
-                                                    Submit Now
-                                                </Button>
-                                            </Box>
-                                        </Box>
-                                    </Grid>
+      <Box>
+        <Typography
+          sx={{
+            fontSize: { lg: '28px', md: '28px', sm: '24px', xs: '24px' },
+            fontFamily: 'var(--English-font-semibold)',
+            textTransform: 'capitalize',
+            marginTop: { lg: 'unset', md: 'unset', sm: 'unset', xs: '67px' },
+            color: '#000000',
+          }}
+        >
+          Send A Message
+        </Typography>
+        <Box sx={{ marginTop: { lg: '37px', md: '37px', sm: '37px', xs: '21px' } }}>
+          <Box>
+            <Typography sx={{ ...fieldTextStyle }}>Name</Typography>
+            <TextField
+              fullWidth
+              placeholder="Your Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              sx={{ ...textFieldStyle }}
+            />
+          </Box>
+          <Box>
+            <Typography sx={{ ...fieldTextStyle }}>Email</Typography>
+            <TextField
+              fullWidth
+              placeholder="Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              sx={{ ...textFieldStyle }}
+            />
+          </Box>
+          <Box>
+            <Typography sx={{ ...fieldTextStyle }}>Message</Typography>
+            <TextField
+              fullWidth
+              multiline
+              rows={4}
+              placeholder="Your Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              sx={{ ...textFieldStyle }}
+            />
+          </Box>
+        </Box>
+        {error && (
+          <Typography color="error" sx={{ marginTop: '10px' }}>
+            {error}
+          </Typography>
+        )}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'end',
+            marginTop: { lg: '30px', md: '30px', sm: '30px', xs: '32px' },
+          }}
+        >
+          <Button
+            sx={{
+              bgcolor: '#000',
+              color: '#fff',
+              width: 'fit-content',
+              padding: { lg: '12px 27px', md: '12px 27px', sm: '12px 27px', xs: '9px 21px' },
+              fontSize: { lg: '17px', md: '17px', sm: '17px', xs: '13.5px' },
+              fontFamily: 'var(--English-font-semibold)',
+              borderRadius: '34px',
+              textTransform: 'capitalize',
+            }}
+            onClick={handleSubmit}
+          >
+            Submit Now
+          </Button>
+        </Box>
+      </Box>
+    </Grid>
                                 </Grid>
                             </Box>
                         </Grid>
