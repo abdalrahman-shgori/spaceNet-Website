@@ -4,8 +4,6 @@ import { motion } from "framer-motion"
 
 export default function DevelopSkills() {
     const [start, setStart] = useState(false)
-
-    console.log(start)
     const categories = [
         {
             name: "Design",

@@ -154,7 +154,6 @@ export default function AboutSpaceNet({
         zIndex: 2,
     }
     const navigate = useNavigate()
-    console.log(hoveredService)
     const handlelearnMoreBtn = () => {
         if (hoveredService === 'ACADEMICS') {
             navigate('/academics')

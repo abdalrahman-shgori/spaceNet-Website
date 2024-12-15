@@ -8,13 +8,17 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
   const theme = useTheme()
   const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down('354'))
   const spesificLgScreen = useMediaQuery(theme.breakpoints.between("890", '1292'))
+  if (process.env.NODE_ENV === 'development') {
+    console.warn = () => { };
+    console.error = () => { };
+  }
   return (
     <>
       <Grid
         container
         sx={{
           marginTop: {
-            lg:location.pathname === "/core-it" ? "0px" : "68px",
+            lg: location.pathname === "/core-it" ? "0px" : "68px",
             md: "68px",
             sm: "16px",
             xs: "16px",
@@ -41,16 +45,16 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                   ? index === 0 ? 4 : index === 1 ? 8 : 4
                   :
                   location.pathname === '/academics' ? 4 :
-                  (
-                    index < 2
-                      ? (location.pathname !== '/academics' && index === 1
-                        ? 7.5
-                        : 4.5)
-                      : (location.pathname === '/core-it' && index === 1
-                        ? 1
-                        : index === 2 ? 7.5 : index === 3 ? 4.5 : index === 4 ? 8 : 4
-                      )
-                  )
+                    (
+                      index < 2
+                        ? (location.pathname !== '/academics' && index === 1
+                          ? 7.5
+                          : 4.5)
+                        : (location.pathname === '/core-it' && index === 1
+                          ? 1
+                          : index === 2 ? 7.5 : index === 3 ? 4.5 : index === 4 ? 8 : 4
+                        )
+                    )
               }
 
               md={6}
@@ -208,12 +212,12 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                 sm: "6px",
                                 xs: "6px"
                               },
-                              display:'flex',
-                              justifyContent:{
-                                lg:"unset",
-                                md:"center",
-                                sm:"unset",
-                                xs:"unset"
+                              display: 'flex',
+                              justifyContent: {
+                                lg: "unset",
+                                md: "center",
+                                sm: "unset",
+                                xs: "unset"
                               }
 
                             }}>
@@ -271,7 +275,6 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
             </Grid>
           );
         })}
-
       </Grid>
     </>
   );

@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Router, Routes, useLocation } from 'react-router-dom';
@@ -14,6 +16,7 @@ import Academics from './pages/academics';
 import BasicModal from './components/contactUs/contactUs';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import CoreIt from './pages/coreIt';
+
 
 const App = () => {
   const [open, setOpen] = React.useState(false);

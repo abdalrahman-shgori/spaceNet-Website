@@ -109,7 +109,6 @@ export default function BasicModal({ setOpen, open }) {
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState('success');
 
-    console.log(name)
     const handleSubmit = async (e) => {
         e.preventDefault(); 
         setError(null);
