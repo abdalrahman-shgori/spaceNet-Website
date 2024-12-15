@@ -21,6 +21,7 @@ const Footer = () => {
         { name: 'Facebook', link: 'https://www.facebook.com/share/19yTYEYifS/?mibextid=wwXIfr' },
         // { name: 'Dribble', link: 'https://instagram.com' },
         { name: 'Linkedln', link: 'https://www.linkedin.com/company/spacenetiq/' },
+        { name: 'Pinterest', link: 'https://www.pinterest.com/spacenetiq/' },
         // { name: 'Behance', link: 'https://Behance.com' },
 
       ],

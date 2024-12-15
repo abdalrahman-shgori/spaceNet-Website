@@ -42,7 +42,7 @@ const socialMedia = [
     { icon: <FaceBookSvg />, link: "https://www.facebook.com/share/19yTYEYifS/?mibextid=wwXIfr", },
     { icon: <InstaSvg />, link: "https://www.instagram.com/spacenetiq/profilecard/?igsh=MWYxc2dldmFzamV2OQ==", },
     { icon: <LinkedInSvg />, link: "https://www.linkedin.com/company/spacenetiq/", },
-    { icon: <PaintrestSvg />, link: "", },
+    { icon: <PaintrestSvg />, link: "https://www.pinterest.com/spacenetiq/", },
     { icon: <WhatsAppSvg />, link: "https://wa.me/9647505550558", },
 ];
 const fieldTextStyle = {
