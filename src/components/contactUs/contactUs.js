@@ -16,6 +16,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { motion } from "framer-motion"
 import { useState } from 'react';
 import { ContactUsApi } from '../../services/websiteApis/services';
+import axios from 'axios';
 const style = {
     width: "100%",
     bgcolor: 'background.paper',
@@ -101,25 +102,46 @@ export default function BasicModal({ setOpen, open }) {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState(null);
-console.log(name)
+  
     const handleSubmit = async () => {
-        if (!name || !email || !message) {
-          setError('All fields are required');
-          return;
-        }
-        try {
-          const response = await ContactUsApi(name, email, message);
-          console.log('Message sent successfully', response);
-          // Clear the form on successful submission
+      if (!name || !email || !message) {
+        setError('All fields are required');
+        return;
+      }
+  
+      setError(null);
+  
+      try {
+        const response = await axios.post('http://admin.spacenetiq.com/api/send_message', {
+          method: 'POST',
+          headers: {
+                "Accept": "application/json",
+
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+          }),
+        });
+  
+        const data = await response.json();
+  
+        if (response.ok) {
+          // Handle success (e.g., clear form, show success message)
           setName('');
           setEmail('');
           setMessage('');
-          setError(null);
-        } catch (error) {
-          setError('Failed to send the message');
-          console.error(error);
+          alert('Message sent successfully!');
+        } else {
+          // Handle errors (e.g., display error message)
+          setError(data.message || 'Failed to send message.');
         }
-      };
+      } catch (err) {
+        setError('An error occurred. Please try again later.');
+      }
+    };
     return (
         <div>
             <Modal
