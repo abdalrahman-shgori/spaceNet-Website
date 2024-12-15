@@ -17,6 +17,7 @@ import { motion } from "framer-motion"
 import { useState } from 'react';
 import { ContactUsApi } from '../../services/websiteApis/services';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 const style = {
     width: "100%",
     bgcolor: 'background.paper',
@@ -97,6 +98,7 @@ const textFieldStyle = {
 }
 export default function BasicModal({ setOpen, open }) {
     const handleClose = () => setOpen(false);
+    const location=useLocation()
     const theme = useTheme()
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -254,7 +256,10 @@ export default function BasicModal({ setOpen, open }) {
 
                             <Box
                                 sx={{
-                                    background: "#9D89FC",
+                                    background: location.pathname === '/academics' ? "#FA6423" :
+                                    location.pathname === '/core-it' ? "#E9FA50" :
+                                    location.pathname === '/design-branding' ? '#1CB786' :
+                                    "#9D89FC",
                                     padding: {
                                         lg: "83px 106px 28px 106px",
                                         md: "83px 106px 28px 106px",
@@ -423,6 +428,7 @@ export default function BasicModal({ setOpen, open }) {
                                             <Box sx={{ display: 'flex', gap: "9px", }}>
                                                 {socialMedia.map((item, index) => (
                                                     <Box
+                                                    component="a"
                                                         key={index}
                                                         href={item.link}
                                                         target="_blank"
