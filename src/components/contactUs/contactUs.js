@@ -37,11 +37,11 @@ const contactUsWays = [
     { id: 2, img: LocationIncon, title: <>empire business towers <br /> building T4, floor 13, office 3. </> },
 ]
 const socialMedia = [
-    { icon: <FaceBookSvg />, link: "", },
-    { icon: <InstaSvg />, link: "", },
-    { icon: <LinkedInSvg />, link: "", },
+    { icon: <FaceBookSvg />, link: "https://www.facebook.com/share/19yTYEYifS/?mibextid=wwXIfr", },
+    { icon: <InstaSvg />, link: "https://www.instagram.com/spacenetiq/profilecard/?igsh=MWYxc2dldmFzamV2OQ==", },
+    { icon: <LinkedInSvg />, link: "https://www.linkedin.com/company/spacenetiq/", },
     { icon: <PaintrestSvg />, link: "", },
-    { icon: <WhatsAppSvg />, link: "", },
+    { icon: <WhatsAppSvg />, link: "https://wa.me/9647505550558", },
 ];
 const fieldTextStyle = {
     fontSize: {

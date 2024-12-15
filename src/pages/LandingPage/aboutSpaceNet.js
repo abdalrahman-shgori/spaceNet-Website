@@ -93,23 +93,28 @@ export default function AboutSpaceNet({
                     <span className="scrolling-content"
                         style={{
                             paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
-                            marginTop: "25%"
+                            marginTop: "25%",
+                            textAlign:"left"
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
                     <span className="scrolling-content"
                         style={{
-                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px"
+                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
+                            textAlign:"left"
+
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
                     <span className="scrolling-content"
                         style={{
-                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px"
+                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
+                            textAlign:"left"
+
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
-                    <span className="scrolling-content">
+                    <span className="scrolling-content" style={{textAlign:"left"}}>
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
                 </>
             )}
