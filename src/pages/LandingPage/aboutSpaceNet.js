@@ -94,14 +94,14 @@ export default function AboutSpaceNet({
                         style={{
                             paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
                             marginTop: "25%",
-                            textAlign:"center"
+                            textAlign: "center"
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
                     <span className="scrolling-content"
                         style={{
                             paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
-                            textAlign:"center"
+                            textAlign: "center"
 
                         }}
                     >
@@ -109,12 +109,12 @@ export default function AboutSpaceNet({
                     <span className="scrolling-content"
                         style={{
                             paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
-                            textAlign:"center"
+                            textAlign: "center"
 
                         }}
                     >
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
-                    <span className="scrolling-content" style={{textAlign:"center"}}>
+                    <span className="scrolling-content" style={{ textAlign: "center" }}>
                         We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
                 </>
             )}
@@ -150,24 +150,24 @@ export default function AboutSpaceNet({
         scrollbarWidth: 'none',
         display: 'flex',
         flexDirection: 'column',
-        textAlign: 'justify',
+        textAlign: 'left',
         zIndex: 2,
     }
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     console.log(hoveredService)
-    const handlelearnMoreBtn=()=>{
-      if(hoveredService === 'ACADEMICS'){
-        navigate('/academics')
-      }
-      else if (hoveredService === 'CORE IT') {
-        navigate('/core-it')
-      }
-      else if (hoveredService === 'SOFTWARE') {
-        navigate('/software')
-      }
-      else if (hoveredService === 'DIGITAL DESIGN') {
-        navigate('/design-branding')
-      }
+    const handlelearnMoreBtn = () => {
+        if (hoveredService === 'ACADEMICS') {
+            navigate('/academics')
+        }
+        else if (hoveredService === 'CORE IT') {
+            navigate('/core-it')
+        }
+        else if (hoveredService === 'SOFTWARE') {
+            navigate('/software')
+        }
+        else if (hoveredService === 'DIGITAL DESIGN') {
+            navigate('/design-branding')
+        }
     }
     return (
         <>
@@ -464,48 +464,48 @@ export default function AboutSpaceNet({
                     </motion.div>
                 </Grid>
                 {(hoveredService !== '' && hoveredService !== 'ABOUT') && (
-  <motion.div
-    key={hoveredService}  
-    animate={{ opacity: [0, 1] }}
-    transition={{ duration: 0.5,delay:0.5 }}
-  >
-    <Box
-      onClick={handlelearnMoreBtn}
-      component="button"
-      sx={{
-        background:
-        hoveredService=== "ACADEMICS" ? "#FF9F31;" :
-        hoveredService === 'CORE IT' ? "#E9FA50" : 
-        hoveredService === 'SOFTWARE' ? theme.palette.mode === 'light' ? "#051A2F" : "#9D89FC" : 
-        hoveredService === 'DIGITAL DESIGN' ? "#1CB786" : "#E9FA50" ,
-       
-        border: "unset",
-        padding: "8px 18px 8px 18px",
-        borderRadius: "116px",
-        display: {
-          lg: "none",
-          md: "none",
-          sm: "flex",
-          xs: "flex",
-        },
-        alignItems: "center",
-        gap: "8px",
-        marginTop: "20px",
-      }}
-    >
-      <Typography
-        sx={{
-          fontSize: "14px",
-          fontFamily: "var(--English-font)",
-          color:hoveredService === 'CORE IT' ? "#000" : "#FFF",
-        }}
-      >
-        learn more
-      </Typography>
-      <Box component="img" src={hoveredService === "CORE IT" ? learnMoreArrowBlack : learnMoreArrow} />
-    </Box>
-  </motion.div>
-)}
+                    <motion.div
+                        key={hoveredService}
+                        animate={{ opacity: [0, 1] }}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                    >
+                        <Box
+                            onClick={handlelearnMoreBtn}
+                            component="button"
+                            sx={{
+                                background:
+                                    hoveredService === "ACADEMICS" ? "#FF9F31;" :
+                                        hoveredService === 'CORE IT' ? "#E9FA50" :
+                                            hoveredService === 'SOFTWARE' ? theme.palette.mode === 'light' ? "#051A2F" : "#9D89FC" :
+                                                hoveredService === 'DIGITAL DESIGN' ? "#1CB786" : "#E9FA50",
+
+                                border: "unset",
+                                padding: "8px 18px 8px 18px",
+                                borderRadius: "116px",
+                                display: {
+                                    lg: "none",
+                                    md: "none",
+                                    sm: "flex",
+                                    xs: "flex",
+                                },
+                                alignItems: "center",
+                                gap: "8px",
+                                marginTop: "20px",
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontSize: "14px",
+                                    fontFamily: "var(--English-font)",
+                                    color: hoveredService === 'CORE IT' ? "#000" : "#FFF",
+                                }}
+                            >
+                                learn more
+                            </Typography>
+                            <Box component="img" src={hoveredService === "CORE IT" ? learnMoreArrowBlack : learnMoreArrow} />
+                        </Box>
+                    </motion.div>
+                )}
             </Grid>
         </>
     );
