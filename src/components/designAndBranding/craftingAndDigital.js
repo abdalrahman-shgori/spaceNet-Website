@@ -121,9 +121,9 @@ export default function Crafting({
               <Typography
                 sx={{
                   fontSize: {
-                    lg: is14Inch ? "55px" : is15Inch ? "60px" : "65px",
-                    md: "40px",
-                    sm: "30px",
+                    lg: is14Inch ? "48px" : is15Inch ? "60px" : "65px",
+                    md: "38px",
+                    sm: "28px",
                     xs: "38px"
                   },
                   fontFamily: "var(--English-font-SoraThin)",
@@ -135,8 +135,8 @@ export default function Crafting({
                   transition: "transform 10s ease-in-out",
                   lineHeight: {
                     lg: "68px",
-                    md: "68px",
-                    sm: "68px",
+                    md: "48px",
+                    sm: "38px",
                     xs: "42px"
                   },
                   color: item.color === '#E9FA50' ? "#000000" : "#FFFFFF",

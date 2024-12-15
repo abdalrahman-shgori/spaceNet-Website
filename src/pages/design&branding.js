@@ -84,7 +84,7 @@ const designAndBrandingList = [
     { title: "Design Strategy", color: "#1CB786", rotate: "5.28deg" },
     { title: "Web & Mobile Design", color: "#E9FA50", rotate: "-3.6deg" },
     { title: "Consulting", color: "#F29111", rotate: "-11.1deg" },
-    { title: "Branding &Printables", color: "#9D89FC", rotate: "-19.3deg" },
+    { title: "Branding & Rebranding", color: "#9D89FC", rotate: "-19.3deg" },
 ];
 
 export default function DesignAndBranding({setOpen}) {
