@@ -87,7 +87,7 @@ const designAndBrandingList = [
     { title: "Branding & Rebranding", color: "#9D89FC", rotate: "-19.3deg" },
 ];
 
-export default function DesignAndBranding({setOpen}) {
+export default function DesignAndBranding({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const theme = useTheme()
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
@@ -186,6 +186,11 @@ export default function DesignAndBranding({setOpen}) {
     }, []);
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SPACENET DESIGN & BRANDING</title>
+                <link rel="canonical" href="https://spacenetiq/design-branding" />
+            </Helmet>
             <motion.div
                 onWheel={handleScroll} onTouchMove={handleScroll}
                 initial={{ opacity: 0, y: 150 }}
@@ -195,11 +200,6 @@ export default function DesignAndBranding({setOpen}) {
                     duration: 1
                 }}
             >
-                 <Helmet>
-                    <meta charSet="utf-8"/>
-                    <title>SPACENET DESIGN & BRANDING</title>
-                    <link rel="canonical" href="https://space-net-website.vercel.app/design-branding"/>
-                </Helmet>
                 <Grid
                     className="root-container"
                     sx={{
@@ -245,7 +245,7 @@ export default function DesignAndBranding({setOpen}) {
                     text2Color="#FFFFFF"
                     setOpen={setOpen}
                 />
-                <SpaceNetLayout setOpen={setOpen}/>
+                <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
         </>
     )

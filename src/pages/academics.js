@@ -55,12 +55,12 @@ export default function Academics({ setOpen }) {
     }, [])
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SPACENET ACADEMICS</title>
+                <link rel="canonical" href="https://spacenetiq/academics" />
+            </Helmet>
             <motion.div>
-                <Helmet>
-                    <meta charSet="utf-8" />
-                    <title>SPACENET ACADEMICS</title>
-                    <link rel="canonical" href="https://space-net-website.vercel.app/academics" />
-                </Helmet>
                 <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                 <Grid className="root-container"
                     sx={{
@@ -78,7 +78,7 @@ export default function Academics({ setOpen }) {
                     <DevelopSkillsText
                         text="Develop your skills in "
                     />
-                    <DevelopSkills setOpen={setOpen} setEnroll={setEnroll}/>
+                    <DevelopSkills setOpen={setOpen} setEnroll={setEnroll} />
                     <SectionDescription
                         text1="What We Teach"
                         text2="Explore Our Courses Now and Choose What You Need"
@@ -111,7 +111,6 @@ export default function Academics({ setOpen }) {
                 />
                 <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
-
         </>
     )
 }

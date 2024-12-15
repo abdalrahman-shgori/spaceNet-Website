@@ -87,6 +87,11 @@ export default function SoftwareSection({ setOpen }) {
 
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SPACENET SOFTWARE</title>
+                <link rel="canonical" href="https://spacenetiq/software" />
+            </Helmet>
             <motion.div
                 initial={{ opacity: 0, y: 150 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -95,11 +100,6 @@ export default function SoftwareSection({ setOpen }) {
                     duration: 1
                 }}
             >
-                <Helmet>
-                    <meta charSet="utf-8" />
-                    <title>SPACENET SOFTWARE</title>
-                    <link rel="canonical" href="https://space-net-website.vercel.app/software" />
-                </Helmet>
                 <Grid className="root-container"
                     sx={{
                         padding: {

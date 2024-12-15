@@ -67,9 +67,14 @@ export default function CoreIt({ setOpen }) {
         }
     }, []);
 
- const theme=useTheme()
+    const theme = useTheme()
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SPACENET CORE IT</title>
+                <link rel="canonical" href="https://spacenetiq/core-it" />
+            </Helmet>
             <motion.div
                 className="root-container"
                 initial={{ opacity: 0, y: 150 }}
@@ -79,11 +84,7 @@ export default function CoreIt({ setOpen }) {
                     duration: 1
                 }}
             >
-                <Helmet>
-                    <meta charSet="utf-8" />
-                    <title>SPACENET CORE IT</title>
-                    <link rel="canonical" href="https://space-net-website.vercel.app/software" />
-                </Helmet>
+
                 <Grid className="root-container"
                     sx={{
                         padding: {
