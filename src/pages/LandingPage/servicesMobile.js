@@ -68,7 +68,7 @@ export default function ServicesMobile({
                     md: "none",
                     sm: "none",
                     xs: "unset"
-                }
+                },
             }}
         >
             <motion.div

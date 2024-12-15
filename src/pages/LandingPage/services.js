@@ -111,6 +111,12 @@ export default function Services({
                     display: { lg: "unset", md: "unset", sm: "flex", xs: "flex" },
                     flexDirection: { lg: "unset", md: "unset", sm: "row", xs: "row" },
                     overflowX: "auto",
+                    overflowY:{
+                        lg:"unset",
+                        md:"unset",
+                        sm:"unset",
+                        xs:"hidden"
+                    },
                     whiteSpace: "nowrap",
                     paddingBottom: "10px",
                     scrollbarWidth: "none",
