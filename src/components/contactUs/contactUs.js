@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
-import { Button, Grid, TextField, useTheme } from '@mui/material';
+import { Button, CircularProgress, Grid, TextField, useTheme ,Snackbar} from '@mui/material';
 import EmailIcon from "../../assets/contactUs/emailIcon.svg"
 import CallIcon from "../../assets/contactUs/callIcon.svg"
 import LocationIncon from "../../assets/contactUs/locationIcon.svg"
@@ -16,6 +16,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { motion } from "framer-motion"
 import { useState } from 'react';
 import { ContactUsApi } from '../../services/websiteApis/services';
+import { useEffect } from 'react';
 const style = {
     width: "100%",
     bgcolor: 'background.paper',
@@ -101,13 +102,21 @@ export default function BasicModal({ setOpen, open }) {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false); // Track loading state
+    const [snackbarOpen, setSnackbarOpen] = useState(false); // Control Snackbar visibility
+    const [snackbarMessage, setSnackbarMessage] = useState(''); // Message to show in Snackbar
+    const [snackbarSeverity, setSnackbarSeverity] = useState('success'); // 'success' or 'error'
+  
 console.log(name)
     const handleSubmit = async () => {
+        setError(null);
+
         if (!name || !email || !message) {
           setError('All fields are required');
           return;
         }
         try {
+            setLoading(true); // Set loading to true when submitting
           const response = await ContactUsApi(name, email, message);
           console.log('Message sent successfully', response);
           // Clear the form on successful submission
@@ -115,11 +124,31 @@ console.log(name)
           setEmail('');
           setMessage('');
           setError(null);
+          setSnackbarMessage('Message sent successfully!');
+          setSnackbarSeverity('success');
+          setSnackbarOpen(true);
+
         } catch (error) {
           setError('Failed to send the message');
+          setLoading(false); // Reset loading after the API call
+          setSnackbarMessage('Failed to send the message');
+          setSnackbarSeverity('error');
+          setSnackbarOpen(true);
           console.error(error);
         }
+        finally{
+            setLoading(false); // Reset loading after the API call
+
+        }
       };
+      const handleSnackbarClose = () => {
+        setSnackbarOpen(false);
+      };
+      useEffect(()=>{
+        if(name && email && message){
+            setError(null)
+        }
+      },[name,email,message,error])
     return (
         <div>
             <Modal
@@ -468,7 +497,7 @@ console.log(name)
             marginTop: { lg: '30px', md: '30px', sm: '30px', xs: '32px' },
           }}
         >
-          <Button
+           <Button
             sx={{
               bgcolor: '#000',
               color: '#fff',
@@ -480,8 +509,9 @@ console.log(name)
               textTransform: 'capitalize',
             }}
             onClick={handleSubmit}
+            disabled={loading} // Disable button while loading
           >
-            Submit Now
+            {loading ? <CircularProgress style={{color:"#fff"}} size={24} color="inherit" /> : 'Submit Now'}
           </Button>
         </Box>
       </Box>
@@ -490,6 +520,18 @@ console.log(name)
                             </Box>
                         </Grid>
                     </Box>
+                    <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+        message={snackbarMessage}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }} // Top-right position
+        action={
+          <Button color="inherit" size="small" onClick={handleSnackbarClose}>
+            CLOSE
+          </Button>
+        }
+      />
                 </motion.div>
             </Modal>
         </div>

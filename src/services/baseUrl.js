@@ -15,6 +15,5 @@ export const axiosInstance = axios.create({
         ? "en"
         : localStorage.getItem("lang"),
   },
-
 });
 
