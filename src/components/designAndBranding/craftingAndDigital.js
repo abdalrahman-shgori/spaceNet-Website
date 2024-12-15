@@ -42,7 +42,7 @@ export default function Crafting({
         <Typography
           sx={{
             fontSize: {
-              lg: is14Inch ? "65px" : is15Inch ? "65px" : "80px",
+              lg: is14Inch ? "65px" : is15Inch ? "60px" : "80px",
               md: "50px",
               sm: "38px",
               xs: "35px"
@@ -93,7 +93,7 @@ export default function Crafting({
                 top: lg ? "48px" : md ? "48px" : sm ? "48px" : xs ? "38px" : "48px",
                 left: lg ? is14Inch ? "calc(50% - 150px)" : is15Inch ? "calc(50% - 160px)" : "calc(50% - 172px)" :
                   md ? "calc(50% - 110px)" :
-                    sm ? "calc(50% - 90px)" :
+                    sm ? "calc(50% - 80px)" :
                       xs ? "calc(50% - 110px)" :
                         "calc(50% - 172px)",
                 right: "0",
@@ -160,8 +160,8 @@ export default function Crafting({
         sx={{
           justifyContent: {
             lg: "end",
-            md: "end",
-            sm: "end",
+            md: "center",
+            sm: "center",
             xs: "start"
           }
         }}
@@ -169,7 +169,7 @@ export default function Crafting({
         <Typography
           sx={{
             fontSize: {
-              lg: is14Inch ? "65px" : is15Inch ? "65px" : "80px",
+              lg: is14Inch ? "65px" : is15Inch ? "60px" : "80px",
               md: "50px",
               sm: "38px",
               xs: "35px"
@@ -189,7 +189,7 @@ export default function Crafting({
             component={xs && "span"}
             sx={{
               fontSize: {
-                lg: "66px",
+                lg: "60px",
                 md: "40px",
                 xs: "24px"
               },
