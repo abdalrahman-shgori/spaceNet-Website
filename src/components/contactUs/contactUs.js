@@ -108,7 +108,8 @@ export default function BasicModal({ setOpen, open }) {
     const [snackbarSeverity, setSnackbarSeverity] = useState('success');
 
     console.log(name)
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault(); 
         setError(null);
 
         if (!name || !email || !message) {
@@ -438,83 +439,94 @@ export default function BasicModal({ setOpen, open }) {
                                         </Box>
                                     </Grid>
                                     <Grid item lg={6} md={6} sm={6} xs={12}>
-                                        <Box>
-                                            <Typography
-                                                sx={{
-                                                    fontSize: { lg: '28px', md: '28px', sm: '24px', xs: '24px' },
-                                                    fontFamily: 'var(--English-font-semibold)',
-                                                    textTransform: 'capitalize',
-                                                    marginTop: { lg: 'unset', md: 'unset', sm: 'unset', xs: '67px' },
-                                                    color: '#000000',
-                                                }}
-                                            >
-                                                Send A Message
-                                            </Typography>
-                                            <Box sx={{ marginTop: { lg: '37px', md: '37px', sm: '37px', xs: '21px' } }}>
-                                                <Box>
-                                                    <Typography sx={{ ...fieldTextStyle }}>Name</Typography>
-                                                    <TextField
-                                                        fullWidth
-                                                        placeholder="Your Name"
-                                                        value={name}
-                                                        onChange={(e) => setName(e.target.value)}
-                                                        sx={{ ...textFieldStyle }}
-                                                    />
-                                                </Box>
-                                                <Box>
-                                                    <Typography sx={{ ...fieldTextStyle }}>Email</Typography>
-                                                    <TextField
-                                                        fullWidth
-                                                        placeholder="Your Email"
-                                                        value={email}
-                                                        onChange={(e) => setEmail(e.target.value)}
-                                                        sx={{ ...textFieldStyle }}
-                                                    />
-                                                </Box>
-                                                <Box>
-                                                    <Typography sx={{ ...fieldTextStyle }}>Message</Typography>
-                                                    <TextField
-                                                        fullWidth
-                                                        multiline
-                                                        rows={4}
-                                                        placeholder="Your Message"
-                                                        value={message}
-                                                        onChange={(e) => setMessage(e.target.value)}
-                                                        sx={{ ...textFieldStyle }}
-                                                    />
-                                                </Box>
-                                            </Box>
-                                            {error && (
-                                                <Typography color="error" sx={{ marginTop: '10px' }}>
-                                                    {error}
-                                                </Typography>
-                                            )}
-                                            <Box
-                                                sx={{
-                                                    display: 'flex',
-                                                    justifyContent: 'end',
-                                                    marginTop: { lg: '30px', md: '30px', sm: '30px', xs: '32px' },
-                                                }}
-                                            >
-                                                <Button
-                                                    sx={{
-                                                        bgcolor: '#000',
-                                                        color: '#fff',
-                                                        width: 'fit-content',
-                                                        padding: { lg: '12px 27px', md: '12px 27px', sm: '12px 27px', xs: '9px 21px' },
-                                                        fontSize: { lg: '17px', md: '17px', sm: '17px', xs: '13.5px' },
-                                                        fontFamily: 'var(--English-font-semibold)',
-                                                        borderRadius: '34px',
-                                                        textTransform: 'capitalize',
-                                                    }}
-                                                    onClick={handleSubmit}
-                                                    disabled={loading} // Disable button while loading
-                                                >
-                                                    {loading ? <CircularProgress style={{ color: "#fff" }} size={24} color="inherit" /> : 'Submit Now'}
-                                                </Button>
-                                            </Box>
-                                        </Box>
-                                    </Grid>
+    <Box>
+        <Typography
+            sx={{
+                fontSize: { lg: '28px', md: '28px', sm: '24px', xs: '24px' },
+                fontFamily: 'var(--English-font-semibold)',
+                textTransform: 'capitalize',
+                marginTop: { lg: 'unset', md: 'unset', sm: 'unset', xs: '67px' },
+                color: '#000000',
+            }}
+        >
+            Send A Message
+        </Typography>
+
+        {/* Wrap this part in a form element */}
+        <form onSubmit={handleSubmit}>
+            <Box sx={{ marginTop: { lg: '37px', md: '37px', sm: '37px', xs: '21px' } }}>
+                <Box>
+                    <Typography sx={{ ...fieldTextStyle }}>Name</Typography>
+                    <TextField
+                        fullWidth
+                        placeholder="Your Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        sx={{ ...textFieldStyle }}
+                    />
+                </Box>
+                <Box>
+                    <Typography sx={{ ...fieldTextStyle }}>Email</Typography>
+                    <TextField
+                        fullWidth
+                        type="email"  // Email type for validation
+                        placeholder="Your Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        sx={{ ...textFieldStyle }}
+                        required  // Ensures email is not empty
+                    />
+                </Box>
+                <Box>
+                    <Typography sx={{ ...fieldTextStyle }}>Message</Typography>
+                    <TextField
+                        fullWidth
+                        multiline
+                        rows={4}
+                        placeholder="Your Message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        sx={{ ...textFieldStyle }}
+                        required
+                    />
+                </Box>
+            </Box>
+
+            {/* Display error message */}
+            {error && (
+                <Typography color="error" sx={{ marginTop: '10px' }}>
+                    {error}
+                </Typography>
+            )}
+
+            {/* Submit button */}
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'end',
+                    marginTop: { lg: '30px', md: '30px', sm: '30px', xs: '32px' },
+                }}
+            >
+                <Button
+                    type="submit"  // Submit the form
+                    sx={{
+                        bgcolor: '#000',
+                        color: '#fff',
+                        width: 'fit-content',
+                        padding: { lg: '12px 27px', md: '12px 27px', sm: '12px 27px', xs: '9px 21px' },
+                        fontSize: { lg: '17px', md: '17px', sm: '17px', xs: '13.5px' },
+                        fontFamily: 'var(--English-font-semibold)',
+                        borderRadius: '34px',
+                        textTransform: 'capitalize',
+                    }}
+                    disabled={loading}  // Disable button while loading
+                >
+                    {loading ? <CircularProgress style={{ color: "#fff" }} size={24} color="inherit" /> : 'Submit Now'}
+                </Button>
+            </Box>
+        </form>
+    </Box>
+</Grid>
                                 </Grid>
                             </Box>
                         </Grid>
