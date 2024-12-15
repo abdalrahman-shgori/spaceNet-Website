@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
-import { Button, CircularProgress, Grid, TextField, useTheme ,Snackbar} from '@mui/material';
+import { Button, CircularProgress, Grid, TextField, useTheme, Snackbar } from '@mui/material';
 import EmailIcon from "../../assets/contactUs/emailIcon.svg"
 import CallIcon from "../../assets/contactUs/callIcon.svg"
 import LocationIncon from "../../assets/contactUs/locationIcon.svg"
@@ -102,53 +102,52 @@ export default function BasicModal({ setOpen, open }) {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false); // Track loading state
-    const [snackbarOpen, setSnackbarOpen] = useState(false); // Control Snackbar visibility
-    const [snackbarMessage, setSnackbarMessage] = useState(''); // Message to show in Snackbar
-    const [snackbarSeverity, setSnackbarSeverity] = useState('success'); // 'success' or 'error'
-  
-console.log(name)
+    const [loading, setLoading] = useState(false);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+    const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+
+    console.log(name)
     const handleSubmit = async () => {
         setError(null);
 
         if (!name || !email || !message) {
-          setError('All fields are required');
-          return;
+            setError('All fields are required');
+            return;
         }
         try {
-            setLoading(true); // Set loading to true when submitting
-          const response = await ContactUsApi(name, email, message);
-          console.log('Message sent successfully', response);
-          // Clear the form on successful submission
-          setName('');
-          setEmail('');
-          setMessage('');
-          setError(null);
-          setSnackbarMessage('Message sent successfully!');
-          setSnackbarSeverity('success');
-          setSnackbarOpen(true);
+            setLoading(true);
+            const response = await ContactUsApi(name, email, message);
+            console.log('Message sent successfully', response);
+            setName('');
+            setEmail('');
+            setMessage('');
+            setError(null);
+            setSnackbarMessage('Message sent successfully!');
+            setSnackbarSeverity('success');
+            setSnackbarOpen(true);
 
         } catch (error) {
-          setError('Failed to send the message');
-          setLoading(false); // Reset loading after the API call
-          setSnackbarMessage('Failed to send the message');
-          setSnackbarSeverity('error');
-          setSnackbarOpen(true);
-          console.error(error);
+            setError('Failed to send the message');
+            setLoading(false);
+            setSnackbarMessage('Failed to send the message');
+            setSnackbarSeverity('error');
+            setSnackbarOpen(true);
+            console.error(error);
         }
-        finally{
-            setLoading(false); // Reset loading after the API call
+        finally {
+            setLoading(false);
 
         }
-      };
-      const handleSnackbarClose = () => {
+    };
+    const handleSnackbarClose = () => {
         setSnackbarOpen(false);
-      };
-      useEffect(()=>{
-        if(name && email && message){
+    };
+    useEffect(() => {
+        if (name && email && message) {
             setError(null)
         }
-      },[name,email,message,error])
+    }, [name, email, message, error])
     return (
         <div>
             <Modal
@@ -314,7 +313,7 @@ console.log(name)
                                                     color: "#000000"
                                                 }}
                                             >
-                                              get in Touch
+                                                get in Touch
                                             </Typography>
                                             <Typography
                                                 sx={{
@@ -335,8 +334,8 @@ console.log(name)
                                                     width: "100%"
                                                 }}
                                             >
-                                                Get in touch today to discuss your needs, ask questions, or schedule a free consultation. Let’s build something amazing together!                 
-                                                                  </Typography>
+                                                Get in touch today to discuss your needs, ask questions, or schedule a free consultation. Let’s build something amazing together!
+                                            </Typography>
                                         </Box>
                                         <Box
                                             sx={{
@@ -439,99 +438,99 @@ console.log(name)
                                         </Box>
                                     </Grid>
                                     <Grid item lg={6} md={6} sm={6} xs={12}>
-      <Box>
-        <Typography
-          sx={{
-            fontSize: { lg: '28px', md: '28px', sm: '24px', xs: '24px' },
-            fontFamily: 'var(--English-font-semibold)',
-            textTransform: 'capitalize',
-            marginTop: { lg: 'unset', md: 'unset', sm: 'unset', xs: '67px' },
-            color: '#000000',
-          }}
-        >
-          Send A Message
-        </Typography>
-        <Box sx={{ marginTop: { lg: '37px', md: '37px', sm: '37px', xs: '21px' } }}>
-          <Box>
-            <Typography sx={{ ...fieldTextStyle }}>Name</Typography>
-            <TextField
-              fullWidth
-              placeholder="Your Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              sx={{ ...textFieldStyle }}
-            />
-          </Box>
-          <Box>
-            <Typography sx={{ ...fieldTextStyle }}>Email</Typography>
-            <TextField
-              fullWidth
-              placeholder="Your Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              sx={{ ...textFieldStyle }}
-            />
-          </Box>
-          <Box>
-            <Typography sx={{ ...fieldTextStyle }}>Message</Typography>
-            <TextField
-              fullWidth
-              multiline
-              rows={4}
-              placeholder="Your Message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              sx={{ ...textFieldStyle }}
-            />
-          </Box>
-        </Box>
-        {error && (
-          <Typography color="error" sx={{ marginTop: '10px' }}>
-            {error}
-          </Typography>
-        )}
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'end',
-            marginTop: { lg: '30px', md: '30px', sm: '30px', xs: '32px' },
-          }}
-        >
-           <Button
-            sx={{
-              bgcolor: '#000',
-              color: '#fff',
-              width: 'fit-content',
-              padding: { lg: '12px 27px', md: '12px 27px', sm: '12px 27px', xs: '9px 21px' },
-              fontSize: { lg: '17px', md: '17px', sm: '17px', xs: '13.5px' },
-              fontFamily: 'var(--English-font-semibold)',
-              borderRadius: '34px',
-              textTransform: 'capitalize',
-            }}
-            onClick={handleSubmit}
-            disabled={loading} // Disable button while loading
-          >
-            {loading ? <CircularProgress style={{color:"#fff"}} size={24} color="inherit" /> : 'Submit Now'}
-          </Button>
-        </Box>
-      </Box>
-    </Grid>
+                                        <Box>
+                                            <Typography
+                                                sx={{
+                                                    fontSize: { lg: '28px', md: '28px', sm: '24px', xs: '24px' },
+                                                    fontFamily: 'var(--English-font-semibold)',
+                                                    textTransform: 'capitalize',
+                                                    marginTop: { lg: 'unset', md: 'unset', sm: 'unset', xs: '67px' },
+                                                    color: '#000000',
+                                                }}
+                                            >
+                                                Send A Message
+                                            </Typography>
+                                            <Box sx={{ marginTop: { lg: '37px', md: '37px', sm: '37px', xs: '21px' } }}>
+                                                <Box>
+                                                    <Typography sx={{ ...fieldTextStyle }}>Name</Typography>
+                                                    <TextField
+                                                        fullWidth
+                                                        placeholder="Your Name"
+                                                        value={name}
+                                                        onChange={(e) => setName(e.target.value)}
+                                                        sx={{ ...textFieldStyle }}
+                                                    />
+                                                </Box>
+                                                <Box>
+                                                    <Typography sx={{ ...fieldTextStyle }}>Email</Typography>
+                                                    <TextField
+                                                        fullWidth
+                                                        placeholder="Your Email"
+                                                        value={email}
+                                                        onChange={(e) => setEmail(e.target.value)}
+                                                        sx={{ ...textFieldStyle }}
+                                                    />
+                                                </Box>
+                                                <Box>
+                                                    <Typography sx={{ ...fieldTextStyle }}>Message</Typography>
+                                                    <TextField
+                                                        fullWidth
+                                                        multiline
+                                                        rows={4}
+                                                        placeholder="Your Message"
+                                                        value={message}
+                                                        onChange={(e) => setMessage(e.target.value)}
+                                                        sx={{ ...textFieldStyle }}
+                                                    />
+                                                </Box>
+                                            </Box>
+                                            {error && (
+                                                <Typography color="error" sx={{ marginTop: '10px' }}>
+                                                    {error}
+                                                </Typography>
+                                            )}
+                                            <Box
+                                                sx={{
+                                                    display: 'flex',
+                                                    justifyContent: 'end',
+                                                    marginTop: { lg: '30px', md: '30px', sm: '30px', xs: '32px' },
+                                                }}
+                                            >
+                                                <Button
+                                                    sx={{
+                                                        bgcolor: '#000',
+                                                        color: '#fff',
+                                                        width: 'fit-content',
+                                                        padding: { lg: '12px 27px', md: '12px 27px', sm: '12px 27px', xs: '9px 21px' },
+                                                        fontSize: { lg: '17px', md: '17px', sm: '17px', xs: '13.5px' },
+                                                        fontFamily: 'var(--English-font-semibold)',
+                                                        borderRadius: '34px',
+                                                        textTransform: 'capitalize',
+                                                    }}
+                                                    onClick={handleSubmit}
+                                                    disabled={loading} // Disable button while loading
+                                                >
+                                                    {loading ? <CircularProgress style={{ color: "#fff" }} size={24} color="inherit" /> : 'Submit Now'}
+                                                </Button>
+                                            </Box>
+                                        </Box>
+                                    </Grid>
                                 </Grid>
                             </Box>
                         </Grid>
                     </Box>
                     <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={3000}
-        onClose={handleSnackbarClose}
-        message={snackbarMessage}
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }} // Top-right position
-        action={
-          <Button color="inherit" size="small" onClick={handleSnackbarClose}>
-            CLOSE
-          </Button>
-        }
-      />
+                        open={snackbarOpen}
+                        autoHideDuration={3000}
+                        onClose={handleSnackbarClose}
+                        message={snackbarMessage}
+                        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                        action={
+                            <Button color="inherit" size="small" onClick={handleSnackbarClose}>
+                                CLOSE
+                            </Button>
+                        }
+                    />
                 </motion.div>
             </Modal>
         </div>

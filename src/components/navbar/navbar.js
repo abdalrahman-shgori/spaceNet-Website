@@ -29,7 +29,7 @@ const NavBar = ({
         // { text: 'MARKETPLACE', route: '/marketplace' },
         // { text: 'BLOG & NEWS', route: '/blog' },
         { text: 'CONTACT US'},
-        { text: 'COMING SOON...', route: '/' },
+        { text: 'COMING SOON..', route: '/' },
 
     ];
     const socialMedia = [
@@ -51,7 +51,7 @@ const NavBar = ({
         setDrawerOpen(false);
     };
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
-
+    const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down("360"));
     return (
         <>
             <AppBar
@@ -206,7 +206,7 @@ const NavBar = ({
                                                                 lg: is14Inch ? "40px" : "44px",
                                                                 md: "30px",
                                                                 sm: "28px",
-                                                                xs: "28px",
+                                                                xs: ExtraSmallScreen ? "24px" : "28px",
                                                             },
                                                             color: "var(--Menu-Text-Color)",
                                                             fontFamily: "var(--English-font-semibold)",
@@ -215,7 +215,8 @@ const NavBar = ({
                                                             '&:hover': {
                                                                 color: theme.palette.mode === 'light' ? "#9D89FC" : "#E9FA50",
                                                             },
-                                                            cursor: "pointer"
+                                                            cursor: "pointer",
+                                                            whiteSpace:"nowrap"
                                                         }}
                                                     >
                                                         {text}
@@ -226,7 +227,7 @@ const NavBar = ({
                                         ))}
                                     </List>
 
-                                    <Box sx={{ display: 'flex', justifyContent: 'center', gap: "13px", marginBottom: '10px' }}>
+                                    <Box sx={{ display: 'flex', justifyContent: 'center', gap:ExtraSmallScreen ? "6px" : "13px", marginBottom: '10px' }}>
                                         {socialMedia.map((item, index) => (
                                             <Box
                                                 component="a"
