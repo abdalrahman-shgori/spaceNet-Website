@@ -125,9 +125,9 @@ export default function Crafting({
               <Typography
                 sx={{
                   fontSize: {
-                    lg: is14Inch ? "48px" : is15Inch ? "60px" : "65px",
+                    lg: is14Inch ? "48px" : is15Inch ? "58px" : "64px",
                     md: "38px",
-                    sm: "28px",
+                    sm: "32px",
                     xs: "36px"
                   },
                   fontFamily: "var(--English-font-SoraThin)",
