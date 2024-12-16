@@ -17,9 +17,11 @@ export default function Services({
     hoveredServiceDescription,
     isAboutActive,
     setIsAboutActive,
-    setOutOfServicesHover
+    setOutOfServicesHover,
+    scrollRef
 }) {
-    const scrollRef = useRef(null);
+    const componentRef = useRef(null);
+
     const theme = useTheme();
     const navigate = useNavigate();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -54,23 +56,7 @@ export default function Services({
         setTimeout(() => setCapture(false), 200);
     };
 
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (scrollRef.current && !scrollRef.current.contains(event.target)) {
-                if (hoveredService !== "" || hoveredServiceDescription !== "") {
-                    setHoveredService("");
-                    setHoveredServiceDescription("");
-                    setActiveService("ABOUT");
-                    setCapture(true);
-                    setTimeout(() => setCapture(false), 200);
-                }
-            }
-        }
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, [hoveredService, hoveredServiceDescription]);
-
+   
     useEffect(() => {
         if (!isTabScreen && !isMobile) {
             setHoveredService("");
@@ -157,6 +143,7 @@ export default function Services({
                                     image={localServices[index]}
                                     setOutOfServicesHover={setOutOfServicesHover}
                                     handleServiceClick={() => handleServiceClick(localServices[index].url)}
+                                    componentRef={componentRef}
                                 />
                                 <ServicesMobile
                                     activeService={activeService}
@@ -169,6 +156,7 @@ export default function Services({
                                     index={index}
                                     isAboutActive={isAboutActive}
                                     setIsAboutActive={setIsAboutActive}
+                                    componentRef={componentRef}
                                 />
                             </>
                         ))

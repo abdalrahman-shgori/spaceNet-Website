@@ -1,5 +1,5 @@
 import { Grid, useMediaQuery, useTheme } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Services from "./LandingPage/services";
 import AboutSpaceNet from "./LandingPage/aboutSpaceNet";
 import { Helmet } from "react-helmet";
@@ -18,9 +18,31 @@ export default function LandingPage({
     const [outOfServicesHover, setOutOfServicesHover] = useState(false);
     const [activeService, setActiveService] = useState('ABOUT');
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
+    const scrollRef = useRef(null);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            setTimeout(() => {
+                if (scrollRef.current && !scrollRef.current.contains(event.target)) {
+                    if (hoveredService !== "" || hoveredServiceDescription !== "") {
+                        setHoveredService("");
+                        setHoveredServiceDescription("");
+                        setActiveService("ABOUT");
+                        setCapture(true);
+                        setTimeout(() => setCapture(false), 200);
+                    }
+                }
+            }, 10);
+          
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, [hoveredService, hoveredServiceDescription]);
 
     return (
-        <Grid container
+        <Grid
+        
+         container
             sx={{
                 paddingTop: {
                     xl:"135px",
@@ -32,10 +54,9 @@ export default function LandingPage({
             }}
         >
            
-            <Grid item lg={6} md={6} sm={12} xs={12} sx={{
+            <Grid  item lg={6} md={6} sm={12} xs={12} sx={{
                 paddingBottom: "12px"
             }}>
-                {/* <Transform/> */}
                 <Services
                     hoveredService={hoveredService}
                     setHoveredService={setHoveredService}
@@ -52,6 +73,7 @@ export default function LandingPage({
                     setIsAboutActive={setIsAboutActive}
                     outOfServicesHover={outOfServicesHover}
                     setOutOfServicesHover={setOutOfServicesHover}
+                    scrollRef={scrollRef}
                 />
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>

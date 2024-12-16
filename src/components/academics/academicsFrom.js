@@ -149,7 +149,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
 
                                 }}
                             >
-                                How Might We Help?
+                               Start Your Learning Journey !
                             </Typography>
                             <Box
                                 sx={{

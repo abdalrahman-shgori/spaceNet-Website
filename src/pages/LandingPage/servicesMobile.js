@@ -14,12 +14,12 @@ export default function ServicesMobile({
     setCapture,
     item,
     index,
-    setIsAboutActive
+    setIsAboutActive,
+    componentRef
 }) {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
-    const componentRef = useRef(null);
 
     const handleClicks = (item) => {
         if (item.title === "ABOUT") {
@@ -51,7 +51,7 @@ export default function ServicesMobile({
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [componentRef]);
+    }, []);
     useEffect(() => {
         if (!isTabScreen && !isMobile) {
             setHoveredService("");
@@ -86,7 +86,6 @@ export default function ServicesMobile({
 
                     onClick={() => handleClicks(item)}
                     sx={{
-
                         cursor: `url(${index === 0
                             ? academy
                             : index === 1

@@ -93,7 +93,7 @@ export default function AboutSpaceNet({
                     <span className="scrolling-content"
                         style={{
                             paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
-                            marginTop: "25%",
+                            marginTop: isTabScreen ? "15%" : "25%",
                             textAlign: "center"
                         }}
                     >
@@ -490,6 +490,7 @@ export default function AboutSpaceNet({
                                 alignItems: "center",
                                 gap: "8px",
                                 marginTop: "20px",
+                                zIndex:"999999"
                             }}
                         >
                             <Typography

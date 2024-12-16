@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
 import { Button, CircularProgress, Grid, TextField, useTheme, Snackbar } from '@mui/material';
 import EmailIcon from "../../assets/contactUs/emailIcon.svg"
-import CallIcon from "../../assets/contactUs/callIcon.svg"
+import CallIcon from "../../assets/images/phone.svg"
 import LocationIncon from "../../assets/contactUs/locationIcon.svg"
 import FaceBookSvg from '../../assets/socialMediaIcons/facebook';
 import InstaSvg from '../../assets/socialMediaIcons/instaGram';
@@ -34,7 +34,7 @@ const style = {
 
 
 const contactUsWays = [
-    { id: 0, img: EmailIcon, title: "www.spacenetiq.com" },
+    { id: 0, img: EmailIcon, title: "info@spacenetiq.com" },
     { id: 1, img: CallIcon, title: "+964 (0) 750 555 0558" },
     { id: 2, img: LocationIncon, title: <>empire business towers <br /> building T4, floor 13, office 3. </> },
 ]
