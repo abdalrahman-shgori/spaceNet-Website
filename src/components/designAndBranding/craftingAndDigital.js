@@ -28,13 +28,17 @@ export default function Crafting({
   }
 
   return (
-    <Grid container >
+    <Grid container 
+    sx={{
+
+    }}
+    >
       <Grid item lg={3} md={3} sm={3} xs={12} container alignItems="center"
         sx={{
           justifyContent: {
             lg: "end",
             md: "end",
-            sm: "end",
+            sm: "start",
             xs: "start"
           }
         }}
@@ -42,9 +46,9 @@ export default function Crafting({
         <Typography
           sx={{
             fontSize: {
-              lg: is14Inch ? "65px" : is15Inch ? "60px" : "80px",
-              md: "50px",
-              sm: "38px",
+              lg: is14Inch ? "65px" : is15Inch ? "60px" : "93px",
+              md: "55px",
+              sm: "42px",
               xs: "35px"
             },
             fontFamily: "var(--English-font)",
@@ -93,7 +97,7 @@ export default function Crafting({
                 top: lg ? "48px" : md ? "48px" : sm ? "48px" : xs ? "38px" : "48px",
                 left: lg ? is14Inch ? "calc(50% - 150px)" : is15Inch ? "calc(50% - 160px)" : "calc(50% - 172px)" :
                   md ? "calc(50% - 110px)" :
-                    sm ? "calc(50% - 80px)" :
+                    sm ? "calc(50% - 120px)" :
                       xs ? "calc(50% - 110px)" :
                         "calc(50% - 172px)",
                 right: "0",
@@ -102,13 +106,13 @@ export default function Crafting({
                 maxWidth:
                   lg ? is14Inch ? "300px" : is15Inch ? "350px" : "384px" :
                     md ? "240px" :
-                      sm ? "180px" :
+                      sm ? "200px" :
                         xs ? "220px" :
                           "384px",
                 height:
                   lg ? is14Inch ? "300px" : is15Inch ? "350px" : "384px" :
                     md ? "240px" :
-                      sm ? "180px" :
+                      sm ? "200px" :
                         xs ? "220px" :
                           "384px",
                 width: "100%",
@@ -161,7 +165,7 @@ export default function Crafting({
           justifyContent: {
             lg: "end",
             md: "center",
-            sm: "center",
+            sm: "end",
             xs: "start"
           }
         }}
@@ -169,9 +173,9 @@ export default function Crafting({
         <Typography
           sx={{
             fontSize: {
-              lg: is14Inch ? "65px" : is15Inch ? "60px" : "80px",
-              md: "50px",
-              sm: "38px",
+              lg: is14Inch ? "65px" : is15Inch ? "60px" : "93px",
+              md: "55px",
+              sm: "42px",
               xs: "35px"
             },
             fontFamily: "var(--English-font)",
