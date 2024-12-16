@@ -32,7 +32,7 @@ export default function LandingPage({
                         setTimeout(() => setCapture(false), 200);
                     }
                 }
-            }, 10);
+            }, 0);
           
         }
         document.addEventListener("mousedown", handleClickOutside);
