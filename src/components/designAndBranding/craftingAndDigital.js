@@ -128,7 +128,7 @@ export default function Crafting({
                     lg: is14Inch ? "48px" : is15Inch ? "60px" : "65px",
                     md: "38px",
                     sm: "28px",
-                    xs: "38px"
+                    xs: "36px"
                   },
                   fontFamily: "var(--English-font-SoraThin)",
                   transform:
