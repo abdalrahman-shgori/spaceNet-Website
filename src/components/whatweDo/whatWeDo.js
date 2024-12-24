@@ -2,8 +2,10 @@ import { Grid } from "@mui/material";
 import React from "react";
 import WhatWeDoText from "./whatWeDoText";
 import Cards from "../cards";
+import { useTranslation } from "react-i18next";
 
 export default function WhatWeDo({ setData, data, lastCardId, loading }) {
+  const {t}=useTranslation()
     return (
         <>
             <Grid
@@ -17,7 +19,7 @@ export default function WhatWeDo({ setData, data, lastCardId, loading }) {
                 }}
             >
                 <WhatWeDoText
-                    text="What We Do"
+                    text={t("software.whatwedo")}
                 />
                 <Cards data={data} lastCardId={lastCardId} loading={loading} />
             </Grid>

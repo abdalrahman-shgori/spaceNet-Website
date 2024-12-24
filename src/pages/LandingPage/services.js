@@ -4,6 +4,7 @@ import Union from "../../assets/images/Union.svg";
 import ServicesMobile from "./servicesMobile";
 import ServicesOriginal from "./servicesOriginal";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function Services({
     activeService,
@@ -18,10 +19,13 @@ export default function Services({
     isAboutActive,
     setIsAboutActive,
     setOutOfServicesHover,
-    scrollRef
+    scrollRef,
+    setIndexOfHoveredServices,
+    indexOfHoveredServices
 }) {
     const componentRef = useRef(null);
-
+    const {i18n,t}=useTranslation()
+    const dir=i18n.dir()
     const theme = useTheme();
     const navigate = useNavigate();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -49,35 +53,44 @@ export default function Services({
             setHoveredServiceDescription(item.description);
             setIsAboutActive(true);
         }
-
-        setActiveService(item.title);
-        setHoveredService(item.title);
+        setIndexOfHoveredServices(item.id)
+        setActiveService(i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title);
+        setHoveredService(i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title);
         setCapture(true);
         setTimeout(() => setCapture(false), 200);
     };
-
    
     useEffect(() => {
         if (!isTabScreen && !isMobile) {
             setHoveredService("");
+            setIndexOfHoveredServices('')
+
             setHoveredServiceDescription("");
             setCapture(true);
             setActiveService("ABOUT");
             setTimeout(() => setCapture(false), 200);
         }
     }, [isTabScreen, isMobile]);
-
+  
     return (
         <Grid
             ref={servicesRef}
             sx={{
                 padding:
+                dir === 'ltr' ?
                 {
                     lg: "0px 75px 0px 75px",
                     md: '0px 75px 0px 75px',
                     sm: "0px 45px 0px 25px", 
                     xs: "0px 0px 0px 25px"
-                },
+                }:
+                {
+                    lg: "0px 75px 0px 75px",
+                    md: '0px 75px 0px 75px',
+                    sm: "0px 25px 0px 45px", 
+                    xs: "0px 25px 0px 0px" 
+                }
+                ,
             }}
         >
             <Typography
@@ -87,7 +100,7 @@ export default function Services({
                     display: { sm: "block", xs: "none", md: "block" },
                 }}
             >
-                Our Services
+                {t("services.OurServices")}
             </Typography>
 
             <Grid
@@ -144,6 +157,8 @@ export default function Services({
                                     setOutOfServicesHover={setOutOfServicesHover}
                                     handleServiceClick={() => handleServiceClick(localServices[index].url)}
                                     componentRef={componentRef}
+                                    setIndexOfHoveredServices={setIndexOfHoveredServices}
+                                    indexOfHoveredServices={indexOfHoveredServices}
                                 />
                                 <ServicesMobile
                                     activeService={activeService}
@@ -157,6 +172,9 @@ export default function Services({
                                     isAboutActive={isAboutActive}
                                     setIsAboutActive={setIsAboutActive}
                                     componentRef={componentRef}
+                                    setIndexOfHoveredServices={setIndexOfHoveredServices}
+                                    indexOfHoveredServices={indexOfHoveredServices}
+
                                 />
                             </>
                         ))

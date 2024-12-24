@@ -2,15 +2,17 @@ import React, { useEffect, useRef, useCallback, useState } from "react";
 import Matter from "matter-js";
 import { useTheme } from "@mui/material";
 import './coreit.css'
+import { useTranslation } from "react-i18next";
 const FallingItems = () => {
+  const {t}=useTranslation()
   const canvasRef = useRef(null);
   const intervalRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: window.innerWidth, height: window.innerHeight });
   const theme = useTheme()
   const labels = [
-    "Network", "Network", "Network", "Network",
-    "Security", "Security", "Security", "Security",
-    "IT", "IT", "IT"
+    t("coreIt.Network"), t("coreIt.Network"), t("coreIt.Network"), t("coreIt.Network"),
+    t("coreIt.Security"), t("coreIt.Security"), t("coreIt.Security"), t("coreIt.Security"),
+     t("coreIt.IT"),  t("coreIt.IT"),  t("coreIt.IT")
   ];
 
   const colors = theme.palette.mode === 'light'

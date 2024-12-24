@@ -18,6 +18,7 @@ import { useState } from 'react';
 import { ContactUsApi } from '../../services/websiteApis/services';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 const style = {
     width: "100%",
     bgcolor: 'background.paper',
@@ -33,11 +34,7 @@ const style = {
 };
 
 
-const contactUsWays = [
-    { id: 0, img: EmailIcon, title: "info@spacenetiq.com" },
-    { id: 1, img: CallIcon, title: "+964 (0) 750 555 0558" },
-    { id: 2, img: LocationIncon, title: <>empire business towers <br /> building T4, floor 13, office 3. </> },
-]
+
 const socialMedia = [
     { icon: <FaceBookSvg />, link: "https://www.facebook.com/share/19yTYEYifS/?mibextid=wwXIfr", },
     { icon: <InstaSvg />, link: "https://www.instagram.com/spacenetiq/profilecard/?igsh=MWYxc2dldmFzamV2OQ==", },
@@ -97,6 +94,12 @@ const textFieldStyle = {
     },
 }
 export default function BasicModal({ setOpen, open }) {
+    const {t} =useTranslation()
+    const contactUsWays = [
+        { id: 0, img: EmailIcon, title: "info@spacenetiq.com" },
+        { id: 1, img: CallIcon, title: "+964 (0) 750 555 0558" },
+        { id: 2, img: LocationIncon, title: <> {t("ContactUs.empire")} <br /> {t("ContactUs.building")} </> },
+    ]
     const handleClose = () => setOpen(false);
     const location=useLocation()
     const theme = useTheme()
@@ -120,12 +123,11 @@ export default function BasicModal({ setOpen, open }) {
         try {
             setLoading(true);
             const response = await ContactUsApi(name, email, message);
-            console.log('Message sent successfully', response);
             setName('');
             setEmail('');
             setMessage('');
             setError(null);
-            setSnackbarMessage('Message sent successfully!');
+            setSnackbarMessage(t("ContactUs.Messagesent"));
             setSnackbarSeverity('success');
             setSnackbarOpen(true);
 
@@ -135,7 +137,6 @@ export default function BasicModal({ setOpen, open }) {
             setSnackbarMessage('Failed to send the message');
             setSnackbarSeverity('error');
             setSnackbarOpen(true);
-            console.error(error);
         }
         finally {
             setLoading(false);
@@ -248,7 +249,7 @@ export default function BasicModal({ setOpen, open }) {
 
                                 }}
                             >
-                                We’d Love to Hear from You!
+                               {t("ContactUs.weLove")}
 
 
                             </Typography>
@@ -318,7 +319,7 @@ export default function BasicModal({ setOpen, open }) {
                                                     color: "#000000"
                                                 }}
                                             >
-                                                get in Touch
+                                               {t("ContactUs.getinTouch")}
                                             </Typography>
                                             <Typography
                                                 sx={{
@@ -339,7 +340,7 @@ export default function BasicModal({ setOpen, open }) {
                                                     width: "100%"
                                                 }}
                                             >
-                                                Get in touch today to discuss your needs, ask questions, or schedule a free consultation. Let’s build something amazing together!
+                                                {t("ContactUs.getinTouchToday")}
                                             </Typography>
                                         </Box>
                                         <Box
@@ -369,7 +370,7 @@ export default function BasicModal({ setOpen, open }) {
                                                             md: index === 1 ? "9px" : index === 2 && "1px",
                                                             sm: index === 1 ? "7px" : index === 2 && "5px",
                                                             xs: index === 1 ? "7px" : index === 2 && "5px"
-                                                        }
+                                                        },
 
                                                     }}
                                                 >
@@ -383,7 +384,9 @@ export default function BasicModal({ setOpen, open }) {
                                                                 xs: "15px"
                                                             },
                                                             fontFamily: "var(--English-font)",
-                                                            color: "#FFFFFF"
+                                                            color: "#FFFFFF",
+                                                            direction: index === 1 && "ltr"
+
                                                         }}
                                                     >
                                                         {item.title}
@@ -422,7 +425,7 @@ export default function BasicModal({ setOpen, open }) {
                                                     }
                                                 }}
                                             >
-                                                Follow Us
+                                                {t("ContactUs.FollowUs")}
                                             </Typography>
                                             <Box sx={{ display: 'flex', gap: "9px", }}>
                                                 {socialMedia.map((item, index) => (
@@ -454,41 +457,40 @@ export default function BasicModal({ setOpen, open }) {
                 color: '#000000',
             }}
         >
-            Send A Message
+            {t("ContactUs.SendMessage")}
         </Typography>
 
-        {/* Wrap this part in a form element */}
         <form onSubmit={handleSubmit}>
             <Box sx={{ marginTop: { lg: '37px', md: '37px', sm: '37px', xs: '21px' } }}>
                 <Box>
-                    <Typography sx={{ ...fieldTextStyle }}>Name</Typography>
+                    <Typography sx={{ ...fieldTextStyle }}>{t("ContactUs.Name")}</Typography>
                     <TextField
                         fullWidth
-                        placeholder="Your Name"
+                        placeholder={t("ContactUs.YourName")}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         sx={{ ...textFieldStyle }}
                     />
                 </Box>
                 <Box>
-                    <Typography sx={{ ...fieldTextStyle }}>Email</Typography>
+                    <Typography sx={{ ...fieldTextStyle }}> {t("ContactUs.Email")} </Typography>
                     <TextField
                         fullWidth
-                        type="email"  // Email type for validation
-                        placeholder="Your Email"
+                        type="email"  
+                        placeholder= {t("ContactUs.YourEmail")}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         sx={{ ...textFieldStyle }}
-                        required  // Ensures email is not empty
+                        required  
                     />
                 </Box>
                 <Box>
-                    <Typography sx={{ ...fieldTextStyle }}>Message</Typography>
+                    <Typography sx={{ ...fieldTextStyle }}> {t("ContactUs.Message")}</Typography>
                     <TextField
                         fullWidth
                         multiline
                         rows={4}
-                        placeholder="Your Message"
+                        placeholder={t("ContactUs.YourMessage")}
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         sx={{ ...textFieldStyle }}
@@ -526,7 +528,7 @@ export default function BasicModal({ setOpen, open }) {
                     }}
                     disabled={loading}  // Disable button while loading
                 >
-                    {loading ? <CircularProgress style={{ color: "#fff" }} size={24} color="inherit" /> : 'Submit Now'}
+                    {loading ? <CircularProgress style={{ color: "#fff" }} size={24} color="inherit" /> : t("ContactUs.SubmitNow")}
                 </Button>
             </Box>
         </form>
@@ -544,7 +546,7 @@ export default function BasicModal({ setOpen, open }) {
                         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                         action={
                             <Button color="inherit" size="small" onClick={handleSnackbarClose}>
-                                CLOSE
+                                {t("ContactUs.CLOSE")}
                             </Button>
                         }
                     />

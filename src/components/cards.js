@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import arrow from "../assets/sectionsImages/whatWeDoArrow.svg";
 import arrowWhite from "../assets/sectionsImages/whatwedoArrowWhite.svg";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 export default function Cards({
     data,
     lastCardId,
@@ -10,14 +11,16 @@ export default function Cards({
 }) {
     const [expandedCard, setExpandedCard] = useState(lastCardId);
     const containerRef = useRef(null);
-
+    const {i18n,t}=useTranslation()
+    const lang=i18n.language
+    const dir=i18n.dir()
     const handleCardClick = (id) => {
         if (id !== lastCardId) {
             setExpandedCard(expandedCard === id ? null : id);
         }
     };
     const [inView, setInView] = useState(false);
-
+     
     return (
         <Grid item
             container
@@ -94,11 +97,17 @@ export default function Cards({
                                         xs: "30px"
                                     },
                                     transition: "max-height 0.4s , border-radius 0.4s ",
-                                    padding: {
+                                    padding:dir === 'ltr' ? {
                                         lg: "72px 0px 0px 40px",
                                         md: "72px 0px 0px 40px",
                                         sm: "44px 0px 0px 20px",
                                         xs: "44px 0px 0px 20px"
+                                    } :
+                                    {
+                                        lg: "72px 40px 0px 0px",
+                                        md: "72px 40px 0px 0px",
+                                        sm: "44px 30px 0px 0px",
+                                        xs: "44px 30px 0px 0px"
                                     }
                                 }}
                             >
@@ -108,7 +117,13 @@ export default function Cards({
                                             component="img"
                                             sx={{
                                                 position: "absolute",
-                                                right: {
+                                                right:dir === 'ltr' && {
+                                                    lg: "40px",
+                                                    md: "40px",
+                                                    sm: "30px",
+                                                    xs: "30px"
+                                                },
+                                                left:dir === 'rtl' && {
                                                     lg: "40px",
                                                     md: "40px",
                                                     sm: "30px",
@@ -127,7 +142,10 @@ export default function Cards({
                                                     xs: "33px",
                                                 },
                                                 transition: "transform 0.4s linear",
-                                                transform: expandedCard === card.id ? "rotate(-90deg)" : "rotate(0deg)",
+                                                transform: dir === 'ltr' ? expandedCard === card.id ? "rotate(-90deg)" : "rotate(0deg) " :
+                                                expandedCard === card.id ? "rotate(180deg)" : "rotate(90deg) "
+                                                ,
+                                                
                                             }}
                                             src={index === 1 ? arrowWhite : arrow}
                                             alt="arrow"
@@ -158,7 +176,7 @@ export default function Cards({
                                                     }
                                                 }}
                                             >
-                                                {card.title}
+                                                {lang === 'ar' ? card.title_ar : lang==="ku" ? card.title_ku :  card.title}
                                             </Typography>
                                         </Grid>
                                         <Grid item lg={7} sm={7} xs={12}
@@ -198,7 +216,13 @@ export default function Cards({
                                                     },
                                                     width: "100%",
                                                     textAlign: "justify",
-                                                    paddingRight: {
+                                                    paddingRight: dir === 'ltr' && {
+                                                        lg: "60px",
+                                                        md: "60px",
+                                                        sm: "30px",
+                                                        xs: "0px"
+                                                    },
+                                                    paddingLeft: dir === 'rtl' && {
                                                         lg: "60px",
                                                         md: "60px",
                                                         sm: "30px",
@@ -212,8 +236,8 @@ export default function Cards({
                                                     }
                                                 }}
                                             >
-                                                {card.description}
-                                            </Typography>
+                                                {lang === 'ar' ? card.description_ar : lang==="ku" ? card.description_ku :  card.description}
+                                                </Typography>
                                             <Typography
                                                 sx={{
                                                     marginTop: {
@@ -226,7 +250,7 @@ export default function Cards({
                                                 }}
                                             >
 
-                                                {card.hashtags.split('|').map((hashtag, indexs) => (
+{(card[lang === 'ar' ? 'hashtags_ar' : lang === 'ku' ? 'hashtags_ku' : 'hashtags'] || '').split('|').map((hashtag, indexs) => (
                                                     <Box
                                                         key={indexs}
                                                         sx={{

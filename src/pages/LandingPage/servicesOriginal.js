@@ -6,6 +6,7 @@ import academy from "../../assets/images/academy.svg";
 import software from "../../assets/images/software.svg";
 import design from "../../assets/images/design.svg";
 import UnionWhite from "../../assets/images/UnionWhite.svg";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesOriginal({
     activeService,
@@ -22,20 +23,27 @@ export default function ServicesOriginal({
     setHoveredServiceDescription,
     setCapture,
     setOutOfServicesHover,
-    setActiveService
+    setActiveService,
+    setIndexOfHoveredServices,
+    indexOfHoveredServices
 }) {
+    const { i18n, t } = useTranslation()
+    const dir = i18n.dir()
     const [isHovered, setIsHovered] = useState(false);
     const [id, setId] = useState()
     const handleHover = () => {
-        setHoveredService(item.title);
-        setHoveredServiceDescription(item.description);
+        setHoveredService(i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title);
+        setHoveredServiceDescription(i18n.language === 'ar' ? item.description_ar : i18n.language === 'ku' ? item.description_ku : item.description);
         setId(item.id)
+        setIndexOfHoveredServices(item.id)
         setCapture(true);
         setOutOfServicesHover(false)
     };
 
     const handleLeave = () => {
         setHoveredService("");
+        setIndexOfHoveredServices('')
+
         setHoveredServiceDescription("");
         setActiveService("ABOUT")
         setCapture(false);
@@ -202,14 +210,14 @@ export default function ServicesOriginal({
                     >
                         {item.title.length > 20
                             ? `${item.title.slice(0, 20)}...`
-                            : item.title}
+                            : i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title}
                     </Typography>
 
                     {image && (
                         <Box
                             component="img"
                             src={
-                                hoveredService === 'SOFTWARE' &&
+                                indexOfHoveredServices === 3 &&
                                     index === 2 &&
                                     theme.palette.mode === "light"
                                     ? UnionWhite
@@ -222,6 +230,7 @@ export default function ServicesOriginal({
                                     md: "25px",
                                     sm: "25px",
                                 },
+                                transform: dir === 'ltr' ? "unset" : "scaleX(-1)"
                             }}
                         />
                     )}

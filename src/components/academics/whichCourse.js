@@ -6,9 +6,11 @@ import firstMobile from "../../assets/sectionsImages/academics/firstMobile.svg"
 import secondMobile from "../../assets/sectionsImages/academics/secondMobile.svg"
 import { motion } from "framer-motion"
 import Bracket from "../../assets/sectionsImages/academics/academicsBracket.";
-import { powerOf, pageStyle, textStyle, cardTitle, bracketStyle, cardStyle, cardStyle2 } from "./whichcourseStyle";
+import { pageStyle, textStyle, cardTitle, bracketStyle, cardStyle, cardStyle2 } from "./whichcourseStyle";
+import { useTranslation } from "react-i18next";
 export default function WhichCourse() {
-
+  const { i18n, t } = useTranslation()
+  const dir = i18n.dir()
   const [cardAnimationStart, setCardAnimationStart] = useState(false)
   const [test, setTest] = useState(false)
   const theme = useTheme()
@@ -25,18 +27,18 @@ export default function WhichCourse() {
   const spesificSmallScreen = useMediaQuery(theme.breakpoints.down("380"));
 
   const sectionRef = useRef(null);
-  const [inView, setInView] = useState(false); 
+  const [inView, setInView] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setInView(true); 
+          setInView(true);
         } else {
-          setInView(false); 
+          setInView(false);
         }
       },
       {
-        threshold: 0.1, 
+        threshold: 0.1,
       }
     );
 
@@ -51,12 +53,54 @@ export default function WhichCourse() {
     };
   }, []);
 
+  const powerOf = [
+    {
+      id: 0,
+      title: t("academics.achieveExper"),
+      bg: "#9D89FC",
+      rotate: "-28deg",
+      rotateXs: "6deg"
+    },
+    {
+      id: 1,
+      title: t("academics.createStunning"),
+      bg: "#1CB786",
+      rotate: "-20.76deg"
+      ,
+      rotateXs: "-6deg"
+    },
+    {
+      id: 2,
+      title: t("academics.buildSecure"),
+      bg: "#F4F4F4",
+      rotate: "-15.73deg"
+      ,
+      rotateXs: "6deg"
+    },
+    {
+      id: 3,
+      title: t("academics.innovate"),
+      bg: "#E9FA50",
+      rotate: "-10.57deg"
+      ,
+      rotateXs: "-6deg"
+    },
+    {
+      id: 4,
+      title: t("academics.elevate"),
+      bg: "#FA6423",
+      rotate: "-2.7deg"
+      ,
+      rotateXs: "6deg"
+
+    },
+  ]
   return (
     <>
       <motion.div className="root-container"
         ref={sectionRef}
 
-        style={{ background: "#051A2F", height: "100%" }}
+        style={{ background: "#051A2F", height: "100%", direction: "ltr", overflow: "hidden" }}
         onViewportLeave={() => {
           setCardAnimationStart(false);
         }}
@@ -72,11 +116,16 @@ export default function WhichCourse() {
           sx={pageStyle(test)}
         >
           <Typography
-            sx={textStyle(test)}
+            sx={{
+              ...textStyle(test),
+              textAlign: dir === 'rtl' ? "end" : 'unset'
+
+
+            }}
           >
-            The power to
+            {t("academics.Thepowerto")}
           </Typography>
-          <Box>
+          <Box >
             <motion.div
               animate={cardAnimationStart === true ? { y: [200, 0], opacity: [0, 1] } : { opacity: 0 }}
               transition={{
@@ -92,6 +141,8 @@ export default function WhichCourse() {
                 zIndex: 0,
                 width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "100%" : "100%",
                 height: xl ? "310px" : lg ? "310px" : md ? "300px" : sm ? "200px" : "50%",
+
+
               }}
             >
               <Box
@@ -142,7 +193,7 @@ export default function WhichCourse() {
                   animate={{
                     y: inView ? [-300, 0] : [-300, -300],
                     rotate: inView ? (test ? (xs ? item.rotateXs : "-4deg") : item.rotate) : item.rotate,
-                    opacity: inView ? [0, 1] : [0, 0], 
+                    opacity: inView ? [0, 1] : [0, 0],
                   }}
                   transition={{
                     duration: 0.1,
@@ -160,15 +211,32 @@ export default function WhichCourse() {
                 >
                   <Box
                     sx={{
-                      ...bracketStyle(test, index)
-
+                      ...bracketStyle(test, index),
+                      right: i18n.language === 'en' && {
+                        xl: test ? 20 : 30,
+                        lg: test ? 15 : 30,
+                        md: test ? 15 : 10,
+                        sm: test ? 15 : 10,
+                        xs: -6
+                      },
+                      left: i18n.language !== 'en' && {
+                        xl: test ? 20 : 30,
+                        lg: test ? 15 : 30,
+                        md: test ? 15 : 10,
+                        sm: test ? 15 : 10,
+                        xs: -6
+                      },
+                      transform: i18n.language !== 'en' && "scaleX(-1) rotate(3deg)"
                     }}
                   >
                     <Bracket index={index} />
                   </Box>
                   <Typography
                     sx={{
-                      ...cardTitle(test, index)
+                      ...cardTitle(test, index),
+                      direction: i18n.language === 'en' ? "ltr" : "rtl",
+                      width: "100%"
+
                     }}
                   >
                     {item.title}
@@ -177,6 +245,7 @@ export default function WhichCourse() {
                         <Box
                           key={idx}
                           sx={{
+
                             position: "absolute",
                             top: `${idx * 1.4}em`,
                             left: 0,
@@ -187,7 +256,8 @@ export default function WhichCourse() {
                               md: "0px 37px 0px 37px",
                               sm: "0px 37px 0px 37px",
                               xs: "0px 22px 0px 22px"
-                            }
+                            },
+                            direction: "rtl"
                           }}
                         />
                       )
@@ -207,7 +277,14 @@ export default function WhichCourse() {
             }}
             style={{
               position: test ? "relative" : "absolute",
-              right: 20,
+              right: dir === 'ltr' && 20,
+              left: dir === 'rtl' &&
+                xl ? "20px" :
+                lg ? "20px" :
+                  md ? "20px" :
+                    sm ? "20px" :
+                      xs ? "100px" :
+                        'unset',
               display: "flex",
               justifyContent: "flex-end",
               textAlign: "start",
@@ -224,7 +301,6 @@ export default function WhichCourse() {
             <Typography
               sx={{
                 display: {
-                  justifyContent: "end",
                   lg: "flex",
                   md: "flex",
                   sm: "flex",
@@ -237,7 +313,6 @@ export default function WhichCourse() {
                   xs: "38px"
                 },
                 color: "#FFFFFF",
-                width: "100%",
                 lineHeight: {
                   lg: "75px",
                   md: "75px",
@@ -247,7 +322,7 @@ export default function WhichCourse() {
                 fontFamily: "var(--English-font-semibold)",
               }}
             >
-              {xl || lg || md || sm ? <>is now in your hand</> : <>is <br /> now in your<br />hand</>}
+              {xl || lg || md || sm ? <> {t("academics.isnowin")} </> : <> {t("academics.is")} <br /> {t("academics.nowinyour")}<br />{t("academics.hand")}</>}
             </Typography>
 
           </motion.div>
@@ -274,7 +349,7 @@ export default function WhichCourse() {
                 src={xl || lg || md || sm ? front : secondMobile}
                 sx={{
                   overflow: "hidden",
-                  maxWidth: "1400px",
+                  maxWidth: "100%",
                   width: "100%",
                   height: "100%",
                 }}

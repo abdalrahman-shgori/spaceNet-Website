@@ -5,23 +5,34 @@ import PSImg from "../../assets/sectionsImages/design-branding/photoshop.svg"
 import figma from "../../assets/sectionsImages/design-branding/figma.svg"
 import adobeXd from "../../assets/sectionsImages/design-branding/adobeXd.svg"
 import AI from "../../assets/sectionsImages/design-branding/AI.svg"
+import { useTranslation } from "react-i18next";
 
 export default function CreatingSolution() {
+  const {t}=useTranslation()
   const solutions = [
     {
       id: 0,
-      title: "What We Do Best",
-      description: ["Design System", "Branding", "Web Design", "Development", "Creative consulting", "Logo", "Mobile application"],
+      title: t("designAndBranding.Whatwedo"),
+      description:
+       [
+        t("designAndBranding.DesignSystem"),
+        t("designAndBranding.Branding"),
+        t("designAndBranding.WebDesign"),
+        t("designAndBranding.Development"),
+        t("designAndBranding.Creativeconsulting"),
+        t("designAndBranding.Logo"),
+        t("designAndBranding.Mobileapplication"),
+          ],
     },
     {
       id: 1,
-      title: "The Process",
+      title:t("designAndBranding.TheProcess"),
       description: "",
       img: processImg
     },
     {
       id: 2,
-      title: "Our Technologies",
+      title:t("designAndBranding.OurTechnologies"),
       description: "",
       img: [PSImg, figma, adobeXd, AI]
     },

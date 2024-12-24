@@ -3,8 +3,11 @@ import { Box, Typography, Grid } from '@mui/material';
 import techImg from "../../../assets/sectionsImages/technologiesImage.svg"
 import meetImg from "../../../assets/sectionsImages/meetingImg.svg"
 import { motion } from "framer-motion"
+import { useTranslation } from 'react-i18next';
 
 export default function OurTechnologiesXsScreen({ programmingLang }) {
+    const { i18n, t } = useTranslation()
+    const dir = i18n.dir()
     return (
         <>
             <Box
@@ -50,7 +53,7 @@ export default function OurTechnologiesXsScreen({ programmingLang }) {
 
                                     }}
                                 >
-                                    Our team makes use of the newest technology and finest development processes.
+                                    {t("software.ourTeam")}
                                 </Typography>
                             </Grid>
                         </motion.div>
@@ -65,13 +68,16 @@ export default function OurTechnologiesXsScreen({ programmingLang }) {
                 >
                     <Grid xs={6} item
                         sx={{
-                            paddingRight: "10px",
+                            paddingLeft: dir === 'rtl' && "10px",
+                            paddingRight: dir === 'ltr' && "10px",
                             overflow: "hidden"
 
                         }}
                     >
                         <motion.div
-                            initial={{ x: -100 }}
+                            initial={
+                                dir === 'rtl' ? { x: 100 } : { x: -100 }
+                            }
                             whileInView={{
                                 x: 0
                             }}
@@ -102,7 +108,9 @@ export default function OurTechnologiesXsScreen({ programmingLang }) {
                         }}
                     >
                         <motion.div
-                            initial={{ x: 100 }}
+                            initial={
+                                dir === 'rtl' ? { x: -100 } : { x: 100 }
+                            }
                             whileInView={{
                                 x: 0
                             }}

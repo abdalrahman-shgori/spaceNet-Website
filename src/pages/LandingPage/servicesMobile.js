@@ -5,6 +5,7 @@ import customCursor from "../../assets/images/internet.svg";
 import academy from "../../assets/images/academy.svg";
 import software from "../../assets/images/software.svg";
 import design from "../../assets/images/design.svg";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesMobile({
     activeService,
@@ -15,24 +16,29 @@ export default function ServicesMobile({
     item,
     index,
     setIsAboutActive,
-    componentRef
+    componentRef,
+    setIndexOfHoveredServices,
+    indexOfHoveredServices
+
 }) {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
-
+    const {i18n}=useTranslation()
+    const dir=i18n.dir()
     const handleClicks = (item) => {
         if (item.title === "ABOUT") {
             setHoveredServiceDescription("");
             setIsAboutActive(true);
         } else {
-            setHoveredServiceDescription(item.description);
+            setHoveredServiceDescription(i18n.language === 'ar' ? item.description_ar : i18n.language === 'ku' ? item.description_ku : item.description);
             setIsAboutActive(false);
         }
-
-        setActiveService(item.title);
-        setHoveredService(item.title);
+        
+        setActiveService(i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title);
+        setHoveredService(i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title);
         setCapture(true);
+        setIndexOfHoveredServices(item.id)
 
         setTimeout(() => {
             setCapture(false);
@@ -43,6 +49,7 @@ export default function ServicesMobile({
             if (componentRef.current && !componentRef.current.contains(event.target)) {
                 setHoveredService("");
                 setHoveredServiceDescription("");
+                setIndexOfHoveredServices('');
                 setCapture(false);
                 setActiveService('ABOUT')
             }
@@ -56,10 +63,12 @@ export default function ServicesMobile({
         if (!isTabScreen && !isMobile) {
             setHoveredService("");
             setHoveredServiceDescription("");
+            setIndexOfHoveredServices()
             setCapture(false);
             setActiveService('ABOUT')
         }
     }, [isTabScreen, isMobile]);
+ 
     return (
         <Grid
             sx={{
@@ -97,27 +106,22 @@ export default function ServicesMobile({
                                         : ""
                             }), pointer`,
 
-                        background: activeService === item.title
-                            ? activeService === "ABOUT"
-                                ? theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50"
-                                : index === 1
-                                    ? "#FF9F31"
-                                    : index === 2
-                                        ? "#E9FA50"
-                                        : index === 3
-                                            ? theme.palette.mode === 'light' ? "#011343" : "#9D89FC"
-                                            : index === 4
-                                                ? "#1CB786"
-                                                : "#F5F5F5"
+                            background: activeService === (i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title)
+                            ? (activeService === "ABOUT" || indexOfHoveredServices === undefined
+                                ? (theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50")
+                                : indexOfHoveredServices === 1 ? "#FF9F31"
+                                : indexOfHoveredServices === 2 ? "#E9FA50"
+                                : indexOfHoveredServices === 3 ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC")
+                                : indexOfHoveredServices === 5 ? "#1CB786"
+                                : "#F5F5F5")
                             : "#F5F5F5",
-
+                        
                         borderRadius: "38.7px",
-                        marginLeft: "2px",
                         marginTop: {
                             lg: "20px",
                             md: "20px",
                             sm: "20px",
-                            xs: "6px",
+                            xs: "0px",
                         },
                         height: {
                             xl: "100px",
@@ -136,13 +140,19 @@ export default function ServicesMobile({
                         paddingLeft: "32px",
                         paddingRight: "32px",
                         justifyContent: "space-between",
-                        marginRight: {
+                        marginRight: dir === 'ltr' && {
                             lg: "unset",
                             md: "unset",
                             sm: "6px",
                             xs: "6px",
                         },
-                        color: activeService === item.title && index !== 2 && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
+                        marginLeft: dir === 'rtl' && {
+                            lg: "unset",
+                            md: "unset",
+                            sm: "6px",
+                            xs: "6px",
+                        },
+                        color: activeService === (i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title) && indexOfHoveredServices === 3 && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
                         transition: "background 0.5s ease, transform 0.2s",
 
                     }}
@@ -164,9 +174,10 @@ export default function ServicesMobile({
                             alignItems: "center"
                         }}
                     >
+                        
                         {item.img != undefined ? item.title.length > 20
                             ? `${item.title.slice(0, 20)}...`
-                            : item.img : item.title}
+                            : item.img : i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title}
                     </Typography>
 
             

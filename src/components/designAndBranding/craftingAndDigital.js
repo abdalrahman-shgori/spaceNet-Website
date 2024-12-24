@@ -1,6 +1,7 @@
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 export default function Crafting({
   designAndBrandingList,
   reset,
@@ -8,7 +9,8 @@ export default function Crafting({
   setScrollIndex,
   data
 }) {
-
+  const {t,i18n}=useTranslation()
+  const dir=i18n.dir()
   const theme = useTheme();
   const lg = useMediaQuery(theme.breakpoints.only('lg'));
   const md = useMediaQuery(theme.breakpoints.only('md'));
@@ -30,16 +32,17 @@ export default function Crafting({
   return (
     <Grid container 
     sx={{
-
+        direction:"ltr"
     }}
     >
+      
       <Grid item lg={3} md={3} sm={3} xs={12} container alignItems="center"
         sx={{
           justifyContent: {
-            lg: "end",
-            md: "end",
+            lg: dir === 'rtl' ?"start" : "end",
+            md: dir === 'rtl' ?"start" : "end",
             sm: "start",
-            xs: "start"
+            xs: dir === 'rtl' ? 'end' : "start"
           }
         }}
       >
@@ -55,11 +58,15 @@ export default function Crafting({
             textAlign: "end",
           }}
         >
-          Crafty
+                      
+
+      {t("designAndBranding.Crafty")}
         </Typography>
       </Grid>
 
-      <Grid item lg={5.5} md={5.5} sm={6} xs={12} justifyContent="center" alignItems="center">
+      <Grid item lg={5.5} md={5.5} sm={6} xs={12} justifyContent="center" alignItems="center"
+      
+      >
         <Box
           sx={{
             position: "relative",
@@ -95,11 +102,12 @@ export default function Crafting({
                 color: "#fff",
                 position: "absolute",
                 top: lg ? "48px" : md ? "48px" : sm ? "48px" : xs ? "38px" : "48px",
-                left: lg ? is14Inch ? "calc(50% - 150px)" : is15Inch ? "calc(50% - 160px)" : "calc(50% - 172px)" :
+                left:  lg ? is14Inch ? "calc(50% - 150px)" : is15Inch ? "calc(50% - 160px)" : "calc(50% - 172px)" :
                   md ? "calc(50% - 110px)" :
                     sm ? "calc(50% - 120px)" :
                       xs ? "calc(50% - 110px)" :
-                        "calc(50% - 172px)",
+                        "calc(50% - 172px)" ,
+
                 right: "0",
                 zIndex: designAndBrandingList.length - index,
                 transition: "opacity 0.5s ease-in-out, transform 0.5s ease",
@@ -164,9 +172,9 @@ export default function Crafting({
         sx={{
           justifyContent: {
             lg: "end",
-            md: "center",
+            md: "end",
             sm: "end",
-            xs: "start"
+            xs: dir === 'rtl' ? 'end' : "start"
           }
         }}
       >
@@ -188,7 +196,7 @@ export default function Crafting({
             }
           }}
         >
-          & Digital{" "}
+         {t("designAndBranding.Digital")} {" "}
           <Typography
             component={xs && "span"}
             sx={{
@@ -200,7 +208,7 @@ export default function Crafting({
               fontFamily: "var(--English-font-SoraThin)",
             }}
           >
-            Experience
+            {t("designAndBranding.Experience")}
           </Typography>
         </Typography>
       </Grid>

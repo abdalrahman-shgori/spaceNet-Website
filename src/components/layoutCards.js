@@ -2,16 +2,21 @@ import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 export default function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, technologiesDataImage }) {
   const location = useLocation()
   const pathname = location.pathname;
   const theme = useTheme()
   const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down('354'))
   const spesificLgScreen = useMediaQuery(theme.breakpoints.between("890", '1292'))
+  const { i18n ,t} = useTranslation()
+  const dir = i18n.dir()
+  const lang=i18n.language
   if (process.env.NODE_ENV === 'development') {
     console.warn = () => { };
     console.error = () => { };
   }
+
   return (
     <>
       <Grid
@@ -24,7 +29,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
             xs: "16px",
           },
           padding: {
-            lg: pathname !== '/academics' ? "0px 110px 0 110px" : "0px 57px 0 57px",
+            lg: pathname !== '/academics' ? "0px 110px 0 110px" : "0px 57px 80px 57px",
             md: "0px 0px 0 0px",
             sm: "0px 0px 0 0px",
             xs: "0px 0px 0 0px",
@@ -67,7 +72,14 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
               }}
             >
               <motion.div
-                initial={pathname !== "/academics" ? ({ x: index === 0 ? -200 : index === 1 ? 200 : 0, y: index > 1 ? 200 : 0 }) : ({ y: 200 })}
+                initial={pathname !== "/academics" ? 
+                  (
+                    dir === 'ltr' ?
+                    { x: index === 0 ? -200 : index === 1 ? 200 : 0, y: index > 1 ? 200 : 0 } :
+                    { x: index === 0 ? 200 : index === 1 ? -200 : 0, y: index > 1 ? -200 : 0 }
+                  )
+                   : 
+                   ({ y: 200 })}
                 whileInView={{
                   x: index === 0 ? 0 : index === 1 ? 0 : 0,
                   y: index > 1 ? 0 : 0
@@ -150,7 +162,19 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                         margin: pathname === '/academics' ? "0 auto" : "none",
                       }}
                     >
-                      {item.title}
+                      {
+                        pathname === '/academics' || pathname === '/core-it' ? (
+                         <>
+                         {item.title}
+                         </>
+                        ):
+                        (
+                          <>
+                          {                      lang === 'ar' ?item.title_ar : lang==='ku' ? item.title_ku : item.title
+                          }
+                          </>
+                        )
+                      }
                     </Typography>
                   </Grid>
 
@@ -174,8 +198,18 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                         }
                       }}
                     >
-                      {item.description}
-                    </Typography>
+                      {
+                        pathname === '/academics' || pathname === '/core-it' ? (
+                        <>{item.description}</>
+                        ):( 
+                        <>
+             {lang === 'ar' ?item.description_ar : lang==='ku' ? item.description_ku : item.description}
+
+                        </>
+                        )
+
+                      }
+                      </Typography>
                   </Grid>
 
                   <Grid lg={12}
@@ -234,7 +268,11 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                   transform: index === 2 && idx === 1 && !ExtraSmallScreen && !spesificLgScreen && "rotate(-31.72deg)",
                                   position: index === 2 && idx === 1 && !ExtraSmallScreen && !spesificLgScreen ? "absolute" : "relative",
                                   top: !ExtraSmallScreen && index === 2 && idx === 1 && !spesificLgScreen && "-40px",
-                                  left: !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "90px", md: "100px", sm: "80px", xs: "85px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "60px", md: "1000px", sm: "58px", xs: "52px" },
+                                  left:
+                                  dir === 'ltr' &&
+                                  !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "90px", md: "100px", sm: "80px", xs: "85px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "60px", md: "1000px", sm: "58px", xs: "52px" },
+                                     right : dir === 'rtl' &&
+                                     !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "150px", md: "100px", sm: "30px", xs: "30px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "0px", md: "100px", sm: "58px", xs: "52px" },
 
                                 }}
 

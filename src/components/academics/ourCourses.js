@@ -9,8 +9,9 @@ import complexProject from "../../assets/sectionsImages/academics/complexProject
 import { motion } from "framer-motion"
 import { useLocation } from "react-router-dom";
 import SectionDescription from "../sectionDescription";
-export default function OurCourses({setEnroll}) {
-    const location =useLocation()
+import { useTranslation } from "react-i18next";
+export default function OurCourses({ setEnroll }) {
+    const location = useLocation()
     const text1Style = {
         fontSize: {
             lg: "14px",
@@ -94,200 +95,214 @@ export default function OurCourses({setEnroll}) {
         fontFamily: "var(--English-font)",
 
     };
-
+    const { t ,i18n} = useTranslation()
+    const dir=i18n.dir()
     const coursesData = location.pathname === '/core-it' ? [
-        { id: 0, title1: "", title2: "Design", description: "Our design process begins with understanding your goals and assessing your current setup. We then create tailored blueprints focused on scalability, efficiency, and security, ensuring a strong foundation for seamless deployment and long-term success.", bg: "#F4F4F4", img: undefined },
-        { id: 1, img:  designImg, bg: "#E9FA50" },
-        { id: 2, bg: "#FA6423", img: deployment  },
-        { id: 3,  title2: "Deployment", description: "Our deployment process brings your solutions to life with precision and efficiency. We implement the designed systems seamlessly, minimizing disruptions and ensuring a smooth transition. With expert execution and attention to detail, we deliver scalable, secure, and fully functional solutions ready to drive your success.", btnText: "Enroll Now!", bg: "#F4F4F4", img: undefined },
-        { id: 4,  title2: "Management", description: "Our management and monitoring process ensures your systems run smoothly and securely. We provide ongoing support, proactive monitoring, and regular maintenance to optimize performance and address issues before they arise. With us, your solutions stay reliable, efficient, and ready to grow with your business.", btnText: "Enroll Now!", bg: "#F4F4F4", img: undefined },
+        { id: 0, title1: "", title2: t("academics.design"), description: t("academics.ourDesign"), bg: "#F4F4F4", img: undefined },
+        { id: 1, img: designImg, bg: "#E9FA50" },
+        { id: 2, bg: "#FA6423", img: deployment },
+        { id: 3, title2: t("academics.Deployment"), description: t("academics.ourDeployment"), btnText: t("academics.enrollNow"), bg: "#F4F4F4", img: undefined },
+        { id: 4, title2: t("academics.Management"), description: t("academics.Ourmanagement"), btnText: t("academics.enrollNow"), bg: "#F4F4F4", img: undefined },
         { id: 5, bg: "#1CB786", img: Consultancy }
     ] : [
-        { id: 0, title1: "Start Learning", title2: "Digital Design", description: "Dive into digital design with our courses in graphics, UI/UX, product design, and branding. Learn from experts, work on real-world projects, and turn your creativity into career success. Start designing today!", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
+        { id: 0, title1: t("academics.startLearn"), title2: t("academics.DigitalDesign"), description: t("academics.dive"), btnText: t("academics.enrollNow"), bg: "#FFFFFF", img: undefined },
         { id: 1, img: complexProject, bg: "#1CB786" },
         { id: 2, bg: "#9D89FC", img: Illustration },
-        { id: 3, title1: "Start Learning", title2: "Software Development", description: "Launch your tech career with our software development and IT courses. Learn coding, app development, and IT management through hands-on projects and expert guidance. Build your skills and start innovating today!", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
-        { id: 4, title1: "Start Learning", title2: "Network", description: "Build your future in tech with our networking courses. Learn to design, manage, and secure networks with hands-on training and expert guidance. Gain the skills to connect the world—start today!", btnText: "Enroll Now!", bg: "#FFFFFF", img: undefined },
+        { id: 3, title1: t("academics.startLearn"), title2: t("academics.SoftwareDevelopment"), description: t("academics.lunchTech"), btnText: t("academics.enrollNow"), bg: "#FFFFFF", img: undefined },
+        { id: 4, title1: t("academics.startLearn"), title2: t("academics.Network"), description: t("academics.buildYourFuture"), btnText: t("academics.enrollNow"), bg: "#FFFFFF", img: undefined },
         { id: 5, bg: "#E9FA50", img: Network }
     ];
-    
-   
+
+
 
     return (
         <>
-        
-                       <Grid container
-            sx={{
-                marginTop: {
-                    lg: "50px",
-                    md: "50px",
-                    sm: "20px",
-                    xs: "20px"
-                }
-            }}
-        >
-             
-            {coursesData.map((item, index) => (
 
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    lg={6}
-                    key={item.id}
-                    sx={{
-                        order: {
-                            xs: item.id === 0
-                                ? 0
-                                : item.id === 1
-                                    ? 1
-                                    : item.id === 3
-                                        ? 2
-                                        : item.id === 2
-                                            ? 3
-                                            : item.id === 4
-                                                ? 4
-                                                : 5,
-                            sm: 'unset'
-                        },
-                        marginTop: {
-                            lg: index > 1 ? "66px" : undefined,
-                            md: index > 1 ? "50px" : undefined,
-                            sm: index > 1 ? "50px" : undefined,
-                            xs: item.id === 1 ? "6px" : item.id === 3 ? "50px" : item.id === 2 ? "6px" : item.id === 4 ? "50px" : item.id === 5 ? "6px" : ''
-                        },
-                        paddingRight: index % 2 === 0 ? "5.9px" : "0",
-                        maxHeight: "601px",
-                        overflow: "hidden",
+            <Grid container
+                sx={{
+                    marginTop: {
+                        lg: "50px",
+                        md: "50px",
+                        sm: "20px",
+                        xs: "20px"
+                    }
+                }}
+            >
 
-                    }}
-                >
-                    {item.img !== undefined ? (
-                        <motion.div
-                            initial={{ x: index === 1 || index === 5 ? 100 : -100 }}
-                            whileInView={{ x: 0 }}
-                            style={{
-                                height: "100%",
-                            }}
-                        >
-                            <Box
-                                sx={{
-                                    padding: location.pathname === "/core-it" ? {
-                                        lg: "43px 42px 43px 37px",
-                                        md: "43px 42px 43px 37px",
-                                        sm: "52px 42px 52px 37px",
-                                        xs: "52px 42px 52px 37px"
-                                    }:{
-                                        lg: "80px 42px 80px 37px",
-                                        md: "80px 42px 80px 37px",
-                                        sm: "52px 42px 52px 37px",
-                                        xs: "52px 42px 52px 37px"
-                                    },
-                                    background: item.bg,
+                {coursesData.map((item, index) => (
 
-                                    borderRadius: {
-                                        lg: "55px",
-                                        md: "55px",
-                                        sm: "30px",
-                                        xs: "30px"
-                                    },
+                    <Grid
+                        item
+                        xs={12}
+                        sm={6}
+                        lg={6}
+                        key={item.id}
+                        sx={{
+                            order: {
+                                xs: item.id === 0
+                                    ? 0
+                                    : item.id === 1
+                                        ? 1
+                                        : item.id === 3
+                                            ? 2
+                                            : item.id === 2
+                                                ? 3
+                                                : item.id === 4
+                                                    ? 4
+                                                    : 5,
+                                sm: 'unset'
+                            },
+                            marginTop: {
+                                lg: index > 1 ? "66px" : undefined,
+                                md: index > 1 ? "50px" : undefined,
+                                sm: index > 1 ? "50px" : undefined,
+                                xs: item.id === 1 ? "6px" : item.id === 3 ? "50px" : item.id === 2 ? "6px" : item.id === 4 ? "50px" : item.id === 5 ? "6px" : ''
+                            },
+                            paddingRight:dir === 'ltr' && index % 2 === 0 ? "5.9px" : "0",
+                            paddingLeft:dir === 'rtl' && index % 2 === 0 ? "5.9px" : "0",
+
+                            maxHeight: "601px",
+                            overflow: "hidden",
+
+                        }}
+                    >
+                        {item.img !== undefined ? (
+                            <motion.div
+                                initial={
+                                    dir === 'ltr' ?
+                                    { x: index === 1 || index === 5 ? 100 : -100 }
+                                :
+                                { x: index === 1 || index === 5 ? -100 : 100 }
+                            }
+                                whileInView={{ x: 0 }}
+                                style={{
                                     height: "100%",
-
                                 }}
                             >
                                 <Box
                                     sx={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
+                                        padding: location.pathname === "/core-it" ? {
+                                            lg: "43px 42px 43px 37px",
+                                            md: "43px 42px 43px 37px",
+                                            sm: "52px 42px 52px 37px",
+                                            xs: "52px 42px 52px 37px"
+                                        } : {
+                                            lg: "80px 42px 80px 37px",
+                                            md: "80px 42px 80px 37px",
+                                            sm: "52px 42px 52px 37px",
+                                            xs: "52px 42px 52px 37px"
+                                        },
+                                        background: item.bg,
+
+                                        borderRadius: {
+                                            lg: "55px",
+                                            md: "55px",
+                                            sm: "30px",
+                                            xs: "30px"
+                                        },
+                                        height: "100%",
+
                                     }}
                                 >
                                     <Box
-                                        component="img"
-                                        src={item.img}
-                                        alt="our courses"
-                                        sx={
-                                            location.pathname !== '/core-it' ?
-                                            {
-                                            maxWidth: "304px",
-                                            width: "100%",
-                                        }: 
-                                        {
-                                            maxWidth:index === 1 ? "322px" : index === 2 ? "341px" : index === 5 ? "380px" : '',
-                                            width:"100%",
-                                            height:"296px"
-                                        }
-                                    }
-                                    />
+                                        sx={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                        }}
+                                    >
+                                        <Box
+                                            component="img"
+                                            src={item.img}
+                                            alt="our courses"
+                                            sx={
+                                                location.pathname !== '/core-it' ?
+                                                    {
+                                                        maxWidth: "304px",
+                                                        width: "100%",
+                                                    } :
+                                                    {
+                                                        maxWidth: index === 1 ? "322px" : index === 2 ? "341px" : index === 5 ? "380px" : '',
+                                                        width: "100%",
+                                                        height: "296px"
+                                                    }
+                                            }
+                                        />
+                                    </Box>
                                 </Box>
-                            </Box>
-                        </motion.div>
-                    ) : (
-                        <motion.div
-                            initial={{ x: index === 0 || index === 2 || index === 4 ? -100 : 100 }}
-                            whileInView={{ x: 0 }}
-                            style={{
-                                height: "100%",
-                                overflow: "hidden"
-                            }}
-                        >
-                            <Box
-                                sx={
-                                    location.pathname !== '/core-it' ? 
-                                    {
-                                    padding: {
-                                        lg: "59px 37px 81px 42px",
-                                        md: "59px 37px 81px 42px",
-                                        sm: "32px 43px 53px 23px",
-                                        xs: "32px 43px 53px 23px",
-                                    },
-                                    background: item.bg,
-                                    borderRadius: {
-                                        lg: "55px",
-                                        md: "55px",
-                                        sm: "30px",
-                                        xs: "30px"
-                                    },
-                                    height: "100%",
-                                    overflow: "hidden",
-
-                                } : 
-                                {
-                                    padding: {
-                                        lg: "59px 37px 81px 42px",
-                                        md: "59px 37px 81px 42px",
-                                        sm: "32px 43px 53px 23px",
-                                        xs: "32px 43px 53px 23px",
-                                    },
-                                    background: item.bg,
-                                    borderRadius: {
-                                        lg: "55px",
-                                        md: "55px",
-                                        sm: "30px",
-                                        xs: "30px"
-                                    },
-                                    height: "100%",
-                                    overflow: "hidden",
-                                    display:'flex',
-                                    flexDirection:'column',
-                                    justifyContent:"center",
+                            </motion.div>
+                        ) : (
+                            <motion.div
+                                initial={
+                                    dir === 'ltr' ?
+                                    { x: index === 0 || index === 2 || index === 4 ? -100 : 100 }
+                                    :
+                                    { x: index === 0 || index === 2 || index === 4 ? 100 : -100 }
 
                                 }
-                            }
+                                whileInView={{ x: 0 }}
+                                style={{
+                                    height: "100%",
+                                    overflow: "hidden"
+                                }}
                             >
-                                <Typography sx={text1Style}>{item.title1}</Typography>
-                                <Typography sx={text2Style}>{item.title2}</Typography>
-                                <Typography sx={descriptionStyle}>{item.description}</Typography>
-                                {location.pathname !== '/core-it' && (
-                                <Button sx={btnStyle} onClick={()=> setEnroll(true)}>{item.btnText}</Button>
-                                )}
-                            </Box>
-                        </motion.div>
-                    )}
-                </Grid>
-            ))}
-        </Grid>
+                                <Box
+                                    sx={
+                                        location.pathname !== '/core-it' ?
+                                            {
+                                                padding: {
+                                                    lg: "59px 37px 81px 42px",
+                                                    md: "59px 37px 81px 42px",
+                                                    sm: "32px 43px 53px 23px",
+                                                    xs: "32px 43px 53px 23px",
+                                                },
+                                                background: item.bg,
+                                                borderRadius: {
+                                                    lg: "55px",
+                                                    md: "55px",
+                                                    sm: "30px",
+                                                    xs: "30px"
+                                                },
+                                                height: "100%",
+                                                overflow: "hidden",
+
+                                            } :
+                                            {
+                                                padding: {
+                                                    lg: "59px 37px 81px 42px",
+                                                    md: "59px 37px 81px 42px",
+                                                    sm: "32px 43px 53px 23px",
+                                                    xs: "32px 43px 53px 23px",
+                                                },
+                                                background: item.bg,
+                                                borderRadius: {
+                                                    lg: "55px",
+                                                    md: "55px",
+                                                    sm: "30px",
+                                                    xs: "30px"
+                                                },
+                                                height: "100%",
+                                                overflow: "hidden",
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                justifyContent: "center",
+
+                                            }
+                                    }
+                                >
+                                    <Typography sx={text1Style}>{item.title1}</Typography>
+                                    <Typography sx={text2Style}>{item.title2}</Typography>
+                                    <Typography sx={descriptionStyle}>{item.description}</Typography>
+                                    {location.pathname !== '/core-it' && (
+                                        <Button sx={btnStyle} onClick={() => setEnroll(true)}>{item.btnText}</Button>
+                                    )}
+                                </Box>
+                            </motion.div>
+                        )}
+                    </Grid>
+                ))}
+            </Grid>
         </>
-     
+
     );
 }

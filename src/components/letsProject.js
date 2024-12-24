@@ -84,7 +84,8 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
             xs: "86px 20px 86px 20px",
           },
           position: "relative",
-          zIndex: 99999
+          zIndex: 99999,
+          direction:"ltr"
         }}
       >
 

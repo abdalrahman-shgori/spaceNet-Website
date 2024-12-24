@@ -11,11 +11,14 @@ import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
 import { useLocation, useNavigate } from 'react-router-dom';
+import LanguageSwitcher from '../LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const NavBar = ({
     setDrawerOpen,
     setOpen
 }) => {
+    const {t} =useTranslation()
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const theme = useTheme();
     const location = useLocation();
@@ -24,12 +27,12 @@ const NavBar = ({
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isTabScreen = useMediaQuery(theme.breakpoints.only('md'));
     const menuItems = [
-        { text: 'Home', route: '/' },
+        { text:t("navbar.Home"), route: '/' },
         // { text: 'SERVICES', route: '/services' },
         // { text: 'MARKETPLACE', route: '/marketplace' },
         // { text: 'BLOG & NEWS', route: '/blog' },
-        { text: 'CONTACT US'},
-        { text: 'COMING SOON..', route: '/' },
+        { text:t("navbar.CONTACTUS")},
+        { text:t("navbar.COMINGSOON"), route: '/' },
 
     ];
     const socialMedia = [
@@ -52,6 +55,8 @@ const NavBar = ({
     };
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
     const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down("360"));
+    const {i18n}=useTranslation()
+    const dir=i18n.dir()
     return (
         <>
             <AppBar
@@ -80,6 +85,7 @@ const NavBar = ({
                     }}
                 >
                     <SvgSpaceNetLogo />
+                    <LanguageSwitcher/>
                     <Box>
                         <Box sx={{ position: 'relative' }}>
                             <IconButton
@@ -93,7 +99,7 @@ const NavBar = ({
                                     transition: 'transform 0.3s ease',
                                     transform: isDrawerOpen ? 'rotate(90deg)' : 'rotate(0)',
                                     position: "relative",
-                                    left: "10px"
+                                    left: dir === 'rtl' ? "-10px" : "10px"
                                 }}
                             >
                                 <MenuRoundedIcon
@@ -122,7 +128,7 @@ const NavBar = ({
                         >
 
                             <Drawer
-                                anchor={isSmallScreen ? "left" : "right"}
+                                anchor={isSmallScreen ? "left" : dir === 'rtl' ? "left" : "right"}
                                 open={isDrawerOpen}
                                 onClose={handleCloseDrawer}
                                 PaperProps={{
@@ -132,7 +138,12 @@ const NavBar = ({
                                         overflow: 'auto',
                                         boxShadow: '0 0 20px rgba(0,0,0,0.1)',
                                         background: "#fff",
-                                        clipPath: isSmallScreen ? 'none' : 'ellipse(100% 75% at 100% 50%)',
+                                        clipPath: isSmallScreen ? 'none' :
+                                        dir === 'rtl' ? 
+                                        'ellipse(100% 75% at 0% 50%)'
+                                        :
+                                        'ellipse(100% 75% at 100% 50%)',
+                                       
                                     },
                                 }}
                             >
@@ -154,7 +165,8 @@ const NavBar = ({
                                         sx={{
                                             position: 'absolute',
                                             top: '60px',
-                                            right: '55px',
+                                            right:dir === 'ltr' && '55px',
+                                            left:dir === 'rtl' && '55px',
                                             color: theme.palette.text.primary,
                                             display: isSmallScreen ? "none" : "flex"
                                         }}
@@ -188,7 +200,7 @@ const NavBar = ({
                                                         toggleDrawer(false);
                                                         setDrawerOpen(false);
                                                         navigate(route);
-                                                        if(text === 'CONTACT US'){
+                                                        if(text === t("navbar.CONTACTUS") ){
                                                             setOpen(true)
                                                         }
                                                     }}
@@ -250,7 +262,7 @@ const NavBar = ({
                                                 fontFamily: "var(--English-font)"
                                             }}
                                         >
-                                            Privacy Policy
+                                            {t("navbar.PrivacyPolicy")}
                                         </Typography>
                                     </Box>
                                 </Box>

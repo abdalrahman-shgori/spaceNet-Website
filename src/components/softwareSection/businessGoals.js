@@ -5,6 +5,7 @@ import vectorWhite1 from "../../assets/sectionsImages/vectorSectionsWhite1.svg";
 import vectorWhite2 from "../../assets/sectionsImages/vectorSectionsWhite2.svg";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import AnimatedText from "./aniamtionText";
+import { useTranslation } from "react-i18next";
 
 export default function ResponsiveComponent({
     goalDescription,
@@ -16,6 +17,8 @@ export default function ResponsiveComponent({
     setNextServiceType,
     data
 }) {
+    const {t,i18n}=useTranslation()
+    const dir=i18n.dir()
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isMeduimMobile = useMediaQuery(theme.breakpoints.down("600"));
@@ -41,7 +44,7 @@ export default function ResponsiveComponent({
         <Box sx={{
             position: 'relative',
             height: 'auto',
-            maxWidth: is14Inch ? "800px" : is15Inch ? '820px' : "1000px",
+            maxWidth: is14Inch ? dir === 'rtl' ? "620px" : "800px" : is15Inch ? dir === 'rtl' ? "700px" : "820px" : dir === 'rtl' ? "900px" : "1000px",
             width: "100%",
         }}>
             <Box
@@ -77,13 +80,21 @@ export default function ResponsiveComponent({
                         sm: "35px",
                         xs: isExtraSmallMobile ? "16px" : "26px",
                     },
-                    textAlign: "left",
-                    paddingRight: {
+                    textAlign:dir === 'rtl' ? "right" : "left",
+                    paddingRight: dir === 'ltr' ? {
                         lg: "20px",
                         md: "20px",
                         sm: "12px",
                         xs: "12px"
+                    }:
+                    {
+                        lg: "40px",
+                        md: "40px",
+                        sm: "32px",
+                        xs: "32px"
                     }
+                    ,
+                   
                 }}
             >
                 {goalDescription}
@@ -117,7 +128,15 @@ export default function ResponsiveComponent({
                         sm: "20px",
                         xs: isMeduimMobile ? "18px" : "12px"
                     },
-                    textAlign: 'left',
+
+                    paddingRight: dir === 'ltr' ? 'unset':
+                    {
+                        lg: "40px",
+                        md: "40px",
+                        sm: "32px",
+                        xs: "32px"
+                    },
+                    textAlign:dir === 'rtl' ? "right" : "left",
                     marginTop: {
                         lg: "13px",
                         md: "13px",
@@ -126,7 +145,7 @@ export default function ResponsiveComponent({
                     }
                 }}
             >
-                Solutions
+                {t("software.solutions")}
             </Typography>
 
             <Box

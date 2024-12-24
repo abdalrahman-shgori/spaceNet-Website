@@ -7,17 +7,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import ThemeProvider from './ThemeProvider';
-
+import { SettingsProvider } from './pagedirection';
+import './i18n'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <ThemeProvider>
-      <App />
-      </ThemeProvider>
+  <React.StrictMode>
+    <SettingsProvider>
+      <BrowserRouter>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </SettingsProvider>
   </React.StrictMode>
-  </BrowserRouter>
+
 
 );
 

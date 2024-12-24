@@ -12,6 +12,7 @@ import learnMoreArrowBlack from "../../assets/images/learnMoreArrowBlack.svg"
 
 import './about.css';
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function AboutSpaceNet({
     activeService,
@@ -19,9 +20,13 @@ export default function AboutSpaceNet({
     hoveredServiceDescription,
     capture,
     loading,
-    outOfServicesHover
+    outOfServicesHover,
+    servicesList,
+    indexOfHoveredServices
 }) {
 
+    const { i18n, t } = useTranslation()
+    const dir = i18n.dir()
     const theme = useTheme();
     const ThemeCheck = theme.palette.mode;
     const paragraphRef = useRef(null);
@@ -97,7 +102,8 @@ export default function AboutSpaceNet({
                             textAlign: "center"
                         }}
                     >
-                        We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
+                        {t("aboutSpaceNet.about")}
+                    </span>
                     <span className="scrolling-content"
                         style={{
                             paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
@@ -105,7 +111,8 @@ export default function AboutSpaceNet({
 
                         }}
                     >
-                        We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
+                        {t("aboutSpaceNet.about")}
+                    </span>
                     <span className="scrolling-content"
                         style={{
                             paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
@@ -113,9 +120,11 @@ export default function AboutSpaceNet({
 
                         }}
                     >
-                        We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
+                        {t("aboutSpaceNet.about")}
+                    </span>
                     <span className="scrolling-content" style={{ textAlign: "center" }}>
-                        We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!                    </span>
+                        {t("aboutSpaceNet.about")}
+                    </span>
                 </>
             )}
         </>
@@ -168,6 +177,7 @@ export default function AboutSpaceNet({
             navigate('/design-branding')
         }
     }
+
     return (
         <>
             <Grid container
@@ -178,28 +188,45 @@ export default function AboutSpaceNet({
                         sm: "80px",
                         xs: "80px"
                     },
-                    padding: {
+                    padding: dir === 'ltr' ? {
                         lg: is14Inch ? "0px 35px 0px 0px" :
                             is15Inch ? "0px 35px 0px 0px" :
                                 "0px 75px 0px 0px",
                         md: "0px 75px 0px 0px",
                         sm: "0px 45px 20px 25px",
                         xs: "0px 25px",
-                    },
+                    } :
+                        {
+                            lg: is14Inch ? "0px 0px 0px 35px" :
+                                is15Inch ? "0px 0px 0px 35px" :
+                                    "0px 0px 0px 75px",
+                            md: "0px 0px 0px 100px",
+                            sm: "0px 25px 20px 45px",
+                            xs: "0px 25px",
+                        },
                     overflow: "hidden"
 
                 }}
             >
-                <Grid item xs={12} lg={6}>
+                <Grid item xs={12} lg={12}>
                     <motion.div
                         animate={
-                            initialAnimation
-                                ? { y: [0, 120, 0], x: [0, 120, 0] }
-                                : capture
-                                    ? isMobile ? { y: [0, 80, 0], x: [0, 80, 0] }
-                                        : isTabScreen ? { y: [0, 80, 0], x: [0, 80, 0] } :
-                                            { y: [0, 120, 0], x: [0, 120, 0] }
-                                    : outOfServicesHover ? { y: [0, 80, 0], x: [0, 80, 0] } : { y: 0, x: 0 }
+                            dir === 'ltr' ?
+                                initialAnimation
+                                    ? { y: [0, 120, 0], x: [0, 120, 0] }
+                                    : capture
+                                        ? isMobile ? { y: [0, 80, 0], x: [0, 80, 0] }
+                                            : isTabScreen ? { y: [0, 80, 0], x: [0, 80, 0] } :
+                                                { y: [0, 120, 0], x: [0, 120, 0] }
+                                        : outOfServicesHover ? { y: [0, 80, 0], x: [0, 80, 0] } : { y: 0, x: 0 } :
+
+                                initialAnimation
+                                    ? { y: [0, 120, 0], x: [0, 120, 0] }
+                                    : capture
+                                        ? isMobile ? { y: [0, 80, 0], x: [0, -80, 0] }
+                                            : isTabScreen ? { y: [0, 80, 0], x: [0, -80, 0] } :
+                                                { y: [0, 120, 0], x: [0, -120, 0] }
+                                        : outOfServicesHover ? { y: [0, 80, 0], x: [0, -80, 0] } : { y: 0, x: 0 }
                         }
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
                     >
@@ -219,6 +246,9 @@ export default function AboutSpaceNet({
                                     xs: "106px"
                                 },
                                 position: "absolute",
+
+                                transform: dir === 'rtl' ? "scaleX(-1)" : 'unset',
+
                             }}
                         />
                     </motion.div>
@@ -237,13 +267,6 @@ export default function AboutSpaceNet({
                     >
                         <Box
                             sx={{
-                                paddingLeft: {
-                                    lg: is14Inch ? "40px" :
-                                        is15Inch ? "45px" : "45px",
-                                    md: "30px",
-                                    sm: "30px",
-                                    xs: "30px"
-                                },
                                 width: "100%",
                                 position: "relative",
                                 top: {
@@ -255,12 +278,34 @@ export default function AboutSpaceNet({
                                 display: "flex",
                                 flexDirection: "column",
                                 gap: "5px",
-                                paddingRight: {
+                                paddingRight: dir === 'ltr' ? {
                                     lg: is14Inch ? "110px" : is15Inch ? "120px" : "120px",
                                     md: "50px",
                                     sm: "30px",
                                     xs: "30px"
-                                },
+                                } :
+                                    {
+                                        lg: is14Inch ? "40px" : is15Inch ? "45px" : "45",
+                                        md: "30px",
+                                        sm: "30px",
+                                        xs: "30px"
+                                    }
+                                ,
+                                paddingLeft: dir === 'ltr' ? {
+                                    lg: is14Inch ? "40px" :
+                                        is15Inch ? "45px" : "45px",
+                                    md: "30px",
+                                    sm: "30px",
+                                    xs: "30px"
+                                } :
+                                    {
+                                        lg: is14Inch ? "110" :
+                                            is15Inch ? "120px" : "120px",
+                                        md: "50px",
+                                        sm: "30px",
+                                        xs: "30px"
+                                    }
+                                ,
 
                             }}
                         >
@@ -300,11 +345,12 @@ export default function AboutSpaceNet({
                                                     sm: "24px",
                                                     xs: "18px"
                                                 },
+                                                paddingRight: "20px",
                                                 fontFamily: "var(--English-font-Extralight)",
-                                                color: hoveredService === 'ACADEMICS' ? "#FF9F31" :
-                                                    hoveredService === 'CORE IT' ? "#E9FA50" :
-                                                        hoveredService === 'SOFTWARE' ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
-                                                            hoveredService === 'DIGITAL DESIGN' ? "#1CB786" : '',
+                                                color: indexOfHoveredServices === 1 ? "#FF9F31" :
+                                                    indexOfHoveredServices === 2 ? "#E9FA50" :
+                                                        indexOfHoveredServices === 3 ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :
+                                                            indexOfHoveredServices === 5 ? "#1CB786" : '',
                                                 textShadow: '0.5px 0.5px 0 #fff, -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff'
                                             }}
                                         >
@@ -342,6 +388,7 @@ export default function AboutSpaceNet({
                                                 xs: "10px"
                                             },
                                             paddingRight: "20px",
+
 
                                         }}
                                     />
@@ -410,25 +457,47 @@ export default function AboutSpaceNet({
                     </motion.div>
                 </Grid>
                 <Grid item xs={12}
-                    sx={{
-                        position: "relative",
-                        right: {
-                            lg: "80px",
-                            md: "30px",
-                            sm: "0px",
-                            xs: "0px"
-                        }
-                    }}
+                    sx={
+                        dir === 'ltr' ?
+                            {
+                                position: "relative",
+                                right: {
+                                    lg: "80px",
+                                    md: "30px",
+                                    sm: "0px",
+                                    xs: "0px"
+                                }
+                            } :
+                            {
+                                position: "relative",
+                                left: {
+                                    lg: "80px",
+                                    md: "30px",
+                                    sm: "0px",
+                                    xs: "0px"
+                                }
+                            }
+                    }
                 >
                     <motion.div
                         initial={{ y: 0 }}
-                        animate={initialAnimation
-                            ? { y: [0, -120, 0], x: [0, -120, 0] }
-                            : capture
-                                ? isMobile ? { y: [0, -80, 0], x: [0, -80, 0] }
-                                    : isTabScreen ? { y: [0, -80, 0], x: [0, -80, 0] } :
-                                        { y: [0, -120, 0], x: [0, -120, 0] }
-                                : outOfServicesHover ? { y: [0, -80, 0], x: [0, -80, 0] } : { y: 0, x: 0 }
+                        animate={
+                            dir === 'ltr' ?
+                                initialAnimation
+                                    ? { y: [0, -120, 0], x: [0, -120, 0] }
+                                    : capture
+                                        ? isMobile ? { y: [0, -80, 0], x: [0, -80, 0] }
+                                            : isTabScreen ? { y: [0, -80, 0], x: [0, -80, 0] } :
+                                                { y: [0, -120, 0], x: [0, -120, 0] }
+                                        : outOfServicesHover ? { y: [0, -80, 0], x: [0, -80, 0] } : { y: 0, x: 0 } :
+                                initialAnimation
+                                    ? { y: [0, -120, 0], x: [0, -120, 0] }
+                                    : capture
+                                        ? isMobile ? { y: [0, -80, 0], x: [0, 80, 0] }
+                                            : isTabScreen ? { y: [0, -80, 0], x: [0, 80, 0] } :
+                                                { y: [0, -120, 0], x: [0, 120, 0] }
+                                        : outOfServicesHover ? { y: [0, -80, 0], x: [0, 80, 0] } : { y: 0, x: 0 }
+
                         }
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
                     >
@@ -451,13 +520,15 @@ export default function AboutSpaceNet({
                                     sm: "106px",
                                     xs: "106px"
                                 },
-                                float: "right",
+                                float: dir === 'ltr' ? "right" : 'left',
                                 marginTop: {
                                     lg: is14Inch ? "-20px" : is15Inch ? "-25px" : "-25px",
                                     md: "-25px",
                                     sm: "-20px",
                                     xs: "-20px"
-                                }
+                                },
+                                transform: dir === 'rtl' ? "scaleX(-1)" : 'unset',
+
                             }}
                         />
                     </motion.div>
@@ -473,10 +544,10 @@ export default function AboutSpaceNet({
                             component="button"
                             sx={{
                                 background:
-                                    hoveredService === "ACADEMICS" ? "#FF9F31;" :
-                                        hoveredService === 'CORE IT' ? "#E9FA50" :
-                                            hoveredService === 'SOFTWARE' ? theme.palette.mode === 'light' ? "#051A2F" : "#9D89FC" :
-                                                hoveredService === 'DIGITAL DESIGN' ? "#1CB786" : "#E9FA50",
+                                    indexOfHoveredServices === 1 ? "#FF9F31;" :
+                                        indexOfHoveredServices === 2 ? "#E9FA50" :
+                                            indexOfHoveredServices === 3 ? theme.palette.mode === 'light' ? "#051A2F" : "#9D89FC" :
+                                                indexOfHoveredServices === 5 ? "#1CB786" : "#E9FA50",
 
                                 border: "unset",
                                 padding: "8px 18px 8px 18px",
@@ -490,7 +561,7 @@ export default function AboutSpaceNet({
                                 alignItems: "center",
                                 gap: "8px",
                                 marginTop: "20px",
-                                zIndex:"999999"
+                                zIndex: "999999"
                             }}
                         >
                             <Typography

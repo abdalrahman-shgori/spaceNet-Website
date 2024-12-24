@@ -18,13 +18,8 @@ import LetsProject from "../components/letsProject";
 import SpaceNetLayout from "../components/spaceNetLayout";
 import { ServiceCategories } from "../services/websiteApis/serviceCategories";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
-const serviceTypesMock = [
-    "Website Development",
-    "Mobile App Development",
-    "Web App Development",
-    "Desktop App Development"
-];
 
 const serviceColors = {
     "Website Development": "#9D89FC",
@@ -33,11 +28,35 @@ const serviceColors = {
     "Desktop App Development": "#FF621F"
 };
 export default function SoftwareSection({ setOpen }) {
+
+
+    const { t, i18n } = useTranslation()
+    const lang = i18n.language
+    const serviceTypesMock = [
+        t("software.WebsiteDevelopment"),
+        t("software.MobileAppDevelopment"),
+        t("software.WebAppDevelopment"),
+        t("software.DesktopAppDevelopment"),
+    ];
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const [data, setData] = useState([])
     const serviceTypes = Array.isArray(data) && data.length > 0
-        ? data.map((item) => item.title)
+        ? data.map((item) => lang === 'ar' ? item.title_ar : lang === 'ku' ? item.title_ku : item.title)
         : serviceTypesMock;
+    const serviceColors = serviceTypes.reduce((colors, type, index) => {
+        const colorMapping = [
+            "#9D89FC",
+            "#E9FA50",
+            "#1CB786",
+            "#FF621F",
+        ];
+        if (index < colorMapping.length) {
+            colors[type] = colorMapping[index];
+        } else {
+            colors[type] = "#F5F5F5";
+        }
+        return colors;
+    }, {});
     const [loading, setLoading] = useState(false)
     const [currentServiceType, setCurrentServiceType] = useState(serviceTypes[0]);
     const [nextServiceType, setNextServiceType] = useState(serviceTypes[1]);
@@ -117,7 +136,7 @@ export default function SoftwareSection({ setOpen }) {
                         setNextServiceType={setNextServiceType}
                         serviceTypes={serviceTypes}
                         serviceColors={serviceColors}
-                        goalDescription={`Achieve your business goals with our`}
+                        goalDescription={t("software.AchieveBusiness")}
                         serviceType="Website Development"
                         serviceBgColor="#9D89FC"
                         data={data}
@@ -130,8 +149,8 @@ export default function SoftwareSection({ setOpen }) {
                         loading={loading}
                     />
                     <SectionDescription
-                        text1="Unlock Maximum Value with the Right Technologies"
-                        text2="Drive your business forward by tackling customer challenges with a cutting-edge tech stack. Choosing the right solutions, tailored to your needs, can boost growth, efficiency, and innovation. Here’s how we make it happen."
+                        text1={t("software.unlockMaximum")}
+                        text2={t("software.driveYour")}
                         top="80px"
                     />
                     <LayoutCards
@@ -141,15 +160,15 @@ export default function SoftwareSection({ setOpen }) {
                         technologiesDataImage={technologiesDataImage}
                     />
                     <SectionDescription
-                        text1="Our Technologies"
+                        text1={t("software.ourTechnology")}
                         top="43px"
                     />
                     <OurTechnologies />
                 </Grid>
                 <LetsProject
-                    text1={<>Got a Great Idea?<br /> Ready to Bring it to Life?</>}
-                    text2="Let’s make it happen"
-                    btnText="Let’s Talk business!"
+                    text1={<>{t("software.gotGreat")}<br /> {t("software.Ready")} </>}
+                    text2={t("software.letsMake")}
+                    btnText={t("software.letsTalk")}
                     cardBg="#9D89FC"
                     text1Color="#051A2F"
                     text2Color="#051A2F"

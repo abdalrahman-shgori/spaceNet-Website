@@ -15,7 +15,7 @@ export default function DevelopSkillsText({ text }) {
             lg: "unset",
             md: "unset",
             sm: "unset",
-            xs: "253px"
+            xs: "400px"
         },
         width: "100%",
         margin: "0 auto",

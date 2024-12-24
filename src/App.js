@@ -16,11 +16,16 @@ import Academics from './pages/academics';
 import BasicModal from './components/contactUs/contactUs';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import CoreIt from './pages/coreIt';
+import ThemeSettings from './pagedirection/ThemeSettings';
+import ThemeLocalization from './locals/ThemeLocalization';
+import { useTranslation } from 'react-i18next';
 
 
 const App = () => {
+  
   const [open, setOpen] = React.useState(false);
-
+  const { t, i18n } = useTranslation();
+  document.body.dir = i18n.dir();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
@@ -62,8 +67,8 @@ const App = () => {
   }, [location]);
 
   return (
-    
-    <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
+
+                 <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
       {location.pathname === '/' && (
         <motion.div
           initial={{ height: "100dvh" }}
@@ -83,8 +88,9 @@ const App = () => {
           <LogoAnimation handleAnimationComplete={handleAnimationComplete} logoAnimationComplete={logoAnimationComplete} />
         </motion.div>
       )}
-
-
+      
+ <ThemeSettings>
+ <ThemeLocalization>
       {logoAnimationComplete && (
         <>
           <motion.div
@@ -109,6 +115,8 @@ const App = () => {
             }}
           >
             <>
+           
+
             <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
              <ScrollToTop/>
               <Routes>
@@ -135,13 +143,20 @@ const App = () => {
               {location.pathname !== '/' && (
                 <Footer />
               )}
+                           
+          
             </>
           </motion.div>
           <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
           <BasicModal setOpen={setOpen} open={open} />
         </>
       )}
+       </ThemeLocalization>
+
+</ThemeSettings>
     </ThemeProvider>
+
+
   );
 };
 

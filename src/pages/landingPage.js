@@ -17,9 +17,9 @@ export default function LandingPage({
     const [capture, setCapture] = useState(false);
     const [outOfServicesHover, setOutOfServicesHover] = useState(false);
     const [activeService, setActiveService] = useState('ABOUT');
+    const [indexOfHoveredServices, setIndexOfHoveredServices] = useState()
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
     const scrollRef = useRef(null);
-
     useEffect(() => {
         function handleClickOutside(event) {
             setTimeout(() => {
@@ -33,7 +33,7 @@ export default function LandingPage({
                     }
                 }
             }, 0.5);
-          
+
         }
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -41,11 +41,11 @@ export default function LandingPage({
 
     return (
         <Grid
-        
-         container
+
+            container
             sx={{
                 paddingTop: {
-                    xl:"135px",
+                    xl: "135px",
                     lg: is14Inch ? "50px" : "70px",
                     md: "30px",
                     sm: "40px",
@@ -53,8 +53,8 @@ export default function LandingPage({
                 }
             }}
         >
-           
-            <Grid  item lg={6} md={6} sm={12} xs={12} sx={{
+
+            <Grid item lg={6} md={6} sm={12} xs={12} sx={{
                 paddingBottom: "12px"
             }}>
                 <Services
@@ -74,6 +74,8 @@ export default function LandingPage({
                     outOfServicesHover={outOfServicesHover}
                     setOutOfServicesHover={setOutOfServicesHover}
                     scrollRef={scrollRef}
+                    setIndexOfHoveredServices={setIndexOfHoveredServices}
+                    indexOfHoveredServices={indexOfHoveredServices}
                 />
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -82,9 +84,12 @@ export default function LandingPage({
                     hoveredServiceDescription={hoveredServiceDescription}
                     capture={capture}
                     setHoveredService={setHoveredService}
+                    servicesList={servicesList}
                     activeService={activeService}
                     loading={loading}
                     outOfServicesHover={outOfServicesHover}
+                    indexOfHoveredServices={indexOfHoveredServices}
+
                 />
             </Grid>
         </Grid>

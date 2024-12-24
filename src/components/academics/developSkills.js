@@ -5,8 +5,11 @@ import designGradiant from "../../assets/sectionsImages/academics/designGradiant
 import softwareGradiant from "../../assets/sectionsImages/academics/softwareGradiant.svg"
 import networkGradiant from "../../assets/sectionsImages/academics/netwrokGradiant.svg"
 import DevelopBtn from "./developSkillsBtn";
+import { useTranslation } from "react-i18next";
 
 export default function DevelopSkills({ setOpen, setEnroll }) {
+    const { i18n ,t} = useTranslation()
+    const dir = i18n.dir()
     const [start, setStart] = useState(false)
     const theme = useTheme()
     const extraSmallScreen = useMediaQuery(theme.breakpoints.down("348"))
@@ -14,24 +17,24 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
     const SkillsType = [
         {
             id: 0,
-            title: "Digital Design",
-            subCat: ["Graphics", "UI/UX"],
+            title: t("academics.digitalDesign"),
+            subCat: [t("academics.graphics"),t("academics.uiux") ],
             bg: "#1CB786",
             boxShadow: "0px 4px 15px rgba(28, 183, 134, 0.5)",
             img: designGradiant
         },
         {
             id: 1,
-            title: "Software Development & IT",
-            subCat: ["Software Development", "Cyber security"],
+            title: t("academics.software"),
+            subCat: [t("academics.SoftwareDevelopment"),t("academics.Cybersecurity")],
             bg: "#9D89FC",
             boxShadow: "0px 4px 15px rgba(157, 137, 252, 0.5)",
             img: softwareGradiant
         },
         {
             id: 2,
-            title: "Networking",
-            subCat: ["Nokia", "Cisco"],
+            title:t("academics.Networking"),
+            subCat: [t("academics.Nokia"),t("academics.Cisco")],
             bg: "#E9FA50",
             boxShadow: " 0px 4px 15px rgba(233, 250, 80, 0.5)",
             img: networkGradiant
@@ -92,7 +95,7 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
 
     return (
         <>
-            <Grid>
+            <Grid style={{direction:"ltr"}}>
                 <Grid container
                     sx={{
                         paddingBottom: {
@@ -341,7 +344,7 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
 
                                 }}
                             >
-                                Get Started Now
+                                {t("academics.GetStarted")}
                             </Button>
                             <Button
                                 onClick={handleOpenRegister}
@@ -359,7 +362,7 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
                                     fontFamily: "var(--English-font)",
                                 }}
                             >
-                                Register Now
+                                {t("academics.RegisterNow")}
                             </Button>
                         </Grid>
                     </Grid>
@@ -398,8 +401,8 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
 
                     }}
                 >
-                    Get Started Now
-                </Button>
+                                {t("academics.GetStarted")}
+                                </Button>
                 <Button
                     onClick={handleOpenRegister}
                     sx={{
@@ -418,8 +421,8 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
 
                     }}
                 >
-                    Register Now
-                </Button>
+                                {t("academics.RegisterNow")}
+                                </Button>
             </Grid>
         </>
     )

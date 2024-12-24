@@ -11,6 +11,7 @@ import SpaceNetLayout from "../components/spaceNetLayout";
 import CreatingSolution from "../components/designAndBranding/creatingSolutions";
 import { ServiceCategories } from "../services/websiteApis/serviceCategories";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 const technologiesDataImage = [
     {
@@ -80,14 +81,16 @@ const technologiesDataImage = [
     },
 ];
 
-const designAndBrandingList = [
-    { title: "Design Strategy", color: "#1CB786", rotate: "5.28deg" },
-    { title: "Web & Mobile Design", color: "#E9FA50", rotate: "-3.6deg" },
-    { title: "Consulting", color: "#F29111", rotate: "-11.1deg" },
-    { title: "Branding & Rebranding", color: "#9D89FC", rotate: "-19.3deg" },
-];
+
 
 export default function DesignAndBranding({ setOpen }) {
+    const {t,i18n}=useTranslation()
+    const designAndBrandingList = [
+        { title: t("designAndBranding.DesignStrategy"), color: "#1CB786", rotate: "5.28deg" },
+        { title: t("designAndBranding.WebMobileDesign"), color: "#E9FA50", rotate: "-3.6deg" },
+        { title: t("designAndBranding.Consulting"), color: "#F29111", rotate: "-11.1deg" },
+        { title: t("designAndBranding.BrandingRebranding"), color: "#9D89FC", rotate: "-19.3deg" },
+    ];
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const theme = useTheme()
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
@@ -221,7 +224,7 @@ export default function DesignAndBranding({ setOpen }) {
                     />
                     <WhatWeDo data={data} loading={loading} lastCardId={lastCardId} />
                     <SectionDescription
-                        text1="Elevate Your Brand With Our Proven 5-Step Transformation Process"
+                        text1={t("designAndBranding.elevateYourBrand")}
                         top="80px"
                     />
                     <LayoutCards
@@ -231,15 +234,15 @@ export default function DesignAndBranding({ setOpen }) {
                         technologiesDataImage={technologiesDataImage}
                     />
                     <SectionDescription
-                        text1={<>Designing Solutions,<br />Achieving Greatness.</>}
+                        text1={<> {t("designAndBranding.designSolution")} <br /> {t("designAndBranding.Achieving")} </>}
                         top="43px"
                     />
                     <CreatingSolution />
                 </Grid>
                 <LetsProject
-                    text1={<>Got a Great Idea?<br /> Ready to Bring it to Life?</>}
-                    text2="Let’s make it happen"
-                    btnText="Let’s Talk business!"
+                    text1={<> {t("designAndBranding.gotGeat")} <br /> {t("designAndBranding.readyToBring")} </>}
+                    text2={t("software.letsMake")}
+                    btnText={t("software.letsTalk")}
                     cardBg="#1CB786"
                     text1Color="#FFFFFF"
                     text2Color="#FFFFFF"

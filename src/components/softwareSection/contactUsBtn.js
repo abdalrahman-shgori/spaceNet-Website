@@ -2,8 +2,11 @@ import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import Arrow from "../../assets/sectionsImages/contactusArrow.svg";
 import ArrowWight from "../../assets/sectionsImages/contactUsArrowWhite.svg";
+import { useTranslation } from "react-i18next";
 
 export default function ContactUsBtn({setOpen}) {
+  const {t,i18n} =useTranslation()
+  const dir = i18n.dir()
   const [btnHovered, setBtnHovered] = useState(false)
   const theme = useTheme()
   const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
@@ -23,7 +26,7 @@ export default function ContactUsBtn({setOpen}) {
             xs: "53px"
           },
           border: theme.palette.mode === 'light' ? "2px solid black" : "2px solid #F4F4F4",
-          display: "flex",
+         
           height: {
             lg: "80px",
             md: "60px",
@@ -31,18 +34,17 @@ export default function ContactUsBtn({setOpen}) {
             xs: "42px"
           },
           borderRadius: "52px",
-          maxWidth: {
-            lg: "302px",
-            md: "250px",
-            sm: "250px",
-            xs: "165px",
-          },
+         
           transition: "background 0.3s ease, border-color 0.3s ease",
-          width: "100%",
+          display:"inline-flex",
+          paddingLeft: dir === 'rtl' && "20px",
+          paddingRight: dir === 'ltr' ? "20px":"4px",
+
           "&:hover": {
             background: "#9D89FC",
             borderColor: "#9D89FC",
-          }
+          },
+          
 
 
         }}
@@ -112,7 +114,7 @@ export default function ContactUsBtn({setOpen}) {
             }}
 
           >
-            Contact Us
+            {t("software.CONTACTUS")}
           </Typography>
         </Box>
       </Grid>

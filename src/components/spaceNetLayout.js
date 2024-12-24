@@ -5,24 +5,27 @@ import { motion } from "framer-motion"
 import ArrowWight from "../assets/sectionsImages/spacenetLayoutArrow.svg";
 import spaceNet from "../assets/spacenetLogo/spaceNetLogoWhite.svg"
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 const SpaceNetLayout = ({setOpen}) => {
+  const {i18n,t}=useTranslation()
   const navigate=useNavigate()
   const companyLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Blog & News', href: '/blog' }, 
-    { name: 'Contact Us',  }
+    { name: t("spacenetLayout.Home"), href: '/' },
+    { name:t("spacenetLayout.BlogNews"), href: '/blog' }, 
+    { name: t("spacenetLayout.CONTACTUS"),  }
   ];
 
   const servicesLinks = [
-    { name: 'Academics', href: '/academics' },
-    { name: 'Core It', href: '/core-it' },
-    { name: 'Software', href: '/software' },
-    { name: 'Design & Branding', href: '/design-branding' }
+    { name: t("spacenetLayout.Academics"), href: '/academics' },
+    { name:t("spacenetLayout.CoreIt"), href: '/core-it' },
+    { name: t("spacenetLayout.Software"), href: '/software' },
+    { name:t("spacenetLayout.DesignBranding"), href: '/design-branding' }
   ];
 
   const handleClick=(href)=>{
     navigate(href)
   }
+  const dir=i18n.dir()
   return (
     <>
       <Box
@@ -36,7 +39,7 @@ const SpaceNetLayout = ({setOpen}) => {
                 lg: '70px 75px 0px 75px',
                 md: '70px 75px 0px 75px',
                 sm: '70px 20px 0px 20px',
-                xs: '78px 0px 0px 20px'
+                xs: dir === 'rtl' ? '78px 20px 0px 0px'  : '78px 0px 0px 20px'
               }
             }}
           >
@@ -51,7 +54,13 @@ const SpaceNetLayout = ({setOpen}) => {
                   sm: "57px",
                   xs: "57px"
                 },
-                marginRight: {
+                marginRight: dir === 'ltr' && {
+                  lg: "13px",
+                  md: "13px",
+                  sm: "6px",
+                  xs: "6px"
+                },
+                marginLeft: dir === 'rtl' && {
                   lg: "13px",
                   md: "13px",
                   sm: "6px",
@@ -80,7 +89,7 @@ const SpaceNetLayout = ({setOpen}) => {
                 lg: '83px 190px 0px 190px',
                 md: '83px 100px 0px 100px',
                 sm: '83px 25px 0px 25px',
-                xs: '78px 0px 0px 25px'
+                xs: dir === 'rtl' ? '78px 25px 0px 0px' : '78px 0px 0px 25px'
               }
             }}
           >
@@ -96,7 +105,7 @@ const SpaceNetLayout = ({setOpen}) => {
                   fontFamily: "var(--English-font-semibold)"
                 }}
               >
-                Company
+                {t("spacenetLayout.Company")}
               </Typography>
               <Box sx={{
                 overflowX: 'auto',
@@ -144,7 +153,7 @@ const SpaceNetLayout = ({setOpen}) => {
                           }
                         }}
                       >
-                        {item.name} &nbsp; <img alt='arrow' src={ArrowWight}></img>
+                        {item.name} &nbsp; <img alt='arrow' style={{transform:dir === 'rtl' && "scaleX(-1)"}} src={ArrowWight}></img>
                       </Button>
                     </motion.div>
 
@@ -165,7 +174,7 @@ const SpaceNetLayout = ({setOpen}) => {
                   fontFamily: "var(--English-font-semibold)"
                 }}
               >
-                Services
+                {t("spacenetLayout.Services")}
               </Typography>
               <Box sx={{
                 overflowX: 'auto',
@@ -215,7 +224,7 @@ const SpaceNetLayout = ({setOpen}) => {
 
                         }}
                       >
-                        {item.name} &nbsp; <img alt='arrow' src={ArrowWight}></img>
+                        {item.name} &nbsp; <img alt='arrow' style={{transform:dir === 'rtl' && "scaleX(-1)"}} src={ArrowWight}></img>
                       </Button>
                     </motion.div>
 
@@ -267,7 +276,7 @@ const SpaceNetLayout = ({setOpen}) => {
                   paddingRight: "50px",
                 }}
               >
-                Your <Box component="span"><span style={{ color: "#9D89FC" }}>[</span>All-in-One<span style={{ color: "#9D89FC" }}>]</span></Box> Tech Partner
+                {t("spacenetLayout.Your")} <Box component="span"><span style={{ color: "#9D89FC" }}>[</span>{t("spacenetLayout.AllinOne")}<span style={{ color: "#9D89FC" }}>]</span></Box>{t("spacenetLayout.TechPartner")}
               </Typography>
             ))}
           </motion.div>

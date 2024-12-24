@@ -3,8 +3,11 @@ import { Box, Typography, Grid } from '@mui/material';
 import techImg from "../../../assets/sectionsImages/technologiesImage.svg"
 import meetImg from "../../../assets/sectionsImages/meetingImg.svg"
 import { motion } from "framer-motion"
+import { useTranslation } from 'react-i18next';
 
 export default function OurTechnologiesRegular({ programmingLang }) {
+    const {i18n,t}=useTranslation()
+    const dir=i18n.dir()
     return (
         <>
             <Box
@@ -29,7 +32,9 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                         }}
                     >
                         <motion.div
-                            initial={{ x: -100 }}
+                            initial={
+                            dir === 'ltr'  ? { x: -100 } : { x: 100 } 
+                            }
                             whileInView={{ x: 0 }}
                             transition={{ duration: 0.5 }}
                             style={{
@@ -69,19 +74,23 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                                         }
                                     }}
                                 >
-                                    Our team makes use of the newest technology and finest development processes.
+                                    {t("software.ourTeam")}
                                 </Typography>
                             </Grid>
                         </motion.div>
                     </Grid>
                     <Grid lg={3.5} md={4} sm={4} item
                         sx={{
-                            paddingLeft: "20px",
+                            paddingLeft:dir === 'ltr' && "20px",
+                            paddingRight:dir === 'rtl' && "20px",
+
                             overflow: "hidden"
                         }}
                     >
                         <motion.div
-                            initial={{ x: 100 }}
+                            initial={
+                               dir === 'rtl' ? { x: -100 }  : { x: 100 }
+                            }
                             whileInView={{
                                 x: 0
                             }}
@@ -166,7 +175,8 @@ export default function OurTechnologiesRegular({ programmingLang }) {
 
                         <Grid item lg={5} md={5} sm={6}
                             sx={{
-                                paddingLeft: "20px"
+                                paddingLeft:dir === 'ltr' && "20px",
+                                paddingRight:dir === 'rtl' && "20px",
                             }}
                         >
                             <Box

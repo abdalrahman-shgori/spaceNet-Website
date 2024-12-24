@@ -1,46 +1,6 @@
-export const powerOf = [
+import { useTranslation } from "react-i18next"
 
-  {
-    id: 0,
-    title: 'Achieve expert software development skills.',
-    bg: "#9D89FC",
-    rotate: "-28deg",
-    rotateXs: "6deg"
-  },
-  {
-    id: 1,
-    title: 'Create stunning digital designs.',
-    bg: "#1CB786",
-    rotate: "-20.76deg"
-    ,
-    rotateXs: "-6deg"
-  },
-  {
-    id: 2,
-    title: 'Build secure networking infrastructures.',
-    bg: "#F4F4F4",
-    rotate: "-15.73deg"
-    ,
-    rotateXs: "6deg"
-  },
-  {
-    id: 3,
-    title: 'Innovate with real-world coding expertise.',
-    bg: "#E9FA50",
-    rotate: "-10.57deg"
-    ,
-    rotateXs: "-6deg"
-  },
-  {
-    id: 4,
-    title: 'Elevate yourself in any area of technology.',
-    bg: "#FA6423",
-    rotate: "-2.7deg"
-    ,
-    rotateXs: "6deg"
 
-  },
-]
 
 
 export const pageStyle = (test) => ({
@@ -78,12 +38,7 @@ export const textStyle = (test) => ({
     xs: "30px"
   },
   color: "#FFFFFF",
-  maxWidth: {
-    lg: "885px",
-    md: "885px",
-    sm: "329px",
-    xs: "329px"
-  },
+
   width: "100%",
 
   lineHeight: {
@@ -105,13 +60,7 @@ export const bracketStyle = (test, index) => ({
     sm: test ? 15 : 10,
     xs: 0
   },
-  right: {
-    xl: test ? 20 : 30,
-    lg: test ? 15 : 30,
-    md: test ? 15 : 10,
-    sm: test ? 15 : 10,
-    xs: -6
-  },
+
   scale: {
     xl: test ? "1" : "1",
     lg: test ? "0.9" : "1",
@@ -119,7 +68,7 @@ export const bracketStyle = (test, index) => ({
     sm: test ? "0.8" : "0.8",
     xs: "0.6"
   },
-  transform: "rotate(3deg)",
+
 
 })
 
@@ -171,6 +120,12 @@ export const cardStyle = (
 ) => ({
   background: item.bg,
   maxWidth:
+    lg ? is14Inch ? "340px" : is15Inch ? "350px" : test ? "301px" : "384px" :
+      md ? "280px" :
+        sm ? test ? "280px" : "280px" :
+          xs ? test ? "216px" : "216px" :
+            "384px",
+  minWidth:
     lg ? is14Inch ? "340px" : is15Inch ? "350px" : test ? "301px" : "384px" :
       md ? "280px" :
         sm ? test ? "280px" : "280px" :
