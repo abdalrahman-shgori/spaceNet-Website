@@ -17,7 +17,7 @@ export default function LandingPage({
     const [capture, setCapture] = useState(false);
     const [outOfServicesHover, setOutOfServicesHover] = useState(false);
     const [activeService, setActiveService] = useState('ABOUT');
-    const [indexOfHoveredServices, setIndexOfHoveredServices] = useState()
+    const [indexOfHoveredServices, setIndexOfHoveredServices] = useState(0)
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
     const scrollRef = useRef(null);
     useEffect(() => {

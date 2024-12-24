@@ -107,7 +107,7 @@ export default function ServicesMobile({
                             }), pointer`,
 
                             background: activeService === (i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title)
-                            ? (activeService === "ABOUT" || indexOfHoveredServices === undefined
+                            ? (indexOfHoveredServices === 0
                                 ? (theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50")
                                 : indexOfHoveredServices === 1 ? "#FF9F31"
                                 : indexOfHoveredServices === 2 ? "#E9FA50"

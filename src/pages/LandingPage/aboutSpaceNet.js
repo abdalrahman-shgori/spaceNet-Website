@@ -164,16 +164,16 @@ export default function AboutSpaceNet({
     }
     const navigate = useNavigate()
     const handlelearnMoreBtn = () => {
-        if (hoveredService === 'ACADEMICS') {
+        if (indexOfHoveredServices === 1) {
             navigate('/academics')
         }
-        else if (hoveredService === 'CORE IT') {
+        else if (indexOfHoveredServices === 2) {
             navigate('/core-it')
         }
-        else if (hoveredService === 'SOFTWARE') {
+        else if (indexOfHoveredServices === 3) {
             navigate('/software')
         }
-        else if (hoveredService === 'DIGITAL DESIGN') {
+        else if (indexOfHoveredServices === 5) {
             navigate('/design-branding')
         }
     }
