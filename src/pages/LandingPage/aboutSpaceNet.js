@@ -533,7 +533,7 @@ export default function AboutSpaceNet({
                         />
                     </motion.div>
                 </Grid>
-                {(hoveredService !== '' && hoveredService !== 'ABOUT') && (
+                {(hoveredService !== '' && indexOfHoveredServices !== 0) && (
                     <motion.div
                         key={hoveredService}
                         animate={{ opacity: [0, 1] }}
