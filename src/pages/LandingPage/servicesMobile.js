@@ -22,23 +22,40 @@ export default function ServicesMobile({
 
 }) {
     const theme = useTheme();
+    console.log(indexOfHoveredServices)
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
-    const {i18n}=useTranslation()
-    const dir=i18n.dir()
+    const { i18n } = useTranslation()
+    const dir = i18n.dir()
+    const [activeServiceId, setActiveServiceId] = useState(null);
+
     const handleClicks = (item) => {
         if (item.title === "ABOUT") {
             setHoveredServiceDescription("");
             setIsAboutActive(true);
         } else {
-            setHoveredServiceDescription(i18n.language === 'ar' ? item.description_ar : i18n.language === 'ku' ? item.description_ku : item.description);
+            setHoveredServiceDescription(
+                i18n.language === "ar"
+                    ? item.description_ar
+                    : i18n.language === "ku"
+                        ? item.description_ku
+                        : item.description
+            );
             setIsAboutActive(false);
         }
-        
-        setActiveService(i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title);
+
+        setHoveredService(
+            i18n.language === "ar"
+                ? item.title_ar
+                : i18n.language === "ku"
+                    ? item.title_ku
+                    : item.title
+        );
+        setActiveService(i18n.language === "ar" ? item.title_ar : i18n.language === "ku" ? item.title_ku : item.title);
+        setActiveServiceId(item.id);
         setHoveredService(i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title);
         setCapture(true);
-        setIndexOfHoveredServices(item.id)
+        setIndexOfHoveredServices(item.id);
 
         setTimeout(() => {
             setCapture(false);
@@ -68,7 +85,55 @@ export default function ServicesMobile({
             setActiveService('ABOUT')
         }
     }, [isTabScreen, isMobile]);
- 
+    useEffect(() => {
+        const currentService = item.id === activeServiceId ? item : null;
+
+        if (currentService) {
+            setHoveredServiceDescription(
+                i18n.language === "ar"
+                    ? currentService.description_ar
+                    : i18n.language === "ku"
+                        ? currentService.description_ku
+                        : currentService.description
+            );
+            setHoveredService(
+                i18n.language === "ar"
+                    ? currentService.title_ar
+                    : i18n.language === "ku"
+                        ? currentService.title_ku
+                        : currentService.title
+            );
+            setActiveService(
+                i18n.language === "ar"
+                    ? currentService.title_ar
+                    : i18n.language === "ku"
+                        ? currentService.title_ku
+                        : currentService.title
+            );
+        }
+    }, [i18n.language, item, activeServiceId]);
+    console.log(activeService, "aca")
+    const getBackgroundColor = () => {
+        if (activeService === (i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title)) {
+            switch (indexOfHoveredServices) {
+                case 0:
+                    return theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50";
+                case 1:
+                    return "#FF9F31";
+                case 2:
+                    return "#E9FA50";
+                case 3:
+                    return theme.palette.mode === 'light' ? "#011343" : "#9D89FC";
+                case 5:
+                    return "#1CB786";
+                default:
+                    return "#F5F5F5";
+            }
+        }
+        return "#F5F5F5";
+    };
+
+
     return (
         <Grid
             sx={{
@@ -106,16 +171,8 @@ export default function ServicesMobile({
                                         : ""
                             }), pointer`,
 
-                            background: activeService === (i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title)
-                            ? (indexOfHoveredServices === 0
-                                ? (theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50")
-                                : indexOfHoveredServices === 1 ? "#FF9F31"
-                                : indexOfHoveredServices === 2 ? "#E9FA50"
-                                : indexOfHoveredServices === 3 ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC")
-                                : indexOfHoveredServices === 5 ? "#1CB786"
-                                : "#F5F5F5")
-                            : "#F5F5F5",
-                        
+                        background: getBackgroundColor(),
+
                         borderRadius: "38.7px",
                         marginTop: {
                             lg: "20px",
@@ -174,15 +231,13 @@ export default function ServicesMobile({
                             alignItems: "center"
                         }}
                     >
-                        
+
                         {item.img != undefined ? item.title.length > 20
                             ? `${item.title.slice(0, 20)}...`
                             : item.img : i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title}
                     </Typography>
-
-            
                 </Box>
-                
+
             </motion.div>
 
         </Grid>
