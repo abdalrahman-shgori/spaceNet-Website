@@ -50,7 +50,7 @@ export default function Services({
             setHoveredServiceDescription("");
             setIsAboutActive(false);
         } else {
-            setHoveredServiceDescription(item.description);
+            setHoveredServiceDescription( i18n.language === 'ar' ? item.description_ar : i18n.language === 'ku' ? item.description_ku : item.description);
             setIsAboutActive(true);
         }
         setIndexOfHoveredServices(item.id)

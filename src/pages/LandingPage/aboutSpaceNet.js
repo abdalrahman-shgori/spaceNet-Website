@@ -159,7 +159,7 @@ export default function AboutSpaceNet({
         scrollbarWidth: 'none',
         display: 'flex',
         flexDirection: 'column',
-        textAlign: 'left',
+        textAlign: dir === 'rtl' ? 'right' : 'left',
         zIndex: 2,
     }
     const navigate = useNavigate()
@@ -538,6 +538,8 @@ export default function AboutSpaceNet({
                         key={hoveredService}
                         animate={{ opacity: [0, 1] }}
                         transition={{ duration: 0.5, delay: 0.5 }}
+                     
+                       
                     >
                         <Box
                             onClick={handlelearnMoreBtn}
@@ -561,19 +563,26 @@ export default function AboutSpaceNet({
                                 alignItems: "center",
                                 gap: "8px",
                                 marginTop: "20px",
-                                zIndex: "999999"
+                                zIndex: "999999",
+                                
                             }}
                         >
                             <Typography
                                 sx={{
                                     fontSize: "14px",
                                     fontFamily: "var(--English-font)",
-                                    color: hoveredService === 'CORE IT' ? "#000" : "#FFF",
+                                    color: indexOfHoveredServices === 2 ? "#000" : "#FFF",
                                 }}
                             >
-                                learn more
+                                {t("aboutSpaceNet.learnMore")}
                             </Typography>
-                            <Box component="img" src={hoveredService === "CORE IT" ? learnMoreArrowBlack : learnMoreArrow} />
+                            <Box
+                             component="img" 
+                             src={indexOfHoveredServices === 2 ? learnMoreArrowBlack : learnMoreArrow} 
+                             sx={{
+                                transform: dir === 'rtl' ? "scaleX(-1)" : 'unset'
+                             }}
+                             />
                         </Box>
                     </motion.div>
                 )}

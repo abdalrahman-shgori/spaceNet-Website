@@ -28,6 +28,8 @@ const InnerApp = ({
           {
             id: 0,
             title: "ABOUT",
+            title_ar:"ABOUT",
+            title_ku:"ABOUT",
             description: "Description for About",
             img: <ServicesLogo isaboutactive={isAboutActive} />,
           },

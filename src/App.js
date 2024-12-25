@@ -22,7 +22,10 @@ import { useTranslation } from 'react-i18next';
 
 
 const App = () => {
-  
+  if (process.env.NODE_ENV === 'development') {
+    console.warn = () => { };
+    console.error = () => { };
+  }
   const [open, setOpen] = React.useState(false);
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();

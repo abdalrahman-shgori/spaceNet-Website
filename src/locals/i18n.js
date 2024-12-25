@@ -7,7 +7,6 @@ import { defaultLang } from "./config";
 import en from "./en/translation.json";
 import ar from "./ar/translation.json";
 import ku from './ku/translation.json'
-// ----------------------------------------------------------------------
 
 let lng = defaultLang.value;
 

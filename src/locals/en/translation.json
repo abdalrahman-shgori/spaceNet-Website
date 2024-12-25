@@ -1,34 +1,31 @@
 {
-    "Footer":{
-       "ReachUs":"Reach Us",
-       "tower":"Empire business towers Building T4, floor 13, office 3.",
-       "SocialMedia":"Social Media",
-       "Privacy":"Privacy",
-       "terms":"Terms",
-       "Instagram":"Instagram",
-       "Whatsapp":"Whatsapp",
-       "Facebook":"Facebook",
-       "Linkedln":"Linkedln",
-       "Pinterest":"Pinterest",
-       "legal":"Legal",
-       "Copyright":"Copyright @2024",
-       "developedBy":"Developed By: SpaceNetiq.com"
-
-
-
+    "Footer": {
+        "ReachUs": "Reach Us",
+        "tower": "Empire business towers Building T4, floor 13, office 3.",
+        "SocialMedia": "Social Media",
+        "Privacy": "Privacy",
+        "terms": "Terms",
+        "Instagram": "Instagram",
+        "Whatsapp": "Whatsapp",
+        "Facebook": "Facebook",
+        "Linkedln": "Linkedln",
+        "Pinterest": "Pinterest",
+        "legal": "Legal",
+        "Copyright": "Copyright @2024",
+        "developedBy": "Developed By: SpaceNetiq.com"
     },
     "aboutSpaceNet": {
-        "about": "We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!"
+        "about": "We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!",
+        "learnMore": "Learn More"
     },
-    "services":{
-        "OurServices":"Our Services"
+    "services": {
+        "OurServices": "Our Services"
     },
     "navbar": {
         "Home": "Home",
         "CONTACTUS": "CONTACT US",
         "COMINGSOON": "COMING SOON..",
-        "PrivacyPolicy":"Privacy Policy"
-        
+        "PrivacyPolicy": "Privacy Policy"
     },
     "toggle": {
         "light": "Light",
@@ -89,125 +86,97 @@
         "innovate": "Innovate with real-world coding expertise.",
         "elevate": "Elevate yourself in any area of technology."
     },
-
-    "software":{
-        "AchieveBusiness":"Achieve your business goals with our",
-        "solutions":"Solutions",
-        "CONTACTUS":"CONTACT US",
-
-        "whatwedo":"What We Do",
-        "unlockMaximum":"Unlock Maximum Value with the Right Technologies",
-        "driveYour":"Drive your business forward by tackling customer challenges with a cutting-edge tech stack. Choosing the right solutions, tailored to your needs, can boost growth, efficiency, and innovation. Here’s how we make it happen.",
-
-        "ourTechnology":"Our Technologies",
-
-        "gotGreat" :"Got a Great Idea?",
-        "Ready":"Ready to Bring it to Life?",
-
-        "letsMake":"Let’s make it happen",
-        "letsTalk":"Let’s Talk business!",
-
-        "ourTeam":"Our team makes use of the newest technology and finest development processes.",
-        "WebsiteDevelopment":"Website Development",
-        "MobileAppDevelopment":"Mobile App Development",
-        "WebAppDevelopment":"Web App Development",
-        "DesktopAppDevelopment":"Desktop App Development"
-        
+    "software": {
+        "AchieveBusiness": "Achieve your business goals with our",
+        "solutions": "Solutions",
+        "CONTACTUS": "CONTACT US",
+        "whatwedo": "What We Do",
+        "unlockMaximum": "Unlock Maximum Value with the Right Technologies",
+        "driveYour": "Drive your business forward by tackling customer challenges with a cutting-edge tech stack. Choosing the right solutions, tailored to your needs, can boost growth, efficiency, and innovation. Here’s how we make it happen.",
+        "ourTechnology": "Our Technologies",
+        "gotGreat": "Got a Great Idea?",
+        "Ready": "Ready to Bring it to Life?",
+        "letsMake": "Let’s make it happen",
+        "letsTalk": "Let’s Talk business!",
+        "ourTeam": "Our team makes use of the newest technology and finest development processes.",
+        "WebsiteDevelopment": "Website Development",
+        "MobileAppDevelopment": "Mobile App Development",
+        "WebAppDevelopment": "Web App Development",
+        "DesktopAppDevelopment": "Desktop App Development"
     },
-
-    "spacenetLayout":{
-        "Home":"Home",
-        "BlogNews":"Blog & News",
-        "CONTACTUS":"CONTACT US",
-
-        "Academics":"Academics",
-        "CoreIt":"Core It",
-        "Software":"Software",
-        "DesignBranding":"Design & Branding",
-
-        "Company":"Company",
-        "Services":"Services",
-        "Your":"Your",
-        "AllinOne":"All-in-One",
-        "TechPartner":"Tech Partner"
-
-
+    "spacenetLayout": {
+        "Home": "Home",
+        "BlogNews": "Blog & News",
+        "CONTACTUS": "CONTACT US",
+        "Academics": "Academics",
+        "CoreIt": "Core It",
+        "Software": "Software",
+        "DesignBranding": "Design & Branding",
+        "Company": "Company",
+        "Services": "Services",
+        "Your": "Your",
+        "AllinOne": "All-in-One",
+        "TechPartner": "Tech Partner"
     },
-    "ContactUs":{
-        "weLove":" We’d Love to Hear from You!",
-        "getinTouch":"get in Touch",
-        "getinTouchToday":"Get in touch today to discuss your needs, ask questions, or schedule a free consultation. Let’s build something amazing together!",
-        "FollowUs":"Follow Us",
-        "Name":"Name",
-        "YourName":"Your Name",
-        "Email":"Email",
-        "YourEmail":"Your Email",
-        "Message":"Message",
-        "SubmitNow":"Submit Now",
-        "CLOSE":"CLOSE",
-        "Messagesent":"Message sent successfully!",
-        "YourMessage":"Your Message",
-        "empire":"empire business towers",
-        "building":"building T4, floor 13, office 3.",
-        "SendMessage":"Send A Message"
-
+    "ContactUs": {
+        "weLove": " We’d Love to Hear from You!",
+        "getinTouch": "get in Touch",
+        "getinTouchToday": "Get in touch today to discuss your needs, ask questions, or schedule a free consultation. Let’s build something amazing together!",
+        "FollowUs": "Follow Us",
+        "Name": "Name",
+        "YourName": "Your Name",
+        "Email": "Email",
+        "YourEmail": "Your Email",
+        "Message": "Message",
+        "SubmitNow": "Submit Now",
+        "CLOSE": "CLOSE",
+        "Messagesent": "Message sent successfully!",
+        "YourMessage": "Your Message",
+        "empire": "empire business towers",
+        "building": "building T4, floor 13, office 3.",
+        "SendMessage": "Send A Message"
     },
-    
-
-    "designAndBranding":{
-        "DesignStrategy":"Design Strategy",
-        "WebMobileDesign":"Web & Mobile Design",
-        "Consulting":"Consulting",
-        "BrandingRebranding":"Branding& Rebranding",
-
-        "elevateYourBrand":"Elevate Your Brand With Our Proven 5-Step Transformation Process",
-
-        "designSolution":"Designing Solutions,",
-        "Achieving":"Achieving Greatness.",
-
-        "gotGeat":"Got a Great Idea?",
-        "readyToBring":"Ready to Bring it to Life?",
-        "Crafty":"Crafty",
-        "Digital":"& Digital",
-        "Experience":"Experience",
-
-        "Whatwedo":"What We Do Best",
-        "TheProcess":"The Process",
-        "OurTechnologies":"Our Technologies",
-
-        "DesignSystem":"Design System",
-        "Branding":"Branding",
-        "WebDesign":"Web Design",
-        "Development":"Development",
-        "Creativeconsulting":"Creative consulting",
-        "Logo":"Logo",
-        "Mobileapplication":"Mobile application"
+    "designAndBranding": {
+        "DesignStrategy": "Design Strategy",
+        "WebMobileDesign": "Web & Mobile Design",
+        "Consulting": "Consulting",
+        "BrandingRebranding": "Branding& Rebranding",
+        "elevateYourBrand": "Elevate Your Brand With Our Proven 5-Step Transformation Process",
+        "designSolution": "Designing Solutions,",
+        "Achieving": "Achieving Greatness.",
+        "gotGeat": "Got a Great Idea?",
+        "readyToBring": "Ready to Bring it to Life?",
+        "Crafty": "Crafty",
+        "Digital": "& Digital",
+        "Experience": "Experience",
+        "Whatwedo": "What We Do Best",
+        "TheProcess": "The Process",
+        "OurTechnologies": "Our Technologies",
+        "DesignSystem": "Design System",
+        "Branding": "Branding",
+        "WebDesign": "Web Design",
+        "Development": "Development",
+        "Creativeconsulting": "Creative consulting",
+        "Logo": "Logo",
+        "Mobileapplication": "Mobile application"
     },
-
-    "coreIt":{
-        "NetworkSolutions":"Network Solutions",
-"SecuritySolutions":"Security Solutions",
-"SystemInfrastructure":"System & Infrastructure",
-"ConsultancyServices":"Consultancy Services",
-
-"weOffer": "We Offer Network architecture planning, Network expansion and scalability planning, Installation and configuration of routers, Switches, Fiber optics." ,
-"ourSecurity":"Our security solutions are designed to protect your business with comprehensive, multi-layered defense strategies. From robust system design to secure deployment and continuous monitoring, we safeguard your data, networks, and infrastructure against evolving threats. With a focus on cybersecurity, compliance, and risk management, we ensure your business stays secure, resilient, and prepared for the future.",
-"ourSystem": "Our system and infrastructure solutions deliver tailored designs, efficient deployment, and proactive management to ensure your IT foundation is scalable, secure, and optimized for seamless operations and growth.",
-"weAlsoOffer":"We also offer free consultancy services for all solutions and processes, helping you build or rebuild your IT infrastructure with expert guidance tailored to your needs." 
-,
-
-"MakeUse":"Make Use Of Our Tailored Solutions",
-"WhatWeDo":"What We Do",
-"WhatWeDesign":"What We Design, Deploy & Manage",
-"WanttoBuild":"Want to Build or Rebuild your IT Infrastructure?",
-"ScheduleConsultation":"Schedule a free Consultation!",
-"LetTalk":"Let’s Talk!",
-
-"Network":"Network",
-"Security":"Security",
-"IT":"IT"
-
-
-
+    "coreIt": {
+        "NetworkSolutions": "Network Solutions",
+        "SecuritySolutions": "Security Solutions",
+        "SystemInfrastructure": "System & Infrastructure",
+        "ConsultancyServices": "Consultancy Services",
+        "weOffer": "We Offer Network architecture planning, Network expansion and scalability planning, Installation and configuration of routers, Switches, Fiber optics.",
+        "ourSecurity": "Our security solutions are designed to protect your business with comprehensive, multi-layered defense strategies. From robust system design to secure deployment and continuous monitoring, we safeguard your data, networks, and infrastructure against evolving threats. With a focus on cybersecurity, compliance, and risk management, we ensure your business stays secure, resilient, and prepared for the future.",
+        "ourSystem": "Our system and infrastructure solutions deliver tailored designs, efficient deployment, and proactive management to ensure your IT foundation is scalable, secure, and optimized for seamless operations and growth.",
+        "weAlsoOffer": "We also offer free consultancy services for all solutions and processes, helping you build or rebuild your IT infrastructure with expert guidance tailored to your needs.",
+        "MakeUse": "Make Use Of Our Tailored Solutions",
+        "WhatWeDo": "What We Do",
+        "WhatWeDesign": "What We Design, Deploy & Manage",
+        "WanttoBuild": "Want to Build or Rebuild your IT Infrastructure?",
+        "ScheduleConsultation": "Schedule a free Consultation!",
+        "LetTalk": "Let’s Talk!",
+        "Network": "Network",
+        "Security": "Security",
+        "IT": "IT"
     }
 }

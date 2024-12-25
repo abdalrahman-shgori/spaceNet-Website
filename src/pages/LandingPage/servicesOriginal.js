@@ -43,7 +43,6 @@ export default function ServicesOriginal({
     const handleLeave = () => {
         setHoveredService("");
         setIndexOfHoveredServices('')
-
         setHoveredServiceDescription("");
         setActiveService("ABOUT")
         setCapture(false);
@@ -115,7 +114,7 @@ export default function ServicesOriginal({
                                     : index === 3
                                         ? design
                                         : ""}), pointer`,
-                        background: isTabScreen && activeService === item.title
+                        background: isTabScreen && activeService === (i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title)
                             ? activeService === "ABOUT"
                                 ? theme.palette.mode === 'light' ? "#E9FA50" : "#9D89FC"
                                 : index === 0
@@ -153,7 +152,7 @@ export default function ServicesOriginal({
                             sm: "6px",
                             xs: "6px",
                         },
-                        color: activeService === item.title && index !== 1 && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
+                        color: activeService === (i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title) && index !== 1 && activeService !== 'ABOUT' ? "#FFFFFF" : '#051A2F',
 
                         transition: "background 0.5s ease, transform 0.2s",
                         "&:hover": !isMobile && !isTabScreen && {
@@ -221,7 +220,7 @@ export default function ServicesOriginal({
                                     index === 2 &&
                                     theme.palette.mode === "light"
                                     ? UnionWhite
-                                    : image.img
+                                    :  image.img
                             }
                             alt="arrow"
                             sx={{

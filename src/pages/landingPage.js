@@ -27,6 +27,7 @@ export default function LandingPage({
                     if (hoveredService !== "" || hoveredServiceDescription !== "") {
                         setHoveredService("");
                         setHoveredServiceDescription("");
+                        setIndexOfHoveredServices(0)
                         setActiveService("ABOUT");
                         setCapture(true);
                         setTimeout(() => setCapture(false), 200);
