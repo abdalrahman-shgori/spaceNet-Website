@@ -8,31 +8,32 @@ import AI from "../../assets/sectionsImages/design-branding/AI.svg"
 import { useTranslation } from "react-i18next";
 
 export default function CreatingSolution() {
-  const {t}=useTranslation()
+  const { t, i18n } = useTranslation()
+  const dir = i18n.dir()
   const solutions = [
     {
       id: 0,
       title: t("designAndBranding.Whatwedo"),
       description:
-       [
-        t("designAndBranding.DesignSystem"),
-        t("designAndBranding.Branding"),
-        t("designAndBranding.WebDesign"),
-        t("designAndBranding.Development"),
-        t("designAndBranding.Creativeconsulting"),
-        t("designAndBranding.Logo"),
-        t("designAndBranding.Mobileapplication"),
-          ],
+        [
+          t("designAndBranding.DesignSystem"),
+          t("designAndBranding.Branding"),
+          t("designAndBranding.WebDesign"),
+          t("designAndBranding.Development"),
+          t("designAndBranding.Creativeconsulting"),
+          t("designAndBranding.Logo"),
+          t("designAndBranding.Mobileapplication"),
+        ],
     },
     {
       id: 1,
-      title:t("designAndBranding.TheProcess"),
+      title: t("designAndBranding.TheProcess"),
       description: "",
       img: processImg
     },
     {
       id: 2,
-      title:t("designAndBranding.OurTechnologies"),
+      title: t("designAndBranding.OurTechnologies"),
       description: "",
       img: [PSImg, figma, adobeXd, AI]
     },
@@ -91,7 +92,7 @@ export default function CreatingSolution() {
                   xs: "30px",
                 },
                 fontFamily: "var(--English-font)",
-                textAlign: "left",
+                textAlign: dir === 'rtl' ? "right" : "left",
                 color: "#000000"
               }}
             >

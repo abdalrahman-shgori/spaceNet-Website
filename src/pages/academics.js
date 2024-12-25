@@ -25,7 +25,7 @@ export default function Academics({ setOpen }) {
             id: 0,
             title: t("academics.Coursesin"),
             description: t("academics.ourCoursesare"),
-            image: ['English', 'Kurdish', 'Arabic']
+            image: [t("academics.English"), t("academics.Kurdish"), t("academics.Arabic")]
         },
         {
             id: 1,
@@ -37,7 +37,7 @@ export default function Academics({ setOpen }) {
             id: 2,
             title: t("academics.anylevel"),
             description: t("academics.noMatter"),
-            image: ['Junior', 'Intermediate', 'Advanced',]
+            image: [t("academics.Junior"), t("academics.Intermediate"), t("academics.Advanced"),]
 
         },
         { id: 3, title: t("academics.VirtualClassroom"), description: t("academics.learnFrom"), image: <ClassRoom hoveredcardid={hoveredcardid} itemID={3} /> },

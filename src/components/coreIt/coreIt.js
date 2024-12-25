@@ -213,7 +213,7 @@ const FallingItems = () => {
       clearInterval(intervalRef.current);
       window.removeEventListener("resize", handleResize);
     };
-  }, [setCanvasSize, dimensions.width]);
+  }, [setCanvasSize, dimensions.width,labels]);
 
   return (
     <div style={{ overflowX: "hidden" }}>

@@ -84,7 +84,13 @@
         "createStunning": "Create stunning digital designs.",
         "buildSecure": "Build secure networking infrastructures.",
         "innovate": "Innovate with real-world coding expertise.",
-        "elevate": "Elevate yourself in any area of technology."
+        "elevate": "Elevate yourself in any area of technology.",
+        "English":"English",
+        "Kurdish":"Kurdish",
+        "Arabic":"Arabic",
+        "Junior":"Junior",
+        "Intermediate":"Intermediate",
+        "Advanced":"Advanced"
     },
     "software": {
         "AchieveBusiness": "Achieve your business goals with our",

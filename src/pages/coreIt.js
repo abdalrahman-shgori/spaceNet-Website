@@ -26,7 +26,7 @@ const serviceTypesMock = [
 
 
 export default function CoreIt({ setOpen }) {
-    const {t}=useTranslation()
+    const { t } = useTranslation()
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const [data, setData] = useState([])
     const serviceTypes = Array.isArray(data) && data.length > 0
@@ -43,10 +43,10 @@ export default function CoreIt({ setOpen }) {
 
     ];
     const technologiesData = [
-        { id: 0, title:t("coreIt.NetworkSolutions"), description:t("coreIt.weOffer")},
+        { id: 0, title: t("coreIt.NetworkSolutions"), description: t("coreIt.weOffer") },
         { id: 1, title: t("coreIt.SecuritySolutions"), description: t("coreIt.ourSecurity") },
-        { id: 2, title: t("coreIt.SystemInfrastructure"), description:t("coreIt.ourSystem") },
-        { id: 3, title:t("coreIt.ConsultancyServices"), description: t("coreIt.weAlsoOffer")},
+        { id: 2, title: t("coreIt.SystemInfrastructure"), description: t("coreIt.ourSystem") },
+        { id: 3, title: t("coreIt.ConsultancyServices"), description: t("coreIt.weAlsoOffer") },
 
     ];
 
