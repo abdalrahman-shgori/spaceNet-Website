@@ -95,7 +95,7 @@ const Footer = () => {
                         color: "#222222",
                         display: "flex",
                         alignItems: "center",
-                        width: "90px"
+                        width: dir === 'rtl' ? "60px" : "90px"
                       }}
                     >
                       {social.name}
@@ -104,6 +104,7 @@ const Footer = () => {
                     <img
                       src={arrow}
                       alt="arrow"
+                      style={{ transform: dir === 'rtl' ? "scaleX(-1)" : "unset" }}
                     />
                   </Grid>
                 ))}
@@ -145,6 +146,7 @@ const Footer = () => {
                     <img
                       src={text.img}
                       alt='arrow'
+                      style={{ transform: dir === 'rtl' ? "scaleX(-1)" : "unset" }}
                     />
                   )}
                 </Grid>
