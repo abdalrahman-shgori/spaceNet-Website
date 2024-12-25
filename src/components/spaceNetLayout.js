@@ -6,26 +6,26 @@ import ArrowWight from "../assets/sectionsImages/spacenetLayoutArrow.svg";
 import spaceNet from "../assets/spacenetLogo/spaceNetLogoWhite.svg"
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-const SpaceNetLayout = ({setOpen}) => {
-  const {i18n,t}=useTranslation()
-  const navigate=useNavigate()
+const SpaceNetLayout = ({ setOpen }) => {
+  const { i18n, t } = useTranslation()
+  const navigate = useNavigate()
   const companyLinks = [
     { name: t("spacenetLayout.Home"), href: '/' },
-    { name:t("spacenetLayout.BlogNews"), href: '/blog' }, 
-    { name: t("spacenetLayout.CONTACTUS"),  }
+    { name: t("spacenetLayout.BlogNews"), href: '/blog' },
+    { name: t("spacenetLayout.CONTACTUS"), }
   ];
 
   const servicesLinks = [
     { name: t("spacenetLayout.Academics"), href: '/academics' },
-    { name:t("spacenetLayout.CoreIt"), href: '/core-it' },
+    { name: t("spacenetLayout.CoreIt"), href: '/core-it' },
     { name: t("spacenetLayout.Software"), href: '/software' },
-    { name:t("spacenetLayout.DesignBranding"), href: '/design-branding' }
+    { name: t("spacenetLayout.DesignBranding"), href: '/design-branding' }
   ];
 
-  const handleClick=(href)=>{
+  const handleClick = (href) => {
     navigate(href)
   }
-  const dir=i18n.dir()
+  const dir = i18n.dir()
   return (
     <>
       <Box
@@ -39,7 +39,7 @@ const SpaceNetLayout = ({setOpen}) => {
                 lg: '70px 75px 0px 75px',
                 md: '70px 75px 0px 75px',
                 sm: '70px 20px 0px 20px',
-                xs: dir === 'rtl' ? '78px 20px 0px 0px'  : '78px 0px 0px 20px'
+                xs: dir === 'rtl' ? '78px 20px 0px 0px' : '78px 0px 0px 20px'
               }
             }}
           >
@@ -130,7 +130,7 @@ const SpaceNetLayout = ({setOpen}) => {
                       key={index}
                     >
                       <Button
-                        onClick={()=>item.name !== 'Contact Us' ? handleClick(item.href) : setOpen(true)}
+                        onClick={() => item.name !== 'Contact Us' ? handleClick(item.href) : setOpen(true)}
                         key={index}
                         variant="outlined"
                         sx={{
@@ -153,7 +153,7 @@ const SpaceNetLayout = ({setOpen}) => {
                           }
                         }}
                       >
-                        {item.name} &nbsp; <img alt='arrow' style={{transform:dir === 'rtl' && "scaleX(-1)"}} src={ArrowWight}></img>
+                        {item.name} &nbsp; <img alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
                       </Button>
                     </motion.div>
 
@@ -200,7 +200,7 @@ const SpaceNetLayout = ({setOpen}) => {
                       key={index}
                     >
                       <Button
-                      onClick={()=>handleClick(item.href)}
+                        onClick={() => handleClick(item.href)}
                         key={index}
                         variant="outlined"
                         sx={{
@@ -224,7 +224,7 @@ const SpaceNetLayout = ({setOpen}) => {
 
                         }}
                       >
-                        {item.name} &nbsp; <img alt='arrow' style={{transform:dir === 'rtl' && "scaleX(-1)"}} src={ArrowWight}></img>
+                        {item.name} &nbsp; <img alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
                       </Button>
                     </motion.div>
 

@@ -65,9 +65,9 @@ const text2Style = {
   },
 
 }
-export default function LetsProject({ text1, text2, btnText, cardBg, text1Color, text2Color,setOpen }) {
+export default function LetsProject({ text1, text2, btnText, cardBg, text1Color, text2Color, setOpen }) {
   const location = useLocation()
-  const openContactUs=()=>{
+  const openContactUs = () => {
     setOpen(true)
   }
   return (
@@ -85,7 +85,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
           },
           position: "relative",
           zIndex: 99999,
-          direction:"ltr"
+          direction: "ltr"
         }}
       >
 
@@ -151,7 +151,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
               {text2}
             </Typography>
             <Box
-            onClick={openContactUs}
+              onClick={openContactUs}
               component="button"
               sx={{
                 background: "#051A2F",

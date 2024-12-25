@@ -95,8 +95,8 @@ export default function OurCourses({ setEnroll }) {
         fontFamily: "var(--English-font)",
 
     };
-    const { t ,i18n} = useTranslation()
-    const dir=i18n.dir()
+    const { t, i18n } = useTranslation()
+    const dir = i18n.dir()
     const coursesData = location.pathname === '/core-it' ? [
         { id: 0, title1: "", title2: t("academics.design"), description: t("academics.ourDesign"), bg: "#F4F4F4", img: undefined },
         { id: 1, img: designImg, bg: "#E9FA50" },
@@ -158,8 +158,8 @@ export default function OurCourses({ setEnroll }) {
                                 sm: index > 1 ? "50px" : undefined,
                                 xs: item.id === 1 ? "6px" : item.id === 3 ? "50px" : item.id === 2 ? "6px" : item.id === 4 ? "50px" : item.id === 5 ? "6px" : ''
                             },
-                            paddingRight:dir === 'ltr' && index % 2 === 0 ? "5.9px" : "0",
-                            paddingLeft:dir === 'rtl' && index % 2 === 0 ? "5.9px" : "0",
+                            paddingRight: dir === 'ltr' && index % 2 === 0 ? "5.9px" : "0",
+                            paddingLeft: dir === 'rtl' && index % 2 === 0 ? "5.9px" : "0",
 
                             maxHeight: "601px",
                             overflow: "hidden",
@@ -170,10 +170,10 @@ export default function OurCourses({ setEnroll }) {
                             <motion.div
                                 initial={
                                     dir === 'ltr' ?
-                                    { x: index === 1 || index === 5 ? 100 : -100 }
-                                :
-                                { x: index === 1 || index === 5 ? -100 : 100 }
-                            }
+                                        { x: index === 1 || index === 5 ? 100 : -100 }
+                                        :
+                                        { x: index === 1 || index === 5 ? -100 : 100 }
+                                }
                                 whileInView={{ x: 0 }}
                                 style={{
                                     height: "100%",
@@ -235,9 +235,9 @@ export default function OurCourses({ setEnroll }) {
                             <motion.div
                                 initial={
                                     dir === 'ltr' ?
-                                    { x: index === 0 || index === 2 || index === 4 ? -100 : 100 }
-                                    :
-                                    { x: index === 0 || index === 2 || index === 4 ? 100 : -100 }
+                                        { x: index === 0 || index === 2 || index === 4 ? -100 : 100 }
+                                        :
+                                        { x: index === 0 || index === 2 || index === 4 ? 100 : -100 }
 
                                 }
                                 whileInView={{ x: 0 }}

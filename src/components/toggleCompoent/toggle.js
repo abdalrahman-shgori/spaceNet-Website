@@ -6,8 +6,8 @@ import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-export default function Toggle({ drawerOpen, setThemeColor, themeColor,open }) {
-    const {t}=useTranslation()
+export default function Toggle({ drawerOpen, setThemeColor, themeColor, open }) {
+    const { t } = useTranslation()
     const { toggleColorMode } = useColorMode();
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
@@ -75,52 +75,52 @@ export default function Toggle({ drawerOpen, setThemeColor, themeColor,open }) {
 
         return () => clearTimeout(timer);
     }, [ballVisible]);
-    const {i18n}=useTranslation()
-    const dir=i18n.dir()
+    const { i18n } = useTranslation()
+    const dir = i18n.dir()
     return (
         <>
             {(pathname === '/' || drawerOpen) && (
                 <motion.div
-                    animate={ dir === 'rtl' ?{ x: [-100, 0], opacity: [0, 1] }  :{ x: [100, 0], opacity: [0, 1] }}
+                    animate={dir === 'rtl' ? { x: [-100, 0], opacity: [0, 1] } : { x: [100, 0], opacity: [0, 1] }}
                     transition={{ delay: drawerOpen ? 0.2 : 1 }}
                     style={
                         dir === 'ltr' ?
-                        {
-                        position: 'fixed',
-                        right:
-                            xlgscreen ? "55px" :
-                                lgscreen ? "55px" :
-                                    mdscreen ? "55px" :
-                                        smscreen ? "10px" :
-                                            xsscreen && "12px",
-                        top: 
-                        xlgscreen ? "280px" :
-                        lgscreen ?'280px':
-                        mdscreen?'280px':
-                        smscreen?'210px':
-                        xsscreen &&'280px',
-                        zIndex: 9999,
-                        display:open && "none"
-                    }:
-                {
-                    position: 'fixed',
-                    left:
-                        xlgscreen ? "70px" :
-                            lgscreen ? "70px" :
-                                mdscreen ? "70px" :
-                                    smscreen ? "10px" :
-                                        xsscreen && "12px",
-                    top: 
-                    xlgscreen ? "280px" :
-                    lgscreen ?'280px':
-                    mdscreen?'280px':
-                    smscreen?'210px':
-                    xsscreen &&'280px',
-                    zIndex: 9999,
-                    display:open && "none"
+                            {
+                                position: 'fixed',
+                                right:
+                                    xlgscreen ? "55px" :
+                                        lgscreen ? "55px" :
+                                            mdscreen ? "55px" :
+                                                smscreen ? "10px" :
+                                                    xsscreen && "12px",
+                                top:
+                                    xlgscreen ? "280px" :
+                                        lgscreen ? '280px' :
+                                            mdscreen ? '280px' :
+                                                smscreen ? '210px' :
+                                                    xsscreen && '280px',
+                                zIndex: 9999,
+                                display: open && "none"
+                            } :
+                            {
+                                position: 'fixed',
+                                left:
+                                    xlgscreen ? "70px" :
+                                        lgscreen ? "70px" :
+                                            mdscreen ? "70px" :
+                                                smscreen ? "10px" :
+                                                    xsscreen && "12px",
+                                top:
+                                    xlgscreen ? "280px" :
+                                        lgscreen ? '280px' :
+                                            mdscreen ? '280px' :
+                                                smscreen ? '210px' :
+                                                    xsscreen && '280px',
+                                zIndex: 9999,
+                                display: open && "none"
 
-                }
-                }
+                            }
+                    }
                 >
                     <Box
                         onClick={handleToggle}

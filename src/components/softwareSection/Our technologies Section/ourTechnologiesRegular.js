@@ -6,8 +6,8 @@ import { motion } from "framer-motion"
 import { useTranslation } from 'react-i18next';
 
 export default function OurTechnologiesRegular({ programmingLang }) {
-    const {i18n,t}=useTranslation()
-    const dir=i18n.dir()
+    const { i18n, t } = useTranslation()
+    const dir = i18n.dir()
     return (
         <>
             <Box
@@ -33,7 +33,7 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                     >
                         <motion.div
                             initial={
-                            dir === 'ltr'  ? { x: -100 } : { x: 100 } 
+                                dir === 'ltr' ? { x: -100 } : { x: 100 }
                             }
                             whileInView={{ x: 0 }}
                             transition={{ duration: 0.5 }}
@@ -66,11 +66,11 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                                         },
                                         textAlign: "center",
                                         color: "#051A2F",
-                                        lineHeight:{
-                                            lg:"43.8px",
-                                            md:"43.8px",
-                                            sm:"24px",
-                                            xs:"24px"
+                                        lineHeight: {
+                                            lg: "43.8px",
+                                            md: "43.8px",
+                                            sm: "24px",
+                                            xs: "24px"
                                         }
                                     }}
                                 >
@@ -81,15 +81,15 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                     </Grid>
                     <Grid lg={3.5} md={4} sm={4} item
                         sx={{
-                            paddingLeft:dir === 'ltr' && "20px",
-                            paddingRight:dir === 'rtl' && "20px",
+                            paddingLeft: dir === 'ltr' && "20px",
+                            paddingRight: dir === 'rtl' && "20px",
 
                             overflow: "hidden"
                         }}
                     >
                         <motion.div
                             initial={
-                               dir === 'rtl' ? { x: -100 }  : { x: 100 }
+                                dir === 'rtl' ? { x: -100 } : { x: 100 }
                             }
                             whileInView={{
                                 x: 0
@@ -175,8 +175,8 @@ export default function OurTechnologiesRegular({ programmingLang }) {
 
                         <Grid item lg={5} md={5} sm={6}
                             sx={{
-                                paddingLeft:dir === 'ltr' && "20px",
-                                paddingRight:dir === 'rtl' && "20px",
+                                paddingLeft: dir === 'ltr' && "20px",
+                                paddingRight: dir === 'rtl' && "20px",
                             }}
                         >
                             <Box

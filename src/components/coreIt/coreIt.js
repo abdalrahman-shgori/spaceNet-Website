@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material";
 import './coreit.css'
 import { useTranslation } from "react-i18next";
 const FallingItems = () => {
-  const {t}=useTranslation()
+  const { t } = useTranslation()
   const canvasRef = useRef(null);
   const intervalRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: window.innerWidth, height: window.innerHeight });
@@ -12,7 +12,7 @@ const FallingItems = () => {
   const labels = [
     t("coreIt.Network"), t("coreIt.Network"), t("coreIt.Network"), t("coreIt.Network"),
     t("coreIt.Security"), t("coreIt.Security"), t("coreIt.Security"), t("coreIt.Security"),
-     t("coreIt.IT"),  t("coreIt.IT"),  t("coreIt.IT")
+    t("coreIt.IT"), t("coreIt.IT"), t("coreIt.IT")
   ];
 
   const colors = theme.palette.mode === 'light'
@@ -41,7 +41,7 @@ const FallingItems = () => {
   };
 
   const setCanvasSize = useCallback((canvas) => {
-    canvas.width = window.innerWidth ;
+    canvas.width = window.innerWidth;
 
     if (window.innerWidth < 768) {
       canvas.height = window.innerHeight - 300;
@@ -213,11 +213,11 @@ const FallingItems = () => {
       clearInterval(intervalRef.current);
       window.removeEventListener("resize", handleResize);
     };
-  }, [setCanvasSize, dimensions.width,labels]);
+  }, [setCanvasSize, dimensions.width, labels]);
 
   return (
     <div style={{ overflowX: "hidden" }}>
-      <canvas  ref={canvasRef} />
+      <canvas ref={canvasRef} />
     </div>
   );
 };

@@ -1,9 +1,4 @@
 import axios from "axios";
-// import { errorToast } from "../utils/toastMessage";
-
-// DEV
-
-// Testing
 export const url = "https://admin.spacenetiq.com/api/";
 export const axiosInstance = axios.create({
   baseURL: url,

@@ -1,5 +1,4 @@
 import React from 'react';
-import lang1 from "../../../assets/sectionsImages/programmingLang/programLang.svg"
 import OurTechnologiesRegular from './ourTechnologiesRegular';
 import OurTechnologiesXsScreen from './ourTechnologiesXsScreen';
 import vueJS from "../../../assets/sectionsImages/programmingLang/vueJS.svg"
@@ -25,11 +24,11 @@ const programmingLang = [
 const OurTechnologies = () => {
   return (
     <>
-      <OurTechnologiesRegular programmingLang={programmingLang}/>
+      <OurTechnologiesRegular programmingLang={programmingLang} />
 
       {/* // xs  */}
 
-     <OurTechnologiesXsScreen programmingLang={programmingLang}/>
+      <OurTechnologiesXsScreen programmingLang={programmingLang} />
     </>
   );
 };

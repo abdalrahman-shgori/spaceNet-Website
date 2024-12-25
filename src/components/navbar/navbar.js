@@ -18,7 +18,7 @@ const NavBar = ({
     setDrawerOpen,
     setOpen
 }) => {
-    const {t} =useTranslation()
+    const { t } = useTranslation()
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const theme = useTheme();
     const location = useLocation();
@@ -27,12 +27,12 @@ const NavBar = ({
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isTabScreen = useMediaQuery(theme.breakpoints.only('md'));
     const menuItems = [
-        { text:t("navbar.Home"), route: '/' },
+        { text: t("navbar.Home"), route: '/' },
         // { text: 'SERVICES', route: '/services' },
         // { text: 'MARKETPLACE', route: '/marketplace' },
         // { text: 'BLOG & NEWS', route: '/blog' },
-        { text:t("navbar.CONTACTUS")},
-        { text:t("navbar.COMINGSOON"), route: '/' },
+        { text: t("navbar.CONTACTUS") },
+        { text: t("navbar.COMINGSOON"), route: '/' },
 
     ];
     const socialMedia = [
@@ -55,8 +55,8 @@ const NavBar = ({
     };
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
     const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down("360"));
-    const {i18n}=useTranslation()
-    const dir=i18n.dir()
+    const { i18n } = useTranslation()
+    const dir = i18n.dir()
     return (
         <>
             <AppBar
@@ -85,7 +85,7 @@ const NavBar = ({
                     }}
                 >
                     <SvgSpaceNetLogo />
-                    <LanguageSwitcher/>
+                    <LanguageSwitcher />
                     <Box>
                         <Box sx={{ position: 'relative' }}>
                             <IconButton
@@ -139,11 +139,11 @@ const NavBar = ({
                                         boxShadow: '0 0 20px rgba(0,0,0,0.1)',
                                         background: "#fff",
                                         clipPath: isSmallScreen ? 'none' :
-                                        dir === 'rtl' ? 
-                                        'ellipse(100% 75% at 0% 50%)'
-                                        :
-                                        'ellipse(100% 75% at 100% 50%)',
-                                       
+                                            dir === 'rtl' ?
+                                                'ellipse(100% 75% at 0% 50%)'
+                                                :
+                                                'ellipse(100% 75% at 100% 50%)',
+
                                     },
                                 }}
                             >
@@ -165,8 +165,8 @@ const NavBar = ({
                                         sx={{
                                             position: 'absolute',
                                             top: '60px',
-                                            right:dir === 'ltr' && '55px',
-                                            left:dir === 'rtl' && '55px',
+                                            right: dir === 'ltr' && '55px',
+                                            left: dir === 'rtl' && '55px',
                                             color: theme.palette.text.primary,
                                             display: isSmallScreen ? "none" : "flex"
                                         }}
@@ -200,7 +200,7 @@ const NavBar = ({
                                                         toggleDrawer(false);
                                                         setDrawerOpen(false);
                                                         navigate(route);
-                                                        if(text === t("navbar.CONTACTUS") ){
+                                                        if (text === t("navbar.CONTACTUS")) {
                                                             setOpen(true)
                                                         }
                                                     }}
@@ -228,7 +228,7 @@ const NavBar = ({
                                                                 color: theme.palette.mode === 'light' ? "#9D89FC" : "#E9FA50",
                                                             },
                                                             cursor: "pointer",
-                                                            whiteSpace:"nowrap"
+                                                            whiteSpace: "nowrap"
                                                         }}
                                                     >
                                                         {text}
@@ -239,7 +239,7 @@ const NavBar = ({
                                         ))}
                                     </List>
 
-                                    <Box sx={{ display: 'flex', justifyContent: 'center', gap:ExtraSmallScreen ? "6px" : "13px", marginBottom: '10px' }}>
+                                    <Box sx={{ display: 'flex', justifyContent: 'center', gap: ExtraSmallScreen ? "6px" : "13px", marginBottom: '10px' }}>
                                         {socialMedia.map((item, index) => (
                                             <Box
                                                 component="a"

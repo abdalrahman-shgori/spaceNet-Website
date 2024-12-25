@@ -4,35 +4,32 @@ import arrow from "../assets/sectionsImages/footerArrow.svg";
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-  const {t,i18n} = useTranslation()
-  const dir=i18n.dir()
+  const { t, i18n } = useTranslation()
+  const dir = i18n.dir()
   const footerSections = [
     {
       title: t("Footer.ReachUs"),
       content: [
         { name: '+964 (0) 750 555 0558', img: '' },
         { name: 'www.spacenetiq.com', img: arrow },
-        { name: t("Footer.tower")}
+        { name: t("Footer.tower") }
 
       ],
     },
     {
-      title:  t("Footer.SocialMedia"),
+      title: t("Footer.SocialMedia"),
       content: [
         { name: t("Footer.Instagram"), link: 'https://www.instagram.com/spacenetiq/profilecard/?igsh=MWYxc2dldmFzamV2OQ==' },
-        { name:  t("Footer.Whatsapp"), link: 'https://wa.me/9647505550558' },
-        { name:  t("Footer.Facebook"), link: 'https://www.facebook.com/share/19yTYEYifS/?mibextid=wwXIfr' },
-        // { name: 'Dribble', link: 'https://instagram.com' },
-        { name:  t("Footer.Linkedln"), link: 'https://www.linkedin.com/company/spacenetiq/' },
-        { name:  t("Footer.Pinterest"), link: 'https://www.pinterest.com/spacenetiq/' },
-        // { name: 'Behance', link: 'https://Behance.com' },
-
+        { name: t("Footer.Whatsapp"), link: 'https://wa.me/9647505550558' },
+        { name: t("Footer.Facebook"), link: 'https://www.facebook.com/share/19yTYEYifS/?mibextid=wwXIfr' },
+        { name: t("Footer.Linkedln"), link: 'https://www.linkedin.com/company/spacenetiq/' },
+        { name: t("Footer.Pinterest"), link: 'https://www.pinterest.com/spacenetiq/' },
       ],
     },
     {
       title: t("Footer.legal"),
       content: [
-        { name:  t("Footer.Privacy"), img: arrow },
+        { name: t("Footer.Privacy"), img: arrow },
         { name: t("Footer.terms"), img: arrow },
       ],
     },
@@ -76,7 +73,7 @@ const Footer = () => {
               {section.title}
             </Typography>
 
-            {section.title === t("Footer.SocialMedia")  ? (
+            {section.title === t("Footer.SocialMedia") ? (
               <Grid container >
                 {section.content.map((social, idx) => (
                   <Grid
@@ -147,7 +144,7 @@ const Footer = () => {
                   {text.img && (
                     <img
                       src={text.img}
-                     alt='arrow'
+                      alt='arrow'
                     />
                   )}
                 </Grid>
@@ -169,13 +166,13 @@ const Footer = () => {
             md: "7.5px 160px 7.5px 100px",
             sm: '7.5px 25px 7.5px 25px',
             xs: '7.5px 25px 7.5px 25px'
-          }:
-          {
-            lg: '7.5px 190px 7.5px 290px',
-            md: "7.5px 100px 7.5px 160px",
-            sm: '7.5px 25px 7.5px 25px',
-            xs: '7.5px 25px 7.5px 25px'
-          }
+          } :
+            {
+              lg: '7.5px 190px 7.5px 290px',
+              md: "7.5px 100px 7.5px 160px",
+              sm: '7.5px 25px 7.5px 25px',
+              xs: '7.5px 25px 7.5px 25px'
+            }
         }}
       >
         <Typography
@@ -203,10 +200,9 @@ const Footer = () => {
             },
             fontFamily: "var(--English-font)",
             color: "#222222",
-
           }}
         >
-         {t("Footer.developedBy")}
+          {t("Footer.developedBy")}
         </Typography>
       </Box>
     </Box>

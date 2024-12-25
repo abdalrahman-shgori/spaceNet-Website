@@ -538,8 +538,6 @@ export default function AboutSpaceNet({
                         key={hoveredService}
                         animate={{ opacity: [0, 1] }}
                         transition={{ duration: 0.5, delay: 0.5 }}
-                     
-                       
                     >
                         <Box
                             onClick={handlelearnMoreBtn}
@@ -564,7 +562,7 @@ export default function AboutSpaceNet({
                                 gap: "8px",
                                 marginTop: "20px",
                                 zIndex: "999999",
-                                
+
                             }}
                         >
                             <Typography
@@ -577,12 +575,12 @@ export default function AboutSpaceNet({
                                 {t("aboutSpaceNet.learnMore")}
                             </Typography>
                             <Box
-                             component="img" 
-                             src={indexOfHoveredServices === 2 ? learnMoreArrowBlack : learnMoreArrow} 
-                             sx={{
-                                transform: dir === 'rtl' ? "scaleX(-1)" : 'unset'
-                             }}
-                             />
+                                component="img"
+                                src={indexOfHoveredServices === 2 ? learnMoreArrowBlack : learnMoreArrow}
+                                sx={{
+                                    transform: dir === 'rtl' ? "scaleX(-1)" : 'unset'
+                                }}
+                            />
                         </Box>
                     </motion.div>
                 )}

@@ -71,7 +71,7 @@ const App = () => {
 
   return (
 
-                 <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
+    <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
       {location.pathname === '/' && (
         <motion.div
           initial={{ height: "100dvh" }}
@@ -91,72 +91,71 @@ const App = () => {
           <LogoAnimation handleAnimationComplete={handleAnimationComplete} logoAnimationComplete={logoAnimationComplete} />
         </motion.div>
       )}
-      
- <ThemeSettings>
- <ThemeLocalization>
-      {logoAnimationComplete && (
-        <>
-          <motion.div
-            initial={location.pathname === '/' && { y: '100dvh', opacity: 0 }}
-            animate={{
-              y: 0,
-              opacity: 1,
-              background: themeColor,
-            }}
-            exit={{ y: '-100%', opacity: 0 }}
-            transition={{
-              duration: 1,
-              ease: 'easeInOut',
-              background: { duration: 0.3 },
-            }}
-            style={{
-              background: themeColor,
-              minHeight: '100dvh',
-              position: 'relative',
-              zIndex: 2,
-              animation: 'moveBackground 5s linear',
-            }}
-          >
+
+      <ThemeSettings>
+        <ThemeLocalization>
+          {logoAnimationComplete && (
             <>
-           
+              <motion.div
+                initial={location.pathname === '/' && { y: '100dvh', opacity: 0 }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  background: themeColor,
+                }}
+                exit={{ y: '-100%', opacity: 0 }}
+                transition={{
+                  duration: 1,
+                  ease: 'easeInOut',
+                  background: { duration: 0.3 },
+                }}
+                style={{
+                  background: themeColor,
+                  minHeight: '100dvh',
+                  position: 'relative',
+                  zIndex: 2,
+                  animation: 'moveBackground 5s linear',
+                }}
+              >
+                <>
 
-            <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-             <ScrollToTop/>
-              <Routes>
-                <Route
-                  path='/'
-                  element={
-                    <InnerApp
-                      showContent={showContent}
-                      setShowContent={setShowContent}
-                      setThemeColor={setThemeColor}
-                      draweOpen={drawerOpen}
-                      setDrawerOpen={setDrawerOpen}
-                      setOpen={setOpen}
+
+                  <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+                  <ScrollToTop />
+                  <Routes>
+                    <Route
+                      path='/'
+                      element={
+                        <InnerApp
+                          showContent={showContent}
+                          setShowContent={setShowContent}
+                          setThemeColor={setThemeColor}
+                          draweOpen={drawerOpen}
+                          setDrawerOpen={setDrawerOpen}
+                          setOpen={setOpen}
+                        />
+                      }
                     />
-                  }
-                />
-                <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
 
-              </Routes>
-           
-              {location.pathname !== '/' && (
-                <Footer />
-              )}
-                           
-          
+                  </Routes>
+
+                  {location.pathname !== '/' && (
+                    <Footer />
+                  )}
+
+
+                </>
+              </motion.div>
+              <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+              <BasicModal setOpen={setOpen} open={open} />
             </>
-          </motion.div>
-          <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-          <BasicModal setOpen={setOpen} open={open} />
-        </>
-      )}
-       </ThemeLocalization>
-
-</ThemeSettings>
+          )}
+        </ThemeLocalization>
+      </ThemeSettings>
     </ThemeProvider>
 
 

@@ -8,7 +8,7 @@ import DevelopBtn from "./developSkillsBtn";
 import { useTranslation } from "react-i18next";
 
 export default function DevelopSkills({ setOpen, setEnroll }) {
-    const { i18n ,t} = useTranslation()
+    const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const [start, setStart] = useState(false)
     const theme = useTheme()
@@ -18,7 +18,7 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
         {
             id: 0,
             title: t("academics.digitalDesign"),
-            subCat: [t("academics.graphics"),t("academics.uiux") ],
+            subCat: [t("academics.graphics"), t("academics.uiux")],
             bg: "#1CB786",
             boxShadow: "0px 4px 15px rgba(28, 183, 134, 0.5)",
             img: designGradiant
@@ -26,15 +26,15 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
         {
             id: 1,
             title: t("academics.software"),
-            subCat: [t("academics.SoftwareDevelopment"),t("academics.Cybersecurity")],
+            subCat: [t("academics.SoftwareDevelopment"), t("academics.Cybersecurity")],
             bg: "#9D89FC",
             boxShadow: "0px 4px 15px rgba(157, 137, 252, 0.5)",
             img: softwareGradiant
         },
         {
             id: 2,
-            title:t("academics.Networking"),
-            subCat: [t("academics.Nokia"),t("academics.Cisco")],
+            title: t("academics.Networking"),
+            subCat: [t("academics.Nokia"), t("academics.Cisco")],
             bg: "#E9FA50",
             boxShadow: " 0px 4px 15px rgba(233, 250, 80, 0.5)",
             img: networkGradiant
@@ -95,7 +95,7 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
 
     return (
         <>
-            <Grid style={{direction:"ltr"}}>
+            <Grid style={{ direction: "ltr" }}>
                 <Grid container
                     sx={{
                         paddingBottom: {
@@ -401,8 +401,8 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
 
                     }}
                 >
-                                {t("academics.GetStarted")}
-                                </Button>
+                    {t("academics.GetStarted")}
+                </Button>
                 <Button
                     onClick={handleOpenRegister}
                     sx={{
@@ -421,8 +421,8 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
 
                     }}
                 >
-                                {t("academics.RegisterNow")}
-                                </Button>
+                    {t("academics.RegisterNow")}
+                </Button>
             </Grid>
         </>
     )

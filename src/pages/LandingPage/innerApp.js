@@ -4,14 +4,9 @@ import ServicesLogo from '../../assets/spacenetLogo/servicesLogo';
 import { Box, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import LandingPage from "../landingPage";
-
-
 const InnerApp = ({
   showContent,
-  setShowContent,
   showLogo,
-  setShowLogo,
-  setOpen
 }) => {
   const [servicesList, setServicesList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,8 +23,8 @@ const InnerApp = ({
           {
             id: 0,
             title: "ABOUT",
-            title_ar:"ABOUT",
-            title_ku:"ABOUT",
+            title_ar: "ABOUT",
+            title_ku: "ABOUT",
             description: "Description for About",
             img: <ServicesLogo isaboutactive={isAboutActive} />,
           },

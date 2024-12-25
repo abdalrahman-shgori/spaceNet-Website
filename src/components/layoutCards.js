@@ -9,9 +9,9 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
   const theme = useTheme()
   const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down('354'))
   const spesificLgScreen = useMediaQuery(theme.breakpoints.between("890", '1292'))
-  const { i18n ,t} = useTranslation()
+  const { i18n, t } = useTranslation()
   const dir = i18n.dir()
-  const lang=i18n.language
+  const lang = i18n.language
   if (process.env.NODE_ENV === 'development') {
     console.warn = () => { };
     console.error = () => { };
@@ -30,9 +30,9 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
           },
           padding: {
             lg: pathname !== '/academics' ? "0px 110px 0 110px" : "0px 57px 80px 57px",
-            md: "0px 0px 0 0px",
-            sm: "0px 0px 0 0px",
-            xs: "0px 0px 0 0px",
+            md: pathname === '/academics' ? "0px 0px 80px 0px" : "0px 0px 0px 0px",
+            sm: pathname === '/academics' ? "0px 0px 80px 0px" : "0px 0px 0px 0px",
+            xs: pathname === '/academics' ? "0px 0px 80px 0px" : "0px 0px 0px 0px",
           },
 
         }}
@@ -72,14 +72,14 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
               }}
             >
               <motion.div
-                initial={pathname !== "/academics" ? 
+                initial={pathname !== "/academics" ?
                   (
                     dir === 'ltr' ?
-                    { x: index === 0 ? -200 : index === 1 ? 200 : 0, y: index > 1 ? 200 : 0 } :
-                    { x: index === 0 ? 200 : index === 1 ? -200 : 0, y: index > 1 ? -200 : 0 }
+                      { x: index === 0 ? -200 : index === 1 ? 200 : 0, y: index > 1 ? 200 : 0 } :
+                      { x: index === 0 ? 200 : index === 1 ? -200 : 0, y: index > 1 ? -200 : 0 }
                   )
-                   : 
-                   ({ y: 200 })}
+                  :
+                  ({ y: 200 })}
                 whileInView={{
                   x: index === 0 ? 0 : index === 1 ? 0 : 0,
                   y: index > 1 ? 0 : 0
@@ -164,16 +164,16 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                     >
                       {
                         pathname === '/academics' || pathname === '/core-it' ? (
-                         <>
-                         {item.title}
-                         </>
-                        ):
-                        (
                           <>
-                          {                      lang === 'ar' ?item.title_ar : lang==='ku' ? item.title_ku : item.title
-                          }
+                            {item.title}
                           </>
-                        )
+                        ) :
+                          (
+                            <>
+                              {lang === 'ar' ? item.title_ar : lang === 'ku' ? item.title_ku : item.title
+                              }
+                            </>
+                          )
                       }
                     </Typography>
                   </Grid>
@@ -200,16 +200,16 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                     >
                       {
                         pathname === '/academics' || pathname === '/core-it' ? (
-                        <>{item.description}</>
-                        ):( 
-                        <>
-             {lang === 'ar' ?item.description_ar : lang==='ku' ? item.description_ku : item.description}
+                          <>{item.description}</>
+                        ) : (
+                          <>
+                            {lang === 'ar' ? item.description_ar : lang === 'ku' ? item.description_ku : item.description}
 
-                        </>
+                          </>
                         )
 
                       }
-                      </Typography>
+                    </Typography>
                   </Grid>
 
                   <Grid lg={12}
@@ -269,10 +269,10 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                   position: index === 2 && idx === 1 && !ExtraSmallScreen && !spesificLgScreen ? "absolute" : "relative",
                                   top: !ExtraSmallScreen && index === 2 && idx === 1 && !spesificLgScreen && "-40px",
                                   left:
-                                  dir === 'ltr' &&
-                                  !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "90px", md: "100px", sm: "80px", xs: "85px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "60px", md: "1000px", sm: "58px", xs: "52px" },
-                                     right : dir === 'rtl' &&
-                                     !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "50px", md: "100px", sm: "40px", xs: "40px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "35px", md: "100px", sm: "32px", xs: "32px" },
+                                    dir === 'ltr' &&
+                                      !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "90px", md: "100px", sm: "80px", xs: "85px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "60px", md: "1000px", sm: "58px", xs: "52px" },
+                                  right: dir === 'rtl' &&
+                                    !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "50px", md: "100px", sm: "40px", xs: "40px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "35px", md: "100px", sm: "32px", xs: "32px" },
 
                                 }}
 
@@ -307,7 +307,6 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                       </Box>
                     )}
                   </Grid>
-
                 </Grid>
               </motion.div>
             </Grid>

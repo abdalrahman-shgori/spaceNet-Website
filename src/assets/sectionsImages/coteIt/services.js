@@ -8,14 +8,14 @@ const ServicesSvg = (props) => (
     height={91}
     fill="none"
     {...props}
-    initial={{ opacity: 0 }} // Start hidden
-    animate={{ opacity: 1 }} // Fade in smoothly
-    transition={{ duration: 1 }} // Smooth animation duration
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1 }} n
   >
     <motion.g
       clipPath="url(#a)"
       initial={{ rotate: 0 }}
-      animate={{ rotate: 5 }} // Slight rotation for a dynamic effect
+      animate={{ rotate: 5 }}
       transition={{
         repeat: Infinity,
         repeatType: "reverse",

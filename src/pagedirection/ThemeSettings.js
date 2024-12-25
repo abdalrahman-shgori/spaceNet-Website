@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import ThemeRtlLayout from './ThemeRtlLayout';
-// import SettingsDrawer from './drawer';
 
-// ----------------------------------------------------------------------
 
 ThemeSettings.propTypes = {
   children: PropTypes.node,

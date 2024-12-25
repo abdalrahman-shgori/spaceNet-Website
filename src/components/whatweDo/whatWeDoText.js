@@ -16,12 +16,12 @@ const textStyle = {
         sm: "unset",
         xs: "unset"
     },
-   paddingBottom:{
-    lg:"80px",
-    md:"80px",
-    sm:"25px",
-    xs:"25px"
-   }
+    paddingBottom: {
+        lg: "80px",
+        md: "80px",
+        sm: "25px",
+        xs: "25px"
+    }
 }
 
 export default function WhatWeDoText({ text }) {

@@ -11,22 +11,20 @@ export default function Cards({
 }) {
     const [expandedCard, setExpandedCard] = useState(lastCardId);
     const containerRef = useRef(null);
-    const {i18n,t}=useTranslation()
-    const lang=i18n.language
-    const dir=i18n.dir()
+    const { i18n, t } = useTranslation()
+    const lang = i18n.language
+    const dir = i18n.dir()
     const handleCardClick = (id) => {
         if (id !== lastCardId) {
             setExpandedCard(expandedCard === id ? null : id);
         }
     };
-    const [inView, setInView] = useState(false);
-     
     return (
         <Grid item
             container
             direction="column"
             alignItems="center"
-           
+
             ref={containerRef}
         >
             {loading ? (
@@ -97,18 +95,18 @@ export default function Cards({
                                         xs: "30px"
                                     },
                                     transition: "max-height 0.4s , border-radius 0.4s ",
-                                    padding:dir === 'ltr' ? {
+                                    padding: dir === 'ltr' ? {
                                         lg: "72px 0px 0px 40px",
                                         md: "72px 0px 0px 40px",
                                         sm: "44px 0px 0px 20px",
                                         xs: "44px 0px 0px 20px"
                                     } :
-                                    {
-                                        lg: "72px 40px 0px 0px",
-                                        md: "72px 40px 0px 0px",
-                                        sm: "44px 30px 0px 0px",
-                                        xs: "44px 30px 0px 0px"
-                                    }
+                                        {
+                                            lg: "72px 40px 0px 0px",
+                                            md: "72px 40px 0px 0px",
+                                            sm: "44px 30px 0px 0px",
+                                            xs: "44px 30px 0px 0px"
+                                        }
                                 }}
                             >
                                 <CardContent sx={{ padding: "0" }}>
@@ -117,13 +115,13 @@ export default function Cards({
                                             component="img"
                                             sx={{
                                                 position: "absolute",
-                                                right:dir === 'ltr' && {
+                                                right: dir === 'ltr' && {
                                                     lg: "40px",
                                                     md: "40px",
                                                     sm: "30px",
                                                     xs: "30px"
                                                 },
-                                                left:dir === 'rtl' && {
+                                                left: dir === 'rtl' && {
                                                     lg: "40px",
                                                     md: "40px",
                                                     sm: "30px",
@@ -143,9 +141,9 @@ export default function Cards({
                                                 },
                                                 transition: "transform 0.4s linear",
                                                 transform: dir === 'ltr' ? expandedCard === card.id ? "rotate(-90deg)" : "rotate(0deg) " :
-                                                expandedCard === card.id ? "rotate(180deg)" : "rotate(90deg) "
+                                                    expandedCard === card.id ? "rotate(180deg)" : "rotate(90deg) "
                                                 ,
-                                                
+
                                             }}
                                             src={index === 1 ? arrowWhite : arrow}
                                             alt="arrow"
@@ -168,15 +166,15 @@ export default function Cards({
                                                     },
                                                     width: "100%",
                                                     color: index === 1 ? "#FFFFFF" : "#000000",
-                                                    lineHeight:{
-                                                        lg:"58px",
-                                                        md:"58px",
-                                                        sm:"32px",
-                                                        xs:"32px"
+                                                    lineHeight: {
+                                                        lg: "58px",
+                                                        md: "58px",
+                                                        sm: "32px",
+                                                        xs: "32px"
                                                     }
                                                 }}
                                             >
-                                                {lang === 'ar' ? card.title_ar : lang==="ku" ? card.title_ku :  card.title}
+                                                {lang === 'ar' ? card.title_ar : lang === "ku" ? card.title_ku : card.title}
                                             </Typography>
                                         </Grid>
                                         <Grid item lg={7} sm={7} xs={12}
@@ -216,10 +214,15 @@ export default function Cards({
                                                     },
                                                     width: "100%",
                                                     textAlign: "justify",
-                                                    paddingRight: dir === 'ltr' && {
+                                                    paddingRight: dir === 'ltr' ? {
                                                         lg: "60px",
                                                         md: "60px",
                                                         sm: "30px",
+                                                        xs: "0px"
+                                                    } : {
+                                                        lg: "20px",
+                                                        md: "20px",
+                                                        sm: "20px",
                                                         xs: "0px"
                                                     },
                                                     paddingLeft: dir === 'rtl' && {
@@ -228,16 +231,16 @@ export default function Cards({
                                                         sm: "30px",
                                                         xs: "0px"
                                                     },
-                                                    lineHeight:{
-                                                        lg:"32px",
-                                                        md:"32px",
-                                                        sm:"25px",
-                                                        xs:"25px"
+                                                    lineHeight: {
+                                                        lg: "32px",
+                                                        md: "32px",
+                                                        sm: "25px",
+                                                        xs: "25px"
                                                     }
                                                 }}
                                             >
-                                                {lang === 'ar' ? card.description_ar : lang==="ku" ? card.description_ku :  card.description}
-                                                </Typography>
+                                                {lang === 'ar' ? card.description_ar : lang === "ku" ? card.description_ku : card.description}
+                                            </Typography>
                                             <Typography
                                                 sx={{
                                                     marginTop: {
@@ -250,7 +253,7 @@ export default function Cards({
                                                 }}
                                             >
 
-{(card[lang === 'ar' ? 'hashtags_ar' : lang === 'ku' ? 'hashtags_ku' : 'hashtags'] || '').split('|').map((hashtag, indexs) => (
+                                                {(card[lang === 'ar' ? 'hashtags_ar' : lang === 'ku' ? 'hashtags_ku' : 'hashtags'] || '').split('|').map((hashtag, indexs) => (
                                                     <Box
                                                         key={indexs}
                                                         sx={{
@@ -266,7 +269,9 @@ export default function Cards({
                                                             },
                                                             fontFamily: "var(--English-font)",
                                                             padding: "6px 22px",
-                                                            marginRight: "15px",
+                                                            marginRight: dir === "ltr" && "20px",
+                                                            marginLeft: dir === "rtl" && "20px",
+
                                                             marginBottom: "10px",
                                                             transition: "background-color 0.3s ease",
                                                         }}
@@ -274,8 +279,6 @@ export default function Cards({
                                                         {hashtag.trim()}
                                                     </Box>
                                                 ))}
-
-
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -286,7 +289,6 @@ export default function Cards({
                     </Grid>
                 ))
             )}
-
         </Grid>
 
     );

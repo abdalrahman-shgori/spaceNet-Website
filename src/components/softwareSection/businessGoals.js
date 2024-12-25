@@ -17,8 +17,8 @@ export default function ResponsiveComponent({
     setNextServiceType,
     data
 }) {
-    const {t,i18n}=useTranslation()
-    const dir=i18n.dir()
+    const { t, i18n } = useTranslation()
+    const dir = i18n.dir()
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isMeduimMobile = useMediaQuery(theme.breakpoints.down("600"));
@@ -26,7 +26,6 @@ export default function ResponsiveComponent({
     const breakLine = useMediaQuery(theme.breakpoints.down("520"));
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
     const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
-
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentServiceType(prev => {
@@ -80,21 +79,21 @@ export default function ResponsiveComponent({
                         sm: "35px",
                         xs: isExtraSmallMobile ? "16px" : "26px",
                     },
-                    textAlign:dir === 'rtl' ? "right" : "left",
+                    textAlign: dir === 'rtl' ? "right" : "left",
                     paddingRight: dir === 'ltr' ? {
                         lg: "20px",
                         md: "20px",
                         sm: "12px",
                         xs: "12px"
-                    }:
-                    {
-                        lg: "40px",
-                        md: "40px",
-                        sm: "32px",
-                        xs: "32px"
-                    }
+                    } :
+                        {
+                            lg: "40px",
+                            md: "40px",
+                            sm: "32px",
+                            xs: "32px"
+                        }
                     ,
-                   
+
                 }}
             >
                 {goalDescription}
@@ -129,14 +128,14 @@ export default function ResponsiveComponent({
                         xs: isMeduimMobile ? "18px" : "12px"
                     },
 
-                    paddingRight: dir === 'ltr' ? 'unset':
-                    {
-                        lg: "40px",
-                        md: "40px",
-                        sm: "32px",
-                        xs: "32px"
-                    },
-                    textAlign:dir === 'rtl' ? "right" : "left",
+                    paddingRight: dir === 'ltr' ? 'unset' :
+                        {
+                            lg: "40px",
+                            md: "40px",
+                            sm: "32px",
+                            xs: "32px"
+                        },
+                    textAlign: dir === 'rtl' ? "right" : "left",
                     marginTop: {
                         lg: "13px",
                         md: "13px",

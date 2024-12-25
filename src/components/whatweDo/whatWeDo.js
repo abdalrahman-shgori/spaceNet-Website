@@ -5,7 +5,7 @@ import Cards from "../cards";
 import { useTranslation } from "react-i18next";
 
 export default function WhatWeDo({ setData, data, lastCardId, loading }) {
-  const {t}=useTranslation()
+    const { t } = useTranslation()
     return (
         <>
             <Grid

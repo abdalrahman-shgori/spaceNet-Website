@@ -220,7 +220,7 @@ export default function ServicesOriginal({
                                     index === 2 &&
                                     theme.palette.mode === "light"
                                     ? UnionWhite
-                                    :  image.img
+                                    : image.img
                             }
                             alt="arrow"
                             sx={{

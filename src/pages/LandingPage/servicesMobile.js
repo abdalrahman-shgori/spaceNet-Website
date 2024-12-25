@@ -1,5 +1,5 @@
 import { Box, Grid, Typography, useTheme, useMediaQuery } from "@mui/material";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { motion } from "framer-motion";
 import customCursor from "../../assets/images/internet.svg";
 import academy from "../../assets/images/academy.svg";
@@ -22,7 +22,6 @@ export default function ServicesMobile({
 
 }) {
     const theme = useTheme();
-    console.log(indexOfHoveredServices)
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
     const { i18n } = useTranslation()
@@ -112,7 +111,6 @@ export default function ServicesMobile({
             );
         }
     }, [i18n.language, item, activeServiceId]);
-    console.log(activeService, "aca")
     const getBackgroundColor = () => {
         if (activeService === (i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title)) {
             switch (indexOfHoveredServices) {
@@ -237,7 +235,6 @@ export default function ServicesMobile({
                             : item.img : i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title}
                     </Typography>
                 </Box>
-
             </motion.div>
 
         </Grid>

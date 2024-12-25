@@ -20,7 +20,6 @@ import { ServiceCategories } from "../services/websiteApis/serviceCategories";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 
-
 const serviceColors = {
     "Website Development": "#9D89FC",
     "Mobile App Development": "#E9FA50",

@@ -1,12 +1,11 @@
 import React from "react";
-import { Button, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 export default function DevelopBtn({
     SkillsType,
     skills,
     start,
-    setOpen
 }) {
-    
+
     return (
         <>
 
@@ -54,64 +53,7 @@ export default function DevelopBtn({
                     transition: "all 0.5s"
                 }}
             >
-                {/* <Grid
-                    sx={{
-                        display: {
-                            lg: "flex",
-                            md: "flex",
-                            sm: "flex",
-                            xs: "none"
-                        },
-                        gap: "9px",
-                        position: "absolute",
-                        bottom: {
-                            lg: 42,
-                            md: 42,
-                            sm: 32
-                        },
-                    }}
-                >
-                    <Button
-                        sx={{
-                            background: "#FA6423",
-                            borderRadius: "50px",
-                            color: "#FFFFFF",
-                            padding: "13px 33px 13px 33px",
-                            fontFamily: "var(--English-font)",
-                            fontSize: {
-                                lg: "18.5px",
-                                sm: "18.5px",
-                                sm: "16px",
-                                xs: "17px"
-                            },
-                            cursor:"pointer !important",
-                            zIndex:99999
-
-                        }}
-                    >
-                        Get Start Now
-                    </Button>
-                    <Button
-                        sx={{
-                            background: "#FFFFFF",
-                            borderRadius: "50px",
-                            color: "#000000",
-                            padding: "13px 33px 13px 33px",
-                            fontSize: {
-                                lg: "18.5px",
-                                sm: "18.5px",
-                                sm: "16px",
-                                xs: "17px"
-                            },
-                            fontFamily: "var(--English-font)",
-                        }}
-                    >
-                        Register Now
-                    </Button>
-                </Grid> */}
             </Grid>
-
-
 
         </>
     )

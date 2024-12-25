@@ -49,7 +49,7 @@ export const textFieldStyle = (theme) => ({
 });
 
 
-export const fieldTextStyle =(theme) => ({
+export const fieldTextStyle = (theme) => ({
     fontSize: {
         lg: "15px",
         md: "15px",
@@ -67,15 +67,15 @@ export const fieldTextStyle =(theme) => ({
 
 })
 
-export const radioStyle =(theme)=> ({
+export const radioStyle = (theme) => ({
     mt: {
         lg: "6px",
         md: "6px",
         sm: "6px",
         xs: "4px"
     },
-    
-    margin:"0 0px",
+
+    margin: "0 0px",
 
     '& .MuiRadio-root': {
         color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
@@ -100,7 +100,7 @@ export const radioStyle =(theme)=> ({
             xs: "10px"
         },
         fontFamily: "var(--English-font)",
-      
+
         '& .MuiSvgIcon-root': {
             width: 40,
             height: 40,
@@ -129,7 +129,7 @@ export const radioStyle =(theme)=> ({
     display: "inline-flex",
 })
 
-export const unifiedInputStyle = (theme)=>({
+export const unifiedInputStyle = (theme) => ({
     mt: {
         lg: "6px",
         md: "6px",
@@ -158,7 +158,7 @@ export const unifiedInputStyle = (theme)=>({
 
 })
 
-export const inputFieldStyle = (theme) =>({
+export const inputFieldStyle = (theme) => ({
     flexGrow: 1,
     border: 'none',
     '& .MuiOutlinedInput-notchedOutline': {
@@ -172,5 +172,5 @@ export const inputFieldStyle = (theme) =>({
         md: "15px",
         sm: "15px",
         xs: "11px"
-    }  
+    }
 })

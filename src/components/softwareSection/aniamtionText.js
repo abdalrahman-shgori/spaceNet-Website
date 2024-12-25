@@ -10,7 +10,6 @@ export default function AnimatedText({
     is14Inch,
     nextServiceType,
     serviceColors,
-    data
 }) {
     const currentServiceTypeStyle = {
         fontFamily: "var(--English-font)",
@@ -26,7 +25,7 @@ export default function AnimatedText({
             sm: "8px 20px 8px 20px",
             xs: "4px 20px 4px 20px"
         },
-        color: currentServiceType === 'Mobile App Development' ? "#000000" : "#FFFFFF",
+        color: serviceColors[currentServiceType] === "#E9FA50" ? "#000000" : "#FFFFFF",
         textAlign: "center",
         display: "inline-block",
         marginLeft: {

@@ -15,7 +15,6 @@ export default function Services({
     setCapture,
     servicesList,
     loading,
-    hoveredServiceDescription,
     isAboutActive,
     setIsAboutActive,
     setOutOfServicesHover,
@@ -24,8 +23,8 @@ export default function Services({
     indexOfHoveredServices
 }) {
     const componentRef = useRef(null);
-    const {i18n,t}=useTranslation()
-    const dir=i18n.dir()
+    const { i18n, t } = useTranslation()
+    const dir = i18n.dir()
     const theme = useTheme();
     const navigate = useNavigate();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -50,7 +49,7 @@ export default function Services({
             setHoveredServiceDescription("");
             setIsAboutActive(false);
         } else {
-            setHoveredServiceDescription( i18n.language === 'ar' ? item.description_ar : i18n.language === 'ku' ? item.description_ku : item.description);
+            setHoveredServiceDescription(i18n.language === 'ar' ? item.description_ar : i18n.language === 'ku' ? item.description_ku : item.description);
             setIsAboutActive(true);
         }
         setIndexOfHoveredServices(item.id)
@@ -59,7 +58,7 @@ export default function Services({
         setCapture(true);
         setTimeout(() => setCapture(false), 200);
     };
-   
+
     useEffect(() => {
         if (!isTabScreen && !isMobile) {
             setHoveredService("");
@@ -71,25 +70,25 @@ export default function Services({
             setTimeout(() => setCapture(false), 200);
         }
     }, [isTabScreen, isMobile]);
-  
+
     return (
         <Grid
             ref={servicesRef}
             sx={{
                 padding:
-                dir === 'ltr' ?
-                {
-                    lg: "0px 75px 0px 75px",
-                    md: '0px 75px 0px 75px',
-                    sm: "0px 45px 0px 25px", 
-                    xs: "0px 0px 0px 25px"
-                }:
-                {
-                    lg: "0px 75px 0px 75px",
-                    md: '0px 75px 0px 75px',
-                    sm: "0px 25px 0px 45px", 
-                    xs: "0px 25px 0px 0px" 
-                }
+                    dir === 'ltr' ?
+                        {
+                            lg: "0px 75px 0px 75px",
+                            md: '0px 75px 0px 75px',
+                            sm: "0px 45px 0px 25px",
+                            xs: "0px 0px 0px 25px"
+                        } :
+                        {
+                            lg: "0px 75px 0px 75px",
+                            md: '0px 75px 0px 75px',
+                            sm: "0px 25px 0px 45px",
+                            xs: "0px 25px 0px 0px"
+                        }
                 ,
             }}
         >
@@ -110,11 +109,11 @@ export default function Services({
                     display: { lg: "unset", md: "unset", sm: "flex", xs: "flex" },
                     flexDirection: { lg: "unset", md: "unset", sm: "row", xs: "row" },
                     overflowX: "auto",
-                    overflowY:{
-                        lg:"unset",
-                        md:"unset",
-                        sm:"unset",
-                        xs:"hidden"
+                    overflowY: {
+                        lg: "unset",
+                        md: "unset",
+                        sm: "unset",
+                        xs: "hidden"
                     },
                     whiteSpace: "nowrap",
                     paddingBottom: "10px",

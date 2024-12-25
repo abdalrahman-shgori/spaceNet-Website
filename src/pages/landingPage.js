@@ -2,7 +2,6 @@ import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import Services from "./LandingPage/services";
 import AboutSpaceNet from "./LandingPage/aboutSpaceNet";
-import { Helmet } from "react-helmet";
 
 export default function LandingPage({
     servicesList,

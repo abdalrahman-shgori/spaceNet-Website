@@ -1,10 +1,7 @@
 import { useTranslation } from "react-i18next";
-// components
 import { useSettingsContext } from "../pagedirection/SettingsContext";
-//
 import { allLangs, defaultLang } from "./config";
 
-// ----------------------------------------------------------------------
 
 export default function useLocales() {
     const { i18n, t: translate } = useTranslation();
@@ -19,7 +16,7 @@ export default function useLocales() {
 
         const handleChangeLanguage = (newLang) => {
             i18n.changeLanguage(newLang);
-            onChangeDirectionByLang(newLang); // Update direction based on language
+            onChangeDirectionByLang(newLang); 
         };
         
 

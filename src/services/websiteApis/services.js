@@ -4,9 +4,7 @@ import { axiosInstance } from "../baseUrl";
 export const services = async (lang) => {
   try {
     const response = await axiosInstance.get(`/services`, {
-      headers: {
-        'Accept-Language': '', // Add the lang parameter to the header
-      },
+    
     });
     return response.data;
   } catch (error) {
