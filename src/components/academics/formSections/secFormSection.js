@@ -37,18 +37,13 @@ const dir=i18n.dir()
             >
                 <Box
                     sx={{
-                        padding: dir === 'ltr' && {
+                        padding:  {
                             lg: "unset",
                             md: "unset",
                             sm: "0px 9px 0px 45px",
                             xs: "0px 9px 0px 45px"
                         },
-                        padding: dir === 'rtl' && {
-                            lg: "unset",
-                            md: "unset",
-                            sm: "0px 45px 0px 9px",
-                            xs: "0px 45px 0px 9x"
-                        }
+                      
                     }}
                 >
                     <Box
