@@ -7,6 +7,8 @@ import {
     inputFieldStyle
 } from '../formstyle';
 import { MenuItem, Select, InputBase, InputAdornment } from '@mui/material';
+import { useTranslation } from "react-i18next";
+import { dir } from "i18next";
 
 export default function FirstFormSection({
     theme,
@@ -18,12 +20,19 @@ export default function FirstFormSection({
     selectedGender,
     handleChange
 }) {
-
+    const { t, i18n } = useTranslation()
+    const dir = i18n.dir()
     return (
         <>
             <Grid item lg={6} md={6} sm={12} xs={12}
                 sx={{
-                    paddingRight: {
+                    paddingRight: dir === 'ltr' && {
+                        lg: "50px",
+                        md: "20px",
+                        sm: "unset",
+                        xs: "unset"
+                    },
+                    paddingLeft: dir === 'rtl' && {
                         lg: "50px",
                         md: "20px",
                         sm: "unset",
@@ -98,64 +107,81 @@ export default function FirstFormSection({
                                 onChange={(e) => setCountryCode(e.target.value)}
                                 variant="standard"
                                 disableUnderline
-                                sx={{
-                                    paddingRight: '0px',
-                                    paddingLeft: {
-                                        lg: "12px",
-                                        md: "12px",
-                                        sm: "12px",
-                                        xs: "8px"
-                                    },
-                                    color: theme.palette.mode === "dark" ? "#FFFFFF" : "#29547E",
-                                    textDecoration: "underline",
-                                    '& .MuiSelect-select': {
-                                        paddingRight: "4px !important",
-                                        fontSize: {
-                                            lg: "15px",
-                                            md: "15px",
-                                            sm: "15px",
-                                            xs: "11px"
-                                        }
-                                    },
-                                    '& .MuiOutlinedInput-notchedOutline': {
-                                        padding: "0",
-                                        fontSize: {
-                                            lg: "15px",
-                                            md: "15px",
-                                            sm: "15px",
-                                            xs: "11px"
+                                sx={
+                                    {
+                                        paddingLeft: dir === 'ltr' && {
+                                            lg: "12px",
+                                            md: "12px",
+                                            sm: "12px",
+                                            xs: "8px"
                                         },
-                                    },
-                                    '& .MuiSelect-icon': {
-                                        fontSize: {
-                                            lg: "50px",
-                                            md: "50px",
-                                            sm: "50px",
-                                            xs: "30px"
+                                        paddingRight: dir === 'rtl' && {
+                                            lg: "12px",
+                                            md: "12px",
+                                            sm: "12px",
+                                            xs: "8px"
                                         },
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : "#051A2F",
-                                        padding: "0 !important",
-                                        marginRight: {
-                                            lg: "-36px",
-                                            md: "-36px",
-                                            sm: "-36px",
-                                            xs: "-26px"
+                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : "#29547E",
+                                        textDecoration: "underline",
+                                        '& .MuiSelect-select': {
+                                            paddingRight: dir === 'ltr' && "4px !important",
+                                            paddingLeft: dir === 'rtl' && "4px !important",
+                                            fontSize: {
+                                                lg: "15px",
+                                                md: "15px",
+                                                sm: "15px",
+                                                xs: "11px"
+                                            }
                                         },
-                                        marginTop: {
-                                            lg: "-2px",
-                                            md: "-2px",
-                                            sm: "-2px",
-                                            xs: "1px"
-                                        }
+                                        '& .MuiOutlinedInput-notchedOutline': {
+                                            padding: "0",
+                                            fontSize: {
+                                                lg: "15px",
+                                                md: "15px",
+                                                sm: "15px",
+                                                xs: "11px"
+                                            },
+                                        },
+                                        '& .MuiSelect-icon': {
+                                            fontSize: {
+                                                lg: "50px",
+                                                md: "50px",
+                                                sm: "50px",
+                                                xs: "30px"
+                                            },
+                                            color: theme.palette.mode === "dark" ? "#FFFFFF" : "#051A2F",
+                                            padding: "0 !important",
+                                            marginRight: dir === 'ltr' ? {
+                                                lg: "-36px",
+                                                md: "-36px",
+                                                sm: "-36px",
+                                                xs: "-26px"
+                                            } :
+                                                {
+                                                    lg: "-6px",
+                                                    md: "-6px",
+                                                    sm: "-6px",
+                                                    xs: "-6px"
+                                                }
+                                            ,
 
-                                    },
-                                    '& .MuiSelect-input': {
-                                        fontSize: "50px",
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : "#051A2F",
-                                        padding: "0 !important",
-                                        marginRight: "-36px",
-                                    },
-                                }}
+                                            marginTop: {
+                                                lg: "-2px",
+                                                md: "-2px",
+                                                sm: "-2px",
+                                                xs: "1px"
+                                            }
+
+                                        },
+                                        '& .MuiSelect-input': {
+                                            fontSize: "50px",
+                                            color: theme.palette.mode === "dark" ? "#FFFFFF" : "#051A2F",
+                                            padding: "0 !important",
+                                            marginRight: dir === 'ltr' && "-36px",
+                                            marginLeft: dir === 'rtl' && "-36px",
+                                        },
+                                    }
+                                }
                             >
                                 {countries.map((country) => (
 
@@ -200,6 +226,7 @@ export default function FirstFormSection({
                                     WebkitAppearance: 'none',
                                     margin: 0,
                                 },
+
                             }}
                         />
 
@@ -231,13 +258,43 @@ export default function FirstFormSection({
                                 '& .MuiMenuItem-root.Mui-selected': {
                                     backgroundColor: 'your-selected-background-color',
                                 },
+                                '& .MuiSelect-icon': {
+                                    fontSize: {
+                                        lg: "50px",
+                                        md: "50px",
+                                        sm: "50px",
+                                        xs: "30px"
+                                    },
+                                    color: theme.palette.mode === "dark" ? "#FFFFFF" : "#051A2F",
+                                    padding: "0 !important",
+                                    marginRight: dir === 'rtl' &&
+                                    {
+                                        lg: "-6px",
+                                        md: "-6px",
+                                        sm: "-6px",
+                                        xs: "-6px"
+                                    }
+                                    ,
+
+                                    marginTop: {
+                                        lg: "-2px",
+                                        md: "-2px",
+                                        sm: "-2px",
+                                        xs: "1px"
+                                    }
+
+                                },
+
                                 height: {
                                     lg: "58px",
                                     md: "58px",
                                     sm: "58px",
                                     xs: "40px"
                                 },
+                                '& .MuiSelect-select': {
+                                    paddingRight: dir === 'rtl' && "44px !important",
 
+                                },
                             }}
                             displayEmpty
                             value={selectedGender}

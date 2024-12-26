@@ -10,16 +10,24 @@ import { DatePicker, LocalizationProvider, TimePicker } from '@mui/x-date-picker
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import CalenderIcon from '../../../assets/sectionsImages/academics/calender';
 import TimePickerIcon from '../../../assets/sectionsImages/academics/timepicker';
+import { useTranslation } from "react-i18next";
 
 export default function SecFormSection({
     theme
 }) {
-
+const {i18n,t}=useTranslation()
+const dir=i18n.dir()
     return (
         <>
             <Grid item lg={6} md={6} sm={12} xs={12}
                 sx={{
-                    paddingLeft: {
+                    paddingLeft:dir === 'ltr' && {
+                        lg: "50px",
+                        md: "20px",
+                        sm: "unset",
+                        xs: "unset"
+                    },
+                    paddingRight:dir === 'rtl' && {
                         lg: "50px",
                         md: "20px",
                         sm: "unset",
@@ -29,11 +37,17 @@ export default function SecFormSection({
             >
                 <Box
                     sx={{
-                        padding: {
+                        padding: dir === 'ltr' && {
                             lg: "unset",
                             md: "unset",
                             sm: "0px 9px 0px 45px",
                             xs: "0px 9px 0px 45px"
+                        },
+                        padding: dir === 'rtl' && {
+                            lg: "unset",
+                            md: "unset",
+                            sm: "0px 45px 0px 9px",
+                            xs: "0px 45px 0px 9x"
                         }
                     }}
                 >
@@ -94,8 +108,14 @@ export default function SecFormSection({
                     >
                         <Typography sx={{ ...fieldTextStyle(theme) }}>Course Type</Typography>
                         <RadioGroup row >
-                            <FormControlLabel sx={{ ...radioStyle(theme), marginRight: { lg: "10px", md: "8px", sm: "10px", xs: "7px" } }} value="online" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Online" />
-                            <FormControlLabel sx={{ ...radioStyle(theme), marginRight: { lg: "10px", md: "8px", sm: "10px", xs: "7px" } }} value="classroom" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Classroom" />
+                            <FormControlLabel sx={{ ...radioStyle(theme),
+                                   marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                   marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                                  }} value="online" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Online" />
+                            <FormControlLabel sx={{ ...radioStyle(theme),
+                                 marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                 marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                                  }} value="classroom" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Classroom" />
                             <FormControlLabel sx={{ ...radioStyle(theme) }} value="bootcamp" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Bootcamp" />
                         </RadioGroup>
                     </Box>
@@ -111,8 +131,15 @@ export default function SecFormSection({
                     >
                         <Typography sx={{ ...fieldTextStyle(theme) }}>Languages</Typography>
                         <RadioGroup row  >
-                            <FormControlLabel sx={{ ...radioStyle(theme), marginRight: { lg: "10px", md: "8px", sm: "10px", xs: "7px" } }} value="kurdish" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Kurdish" />
-                            <FormControlLabel sx={{ ...radioStyle(theme), marginRight: { lg: "10px", md: "8px", sm: "10px", xs: "7px" } }} value="english" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="English" />
+                            <FormControlLabel sx={{ ...radioStyle(theme),
+                                  marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                  marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                                 }}
+                                  value="kurdish" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Kurdish" />
+                            <FormControlLabel sx={{ ...radioStyle(theme), 
+                                marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                                 }} value="english" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="English" />
                             <FormControlLabel sx={radioStyle(theme)} value="arabic" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Arabic" />
                         </RadioGroup>
                     </Box>
@@ -130,7 +157,8 @@ export default function SecFormSection({
                         <RadioGroup row>
                             <FormControlLabel
                                 sx={{
-                                    marginRight: { lg: "10px", md: "6px", sm: "10px", xs: "7px" },
+                                    marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                   marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
                                     ...radioStyle(theme),
                                     '& .MuiCheckbox-root':
                                     {
@@ -155,7 +183,8 @@ export default function SecFormSection({
 
                             <FormControlLabel
                                 sx={{
-                                    marginRight: { lg: "10px", md: "6px", sm: "10px", xs: "7px" },
+                                    marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                    marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
                                     ...radioStyle(theme),
                                     '& .MuiCheckbox-root':
                                     {
@@ -227,7 +256,13 @@ export default function SecFormSection({
                                         '& input': {},
                                         '& .css-elo8k2-MuiInputAdornment-root': {
                                             margin: "0 !important",
-                                            paddingRight: {
+                                            paddingRight: dir === 'ltr' && {
+                                                lg: "18.55px",
+                                                md: "12.55px",
+                                                sm: "18.55px",
+                                                xs: "12px"
+                                            },
+                                            paddingLeft: dir === 'rtl' && {
                                                 lg: "18.55px",
                                                 md: "12.55px",
                                                 sm: "18.55px",
@@ -308,7 +343,13 @@ export default function SecFormSection({
                                         '& .css-elo8k2-MuiInputAdornment-root': {
                                             margin: "0 !important",
                                             padding:"0",
-                                            paddingRight: {
+                                            paddingRight: dir === 'ltr' && {
+                                                lg: "18.55px",
+                                                md: "12.55px",
+                                                sm: "18.55px",
+                                                xs: "12px"
+                                            },
+                                            paddingLeft: dir === 'rtl' && {
                                                 lg: "18.55px",
                                                 md: "12.55px",
                                                 sm: "18.55px",
