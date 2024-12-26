@@ -15,19 +15,19 @@ import { useTranslation } from "react-i18next";
 export default function SecFormSection({
     theme
 }) {
-const {i18n,t}=useTranslation()
-const dir=i18n.dir()
+    const { i18n, t } = useTranslation()
+    const dir = i18n.dir()
     return (
         <>
             <Grid item lg={6} md={6} sm={12} xs={12}
                 sx={{
-                    paddingLeft:dir === 'ltr' && {
+                    paddingLeft: dir === 'ltr' && {
                         lg: "50px",
                         md: "20px",
                         sm: "unset",
                         xs: "unset"
                     },
-                    paddingRight:dir === 'rtl' && {
+                    paddingRight: dir === 'rtl' && {
                         lg: "50px",
                         md: "20px",
                         sm: "unset",
@@ -37,23 +37,37 @@ const dir=i18n.dir()
             >
                 <Box
                     sx={{
-                        padding:  {
+                        padding: dir === 'ltr' ? {
                             lg: "unset",
                             md: "unset",
                             sm: "0px 9px 0px 45px",
                             xs: "0px 9px 0px 45px"
-                        },
-                      
+                        } :
+                            {
+                                lg: "unset",
+                                md: "unset",
+                                sm: "0px 45px 0px 9px",
+                                xs: "0px 45px 0px 9px"
+                            }
+                        ,
+
                     }}
                 >
                     <Box
                         sx={{
-                            padding: {
+                            padding: dir === 'ltr' ? {
                                 lg: "unset",
                                 md: "unset",
                                 sm: "0px 36px 0px 0px",
                                 xs: "0px 36px 0px 0px"
-                            }
+                            } :
+                                {
+                                    lg: "unset",
+                                    md: "unset",
+                                    sm: "0px 0px 0px 36px",
+                                    xs: "0px 0px 0px 36px"
+                                }
+
                         }}
                     >
                         <Box
@@ -103,14 +117,16 @@ const dir=i18n.dir()
                     >
                         <Typography sx={{ ...fieldTextStyle(theme) }}>Course Type</Typography>
                         <RadioGroup row >
-                            <FormControlLabel sx={{ ...radioStyle(theme),
-                                   marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                   marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                                  }} value="online" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Online" />
-                            <FormControlLabel sx={{ ...radioStyle(theme),
-                                 marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                 marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                                  }} value="classroom" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Classroom" />
+                            <FormControlLabel sx={{
+                                ...radioStyle(theme),
+                                marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                            }} value="online" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Online" />
+                            <FormControlLabel sx={{
+                                ...radioStyle(theme),
+                                marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                            }} value="classroom" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Classroom" />
                             <FormControlLabel sx={{ ...radioStyle(theme) }} value="bootcamp" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Bootcamp" />
                         </RadioGroup>
                     </Box>
@@ -126,15 +142,17 @@ const dir=i18n.dir()
                     >
                         <Typography sx={{ ...fieldTextStyle(theme) }}>Languages</Typography>
                         <RadioGroup row  >
-                            <FormControlLabel sx={{ ...radioStyle(theme),
-                                  marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                  marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                                 }}
-                                  value="kurdish" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Kurdish" />
-                            <FormControlLabel sx={{ ...radioStyle(theme), 
+                            <FormControlLabel sx={{
+                                ...radioStyle(theme),
                                 marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                                 }} value="english" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="English" />
+                                marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                            }}
+                                value="kurdish" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Kurdish" />
+                            <FormControlLabel sx={{
+                                ...radioStyle(theme),
+                                marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                            }} value="english" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="English" />
                             <FormControlLabel sx={radioStyle(theme)} value="arabic" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Arabic" />
                         </RadioGroup>
                     </Box>
@@ -153,7 +171,7 @@ const dir=i18n.dir()
                             <FormControlLabel
                                 sx={{
                                     marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                   marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                    marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
                                     ...radioStyle(theme),
                                     '& .MuiCheckbox-root':
                                     {
@@ -179,7 +197,7 @@ const dir=i18n.dir()
                             <FormControlLabel
                                 sx={{
                                     marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                    marginLeft:dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                    marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
                                     ...radioStyle(theme),
                                     '& .MuiCheckbox-root':
                                     {
@@ -215,7 +233,7 @@ const dir=i18n.dir()
                                     '& .Mui-checked': {
                                         color: theme.palette.mode === "dark" ? "#FFFFFF !important" : '#051A2F !important',
                                     },
-                                }} 
+                                }}
                                 value="software & it" control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Software & IT"
                             />
                         </RadioGroup>
@@ -266,12 +284,12 @@ const dir=i18n.dir()
 
 
                                         },
-                                        "& .css-15guoxn":{
-                                            padding:0,
-                                            paddingRight:"12px"
-                                           },
+                                        "& .css-15guoxn": {
+                                            padding: 0,
+                                            paddingRight: "12px"
+                                        },
                                         '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
-                                            padding:0,
+                                            padding: 0,
                                         },
                                         '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
                                             padding: "0",
@@ -283,11 +301,11 @@ const dir=i18n.dir()
                                             },
                                         },
                                         '& .MuiOutlinedInput-root:hover': {
-                                            backgroundColor: 'transparent', 
-                                          },
-                                          '& .MuiButtonBase-root:hover': {
                                             backgroundColor: 'transparent',
-                                          }
+                                        },
+                                        '& .MuiButtonBase-root:hover': {
+                                            backgroundColor: 'transparent',
+                                        }
                                     }}
                                     slots={{
                                         openPickerIcon: CalenderIcon
@@ -337,7 +355,7 @@ const dir=i18n.dir()
                                         },
                                         '& .css-elo8k2-MuiInputAdornment-root': {
                                             margin: "0 !important",
-                                            padding:"0",
+                                            padding: "0",
                                             paddingRight: dir === 'ltr' && {
                                                 lg: "18.55px",
                                                 md: "12.55px",
@@ -354,12 +372,12 @@ const dir=i18n.dir()
 
                                         },
                                         '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
-                                            padding:0,
+                                            padding: 0,
 
                                         },
-                                        "& .css-15guoxn":{
-                                         padding:0,
-                                         paddingRight:"12px"
+                                        "& .css-15guoxn": {
+                                            padding: 0,
+                                            paddingRight: "12px"
 
                                         },
                                         '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
@@ -372,11 +390,11 @@ const dir=i18n.dir()
                                             },
                                         },
                                         '& .MuiOutlinedInput-root:hover': {
-                                            backgroundColor: 'transparent', 
-                                          },
-                                          '& .MuiButtonBase-root:hover': {
                                             backgroundColor: 'transparent',
-                                          }
+                                        },
+                                        '& .MuiButtonBase-root:hover': {
+                                            backgroundColor: 'transparent',
+                                        }
                                     }}
                                     slots={{
 
