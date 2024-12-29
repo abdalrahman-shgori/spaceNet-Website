@@ -8,7 +8,6 @@ import {
 } from '../formstyle';
 import { MenuItem, Select, InputBase, InputAdornment } from '@mui/material';
 import { useTranslation } from "react-i18next";
-import { dir } from "i18next";
 
 export default function FirstFormSection({
     theme,
@@ -18,7 +17,9 @@ export default function FirstFormSection({
     phoneNumber,
     handlePhoneChange,
     selectedGender,
-    handleChange
+    handleChange,
+    formData,
+    handleGenderChange
 }) {
     const { t, i18n } = useTranslation()
     const dir = i18n.dir()
@@ -50,10 +51,16 @@ export default function FirstFormSection({
                     }
                 }}>
                     <Box>
-                        <Typography sx={{ ...fieldTextStyle(theme) }}>Name</Typography>
+                        <Typography sx={{ ...fieldTextStyle(theme) }}>
+                            {t("formAcademics.Name")}
+                        </Typography>
                         <TextField
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
                             fullWidth
-                            placeholder="Your Name"
+                            required
+                            placeholder={t("formAcademics.YourName")}
                             sx={{
                                 ...textFieldStyle(theme)
                             }}
@@ -72,7 +79,7 @@ export default function FirstFormSection({
                             }}
                         >
                             <Typography sx={{ ...fieldTextStyle(theme) }}>
-                                Email
+                                {t("formAcademics.Email")}
                             </Typography>
                             <Typography
                                 component="span"
@@ -86,20 +93,23 @@ export default function FirstFormSection({
                                     },
                                 }}
                             >
-                                (Optional)
+                                ({t("formAcademics.Optional")})
                             </Typography>
                         </Box>
 
                         <TextField
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             fullWidth
-                            placeholder="Your Name"
+                            placeholder={t("formAcademics.YourEmail")}
                             sx={{
                                 ...textFieldStyle(theme)
                             }}
                         />
                     </Box>
                     <Box sx={{ width: '100%' }}>
-                        <Typography sx={{ ...fieldTextStyle(theme) }}>Phone Number</Typography>
+                        <Typography sx={{ ...fieldTextStyle(theme) }}> {t("formAcademics.PhoneNumber")} </Typography>
 
                         <Box sx={unifiedInputStyle(theme)}>
                             <Select
@@ -192,10 +202,11 @@ export default function FirstFormSection({
                             </Select>
 
                             <InputBase
-                                placeholder="Your Phone Number"
+                                placeholder={t("formAcademics.YourPhoneNumber")}
                                 type="number"
                                 value={phoneNumber}
                                 onChange={handlePhoneChange}
+                                name="phone"
                                 fullWidth
                                 sx={{
                                     ...inputFieldStyle(theme),
@@ -212,11 +223,16 @@ export default function FirstFormSection({
                         </Box>
                     </Box>
                     <Box>
-                        <Typography sx={{ ...fieldTextStyle(theme) }}>Age</Typography>
+                        <Typography sx={{ ...fieldTextStyle(theme) }}>
+                            {t("formAcademics.Age")}
+                        </Typography>
                         <TextField
+                            name="age"
+                            value={formData.age}
+                            onChange={handleChange}
                             type='number'
                             fullWidth
-                            placeholder="Your Age"
+                            placeholder={t("formAcademics.YourAge")}
                             sx={{
                                 ...textFieldStyle(theme),
                                 '& input[type=number]': {
@@ -231,7 +247,9 @@ export default function FirstFormSection({
                         />
 
                     </Box>
-                    <Typography sx={{ ...fieldTextStyle(theme) }}>Gender</Typography>
+                    <Typography sx={{ ...fieldTextStyle(theme) }}>
+                        {t("formAcademics.Gender")}
+                    </Typography>
                     <FormControl fullWidth>
                         <Select
                             sx={{
@@ -298,7 +316,8 @@ export default function FirstFormSection({
                             }}
                             displayEmpty
                             value={selectedGender}
-                            onChange={handleChange} inputProps={{ 'aria-label': 'Without label' }}
+                            onChange={handleGenderChange}
+                            inputProps={{ 'aria-label': 'Without label' }}
 
                         >
                             <MenuItem value="" disabled
@@ -306,10 +325,10 @@ export default function FirstFormSection({
                                     color: "#29547E !important"
                                 }}
                             >
-                                Gender Type
+                                {t("formAcademics.GenderType")}
                             </MenuItem>
-                            <MenuItem value="male">MALE</MenuItem>
-                            <MenuItem value="female">FEMALE</MenuItem>
+                            <MenuItem value="male"> {t("formAcademics.Male")}</MenuItem>
+                            <MenuItem value="female"> {t("formAcademics.Female")}</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>

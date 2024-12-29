@@ -140,7 +140,8 @@
         "YourMessage": "آپ کا پیغام",
         "empire": "ایمپائر بزنس ٹاورز",
         "building": "عمارت T4، 13واں فلور، دفتر 3۔",
-        "SendMessage": "پیغام بھیجیں"
+        "SendMessage": "پیغام بھیجیں",
+        "Allfields": "هەموو خانەکان پێویستن"
     },
     "designAndBranding": {
         "DesignStrategy": "ڈیزائن کی حکمت عملی",
@@ -184,5 +185,38 @@
         "Network": "نیٹ ورک",
         "Security": "سیکورٹی",
         "IT": "آئی ٹی"
+    },
+    "formAcademics": {
+        "Name": "ناو",
+        "YourName": "ناوی تۆ",
+        "Email": "ئیمەیڵ",
+        "Optional": "وەختیە",
+        "YourEmail": "ئیمەیڵی تۆ",
+        "PhoneNumber": "ژمارەی تەلەفۆن",
+        "YourPhoneNumber": "ژمارەی تەلەفۆنی تۆ",
+        "Age": "تەمەن",
+        "Gender": "جنس",
+        "GenderType": "جۆری جنس",
+        "Male": "مێر",
+        "Female": "مێرگە",
+        "Background": "پێشەنگە",
+        "CourseType": "جۆری فێرکاری",
+        "Online": "ئامادەکردنەوەی ئینتەرنێت",
+        "Classroom": "ناوەندی فێرکاری",
+        "Bootcamp": "کەمپەی فێرکاری",
+        "Languages": "زمانەکان",
+        "Kurdish": "کوردی",
+        "English": "ئەنگلیزی",
+        "Arabic": "عەرەبی",
+        "Whichservices": "کەدام خزمەتگوزاریەکان پێویستت دەبێت؟",
+        "SelectCourse": "دەرسی هەڵبژێرە",
+        "StartDay": "ڕوژی دەستپێکردن",
+        "Time": "کات",
+        "Submit": "ناردن",
+        "YourAge": "تەمەنت",
+        "EducationalandProfessional": "پێشەنگە فێربوون و پەروەردەی ئیشی",
+        "StartYourLearning": "پەیڤەندی فێربوونەکەت پەیەکەوە!",
+        "FormSubmitted": "فۆرمەکە بە سەرکەوتوویی ناردرا",
+        "PleaseFillAll": "تکایە هەموو خانەکان پڕ بکە"
     }
 }

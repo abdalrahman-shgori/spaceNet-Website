@@ -3,7 +3,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
-import { Grid, useTheme } from '@mui/material';
+import { Grid, useTheme, Snackbar } from '@mui/material';
+import Alert from '@mui/material/Alert';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { motion } from "framer-motion"
 import 'react-phone-input-2/lib/style.css';
@@ -12,6 +13,8 @@ import { useEffect } from 'react';
 import { getCountries, getCountryCallingCode } from 'libphonenumber-js';
 import FirstFormSection from './formSections/firstFormSection';
 import SecFormSection from './formSections/secFormSection';
+import { getCourses, postRegistration } from '../../services/websiteApis/services';
+import { useTranslation } from 'react-i18next';
 const style = {
     width: "100%",
     bgcolor: 'background.paper',
@@ -27,15 +30,117 @@ const style = {
 };
 
 export default function AcademicsForm({ setEnroll, enroll }) {
-    const handleClose = () => setEnroll(false);
+    const { t } = useTranslation()
+    const [selectedCourses, setSelectedCourses] = useState([]);
+    const [selectedTime, setSelectedTime] = useState(null);
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+    const [snackbarSeverity, setSnackbarSeverity] = useState('info');
     const theme = useTheme()
     const [countries, setCountries] = useState([]);
     const [countryCode, setCountryCode] = useState('+964');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [loading, setLoading] = useState(true);
     const [selectedGender, setSelectedGender] = useState('');
-    const handleChange = (event) => {
-        setSelectedGender(event.target.value);
+    const [selectedCourseType, setSelectedCourseType] = useState('');
+    const [selectedLanguage, setSelectedLanguage] = useState('');
+    const [selectedCoursesId, setSelectedCoursesId] = useState([]);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        age: '',
+        gender: '',
+        background: '',
+        type: '',
+        language: '',
+        day: '',
+        time: '',
+        courses: []
+    });
+    const [data, setData] = useState()
+    const handleClose = () => setEnroll(false);
+
+    const handleTimeChange = (newTime) => {
+        setSelectedTime(newTime);
+
+    };
+    useEffect(() => {
+        if (selectedTime) {
+            const formattedTime = selectedTime.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }); // Formats as "16:20"
+            setFormData((prevData) => ({
+                ...prevData,
+                time: formattedTime
+            }));
+        }
+    }, [selectedTime])
+
+    useEffect(() => {
+        if (selectedDate) {
+            const formattedDate = selectedDate.toLocaleDateString('en-GB');
+
+            setFormData((prevData) => ({
+                ...prevData,
+                day: formattedDate,
+            }));
+        }
+    }, [selectedDate])
+
+
+    const handleDateChange = (newDate) => {
+        setSelectedDate(newDate);
+
+        if (selectedDate) {
+            const formattedDate = newDate.toLocaleDateString('en-GB');
+            setFormData((prevData) => ({
+                ...prevData,
+                day: formattedDate,
+            }));
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }));
+    };
+    useEffect(() => {
+        if (selectedCourses) {
+            handleCourseChange()
+        }
+    }, [selectedCourses])
+    const handleCourseChange = (e) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            courses: selectedCourses
+        }));
+    };
+    const handleCourseTypeChange = (event) => {
+        const courseType = event.target.value;
+        setSelectedCourseType(courseType);
+        setFormData((prevData) => ({
+            ...prevData,
+            type: courseType,
+        }));
+    };
+    const handleLanguageChange = (event) => {
+        const courseType = event.target.value;
+        setSelectedLanguage(courseType);
+        setFormData((prevData) => ({
+            ...prevData,
+            language: courseType,
+        }));
+    };
+    const handleGenderChange = (event) => {
+        const gender = event.target.value;
+        setSelectedGender(gender);
+        setFormData((prevData) => ({
+            ...prevData,
+            gender: gender,
+        }));
     };
     useEffect(() => {
         const countryCodes = getCountries();
@@ -46,11 +151,97 @@ export default function AcademicsForm({ setEnroll, enroll }) {
         }));
         setCountries(countryData);
         setLoading(false);
+
     }, []);
     const handlePhoneChange = (e) => {
         setPhoneNumber(e.target.value);
-    };
 
+        setFormData((prevData) => ({
+            ...prevData,
+            phone: countryCode + e.target.value
+        }));
+    };
+    useEffect(() => {
+        if (countryCode) {
+            setFormData((prevData) => ({
+                ...prevData,
+                phone: countryCode + phoneNumber
+            }));
+        }
+    }, [countryCode])
+
+
+    useEffect(() => {
+        setLoading(true)
+        if (enroll === true) {
+            const fetchCourses = async () => {
+                try {
+                    const response = await getCourses();
+                    setData(response.data)
+                    setLoading(false)
+                } catch (error) {
+                    console.error('Error fetching sub-service data: ', error);
+                }
+            };
+
+            fetchCourses();
+        }
+
+
+    }, [enroll]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!formData.name || !formData.phone || !formData.age || !formData.gender || !formData.courses.length || !formData.type || !formData.language || !formData.day || !formData.time) {
+            setSnackbarMessage(t("formAcademics.PleaseFillAll"));
+            setSnackbarSeverity('warning');
+            setSnackbarOpen(true);
+            return;
+        }
+        try {
+            const response = await postRegistration(
+                formData.name,
+                formData.email,
+                formData.phone,
+                formData.age,
+                formData.gender,
+                formData.background,
+                formData.type,
+                formData.language,
+                formData.day,
+                formData.time,
+                formData.courses
+            );
+            setTimeout(() => {
+                setEnroll(false)
+            }, 2000);
+            setSnackbarMessage(t("formAcademics.FormSubmitted"));
+            setSnackbarSeverity('success');
+            setSnackbarOpen(true);
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                age: '',
+                gender: '',
+                background: '',
+                type: '',
+                language: '',
+                day: '',
+                time: '',
+                courses: []
+            })
+            setPhoneNumber('')
+            setSelectedGender('')
+            setSelectedCourseType('')
+            setSelectedLanguage('')
+            setSelectedCourses([])
+            setSelectedTime(null)
+            setSelectedDate(null)
+        } catch (error) {
+            console.error('Error submitting form: ', error);
+        }
+    };
     return (
         <div>
             <Modal
@@ -149,7 +340,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
 
                                 }}
                             >
-                                Start Your Learning Journey !
+                                {t("formAcademics.StartYourLearning")}
                             </Typography>
                             <Box
                                 sx={{
@@ -185,14 +376,44 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                                         handlePhoneChange={handlePhoneChange}
                                         selectedGender={selectedGender}
                                         handleChange={handleChange}
+                                        formData={formData}
+                                        handleGenderChange={handleGenderChange}
                                     />
                                     <SecFormSection
                                         theme={theme}
+                                        data={data}
+                                        handleChange={handleChange}
+                                        formData={formData}
+                                        handleCourseTypeChange={handleCourseTypeChange}
+                                        selectedCourseType={selectedCourseType}
+                                        setSelectedLanguage={setSelectedLanguage}
+                                        selectedLanguage={selectedLanguage}
+                                        handleLanguageChange={handleLanguageChange}
+                                        selectedCourses={selectedCourses}
+                                        setSelectedCourses={setSelectedCourses}
+                                        setSelectedCoursesId={setSelectedCoursesId}
+                                        selectedCoursesId={selectedCoursesId}
+                                        handleCourseChange={handleCourseChange}
+                                        selectedTime={selectedTime}
+                                        handleTimeChange={handleTimeChange}
+                                        handleDateChange={handleDateChange}
+                                        selectedDate={selectedDate}
+                                        handleSubmit={handleSubmit}
                                     />
                                 </Grid>
                             </Box>
                         </Grid>
                     </Box>
+                    <Snackbar
+                        open={snackbarOpen}
+                        autoHideDuration={2000}
+                        onClose={() => setSnackbarOpen(false)}
+                        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                    >
+                        <Alert onClose={() => setSnackbarOpen(false)} severity={snackbarSeverity}>
+                            {snackbarMessage}
+                        </Alert>
+                    </Snackbar>
                 </motion.div>
             </Modal>
         </div>

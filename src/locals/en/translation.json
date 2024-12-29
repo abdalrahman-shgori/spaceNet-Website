@@ -85,12 +85,12 @@
         "buildSecure": "Build secure networking infrastructures.",
         "innovate": "Innovate with real-world coding expertise.",
         "elevate": "Elevate yourself in any area of technology.",
-        "English":"English",
-        "Kurdish":"Kurdish",
-        "Arabic":"Arabic",
-        "Junior":"Junior",
-        "Intermediate":"Intermediate",
-        "Advanced":"Advanced"
+        "English": "English",
+        "Kurdish": "Kurdish",
+        "Arabic": "Arabic",
+        "Junior": "Junior",
+        "Intermediate": "Intermediate",
+        "Advanced": "Advanced"
     },
     "software": {
         "AchieveBusiness": "Achieve your business goals with our",
@@ -140,7 +140,9 @@
         "YourMessage": "Your Message",
         "empire": "empire business towers",
         "building": "building T4, floor 13, office 3.",
-        "SendMessage": "Send A Message"
+        "SendMessage": "Send A Message",
+        "Allfields":"All fields are required"
+
     },
     "designAndBranding": {
         "DesignStrategy": "Design Strategy",
@@ -184,5 +186,38 @@
         "Network": "Network",
         "Security": "Security",
         "IT": "IT"
+    },
+    "formAcademics": {
+        "Name": "Name",
+        "YourName": "Your Name",
+        "Email": "Email",
+        "Optional": "Optional",
+        "YourEmail": "Your Email",
+        "PhoneNumber": "Phone Number",
+        "YourPhoneNumber": "Your Phone Number",
+        "Age": "Age",
+        "Gender": "Gender",
+        "GenderType": "Gender Type",
+        "Male": "Male",
+        "Female": "Female",
+        "Background": "Background",
+        "CourseType": "Course Type",
+        "Online": "Online",
+        "Classroom": "Classroom",
+        "Bootcamp": "Bootcamp",
+        "Languages": "Languages",
+        "Kurdish": "Kurdish",
+        "English": "English",
+        "Arabic": "Arabic",
+        "Whichservices": "Which services are you Looking for?",
+        "SelectCourse": "Select Course",
+        "StartDay": "Start Day",
+        "Time": "Time",
+        "Submit": "Submit",
+        "YourAge": "Your Age",
+        "EducationalandProfessional": "Educational and Professional Background",
+        "StartYourLearning":"Start Your Learning Journey !",
+        "FormSubmitted":"Form Submitted Successfully",
+        "PleaseFillAll":"Please Fill All Required Fields"
     }
 }

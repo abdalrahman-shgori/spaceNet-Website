@@ -117,7 +117,7 @@ export default function BasicModal({ setOpen, open }) {
         setError(null);
 
         if (!name || !email || !message) {
-            setError('All fields are required');
+            setError(t("ContactUs.Allfields"));
             return;
         }
         try {

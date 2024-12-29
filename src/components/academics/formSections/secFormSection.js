@@ -1,10 +1,9 @@
-import React from "react";
-import { Box, Typography, Button, Checkbox, FormControlLabel, Grid, Radio, RadioGroup, TextField, useTheme } from '@mui/material';
+import React, { useState } from "react";
+import { Box, Typography, Button, Checkbox, FormControlLabel, Grid, Radio, RadioGroup, TextField, FormControl, Select, MenuItem } from '@mui/material';
 import {
     textFieldStyle,
     fieldTextStyle,
     radioStyle,
-
 } from '../formstyle';
 import { DatePicker, LocalizationProvider, TimePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -13,10 +12,26 @@ import TimePickerIcon from '../../../assets/sectionsImages/academics/timepicker'
 import { useTranslation } from "react-i18next";
 
 export default function SecFormSection({
-    theme
+    theme,
+    data,
+    handleChange,
+    formData,
+    handleCourseTypeChange,
+    selectedCourseType,
+    selectedLanguage,
+    handleLanguageChange,
+    selectedCourses,
+    setSelectedCourses,
+    handleCourseChange,
+    selectedTime,
+    handleTimeChange,
+    handleDateChange,
+    selectedDate,
+    handleSubmit
 }) {
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
+    const lang = i18n.language
     return (
         <>
             <Grid item lg={6} md={6} sm={12} xs={12}
@@ -81,7 +96,9 @@ export default function SecFormSection({
                                 }
                             }}
                         >
-                            <Typography sx={{ ...fieldTextStyle(theme) }}>Background</Typography>
+                            <Typography sx={{ ...fieldTextStyle(theme) }}>
+                                {t("formAcademics.Background")}
+                            </Typography>
                             <Typography
                                 component="span"
                                 sx={{
@@ -94,15 +111,18 @@ export default function SecFormSection({
                                     },
                                 }}
                             >
-                                (Optional)
+                                ({t("formAcademics.Optional")})
                             </Typography>
                         </Box>
                         <TextField
                             fullWidth
-                            placeholder="Educational and Professional Background"
+                            placeholder={t("formAcademics.EducationalandProfessional")}
                             sx={{
                                 ...textFieldStyle(theme),
                             }}
+                            name="background"
+                            value={formData.background}
+                            onChange={handleChange}
                         />
                     </Box>
                     <Box
@@ -115,19 +135,21 @@ export default function SecFormSection({
                             },
                         }}
                     >
-                        <Typography sx={{ ...fieldTextStyle(theme) }}>Course Type</Typography>
-                        <RadioGroup row >
+                        <Typography sx={{ ...fieldTextStyle(theme) }}>
+                            {t("formAcademics.CourseType")}
+                        </Typography>
+                        <RadioGroup row value={selectedCourseType} onChange={handleCourseTypeChange}>
                             <FormControlLabel sx={{
                                 ...radioStyle(theme),
                                 marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
                                 marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                            }} value="online" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Online" />
+                            }} value="online" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Online")} />
                             <FormControlLabel sx={{
                                 ...radioStyle(theme),
                                 marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
                                 marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                            }} value="classroom" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Classroom" />
-                            <FormControlLabel sx={{ ...radioStyle(theme) }} value="bootcamp" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Bootcamp" />
+                            }} value="classroom" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Classroom")} />
+                            <FormControlLabel sx={{ ...radioStyle(theme) }} value="bootcamp" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Bootcamp")} />
                         </RadioGroup>
                     </Box>
                     <Box
@@ -140,20 +162,20 @@ export default function SecFormSection({
                             },
                         }}
                     >
-                        <Typography sx={{ ...fieldTextStyle(theme) }}>Languages</Typography>
-                        <RadioGroup row  >
+                        <Typography sx={{ ...fieldTextStyle(theme) }}>{t("formAcademics.Languages")}</Typography>
+                        <RadioGroup row value={selectedLanguage} onChange={handleLanguageChange}>
                             <FormControlLabel sx={{
                                 ...radioStyle(theme),
                                 marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
                                 marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
                             }}
-                                value="kurdish" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Kurdish" />
+                                value="kurdish" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Kurdish")} />
                             <FormControlLabel sx={{
                                 ...radioStyle(theme),
                                 marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
                                 marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                            }} value="english" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="English" />
-                            <FormControlLabel sx={radioStyle(theme)} value="arabic" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Arabic" />
+                            }} value="english" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.English")} />
+                            <FormControlLabel sx={radioStyle(theme)} value="arabic" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Arabic")} />
                         </RadioGroup>
                     </Box>
                     <Box
@@ -166,77 +188,163 @@ export default function SecFormSection({
                             },
                         }}
                     >
-                        <Typography sx={{ ...fieldTextStyle(theme) }}>Which services are you Looking for?</Typography>
-                        <RadioGroup row>
-                            <FormControlLabel
-                                sx={{
-                                    marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                    marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                    ...radioStyle(theme),
-                                    '& .MuiCheckbox-root':
+                        <Typography sx={{ ...fieldTextStyle(theme) }}>
+                            {t("formAcademics.Whichservices")}
+                        </Typography>
+                        <FormControl fullWidth
+                            sx={{
+                                padding: dir === 'ltr' ? {
+                                    lg: "unset",
+                                    md: "unset",
+                                    sm: "0px 36px 0px 0px",
+                                    xs: "0px 36px 0px 0px"
+                                } :
                                     {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
-                                        width: {
+                                        lg: "unset",
+                                        md: "unset",
+                                        sm: "0px 0px 0px 36px",
+                                        xs: "0px 0px 0px 36px"
+                                    }
+                                , '&:hover': {
+                                    backgroundColor: 'transparent',
+                                    color: '#fff',
+                                },
+                                '&.Mui-selected': {
+                                    backgroundColor: 'transparent',
+                                    color: '#fff',
+                                },
+
+                            }}
+                        >
+                            <Select
+                                value={selectedCourses}
+                                onChange={handleCourseChange}
+                                displayEmpty
+                                multiple
+                                renderValue={(selected) => {
+                                    if (selected.length === 0) {
+                                        return <Typography color={theme.palette.mode === 'dark' ? "#FFFFFF" : '#29547E'}>
+                                            {t("formAcademics.SelectCourse")}
+                                        </Typography>;
+                                    }
+                                    const selectedTitles = data
+                                        .flatMap(item => item.courses)
+                                        .filter(subItem => selected.includes(subItem.id))
+                                        .map(subItem => subItem.title);
+                                    return selectedTitles.join(', ');
+                                }}
+                                sx={{
+                                    ...textFieldStyle(theme),
+                                    borderRadius: '30px',
+                                    '& .MuiSelect-icon': {
+                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F',
+                                        fontSize: {
                                             lg: "30px",
                                             md: "30px",
                                             sm: "30px",
-                                            xs: "10px"
+                                            xs: "20px"
                                         },
-
+                                        marginRight: dir === 'rtl' ? '-6px' : undefined,
+                                        marginTop: { lg: "-2px", md: "-2px", sm: "-2px", xs: "1px" }
                                     },
-                                    '& .Mui-checked': {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF !important" : '#051A2F !important',
-                                    },
-
-                                }}
-                                value="networking"
-                                control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />}
-                                label="Networking"
-                            />
-
-                            <FormControlLabel
-                                sx={{
-                                    marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                    marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                    ...radioStyle(theme),
-                                    '& .MuiCheckbox-root':
-                                    {
+                                    '& .MuiSelect-select': {
                                         color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
-                                        width: {
-                                            lg: "30px",
-                                            md: "30px",
-                                            sm: "30px",
-                                            xs: "10px"
-                                        }
+                                        fontSize: { lg: "15px", md: "15px", sm: "15px", xs: "11px" },
+                                        paddingRight: dir === 'rtl' ? "44px !important" : undefined,
+
                                     },
-                                    '& .Mui-checked': {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF !important" : '#051A2F !important',
+                                    height: { lg: "58px", md: "58px", sm: "58px", xs: "40px" },
+                                    border: '1px solid #051A2F',
+                                    '& .MuiMenuItem-root.Mui-selected': {
+                                        backgroundColor: '#051A2F',
+                                        color: '#fff',
                                     },
+
                                 }}
-                                value="design"
-                                control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />}
-                                label="Design"
-                            />
-                            <FormControlLabel
-                                sx={{
-                                    ...radioStyle(theme),
-                                    '& .MuiCheckbox-root':
-                                    {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
-                                        width: {
-                                            lg: "30px",
-                                            md: "30px",
-                                            sm: "30px",
-                                            xs: "10px"
-                                        }
+                                inputProps={{ 'aria-label': 'Without label' }}
+                            >
+                                <MenuItem value="" disabled sx={{
+                                    color: "#051A2F !important",
+                                    '&:hover': {
+                                        backgroundColor: 'transparent',
+                                        color: '#fff',
                                     },
-                                    '& .Mui-checked': {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF !important" : '#051A2F !important',
+                                    '&.Mui-selected': {
+                                        backgroundColor: 'transparent',
+                                        color: '#fff',
                                     },
-                                }}
-                                value="software & it" control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label="Software & IT"
-                            />
-                        </RadioGroup>
+                                }}>
+                                    {t("formAcademics.SelectCourse")}
+                                </MenuItem>
+
+                                {data?.map((item) => (
+                                    <MenuItem
+                                        key={item.id}
+                                        value={item.title}
+                                        sx={{
+                                            display: 'block',
+                                            borderRadius: '8px',
+                                            '&:hover': {
+                                                backgroundColor: 'transparent',
+                                                color: '#fff',
+                                            },
+                                            '&.Mui-selected': {
+                                                backgroundColor: 'transparent',
+                                                color: '#fff',
+                                            },
+
+                                        }}
+
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontSize: "14px",
+                                                color: "#051A2F",
+                                                paddingBottom: "8px"
+                                            }}
+                                        >
+                                            {lang === 'ar' ? item.title_ar : lang === 'ku' ? item.title_ku : item.title}
+                                        </Typography>
+
+                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                                            {item?.courses?.map((subItem) => (
+                                                <Button
+                                                    key={subItem.id}
+                                                    variant="outlined"
+                                                    sx={{
+                                                        borderRadius: '20px',
+                                                        borderColor: '#29547E',
+                                                        color: selectedCourses.includes(subItem.id) ? "#fff" : '#29547E',
+                                                        textTransform: 'none',
+                                                        backgroundColor: selectedCourses.includes(subItem.id) ? '#051A2F' : 'transparent',
+                                                        '&:hover': {
+                                                            backgroundColor: '#051A2F',
+                                                            color: '#fff',
+                                                        },
+                                                        '&.Mui-selected': {
+                                                            backgroundColor: '#051A2F',
+                                                            color: '#fff',
+                                                        }
+                                                    }}
+                                                    onClick={() => {
+                                                        const newSelection = selectedCourses.includes(subItem.id)
+                                                            ? selectedCourses.filter(courseId => courseId !== subItem.id)
+                                                            : [...selectedCourses, subItem.id];
+                                                        setSelectedCourses(newSelection);
+                                                    }}
+                                                >
+                                                    {lang === 'ar' ? subItem.title_ar : lang === 'ku' ? subItem.title_ku : subItem.title}
+                                                </Button>
+                                            ))}
+                                        </Box>
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+
+
+
+
                     </Box>
 
                     <Grid container
@@ -255,9 +363,16 @@ export default function SecFormSection({
                                 }
                             }}
                         >
-                            <Typography sx={{ ...fieldTextStyle(theme) }}>Start Day</Typography>
-                            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <Typography sx={{ ...fieldTextStyle(theme) }}>
+                                {t("formAcademics.StartDay")}
+                            </Typography>
+                            <LocalizationProvider dateAdapter={AdapterDateFns}
+
+                            >
                                 <DatePicker
+                                    name="time"
+                                    value={selectedDate}
+                                    onChange={handleDateChange}
                                     sx={{
                                         height: {
                                             lg: "58px",
@@ -281,8 +396,6 @@ export default function SecFormSection({
                                                 sm: "18.55px",
                                                 xs: "12px"
                                             },
-
-
                                         },
                                         "& .css-15guoxn": {
                                             padding: 0,
@@ -334,9 +447,13 @@ export default function SecFormSection({
                                 }
                             }}
                         >
-                            <Typography sx={{ ...fieldTextStyle(theme) }}>Time</Typography>
+                            <Typography sx={{ ...fieldTextStyle(theme) }}>
+                                {t("formAcademics.Time")}
+                            </Typography>
                             <LocalizationProvider dateAdapter={AdapterDateFns}>
                                 <TimePicker
+                                    value={selectedTime}
+                                    onChange={handleTimeChange}
                                     sx={{
                                         height: {
                                             lg: "58px",
@@ -423,6 +540,8 @@ export default function SecFormSection({
                         }}
                     >
                         <Button
+                            onClick={handleSubmit}
+
                             sx={{
                                 bgcolor: theme.palette.mode === "dark" ? "#FFFFFF" : '#000',
                                 color: theme.palette.mode === "dark" ? "#051A2F" : '#FFFFFF',
@@ -447,9 +566,9 @@ export default function SecFormSection({
                                     md: "64px",
                                     sm: "64px",
                                     xs: "44px"
-                                }
+                                },
                             }}>
-                            Submit
+                            {t("formAcademics.Submit")}
                         </Button>
                     </Box>
                 </Box>
