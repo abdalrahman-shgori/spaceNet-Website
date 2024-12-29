@@ -84,10 +84,31 @@ export default function ServicesMobile({
             setActiveService('ABOUT')
         }
     }, [isTabScreen, isMobile]);
+
+
+    const getBackgroundColor = () => {
+        if (activeService === (i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title)) {
+            switch (indexOfHoveredServices) {
+                case 0:
+                    return theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50";
+                case 1:
+                    return "#FF9F31";
+                case 2:
+                    return "#E9FA50";
+                case 3:
+                    return theme.palette.mode === 'light' ? "#011343" : "#9D89FC";
+                case 5:
+                    return "#1CB786";
+                default:
+                    return "#F5F5F5";
+            }
+        }
+        return "#F5F5F5";
+    };
+
     useEffect(() => {
         const currentService = item.id === activeServiceId ? item : null;
-
-        if (currentService) {
+        if (currentService && item.title !== 'ABOUT') {
             setHoveredServiceDescription(
                 i18n.language === "ar"
                     ? currentService.description_ar
@@ -111,26 +132,6 @@ export default function ServicesMobile({
             );
         }
     }, [i18n.language, item, activeServiceId]);
-    const getBackgroundColor = () => {
-        if (activeService === (i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title)) {
-            switch (indexOfHoveredServices) {
-                case 0:
-                    return theme.palette.mode === 'light' ? "#051A2F" : "#E9FA50";
-                case 1:
-                    return "#FF9F31";
-                case 2:
-                    return "#E9FA50";
-                case 3:
-                    return theme.palette.mode === 'light' ? "#011343" : "#9D89FC";
-                case 5:
-                    return "#1CB786";
-                default:
-                    return "#F5F5F5";
-            }
-        }
-        return "#F5F5F5";
-    };
-
 
     return (
         <Grid
