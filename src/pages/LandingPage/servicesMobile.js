@@ -51,7 +51,6 @@ export default function ServicesMobile({
                     : item.title
         );
         setActiveService(i18n.language === "ar" ? item.title_ar : i18n.language === "ku" ? item.title_ku : item.title);
-        setActiveServiceId(item.id);
         setHoveredService(i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title);
         setCapture(true);
         setIndexOfHoveredServices(item.id);
@@ -60,6 +59,9 @@ export default function ServicesMobile({
             setCapture(false);
         }, 200);
     };
+   useEffect(()=>{
+    setActiveServiceId(indexOfHoveredServices);
+   },[indexOfHoveredServices])
     useEffect(() => {
         function handleClickOutside(event) {
             if (componentRef.current && !componentRef.current.contains(event.target)) {
@@ -106,33 +108,25 @@ export default function ServicesMobile({
         return "#F5F5F5";
     };
 
-    useEffect(() => {
-        const currentService = item.id === activeServiceId ? item : null;
-        if (currentService && item.title !== 'ABOUT') {
+   useEffect(() => {
+        if (item.id === activeServiceId) {
+            const localizedTitle = i18n.language === "ar"
+                ? item.title_ar
+                : i18n.language === "ku"
+                    ? item.title_ku
+                    : item.title;
+
             setHoveredServiceDescription(
                 i18n.language === "ar"
-                    ? currentService.description_ar
+                    ? item.description_ar
                     : i18n.language === "ku"
-                        ? currentService.description_ku
-                        : currentService.description
+                        ? item.description_ku
+                        : item.description
             );
-            setHoveredService(
-                i18n.language === "ar"
-                    ? currentService.title_ar
-                    : i18n.language === "ku"
-                        ? currentService.title_ku
-                        : currentService.title
-            );
-            setActiveService(
-                i18n.language === "ar"
-                    ? currentService.title_ar
-                    : i18n.language === "ku"
-                        ? currentService.title_ku
-                        : currentService.title
-            );
+            setHoveredService(localizedTitle);
+            setActiveService(localizedTitle);
         }
-    }, [i18n.language, item, activeServiceId]);
-
+    }, [i18n.language, item.id]);
     return (
         <Grid
             sx={{
@@ -154,10 +148,12 @@ export default function ServicesMobile({
                     stiffness: 100,
                     delay: index * 0.5,
                 }}
+               
             >
                 <Box
 
                     onClick={() => handleClicks(item)}
+                    
                     sx={{
                         cursor: `url(${index === 0
                             ? academy
