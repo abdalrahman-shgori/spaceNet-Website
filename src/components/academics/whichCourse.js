@@ -226,7 +226,7 @@ export default function WhichCourse() {
                         sm: test ? 15 : 10,
                         xs: -6
                       },
-                      transform: i18n.language !== 'en' && "scaleX(-1) rotate(3deg)"
+                      transform: i18n.language !== 'en' ? "scaleX(-1) rotate(3deg)" : 'rotate(3deg)'
                     }}
                   >
                     <Bracket index={index} />
@@ -278,12 +278,12 @@ export default function WhichCourse() {
             style={{
               position: test ? "relative" : "absolute",
               right: dir === 'ltr' ? 20 :
-                xl ? "20px" :
-                  lg ? "20px" :
-                    md ? "20px" :
-                      sm ? "20px" :
-                        xs ? "20px" :
-                          'unset',
+                xl ? "0px" :
+                  lg ? "0px" :
+                    md ? "0px" :
+                      sm ? "0px" :
+                        xs ? "0px" :
+                          '0px',
 
 
               display: "flex",
@@ -321,6 +321,8 @@ export default function WhichCourse() {
                   xs: "40px"
                 },
                 fontFamily: "var(--English-font-semibold)",
+                textAlign: dir === 'rtl' ? "right" : 'left'
+
               }}
             >
               {xl || lg || md || sm ? <> {t("academics.isnowin")} </> : <> {t("academics.is")} <br /> {t("academics.nowinyour")}<br />{t("academics.hand")}</>}
@@ -356,7 +358,6 @@ export default function WhichCourse() {
                 }}
               >
               </Box>
-
             </motion.div>
           </Box>
         </Box>
