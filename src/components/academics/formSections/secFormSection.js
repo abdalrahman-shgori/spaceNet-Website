@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, Button, Checkbox, FormControlLabel, Grid, Radio, RadioGroup, TextField, FormControl, Select, MenuItem } from '@mui/material';
 import {
     textFieldStyle,
@@ -33,6 +33,10 @@ export default function SecFormSection({
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const lang = i18n.language
+
+    useEffect(()=>{
+
+    },[selectedCourses])
     return (
         <>
             <Grid item lg={6} md={6} sm={12} xs={12}
@@ -344,9 +348,6 @@ export default function SecFormSection({
                         </FormControl>
 
 
-
-
-
                     </Box>
 
                     <Grid container
@@ -354,7 +355,6 @@ export default function SecFormSection({
                             gap: "10px"
                         }}
                     >
-
                         <Box
                             sx={{
                                 maxWidth: {
