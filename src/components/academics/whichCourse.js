@@ -236,7 +236,6 @@ export default function WhichCourse() {
                       ...cardTitle(test, index),
                       direction: i18n.language === 'en' ? "ltr" : "rtl",
                       width: "100%"
-
                     }}
                   >
                     {item.title}
@@ -269,7 +268,6 @@ export default function WhichCourse() {
           </Grid>
           <motion.div
             animate={{ y: cardAnimationStart === true ? [200, 0] : [200], opacity: cardAnimationStart === true ? [0, 1] : 0 }}
-
             transition={{
               duration: cardAnimationStart ? 0.8 : 0.5,
               ease: "linear",
@@ -277,10 +275,8 @@ export default function WhichCourse() {
             }}
             style={{
               position: test ? "relative" : "absolute",
-              right: test ? 20 : dir === 'ltr' ? 0 : dir === 'rtl' && xs || sm ? 20 : 'unset',
-              left : test && dir === 'rtl' && 0,
-
-
+              right: test ? 20 : dir === 'ltr' ? 20 : dir === 'rtl' && xs || sm ? 20 : 'unset',
+              left: test && dir === 'rtl' && 0,
               display: "flex",
               justifyContent: dir === 'ltr' ? "flex-end" : "flex-start",
               textAlign: "start",
@@ -317,7 +313,6 @@ export default function WhichCourse() {
                 },
                 fontFamily: "var(--English-font-semibold)",
                 textAlign: dir === 'rtl' ? "right" : 'left'
-
               }}
             >
               {xl || lg || md || sm ? <> {t("academics.isnowin")} </> : <> {t("academics.is")} <br /> {t("academics.nowinyour")}<br />{t("academics.hand")}</>}
