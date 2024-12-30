@@ -33,10 +33,6 @@ export default function SecFormSection({
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const lang = i18n.language
-
-    useEffect(()=>{
-
-    },[selectedCourses])
     return (
         <>
             <Grid item lg={6} md={6} sm={12} xs={12}
@@ -223,7 +219,6 @@ export default function SecFormSection({
                         >
                             <Select
                                 value={selectedCourses}
-                                onChange={handleCourseChange}
                                 displayEmpty
                                 multiple
                                 renderValue={(selected) => {
@@ -311,6 +306,7 @@ export default function SecFormSection({
                                             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                                                 {item?.courses?.map((subItem) => (
                                                     <Button
+
                                                         value={item.title}
                                                         key={subItem.id}
                                                         variant="outlined"
