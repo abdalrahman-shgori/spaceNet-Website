@@ -33,6 +33,17 @@ export default function SecFormSection({
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const lang = i18n.language
+
+    const handleSelection = (id) => {
+        if (selectedCourses.includes(id)) {
+            // Remove the item if it's already selected
+            setSelectedCourses(selectedCourses.filter(courseId => courseId !== id));
+        } else {
+            // Add the item if it's not already selected
+            setSelectedCourses([...selectedCourses, id]);
+        }
+    };
+    
     return (
         <>
             <Grid item lg={6} md={6} sm={12} xs={12}
@@ -325,23 +336,8 @@ export default function SecFormSection({
                                                                 color: '#fff',
                                                             }
                                                         }}
-                                                        onClick={(e) => {
-                                                            e.preventDefault(); // Prevent default click behavior for mobile
-                                                            console.log('Clicked on:', subItem.id); // Debug: Log the clicked item ID
-                                                            console.log('Current selectedCourses:', selectedCourses); // Debug: Log the current selected courses
-                                                    
-                                                            if (selectedCourses.includes(subItem.id)) {
-                                                                // If subItem is already selected, remove it from selectedCourses and reset the background
-                                                                const newSelection = selectedCourses.filter(courseId => courseId !== subItem.id);
-                                                                setSelectedCourses(newSelection);
-                                                                console.log('Updated selection after removing:', newSelection); // Debug: Log the updated array
-                                                            } else {
-                                                                // Otherwise, add the subItem to the selection
-                                                                const newSelection = [...selectedCourses, subItem.id];
-                                                                setSelectedCourses(newSelection);
-                                                                console.log('Updated selection after adding:', newSelection); // Debug: Log the updated array
-                                                            }
-                                                        }}
+                                                        onClick={() => handleSelection(subItem.id)}
+    onTouchEnd={() => handleSelection(subItem.id)}
                                                     >
                                                         {lang === 'ar' ? subItem.title_ar : lang === 'ku' ? subItem.title_ku : subItem.title}
                                                     </Button>
