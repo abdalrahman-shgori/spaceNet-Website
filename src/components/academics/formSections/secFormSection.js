@@ -327,6 +327,8 @@ export default function SecFormSection({
                                                             color: selectedCourses.includes(subItem.id) ? "#fff" : '#29547E',
                                                             textTransform: 'none',
                                                             backgroundColor: selectedCourses.includes(subItem.id) ? '#051A2F' : 'transparent',
+                                                            transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for color changes
+
                                                             '&:hover': {
                                                                 backgroundColor: '#051A2F',
                                                                 color: '#fff',
@@ -336,8 +338,23 @@ export default function SecFormSection({
                                                                 color: '#fff',
                                                             }
                                                         }}
-                                                        onClick={() => handleSelection(subItem.id)}
-    onTouchEnd={() => handleSelection(subItem.id)}
+                                                        onClick={(e) => {
+                                                            e.preventDefault(); // Prevent default behavior for mobile
+                                                            console.log('Clicked on:', subItem.id); // Debugging
+                                                            console.log('Current selectedCourses:', selectedCourses); // Debugging
+                                                    
+                                                            if (selectedCourses.includes(subItem.id)) {
+                                                                // If subItem is already selected, remove it from selectedCourses
+                                                                const newSelection = selectedCourses.filter(courseId => courseId !== subItem.id);
+                                                                setSelectedCourses(newSelection);
+                                                                console.log('Updated selection after removing:', newSelection); // Debugging
+                                                            } else {
+                                                                // Otherwise, add the subItem to the selection
+                                                                const newSelection = [...selectedCourses, subItem.id];
+                                                                setSelectedCourses(newSelection);
+                                                                console.log('Updated selection after adding:', newSelection); // Debugging
+                                                            }
+                                                        }}
                                                     >
                                                         {lang === 'ar' ? subItem.title_ar : lang === 'ku' ? subItem.title_ku : subItem.title}
                                                     </Button>
