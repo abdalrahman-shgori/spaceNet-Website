@@ -109,7 +109,7 @@ export default function ServicesMobile({
     };
 
    useEffect(() => {
-        if (item.id === activeServiceId) {
+        if (item.id === activeServiceId && indexOfHoveredServices !== 0) {
             const localizedTitle = i18n.language === "ar"
                 ? item.title_ar
                 : i18n.language === "ku"
