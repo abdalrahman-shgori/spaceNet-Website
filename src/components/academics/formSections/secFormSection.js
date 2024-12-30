@@ -281,14 +281,32 @@ export default function SecFormSection({
                                     },
                                     
                                     '& .MuiSelect-icon': {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F',
                                         fontSize: {
                                             lg: "50px",
                                             md: "50px",
                                             sm: "50px",
                                             xs: "30px"
                                         },
-                                    }
+                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : "#051A2F",
+                                        padding: "0 !important",
+                                        marginRight: dir === 'rtl' &&
+                                        {
+                                            lg: "-6px",
+                                            md: "-6px",
+                                            sm: "-6px",
+                                            xs: "-6px"
+                                        }
+                                        ,
+    
+                                        marginTop: {
+                                            lg: "-2px",
+                                            md: "-2px",
+                                            sm: "-2px",
+                                            xs: "1px"
+                                        }
+    
+                                    },
+    
                                 }}
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
