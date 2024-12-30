@@ -277,13 +277,7 @@ export default function WhichCourse() {
             }}
             style={{
               position: test ? "relative" : "absolute",
-              right: dir === 'ltr' ? 20 :
-                xl ? "0px" :
-                  lg ? "0px" :
-                    md ? "0px" :
-                      sm ? "0px" :
-                        xs ? "0px" :
-                          '0px',
+              right: test ? 0 : 20,
 
 
               display: "flex",
