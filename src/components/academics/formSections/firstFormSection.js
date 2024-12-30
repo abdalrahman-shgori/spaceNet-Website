@@ -311,6 +311,13 @@ export default function FirstFormSection({
                                 },
                                 '& .MuiSelect-select': {
                                     paddingRight: dir === 'rtl' && "44px !important",
+                                    fontSize: {
+                                        lg: "15px",
+                                        md: "15px",
+                                        sm: "15px",
+                                        xs: "11px"
+                                    },
+                                    color:"#29547E"
 
                                 },
                             }}

@@ -29,6 +29,7 @@ export default function SecFormSection({
     selectedDate,
     handleSubmit
 }) {
+    console.log(selectedCourses)
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const lang = i18n.language
@@ -192,155 +193,160 @@ export default function SecFormSection({
                             {t("formAcademics.Whichservices")}
                         </Typography>
                         <FormControl fullWidth
+    sx={{
+        padding: dir === 'ltr' ? {
+            lg: "unset",
+            md: "unset",
+            sm: "0px 36px 0px 0px",
+            xs: "0px 36px 0px 0px"
+        } :
+        {
+            lg: "unset",
+            md: "unset",
+            sm: "0px 0px 0px 36px",
+            xs: "0px 0px 0px 36px"
+        },
+        '&:hover': {
+            backgroundColor: 'transparent',
+            color: '#fff',
+        },
+        '&.Mui-selected': {
+            backgroundColor: 'transparent',
+            color: '#fff',
+        },
+    }}
+>
+    <Select
+        value={selectedCourses}
+        onChange={handleCourseChange}
+        displayEmpty
+        multiple
+        renderValue={(selected) => {
+            if (selected.length === 0) {
+                return <Typography color={theme.palette.mode === 'dark' ? "#FFFFFF" : '#29547E'}
+                sx={{
+                    fontSize: {
+                        lg: "15px",
+                        md: "15px",
+                        sm: "15px",
+                        xs: "11px"
+                    },
+                }}
+                >
+                    {t("formAcademics.SelectCourse")}
+                </Typography>;
+            }
+            const selectedTitles = data
+                .flatMap(item => item.courses)
+                .filter(subItem => selected.includes(subItem.id))
+                .map(subItem => subItem.title);
+            return selectedTitles.join(', ');
+        }}
+        sx={{
+            ...textFieldStyle(theme),
+            borderRadius: '30px',
+            '& .MuiSelect-icon': {
+                color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F',
+                fontSize: {
+                    lg: "30px",
+                    md: "30px",
+                    sm: "30px",
+                    xs: "20px"
+                },
+                marginRight: dir === 'rtl' ? '-6px' : undefined,
+                marginTop: { lg: "-2px", md: "-2px", sm: "-2px", xs: "1px" }
+            },
+            '& .MuiSelect-select': {
+                color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
+                fontSize: { lg: "15px", md: "15px", sm: "15px", xs: "11px" },
+                paddingRight: dir === 'rtl' ? "44px !important" : undefined,
+            },
+            height: { lg: "58px", md: "58px", sm: "58px", xs: "40px" },
+            border: '1px solid #051A2F',
+            '& .MuiMenuItem-root.Mui-selected': {
+                backgroundColor: '#051A2F',
+                color: '#fff',
+            },
+        }}
+        inputProps={{ 'aria-label': 'Without label' }}
+    >
+        <MenuItem value="" disabled sx={{
+            color: "#051A2F !important",
+            '&:hover': {
+                backgroundColor: 'transparent',
+                color: '#fff',
+            },
+            '&.Mui-selected': {
+                backgroundColor: 'transparent',
+                color: '#fff',
+            },
+        }}>
+            {t("formAcademics.SelectCourse")}
+        </MenuItem>
+
+        {data?.map((item) => (
+            <MenuItem
+                key={item.id}
+                value={item.title}
+                sx={{
+                    display: 'block',
+                    borderRadius: '8px',
+                    '&:hover': {
+                        backgroundColor: 'transparent',
+                        color: '#fff',
+                    },
+                    '&.Mui-selected': {
+                        backgroundColor: 'transparent',
+                        color: '#fff',
+                    },
+                }}
+            >
+                <Typography
+                    sx={{
+                        fontSize: "14px",
+                        color: "#051A2F",
+                        paddingBottom: "8px"
+                    }}
+                >
+                    {lang === 'ar' ? item.title_ar : lang === 'ku' ? item.title_ku : item.title}
+                </Typography>
+
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                    {item?.courses?.map((subItem) => (
+                        <Button
+                            key={subItem.id}
+                            variant="outlined"
                             sx={{
-                                padding: dir === 'ltr' ? {
-                                    lg: "unset",
-                                    md: "unset",
-                                    sm: "0px 36px 0px 0px",
-                                    xs: "0px 36px 0px 0px"
-                                } :
-                                    {
-                                        lg: "unset",
-                                        md: "unset",
-                                        sm: "0px 0px 0px 36px",
-                                        xs: "0px 0px 0px 36px"
-                                    }
-                                , '&:hover': {
-                                    backgroundColor: 'transparent',
+                                borderRadius: '20px',
+                                borderColor: '#29547E',
+                                color: selectedCourses.includes(subItem.id) ? "#fff" : '#29547E',
+                                textTransform: 'none',
+                                backgroundColor: selectedCourses.includes(subItem.id) ? '#051A2F' : 'transparent',
+                                '&:hover': {
+                                    backgroundColor: '#051A2F',
                                     color: '#fff',
                                 },
                                 '&.Mui-selected': {
-                                    backgroundColor: 'transparent',
+                                    backgroundColor: '#051A2F',
                                     color: '#fff',
-                                },
-
+                                }
+                            }}
+                            onClick={() => {
+                                const newSelection = selectedCourses.includes(subItem.id)
+                                    ? selectedCourses.filter(courseId => courseId !== subItem.id)
+                                    : [...selectedCourses, subItem.id];
+                                setSelectedCourses(newSelection);
                             }}
                         >
-                            <Select
-                                value={selectedCourses}
-                                onChange={handleCourseChange}
-                                displayEmpty
-                                multiple
-                                renderValue={(selected) => {
-                                    if (selected.length === 0) {
-                                        return <Typography color={theme.palette.mode === 'dark' ? "#FFFFFF" : '#29547E'}>
-                                            {t("formAcademics.SelectCourse")}
-                                        </Typography>;
-                                    }
-                                    const selectedTitles = data
-                                        .flatMap(item => item.courses)
-                                        .filter(subItem => selected.includes(subItem.id))
-                                        .map(subItem => subItem.title);
-                                    return selectedTitles.join(', ');
-                                }}
-                                sx={{
-                                    ...textFieldStyle(theme),
-                                    borderRadius: '30px',
-                                    '& .MuiSelect-icon': {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F',
-                                        fontSize: {
-                                            lg: "30px",
-                                            md: "30px",
-                                            sm: "30px",
-                                            xs: "20px"
-                                        },
-                                        marginRight: dir === 'rtl' ? '-6px' : undefined,
-                                        marginTop: { lg: "-2px", md: "-2px", sm: "-2px", xs: "1px" }
-                                    },
-                                    '& .MuiSelect-select': {
-                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
-                                        fontSize: { lg: "15px", md: "15px", sm: "15px", xs: "11px" },
-                                        paddingRight: dir === 'rtl' ? "44px !important" : undefined,
+                            {lang === 'ar' ? subItem.title_ar : lang === 'ku' ? subItem.title_ku : subItem.title}
+                        </Button>
+                    ))}
+                </Box>
+            </MenuItem>
+        ))}
+    </Select>
+</FormControl>
 
-                                    },
-                                    height: { lg: "58px", md: "58px", sm: "58px", xs: "40px" },
-                                    border: '1px solid #051A2F',
-                                    '& .MuiMenuItem-root.Mui-selected': {
-                                        backgroundColor: '#051A2F',
-                                        color: '#fff',
-                                    },
-
-                                }}
-                                inputProps={{ 'aria-label': 'Without label' }}
-                            >
-                                <MenuItem value="" disabled sx={{
-                                    color: "#051A2F !important",
-                                    '&:hover': {
-                                        backgroundColor: 'transparent',
-                                        color: '#fff',
-                                    },
-                                    '&.Mui-selected': {
-                                        backgroundColor: 'transparent',
-                                        color: '#fff',
-                                    },
-                                }}>
-                                    {t("formAcademics.SelectCourse")}
-                                </MenuItem>
-
-                                {data?.map((item) => (
-                                    <MenuItem
-                                        key={item.id}
-                                        value={item.title}
-                                        sx={{
-                                            display: 'block',
-                                            borderRadius: '8px',
-                                            '&:hover': {
-                                                backgroundColor: 'transparent',
-                                                color: '#fff',
-                                            },
-                                            '&.Mui-selected': {
-                                                backgroundColor: 'transparent',
-                                                color: '#fff',
-                                            },
-
-                                        }}
-
-                                    >
-                                        <Typography
-                                            sx={{
-                                                fontSize: "14px",
-                                                color: "#051A2F",
-                                                paddingBottom: "8px"
-                                            }}
-                                        >
-                                            {lang === 'ar' ? item.title_ar : lang === 'ku' ? item.title_ku : item.title}
-                                        </Typography>
-
-                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                                            {item?.courses?.map((subItem) => (
-                                                <Button
-                                                    key={subItem.id}
-                                                    variant="outlined"
-                                                    sx={{
-                                                        borderRadius: '20px',
-                                                        borderColor: '#29547E',
-                                                        color: selectedCourses.includes(subItem.id) ? "#fff" : '#29547E',
-                                                        textTransform: 'none',
-                                                        backgroundColor: selectedCourses.includes(subItem.id) ? '#051A2F' : 'transparent',
-                                                        '&:hover': {
-                                                            backgroundColor: '#051A2F',
-                                                            color: '#fff',
-                                                        },
-                                                        '&.Mui-selected': {
-                                                            backgroundColor: '#051A2F',
-                                                            color: '#fff',
-                                                        }
-                                                    }}
-                                                    onClick={() => {
-                                                        const newSelection = selectedCourses.includes(subItem.id)
-                                                            ? selectedCourses.filter(courseId => courseId !== subItem.id)
-                                                            : [...selectedCourses, subItem.id];
-                                                        setSelectedCourses(newSelection);
-                                                    }}
-                                                >
-                                                    {lang === 'ar' ? subItem.title_ar : lang === 'ku' ? subItem.title_ku : subItem.title}
-                                                </Button>
-                                            ))}
-                                        </Box>
-                                    </MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
 
 
 
