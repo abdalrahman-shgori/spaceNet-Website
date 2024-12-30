@@ -306,6 +306,7 @@ export default function SecFormSection({
                                             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                                                 {item?.courses?.map((subItem) => (
                                                     <Button
+                                                    onChange={handleCourseChange}
 
                                                         value={item.title}
                                                         key={subItem.id}
