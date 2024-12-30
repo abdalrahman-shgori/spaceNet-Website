@@ -219,6 +219,7 @@ export default function SecFormSection({
                         >
                             <Select
                                 value={selectedCourses}
+                                onChange={handleCourseChange}
                                 displayEmpty
                                 multiple
                                 renderValue={(selected) => {
@@ -306,8 +307,6 @@ export default function SecFormSection({
                                             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                                                 {item?.courses?.map((subItem) => (
                                                     <Button
-                                                    onChange={handleCourseChange}
-
                                                         value={item.title}
                                                         key={subItem.id}
                                                         variant="outlined"
@@ -327,10 +326,11 @@ export default function SecFormSection({
                                                             }
                                                         }}
                                                         onClick={() => {
-                                                            const newSelection = selectedCourses.includes(subItem.id)
-                                                                ? selectedCourses.filter(courseId => courseId !== subItem.id)
-                                                                : [...selectedCourses, subItem.id];
-                                                            setSelectedCourses(newSelection);
+                                                            if (selectedCourses.includes(subItem.id)) {
+                                                                setSelectedCourses(selectedCourses.filter(courseId => courseId !== subItem.id));
+                                                            } else {
+                                                                setSelectedCourses([...selectedCourses, subItem.id]);
+                                                            }
                                                         }}
                                                     >
                                                         {lang === 'ar' ? subItem.title_ar : lang === 'ku' ? subItem.title_ku : subItem.title}
