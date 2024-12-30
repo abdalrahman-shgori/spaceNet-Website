@@ -279,6 +279,16 @@ export default function SecFormSection({
                                         backgroundColor: '#051A2F',
                                         color: '#fff',
                                     },
+                                    
+                                    '& .MuiSelect-icon': {
+                                        color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F',
+                                        fontSize: {
+                                            lg: "50px",
+                                            md: "50px",
+                                            sm: "50px",
+                                            xs: "30px"
+                                        },
+                                    }
                                 }}
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
@@ -327,29 +337,21 @@ export default function SecFormSection({
                                                             color: selectedCourses.includes(subItem.id) ? "#fff" : '#29547E',
                                                             textTransform: 'none',
                                                             backgroundColor: selectedCourses.includes(subItem.id) ? '#051A2F' : 'transparent',
-                                                            transition: 'background-color 0.3s ease, color 0.3s ease', // Smooth transition for color changes
+                                                            transition: 'background-color 0.3s ease, color 0.3s ease',
 
-                                                            '&:hover': {
-                                                                backgroundColor: '#051A2F',
-                                                                color: '#fff',
-                                                            },
+                                                           
                                                             '&.Mui-selected': {
                                                                 backgroundColor: '#051A2F',
                                                                 color: '#fff',
                                                             }
                                                         }}
                                                         onClick={(e) => {
-                                                            e.preventDefault(); // Prevent default behavior for mobile
-                                                            console.log('Clicked on:', subItem.id); // Debugging
-                                                            console.log('Current selectedCourses:', selectedCourses); // Debugging
                                                     
                                                             if (selectedCourses.includes(subItem.id)) {
-                                                                // If subItem is already selected, remove it from selectedCourses
                                                                 const newSelection = selectedCourses.filter(courseId => courseId !== subItem.id);
                                                                 setSelectedCourses(newSelection);
                                                                 console.log('Updated selection after removing:', newSelection); // Debugging
                                                             } else {
-                                                                // Otherwise, add the subItem to the selection
                                                                 const newSelection = [...selectedCourses, subItem.id];
                                                                 setSelectedCourses(newSelection);
                                                                 console.log('Updated selection after adding:', newSelection); // Debugging
