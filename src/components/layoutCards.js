@@ -271,8 +271,10 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                   left:
                                     dir === 'ltr' &&
                                       !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "90px", md: "100px", sm: "80px", xs: "85px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "60px", md: "1000px", sm: "58px", xs: "52px" },
-                                  right: dir === 'rtl' &&
-                                    !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "50px", md: "100px", sm: "40px", xs: "40px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "35px", md: "100px", sm: "32px", xs: "32px" },
+                                  right: dir === 'rtl' && i18n.language === 'ar' ?
+                                    !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "50px", md: "100px", sm: "45px", xs: "45px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "35px", md: "100px", sm: "32px", xs: "32px" }:
+                                    !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "60px", md: "100px", sm: "55px", xs: "55px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "35px", md: "100px", sm: "32px", xs: "32px" }
+                                    ,
 
                                 }}
 
