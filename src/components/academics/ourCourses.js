@@ -8,7 +8,6 @@ import Network from "../../assets/sectionsImages/academics/network.svg";
 import complexProject from "../../assets/sectionsImages/academics/complexProject.svg";
 import { motion } from "framer-motion"
 import { useLocation } from "react-router-dom";
-import SectionDescription from "../sectionDescription";
 import { useTranslation } from "react-i18next";
 export default function OurCourses({ setEnroll }) {
     const location = useLocation()
