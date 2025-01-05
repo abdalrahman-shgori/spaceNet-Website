@@ -130,7 +130,7 @@ const SpaceNetLayout = ({ setOpen }) => {
                       key={index}
                     >
                       <Button
-                        onClick={() => item.name !== 'Contact Us' ? handleClick(item.href) : setOpen(true)}
+                        onClick={() => item.name !== t("spacenetLayout.CONTACTUS") ? handleClick(item.href) : setOpen(true)}
                         key={index}
                         variant="outlined"
                         sx={{

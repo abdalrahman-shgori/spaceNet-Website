@@ -54,6 +54,7 @@ const Footer = () => {
             md={index === 2 ? 2 : 5}
             sm={index === 2 ? 2 : 5}
             xs={12}
+          
           >
             <Typography
               sx={{
@@ -66,7 +67,10 @@ const Footer = () => {
                   xs: index > 0 ? "28px" : "0px"
                 },
                 color: "#222222",
-
+               
+    
+                  
+              
 
               }}
             >
@@ -137,6 +141,9 @@ const Footer = () => {
                         sm: "210px",
                         xs: index !== 1 && idx !== 2 ? "190px" : "240px"
                       },
+                  direction:dir === 'rtl' && index === 0 && idx === 0 && 'ltr',
+                  textAlign:dir === 'rtl' &&"right"
+
                     }}
                   >
                     {text.name}
