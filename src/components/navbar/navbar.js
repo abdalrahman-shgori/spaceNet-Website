@@ -85,8 +85,11 @@ const NavBar = ({
                     }}
                 >
                     <SvgSpaceNetLogo />
+                    <Box sx={{display:"flex",alignItems:"center"}}>
                     <LanguageSwitcher />
                     <Box>
+
+            
                         <Box sx={{ position: 'relative' }}>
                             <IconButton
                                 edge="end"
@@ -269,6 +272,8 @@ const NavBar = ({
 
                             </Drawer>
                         </motion.div>
+                        </Box>
+
                     </Box>
                 </Toolbar>
             </AppBar>

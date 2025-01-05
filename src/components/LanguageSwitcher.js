@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import './LanguageSwitcher.css'
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useLocation } from "react-router-dom";
 
 const LanguageSwitcher = () => {
     const { t, i18n } = useTranslation();
+    const theme=useTheme()
+    const location=useLocation()
     const [anchorEl, setAnchorEl] = useState(null);
     const [selectedValue, setSelectedValue] = useState('en');
     const selectLanguage = i18n.language;
-
+ 
     const handleMenuItemClick = (language) => {
         handleClose();
         setSelectedValue(language);
@@ -47,23 +50,24 @@ const LanguageSwitcher = () => {
             }}>
                 <Box
                     sx={{
-                        borderRadius: '50px',
-                        border: '1px solid #FFF',
-                        color: '#FFFFFF',
-                        padding: { lg: "8px 24px", sm: "", xs: "6px 11.5px" },
+                        borderRadius: '16px',
+                        border: '1px solid',
+                        borderColor:location === '/' ? '#FFFFFF' : theme.palette.mode === 'light' ? "#051A2F" : "#FFFFFF",
+                        color:location === '/' ? '#FFFFFF' : theme.palette.mode === 'light' ? "#051A2F" : "#FFFFFF", 
+                        padding:"12px 18px",
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: "center",
                         position: 'relative',
                         cursor: "pointer",
-                        width: "30px",
-                        height: "40px"
+                        width: "80px",
+                        height: "40px",
                     }}
                     onClick={handleBoxClick}
                 >
                     <Button
                         sx={{
-                            color: "#FFFFFF",
+                            color: location === '/' ? '#FFFFFF' : theme.palette.mode === 'light' ? "#051A2F" : "#FFFFFF",
                             padding: "6px 0px",
                             display: { lg: "block", sm: "none", xs: "none" },
                             fontFamily: "var(--English-font)",
@@ -78,7 +82,7 @@ const LanguageSwitcher = () => {
                     </Button>
                     <Button
                         sx={{
-                            color: "#FFFFFF",
+                            color:location === '/' ? '#FFFFFF': theme.palette.mode === 'light' ? "#051A2F" : "#FFFFFF",
                             padding: "6px 0px",
                             display: { lg: "none", sm: "flex", xs: "flex" },
                             width: "100%",
