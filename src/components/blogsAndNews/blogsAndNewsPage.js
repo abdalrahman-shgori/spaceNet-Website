@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Container, Grid, Typography, Pagination, Box } from '@mui/material';
 import FeaturedBlog from './FeaturedBlog';
 import mockData from './mock';
@@ -10,10 +10,13 @@ function TestNews() {
 
     const handlePageChange = (event, value) => {
         setPage(value);
-        window.scrollTo({
-            top: 800,
-            behavior: 'smooth',
-        });
+
+        setTimeout(() => {
+            window.scrollTo({
+                top: 800,
+                behavior: 'smooth',
+            });
+        }, 10);
     };
 
     const displayedBlogs = mockData.slice(
@@ -21,11 +24,8 @@ function TestNews() {
         page * blogsPerPage
     );
 
-
     return (
-        <Container
-
-        >
+        <Container>
             <Typography align="center"
                 sx={{
                     fontSize: {
@@ -66,7 +66,6 @@ function TestNews() {
                     display: "flex",
                     margin: "0 auto",
                     textAlign: "center"
-
                 }}
             >
                 Lorem is simply dummy text of the printing and typesgalley of type and scrambled it to make a type specimen book.
@@ -83,10 +82,9 @@ function TestNews() {
 
             <Box display="flex" justifyContent="center" sx={{ mt: 4 }}>
                 <Pagination
-
                     count={Math.ceil(mockData.length / blogsPerPage)}
                     page={page}
-                    onChange={handlePageChange}
+                    onChange={handlePageChange} // Ensure smooth scroll on page change
                     sx={{
                         padding: {
                             lg: "58px 0px 90px 0px",
@@ -94,7 +92,6 @@ function TestNews() {
                             sm: "18px 0px 62px 0px",
                             xs: "18px 0px 62px 0px",
                         },
-
                         '& .MuiPaginationItem-previousNext': {
                             color: '#051A2F',
                             backgroundColor: 'transparent',
@@ -103,7 +100,6 @@ function TestNews() {
                                 backgroundColor: 'transparent',
                             },
                             scale: "2"
-
                         },
                         '& .MuiPaginationItem-page': {
                             color: '#051A2F',
@@ -116,7 +112,6 @@ function TestNews() {
                                 xs: "20px"
                             },
                             fontFamily: "var(--font-family)",
-
                             '&:hover': {
                                 backgroundColor: '#f1f1f1',
                             },
