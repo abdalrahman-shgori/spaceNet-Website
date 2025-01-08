@@ -30,7 +30,7 @@ const NavBar = ({
         { text: t("navbar.Home"), route: '/' },
         // { text: 'SERVICES', route: '/services' },
         // { text: 'MARKETPLACE', route: '/marketplace' },
-        // { text: 'BLOG & NEWS', route: '/blog' },
+        { text: 'BLOG & NEWS', route: '/blogs' },
         { text: t("navbar.CONTACTUS") },
         { text: t("navbar.COMINGSOON"), route: '/' },
 

@@ -54,6 +54,7 @@ export default function CreatingSolution() {
         <Grid item lg={4} md={6} sm={6} xs={12} key={item.id} container justifyContent="center">
           <Box
             sx={{
+              maxWidth: "420px",
               background:
                 index === 0
                   ? "#FFFFFF"

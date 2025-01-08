@@ -19,6 +19,7 @@ import CoreIt from './pages/coreIt';
 import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
+import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
 
 
 const App = () => {
@@ -140,6 +141,7 @@ const App = () => {
                     <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
                     <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
                     <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/blogs' element={<BlogsAndNews setThemeColor={setThemeColor} setOpen={setOpen} />} />
 
                   </Routes>
 
