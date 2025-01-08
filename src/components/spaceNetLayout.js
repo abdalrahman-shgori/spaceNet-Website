@@ -11,7 +11,7 @@ const SpaceNetLayout = ({ setOpen }) => {
   const navigate = useNavigate()
   const companyLinks = [
     { name: t("spacenetLayout.Home"), href: '/' },
-    { name: t("spacenetLayout.BlogNews"), href: '/blog' },
+    { name: t("spacenetLayout.BlogNews"), href: '/blogs' },
     { name: t("spacenetLayout.CONTACTUS"), }
   ];
 

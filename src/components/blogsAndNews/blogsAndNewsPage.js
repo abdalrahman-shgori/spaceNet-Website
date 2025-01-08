@@ -10,19 +10,16 @@ function TestNews() {
 
     const handlePageChange = (event, value) => {
         setPage(value);
+        window.scrollTo({
+            top: 800,
+            behavior: 'smooth',
+        });
     };
 
     const displayedBlogs = mockData.slice(
         (page - 1) * blogsPerPage,
         page * blogsPerPage
     );
-
-    useEffect(() => {
-        window.scrollTo({
-            top: 800,
-            behavior: 'smooth',
-        });
-    }, [page]);
 
 
     return (

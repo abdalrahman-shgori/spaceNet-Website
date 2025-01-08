@@ -8,7 +8,6 @@ export default function BlogsAndNews() {
     return (
         <>
             <TestNews />
-
             <SpaceNetLayout />
 
         </>
