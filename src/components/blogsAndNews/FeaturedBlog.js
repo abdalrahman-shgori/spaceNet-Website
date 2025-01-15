@@ -1,10 +1,25 @@
 import React from 'react';
 import { Box, Typography, Paper, Grid } from '@mui/material';
 import blogImage from '../../assets/sectionsImages/blogsAndNews/blogsImage.svg';
+import { useTranslation } from 'react-i18next';
 
 const FeaturedBlog = ({ blog }) => {
+    const {t,i18n}=useTranslation()
+    const lang=i18n.language
+    const formatDate = (date, lang) => {
+        const formattedDate = new Date(date).toLocaleDateString(lang, {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        });
+        return formattedDate;
+    };
     return (
-        <Paper sx={{ backgroundColor: '#9D89FC', borderRadius: { lg: "68px", md: "46px", sm: "35px", xs: "46px" } }}>
+        <Paper sx={{
+             backgroundColor: '#9D89FC',
+              borderRadius: { lg: "68px", md: "46px", sm: "35px", xs: "46px" },
+               height: '100%'
+               }}>
             <Grid container sx={{ height: '100%' }}>
                 <Grid item lg={6} md={6} sm={12}
                     sx={{
@@ -19,10 +34,12 @@ const FeaturedBlog = ({ blog }) => {
                         justifyContent: 'center',
                     }}
                 >
-                    <Box component="img" src={blogImage} alt={blog.title}
+                    <Box component="img" src={`https://admin.spacenetiq.com/uploads/article/${blog?.image_path}`}
+                        alt={blog?.title}
                         sx={{
                             maxWidth: '100%',
-                            borderRadius: { lg: '8px', md: '8px', sm: "35px", xs: '0px' },
+                    height: '100%',  
+                            borderRadius: { lg: '68px', md: '46px', sm: "35px", xs: '46px' },
                             objectFit: "cover",
                             aspectRatio: {
                                 lg: 'unset',
@@ -66,7 +83,7 @@ const FeaturedBlog = ({ blog }) => {
                                 fontFamily: "var(--font-family)"
                             }}
                         >
-                            {blog.category}
+                            {blog?.category}
                         </Typography>
                         <Typography
                             sx={{
@@ -81,22 +98,28 @@ const FeaturedBlog = ({ blog }) => {
                                 padding: "10px 0px 10px 0px"
                             }}
                         >
-                            {blog.title}
+                            {lang === 'ar' ? blog?.title_ar : lang === 'ku' ? blog?.title_ar : blog?.title}
                         </Typography>
                         <Typography
-                            sx={{
-                                color: "#FFFFFF",
-                                fontSize: {
-                                    lg: "19px",
-                                    md: "14px",
-                                    sm: "14px",
-                                    xs: "14px"
-                                },
-                                fontFamily: "var(--font-family)"
-                            }}
-                        >
-                            {blog.description}
-                        </Typography>
+  sx={{
+    wordBreak: "break-all",
+    color: "#FFFFFF",
+    fontSize: {
+      lg: "19px",
+      md: "14px",
+      sm: "14px",
+      xs: "14px"
+    },
+    fontFamily: "var(--font-family)"
+  }}
+>
+  <div
+    dangerouslySetInnerHTML={{
+      __html: lang === 'ar' ? blog?.description_ar : lang === 'ku' ? blog?.description_ku : blog?.description
+    }}
+  />
+</Typography>
+
                     </Box>
                     <Typography
                         sx={{
@@ -119,7 +142,8 @@ const FeaturedBlog = ({ blog }) => {
                             },
                         }}
                     >
-                        {blog.date}
+                        {blog?.updated_at ? formatDate(blog.updated_at,lang) : 'No date available'}
+
                     </Typography>
                 </Grid>
             </Grid>

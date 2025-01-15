@@ -4,7 +4,7 @@ import { axiosInstance } from "../baseUrl";
 export const services = async (lang) => {
   try {
     const response = await axiosInstance.get(`/services`, {
-    
+
     });
     return response.data;
   } catch (error) {
@@ -39,7 +39,7 @@ export const ContactUsApi = async (name, email, message) => {
 export const getCourses = async () => {
   try {
     const response = await axiosInstance.get(`/courses`, {
-    
+
     });
     return response.data;
   } catch (error) {
@@ -48,32 +48,43 @@ export const getCourses = async () => {
 };
 
 export const postRegistration = async (
-name,
-email,
-phone,
-age,
-gender,
-background,
-type,
-language,
-day,
-time,
-courses
+  name,
+  email,
+  phone,
+  age,
+  gender,
+  background,
+  type,
+  language,
+  day,
+  time,
+  courses
 
 ) => {
   try {
     const response = await axiosInstance.post(`/send_registeration_form`, {
       name,
-email,
-phone,
-age,
-gender,
-background,
-type,
-language,
-day,
-time,
-courses
+      email,
+      phone,
+      age,
+      gender,
+      background,
+      type,
+      language,
+      day,
+      time,
+      courses
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getBlogs = async () => {
+  try {
+    const response = await axiosInstance.get(`/articles`, {
+
     });
     return response.data;
   } catch (error) {
