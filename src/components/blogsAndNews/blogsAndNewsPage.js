@@ -52,7 +52,11 @@ function TestNews() {
                     <CircularProgress />
                 </Box>
             ) : (
-                <Container>
+                <Container
+                sx={{
+                    overflowX:"hidden"
+                }}
+                >
                     <Typography
                         align="center"
                         sx={{
@@ -108,7 +112,7 @@ function TestNews() {
                         ))}
                     </Grid>
 
-                    <Box display="flex" justifyContent="center" sx={{ mt: 4 }}>
+                    <Box display="flex" justifyContent="center" sx={{ mt: 4,direction:"ltr" }}>
                         <Pagination
                             count={Math.ceil(blogs.length / blogsPerPage)}
                             page={page}
