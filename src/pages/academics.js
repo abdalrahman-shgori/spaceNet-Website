@@ -13,9 +13,9 @@ import BootCamp from "../assets/sectionsImages/academics/bootCamp";
 import OurCourses from "../components/academics/ourCourses";
 import DevelopSkillsText from "../components/academics/developSkillsText";
 import DevelopSkills from "../components/academics/developSkills";
-import { Helmet } from "react-helmet";
 import AcademicsForm from "../components/academics/academicsFrom";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 
 export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
