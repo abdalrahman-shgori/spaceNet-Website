@@ -16,6 +16,7 @@ import DevelopSkills from "../components/academics/developSkills";
 import AcademicsForm from "../components/academics/academicsFrom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
+import MetaTags from 'react-meta-tags';
 
 export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
@@ -54,19 +55,23 @@ export default function Academics({ setOpen }) {
             behavior: 'smooth',
         });
     }, [])
+    useEffect(() => {
+        console.log(document.head.innerHTML); // Check if Helmet tags are added
+      }, []);
     return (
         <>
-             
+   <div class="wrapper">
+   <MetaTags>
+            <title>Page 1</title>
+            <meta id="meta-description" name="description" content="Some description." />
+            <meta id="og-title" property="og:title" content="MyApp" />
+            <meta id="og-image" property="og:image" content="path/to/image.jpg" />
+          </MetaTags>
+          <div class="content"> Some Content </div>
+        </div>
+            
             <motion.div>
-            <Helmet>
-                <title>Academics | SPACENET</title>
-                <meta name="description" content="Explore our academics courses and bootcamps." />
-                <meta property="og:title" content="SPACENET Academics" />
-                <meta property="og:description" content="Learn new skills with SPACENET's lifetime access courses and bootcamps." />
-                <meta property="og:image" content="https://spacenetiq.com/academics-image.jpg" />
-                <meta property="og:url" content="https://spacenetiq.com/academics" />
-           <noscript>academic</noscript>
-            </Helmet>
+           
                 <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                 <Grid className="root-container"
                     sx={{
