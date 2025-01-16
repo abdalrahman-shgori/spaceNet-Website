@@ -56,7 +56,9 @@ export default function Academics({ setOpen }) {
     }, [])
     return (
         <>
-              <Helmet>
+             
+            <motion.div>
+            <Helmet>
                 <title>Academics | SPACENET</title>
                 <meta name="description" content="Explore our academics courses and bootcamps." />
                 <meta property="og:title" content="SPACENET Academics" />
@@ -65,7 +67,6 @@ export default function Academics({ setOpen }) {
                 <meta property="og:url" content="https://spacenetiq.com/academics" />
            <noscript>academic</noscript>
             </Helmet>
-            <motion.div>
                 <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                 <Grid className="root-container"
                     sx={{
