@@ -21,6 +21,7 @@ import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
 import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
 import { HelmetProvider } from 'react-helmet-async';
+import BlogDetails from './components/blogsAndNews/blogDetails';
 
 
 const App = () => {
@@ -143,6 +144,7 @@ const App = () => {
                       <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
                       <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
                       <Route path='/blogs' element={<BlogsAndNews setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                      <Route path="/blogs/:id" element={<BlogDetails setThemeColor={setThemeColor} setOpen={setOpen} />} />
 
                     </Routes>
                   </HelmetProvider>

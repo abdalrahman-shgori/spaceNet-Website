@@ -1,10 +1,14 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
-import blogImg from "../../assets/sectionsImages/blogsAndNews/blogsImage.svg"
+import { useNavigate } from 'react-router-dom'; // Use useNavigate for React Router v6
+import blogImg from "../../assets/sectionsImages/blogsAndNews/blogsImage.svg";
 import { useTranslation } from 'react-i18next';
+
 const BlogCard = ({ blog }) => {
-    const { t, i18n } = useTranslation()
-    const lang = i18n.language
+    const { t, i18n } = useTranslation();
+    const lang = i18n.language;
+    const navigate = useNavigate(); // For navigation
+    
     const formatDate = (date, lang) => {
         const formattedDate = new Date(date).toLocaleDateString(lang, {
             year: 'numeric',
@@ -13,12 +17,16 @@ const BlogCard = ({ blog }) => {
         });
         return formattedDate;
     };
+
+    const handleReadMore = () => {
+        navigate(`/blogs/${blog.id}`);
+    };
+
     return (
         <Card sx={{ borderRadius: "33px", background: "#FFFFFF" }}>
-            <CardActionArea >
+            <CardActionArea onClick={handleReadMore}>
                 <CardMedia
                     component="img"
-                    //   height="160"
                     image={`https://admin.spacenetiq.com/uploads/article/${blog?.image_path}`}
                     alt={blog.title}
                 />
@@ -33,7 +41,6 @@ const BlogCard = ({ blog }) => {
                             sm: "20px 16px 27px 16px",
                             xs: "20px 16px 27px 16px",
                         },
-
                     }}
                 >
                     <Typography
@@ -46,10 +53,9 @@ const BlogCard = ({ blog }) => {
                                 xs: "10px"
                             },
                             fontFamily: "var(--font-family)",
-
                         }}
                     >
-                        {lang === 'ar' ? blog?.title_ar : lang === 'ku' ? blog?.title_ar : blog?.title} - {blog?.updated_at && formatDate(blog.updated_at, lang)}
+                        {blog?.updated_at && formatDate(blog.updated_at, lang)}
                     </Typography>
                     <Typography
                         sx={{
@@ -78,7 +84,6 @@ const BlogCard = ({ blog }) => {
                             xs: "12px"
                         },
                         fontFamily: "var(--font-family)",
-
                     }}>
                         {lang === 'ar' ? blog?.short_desc_ar : lang === 'ku' ? blog?.short_desc_ku : blog?.short_desc}
                     </Typography>

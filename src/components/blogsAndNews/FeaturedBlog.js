@@ -2,9 +2,11 @@ import React from 'react';
 import { Box, Typography, Paper, Grid } from '@mui/material';
 import blogImage from '../../assets/sectionsImages/blogsAndNews/blogsImage.svg';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 const FeaturedBlog = ({ blog }) => {
     const {t,i18n}=useTranslation()
+        const navigate = useNavigate(); 
     const lang=i18n.language
     const formatDate = (date, lang) => {
         const formattedDate = new Date(date).toLocaleDateString(lang, {
@@ -14,11 +16,15 @@ const FeaturedBlog = ({ blog }) => {
         });
         return formattedDate;
     };
+    const handleReadMore = () => {
+        navigate(`/blogs/${blog.id}`);
+    };
     return (
-        <Paper sx={{
+        <Paper onClick={handleReadMore} sx={{
              backgroundColor: '#9D89FC',
               borderRadius: { lg: "68px", md: "46px", sm: "35px", xs: "46px" },
-               height: '100%'
+               height: '100%',
+               cursor:"pointer"
                }}>
             <Grid container sx={{ height: '100%' }}>
                 <Grid item lg={6} md={6} sm={12}
