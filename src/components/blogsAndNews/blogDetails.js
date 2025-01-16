@@ -7,7 +7,7 @@ const BlogDetails = () => {
     const { id } = useParams(); // Get blog ID from URL
     const { t, i18n } = useTranslation();
     const lang = i18n.language;
-    
+
     const [blog, setBlog] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -26,7 +26,7 @@ const BlogDetails = () => {
                 setLoading(false);
             }
         };
-        
+
         fetchBlogDetails();
     }, [id]); // Fetch when the id changes
 
@@ -63,44 +63,44 @@ const BlogDetails = () => {
     };
 
     return (
-        <Container sx={{ padding: '20px',marginTop:"80px" }}>
+        <Container sx={{ padding: '20px', marginTop: "80px" }}>
             <Typography
-             
-                sx={{ 
-                     fontFamily: 'var(--font-family)',
-                     fontSize:{
-                        lg:"48px",
-                        md:"48px",
-                        sm:"26px",
-                        xs:"26px"
-                     },
-                     textAlign:"center"
-                     }}
+
+                sx={{
+                    fontFamily: 'var(--font-family)',
+                    fontSize: {
+                        lg: "48px",
+                        md: "48px",
+                        sm: "26px",
+                        xs: "26px"
+                    },
+                    textAlign: "center"
+                }}
             >
                 {lang === 'ar' ? blog?.title_ar : lang === 'ku' ? blog?.title_ku : blog?.title}
             </Typography>
 
-          
+
 
             <Box
                 component="img"
-                sx={{ width: '100%', borderRadius:{lg:"46px",md:"46px",sm:"18px",xs:"18px"}, marginBottom: '10px' }}
+                sx={{ width: '100%', borderRadius: { lg: "46px", md: "46px", sm: "18px", xs: "18px" }, marginBottom: '10px' }}
                 src={`https://admin.spacenetiq.com/uploads/article/${blog?.image_path}`}
                 alt={blog?.title}
             />
-  <Typography
+            <Typography
                 variant="body1"
-                sx={{ color: '#051A2F', fontSize: '14px', marginBottom: '20px' }}
+                sx={{ fontSize: '14px', marginBottom: '20px' }}
             >
                 {blog?.updated_at && formatDate(blog.updated_at, lang)}
             </Typography>
             <Typography
                 variant="body1"
-                sx={{ color: '#051A2F', fontSize:{lg:"21px",md:"21px",sm:"12px",xs:"12px"}, fontFamily: 'var(--font-family)' }}
+                sx={{ fontSize: { lg: "21px", md: "21px", sm: "12px", xs: "12px" }, fontFamily: 'var(--font-family)' }}
             >
-         <div dangerouslySetInnerHTML={{ __html:lang === 'ar' ? blog?.description_ar : lang === 'ku' ? blog?.description_ku : blog?.description}}/>
+                <div dangerouslySetInnerHTML={{ __html: lang === 'ar' ? blog?.description_ar : lang === 'ku' ? blog?.description_ku : blog?.description }} />
 
-              
+
             </Typography>
         </Container>
     );

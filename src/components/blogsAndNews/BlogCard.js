@@ -8,7 +8,7 @@ const BlogCard = ({ blog }) => {
     const { t, i18n } = useTranslation();
     const lang = i18n.language;
     const navigate = useNavigate(); // For navigation
-    
+
     const formatDate = (date, lang) => {
         const formattedDate = new Date(date).toLocaleDateString(lang, {
             year: 'numeric',

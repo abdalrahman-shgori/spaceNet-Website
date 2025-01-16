@@ -18,9 +18,9 @@ function TestNews() {
                 setBlogs(response.data);
             } catch (error) {
                 console.error('Error fetching blog data: ', error);
-                setLoading(false); 
+                setLoading(false);
             }
-            finally{
+            finally {
                 setLoading(false)
             }
         };
@@ -53,9 +53,9 @@ function TestNews() {
                 </Box>
             ) : (
                 <Container
-                sx={{
-                    overflowX:"hidden"
-                }}
+                    sx={{
+                        overflowX: "hidden"
+                    }}
                 >
                     <Typography
                         align="center"
@@ -67,7 +67,6 @@ function TestNews() {
                                 xs: '33px',
                             },
                             fontFamily: 'var(--font-family)',
-                            color: '#051A2F',
                             marginTop: {
                                 lg: '165px',
                                 md: '100px',
@@ -87,7 +86,6 @@ function TestNews() {
                                 xs: '14px',
                             },
                             fontFamily: 'var(--font-family)',
-                            color: '#051A2F',
                             paddingBottom: {
                                 lg: '52px',
                                 md: '52px',
@@ -112,7 +110,7 @@ function TestNews() {
                         ))}
                     </Grid>
 
-                    <Box display="flex" justifyContent="center" sx={{ mt: 4,direction:"ltr" }}>
+                    <Box display="flex" justifyContent="center" sx={{ mt: 4, direction: "ltr" }}>
                         <Pagination
                             count={Math.ceil(blogs.length / blogsPerPage)}
                             page={page}

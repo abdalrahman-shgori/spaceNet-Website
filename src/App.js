@@ -120,30 +120,30 @@ const App = () => {
                 }}
               >
                 <>
-                    <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-                    <ScrollToTop />
-                    <Routes>
-                      <Route
-                        path='/'
-                        element={
-                          <InnerApp
-                            showContent={showContent}
-                            setShowContent={setShowContent}
-                            setThemeColor={setThemeColor}
-                            draweOpen={drawerOpen}
-                            setDrawerOpen={setDrawerOpen}
-                            setOpen={setOpen}
-                          />
-                        }
-                      />
-                      <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                      <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                      <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                      <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                      <Route path='/blogs' element={<BlogsAndNews setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                      <Route path="/blogs/:id" element={<BlogDetails setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                  <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+                  <ScrollToTop />
+                  <Routes>
+                    <Route
+                      path='/'
+                      element={
+                        <InnerApp
+                          showContent={showContent}
+                          setShowContent={setShowContent}
+                          setThemeColor={setThemeColor}
+                          draweOpen={drawerOpen}
+                          setDrawerOpen={setDrawerOpen}
+                          setOpen={setOpen}
+                        />
+                      }
+                    />
+                    <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/blogs' element={<BlogsAndNews setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path="/blogs/:id" element={<BlogDetails setThemeColor={setThemeColor} setOpen={setOpen} />} />
 
-                    </Routes>
+                  </Routes>
 
 
                   {location.pathname !== '/' && (

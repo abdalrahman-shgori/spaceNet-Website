@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 const FeaturedBlog = ({ blog }) => {
-    const {t,i18n}=useTranslation()
-        const navigate = useNavigate(); 
-    const lang=i18n.language
+    const { t, i18n } = useTranslation()
+    const navigate = useNavigate();
+    const lang = i18n.language
     const formatDate = (date, lang) => {
         const formattedDate = new Date(date).toLocaleDateString(lang, {
             year: 'numeric',
@@ -21,11 +21,11 @@ const FeaturedBlog = ({ blog }) => {
     };
     return (
         <Paper onClick={handleReadMore} sx={{
-             backgroundColor: '#9D89FC',
-              borderRadius: { lg: "68px", md: "46px", sm: "35px", xs: "46px" },
-               height: '100%',
-               cursor:"pointer"
-               }}>
+            backgroundColor: '#9D89FC',
+            borderRadius: { lg: "68px", md: "46px", sm: "35px", xs: "46px" },
+            height: '100%',
+            cursor: "pointer"
+        }}>
             <Grid container sx={{ height: '100%' }}>
                 <Grid item lg={6} md={6} sm={12}
                     sx={{
@@ -44,7 +44,7 @@ const FeaturedBlog = ({ blog }) => {
                         alt={blog?.title}
                         sx={{
                             maxWidth: '100%',
-                    height: '100%',  
+                            height: '100%',
                             borderRadius: { lg: '68px', md: '46px', sm: "35px", xs: '46px' },
                             objectFit: "cover",
                             aspectRatio: {
@@ -107,24 +107,24 @@ const FeaturedBlog = ({ blog }) => {
                             {lang === 'ar' ? blog?.title_ar : lang === 'ku' ? blog?.title_ar : blog?.title}
                         </Typography>
                         <Typography
-  sx={{
-    wordBreak: "break-all",
-    color: "#FFFFFF",
-    fontSize: {
-      lg: "19px",
-      md: "14px",
-      sm: "14px",
-      xs: "14px"
-    },
-    fontFamily: "var(--font-family)"
-  }}
->
-  <div
-    dangerouslySetInnerHTML={{
-      __html: lang === 'ar' ? blog?.short_desc_ar : lang === 'ku' ? blog?.short_desc_ku : blog?.short_desc
-    }}
-  />
-</Typography>
+                            sx={{
+                                wordBreak: "break-all",
+                                color: "#FFFFFF",
+                                fontSize: {
+                                    lg: "19px",
+                                    md: "14px",
+                                    sm: "14px",
+                                    xs: "14px"
+                                },
+                                fontFamily: "var(--font-family)"
+                            }}
+                        >
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: lang === 'ar' ? blog?.short_desc_ar : lang === 'ku' ? blog?.short_desc_ku : blog?.short_desc
+                                }}
+                            />
+                        </Typography>
 
                     </Box>
                     <Typography
@@ -148,7 +148,7 @@ const FeaturedBlog = ({ blog }) => {
                             },
                         }}
                     >
-                        {blog?.updated_at ? formatDate(blog.updated_at,lang) : 'No date available'}
+                        {blog?.updated_at ? formatDate(blog.updated_at, lang) : 'No date available'}
 
                     </Typography>
                 </Grid>

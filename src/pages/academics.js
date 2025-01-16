@@ -56,17 +56,17 @@ export default function Academics({ setOpen }) {
     }, [])
     return (
         <>
-             
+
             <motion.div>
-            <Helmet>
-                <title>Academics | SPACENET</title>
-                <meta name="description" content="Explore our academics courses and bootcamps." />
-                <meta property="og:title" content="SPACENET Academics" />
-                <meta property="og:description" content="Learn new skills with SPACENET's lifetime access courses and bootcamps." />
-                <meta property="og:image" content="https://spacenetiq.com/academics-image.jpg" />
-                <meta property="og:url" content="https://spacenetiq.com/academics" />
-           <noscript>academic</noscript>
-            </Helmet>
+                <Helmet>
+                    <title>Academics | SPACENET</title>
+                    <meta name="description" content="Explore our academics courses and bootcamps." />
+                    <meta property="og:title" content="SPACENET Academics" />
+                    <meta property="og:description" content="Learn new skills with SPACENET's lifetime access courses and bootcamps." />
+                    <meta property="og:image" content="https://spacenetiq.com/academics-image.jpg" />
+                    <meta property="og:url" content="https://spacenetiq.com/academics" />
+                    <noscript>academic</noscript>
+                </Helmet>
                 <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                 <Grid className="root-container"
                     sx={{
