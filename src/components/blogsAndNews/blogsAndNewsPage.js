@@ -18,7 +18,7 @@ function TestNews() {
                 setBlogs(response.data);
             } catch (error) {
                 console.error('Error fetching blog data: ', error);
-                setLoading(false); // In case of error, stop loading
+                setLoading(false); 
             }
             finally{
                 setLoading(false)

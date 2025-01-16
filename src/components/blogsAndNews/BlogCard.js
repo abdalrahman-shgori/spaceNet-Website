@@ -49,7 +49,7 @@ const BlogCard = ({ blog }) => {
 
                         }}
                     >
-                        {blog.category} - {blog?.updated_at && formatDate(blog.updated_at, lang)}
+                        {lang === 'ar' ? blog?.title_ar : lang === 'ku' ? blog?.title_ar : blog?.title} - {blog?.updated_at && formatDate(blog.updated_at, lang)}
                     </Typography>
                     <Typography
                         sx={{
@@ -80,7 +80,7 @@ const BlogCard = ({ blog }) => {
                         fontFamily: "var(--font-family)",
 
                     }}>
-                        {lang === 'ar' ? blog?.description_ar : lang === 'ku' ? blog?.description_ku : blog?.description}
+                        {lang === 'ar' ? blog?.short_desc_ar : lang === 'ku' ? blog?.short_desc_ku : blog?.short_desc}
                     </Typography>
                     <Typography
                         sx={{

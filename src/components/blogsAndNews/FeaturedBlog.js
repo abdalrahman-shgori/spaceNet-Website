@@ -115,7 +115,7 @@ const FeaturedBlog = ({ blog }) => {
 >
   <div
     dangerouslySetInnerHTML={{
-      __html: lang === 'ar' ? blog?.description_ar : lang === 'ku' ? blog?.description_ku : blog?.description
+      __html: lang === 'ar' ? blog?.short_desc_ar : lang === 'ku' ? blog?.short_desc_ku : blog?.short_desc
     }}
   />
 </Typography>
