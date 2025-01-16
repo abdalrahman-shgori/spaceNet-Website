@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import SpaceNetLayout from "../components/spaceNetLayout";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 import LetsProject from "../components/letsProject";
 import WhichCourse from "../components/academics/whichCourse";
 import SectionDescription from "../components/sectionDescription";
@@ -13,12 +13,13 @@ import BootCamp from "../assets/sectionsImages/academics/bootCamp";
 import OurCourses from "../components/academics/ourCourses";
 import DevelopSkillsText from "../components/academics/developSkillsText";
 import DevelopSkills from "../components/academics/developSkills";
+import { Helmet } from "react-helmet";
 import AcademicsForm from "../components/academics/academicsFrom";
 import { useTranslation } from "react-i18next";
 
 export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
-    const { t } = useTranslation();
+    const { t } = useTranslation()
     const technologiesData = [
         {
             id: 0,
@@ -37,78 +38,35 @@ export default function Academics({ setOpen }) {
             title: t("academics.anylevel"),
             description: t("academics.noMatter"),
             image: [t("academics.Junior"), t("academics.Intermediate"), t("academics.Advanced"),]
+
         },
         { id: 3, title: t("academics.VirtualClassroom"), description: t("academics.learnFrom"), image: <ClassRoom hoveredcardid={hoveredcardid} itemID={3} /> },
         { id: 4, title: t("academics.pre"), description: t("academics.Ourpremade"), image: <OnlineCourses hoveredcardid={hoveredcardid} itemID={4} /> },
         { id: 5, title: t("academics.BootcampCourses"), description: t("academics.ourBootcamp"), image: <BootCamp hoveredcardid={hoveredcardid} itemID={5} /> },
+
     ];
 
-    const [enroll, setEnroll] = useState(false);
+    const [enroll, setEnroll] = useState(false)
 
     useEffect(() => {
-        // Setting the document title
-        document.title = t("academics.pageTitle");
-    
-        // Setting the meta description
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-            metaDescription.setAttribute("content", t("academics.pageDescription"));
-        } else {
-            const newMetaDescription = document.createElement('meta');
-            newMetaDescription.name = "description";
-            newMetaDescription.content = t("academics.pageDescription");
-            document.head.appendChild(newMetaDescription);
-        }
-    
-        // Log the updated head content after changes
-        setTimeout(() => {
-            console.log(document.head.innerHTML);  // Log the head content after update
-        }, 100); // 100ms delay to ensure the changes are made
-    
-        // Repeat for other meta tags (e.g., og:title, og:description)
-        const ogTitle = document.querySelector('meta[property="og:title"]');
-        if (ogTitle) {
-            ogTitle.setAttribute("content", t("academics.pageTitle"));
-        } else {
-            const newOgTitle = document.createElement('meta');
-            newOgTitle.setAttribute("property", "og:title");
-            newOgTitle.setAttribute("content", t("academics.pageTitle"));
-            document.head.appendChild(newOgTitle);
-        }
-    
-        const ogDescription = document.querySelector('meta[property="og:description"]');
-        if (ogDescription) {
-            ogDescription.setAttribute("content", t("academics.pageDescription"));
-        } else {
-            const newOgDescription = document.createElement('meta');
-            newOgDescription.setAttribute("property", "og:description");
-            newOgDescription.setAttribute("content", t("academics.pageDescription"));
-            document.head.appendChild(newOgDescription);
-        }
-    
-        const ogImage = document.querySelector('meta[property="og:image"]');
-        if (ogImage) {
-            ogImage.setAttribute("content", "path-to-image.jpg"); // Update with actual image path
-        } else {
-            const newOgImage = document.createElement('meta');
-            newOgImage.setAttribute("property", "og:image");
-            newOgImage.setAttribute("content", "path-to-image.jpg"); // Update with actual image path
-            document.head.appendChild(newOgImage);
-        }
-    
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
         });
-    }, [t]);  // Depend on the translation function to update meta tags when the language changes
-     // Depend on the translation function to update meta tags when the language changes
-
-    useEffect(() => {
-        console.log(document.head.innerHTML); // Check if Helmet tags are added
-      }, []);
+    }, [])
     return (
         <>
+             
             <motion.div>
+            <Helmet>
+                <title>Academics | SPACENET</title>
+                <meta name="description" content="Explore our academics courses and bootcamps." />
+                <meta property="og:title" content="SPACENET Academics" />
+                <meta property="og:description" content="Learn new skills with SPACENET's lifetime access courses and bootcamps." />
+                <meta property="og:image" content="https://spacenetiq.com/academics-image.jpg" />
+                <meta property="og:url" content="https://spacenetiq.com/academics" />
+           <noscript>academic</noscript>
+            </Helmet>
                 <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                 <Grid className="root-container"
                     sx={{
@@ -122,6 +80,7 @@ export default function Academics({ setOpen }) {
                         overflowX: "hidden"
                     }}
                 >
+
                     <DevelopSkillsText
                         text={t("academics.developSkills")}
                     />
@@ -130,6 +89,7 @@ export default function Academics({ setOpen }) {
                         text1={t("academics.whatwetech")}
                         text2={t("academics.exploreOur")}
                         academicsSection="first"
+
                     />
                     <OurCourses setEnroll={setEnroll} enroll={enroll} />
                     <SectionDescription
@@ -143,10 +103,12 @@ export default function Academics({ setOpen }) {
                         sethoveredcardid={sethoveredcardid}
                         hoveredcardid={hoveredcardid}
                     />
+
                 </Grid>
                 <WhichCourse />
                 <LetsProject
                     text1={t("academics.Readytokickstart")}
+                    // text2="A SpacenNet technology company can help you improve your idea and turn it into reality if you're facing a challenge"
                     btnText={t("academics.startNow")}
                     cardBg="#FA6423"
                     text1Color="#FFFFFF"
@@ -156,5 +118,5 @@ export default function Academics({ setOpen }) {
                 <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
         </>
-    );
+    )
 }

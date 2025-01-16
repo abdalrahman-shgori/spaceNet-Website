@@ -9,23 +9,19 @@ import { BrowserRouter } from 'react-router-dom';
 import ThemeProvider from './ThemeProvider';
 import { SettingsProvider } from './pagedirection';
 import './i18n'
-import { HelmetProvider } from 'react-helmet-async';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-      <React.StrictMode>
+  <React.StrictMode>
     <SettingsProvider>
-    <HelmetProvider>
-
       <BrowserRouter>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </BrowserRouter>
-      </HelmetProvider>
-
     </SettingsProvider>
   </React.StrictMode>
+
 
 );
 
