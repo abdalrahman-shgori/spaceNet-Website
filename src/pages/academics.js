@@ -56,19 +56,14 @@ export default function Academics({ setOpen }) {
     }, [])
     return (
         <>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <meta property="og:title" content="SPACENET ACADEMICS" />
-                <meta property="og:description" content="Learn and develop your skills with SPACENET's wide range of courses." />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://spacenetiq/academics" />
-                <meta property="og:image" content="https://example.com/thumbnail.jpg" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="SPACENET ACADEMICS" />
-                <meta name="twitter:description" content="Learn and develop your skills with SPACENET's wide range of courses." />
-                <meta name="twitter:image" content="https://example.com/thumbnail.jpg" />
-                <title>SPACENET ACADEMICS</title>
-                <link rel="canonical" href="https://spacenetiq/academics" />
+              <Helmet>
+                <title>Academics | SPACENET</title>
+                <meta name="description" content="Explore our academics courses and bootcamps." />
+                <meta property="og:title" content="SPACENET Academics" />
+                <meta property="og:description" content="Learn new skills with SPACENET's lifetime access courses and bootcamps." />
+                <meta property="og:image" content="https://spacenetiq.com/academics-image.jpg" />
+                <meta property="og:url" content="https://spacenetiq.com/academics" />
+           <noscript>academic</noscript>
             </Helmet>
             <motion.div>
                 <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
