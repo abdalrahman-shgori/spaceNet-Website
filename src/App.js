@@ -20,6 +20,7 @@ import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
 import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const App = () => {
@@ -120,30 +121,32 @@ const App = () => {
               >
                 <>
 
+                  <HelmetProvider>
+                    <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+                    <ScrollToTop />
+                    <Routes>
+                      <Route
+                        path='/'
+                        element={
+                          <InnerApp
+                            showContent={showContent}
+                            setShowContent={setShowContent}
+                            setThemeColor={setThemeColor}
+                            draweOpen={drawerOpen}
+                            setDrawerOpen={setDrawerOpen}
+                            setOpen={setOpen}
+                          />
+                        }
+                      />
+                      <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                      <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                      <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                      <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                      <Route path='/blogs' element={<BlogsAndNews setThemeColor={setThemeColor} setOpen={setOpen} />} />
 
-                  <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-                  <ScrollToTop />
-                  <Routes>
-                    <Route
-                      path='/'
-                      element={
-                        <InnerApp
-                          showContent={showContent}
-                          setShowContent={setShowContent}
-                          setThemeColor={setThemeColor}
-                          draweOpen={drawerOpen}
-                          setDrawerOpen={setDrawerOpen}
-                          setOpen={setOpen}
-                        />
-                      }
-                    />
-                    <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                    <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                    <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                    <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                    <Route path='/blogs' element={<BlogsAndNews setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    </Routes>
+                  </HelmetProvider>
 
-                  </Routes>
 
                   {location.pathname !== '/' && (
                     <Footer />
