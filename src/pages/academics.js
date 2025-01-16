@@ -58,6 +58,15 @@ export default function Academics({ setOpen }) {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
+                <meta property="og:title" content={'Blog'} />
+  <meta 
+    property="og:description" 
+    content="descr" 
+  />
+
+  <meta property="og:url" content={`${BASE_URL}/blog/${id}`} />
+  <meta property="og:type" content="article" />
+  <meta name='description' content='React Helmet.' />
                 <title>SPACENET ACADEMICS</title>
                 <link rel="canonical" href="https://spacenetiq/academics" />
             </Helmet>
