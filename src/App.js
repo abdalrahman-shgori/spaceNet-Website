@@ -73,6 +73,7 @@ const App = () => {
   }, [location]);
 
   return (
+    <HelmetProvider>
 
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
       {location.pathname === '/' && (
@@ -121,7 +122,6 @@ const App = () => {
                 }}
               >
                 <>
-                <HelmetProvider>
 
               
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
@@ -148,7 +148,6 @@ const App = () => {
                     <Route path="/blogs/:id" element={<BlogDetails setThemeColor={setThemeColor} setOpen={setOpen} />} />
 
                   </Routes>
-                  </HelmetProvider>
 
                   {location.pathname !== '/' && (
                     <Footer />
@@ -165,6 +164,7 @@ const App = () => {
       </ThemeSettings>
     </ThemeProvider>
 
+    </HelmetProvider>
 
   );
 };
