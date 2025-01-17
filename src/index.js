@@ -9,23 +9,14 @@ import { BrowserRouter } from 'react-router-dom';
 import ThemeProvider from './ThemeProvider';
 import { SettingsProvider } from './pagedirection';
 import './i18n'
-import { HelmetProvider } from 'react-helmet-async';
-import { hydrate, render } from 'react-dom';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-if (root.hasChildNodes()) {
-  hydrate(<App />, root);
-} else {
-  render(<App />, root);
-}
+
 root.render(
   <React.StrictMode>
     <SettingsProvider>
       <BrowserRouter>
         <ThemeProvider>
-          <HelmetProvider>
           <App />
-          </HelmetProvider>
         </ThemeProvider>
       </BrowserRouter>
     </SettingsProvider>

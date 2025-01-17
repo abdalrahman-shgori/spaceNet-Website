@@ -23,7 +23,6 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
-    "react-helmet-async": "^2.0.5",
     "react-i18next": "^13.5.0",
     "react-phone-input-2": "^2.15.1",
     "react-router-dom": "^6.27.0",
@@ -34,21 +33,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": {
-      "env": {
-        "NODE_ENV": "production"
-      },
-      "commands": {
-        "build": "npm run build && npx react-snap"
-      }
-    },
-  "postbuild": "react-snap",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "reactSnap": {
-    "inlineCss": true,
-    "puppeteerArgs": ["--no-sandbox"]
   },
   "eslintConfig": {
     "extends": [

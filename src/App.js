@@ -73,8 +73,6 @@ const App = () => {
   }, [location]);
 
   return (
-    <HelmetProvider>
-
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
       {location.pathname === '/' && (
         <motion.div
@@ -164,7 +162,6 @@ const App = () => {
       </ThemeSettings>
     </ThemeProvider>
 
-    </HelmetProvider>
 
   );
 };
