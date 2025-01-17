@@ -55,6 +55,24 @@ export default function Academics({ setOpen }) {
             behavior: 'smooth',
         });
     }, [])
+
+    useEffect(() => {
+        document.title = "My Custom Page Title";  // Update page title
+        
+        // Update Open Graph tags
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "Custom description for this page.");
+        
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute("content", "Custom OG Title");
+    
+        const ogDescription = document.querySelector('meta[property="og:description"]');
+        if (ogDescription) ogDescription.setAttribute("content", "Custom OG description.");
+    
+        const ogImage = document.querySelector('meta[property="og:image"]');
+        if (ogImage) ogImage.setAttribute("content", "https://example.com/og-image.jpg");
+      }, []);
+    
     return (
         <>
         <HelmetProvider>
