@@ -57,44 +57,54 @@ export default function Academics({ setOpen }) {
     }, [])
 
     useEffect(() => {
-        document.title = "My Custom Page Title";  // Update page title
-        
-        // Update Open Graph tags
+        // Set the page title
+        document.title = "My Custom Page Title";
+    
+        // Set meta description
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "Custom description for this page.");
-        
+        if (metaDescription) {
+          metaDescription.setAttribute("content", "Custom description for this page.");
+        } else {
+          const newMetaDescription = document.createElement("meta");
+          newMetaDescription.setAttribute("name", "description");
+          newMetaDescription.setAttribute("content", "Custom description for this page.");
+          document.head.appendChild(newMetaDescription);
+        }
+    
+        // Set Open Graph meta tags
         const ogTitle = document.querySelector('meta[property="og:title"]');
-        if (ogTitle) ogTitle.setAttribute("content", "Custom OG Title");
+        if (ogTitle) {
+          ogTitle.setAttribute("content", "Custom OG Title");
+        } else {
+          const newOgTitle = document.createElement("meta");
+          newOgTitle.setAttribute("property", "og:title");
+          newOgTitle.setAttribute("content", "Custom OG Title");
+          document.head.appendChild(newOgTitle);
+        }
     
         const ogDescription = document.querySelector('meta[property="og:description"]');
-        if (ogDescription) ogDescription.setAttribute("content", "Custom OG description.");
+        if (ogDescription) {
+          ogDescription.setAttribute("content", "Custom OG description.");
+        } else {
+          const newOgDescription = document.createElement("meta");
+          newOgDescription.setAttribute("property", "og:description");
+          newOgDescription.setAttribute("content", "Custom OG description.");
+          document.head.appendChild(newOgDescription);
+        }
     
         const ogImage = document.querySelector('meta[property="og:image"]');
-        if (ogImage) ogImage.setAttribute("content", "https://example.com/og-image.jpg");
+        if (ogImage) {
+          ogImage.setAttribute("content", "https://example.com/og-image.jpg");
+        } else {
+          const newOgImage = document.createElement("meta");
+          newOgImage.setAttribute("property", "og:image");
+          newOgImage.setAttribute("content", "https://example.com/og-image.jpg");
+          document.head.appendChild(newOgImage);
+        }
       }, []);
     
     return (
         <>
-        <HelmetProvider>
-
-        <Helmet>
-   <title>Academics | SPACENET</title>
-   <meta name="description" content="Explore our academics courses and bootcamps." />
-   <meta property="og:title" content="SPACENET Academics" />
-   <meta property="og:description" content="Learn new skills with SPACENET's lifetime access courses and bootcamps." />
-   <meta property="og:image" content="https://spacenetiq.com/academics-image.jpg" />
-   <meta property="og:url" content="https://spacenetiq.com/academics" />
-   <meta property="og:type" content="website" />
-   <meta property="og:locale" content="en_US" />
-   <meta property="og:site_name" content="SPACENET" />
-   <meta name="twitter:card" content="summary_large_image" />
-   <meta name="twitter:site" content="@spacenetiq" />
-   <meta name="twitter:title" content="Academics | SPACENET" />
-   <meta name="twitter:description" content="Explore our academics courses and bootcamps." />
-   <meta name="twitter:image" content="https://spacenetiq.com/academics-image.jpg" />
-</Helmet>
-
- 
             <motion.div>
              
                 <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
@@ -147,8 +157,6 @@ export default function Academics({ setOpen }) {
                 />
                 <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
-        </HelmetProvider>
-
         </>
     )
 }
