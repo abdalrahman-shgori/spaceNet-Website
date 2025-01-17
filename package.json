@@ -34,22 +34,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": {
-      "env": {
-        "NODE_ENV": "production"
-      },
-      "commands": {
-        "build": "npm run build && npx react-snap"
-      }
-    },
-    "postbuild": "react-snap",
+     "build": "react-scripts build && react-snap",
+  "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
- "reactSnap": {
-  "inlineCss": true,
-  "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
-},
+  "reactSnap": {
+    "inlineCss": true,
+    "puppeteerArgs": ["--no-sandbox"]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
