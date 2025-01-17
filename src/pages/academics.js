@@ -56,7 +56,6 @@ export default function Academics({ setOpen }) {
     }, [])
     return (
         <>
-       <HelmetProvider>
        <Helmet>
                     <title>Academics | SPACENET</title>
                     <meta name="description" content="Explore our academics courses and bootcamps." />
@@ -66,7 +65,6 @@ export default function Academics({ setOpen }) {
                     <meta property="og:url" content="https://spacenetiq.com/academics" />
                     <noscript>academic</noscript>
                 </Helmet>
-       </HelmetProvider>
  
             <motion.div>
              

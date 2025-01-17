@@ -10,6 +10,8 @@ import ThemeProvider from './ThemeProvider';
 import { SettingsProvider } from './pagedirection';
 import './i18n'
 import { HelmetProvider } from 'react-helmet-async';
+import { hydrate, render } from 'react-dom';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -19,7 +21,6 @@ root.render(
         <ThemeProvider>
           <HelmetProvider>
           <App />
-
           </HelmetProvider>
         </ThemeProvider>
       </BrowserRouter>
