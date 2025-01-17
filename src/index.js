@@ -13,7 +13,11 @@ import { HelmetProvider } from 'react-helmet-async';
 import { hydrate, render } from 'react-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+if (root.hasChildNodes()) {
+  hydrate(<App />, root);
+} else {
+  render(<App />, root);
+}
 root.render(
   <React.StrictMode>
     <SettingsProvider>
