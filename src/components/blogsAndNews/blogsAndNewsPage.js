@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Grid, Typography, Pagination, Box, CircularProgress } from '@mui/material';
+import { Container, Grid, Typography, Pagination, Box, CircularProgress, useTheme } from '@mui/material';
 import FeaturedBlog from './FeaturedBlog';
 import mockData from './mock';
 import BlogCard from './BlogCard';
@@ -9,7 +9,7 @@ function TestNews() {
     const [page, setPage] = useState(1);
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const theme = useTheme()
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
@@ -123,7 +123,7 @@ function TestNews() {
                                     xs: '18px 0px 62px 0px',
                                 },
                                 '& .MuiPaginationItem-previousNext': {
-                                    color: '#051A2F',
+                                    color: theme.palette.mode === 'light' ? '#051A2F' : '#FFFFFF',
                                     backgroundColor: 'transparent',
                                     borderRadius: '50%',
                                     '&:hover': {
@@ -132,7 +132,7 @@ function TestNews() {
                                     scale: '2',
                                 },
                                 '& .MuiPaginationItem-page': {
-                                    color: '#051A2F',
+                                    color: theme.palette.mode === 'light' ? '#051A2F' : '#051A2F',
                                     backgroundColor: '#FFFFFF',
                                     borderRadius: '50%',
                                     fontSize: {
@@ -147,8 +147,8 @@ function TestNews() {
                                     },
                                 },
                                 '& .MuiPaginationItem-page.Mui-selected': {
-                                    color: '#fff',
-                                    backgroundColor: '#051A2F',
+                                    color: theme.palette.mode === 'light' ? '#FFFFFF' : "#FFFFFF",
+                                    backgroundColor: theme.palette.mode === 'light' ? '#051A2F' : '#9D89FC',
                                 },
                             }}
                             color="primary"
