@@ -21,6 +21,7 @@ import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
 import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
 import BlogDetails from './components/blogsAndNews/blogDetails';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const App = () => {
@@ -120,6 +121,9 @@ const App = () => {
                 }}
               >
                 <>
+                <HelmetProvider>
+
+              
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
                   <ScrollToTop />
                   <Routes>
@@ -144,7 +148,7 @@ const App = () => {
                     <Route path="/blogs/:id" element={<BlogDetails setThemeColor={setThemeColor} setOpen={setOpen} />} />
 
                   </Routes>
-
+                  </HelmetProvider>
 
                   {location.pathname !== '/' && (
                     <Footer />

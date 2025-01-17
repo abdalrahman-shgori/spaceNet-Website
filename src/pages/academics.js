@@ -13,9 +13,9 @@ import BootCamp from "../assets/sectionsImages/academics/bootCamp";
 import OurCourses from "../components/academics/ourCourses";
 import DevelopSkillsText from "../components/academics/developSkillsText";
 import DevelopSkills from "../components/academics/developSkills";
-import { Helmet } from "react-helmet";
 import AcademicsForm from "../components/academics/academicsFrom";
 import { useTranslation } from "react-i18next";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
@@ -56,9 +56,8 @@ export default function Academics({ setOpen }) {
     }, [])
     return (
         <>
-
-            <motion.div>
-                <Helmet>
+       <HelmetProvider>
+       <Helmet>
                     <title>Academics | SPACENET</title>
                     <meta name="description" content="Explore our academics courses and bootcamps." />
                     <meta property="og:title" content="SPACENET Academics" />
@@ -67,6 +66,10 @@ export default function Academics({ setOpen }) {
                     <meta property="og:url" content="https://spacenetiq.com/academics" />
                     <noscript>academic</noscript>
                 </Helmet>
+       </HelmetProvider>
+ 
+            <motion.div>
+             
                 <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                 <Grid className="root-container"
                     sx={{

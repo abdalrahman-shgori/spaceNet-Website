@@ -9,6 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 import ThemeProvider from './ThemeProvider';
 import { SettingsProvider } from './pagedirection';
 import './i18n'
+import { HelmetProvider } from 'react-helmet-async';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -16,7 +17,10 @@ root.render(
     <SettingsProvider>
       <BrowserRouter>
         <ThemeProvider>
+          <HelmetProvider>
           <App />
+
+          </HelmetProvider>
         </ThemeProvider>
       </BrowserRouter>
     </SettingsProvider>
