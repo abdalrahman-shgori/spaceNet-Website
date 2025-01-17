@@ -1,13 +1,12 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // Use useNavigate for React Router v6
-import blogImg from "../../assets/sectionsImages/blogsAndNews/blogsImage.svg";
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const BlogCard = ({ blog }) => {
     const { t, i18n } = useTranslation();
     const lang = i18n.language;
-    const navigate = useNavigate(); // For navigation
+    const navigate = useNavigate();
 
     const formatDate = (date, lang) => {
         const formattedDate = new Date(date).toLocaleDateString(lang, {

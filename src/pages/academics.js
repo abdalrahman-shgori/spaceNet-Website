@@ -16,9 +16,6 @@ import DevelopSkills from "../components/academics/developSkills";
 import AcademicsForm from "../components/academics/academicsFrom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
-import { HelmetProvider } from "react-helmet-async";
-import SeoImage from "../components/seoImage"
-import ima from "../assets/images/design.svg"
 export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const { t } = useTranslation()
@@ -106,8 +103,6 @@ export default function Academics({ setOpen }) {
     
     return (
         <>
-        <HelmetProvider>
-
         <Helmet>
    <title>Academics | SPACENET</title>
    <meta name="description" content="Explore our academics courses and bootcamps." />
@@ -178,12 +173,6 @@ export default function Academics({ setOpen }) {
                 />
                 <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
-        </HelmetProvider>
-
         </>
     )
 }
-
-export const Head= ()=><>
-<SeoImage  customImage={'https://space-net-website.vercel.app/' + ima}/>
-</>

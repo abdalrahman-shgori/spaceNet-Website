@@ -21,7 +21,6 @@ import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
 import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
 import BlogDetails from './components/blogsAndNews/blogDetails';
-import { HelmetProvider } from 'react-helmet-async';
 
 
 const App = () => {
