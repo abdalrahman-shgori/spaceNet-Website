@@ -56,6 +56,8 @@ export default function Academics({ setOpen }) {
     }, [])
     return (
         <>
+        <HelmetProvider>
+
        <Helmet>
                     <title>Academics | SPACENET</title>
                     <meta name="description" content="Explore our academics courses and bootcamps." />
@@ -118,6 +120,8 @@ export default function Academics({ setOpen }) {
                 />
                 <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
+        </HelmetProvider>
+
         </>
     )
 }
