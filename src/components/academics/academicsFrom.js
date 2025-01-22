@@ -126,7 +126,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
             const errorMsg = validatePasswordStrength(value);
             setPasswordError(errorMsg);
         }
-        const convertedValue = name === 'age' ? convertArabicNumeralsToLatin(value) : value;
+        const convertedValue = formData.age ? convertArabicNumeralsToLatin(value) : value;
         setFormData((prevData) => ({
             ...prevData,
             [name]: convertedValue
