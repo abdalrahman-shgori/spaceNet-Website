@@ -212,6 +212,7 @@ export default function FirstFormSection({
                             <Typography sx={{ ...fieldTextStyle(theme) }}>
                                 {t("formAcademics.Email")}
                             </Typography>
+                          
                         </Box>
 
                         <TextField
@@ -245,25 +246,14 @@ export default function FirstFormSection({
   placeholder={t("formAcademics.password")}
   sx={{
     ...textFieldStyle(theme),
-    // Remove background and border when focused or hovered
-    '& .MuiOutlinedInput-root': {
-      '&.Mui-focused': {
-        backgroundColor: 'transparent', // Remove background on focus
-        boxShadow: 'none',              // Remove box shadow (if any)
-        '& fieldset': {
-          borderColor: 'transparent',  // Remove border color on focus
-        },
-      },
-      '&:hover': {
-        backgroundColor: 'transparent', // Remove background on hover
-        '& fieldset': {
-          borderColor: 'transparent',  // Remove border color on hover
-        },
-      },
+    '& .MuiInputBase-root': {
+      background: 'none', // Remove background
     },
-    // Optional: Remove the outline for better control
-    '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: 'transparent', // Make border transparent on hover or focus
+    '& .MuiInputBase-root:focus': {
+      background: 'none', // Ensure no background on focus
+    },
+    '& input:focus': {
+      background: 'none', // Prevent background on input focus in iPhones
     },
   }}
 />
