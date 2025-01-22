@@ -68,13 +68,14 @@ export default function AcademicsForm({ setEnroll, enroll }) {
     const [data, setData] = useState()
     const handleClose = () => setEnroll(false);
     const handleAgeChange = (e) => {
-        setAge(e.target.value);
-
-        setFormData((prevData) => ({
-            ...prevData,
-            age: e.target.value
-        }));
-    };
+        const value = e.target.value;
+        const isValid = /^[0-9\u0660-\u0669]*$/.test(value);
+        if (isValid) {
+          setAge(value);
+        }
+      };
+      
+    
     const handleTimeChange = (newTime) => {
         setSelectedTime(newTime);
 

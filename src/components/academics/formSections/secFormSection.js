@@ -114,7 +114,7 @@ export default function SecFormSection({
                                     name="age"
                                     value={age}
                                     onChange={handleAgeChange}
-                                    type='number'
+                                    type='text'
                                     fullWidth
                                     placeholder={t("formAcademics.YourAge")}
                                     sx={{
