@@ -323,14 +323,6 @@ export default function SecFormSection({
                         </RadioGroup>
                     </Box>
                     <Box
-                        sx={{
-                            mb: {
-                                lg: "14px",
-                                md: "14px",
-                                sm: "14px",
-                                xs: "15px"
-                            },
-                        }}
                     >
                         <Typography sx={{ ...fieldTextStyle(theme) }}>
                             {t("formAcademics.Whichservices")}
@@ -443,7 +435,7 @@ export default function SecFormSection({
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
                                 <MenuItem value="" disabled sx={{
-                                    color: "#051A2F !important",
+                                    color: theme.palette.mode === 'dark' ? "#FFFFFF !important" : "#051A2F !important",
                                     '&:hover': {
                                         backgroundColor: 'transparent',
                                         color: '#fff',
@@ -467,7 +459,7 @@ export default function SecFormSection({
                                             <Typography
                                                 sx={{
                                                     fontSize: "14px",
-                                                    color: "#051A2F",
+                                                    color: theme.palette.mode === 'dark' ? "#FFFFFF !important" : "#051A2F !important",
                                                     paddingBottom: "8px",
                                                     paddingTop: "8px"
                                                 }}
@@ -483,8 +475,8 @@ export default function SecFormSection({
                                                         variant="outlined"
                                                         sx={{
                                                             borderRadius: '20px',
-                                                            borderColor: '#29547E',
-                                                            color: selectedCourses.includes(subItem.id) ? "#fff" : '#29547E',
+                                                            borderColor: theme.palette.mode=== 'dark' ? "#fff" : '#29547E',
+                                                            color: selectedCourses.includes(subItem.id) ? "#fff" : theme.palette.mode === 'dark' ? "#FFFFFF" : '#29547E',
                                                             textTransform: 'none',
                                                             backgroundColor: selectedCourses.includes(subItem.id) ? '#051A2F' : 'transparent',
                                                             transition: 'background-color 0.3s ease, color 0.3s ease',
