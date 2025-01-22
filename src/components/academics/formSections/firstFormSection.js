@@ -236,17 +236,23 @@ export default function FirstFormSection({
                     </Typography>
 
                     <TextField
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        fullWidth
-                        required
-                        placeholder={t("formAcademics.password")}
-                        sx={{
-                            ...textFieldStyle(theme)
-                        }}
-                    />
+  type="password"
+  name="password"
+  value={formData.password}
+  onChange={handleChange}
+  fullWidth
+  required
+  placeholder={t("formAcademics.password")}
+  sx={{
+    ...textFieldStyle(theme),
+    '& .MuiOutlinedInput-root': {
+      '&.Mui-focused': {
+        backgroundColor: 'transparent',
+      },
+    },
+  }}
+/>
+
 
                     <Typography sx={{ ...fieldTextStyle(theme) }}>
                         {t("formAcademics.ConfirmPass")}
@@ -259,7 +265,14 @@ export default function FirstFormSection({
                         fullWidth
                         required
                         placeholder="Confirm your password"
-                        sx={textFieldStyle(theme)}
+                        sx={{
+                            ...textFieldStyle(theme),
+                            '& .MuiOutlinedInput-root': {
+                              '&.Mui-focused': {
+                                backgroundColor: 'transparent',
+                              },
+                            },
+                          }}
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
