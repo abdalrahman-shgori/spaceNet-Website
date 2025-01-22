@@ -19,10 +19,19 @@ export default function FirstFormSection({
     selectedGender,
     handleChange,
     formData,
-    handleGenderChange
+    handleGenderChange,
+    passwordError,
+    handleConfirmPasswordChange,
+    CheckCircleIcon,
+    ErrorIcon
+
+
 }) {
     const { t, i18n } = useTranslation()
     const dir = i18n.dir()
+
+    const passwordsMatch = formData.password && formData.confirmPassword === formData.password;
+
     return (
         <>
             <Grid item lg={6} md={6} sm={12} xs={12}
@@ -65,49 +74,13 @@ export default function FirstFormSection({
                                 ...textFieldStyle(theme)
                             }}
                         />
-                    </Box>
-                    <Box>
-                        <Box
-                            sx={{
-                                display: "flex",
-                                gap: {
-                                    lg: "4px",
-                                    md: "4px",
-                                    sm: "4px",
-                                    xs: "2p"
-                                }
-                            }}
-                        >
-                            <Typography sx={{ ...fieldTextStyle(theme) }}>
-                                {t("formAcademics.Email")}
-                            </Typography>
-                            <Typography
-                                component="span"
-                                sx={{
-                                    color: "#2A547E",
-                                    fontSize: {
-                                        lg: "12.7px",
-                                        md: "12.7px",
-                                        sm: "12.7px",
-                                        xs: "8.3px"
-                                    },
-                                }}
-                            >
-                                ({t("formAcademics.Optional")})
-                            </Typography>
-                        </Box>
 
-                        <TextField
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            fullWidth
-                            placeholder={t("formAcademics.YourEmail")}
-                            sx={{
-                                ...textFieldStyle(theme)
-                            }}
-                        />
+
+
+
+
                     </Box>
+
                     <Box sx={{ width: '100%' }}>
                         <Typography sx={{ ...fieldTextStyle(theme) }}> {t("formAcademics.PhoneNumber")} </Typography>
 
@@ -222,122 +195,83 @@ export default function FirstFormSection({
                             />
                         </Box>
                     </Box>
-                    <Box>
-                        <Typography sx={{ ...fieldTextStyle(theme) }}>
-                            {t("formAcademics.Age")}
-                        </Typography>
-                        <TextField
-                            name="age"
-                            value={formData.age}
-                            onChange={handleChange}
-                            type='number'
-                            fullWidth
-                            placeholder={t("formAcademics.YourAge")}
-                            sx={{
-                                ...textFieldStyle(theme),
-                                '& input[type=number]': {
-                                    MozAppearance: 'textfield',
-                                },
-                                '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
-                                    WebkitAppearance: 'none',
-                                    margin: 0,
-                                },
 
+
+                    <Box>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                gap: {
+                                    lg: "4px",
+                                    md: "4px",
+                                    sm: "4px",
+                                    xs: "2p"
+                                }
+                            }}
+                        >
+                            <Typography sx={{ ...fieldTextStyle(theme) }}>
+                                {t("formAcademics.Email")}
+                            </Typography>
+                        </Box>
+
+                        <TextField
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            fullWidth
+                            placeholder={t("formAcademics.YourEmail")}
+                            sx={{
+                                ...textFieldStyle(theme)
                             }}
                         />
-
                     </Box>
-                    <Typography sx={{ ...fieldTextStyle(theme) }}>
-                        {t("formAcademics.Gender")}
+
+                    <Typography sx={{ ...fieldTextStyle(theme), display: "flex", alignItems: "center", gap: "5px" }}>
+                        {t("formAcademics.password")}
+                        {passwordError && (
+                            <Typography sx={{ color: "red", fontSize: "8px", padding: '0' }}>
+                                {passwordError}
+                            </Typography>
+                        )}
                     </Typography>
-                    <FormControl fullWidth>
-                        <Select
-                            sx={{
-                                ...textFieldStyle(theme),
-                                '& .MuiSelect-icon': {
-                                    color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F',
-                                    fontSize: {
-                                        lg: "50px",
-                                        md: "50px",
-                                        sm: "50px",
-                                        xs: "30px"
-                                    },
 
-                                },
-                                '& .MuiSelect-select': {
-                                    color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
-                                    fontSize: {
-                                        lg: "15px",
-                                        md: "15px",
-                                        sm: "15px",
-                                        xs: "11px"
-                                    }
-                                },
-                                '& .MuiMenuItem-root.Mui-selected': {
-                                    backgroundColor: 'your-selected-background-color',
-                                },
-                                '& .MuiSelect-icon': {
-                                    fontSize: {
-                                        lg: "50px",
-                                        md: "50px",
-                                        sm: "50px",
-                                        xs: "30px"
-                                    },
-                                    color: theme.palette.mode === "dark" ? "#FFFFFF" : "#051A2F",
-                                    padding: "0 !important",
-                                    marginRight: dir === 'rtl' &&
-                                    {
-                                        lg: "-6px",
-                                        md: "-6px",
-                                        sm: "-6px",
-                                        xs: "-6px"
-                                    }
-                                    ,
+                    <TextField
+                        type="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                        placeholder={t("formAcademics.password")}
+                        sx={{
+                            ...textFieldStyle(theme)
+                        }}
+                    />
 
-                                    marginTop: {
-                                        lg: "-2px",
-                                        md: "-2px",
-                                        sm: "-2px",
-                                        xs: "1px"
-                                    }
-
-                                },
-
-                                height: {
-                                    lg: "58px",
-                                    md: "58px",
-                                    sm: "58px",
-                                    xs: "40px"
-                                },
-                                '& .MuiSelect-select': {
-                                    paddingRight: dir === 'rtl' && "44px !important",
-                                    fontSize: {
-                                        lg: "15px",
-                                        md: "15px",
-                                        sm: "15px",
-                                        xs: "11px"
-                                    },
-                                    color:"#29547E"
-
-                                },
-                            }}
-                            displayEmpty
-                            value={selectedGender}
-                            onChange={handleGenderChange}
-                            inputProps={{ 'aria-label': 'Without label' }}
-
-                        >
-                            <MenuItem value="" disabled
-                                sx={{
-                                    color: "#29547E !important"
-                                }}
-                            >
-                                {t("formAcademics.GenderType")}
-                            </MenuItem>
-                            <MenuItem value="male"> {t("formAcademics.Male")}</MenuItem>
-                            <MenuItem value="female"> {t("formAcademics.Female")}</MenuItem>
-                        </Select>
-                    </FormControl>
+                    <Typography sx={{ ...fieldTextStyle(theme) }}>
+                        {t("formAcademics.ConfirmPass")}
+                    </Typography>
+                    <TextField
+                        type="password"
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleConfirmPasswordChange}
+                        fullWidth
+                        required
+                        placeholder="Confirm your password"
+                        sx={textFieldStyle(theme)}
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    {formData.confirmPassword && (passwordsMatch ? (
+                                        <CheckCircleIcon sx={{ color: "green" }} />
+                                    ) : (
+                                        <ErrorIcon sx={{ color: "red" }} />
+                                    ))}
+                                </InputAdornment>
+                            ),
+                        }}
+                    />
                 </Box>
             </Grid>
         </>

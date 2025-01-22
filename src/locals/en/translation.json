@@ -218,6 +218,9 @@
         "EducationalandProfessional": "Educational and Professional Background",
         "StartYourLearning":"Start Your Learning Journey !",
         "FormSubmitted":"Form Submitted Successfully",
-        "PleaseFillAll":"Please Fill All Required Fields"
+        "PleaseFillAll":"Please Fill All Required Fields",
+        "password":"password",
+        "ConfirmPass":"Confirm Password",
+        "passwordnot":"Passwords do not match"
     }
 }

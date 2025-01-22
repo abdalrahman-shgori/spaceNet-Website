@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, Button, Checkbox, FormControlLabel, Grid, Radio, RadioGroup, TextField, FormControl, Select, MenuItem } from '@mui/material';
+import { Box, Typography, Button, Checkbox, FormControlLabel, Grid, Radio, RadioGroup, TextField, FormControl, Select, MenuItem, CircularProgress } from '@mui/material';
 import {
     textFieldStyle,
     fieldTextStyle,
@@ -27,7 +27,10 @@ export default function SecFormSection({
     handleTimeChange,
     handleDateChange,
     selectedDate,
-    handleSubmit
+    handleSubmit,
+    selectedGender,
+    handleGenderChange,
+    loading
 }) {
     console.log(selectedCourses)
     const { i18n, t } = useTranslation()
@@ -36,14 +39,12 @@ export default function SecFormSection({
 
     const handleSelection = (id) => {
         if (selectedCourses.includes(id)) {
-            // Remove the item if it's already selected
             setSelectedCourses(selectedCourses.filter(courseId => courseId !== id));
         } else {
-            // Add the item if it's not already selected
             setSelectedCourses([...selectedCourses, id]);
         }
     };
-    
+
     return (
         <>
             <Grid item lg={6} md={6} sm={12} xs={12}
@@ -97,6 +98,137 @@ export default function SecFormSection({
 
                         }}
                     >
+                        <Grid container >
+                            <Grid lg={6} md={6} sm={6} xs={6}
+                                sx={{
+                                    paddingRight: dir === 'ltr' && "5px",
+                                    paddingLeft: dir === 'rtl' && "5px"
+                                }}
+                            >
+                                <Typography sx={{ ...fieldTextStyle(theme) }}>
+                                    {t("formAcademics.Age")}
+                                </Typography>
+                                <TextField
+                                    name="age"
+                                    value={formData.age}
+                                    onChange={handleChange}
+                                    type='number'
+                                    fullWidth
+                                    placeholder={t("formAcademics.YourAge")}
+                                    sx={{
+                                        ...textFieldStyle(theme),
+                                        '& input[type=number]': {
+                                            MozAppearance: 'textfield',
+                                        },
+                                        '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
+                                            WebkitAppearance: 'none',
+                                            margin: 0,
+                                        },
+
+                                    }}
+                                />
+
+                            </Grid>
+                            <Grid lg={6} md={6} sm={6} xs={6}
+                                sx={{
+                                    paddingLeft: dir === 'ltr' && "5px",
+                                    paddingRight: dir === 'rtl' && "5px"
+                                }}
+                            >
+                                <Typography sx={{ ...fieldTextStyle(theme) }}>
+                                    {t("formAcademics.Gender")}
+                                </Typography>
+                                <FormControl fullWidth>
+                                    <Select
+                                        sx={{
+                                            ...textFieldStyle(theme),
+                                            '& .MuiSelect-icon': {
+                                                color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F',
+                                                fontSize: {
+                                                    lg: "50px",
+                                                    md: "50px",
+                                                    sm: "50px",
+                                                    xs: "30px"
+                                                },
+
+                                            },
+                                            '& .MuiSelect-select': {
+                                                color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
+                                                fontSize: {
+                                                    lg: "15px",
+                                                    md: "15px",
+                                                    sm: "15px",
+                                                    xs: "11px"
+                                                }
+                                            },
+                                            '& .MuiMenuItem-root.Mui-selected': {
+                                                backgroundColor: 'your-selected-background-color',
+                                            },
+                                            '& .MuiSelect-icon': {
+                                                fontSize: {
+                                                    lg: "50px",
+                                                    md: "50px",
+                                                    sm: "50px",
+                                                    xs: "30px"
+                                                },
+                                                color: theme.palette.mode === "dark" ? "#FFFFFF" : "#051A2F",
+                                                padding: "0 !important",
+                                                marginRight: dir === 'rtl' &&
+                                                {
+                                                    lg: "-6px",
+                                                    md: "-6px",
+                                                    sm: "-6px",
+                                                    xs: "-6px"
+                                                }
+                                                ,
+
+                                                marginTop: {
+                                                    lg: "-2px",
+                                                    md: "-2px",
+                                                    sm: "-2px",
+                                                    xs: "1px"
+                                                }
+
+                                            },
+
+                                            height: {
+                                                lg: "58px",
+                                                md: "58px",
+                                                sm: "58px",
+                                                xs: "40px"
+                                            },
+                                            '& .MuiSelect-select': {
+                                                paddingRight: dir === 'rtl' && "44px !important",
+                                                fontSize: {
+                                                    lg: "15px",
+                                                    md: "15px",
+                                                    sm: "15px",
+                                                    xs: "11px"
+                                                },
+                                                color: "#29547E"
+
+                                            },
+                                        }}
+                                        displayEmpty
+                                        value={selectedGender}
+                                        onChange={handleGenderChange}
+                                        inputProps={{ 'aria-label': 'Without label' }}
+
+                                    >
+                                        <MenuItem value="" disabled
+                                            sx={{
+                                                color: "#29547E !important"
+                                            }}
+                                        >
+                                            {t("formAcademics.GenderType")}
+                                        </MenuItem>
+                                        <MenuItem value="male"> {t("formAcademics.Male")}</MenuItem>
+                                        <MenuItem value="female"> {t("formAcademics.Female")}</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+                        </Grid>
+
                         <Box
                             sx={{
                                 display: "flex",
@@ -279,7 +411,7 @@ export default function SecFormSection({
                                         backgroundColor: '#051A2F',
                                         color: '#fff',
                                     },
-                                    
+
                                     '& .MuiSelect-icon': {
                                         fontSize: {
                                             lg: "50px",
@@ -297,16 +429,16 @@ export default function SecFormSection({
                                             xs: "-6px"
                                         }
                                         ,
-    
+
                                         marginTop: {
                                             lg: "-2px",
                                             md: "-2px",
                                             sm: "-2px",
                                             xs: "1px"
                                         }
-    
+
                                     },
-    
+
                                 }}
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
@@ -357,22 +489,19 @@ export default function SecFormSection({
                                                             backgroundColor: selectedCourses.includes(subItem.id) ? '#051A2F' : 'transparent',
                                                             transition: 'background-color 0.3s ease, color 0.3s ease',
 
-                                                           
+
                                                             '&.Mui-selected': {
                                                                 backgroundColor: '#051A2F',
                                                                 color: '#fff',
                                                             }
                                                         }}
                                                         onClick={(e) => {
-                                                    
                                                             if (selectedCourses.includes(subItem.id)) {
                                                                 const newSelection = selectedCourses.filter(courseId => courseId !== subItem.id);
                                                                 setSelectedCourses(newSelection);
-                                                                console.log('Updated selection after removing:', newSelection); // Debugging
                                                             } else {
                                                                 const newSelection = [...selectedCourses, subItem.id];
                                                                 setSelectedCourses(newSelection);
-                                                                console.log('Updated selection after adding:', newSelection); // Debugging
                                                             }
                                                         }}
                                                     >
@@ -610,7 +739,8 @@ export default function SecFormSection({
                                     xs: "44px"
                                 },
                             }}>
-                            {t("formAcademics.Submit")}
+                            {loading ? <CircularProgress style={{ color: "#fff" }} size={24} color="inherit" /> : t("formAcademics.Submit")}
+
                         </Button>
                     </Box>
                 </Box>

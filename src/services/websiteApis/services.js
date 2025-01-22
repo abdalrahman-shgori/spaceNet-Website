@@ -58,7 +58,8 @@ export const postRegistration = async (
   language,
   day,
   time,
-  courses
+  courses,
+  password
 
 ) => {
   try {
@@ -73,7 +74,8 @@ export const postRegistration = async (
       language,
       day,
       time,
-      courses
+      courses,
+      password
     });
     return response.data;
   } catch (error) {

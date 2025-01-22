@@ -4,8 +4,8 @@ import Arrow from "../../assets/sectionsImages/contactusArrow.svg";
 import ArrowWight from "../../assets/sectionsImages/contactUsArrowWhite.svg";
 import { useTranslation } from "react-i18next";
 
-export default function ContactUsBtn({setOpen}) {
-  const {t,i18n} =useTranslation()
+export default function ContactUsBtn({ setOpen }) {
+  const { t, i18n } = useTranslation()
   const dir = i18n.dir()
   const [btnHovered, setBtnHovered] = useState(false)
   const theme = useTheme()
@@ -16,7 +16,7 @@ export default function ContactUsBtn({setOpen}) {
       <Grid
         onMouseEnter={() => setBtnHovered(true)}
         onMouseLeave={() => setBtnHovered(false)}
-        onClick={()=>setOpen(true)}
+        onClick={() => setOpen(true)}
         sx={{
           cursor: "pointer",
           marginTop: {
@@ -26,7 +26,7 @@ export default function ContactUsBtn({setOpen}) {
             xs: "53px"
           },
           border: theme.palette.mode === 'light' ? "2px solid black" : "2px solid #F4F4F4",
-         
+
           height: {
             lg: "80px",
             md: "60px",
@@ -34,17 +34,17 @@ export default function ContactUsBtn({setOpen}) {
             xs: "42px"
           },
           borderRadius: "52px",
-         
+
           transition: "background 0.3s ease, border-color 0.3s ease",
-          display:"inline-flex",
+          display: "inline-flex",
           paddingLeft: dir === 'rtl' && "20px",
-          paddingRight: dir === 'ltr' ? "20px":"4px",
+          paddingRight: dir === 'ltr' ? "20px" : "4px",
 
           "&:hover": {
             background: "#9D89FC",
             borderColor: "#9D89FC",
           },
-          
+
 
 
         }}

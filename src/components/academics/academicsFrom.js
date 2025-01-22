@@ -10,11 +10,13 @@ import { motion } from "framer-motion"
 import 'react-phone-input-2/lib/style.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { getCountries, getCountryCallingCode } from 'libphonenumber-js';
+import { format, getCountries, getCountryCallingCode } from 'libphonenumber-js';
 import FirstFormSection from './formSections/firstFormSection';
 import SecFormSection from './formSections/secFormSection';
 import { getCourses, postRegistration } from '../../services/websiteApis/services';
 import { useTranslation } from 'react-i18next';
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ErrorIcon from "@mui/icons-material/Error";
 const style = {
     width: "100%",
     bgcolor: 'background.paper',
@@ -57,8 +59,11 @@ export default function AcademicsForm({ setEnroll, enroll }) {
         language: '',
         day: '',
         time: '',
-        courses: []
+        courses: [],
+        password: '',
+        confirmPassword: "",
     });
+    console.log(formData)
     const [data, setData] = useState()
     const handleClose = () => setEnroll(false);
 
@@ -68,7 +73,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
     };
     useEffect(() => {
         if (selectedTime) {
-            const formattedTime = selectedTime.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }); // Formats as "16:20"
+            const formattedTime = selectedTime.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
             setFormData((prevData) => ({
                 ...prevData,
                 time: formattedTime
@@ -99,12 +104,32 @@ export default function AcademicsForm({ setEnroll, enroll }) {
             }));
         }
     };
+    const [passwordError, setPasswordError] = useState("");
+    const handleConfirmPasswordChange = (e) => {
+        const { value } = e.target;
+        setFormData({
+            ...formData,
+            confirmPassword: value,
+        });
+    };
+    const convertArabicNumeralsToLatin = (value) => {
+        const arabicToLatinMap = {
+            '٠': '0', '١': '1', '٢': '2', '٣': '3', '٤': '4', '٥': '5', '٦': '6', '٧': '7', '٨': '8', '٩': '9'
+        };
+
+        return value.replace(/[٠-٩]/g, (d) => arabicToLatinMap[d]);
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        if (name === "password") {
+            const errorMsg = validatePasswordStrength(value);
+            setPasswordError(errorMsg);
+        }
+        const convertedValue = name === 'age' ? convertArabicNumeralsToLatin(value) : value;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value
+            [name]: convertedValue
         }));
     };
     useEffect(() => {
@@ -189,16 +214,51 @@ export default function AcademicsForm({ setEnroll, enroll }) {
 
 
     }, [enroll]);
+    const validatePasswordStrength = (password) => {
+        const minLength = 8;
+        const hasNumber = /[0-9]/;
+        const hasUpperCase = /[A-Z]/;
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/;
+
+        if (password.length < minLength) {
+            return "Password must be at least 8 characters long";
+        }
+        if (!hasNumber.test(password)) {
+            return "Password must contain at least one number";
+        }
+        if (!hasUpperCase.test(password)) {
+            return "Password must contain at least one uppercase letter";
+        }
+        if (!hasSpecialChar.test(password)) {
+            return "Password must contain at least one special character";
+        }
+        return "";
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!formData.name || !formData.phone || !formData.age || !formData.gender || !formData.courses.length || !formData.type || !formData.language || !formData.day || !formData.time) {
+        if (!formData.email || !formData.password || !formData.name || !formData.phone || !formData.age || !formData.gender || !formData.courses.length || !formData.type || !formData.language || !formData.day || !formData.time) {
             setSnackbarMessage(t("formAcademics.PleaseFillAll"));
             setSnackbarSeverity('warning');
             setSnackbarOpen(true);
             return;
         }
+        const passwordError = validatePasswordStrength(formData.password);
+        if (passwordError) {
+            setSnackbarMessage(passwordError);
+            setSnackbarSeverity('warning');
+            setSnackbarOpen(true);
+            return;
+        }
+
+        if (formData.password !== formData.confirmPassword) {
+            setSnackbarMessage(t("formAcademics.passwordnot"));
+            setSnackbarSeverity('warning');
+            setSnackbarOpen(true);
+            return;
+        }
         try {
+            setLoading(true)
             const response = await postRegistration(
                 formData.name,
                 formData.email,
@@ -210,7 +270,8 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                 formData.language,
                 formData.day,
                 formData.time,
-                formData.courses
+                formData.courses,
+                formData.password
             );
             setTimeout(() => {
                 setEnroll(false)
@@ -229,7 +290,9 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                 language: '',
                 day: '',
                 time: '',
-                courses: []
+                courses: [],
+                password: '',
+                confirmPassword: ''
             })
             setPhoneNumber('')
             setSelectedGender('')
@@ -238,7 +301,13 @@ export default function AcademicsForm({ setEnroll, enroll }) {
             setSelectedCourses([])
             setSelectedTime(null)
             setSelectedDate(null)
+            setLoading(false)
         } catch (error) {
+            setSnackbarMessage(error);
+            setSnackbarSeverity('warning');
+            setSnackbarOpen(true);
+            setLoading(false)
+            return;
             console.error('Error submitting form: ', error);
         }
     };
@@ -378,6 +447,10 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                                         handleChange={handleChange}
                                         formData={formData}
                                         handleGenderChange={handleGenderChange}
+                                        passwordError={passwordError}
+                                        handleConfirmPasswordChange={handleConfirmPasswordChange}
+                                        CheckCircleIcon={CheckCircleIcon}
+                                        ErrorIcon={ErrorIcon}
                                     />
                                     <SecFormSection
                                         theme={theme}
@@ -399,6 +472,11 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                                         handleDateChange={handleDateChange}
                                         selectedDate={selectedDate}
                                         handleSubmit={handleSubmit}
+                                        selectedGender={selectedGender}
+                                        handleGenderChange={handleGenderChange}
+                                        loading={loading}
+
+
                                     />
                                 </Grid>
                             </Box>
