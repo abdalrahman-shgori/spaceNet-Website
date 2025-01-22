@@ -30,7 +30,9 @@ export default function SecFormSection({
     handleSubmit,
     selectedGender,
     handleGenderChange,
-    loading
+    loading,
+    handleAgeChange,
+    age
 }) {
     console.log(selectedCourses)
     const { i18n, t } = useTranslation()
@@ -110,8 +112,8 @@ export default function SecFormSection({
                                 </Typography>
                                 <TextField
                                     name="age"
-                                    value={formData.age}
-                                    onChange={handleChange}
+                                    value={age}
+                                    onChange={handleAgeChange}
                                     type='number'
                                     fullWidth
                                     placeholder={t("formAcademics.YourAge")}
