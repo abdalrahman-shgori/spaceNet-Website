@@ -18,16 +18,21 @@ export const textFieldStyle = (theme) => ({
         borderRadius: '85px',
         '& fieldset': {
             border: 'none',
+           background: 'transparent',
+
         },
         '&:hover fieldset': {
             border: 'none',
+            background: 'transparent',
         },
         '&.Mui-focused fieldset': {
             border: 'none',
+            background: 'transparent',
         },
         '& .MuiInputBase-input::placeholder': {
             color: theme.palette.mode === 'dark' ? "#FFFFFF" : '#29547E',
-            fontFamily: "var(--English-font)"
+            fontFamily: "var(--English-font)",
+            background: 'transparent',
         },
         '& .MuiInputBase-input': {
             color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
@@ -37,6 +42,7 @@ export const textFieldStyle = (theme) => ({
                 sm: "15px",
                 xs: "11px"
             },
+            background: 'transparent',
             fontFamily: "var(--English-font)"
         },
         height: {

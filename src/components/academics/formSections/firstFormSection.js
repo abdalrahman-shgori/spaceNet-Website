@@ -230,40 +230,24 @@ export default function FirstFormSection({
                     <Typography sx={{ ...fieldTextStyle(theme), display: "flex", alignItems: "center", gap: "5px" }}>
                         {t("formAcademics.password")}
                         {passwordError && (
-                            <Typography sx={{ color: "red", fontSize: "8px", padding: '0' }}>
+                            <Typography sx={{ color: "red", fontSize: "10px", padding: '0' }}>
                                 {passwordError}
                             </Typography>
                         )}
                     </Typography>
 
                     <TextField
-  type="password"
-  name="password"
-  value={formData.password}
-  onChange={handleChange}
-  fullWidth
-  required
-  placeholder={t("formAcademics.password")}
-  sx={{
-    ...textFieldStyle(theme),
-    '& .MuiInputBase-root': {
-      background: 'transparent', // Remove any background
-      outline: 'none', // Remove outline
-    },
-    '& .MuiInputBase-root:focus': {
-      background: 'transparent', // Ensure no background on focus
-    },
-    '& input:focus': {
-      background: 'transparent', // Prevent background on input focus in iPhones
-      outline: 'none', // Prevent outline on input focus
-    },
-    '& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button': {
-      WebkitAppearance: 'none',
-      margin: 0,
-    },
-  }}
-/>
-
+                        type="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                        placeholder={t("formAcademics.password")}
+                        sx={{
+                            ...textFieldStyle(theme)
+                        }}
+                    />
 
                     <Typography sx={{ ...fieldTextStyle(theme) }}>
                         {t("formAcademics.ConfirmPass")}
