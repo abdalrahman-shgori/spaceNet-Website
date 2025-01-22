@@ -247,13 +247,19 @@ export default function FirstFormSection({
   sx={{
     ...textFieldStyle(theme),
     '& .MuiInputBase-root': {
-      background: 'none', // Remove background
+      background: 'transparent', // Remove any background
+      outline: 'none', // Remove outline
     },
     '& .MuiInputBase-root:focus': {
-      background: 'none', // Ensure no background on focus
+      background: 'transparent', // Ensure no background on focus
     },
     '& input:focus': {
-      background: 'none', // Prevent background on input focus in iPhones
+      background: 'transparent', // Prevent background on input focus in iPhones
+      outline: 'none', // Prevent outline on input focus
+    },
+    '& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button': {
+      WebkitAppearance: 'none',
+      margin: 0,
     },
   }}
 />
