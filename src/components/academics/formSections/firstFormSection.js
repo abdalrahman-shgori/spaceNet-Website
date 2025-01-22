@@ -245,10 +245,25 @@ export default function FirstFormSection({
   placeholder={t("formAcademics.password")}
   sx={{
     ...textFieldStyle(theme),
+    // Remove background and border when focused or hovered
     '& .MuiOutlinedInput-root': {
       '&.Mui-focused': {
-        backgroundColor: 'transparent',
+        backgroundColor: 'transparent', // Remove background on focus
+        boxShadow: 'none',              // Remove box shadow (if any)
+        '& fieldset': {
+          borderColor: 'transparent',  // Remove border color on focus
+        },
       },
+      '&:hover': {
+        backgroundColor: 'transparent', // Remove background on hover
+        '& fieldset': {
+          borderColor: 'transparent',  // Remove border color on hover
+        },
+      },
+    },
+    // Optional: Remove the outline for better control
+    '& .MuiOutlinedInput-notchedOutline': {
+      borderColor: 'transparent', // Make border transparent on hover or focus
     },
   }}
 />
@@ -265,14 +280,7 @@ export default function FirstFormSection({
                         fullWidth
                         required
                         placeholder="Confirm your password"
-                        sx={{
-                            ...textFieldStyle(theme),
-                            '& .MuiOutlinedInput-root': {
-                              '&.Mui-focused': {
-                                backgroundColor: 'transparent',
-                              },
-                            },
-                          }}
+                        sx={textFieldStyle(theme)}
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
