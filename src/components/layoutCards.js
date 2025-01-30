@@ -213,6 +213,12 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                   </Grid>
 
                   <Grid lg={12}
+
+                  sx={{
+                          display: 'flex',
+                          justifyContent:'center',
+                          alignItems:"end"
+                  }}
                   >
                     {location.pathname === "/academics" && item.image && (
                       <Box
@@ -226,6 +232,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                             sm: index === 2 && !ExtraSmallScreen ? "100px" : "60px",
                             xs: index === 2 && !ExtraSmallScreen ? "100px" : "60px",
                           },
+                    
 
                         }}
                       >
@@ -235,10 +242,10 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                               position: "relative",
                               gap: { lg: "5px", md: "5px", sm: "3px", xs: "3px" },
                               paddingLeft: {
-                                lg: "17px",
-                                md: "17px",
-                                sm: "12px",
-                                xs: "17px"
+                                lg: "6px",
+                                md: "6px",
+                                sm: "6px",
+                                xs: "6px"
                               },
                               paddingRight: {
                                 lg: "6px",
@@ -246,36 +253,20 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                 sm: "6px",
                                 xs: "6px"
                               },
-                              display: 'flex',
-                              justifyContent: {
-                                lg: "unset",
-                                md: "center",
-                                sm: "unset",
-                                xs: "unset"
-                              }
-
+                          display:"flex",
+                          justifyContent:"center"
+                           
                             }}>
                             {item.image.map((img, idx) => (
                               <Grid
                                 item
                                 key={idx}
                                 sx={{
-
                                   border: hoveredcardid === item.id ? "1px solid #FFFFFF" : "1px solid #FA6423",
                                   padding: "11px 17px 11px 17px",
                                   borderRadius: "28px",
                                   color: hoveredcardid === item.id ? "#FFFFFF" : "#FA6423", width: "fit-content",
-                                  transform: index === 2 && idx === 1 && !ExtraSmallScreen && !spesificLgScreen && "rotate(-31.72deg)",
-                                  position: index === 2 && idx === 1 && !ExtraSmallScreen && !spesificLgScreen ? "absolute" : "relative",
-                                  top: !ExtraSmallScreen && index === 2 && idx === 1 && !spesificLgScreen && "-40px",
-                                  left:
-                                    dir === 'ltr' &&
-                                      !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "90px", md: "100px", sm: "80px", xs: "85px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "60px", md: "1000px", sm: "58px", xs: "52px" },
-                                  right: dir === 'rtl' && i18n.language === 'ar' ?
-                                    !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "50px", md: "100px", sm: "45px", xs: "45px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "35px", md: "100px", sm: "32px", xs: "32px" }:
-                                    !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 1 ? { lg: "60px", md: "100px", sm: "55px", xs: "55px" } : !spesificLgScreen && !ExtraSmallScreen && index === 2 && idx === 2 && { lg: "35px", md: "100px", sm: "32px", xs: "32px" }
-                                    ,
-
+                               
                                 }}
 
                               >
