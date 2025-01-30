@@ -111,6 +111,7 @@ const SpaceNetLayout = ({ setOpen }) => {
                 overflowX: 'auto',
                 display: 'flex',
                 flexWrap: 'nowrap',
+                scrollbarWidth: 'none',
                 '&::-webkit-scrollbar': {
                   display: 'none'
                 },
@@ -180,6 +181,7 @@ const SpaceNetLayout = ({ setOpen }) => {
                 overflowX: 'auto',
                 display: 'flex',
                 flexWrap: 'nowrap',
+                scrollbarWidth: 'none',
                 '&::-webkit-scrollbar': {
                   display: 'none'
                 },
@@ -243,7 +245,7 @@ const SpaceNetLayout = ({ setOpen }) => {
           }}
         >
           <motion.div
-            animate={{ x: ['10%', '-100%'] }}
+            animate={dir === 'ltr' ? { x: ['10%', '-100%'] } : { x: ['10%', '100%'] }}
             transition={{
               repeat: Infinity,
               duration: 60,
