@@ -1,11 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
-import { Route, Router, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import { motion } from 'framer-motion';
-import { useTheme } from '@mui/material';
 import Toggle from './components/toggleCompoent/toggle';
 import SoftwareSection from './pages/softwarePage';
 import Footer from './components/footer';
@@ -28,14 +27,13 @@ const App = () => {
     console.error = () => { };
   }
   const [open, setOpen] = React.useState(false);
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   document.body.dir = i18n.dir();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
   const [themeColor, setThemeColor] = useState('')
-  const theme = useTheme()
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
   };
