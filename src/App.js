@@ -1,5 +1,4 @@
 
-
 import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Router, Routes, useLocation } from 'react-router-dom';
@@ -119,8 +118,6 @@ const App = () => {
                 }}
               >
                 <>
-
-              
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
                   <ScrollToTop />
                   <Routes>
@@ -143,14 +140,11 @@ const App = () => {
                     <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
                     <Route path='/blogs' element={<BlogsAndNews setThemeColor={setThemeColor} setOpen={setOpen} />} />
                     <Route path="/blogs/:id" element={<BlogDetails setThemeColor={setThemeColor} setOpen={setOpen} />} />
-
                   </Routes>
 
                   {location.pathname !== '/' && (
                     <Footer />
                   )}
-
-
                 </>
               </motion.div>
               <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
@@ -160,8 +154,6 @@ const App = () => {
         </ThemeLocalization>
       </ThemeSettings>
     </ThemeProvider>
-
-
   );
 };
 

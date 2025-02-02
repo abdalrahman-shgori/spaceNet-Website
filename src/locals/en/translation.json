@@ -141,8 +141,7 @@
         "empire": "empire business towers",
         "building": "building T4, floor 13, office 3.",
         "SendMessage": "Send A Message",
-        "Allfields":"All fields are required"
-
+        "Allfields": "All fields are required"
     },
     "designAndBranding": {
         "DesignStrategy": "Design Strategy",
@@ -216,11 +215,11 @@
         "Submit": "Submit",
         "YourAge": "Your Age",
         "EducationalandProfessional": "Educational and Professional Background",
-        "StartYourLearning":"Start Your Learning Journey !",
-        "FormSubmitted":"Form Submitted Successfully",
-        "PleaseFillAll":"Please Fill All Required Fields",
-        "password":"password",
-        "ConfirmPass":"Confirm Password",
-        "passwordnot":"Passwords do not match"
+        "StartYourLearning": "Start Your Learning Journey !",
+        "FormSubmitted": "Form Submitted Successfully",
+        "PleaseFillAll": "Please Fill All Required Fields",
+        "password": "password",
+        "ConfirmPass": "Confirm Password",
+        "passwordnot": "Passwords do not match"
     }
 }

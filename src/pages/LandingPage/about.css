@@ -2,6 +2,7 @@
     0% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -10,9 +11,8 @@
 .fade-out {
     animation: fadeOut 1s forwards;
 }
+
 .scrolling-text {
     animation: scroll 10s linear infinite;
- 
-  }
- 
-  
+
+}

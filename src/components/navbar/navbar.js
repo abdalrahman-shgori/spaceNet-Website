@@ -30,7 +30,7 @@ const NavBar = ({
         { text: t("navbar.Home"), route: '/' },
         // { text: 'SERVICES', route: '/services' },
         // { text: 'MARKETPLACE', route: '/marketplace' },
-        { text: t("spacenetLayout.BlogNews"), route: '/blogs' },
+        // { text: t("spacenetLayout.BlogNews"), route: '/blogs' },
         { text: t("navbar.CONTACTUS") },
         { text: t("navbar.COMINGSOON"), route: '/' },
 

@@ -1,72 +1,82 @@
-.cls-2{
+.cls-2 {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: animationLogo 16s  forwards;
+  animation: animationLogo 16s forwards;
 
 }
-@keyframes  animationLogo {
+
+@keyframes animationLogo {
   0% {
-      stroke-dashoffset: 1000;
-    }
-    50%{
-      stroke-dashoffset: 500;
+    stroke-dashoffset: 1000;
+  }
 
-    }
-    100% {
-      stroke-dashoffset: 0;
+  50% {
+    stroke-dashoffset: 500;
 
-    }
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+
+  }
 }
 
-.cls-3{
+.cls-3 {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: animationLogo2 8s 4s  forwards;
+  animation: animationLogo2 8s 4s forwards;
 
 }
-@keyframes  animationLogo2 {
+
+@keyframes animationLogo2 {
   0% {
-      stroke-dashoffset: 1000;
-    }
-    50%{
-      stroke-dashoffset: 500;
+    stroke-dashoffset: 1000;
+  }
 
-    }
-    100% {
-      stroke-dashoffset: 0;
+  50% {
+    stroke-dashoffset: 500;
 
-    }
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+
+  }
 }
 
-.Text{
+.Text {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: animationLogo3 2s 1s  forwards;
+  animation: animationLogo3 2s 1s forwards;
 
 }
 
-@keyframes  animationLogo3 {
+@keyframes animationLogo3 {
   0% {
-      stroke-dashoffset: 1000;
-    }
-    50%{
-      stroke-dashoffset: 500;
+    stroke-dashoffset: 1000;
+  }
 
-    }
-    100% {
-      stroke-dashoffset: 0;
+  50% {
+    stroke-dashoffset: 500;
 
-    }
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+
+  }
 }
 
-.logoOpacity{
+.logoOpacity {
   animation: opacityFade 0.5s 1s linear forwards;
 }
+
 @keyframes opacityFade {
-  from{
+  from {
     opacity: 1;
   }
-  to{
+
+  to {
     opacity: 0;
   }
 }
