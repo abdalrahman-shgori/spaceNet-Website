@@ -125,7 +125,11 @@ export default function WhichCourse() {
           >
             {t("academics.Thepowerto")}
           </Typography>
-          <Box >
+          <Box 
+          sx={{
+            direction:dir === 'ltr' ? "ltr" : 'rtl',
+          }}
+          >
             <motion.div
               animate={cardAnimationStart === true ? { y: [200, 0], opacity: [0, 1] } : { opacity: 0 }}
               transition={{
@@ -137,7 +141,27 @@ export default function WhichCourse() {
                 display: test ? 'none' : 'unset',
                 position: "absolute",
                 bottom: xl || lg || md ? -55 : sm ? -25 : xs ? -30 : '',
-                translateX: xl || lg || md ? "5.6%" : sm ? spesificTabScreen ? "-5%" : "3%" : xs ? spesificSmallScreen ? "-39%" : spesific2 ? "-45%" : spesifico ? "-37%" : '' : '',
+                translateX:
+                dir === 'ltr' ?
+                 xl || lg || md ? "5.6%" 
+                 : sm ?
+                  spesificTabScreen ? "-5%" 
+                  : "3%" 
+                  : xs ? spesificSmallScreen 
+                  ? "-39%" : spesific2 ? "-45%" 
+                  : spesifico ? "-37%" 
+                  : ''
+                   : '' :
+                   xl || lg || md ? "5.6%" 
+                   : sm ?
+                    spesificTabScreen ? "19%" 
+                    : "19%" 
+                    : xs ? spesificSmallScreen 
+                    ? "69%" : spesific2 ? "45%" 
+                    : spesifico ? "37%" 
+                    : ''
+                     : '' 
+                   ,
                 zIndex: 0,
                 width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "100%" : "100%",
                 height: xl ? "310px" : lg ? "310px" : md ? "300px" : sm ? "200px" : "50%",
@@ -153,6 +177,7 @@ export default function WhichCourse() {
                   maxWidth: "1400px",
                   width: "100%",
                   height: "100%",
+                  transform:dir === 'rtl' ? 'scaleX(-1)'  : 'unset'
 
                 }}
               >
@@ -275,8 +300,7 @@ export default function WhichCourse() {
             }}
             style={{
               position: test ? "relative" : "absolute",
-              right: test ? 20 : dir === 'ltr' ? 20 : dir === 'rtl' && xs || sm ? 20 : 'unset',
-              left: test && dir === 'rtl' && 0,
+              left: test && 0,
               display: "flex",
               justifyContent: dir === 'ltr' ? "flex-end" : "flex-start",
               textAlign: "start",
@@ -319,7 +343,11 @@ export default function WhichCourse() {
             </Typography>
 
           </motion.div>
-          <Box>
+          <Box
+          sx={{
+            direction: dir === 'ltr' ? 'ltr' : 'rtl'
+          }}
+          >
             <motion.div
               animate={cardAnimationStart === true ? { y: [200, 0], opacity: [0, 1] } : { opacity: 0 }}
               transition={{
@@ -331,7 +359,37 @@ export default function WhichCourse() {
                 display: test ? 'none' : 'unset',
                 position: "absolute",
                 bottom: xl || lg || md ? -150 : sm ? -130 : -80,
-                translateX: xl || lg || md ? "10%" : sm ? spesificTabScreen ? "-4%" : "4%" : xs ? spesificSmallScreen ? "-30%" : spesific2 ? "-38%" : spesifico ? "-30%" : "-38%" : "",
+                translateX: dir === 'ltr' 
+                ? xl || lg || md 
+                  ? "10%" 
+                  : sm 
+                    ? spesificTabScreen 
+                      ? "-4%" 
+                      : "4%" 
+                    : xs 
+                      ? spesificSmallScreen 
+                        ? "-30%" 
+                        : spesific2 
+                          ? "-38%" 
+                          : spesifico 
+                            ? "-30%" 
+                            : "-38%" 
+                      : ""
+                : xl || lg || md 
+                  ? "1.5%" 
+                  : sm 
+                    ? spesificTabScreen 
+                      ? "20%" 
+                      : "20%" 
+                    : xs 
+                      ? spesificSmallScreen 
+                        ? "60%" 
+                        : spesific2 
+                          ? "38%" 
+                          : spesifico 
+                            ? "31%" 
+                            : "38%"
+                      : "",
                 zIndex: 4,
                 width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "100%" : "100%",
                 height: xl ? "400px" : lg ? "400px" : md ? "400px" : sm ? "300px" : "55%",
@@ -345,6 +403,8 @@ export default function WhichCourse() {
                   maxWidth: "100%",
                   width: "100%",
                   height: "100%",
+                  transform:dir === 'rtl' ? 'scaleX(-1)'  : 'unset'
+
                 }}
               >
               </Box>
