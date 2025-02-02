@@ -300,7 +300,8 @@ export default function WhichCourse() {
             }}
             style={{
               position: test ? "relative" : "absolute",
-              left: test && 0,
+              right: test ? 20 : dir === 'ltr' ? 20 : 'unset',
+              left: test && dir === 'rtl' && 0,
               display: "flex",
               justifyContent: dir === 'ltr' ? "flex-end" : "flex-start",
               textAlign: "start",
