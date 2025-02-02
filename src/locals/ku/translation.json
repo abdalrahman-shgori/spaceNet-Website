@@ -185,7 +185,7 @@
         "Security": "پاراستن",
         "IT": "تەکنەلۆژیا"
     },
-    "formAcademics": {
+   "formAcademics": {
         "Name": "ناو",
         "YourName": "ناوی بەڕێزت",
         "Email": "ئیمەیڵ",
@@ -214,8 +214,8 @@
         "Submit": "ناردن",
         "YourAge": "تەمەنت",
         "EducationalandProfessional": "ئەزموونی خوێندن و پیشەیی",
-        "StartYourLearning": "دەست بکە بە گەشتی فێربوونت!",
-        "FormSubmitted": "فۆڕمەکە بە سەرکەوتوویی نێردرا",
-        "PleaseFillAll": "تکایە گشت خانە داواکراوەکان پڕ بکەوە"
+        "StartYourLearning":"دەست بکە بە گەشتی فێربوونت!",
+        "FormSubmitted":"فۆڕمەکە بە سەرکەوتوویی نێردرا",
+        "PleaseFillAll":"تکایە گشت خانە داواکراوەکان پڕ بکەوە"
     }
 }
