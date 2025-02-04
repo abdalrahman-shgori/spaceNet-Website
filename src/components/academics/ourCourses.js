@@ -213,6 +213,7 @@ export default function OurCourses({ setEnroll }) {
                                         <Box
                                             component="img"
                                             src={item.img}
+                                            loading="lazy"
                                             alt="our courses"
                                             sx={
                                                 location.pathname !== '/core-it' ?

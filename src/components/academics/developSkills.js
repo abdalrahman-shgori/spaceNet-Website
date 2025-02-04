@@ -185,6 +185,7 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
                                 <Box
                                     component="img"
                                     src={SkillsType[skills].img}
+                                    loading="lazy"
                                     alt="Skills Color Gradiant"
                                     sx={{
                                         maxWidth: {

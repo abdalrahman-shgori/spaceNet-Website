@@ -45,6 +45,7 @@ const SpaceNetLayout = ({ setOpen }) => {
           >
             <Box
               component="img"
+              loading="lazy"
               alt='logo'
               src={logo}
               sx={{
@@ -70,6 +71,7 @@ const SpaceNetLayout = ({ setOpen }) => {
             />
             <Box
               component="img"
+              loading="lazy"
               alt='logoText'
               src={spaceNet}
               sx={{
@@ -154,7 +156,7 @@ const SpaceNetLayout = ({ setOpen }) => {
                           }
                         }}
                       >
-                        {item.name} &nbsp; <img alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
+                        {item.name} &nbsp; <img loading="lazy" alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
                       </Button>
                     </motion.div>
 
@@ -226,7 +228,7 @@ const SpaceNetLayout = ({ setOpen }) => {
 
                         }}
                       >
-                        {item.name} &nbsp; <img alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
+                        {item.name} &nbsp; <img loading='lazy' alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
                       </Button>
                     </motion.div>
 

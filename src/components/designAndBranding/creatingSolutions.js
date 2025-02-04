@@ -170,6 +170,7 @@ export default function CreatingSolution() {
                         >
                           <Box
                             component="img"
+                            loading="lazy"
                             src={item}
                             alt="process technologies"
                             sx={{
@@ -188,6 +189,7 @@ export default function CreatingSolution() {
                     (
                       <Box
                         component="img"
+                        loading="lazy"
                         src={item.img}
                         alt="process"
                         sx={{

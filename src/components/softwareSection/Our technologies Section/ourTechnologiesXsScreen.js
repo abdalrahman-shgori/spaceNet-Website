@@ -89,6 +89,7 @@ export default function OurTechnologiesXsScreen({ programmingLang }) {
                         >
                             <Box
                                 component="img"
+                                loading="lazy"
                                 src={techImg}
                                 alt='women in meeting'
                                 sx={{
@@ -149,6 +150,7 @@ export default function OurTechnologiesXsScreen({ programmingLang }) {
                                         >
                                             <Box
                                                 component="img"
+                                                loading="lazy"
                                                 src={item.img}
                                                 alt='technologies languages'
                                                 sx={{
@@ -178,6 +180,7 @@ export default function OurTechnologiesXsScreen({ programmingLang }) {
                         >
                             <Box
                                 component="img"
+                                loading="lazy"
                                 src={meetImg}
                                 alt='meeting'
                                 sx={{

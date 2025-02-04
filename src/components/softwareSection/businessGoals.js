@@ -48,6 +48,7 @@ export default function ResponsiveComponent({
         }}>
             <Box
                 component='img'
+                loading="lazy"
                 alt="bracket"
                 src={theme.palette.mode === 'light' ? vector1 : vectorWhite1}
                 sx={{

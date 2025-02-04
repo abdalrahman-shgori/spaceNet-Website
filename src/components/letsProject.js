@@ -93,6 +93,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
 
           <Box
             component="img"
+            loading="lazy"
             alt="bracket"
             src={location.pathname === "/core-it" ? Vector1Black : vector1White}
             sx={{

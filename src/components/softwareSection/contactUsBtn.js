@@ -87,6 +87,7 @@ export default function ContactUsBtn({ setOpen }) {
           >
             <Box
               component="img"
+              loading="lazy"
               alt="arrow"
               src={theme.palette.mode === 'light' ? Arrow : ArrowWight}
               sx={{

@@ -99,11 +99,7 @@ export default function DesignAndBranding({ setOpen }) {
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState([])
     const lastCardId = data.length > 0 ? data[data.length - 1].id : null;
-
     const [technologiesData, setTechnologiesData] = useState([])
-
-
-
     const [scrollIndex, setScrollIndex] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
     const [reset, setReset] = useState(false);

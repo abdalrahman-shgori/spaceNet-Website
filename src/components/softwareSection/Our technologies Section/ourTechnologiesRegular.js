@@ -101,6 +101,7 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                         >
                             <Box
                                 component="img"
+                                loading="lazy"
                                 alt='women in meet'
                                 src={techImg}
                                 sx={{
@@ -159,6 +160,7 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                                     >
                                         <Box
                                             component="img"
+                                            loading="lazy"
                                             src={item.img}
                                             alt='technologies languages'
                                             sx={{
@@ -181,6 +183,7 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                         >
                             <Box
                                 component="img"
+                                loading="lazy"
                                 src={meetImg}
                                 alt='meet Image'
                                 sx={{
