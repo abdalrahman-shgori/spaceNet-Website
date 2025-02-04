@@ -399,6 +399,7 @@ export default function WhichCourse() {
             >
               <Box
                 component="img"
+                loading="lazy"
                 src={xl || lg || md || sm ? front : secondMobile}
                 sx={{
                   overflow: "hidden",

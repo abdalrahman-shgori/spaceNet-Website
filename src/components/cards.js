@@ -113,6 +113,7 @@ export default function Cards({
                                     <Grid container item>
                                         <Box
                                             component="img"
+                                            loading="lazy"
                                             sx={{
                                                 position: "absolute",
                                                 right: dir === 'ltr' && {

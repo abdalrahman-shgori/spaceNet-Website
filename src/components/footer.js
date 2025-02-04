@@ -106,6 +106,7 @@ const Footer = () => {
 
                     </Link>
                     <img
+                    loading='lazy'
                       src={arrow}
                       alt="arrow"
                       style={{ transform: dir === 'rtl' ? "scaleX(-1)" : "unset" }}
@@ -151,6 +152,7 @@ const Footer = () => {
                   </Typography>
                   {text.img && (
                     <img
+                    loading='lazy'
                       src={text.img}
                       alt='arrow'
                       style={{ transform: dir === 'rtl' ? "scaleX(-1)" : "unset" }}

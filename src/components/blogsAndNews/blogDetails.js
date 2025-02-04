@@ -84,6 +84,7 @@ const BlogDetails = () => {
 
             <Box
                 component="img"
+                loading='lazy'
                 sx={{ width: '100%', borderRadius: { lg: "46px", md: "46px", sm: "18px", xs: "18px" }, marginBottom: '10px' }}
                 src={`https://admin.spacenetiq.com/uploads/article/${blog?.image_path}`}
                 alt={blog?.title}

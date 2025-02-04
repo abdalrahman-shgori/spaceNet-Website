@@ -40,7 +40,7 @@ const FeaturedBlog = ({ blog }) => {
                         justifyContent: 'center',
                     }}
                 >
-                    <Box component="img" src={`https://admin.spacenetiq.com/uploads/article/${blog?.image_path}`}
+                    <Box component="img" loading='lazy' src={`https://admin.spacenetiq.com/uploads/article/${blog?.image_path}`}
                         alt={blog?.title}
                         sx={{
                             maxWidth: '100%',

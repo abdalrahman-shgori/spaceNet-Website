@@ -215,6 +215,7 @@ export default function ServicesOriginal({
                     {image && (
                         <Box
                             component="img"
+                            loading="lazy"
                             src={
                                 indexOfHoveredServices === 3 &&
                                     index === 2 &&

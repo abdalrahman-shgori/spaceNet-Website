@@ -26,6 +26,7 @@ const BlogCard = ({ blog }) => {
             <CardActionArea onClick={handleReadMore}>
                 <CardMedia
                     component="img"
+                    loading='lazy'
                     image={`https://admin.spacenetiq.com/uploads/article/${blog?.image_path}`}
                     alt={blog.title}
                 />

@@ -374,7 +374,7 @@ export default function BasicModal({ setOpen, open }) {
 
                                                     }}
                                                 >
-                                                    <img src={item.img} />
+                                                    <img loading='lazy' src={item.img} />
                                                     <Typography
                                                         sx={{
                                                             fontSize: {
