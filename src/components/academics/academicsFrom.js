@@ -44,6 +44,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
     const [countryCode, setCountryCode] = useState('+964');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [loading, setLoading] = useState(true);
+    const [loadingCourses, setLoadingCourses] = useState(false);
     const [selectedGender, setSelectedGender] = useState('');
     const [selectedCourseType, setSelectedCourseType] = useState('');
     const [selectedLanguage, setSelectedLanguage] = useState('');
@@ -177,7 +178,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
         }));
     };
     useEffect(() => {
-        const countryCodes = getCountries();
+        const countryCodes = getCountries()
         const countryData = countryCodes.map((country) => ({
             code: country,
             callingCode: `+${getCountryCallingCode(country)}`,
@@ -206,21 +207,25 @@ export default function AcademicsForm({ setEnroll, enroll }) {
 
 
     useEffect(() => {
-        setLoading(true)
         if (enroll === true) {
+            setLoadingCourses(true)
             const fetchCourses = async () => {
                 try {
                     const response = await getCourses();
                     setData(response.data)
                     setLoading(false)
+                    setLoadingCourses(false)
                 } catch (error) {
                     console.error('Error fetching sub-service data: ', error);
+                    setLoadingCourses(false)
+                }
+                finally {
+                    setLoadingCourses(false)
                 }
             };
 
             fetchCourses();
         }
-
 
     }, [enroll]);
     const validatePasswordStrength = (password) => {
@@ -486,6 +491,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                                         loading={loading}
                                         handleAgeChange={handleAgeChange}
                                         age={age}
+                                        loadingCourses={loadingCourses}
 
 
                                     />

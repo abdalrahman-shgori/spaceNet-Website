@@ -75,16 +75,14 @@ export default function FirstFormSection({
                             }}
                         />
 
-
-
-
-
                     </Box>
 
                     <Box sx={{ width: '100%' }}>
                         <Typography sx={{ ...fieldTextStyle(theme) }}> {t("formAcademics.PhoneNumber")} </Typography>
 
-                        <Box sx={unifiedInputStyle(theme)}>
+                        <Box sx={{...unifiedInputStyle(theme),direction:"ltr"}}
+                        
+                        >
                             <Select
                                 value={countryCode}
                                 onChange={(e) => setCountryCode(e.target.value)}
@@ -92,23 +90,17 @@ export default function FirstFormSection({
                                 disableUnderline
                                 sx={
                                     {
-                                        paddingLeft: dir === 'ltr' && {
+                                        paddingLeft: {
                                             lg: "12px",
                                             md: "12px",
                                             sm: "12px",
                                             xs: "8px"
                                         },
-                                        paddingRight: dir === 'rtl' && {
-                                            lg: "12px",
-                                            md: "12px",
-                                            sm: "12px",
-                                            xs: "8px"
-                                        },
+                                      
                                         color: theme.palette.mode === "dark" ? "#FFFFFF" : "#29547E",
                                         textDecoration: "underline",
                                         '& .MuiSelect-select': {
-                                            paddingRight: dir === 'ltr' && "4px !important",
-                                            paddingLeft: dir === 'rtl' && "4px !important",
+                                            paddingRight: "4px !important",
                                             fontSize: {
                                                 lg: "15px",
                                                 md: "15px",
@@ -134,18 +126,12 @@ export default function FirstFormSection({
                                             },
                                             color: theme.palette.mode === "dark" ? "#FFFFFF" : "#051A2F",
                                             padding: "0 !important",
-                                            marginRight: dir === 'ltr' ? {
+                                            marginRight: {
                                                 lg: "-36px",
                                                 md: "-36px",
                                                 sm: "-36px",
                                                 xs: "-26px"
-                                            } :
-                                                {
-                                                    lg: "-6px",
-                                                    md: "-6px",
-                                                    sm: "-6px",
-                                                    xs: "-6px"
-                                                }
+                                            } 
                                             ,
 
                                             marginTop: {
@@ -160,8 +146,7 @@ export default function FirstFormSection({
                                             fontSize: "50px",
                                             color: theme.palette.mode === "dark" ? "#FFFFFF" : "#051A2F",
                                             padding: "0 !important",
-                                            marginRight: dir === 'ltr' && "-36px",
-                                            marginLeft: dir === 'rtl' && "-36px",
+                                            marginRight: "-36px",
                                         },
                                     }
                                 }
@@ -259,7 +244,7 @@ export default function FirstFormSection({
                         onChange={handleConfirmPasswordChange}
                         fullWidth
                         required
-                        placeholder="Confirm your password"
+                        placeholder={t("formAcademics.ConfirmPass")}
                         sx={textFieldStyle(theme)}
                         InputProps={{
                             endAdornment: (

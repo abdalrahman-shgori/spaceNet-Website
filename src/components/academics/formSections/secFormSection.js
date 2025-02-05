@@ -32,9 +32,9 @@ export default function SecFormSection({
     handleGenderChange,
     loading,
     handleAgeChange,
-    age
+    age,
+    loadingCourses
 }) {
-    console.log(selectedCourses)
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const lang = i18n.language
@@ -447,7 +447,13 @@ export default function SecFormSection({
                                         color: '#fff',
                                     },
                                 }}>
-                                    {t("formAcademics.SelectCourse")}
+                                    {loadingCourses ?
+                                        <CircularProgress
+                                            style={{
+                                                color: theme.palette.mode === 'dark' ? "#FFFFFF !important" : "#051A2F !important",
+                                                display: "flex",
+                                                margin: "0 auto"
+                                            }} size={24} color="inherit" /> : t("formAcademics.SelectCourse")}
                                 </MenuItem>
 
                                 {data?.map((item) => (
@@ -477,7 +483,7 @@ export default function SecFormSection({
                                                         variant="outlined"
                                                         sx={{
                                                             borderRadius: '20px',
-                                                            borderColor: theme.palette.mode=== 'dark' ? "#fff" : '#29547E',
+                                                            borderColor: theme.palette.mode === 'dark' ? "#fff" : '#29547E',
                                                             color: selectedCourses.includes(subItem.id) ? "#fff" : theme.palette.mode === 'dark' ? "#FFFFFF" : '#29547E',
                                                             textTransform: 'none',
                                                             backgroundColor: selectedCourses.includes(subItem.id) ? '#051A2F' : 'transparent',
