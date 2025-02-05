@@ -31,7 +31,7 @@
         "light": "ڕووناک",
         "dark": "تاریک"
     },
-  "academics": {
+    "academics": {
         "Coursesin": "کۆرس بە زمانی ئینگلیزی و کوردی و عەرەبی",
         "Lifetime": "بەکارهێنانی هەمیشەیی",
         "anylevel": "بۆ هەر ئاستێک",
@@ -179,13 +179,13 @@
         "WhatWeDo": "کارەکانمان",
         "WhatWeDesign": "دیزاین، بڵاوکردنەوە و بەڕێوەبردنی ئێمە",
         "WanttoBuild": "دەتەوێت ژێرخانی تەکنەلۆژییت بنیات بنێیت یان سەرلەنوێ بنیاتی بنێیتەوە؟",
-        "ScheduleConsultation":"!دیدارێک دابنێ بۆ ڕاوێژی بێبەرامبەر",
+        "ScheduleConsultation": "!دیدارێک دابنێ بۆ ڕاوێژی بێبەرامبەر",
         "LetTalk": "!با قسە بکەین",
         "Network": "نێتوۆرک",
         "Security": "پاراستن",
         "IT": "تەکنەلۆژیا"
     },
-   "formAcademics": {
+    "formAcademics": {
         "Name": "ناو",
         "YourName": "ناوی بەڕێزت",
         "Email": "ئیمەیڵ",
@@ -214,8 +214,11 @@
         "Submit": "ناردن",
         "YourAge": "تەمەنت",
         "EducationalandProfessional": "ئەزموونی خوێندن و پیشەیی",
-        "StartYourLearning":"دەست بکە بە گەشتی فێربوونت!",
-        "FormSubmitted":"فۆڕمەکە بە سەرکەوتوویی نێردرا",
-        "PleaseFillAll":"تکایە گشت خانە داواکراوەکان پڕ بکەوە"
+        "StartYourLearning": "دەست بکە بە گەشتی فێربوونت!",
+        "FormSubmitted": "فۆڕمەکە بە سەرکەوتوویی نێردرا",
+        "PleaseFillAll": "تکایە گشت خانە داواکراوەکان پڕ بکەوە",
+        "password": "وشەی نهێنی",
+        "ConfirmPass": "دووپاتکردنی وشەی نهێنی",
+        "passwordnot": "وشەی نهێنییەکان پێک ناگرن"
     }
 }

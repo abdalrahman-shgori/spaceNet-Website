@@ -217,6 +217,9 @@
         "EducationalandProfessional": "الخلفية التعليمية والمهنية",
         "StartYourLearning": "ابدأ رحلتك التعليمية!",
         "FormSubmitted": "تم إرسال الاستمارة بنجاح",
-        "PleaseFillAll": "يرجى ملء جميع الحقول المطلوبة"
+        "PleaseFillAll": "يرجى ملء جميع الحقول المطلوبة",
+        "password": "كلمة المرور",
+        "ConfirmPass": "تأكيد كلمة المرور",
+        "passwordnot": "كلمتا المرور غير متطابقتين"
     }
 }

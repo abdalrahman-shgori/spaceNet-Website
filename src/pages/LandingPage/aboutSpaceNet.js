@@ -221,7 +221,7 @@ export default function AboutSpaceNet({
                                         : outOfServicesHover ? { y: [0, 80, 0], x: [0, 80, 0] } : { y: 0, x: 0 } :
 
                                 initialAnimation
-                                    ? { y: [0, 120, 0], x: [0, 120, 0] }
+                                    ? { y: [0, 120, 0], x: [0, -120, 0] }
                                     : capture
                                         ? isMobile ? { y: [0, 80, 0], x: [0, -80, 0] }
                                             : isTabScreen ? { y: [0, 80, 0], x: [0, -80, 0] } :
@@ -494,7 +494,7 @@ export default function AboutSpaceNet({
                                                 { y: [0, -120, 0], x: [0, -120, 0] }
                                         : outOfServicesHover ? { y: [0, -80, 0], x: [0, -80, 0] } : { y: 0, x: 0 } :
                                 initialAnimation
-                                    ? { y: [0, -120, 0], x: [0, -120, 0] }
+                                    ? { y: [0, -120, 0], x: [0, 120, 0] }
                                     : capture
                                         ? isMobile ? { y: [0, -80, 0], x: [0, 80, 0] }
                                             : isTabScreen ? { y: [0, -80, 0], x: [0, 80, 0] } :
