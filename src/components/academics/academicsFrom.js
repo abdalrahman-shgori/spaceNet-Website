@@ -65,7 +65,6 @@ export default function AcademicsForm({ setEnroll, enroll }) {
         password: '',
         confirmPassword: "",
     });
-    console.log(formData)
     const [data, setData] = useState()
     const handleClose = () => setEnroll(false);
     const handleAgeChange = (e) => {
@@ -216,7 +215,6 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                     setLoading(false)
                     setLoadingCourses(false)
                 } catch (error) {
-                    console.error('Error fetching sub-service data: ', error);
                     setLoadingCourses(false)
                 }
                 finally {
@@ -322,7 +320,6 @@ export default function AcademicsForm({ setEnroll, enroll }) {
             setSnackbarOpen(true);
             setLoading(false)
             return;
-            console.error('Error submitting form: ', error);
         }
     };
     return (

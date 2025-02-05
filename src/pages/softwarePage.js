@@ -80,7 +80,6 @@ export default function SoftwareSection({ setOpen }) {
                 setData(response.data)
                 setLoading(false)
             } catch (error) {
-                console.error('Error fetching sub-service data: ', error);
             }
         };
         if (id) {
@@ -95,7 +94,6 @@ export default function SoftwareSection({ setOpen }) {
                 setTechnologiesData(response.data)
                 setLoading(false)
             } catch (error) {
-                console.error('Error fetching sub-service data: ', error);
             }
         };
         if (id) {
@@ -107,7 +105,7 @@ export default function SoftwareSection({ setOpen }) {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>SPACENET SOFTWARE</title>
+                <title>SOFTWARE</title>
                 <link rel="canonical" href="https://spacenetiq/software" />
             </Helmet>
             <motion.div

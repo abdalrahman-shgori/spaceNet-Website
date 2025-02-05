@@ -17,7 +17,6 @@ function TestNews() {
                 const response = await getBlogs();
                 setBlogs(response.data);
             } catch (error) {
-                console.error('Error fetching blog data: ', error);
                 setLoading(false);
             }
             finally {

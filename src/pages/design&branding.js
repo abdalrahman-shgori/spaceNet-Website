@@ -163,7 +163,6 @@ export default function DesignAndBranding({ setOpen }) {
                 setData(response.data)
                 setLoading(false)
             } catch (error) {
-                console.error('Error fetching sub-service data: ', error);
             }
         };
 
@@ -178,7 +177,6 @@ export default function DesignAndBranding({ setOpen }) {
                 setTechnologiesData(response.data)
                 setLoading(false)
             } catch (error) {
-                console.error('Error fetching sub-service data: ', error);
             }
         };
         fetchServiceCategories();
@@ -187,7 +185,7 @@ export default function DesignAndBranding({ setOpen }) {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>SPACENET DESIGN & BRANDING</title>
+                <title>DESIGN & BRANDING</title>
                 <link rel="canonical" href="https://spacenetiq/design-branding" />
             </Helmet>
             <motion.div

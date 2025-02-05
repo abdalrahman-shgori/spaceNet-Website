@@ -58,7 +58,6 @@ export default function CoreIt({ setOpen }) {
                 setData(response.data)
                 setLoading(false)
             } catch (error) {
-                console.error('Error fetching sub-service data: ', error);
             }
         };
         if (id) {
@@ -71,7 +70,7 @@ export default function CoreIt({ setOpen }) {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>SPACENET CORE IT</title>
+                <title>CORE IT</title>
                 <link rel="canonical" href="https://spacenetiq/core-it" />
             </Helmet>
             <motion.div

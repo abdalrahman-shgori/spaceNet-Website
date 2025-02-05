@@ -58,7 +58,7 @@ export default function Academics({ setOpen }) {
     return (
         <>
         <Helmet>
-   <title>Academics | SPACENET</title>
+   <title>Academics</title>
    <meta name="description" content="Explore our academics courses and bootcamps." />
    <meta property="og:title" content="SPACENET Academics" />
    <meta property="og:description" content="Learn new skills with SPACENET's lifetime access courses and bootcamps." />

@@ -16,7 +16,6 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
     console.warn = () => { };
     console.error = () => { };
   }
-
   return (
     <>
       <Grid
@@ -214,11 +213,11 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
 
                   <Grid lg={12}
 
-                  sx={{
-                          display: 'flex',
-                          justifyContent:'center',
-                          alignItems:"end"
-                  }}
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: "end"
+                    }}
                   >
                     {location.pathname === "/academics" && item.image && (
                       <Box
@@ -232,7 +231,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                             sm: index === 2 && !ExtraSmallScreen ? "100px" : "60px",
                             xs: index === 2 && !ExtraSmallScreen ? "100px" : "60px",
                           },
-                    
+
 
                         }}
                       >
@@ -253,9 +252,9 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                 sm: "6px",
                                 xs: "6px"
                               },
-                          display:"flex",
-                          justifyContent:"center"
-                           
+                              display: "flex",
+                              justifyContent: "center"
+
                             }}>
                             {item.image.map((img, idx) => (
                               <Grid
@@ -266,7 +265,7 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
                                   padding: "11px 17px 11px 17px",
                                   borderRadius: "28px",
                                   color: hoveredcardid === item.id ? "#FFFFFF" : "#FA6423", width: "fit-content",
-                               
+
                                 }}
 
                               >
