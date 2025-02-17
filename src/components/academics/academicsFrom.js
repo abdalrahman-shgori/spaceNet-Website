@@ -49,7 +49,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
     const [selectedCourseType, setSelectedCourseType] = useState('');
     const [selectedLanguage, setSelectedLanguage] = useState('');
     const [selectedCoursesId, setSelectedCoursesId] = useState([]);
-    const [age,setAge]=useState('')
+    const [age, setAge] = useState('')
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -71,11 +71,15 @@ export default function AcademicsForm({ setEnroll, enroll }) {
         const value = e.target.value;
         const isValid = /^[0-9\u0660-\u0669]*$/.test(value);
         if (isValid) {
-          setAge(value);
+            setAge(value);
         }
-      };
-      
-    
+        setFormData((prevData) => ({
+            ...prevData,
+            age: value
+        }));
+    };
+
+
     const handleTimeChange = (newTime) => {
         setSelectedTime(newTime);
 
@@ -322,6 +326,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
             return;
         }
     };
+    console.log(formData)
     return (
         <div>
             <Modal

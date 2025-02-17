@@ -1,4 +1,4 @@
-import { axiosInstance } from "../baseUrl";
+import { axiosInstance, axiosInstanceForm } from "../baseUrl";
 
 
 export const services = async (lang) => {
@@ -38,7 +38,7 @@ export const ContactUsApi = async (name, email, message) => {
 
 export const getCourses = async () => {
   try {
-    const response = await axiosInstance.get(`/courses`, {
+    const response = await axiosInstanceForm.get(`/courses`, {
 
     });
     return response.data;
@@ -63,7 +63,7 @@ export const postRegistration = async (
 
 ) => {
   try {
-    const response = await axiosInstance.post(`/send_registeration_form`, {
+    const response = await axiosInstanceForm.post(`/send_registeration_form`, {
       name,
       email,
       phone,
