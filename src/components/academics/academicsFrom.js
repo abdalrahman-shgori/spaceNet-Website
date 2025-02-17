@@ -319,14 +319,13 @@ export default function AcademicsForm({ setEnroll, enroll }) {
             setSelectedDate(null)
             setLoading(false)
         } catch (error) {
-            setSnackbarMessage(error);
+            setSnackbarMessage(error.message || "An error occurred");
             setSnackbarSeverity('warning');
             setSnackbarOpen(true);
             setLoading(false)
             return;
         }
     };
-    console.log(formData)
     return (
         <div>
             <Modal
