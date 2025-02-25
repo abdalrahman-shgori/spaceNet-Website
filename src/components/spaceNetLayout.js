@@ -4,11 +4,10 @@ import logo from "../assets/sectionsImages/sapceLogo.svg";
 import { motion } from "framer-motion"
 import ArrowWight from "../assets/sectionsImages/spacenetLayoutArrow.svg";
 import spaceNet from "../assets/spacenetLogo/spaceNetLogoWhite.svg"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const SpaceNetLayout = ({ setOpen }) => {
   const { i18n, t } = useTranslation()
-  const navigate = useNavigate()
   const companyLinks = [
     { name: t("spacenetLayout.Home"), href: '/' },
     // { name: t("spacenetLayout.BlogNews"), href: '/blogs' },
@@ -22,9 +21,6 @@ const SpaceNetLayout = ({ setOpen }) => {
     { name: t("spacenetLayout.DesignBranding"), href: '/design-branding' }
   ];
 
-  const handleClick = (href) => {
-    navigate(href)
-  }
   const dir = i18n.dir()
   return (
     <>
@@ -132,8 +128,9 @@ const SpaceNetLayout = ({ setOpen }) => {
                       }}
                       key={index}
                     >
+                      <Link to={item.name !== t("spacenetLayout.CONTACTUS") && item.href}>
                       <Button
-                        onClick={() => item.name !== t("spacenetLayout.CONTACTUS") ? handleClick(item.href) : setOpen(true)}
+                      onClick={() => item.name === t("spacenetLayout.CONTACTUS") && setOpen(true)}
                         key={index}
                         variant="outlined"
                         sx={{
@@ -158,6 +155,8 @@ const SpaceNetLayout = ({ setOpen }) => {
                       >
                         {item.name} &nbsp; <img loading="lazy" alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
                       </Button>
+                      </Link>
+                   
                     </motion.div>
 
                   ))}
@@ -203,8 +202,8 @@ const SpaceNetLayout = ({ setOpen }) => {
                       }}
                       key={index}
                     >
+                      <Link to={item.href}>
                       <Button
-                        onClick={() => handleClick(item.href)}
                         key={index}
                         variant="outlined"
                         sx={{
@@ -230,6 +229,8 @@ const SpaceNetLayout = ({ setOpen }) => {
                       >
                         {item.name} &nbsp; <img loading='lazy' alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
                       </Button>
+                      </Link>
+                      
                     </motion.div>
 
                   ))}

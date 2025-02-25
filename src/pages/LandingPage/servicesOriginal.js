@@ -7,6 +7,7 @@ import software from "../../assets/images/software.svg";
 import design from "../../assets/images/design.svg";
 import UnionWhite from "../../assets/images/UnionWhite.svg";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function ServicesOriginal({
     activeService,
@@ -18,7 +19,6 @@ export default function ServicesOriginal({
     theme,
     hoveredService,
     image,
-    handleServiceClick,
     setHoveredService,
     setHoveredServiceDescription,
     setCapture,
@@ -95,14 +95,13 @@ export default function ServicesOriginal({
                     }
                 }}
             >
+                <Link to={!isTabScreen && image?.url}>
                 <Box
                     onClick={() => {
                         if (isTabScreen) {
                             handleClicks(item);
                         }
-                        if (!isTabScreen) {
-                            handleServiceClick(image.url);
-                        }
+                       
                     }} sx={{
 
                         cursor: `url(${index === 0
@@ -235,6 +234,8 @@ export default function ServicesOriginal({
                         />
                     )}
                 </Box>
+                </Link>
+               
             </motion.div>
         </Grid>
     )

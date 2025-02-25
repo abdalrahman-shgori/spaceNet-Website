@@ -26,7 +26,6 @@ export default function Services({
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const theme = useTheme();
-    const navigate = useNavigate();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
     const servicesRef = useRef(null);
@@ -38,12 +37,7 @@ export default function Services({
         { name: "DESIGN & BRANDING", img: Union, url: "/design-branding" },
     ];
 
-    const handleServiceClick = (url) => {
-        if (url) {
-            navigate(url);
-        }
-    };
-
+   
     const handleClicks = (item) => {
         if (item.title === "ABOUT") {
             setHoveredServiceDescription("");
@@ -154,7 +148,6 @@ export default function Services({
                                     theme={theme}
                                     image={localServices[index]}
                                     setOutOfServicesHover={setOutOfServicesHover}
-                                    handleServiceClick={() => handleServiceClick(localServices[index].url)}
                                     componentRef={componentRef}
                                     setIndexOfHoveredServices={setIndexOfHoveredServices}
                                     indexOfHoveredServices={indexOfHoveredServices}

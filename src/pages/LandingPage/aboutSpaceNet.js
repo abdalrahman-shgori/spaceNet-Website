@@ -11,7 +11,7 @@ import learnMoreArrow from "../../assets/images/learnMoreArrow.svg"
 import learnMoreArrowBlack from "../../assets/images/learnMoreArrowBlack.svg"
 
 import './about.css';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export default function AboutSpaceNet({
@@ -162,21 +162,7 @@ export default function AboutSpaceNet({
         textAlign: dir === 'rtl' ? 'right' : 'left',
         zIndex: 2,
     }
-    const navigate = useNavigate()
-    const handlelearnMoreBtn = () => {
-        if (indexOfHoveredServices === 1) {
-            navigate('/academics')
-        }
-        else if (indexOfHoveredServices === 2) {
-            navigate('/core-it')
-        }
-        else if (indexOfHoveredServices === 3) {
-            navigate('/software')
-        }
-        else if (indexOfHoveredServices === 5) {
-            navigate('/design-branding')
-        }
-    }
+
 
     return (
         <>
@@ -543,8 +529,21 @@ export default function AboutSpaceNet({
                         animate={{ opacity: [0, 1] }}
                         transition={{ duration: 0.5, delay: 0.5 }}
                     >
+                    <Link
+  to={(() => {
+    if (indexOfHoveredServices === 1) {
+      return '/academics';
+    } else if (indexOfHoveredServices === 2) {
+      return '/core-it';
+    } else if (indexOfHoveredServices === 3) {
+      return '/software';
+    } else if (indexOfHoveredServices === 5) {
+      return '/design-branding';
+    }
+    return '#'; // Default case or fallback link
+  })()}
+>
                         <Box
-                            onClick={handlelearnMoreBtn}
                             component="button"
                             sx={{
                                 background:
@@ -587,6 +586,8 @@ export default function AboutSpaceNet({
                                 }}
                             />
                         </Box>
+                        </Link>
+                      
                     </motion.div>
                 )}
             </Grid>

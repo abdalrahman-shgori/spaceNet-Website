@@ -10,7 +10,7 @@ import LinkedInSvg from '../../assets/socialMediaIcons/linkedIn';
 import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 
@@ -42,7 +42,6 @@ const NavBar = ({
         { icon: <PaintrestSvg />, link: "https://www.pinterest.com/spacenetiq/", },
         { icon: <WhatsAppSvg />, link: "https://wa.me/9647505550558", },
     ];
-    const navigate = useNavigate();
 
     const toggleDrawer = (open) => {
         setIsDrawerOpen(open);
@@ -196,13 +195,12 @@ const NavBar = ({
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                                             >
-
+                                                <Link to={route}>
                                                 <ListItem
                                                     button
                                                     onClick={() => {
                                                         toggleDrawer(false);
                                                         setDrawerOpen(false);
-                                                        navigate(route);
                                                         if (text === t("navbar.CONTACTUS")) {
                                                             setOpen(true)
                                                         }
@@ -238,6 +236,8 @@ const NavBar = ({
 
                                                     </Typography>
                                                 </ListItem>
+                                                </Link>
+                                             
                                             </motion.div>
                                         ))}
                                     </List>
