@@ -104,7 +104,7 @@ export default function Academics({ setOpen }) {
                         academicsSection="first"
 
                     />
-                    <OurCourses setEnroll={setEnroll} enroll={enroll} />
+                    <OurCourses  hoveredcardid={hoveredcardid}   sethoveredcardid={sethoveredcardid} setEnroll={setEnroll} enroll={enroll} />
                     <SectionDescription
                         text1={t("academics.ourPerks")}
                         text2={t("academics.FullFeature")}

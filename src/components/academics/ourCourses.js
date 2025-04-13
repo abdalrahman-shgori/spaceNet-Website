@@ -11,7 +11,7 @@ import { motion } from "framer-motion"
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ExploreLearning from "./exploreSections";
-export default function OurCourses({ setEnroll }) {
+export default function OurCourses({hoveredcardid, sethoveredcardid,setEnroll }) {
     const location = useLocation()
     const text1Style = {
         fontSize: {
@@ -336,6 +336,8 @@ export default function OurCourses({ setEnroll }) {
                         >
                             {location.pathname === '/academics' && [1, 3, 5, 7].includes(item.id) && (
                                 <ExploreLearning
+                                hoveredcardid={hoveredcardid}
+                                sethoveredcardid={sethoveredcardid}
                                     setEnroll={setEnroll}
                                     itemid={item.id}
                                     bg={getBackgroundColor(item.id)}
@@ -357,6 +359,8 @@ export default function OurCourses({ setEnroll }) {
                         >
                             {location.pathname === '/academics' && [1, 3, 5, 6].includes(item.id) && (
                                 <ExploreLearning
+                                hoveredcardid={hoveredcardid}
+                                sethoveredcardid={sethoveredcardid}
                                     setEnroll={setEnroll}
                                     itemid={item.id}
                                     bg={getBackgroundColor(item.id)}

@@ -35,13 +35,13 @@ const btnStyle = {
     fontFamily: "var(--English-font)",
 
 };
-export default function ExploreLearning({ bg, itemid, setEnroll }) {
+export default function ExploreLearning({hoveredcardid, sethoveredcardid,bg, itemid, setEnroll }) {
     const { t } = useTranslation()
     const contentMap = {
         1: [
-            { img: uiux, title: t("academics.UI/UX"), borderColor: "#E9FA50" },
-            { img: logoDesign, title: t("academics.LogoDesign"), borderColor: "#1CB786" },
-            { img: branding, title: t("academics.BrandingDesign"), borderColor: "#FA6423" }
+            {id:0, img: uiux, title: t("academics.UI/UX"), borderColor: "#E9FA50" },
+            {id:1, img: logoDesign, title: t("academics.LogoDesign"), borderColor: "#1CB786" },
+            {id:2, img: branding, title: t("academics.BrandingDesign"), borderColor: "#FA6423" }
         ],
         3: [
             { img: fullStack, title: t("academics.FullstackDevelopment"), borderColor: "#E9FA50" },
@@ -95,7 +95,7 @@ export default function ExploreLearning({ bg, itemid, setEnroll }) {
                         lg: "35.49px",
                         md: "30.49px",
                         sm: "28px",
-                        xs: "28px"
+                        xs: "24px"
                     },
                     fontFamily: "var(--English-font)",
                 }}
@@ -112,19 +112,34 @@ export default function ExploreLearning({ bg, itemid, setEnroll }) {
                         >
                             <Box
                                 sx={{
-                                    background: "#FFFFFF",
-                                    padding: "24px 24px 60px 24px",
+                                    background:hoveredcardid === index ? `${bg}` : "#FFFFFF",
+                                    color: hoveredcardid === index && itemid !== 5 ? "white !important" : "unset",
+                                    padding:{
+                                        sm: "24px 24px 60px 24px",
+                                        xs: "24px 18px 60px 18px"
+                                    },
                                     borderRadius: "24px",
                                     display: "flex",
                                     flexDirection: "column",
-                                    gap: "28px",
+                                    gap:{
+                                        sm: "28px",
+                                        xs: "14px"
+                                    },
                                     transition: "all 0.5s",
                                     height: "100%",
-                                    ':hover': {
-                                        background: `${bg}`,
-                                        color: itemid !== 5 ? "white !important" : "unset"
-                                    }
                                 }}
+                                onMouseEnter={() => {
+                                    sethoveredcardid(index);
+                                  }}
+                                  onMouseLeave={() => {
+                                    sethoveredcardid(null);
+                                  }}
+                                  onTouchStart={() => {
+                                    sethoveredcardid(index);
+                                  }}
+                                  onTouchEnd={() => {
+                                    sethoveredcardid(null)
+                                  }}
                             >
                                 <Box
                                     sx={{
@@ -138,7 +153,10 @@ export default function ExploreLearning({ bg, itemid, setEnroll }) {
                                         component="img"
                                         loading="lazy"
                                         sx={{
-                                            maxWidth: "70px",
+                                            maxWidth:{
+                                                sm: "70px",
+                                                xs: "60px"
+                                            },
                                             border: `6px solid ${item.borderColor}`,
                                             borderRadius: "10px",
                                         }}
@@ -151,10 +169,16 @@ export default function ExploreLearning({ bg, itemid, setEnroll }) {
                                                 lg: "28px",
                                                 md: "28px",
                                                 sm: "28px",
-                                                xs: "22px",
+                                                xs: "18px",
                                             },
-                                            maxWidth: itemid !== 5 ? "205px" : "100%",
-                                            lineHeight: "32px",
+                                            maxWidth: {
+                                                sm:itemid !== 5 ? "205px" : "100%",
+                                                xs:"100%"
+                                            },
+                                            lineHeight:{
+                                                sm: "32px",
+                                                xs: "24px"
+                                            },
                                         }}
                                     >
                                         {item.title}
