@@ -40,6 +40,7 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
             img: networkGradiant
         },
     ]
+    
     const subCatStyle = {
         background: "#FFFFFF",
         padding: {
