@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 import Bracket from "../../assets/sectionsImages/academics/academicsBracket.";
 import { pageStyle, textStyle, cardTitle, bracketStyle, cardStyle, cardStyle2 } from "./whichcourseStyle";
 import { useTranslation } from "react-i18next";
-export default function WhichCourse() {
+ function WhichCourse() {
   const { i18n, t } = useTranslation()
   const dir = i18n.dir()
   const [cardAnimationStart, setCardAnimationStart] = useState(false)
@@ -419,3 +419,5 @@ export default function WhichCourse() {
     </>
   )
 }
+
+export default React.memo(WhichCourse)

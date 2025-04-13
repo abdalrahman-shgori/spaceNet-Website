@@ -35,7 +35,7 @@ const btnStyle = {
     fontFamily: "var(--English-font)",
 
 };
-export default function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnroll }) {
+ function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnroll }) {
     const { t } = useTranslation()
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -221,3 +221,4 @@ export default function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, i
         </Grid>
     );
 }
+export default React.memo(ExploreLearning)

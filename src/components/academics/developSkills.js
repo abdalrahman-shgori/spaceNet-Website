@@ -7,7 +7,7 @@ import networkGradiant from "../../assets/sectionsImages/academics/netwrokGradia
 import DevelopBtn from "./developSkillsBtn";
 import { useTranslation } from "react-i18next";
 
-export default function DevelopSkills({ setOpen, setEnroll }) {
+ function DevelopSkills({ setOpen, setEnroll }) {
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const [start, setStart] = useState(false)
@@ -429,3 +429,5 @@ export default function DevelopSkills({ setOpen, setEnroll }) {
         </>
     )
 }
+
+export default React.memo(DevelopSkills)

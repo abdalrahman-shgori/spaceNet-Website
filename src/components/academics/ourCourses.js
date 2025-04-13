@@ -11,7 +11,7 @@ import { motion } from "framer-motion"
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ExploreLearning from "./exploreSections";
-export default function OurCourses({ hoveredcardid, sethoveredcardid, setEnroll }) {
+ function OurCourses({ hoveredcardid, sethoveredcardid, setEnroll }) {
     const location = useLocation()
     const text1Style = {
         fontSize: {
@@ -374,3 +374,4 @@ export default function OurCourses({ hoveredcardid, sethoveredcardid, setEnroll 
 
     );
 }
+export default React.memo(OurCourses)

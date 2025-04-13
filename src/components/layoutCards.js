@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-export default function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, technologiesDataImage }) {
+ function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, technologiesDataImage }) {
   const location = useLocation()
   const pathname = location.pathname;
   const theme = useTheme()
@@ -308,3 +308,4 @@ export default function LayoutCards({ technologiesData, sethoveredcardid, hovere
     </>
   );
 }
+export default React.memo(LayoutCards);
