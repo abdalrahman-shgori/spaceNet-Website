@@ -326,7 +326,7 @@ export default function OurCourses({ hoveredcardid, sethoveredcardid, setEnroll 
                             )}
 
                         </Grid>
-                        {/* <Grid item
+                        <Grid item
                             sx={{
                                 display: {
                                     sm: "unset",
@@ -366,7 +366,7 @@ export default function OurCourses({ hoveredcardid, sethoveredcardid, setEnroll 
                                     bg={getBackgroundColor(item.id)}
                                 />
                             )}
-                        </Grid> */}
+                        </Grid>
                     </>
                 ))}
             </Grid>

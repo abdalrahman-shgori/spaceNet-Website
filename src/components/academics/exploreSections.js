@@ -1,5 +1,5 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
-import React from "react";
+import { Box, Button, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import React, { useMemo } from "react";
 import fullStack from "../../assets/sectionsImages/academics/development.gif"
 import front from "../../assets/sectionsImages/academics/developer.gif"
 import back from "../../assets/sectionsImages/academics/launch.gif"
@@ -37,6 +37,8 @@ const btnStyle = {
 };
 export default function ExploreLearning({hoveredcardid, sethoveredcardid,bg, itemid, setEnroll }) {
     const { t } = useTranslation()
+    const theme = useTheme();
+const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const contentMap = {
         1: [
             {id:0, img: uiux, title: t("academics.UI/UX"), borderColor: "#E9FA50" },
@@ -61,14 +63,17 @@ export default function ExploreLearning({hoveredcardid, sethoveredcardid,bg, ite
     };
 
     const selectedContent = contentMap[itemid] || contentMap.default;
-    const explore = selectedContent.map((item, index) => ({
-        id: index + 1,
-        img: item.img,
-        title: item.title,
-        borderColor: item.borderColor,
-        description:
+    
+    const explore = useMemo(() => {
+        return selectedContent.map((item, index) => ({
+          id: index + 1,
+          img: item.img,
+          title: item.title,
+          borderColor: item.borderColor,
+           description:
             'Learn to design hybrid networks using protocols like BGP, OSPF, and VXLAN, with secure connectivity through Direct Connect, ExpressRoute, and VPN Gateway. Master network optimization, redundancy, and automation for scalable, high-performance infrastructures, leveraging cloud services like AWS VPC, Azure Virtual Network, and Google Cloud VPC.'
-    }));
+        }));
+      }, [itemid, t]);
 
     return (
         <Grid
@@ -106,9 +111,9 @@ export default function ExploreLearning({hoveredcardid, sethoveredcardid,bg, ite
                 {explore.map((item, index) => (
                     <Grid item lg={4} md={6} sm={6} xs={12} key={item.id}>
                         <motion.div
-                            initial={{ filter: "blur(40px)" }}
-                            whileInView={{ filter: "blur(0px)" }}
-                            transition={{ duration: 0.5 }}
+                           initial={{ opacity: 0 }}
+                           whileInView={{ opacity: 1 }}
+                           transition={{ duration: 0.8 }}
                         >
                             <Box
                                 sx={{
@@ -128,18 +133,10 @@ export default function ExploreLearning({hoveredcardid, sethoveredcardid,bg, ite
                                     transition: "all 0.5s",
                                     height: "100%",
                                 }}
-                                onMouseEnter={() => {
-                                    sethoveredcardid(index);
-                                  }}
-                                  onMouseLeave={() => {
-                                    sethoveredcardid(null);
-                                  }}
-                                  onTouchStart={() => {
-                                    sethoveredcardid(index);
-                                  }}
-                                  onTouchEnd={() => {
-                                    sethoveredcardid(null)
-                                  }}
+                                onMouseEnter={() => !isMobile && sethoveredcardid(index)}
+                                onMouseLeave={() => !isMobile && sethoveredcardid(null)}
+                                onTouchStart={isMobile ? () => sethoveredcardid(index) : undefined}
+                                onTouchEnd={isMobile ? () => sethoveredcardid(null) : undefined}
                             >
                                 <Box
                                     sx={{
