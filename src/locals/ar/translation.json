@@ -90,7 +90,22 @@
         "Arabic": "العربية",
         "Junior": "مبتدئ",
         "Intermediate": "متوسط",
-        "Advanced": "متقدم"
+        "Advanced": "متقدم",
+"ITManagement": "إدارة تكنولوجيا المعلومات",
+"UI/UX": "تصميم واجهة المستخدم وتجربة المستخدم",
+"LogoDesign": "تصميم الشعار",
+"BrandingDesign": "تصميم الهوية البصرية",
+"FullstackDevelopment": "تطوير الواجهة الخلفية والواجهة الأمامية",
+"FrontEndDevelopment": "تطوير الواجهة الأمامية",
+"BackEndDevelopment": "تطوير الواجهة الخلفية",
+"GeneralNetwork": "هندسة وتصميم الشبكات العامة والسحابة",
+"Automation": "الأتمتة وإدارة التكوين",
+"Security": "الأمن، المراقبة، والأداء",
+"ITAdministration": "إدارة تكنولوجيا المعلومات",
+"Server": "إعداد وإدارة الخوادم",
+"Virtualization": "الافتراضية والبنية التحتية السحابية"
+
+
     },
     "software": {
         "AchieveBusiness": "حقق أهداف عملك مع حلول",

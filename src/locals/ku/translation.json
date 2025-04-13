@@ -90,7 +90,22 @@
         "Arabic": "عەرەبی",
         "Junior": "سەرەتایی",
         "Intermediate": "ناوەندیی",
-        "Advanced": "پێشکەوتوو"
+        "Advanced": "پێشکەوتوو",
+
+        "ITManagement": "بەڕێوەبردنی تێکنەلۆجیا ئاگرەنی",
+"UI/UX": "دیزاینی UI/UX",
+"LogoDesign": "دیزاینی لۆگو",
+"BrandingDesign": "دیزاینی مارکە",
+"FullstackDevelopment": "پێشکەفتنی فولی ستاک",
+"FrontEndDevelopment": "پێشکەفتنی ڕووکاری پێشوو",
+"BackEndDevelopment": "پێشکەفتنی ڕووکاری پاشوو",
+"GeneralNetwork": "تارمێ و دیزاینی شەبەکە گشتی و کلۆود",
+"Automation": "ئەتۆماتیک و بەڕێوەبردنی پەیکەیەکان",
+"Security": "ئیشکردن، فەرمی، و کارامەیەتی",
+"ITAdministration": "بەڕێوەبردنی تێکنەلۆجیا ئاگرەنی",
+"Server": "پەیکەیەکە و بەڕێوەبردنی سێرفەر",
+"Virtualization": "پەیوەندیدانی جۆری ڤێرتوەلی و ئەلفا"
+
     },
     "software": {
         "AchieveBusiness": "ئامانجەکانی بزنسەکەت بپێکە لەگەڵ چارەسەرەکانمان لە بوارەکانی",

@@ -73,10 +73,14 @@ export default function Academics({ setOpen }) {
    <meta name="twitter:description" content="Explore our academics courses and bootcamps." />
    <meta name="twitter:image" content="https://spacenetiq.com/academics-image.jpg" />
 </Helmet>
-
- 
-            <motion.div>
-             
+            <motion.div
+              initial={{ opacity: 0, y: 150 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 0 }}
+              transition={{
+                  duration: 1
+              }}
+            >
                 <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                 <Grid className="root-container"
                     sx={{
@@ -90,7 +94,6 @@ export default function Academics({ setOpen }) {
                         overflowX: "hidden"
                     }}
                 >
-
                     <DevelopSkillsText
                         text={t("academics.developSkills")}
                     />

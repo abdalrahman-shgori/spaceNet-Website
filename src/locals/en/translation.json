@@ -90,7 +90,24 @@
         "Arabic": "Arabic",
         "Junior": "Junior",
         "Intermediate": "Intermediate",
-        "Advanced": "Advanced"
+        "Advanced": "Advanced",
+
+        "ITManagement":"IT Management",
+        "UI/UX":"UI/UX Design",
+        "LogoDesign":"Logo Design",
+        "BrandingDesign":"Branding Design",
+        "FullstackDevelopment":"Fullstack Development",
+        "FrontEndDevelopment":"Front End Development",
+        "BackEndDevelopment":"Back End Development",
+        "GeneralNetwork":"General Network Architecture, Design & Cloud",
+        "Automation":"Automation & Configuration Management",
+        "Security":"Security, Monitoring, and Performance",
+        "ITAdministration":"IT Administration",
+        "Server":"Server Configuration & Management",
+        "Virtualization":"Virtualization & Cloud Infrastructure",
+        "ExploreOur":"Explore Our Learning trucks"
+
+     
     },
     "software": {
         "AchieveBusiness": "Achieve your business goals with our",
