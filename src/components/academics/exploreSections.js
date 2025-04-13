@@ -35,15 +35,15 @@ const btnStyle = {
     fontFamily: "var(--English-font)",
 
 };
-export default function ExploreLearning({hoveredcardid, sethoveredcardid,bg, itemid, setEnroll }) {
+export default function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnroll }) {
     const { t } = useTranslation()
     const theme = useTheme();
-const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const contentMap = {
         1: [
-            {id:0, img: uiux, title: t("academics.UI/UX"), borderColor: "#E9FA50" },
-            {id:1, img: logoDesign, title: t("academics.LogoDesign"), borderColor: "#1CB786" },
-            {id:2, img: branding, title: t("academics.BrandingDesign"), borderColor: "#FA6423" }
+            { id: 0, img: uiux, title: t("academics.UI/UX"), borderColor: "#E9FA50" },
+            { id: 1, img: logoDesign, title: t("academics.LogoDesign"), borderColor: "#1CB786" },
+            { id: 2, img: branding, title: t("academics.BrandingDesign"), borderColor: "#FA6423" }
         ],
         3: [
             { img: fullStack, title: t("academics.FullstackDevelopment"), borderColor: "#E9FA50" },
@@ -63,17 +63,17 @@ const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     };
 
     const selectedContent = contentMap[itemid] || contentMap.default;
-    
+
     const explore = useMemo(() => {
         return selectedContent.map((item, index) => ({
-          id: index + 1,
-          img: item.img,
-          title: item.title,
-          borderColor: item.borderColor,
-           description:
-            'Learn to design hybrid networks using protocols like BGP, OSPF, and VXLAN, with secure connectivity through Direct Connect, ExpressRoute, and VPN Gateway. Master network optimization, redundancy, and automation for scalable, high-performance infrastructures, leveraging cloud services like AWS VPC, Azure Virtual Network, and Google Cloud VPC.'
+            id: index + 1,
+            img: item.img,
+            title: item.title,
+            borderColor: item.borderColor,
+            description:
+                'Learn to design hybrid networks using protocols like BGP, OSPF, and VXLAN, with secure connectivity through Direct Connect, ExpressRoute, and VPN Gateway. Master network optimization, redundancy, and automation for scalable, high-performance infrastructures, leveraging cloud services like AWS VPC, Azure Virtual Network, and Google Cloud VPC.'
         }));
-      }, [itemid, t]);
+    }, [itemid, t]);
 
     return (
         <Grid
@@ -111,22 +111,22 @@ const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
                 {explore.map((item, index) => (
                     <Grid item lg={4} md={6} sm={6} xs={12} key={item.id}>
                         <motion.div
-                           initial={{ opacity: 0 }}
-                           whileInView={{ opacity: 1 }}
-                           transition={{ duration: 0.8 }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ duration: 0.8 }}
                         >
                             <Box
                                 sx={{
-                                    background:hoveredcardid === index ? `${bg}` : "#FFFFFF",
+                                    background: hoveredcardid === index ? `${bg}` : "#FFFFFF",
                                     color: hoveredcardid === index && itemid !== 5 ? "white !important" : "unset",
-                                    padding:{
+                                    padding: {
                                         sm: "24px 24px 60px 24px",
                                         xs: "24px 18px 60px 18px"
                                     },
                                     borderRadius: "24px",
                                     display: "flex",
                                     flexDirection: "column",
-                                    gap:{
+                                    gap: {
                                         sm: "28px",
                                         xs: "14px"
                                     },
@@ -150,7 +150,15 @@ const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
                                         component="img"
                                         loading="lazy"
                                         sx={{
-                                            maxWidth:{
+                                            maxWidth: {
+                                                sm: "70px",
+                                                xs: "60px"
+                                            },
+                                            minWidth: {
+                                                sm: "70px",
+                                                xs: "60px"
+                                            },
+                                            minHeight: {
                                                 sm: "70px",
                                                 xs: "60px"
                                             },
@@ -169,10 +177,10 @@ const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
                                                 xs: "18px",
                                             },
                                             maxWidth: {
-                                                sm:itemid !== 5 ? "205px" : "100%",
-                                                xs:"100%"
+                                                sm: itemid !== 5 ? "205px" : "100%",
+                                                xs: "100%"
                                             },
-                                            lineHeight:{
+                                            lineHeight: {
                                                 sm: "32px",
                                                 xs: "24px"
                                             },
