@@ -9,6 +9,7 @@ import OnlineCourses from "../assets/sectionsImages/academics/onlineCourses";
 import BootCamp from "../assets/sectionsImages/academics/bootCamp";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import Loader from "../components/loadingPage/loading";
 const SpaceNetLayout = React.lazy(() => import("../components/spaceNetLayout"));
 const LetsProject = lazy(() => import("../components/letsProject"));
 const WhichCourse = lazy(() => import("../components/academics/whichCourse"));
@@ -96,7 +97,7 @@ export default function Academics({ setOpen }) {
                     duration: 1
                 }}
             >
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loader/>}>
                     <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                     <Grid className="root-container"
                         sx={{

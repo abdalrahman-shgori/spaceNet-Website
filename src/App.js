@@ -118,7 +118,7 @@ const App = () => {
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
                   <ScrollToTop />
-                  <Suspense fallback={<Loader />}>
+                  <Suspense >
                     <Routes>
                       <Route
                         path='/'
