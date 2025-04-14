@@ -9,23 +9,13 @@ export default function DevelopSkillsText({ text }) {
             sm: "30px",
             xs: "30px"
         },
-        fontFamily: "var(--English-font)",
+        fontFamily: "var(--English-font), Arial, sans-serif",
         textAlign: "center",
-        maxWidth: {
-            lg: "unset",
-            md: "unset",
-            sm: "unset",
-            xs: "400px"
-        },
+        maxWidth: { xs: "400px" },
         width: "100%",
         margin: "0 auto",
-        paddingBottom: {
-            lg: "40px",
-            md: "40px",
-            sm: "30px",
-            xs: "40px"
-        }
-    }
+        pb: { lg: "40px", md: "40px", sm: "30px", xs: "40px" },
+    };
     return (
         <>
             <Typography sx={{ ...textStyle }} >
