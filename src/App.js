@@ -1,26 +1,25 @@
 
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import { motion } from 'framer-motion';
 import Toggle from './components/toggleCompoent/toggle';
+import SoftwareSection from './pages/softwarePage';
 import Footer from './components/footer';
+import DesignAndBranding from './pages/design&branding';
 import LogoAnimation from './pages/LandingPage/logoaniamtion';
+import Academics from './pages/academics';
 import BasicModal from './components/contactUs/contactUs';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import CoreIt from './pages/coreIt';
 import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
 import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
 import BlogDetails from './components/blogsAndNews/blogDetails';
-import Loader from './components/loadingPage/loading';
 
-const SoftwareSection = React.lazy(() => import('./pages/softwarePage'));
-const DesignAndBranding = React.lazy(() => import('./pages/design&branding'));
-const Academics = React.lazy(() => import('./pages/academics'));
-const CoreIt = React.lazy(() => import('./pages/coreIt'));
 
 const App = () => {
   if (process.env.NODE_ENV === 'development') {
@@ -119,30 +118,27 @@ const App = () => {
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
                   <ScrollToTop />
-                  <Suspense fallback={<Loader />}>
-                    <Routes>
-                      <Route
-                        path='/'
-                        element={
-                          <InnerApp
-                            showContent={showContent}
-                            setShowContent={setShowContent}
-                            setThemeColor={setThemeColor}
-                            draweOpen={drawerOpen}
-                            setDrawerOpen={setDrawerOpen}
-                            setOpen={setOpen}
-                          />
-                        }
-                      />
-                      <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                      <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                      <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                      <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                      <Route path='/blogs' element={<BlogsAndNews setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                      <Route path="/blogs/:id" element={<BlogDetails setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                    </Routes>
-                  </Suspense>
-
+                  <Routes>
+                    <Route
+                      path='/'
+                      element={
+                        <InnerApp
+                          showContent={showContent}
+                          setShowContent={setShowContent}
+                          setThemeColor={setThemeColor}
+                          draweOpen={drawerOpen}
+                          setDrawerOpen={setDrawerOpen}
+                          setOpen={setOpen}
+                        />
+                      }
+                    />
+                    <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/blogs' element={<BlogsAndNews setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path="/blogs/:id" element={<BlogDetails setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                  </Routes>
                   {location.pathname !== '/' && (
                     <Footer />
                   )}
