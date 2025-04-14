@@ -97,7 +97,7 @@ export default function Academics({ setOpen }) {
                     duration: 1
                 }}
             >
-                <Suspense fallback={<Loader/>}>
+                <Suspense >
                     <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                     <Grid className="root-container"
                         sx={{
