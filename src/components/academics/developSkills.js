@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion"
 import designGradiant from "../../assets/sectionsImages/academics/designGradiant.svg"
 import softwareGradiant from "../../assets/sectionsImages/academics/softwareGradiant.svg"
@@ -7,14 +7,14 @@ import networkGradiant from "../../assets/sectionsImages/academics/netwrokGradia
 import DevelopBtn from "./developSkillsBtn";
 import { useTranslation } from "react-i18next";
 
- function DevelopSkills({ setOpen, setEnroll }) {
+function DevelopSkills({ setOpen, setEnroll }) {
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const [start, setStart] = useState(false)
     const theme = useTheme()
     const extraSmallScreen = useMediaQuery(theme.breakpoints.down("348"))
     const [skills, setSkills] = useState(0)
-    const SkillsType = [
+    const SkillsType = useMemo(() => [
         {
             id: 0,
             title: t("academics.digitalDesign"),
@@ -39,8 +39,9 @@ import { useTranslation } from "react-i18next";
             boxShadow: " 0px 4px 15px rgba(233, 250, 80, 0.5)",
             img: networkGradiant
         },
-    ]
-    
+    ], [t])
+
+
     const subCatStyle = {
         background: "#FFFFFF",
         padding: {
@@ -186,7 +187,9 @@ import { useTranslation } from "react-i18next";
                                 <Box
                                     component="img"
                                     src={SkillsType[skills].img}
-                                    loading="lazy"
+                                    loading="eager"
+                                    decoding="async"
+                                    fetchPriority="high"
                                     alt="Skills Color Gradiant"
                                     sx={{
                                         maxWidth: {
