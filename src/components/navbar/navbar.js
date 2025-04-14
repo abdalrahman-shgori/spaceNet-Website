@@ -130,7 +130,7 @@ const NavBar = ({
                         >
 
                             <Drawer
-                                anchor={isSmallScreen ? "left" : dir === 'rtl' ? "left" : "right"}
+                                anchor={isSmallScreen ? dir === 'rtl' ? "right" : "left" : dir === 'rtl' ? "left" : "right"}
                                 open={isDrawerOpen}
                                 onClose={handleCloseDrawer}
                                 PaperProps={{
