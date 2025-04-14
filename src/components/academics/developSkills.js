@@ -212,33 +212,34 @@ function DevelopSkills({ setOpen, setEnroll }) {
                         </Box>
 
                        
-                            <Typography
-                                sx={{
-                                    fontSize: {
-                                        lg: "60px",
-                                        md: "40px",
-                                        sm: "30px",
-                                        xs: "27px"
-                                    },
-                                    textAlign: "center",
-                                    fontFamily: "var(--English-font), Arial, sans-serif",
-                                    padding: {
-                                        lg: "0px 90px 0px 90px",
-                                        md: "0px 90px 0px 90px",
-                                        sm: "0px 60px 0px 60px",
-                                        xs: "0px 40px 0px 40px"
-                                    },
-                                    lineHeight: {
-                                        lg: "65px",
-                                        md: "65px",
-                                        sm: "40px",
-                                        xs: "30px"
-                                    },
-                                    color: "#051A2F"
-                                }}
-                            >
-                                {SkillsType[skills].title}
-                            </Typography>
+                        <Typography
+  sx={{
+    fontSize: {
+      lg: "60px",
+      md: "40px",
+      sm: "30px",
+      xs: "27px"
+    },
+    textAlign: "center",
+    fontFamily: "var(--English-font), Arial, sans-serif",
+    padding: {
+      lg: "0px 90px",
+      md: "0px 90px",
+      sm: "0px 60px",
+      xs: "0px 40px"
+    },
+    lineHeight: {
+      lg: "65px",
+      md: "65px",
+      sm: "40px",
+      xs: "30px"
+    },
+    color: "#051A2F"
+  }}
+>
+  {SkillsType[skills].title}
+</Typography>
+
                         <Box
                             sx={{
                                 position: "absolute",
