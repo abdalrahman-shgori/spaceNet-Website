@@ -1,35 +1,35 @@
 @font-face {
     font-family: "English";
-    src: url(../fontFamily/Sora-Regular.ttf);
+    src: url(../fontFamily/Sora-Regular.ttf) format("woff2");
     font-display: swap;
 }
 @font-face {
     font-family: "SoraSemiBold";
-    src: url(../fontFamily/Sora-SemiBold.ttf);
+    src: url(../fontFamily/Sora-SemiBold.ttf) format("woff2");
     font-display: swap;
 }
 @font-face {
     font-family: "SoraSemiLight";
-    src: url(../fontFamily/Sora-Light.ttf);
+    src: url(../fontFamily/Sora-Light.ttf) format("woff2");
     font-display: swap;
 }
 @font-face {
     font-family: "SoraExtraLight";
-    src: url(../fontFamily/Sora-ExtraLight.ttf);
+    src: url(../fontFamily/Sora-ExtraLight.ttf) format("woff2");
     font-display: swap;
 }
 @font-face {
     font-family: "StintUltraCondensed";
-    src: url(../fontFamily/Sora-ExtraLight.ttf);
+    src: url(../fontFamily/Sora-ExtraLight.ttf) format("woff2");
     font-display: swap;
 }
 @font-face {
     font-family: "SoraThin";
-    src: url(../fontFamily/Sora-Thin.ttf);
+    src: url(../fontFamily/Sora-Thin.ttf) format("woff2");
     font-display: swap;
 }
 :root{
-    font-family:'English';
+    --English-font:'English';
     --English-font-semibold:'SoraSemiBold';
     --English-font-light:'SoraSemiLight';
     --English-font-Extralight:'SoraExtraLight';

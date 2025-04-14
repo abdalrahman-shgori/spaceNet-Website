@@ -26,7 +26,6 @@ export default function Loader(){
           >
             <Box
               component="img"
-              loading="lazy"
               alt='logo'
               src={logo}
               sx={{
@@ -41,7 +40,6 @@ export default function Loader(){
             />
             <Box
               component="img"
-              loading="lazy"
               alt='logoText'
               src={spaceNet}
               sx={{

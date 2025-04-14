@@ -211,11 +211,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                             </motion.div>
                         </Box>
 
-                        <motion.div
-                            transition={{
-                                duration: 0.2,
-                            }}
-                        >
+                       
                             <Typography
                                 sx={{
                                     fontSize: {
@@ -225,7 +221,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                                         xs: "27px"
                                     },
                                     textAlign: "center",
-                                    fontFamily: "var(--English-font)",
+                                    fontFamily: "var(--English-font), Arial, sans-serif",
                                     padding: {
                                         lg: "0px 90px 0px 90px",
                                         md: "0px 90px 0px 90px",
@@ -243,7 +239,6 @@ function DevelopSkills({ setOpen, setEnroll }) {
                             >
                                 {SkillsType[skills].title}
                             </Typography>
-                        </motion.div>
                         <Box
                             sx={{
                                 position: "absolute",
