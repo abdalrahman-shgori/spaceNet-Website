@@ -17,10 +17,7 @@ export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const { t } = useTranslation()
     const data = useMemo(() => technologiesData(t, hoveredcardid), [t, hoveredcardid]);
-
-
     const [enroll, setEnroll] = useState(false)
-
     useEffect(() => {
         window.scrollTo({
             top: 0,
