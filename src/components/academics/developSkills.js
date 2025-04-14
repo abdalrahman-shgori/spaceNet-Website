@@ -83,7 +83,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
             sm: "31px",
             xs: "15px"
         },
-        fontFamily: "var(--English-font)",
+        fontFamily:"var(--English-font), Arial, sans-serif",
         color: "#051A2F"
 
 
@@ -333,7 +333,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                                     borderRadius: "50px",
                                     color: "#FFFFFF",
                                     padding: "13px 33px 13px 33px",
-                                    fontFamily: "var(--English-font)",
+                                    fontFamily: "var(--English-font), Arial, sans-serif",
                                     fontSize: {
                                         lg: "18.5px",
                                         sm: "18.5px",
@@ -360,7 +360,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                                         sm: "14px",
                                         xs: "17px"
                                     },
-                                    fontFamily: "var(--English-font)",
+                                    fontFamily: "var(--English-font), Arial, sans-serif",
                                 }}
                             >
                                 {t("academics.RegisterNow")}
@@ -392,7 +392,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                         borderRadius: "50px",
                         color: "#FFFFFF",
                         padding: "13px 33px 13px 33px",
-                        fontFamily: "var(--English-font)",
+                        fontFamily: "var(--English-font), Arial, sans-serif",
                         fontSize: {
                             lg: "18.5px",
                             sm: "18.5px",
@@ -412,7 +412,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                         color: "#FFFFFF",
                         padding: "13px 33px 13px 33px",
                         marginTop: "27px",
-                        fontFamily: "var(--English-font)",
+                        fontFamily: "var(--English-font), Arial, sans-serif",
                         fontSize: {
                             lg: "18.5px",
                             sm: "18.5px",

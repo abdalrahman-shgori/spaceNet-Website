@@ -83,7 +83,7 @@ export const cardTitle = (test, index) => ({
     sm: "0px 37px 0px 37px",
     xs: "0px 22px 0px 22px"
   },
-  fontFamily: "var(--English-font)",
+  fontFamily: "var(--English-font), Arial, sans-serif",
   color: index === 2 ? "#FA6423" : index === 3 ? "#FA6423" : "#FFFFFF",
   position: "relative",
   top: {

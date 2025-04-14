@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next';
 import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
 import BlogDetails from './components/blogsAndNews/blogDetails';
 import Loader from './components/loadingPage/loading';
+
 const SoftwareSection = React.lazy(() => import('./pages/softwarePage'));
 const DesignAndBranding = React.lazy(() => import('./pages/design&branding'));
 const Academics = React.lazy(() => import('./pages/academics'));

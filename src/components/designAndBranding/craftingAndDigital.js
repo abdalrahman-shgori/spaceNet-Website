@@ -54,7 +54,7 @@ export default function Crafting({
               sm: "42px",
               xs: "35px"
             },
-            fontFamily: "var(--English-font)",
+            fontFamily: "var(--English-font), Arial, sans-serif",
             textAlign: "end",
           }}
         >
@@ -186,7 +186,7 @@ export default function Crafting({
               sm: "42px",
               xs: "35px"
             },
-            fontFamily: "var(--English-font)",
+            fontFamily: "var(--English-font), Arial, sans-serif",
             textAlign: "center",
             whiteSpace: {
               lg: "nowrap",

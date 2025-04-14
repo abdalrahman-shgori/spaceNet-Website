@@ -32,7 +32,7 @@ const btnStyle = {
         sm: "13px",
         xs: "13px"
     },
-    fontFamily: "var(--English-font)",
+    fontFamily: "var(--English-font), Arial, sans-serif",
 
 };
  function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnroll }) {
@@ -102,7 +102,7 @@ const btnStyle = {
                         sm: "28px",
                         xs: "24px"
                     },
-                    fontFamily: "var(--English-font)",
+                    fontFamily: "var(--English-font), Arial, sans-serif",
                 }}
             >
                 {t("academics.ExploreOur")}
@@ -169,7 +169,7 @@ const btnStyle = {
                                     />
                                     <Typography
                                         sx={{
-                                            fontFamily: "var(--English-font)",
+                                            fontFamily: "var(--English-font), Arial, sans-serif",
                                             fontSize: {
                                                 lg: "28px",
                                                 md: "28px",
@@ -193,7 +193,7 @@ const btnStyle = {
                                     <Typography
                                         sx={{
                                             mb: 2,
-                                            fontFamily: "var(--English-font)",
+                                            fontFamily: "var(--English-font), Arial, sans-serif",
                                             fontSize: {
                                                 lg: "17.75px",
                                                 md: "15.75px",

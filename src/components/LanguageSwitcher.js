@@ -70,7 +70,7 @@ const LanguageSwitcher = () => {
                             color: location === '/' ? '#FFFFFF' : theme.palette.mode === 'light' ? "#051A2F" : "#FFFFFF",
                             padding: "6px 0px",
                             display: { lg: "block", sm: "none", xs: "none" },
-                            fontFamily: "var(--English-font)",
+                            fontFamily: "var(--English-font), Arial, sans-serif",
                             fontWeight: "600",
                             '&:hover': {
                                 backgroundColor: 'transparent',
@@ -89,7 +89,7 @@ const LanguageSwitcher = () => {
                             minWidth: "40px",
                             height: { lg: "", xs: "0px" },
                             textTransform: "unset",
-                            fontFamily: "var(--English-font)",
+                            fontFamily: "var(--English-font), Arial, sans-serif",
                         }}
                         disableRipple
                     >
@@ -116,7 +116,7 @@ const LanguageSwitcher = () => {
                             <>
                                 <MenuItem
                                     sx={{
-                                        minHeight: "0px", fontFamily: "var(--English-font)",
+                                        minHeight: "0px", fontFamily: "var(--English-font), Arial, sans-serif",
                                         '&.Mui-focusVisible': {
                                             backgroundColor: 'transparent',
                                         },
@@ -128,7 +128,7 @@ const LanguageSwitcher = () => {
                                 </MenuItem>
                                 <MenuItem
                                     sx={{
-                                        minHeight: "0px", fontFamily: "var(--English-font)",
+                                        minHeight: "0px", fontFamily: "var(--English-font), Arial, sans-serif",
                                         '&.Mui-focusVisible': {
                                             backgroundColor: 'transparent',
                                         },
@@ -143,7 +143,7 @@ const LanguageSwitcher = () => {
                             <>
                                 <MenuItem
                                     sx={{
-                                        minHeight: "0px", fontFamily: "var(--English-font)",
+                                        minHeight: "0px", fontFamily: "var(--English-font), Arial, sans-serif",
                                         '&.Mui-focusVisible': {
                                             backgroundColor: 'transparent',
                                         },
@@ -155,7 +155,7 @@ const LanguageSwitcher = () => {
                                 </MenuItem>
                                 <MenuItem
                                     sx={{
-                                        minHeight: "0px", fontFamily: "var(--English-font)",
+                                        minHeight: "0px", fontFamily: "var(--English-font), Arial, sans-serif",
                                         '&.Mui-focusVisible': {
                                             backgroundColor: 'transparent',
                                         },
@@ -170,7 +170,7 @@ const LanguageSwitcher = () => {
                             <>
                                 <MenuItem
                                     sx={{
-                                        minHeight: "0px", fontFamily: "var(--English-font)",
+                                        minHeight: "0px", fontFamily: "var(--English-font), Arial, sans-serif",
                                         '&.Mui-focusVisible': {
                                             backgroundColor: 'transparent',
                                         },
@@ -182,7 +182,7 @@ const LanguageSwitcher = () => {
                                 </MenuItem>
                                 <MenuItem
                                     sx={{
-                                        minHeight: "0px", fontFamily: "var(--English-font)",
+                                        minHeight: "0px", fontFamily: "var(--English-font), Arial, sans-serif",
                                         '&.Mui-focusVisible': {
                                             backgroundColor: 'transparent',
                                         },

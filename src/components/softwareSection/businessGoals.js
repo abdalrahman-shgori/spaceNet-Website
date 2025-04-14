@@ -27,7 +27,7 @@ export default function ResponsiveComponent({
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
     const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
     const goalTypographyStyles = useMemo(() => ({
-        fontFamily: "var(--English-font)",
+        fontFamily:"var(--English-font), Arial, sans-serif",
         fontSize: {
           lg: is14Inch ? "42px" : is15Inch ? "45px" : "53px",
           md: "38px",
@@ -111,7 +111,7 @@ export default function ResponsiveComponent({
 
             <Typography
                 sx={{
-                    fontFamily: "var(--English-font)",
+                    fontFamily:"var(--English-font), Arial, sans-serif",
                     fontSize: {
                         lg: is14Inch ? "42px" : is15Inch ? "45px" : "53px",
                         md: "38px",

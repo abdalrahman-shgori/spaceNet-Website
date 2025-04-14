@@ -92,7 +92,7 @@ export default function CreatingSolution() {
                   sm: "30px",
                   xs: "30px",
                 },
-                fontFamily: "var(--English-font)",
+                fontFamily: "var(--English-font), Arial, sans-serif",
                 textAlign: dir === 'rtl' ? "right" : "left",
                 color: "#000000"
               }}
@@ -108,7 +108,7 @@ export default function CreatingSolution() {
                   sm: "18px",
                   xs: "18px",
                 },
-                fontFamily: "var(--English-font)",
+                fontFamily: "var(--English-font), Arial, sans-serif",
                 marginTop: {
                   lg: "83px",
                   md: "83px",
@@ -132,7 +132,7 @@ export default function CreatingSolution() {
                         sm: "14px",
                         xs: "14px",
                       },
-                      fontFamily: "var(--English-font)",
+                      fontFamily: "var(--English-font), Arial, sans-serif",
                       padding: {
                         lg: "11px 18px 11px 18px",
                         md: "11px 18px 11px 18px",
@@ -158,7 +158,7 @@ export default function CreatingSolution() {
                         xs: "15px",
                       },
                       color: "#000000",
-                      fontFamily: "var(--English-font)",
+                      fontFamily: "var(--English-font), Arial, sans-serif",
                     }}
                   >{item.description}
                   </Typography>

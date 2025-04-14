@@ -262,7 +262,7 @@ const NavBar = ({
                                                 textDecoration: "underline",
                                                 color: "#000000",
                                                 fontSize: "16px",
-                                                fontFamily: "var(--English-font)"
+                                                fontFamily: "var(--English-font), Arial, sans-serif"
                                             }}
                                         >
                                             {t("navbar.PrivacyPolicy")}

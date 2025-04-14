@@ -108,7 +108,7 @@ export default function ContactUsBtn({ setOpen }) {
                 sm: "18px",
                 xs: "16px",
               },
-              fontFamily: "var(--English-font)",
+              fontFamily: "var(--English-font), Arial, sans-serif",
               textAlign: "center",
 
             }}

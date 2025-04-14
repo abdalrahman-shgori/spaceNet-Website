@@ -44,7 +44,7 @@ export default function OurTechnologiesXsScreen({ programmingLang }) {
                                 <Typography
                                     sx={{
                                         fontSize: "18px",
-                                        fontFamily: "var(--English-font)",
+                                        fontFamily: "var(--English-font), Arial, sans-serif",
                                         padding: {
                                             xs: "56px 26px 56px 26px"
                                         },

@@ -20,7 +20,7 @@ const technologiesDataImage = [
             <Typography
                 sx={{
                     fontSize: { lg: "50px", md: "40px", sm: "40px", xs: "30px" },
-                    fontFamily: "var(--English-font)",
+                    fontFamily: "var(--English-font), Arial, sans-serif",
                 }}
             >
                 [1]
@@ -33,7 +33,7 @@ const technologiesDataImage = [
             <Typography
                 sx={{
                     fontSize: { lg: "50px", md: "40px", sm: "40px", xs: "30px" },
-                    fontFamily: "var(--English-font)",
+                    fontFamily: "var(--English-font), Arial, sans-serif",
                 }}
             >
                 [2]
@@ -46,7 +46,7 @@ const technologiesDataImage = [
             <Typography
                 sx={{
                     fontSize: { lg: "50px", md: "40px", sm: "40px", xs: "30px" },
-                    fontFamily: "var(--English-font)",
+                    fontFamily: "var(--English-font), Arial, sans-serif",
                 }}
             >
                 [3]
@@ -59,7 +59,7 @@ const technologiesDataImage = [
             <Typography
                 sx={{
                     fontSize: { lg: "50px", md: "40px", sm: "40px", xs: "30px" },
-                    fontFamily: "var(--English-font)",
+                    fontFamily: "var(--English-font), Arial, sans-serif",
                 }}
             >
                 [4]
@@ -72,7 +72,7 @@ const technologiesDataImage = [
             <Typography
                 sx={{
                     fontSize: { lg: "50px", md: "40px", sm: "40px", xs: "30px" },
-                    fontFamily: "var(--English-font)",
+                    fontFamily: "var(--English-font), Arial, sans-serif",
                 }}
             >
                 [5]

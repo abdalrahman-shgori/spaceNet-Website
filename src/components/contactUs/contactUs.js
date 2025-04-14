@@ -86,7 +86,7 @@ const textFieldStyle = {
         },
         '& .MuiInputBase-input::placeholder': {
             color: '#29547E',
-            fontFamily: "var(--English-font)"
+            fontFamily: "var(--English-font), Arial, sans-serif"
         },
         '& .MuiInputBase-input': {
             color: '#29547E',
@@ -238,7 +238,7 @@ export default function BasicModal({ setOpen, open }) {
                                     },
                                     width: "100%",
                                     textAlign: "center",
-                                    fontFamily: "var(--English-font)",
+                                    fontFamily: "var(--English-font), Arial, sans-serif",
                                     lineHeight: {
                                         lg: "69px",
                                         md: "69px",
@@ -330,7 +330,7 @@ export default function BasicModal({ setOpen, open }) {
                                                         xs: "16px"
                                                     },
                                                     color: "#FFFFFF",
-                                                    fontFamily: "var(--English-font)",
+                                                    fontFamily: "var(--English-font), Arial, sans-serif",
                                                     maxWidth: {
                                                         lg: "310px",
                                                         md: "310px",
@@ -383,7 +383,7 @@ export default function BasicModal({ setOpen, open }) {
                                                                 sm: "15px",
                                                                 xs: "15px"
                                                             },
-                                                            fontFamily: "var(--English-font)",
+                                                            fontFamily: "var(--English-font), Arial, sans-serif",
                                                             color: "#FFFFFF",
                                                             direction: index === 1 && "ltr"
 

@@ -21,7 +21,7 @@ import ExploreLearning from "./exploreSections";
             xs: "12px"
         },
         lineHeight: "auto",
-        fontFamily: "var(--English-font)"
+        fontFamily: "var(--English-font), Arial, sans-serif"
     };
 
     const text2Style = {
@@ -38,7 +38,7 @@ import ExploreLearning from "./exploreSections";
             xs: "30px"
         },
         color: "#000000",
-        fontFamily: "var(--English-font)",
+        fontFamily: "var(--English-font), Arial, sans-serif",
         padding: {
             lg: "23px 0px 20px 0px",
             md: "23px 0px 20px 0px",
@@ -93,7 +93,7 @@ import ExploreLearning from "./exploreSections";
             sm: "13px",
             xs: "13px"
         },
-        fontFamily: "var(--English-font)",
+        fontFamily: "var(--English-font), Arial, sans-serif",
 
     };
     const { t, i18n } = useTranslation()

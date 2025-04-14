@@ -12,7 +12,7 @@ export default function AnimatedText({
     serviceColors,
 }) {
     const currentServiceTypeStyle = {
-        fontFamily: "var(--English-font)",
+        fontFamily: "var(--English-font), Arial, sans-serif",
         fontSize: {
             lg: is14Inch ? "40px" : is15Inch ? "40px" : "48px",
             md: "37px",
@@ -45,7 +45,6 @@ export default function AnimatedText({
     return (
 
         <AnimatePresence mode='wait'>
-
             <motion.span
                 key={currentServiceType}
                 layout

@@ -102,7 +102,7 @@ export default function CoreIt({ setOpen }) {
                                 xs: "30px"
                             },
                             textAlign: "center",
-                            fontFamily: "var(--English-font)"
+                            fontFamily: "var(--English-font), Arial, sans-serif"
                         }}
                     >
                         {t("coreIt.MakeUse")}

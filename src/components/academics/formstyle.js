@@ -31,7 +31,7 @@ export const textFieldStyle = (theme) => ({
         },
         '& .MuiInputBase-input::placeholder': {
             color: theme.palette.mode === 'dark' ? "#FFFFFF" : '#29547E',
-            fontFamily: "var(--English-font)",
+            fontFamily: "var(--English-font), Arial, sans-serif",
             background: 'transparent',
         },
         '& .MuiInputBase-input': {
@@ -43,7 +43,7 @@ export const textFieldStyle = (theme) => ({
                 xs: "11px"
             },
             background: 'transparent',
-            fontFamily: "var(--English-font)"
+            fontFamily: "var(--English-font), Arial, sans-serif"
         },
         height: {
             lg: "58px",
@@ -105,7 +105,7 @@ export const radioStyle = (theme) => ({
             sm: "14px",
             xs: "10px"
         },
-        fontFamily: "var(--English-font)",
+        fontFamily: "var(--English-font), Arial, sans-serif",
 
         '& .MuiSvgIcon-root': {
             width: 40,

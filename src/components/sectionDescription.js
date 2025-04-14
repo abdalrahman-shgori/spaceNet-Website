@@ -13,7 +13,7 @@ export default function SectionDescription({ text1, text2, top, academicsSection
             sm: "26px",
             xs: pathname === '/academics' ? "28px" : "26px"
         },
-        fontFamily: "var(--English-font)",
+        fontFamily: "var(--English-font), Arial, sans-serif",
         maxWidth: {
             lg: pathname === '/core-it' ? "1150px" : "898px",
             md: pathname === '/core-it' ? "1150px" : "898px",
@@ -36,7 +36,7 @@ export default function SectionDescription({ text1, text2, top, academicsSection
             sm: "13px",
             xs: "13px"
         },
-        fontFamily: "var(--English-font)",
+        fontFamily: "var(--English-font), Arial, sans-serif",
         maxWidth: {
             lg: "679px",
             md: "679px",

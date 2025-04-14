@@ -8,7 +8,7 @@ const textStyle = {
         sm: "30px",
         xs: "30px"
     },
-    fontFamily: "var(--English-font)",
+    fontFamily: "var(--English-font), Arial, sans-serif",
     textAlign: "start",
     maxWidth: {
         lg: "unset",

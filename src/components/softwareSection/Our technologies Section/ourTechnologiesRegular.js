@@ -58,7 +58,7 @@ export default function OurTechnologiesRegular({ programmingLang }) {
                                             md: "28px",
                                             sm: "22px"
                                         },
-                                        fontFamily: "var(--English-font)",
+                                        fontFamily: "var(--English-font), Arial, sans-serif",
                                         padding: {
                                             lg: "80px 86.3px 80px 86.3px",
                                             md: "40px 40px 40px 40px",

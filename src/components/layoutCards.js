@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
   const pathname = location.pathname;
   const theme = useTheme()
   const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down('354'))
-  const spesificLgScreen = useMediaQuery(theme.breakpoints.between("890", '1292'))
   const { i18n, t } = useTranslation()
   const dir = i18n.dir()
   const lang = i18n.language
@@ -181,7 +180,7 @@ import { useTranslation } from "react-i18next";
                     <Typography
                       sx={{
                         fontSize: "14px",
-                        fontFamily: "var(--English-font)",
+                        fontFamily: "var(--English-font), Arial, sans-serif",
                         marginTop: "20px",
                         color: "#051A2F",
                         maxWidth: "574px",
@@ -277,7 +276,7 @@ import { useTranslation } from "react-i18next";
                                       sm: "14px",
                                       xs: "14px"
                                     },
-                                    fontFamily: "var(--English-font)",
+                                    fontFamily: "var(--English-font), Arial, sans-serif",
                                   }}
                                 >
                                   {img}

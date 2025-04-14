@@ -15,7 +15,7 @@ const text1Style = {
     sm: "30px",
     xs: "30px"
   },
-  fontFamily: "var(--English-font)",
+  fontFamily: "var(--English-font), Arial, sans-serif",
   maxWidth: {
     xl: "900px",
     lg: "684px",
@@ -47,7 +47,7 @@ const text2Style = {
     sm: "16px",
     xs: "16px"
   },
-  fontFamily: "var(--English-font)",
+  fontFamily: "var(--English-font), Arial, sans-serif",
   maxWidth: {
     xl: "764px",
     lg: "679px",
@@ -171,7 +171,7 @@ export default function LetsProject({ text1, text2, btnText, cardBg, text1Color,
                   sm: "16px",
                   xs: "16px"
                 },
-                fontFamily: "var(--English-font)",
+                fontFamily: "var(--English-font), Arial, sans-serif",
                 cursor: "pointer",
 
               }}

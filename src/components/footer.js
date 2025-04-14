@@ -95,7 +95,7 @@ const Footer = () => {
                       underline="none"
                       sx={{
                         fontSize: "16px",
-                        fontFamily: "var(--English-font)",
+                        fontFamily: "var(--English-font), Arial, sans-serif",
                         color: "#222222",
                         display: "flex",
                         alignItems: "center",
@@ -134,7 +134,7 @@ const Footer = () => {
                     key={idx}
                     sx={{
                       fontSize: "16px",
-                      fontFamily: "var(--English-font)",
+                      fontFamily: "var(--English-font), Arial, sans-serif",
                       color: "#222222",
                       width: {
                         lg: index !== 1 && idx !== 2 ? "190px" : "240px",
@@ -194,7 +194,7 @@ const Footer = () => {
               sm: "12px",
               xs: "12px"
             },
-            fontFamily: "var(--English-font)",
+            fontFamily: "var(--English-font), Arial, sans-serif",
             color: "#222222",
 
           }}
@@ -209,7 +209,7 @@ const Footer = () => {
               sm: "12px",
               xs: "12px"
             },
-            fontFamily: "var(--English-font)",
+            fontFamily: "var(--English-font), Arial, sans-serif",
             color: "#222222",
           }}
         >

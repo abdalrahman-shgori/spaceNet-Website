@@ -413,7 +413,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                                     },
                                     width: "100%",
                                     textAlign: "center",
-                                    fontFamily: "var(--English-font)",
+                                    fontFamily: "var(--English-font), Arial, sans-serif",
                                     lineHeight: {
                                         lg: "69px",
                                         md: "69px",

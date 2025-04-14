@@ -158,7 +158,7 @@ export default function Cards({
                                                         sm: "24px",
                                                         xs: "32px"
                                                     },
-                                                    fontFamily: "var(--English-font)",
+                                                    fontFamily: "var(--English-font), Arial, sans-serif",
                                                     maxWidth: {
                                                         lg: "405px",
                                                         md: "405px",
@@ -206,7 +206,7 @@ export default function Cards({
                                                         sm: "16px",
                                                         xs: "16px"
                                                     },
-                                                    fontFamily: "var(--English-font)",
+                                                    fontFamily: "var(--English-font), Arial, sans-serif",
                                                     maxWidth: {
                                                         lg: "100%",
                                                         md: "100%",
@@ -268,7 +268,7 @@ export default function Cards({
                                                                 sm: "16px",
                                                                 xs: "16px"
                                                             },
-                                                            fontFamily: "var(--English-font)",
+                                                            fontFamily: "var(--English-font), Arial, sans-serif",
                                                             padding: "6px 22px",
                                                             marginRight: dir === "ltr" && "20px",
                                                             marginLeft: dir === "rtl" && "20px",

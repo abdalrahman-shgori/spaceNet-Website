@@ -571,7 +571,7 @@ export default function AboutSpaceNet({
                             <Typography
                                 sx={{
                                     fontSize: "14px",
-                                    fontFamily: "var(--English-font)",
+                                    fontFamily: "var(--English-font), Arial, sans-serif",
                                     color: indexOfHoveredServices === 2 ? "#000" : "#FFF",
                                 }}
                             >
