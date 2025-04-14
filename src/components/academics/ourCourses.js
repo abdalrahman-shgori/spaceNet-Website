@@ -187,7 +187,7 @@ import ExploreLearning from "./exploreSections";
                                 paddingRight: dir === 'ltr' && index % 2 === 0 ? "5.9px" : "0",
                                 paddingLeft: dir === 'rtl' && index % 2 === 0 ? "5.9px" : "0",
                                 maxHeight: "601px",
-
+                                overflow:"hidden",
                             }}
                         >
                             {item.img !== undefined ? (
