@@ -151,9 +151,7 @@ export default function ServicesMobile({
                
             >
                 <Box
-
                     onClick={() => handleClicks(item)}
-                    
                     sx={{
                         cursor: `url(${index === 0
                             ? academy
@@ -165,9 +163,7 @@ export default function ServicesMobile({
                                         ? design
                                         : ""
                             }), pointer`,
-
                         background: getBackgroundColor(),
-
                         borderRadius: "38.7px",
                         marginTop: {
                             lg: "20px",

@@ -35,11 +35,11 @@ const btnStyle = {
     fontFamily: "var(--English-font), Arial, sans-serif",
 
 };
- function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnroll }) {
+function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnroll }) {
     const { t } = useTranslation()
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-    const contentMap = {
+    const contentMap = useMemo(() => ({
         1: [
             { id: 0, img: uiux, title: t("academics.UI/UX"), borderColor: "#E9FA50" },
             { id: 1, img: logoDesign, title: t("academics.LogoDesign"), borderColor: "#1CB786" },
@@ -60,7 +60,8 @@ const btnStyle = {
             { img: server, title: t("academics.Server"), borderColor: "#E9FA50" },
             { img: cloud, title: t("academics.Virtualization"), borderColor: "#FA6423" }
         ]
-    };
+    }), [t]);
+
 
     const selectedContent = contentMap[itemid] || contentMap.default;
 
@@ -151,15 +152,18 @@ const btnStyle = {
                                         loading="lazy"
                                         sx={{
                                             maxWidth: {
-                                                sm: "70px",
+                                                md:"70px",
+                                                sm: "60px",
                                                 xs: "60px"
                                             },
                                             minWidth: {
-                                                sm: "70px",
+                                                md:"70px",
+                                                sm: "60px",
                                                 xs: "60px"
                                             },
                                             minHeight: {
-                                                sm: "70px",
+                                                md:"70px",
+                                                sm: "60px",
                                                 xs: "60px"
                                             },
                                             border: `6px solid ${item.borderColor}`,
@@ -173,17 +177,19 @@ const btnStyle = {
                                             fontSize: {
                                                 lg: "28px",
                                                 md: "28px",
-                                                sm: "28px",
+                                                sm: "22px",
                                                 xs: "18px",
                                             },
                                             maxWidth: {
-                                                sm: itemid !== 5 ? "205px" : "100%",
+                                                sm: itemid !== 5 && itemid !== 7 ? "205px" : "100%",
                                                 xs: "100%"
                                             },
                                             lineHeight: {
                                                 sm: "32px",
                                                 xs: "24px"
                                             },
+                                            color: hoveredcardid === index && itemid !== 5 ? "white !important" : "#051A2F",
+
                                         }}
                                     >
                                         {item.title}
@@ -206,6 +212,7 @@ const btnStyle = {
                                                 sm: "18px",
                                                 xs: "18px"
                                             },
+                                            color: hoveredcardid === index && itemid !== 5 ? "white !important" : "#051A2F",
                                         }}>
                                         {item.description}
                                     </Typography>
