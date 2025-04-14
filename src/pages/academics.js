@@ -97,7 +97,6 @@ export default function Academics({ setOpen }) {
                     duration: 1
                 }}
             >
-                <Suspense >
                     <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                     <Grid className="root-container"
                         sx={{
@@ -114,28 +113,35 @@ export default function Academics({ setOpen }) {
                         <DevelopSkillsText
                             text={t("academics.developSkills")}
                         />
+                        <Suspense>
                         <DevelopSkills setOpen={setOpen} setEnroll={setEnroll} />
+                        </Suspense>
                         <SectionDescription
                             text1={t("academics.whatwetech")}
                             text2={t("academics.exploreOur")}
                             academicsSection="first"
 
                         />
+                        <Suspense>
                         <OurCourses hoveredcardid={hoveredcardid} sethoveredcardid={sethoveredcardid} setEnroll={setEnroll} enroll={enroll} />
+                        </Suspense>
                         <SectionDescription
                             text1={t("academics.ourPerks")}
                             text2={t("academics.FullFeature")}
                             top="80px"
                             academicsSection="sec"
                         />
+                        <Suspense>
                         <LayoutCards
                             technologiesData={technologiesData}
                             sethoveredcardid={sethoveredcardid}
                             hoveredcardid={hoveredcardid}
                         />
-
+</Suspense>
                     </Grid>
+                    <Suspense>
                     <WhichCourse />
+                    </Suspense>
                     <LetsProject
                         text1={t("academics.Readytokickstart")}
                         // text2="A SpacenNet technology company can help you improve your idea and turn it into reality if you're facing a challenge"
@@ -146,7 +152,6 @@ export default function Academics({ setOpen }) {
                         setOpen={setOpen}
                     />
                     <SpaceNetLayout setOpen={setOpen} />
-                </Suspense>
 
             </motion.div>
         </>
