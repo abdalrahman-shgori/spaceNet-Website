@@ -11,7 +11,7 @@ export default function DevelopSkillsText({ text }) {
         },
         fontFamily: "var(--English-font), Arial, sans-serif",
         textAlign: "center",
-        maxWidth: { xs: "400px" },
+        maxWidth: { sm:"unset",xs: "400px" },
         width: "100%",
         margin: "0 auto",
         pb: { lg: "40px", md: "40px", sm: "30px", xs: "40px" },
