@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import vector1 from "../../assets/sectionsImages/vectorSections1.svg";
 import vector2 from "../../assets/sectionsImages/vectorSections2.svg";
 import vectorWhite1 from "../../assets/sectionsImages/vectorSectionsWhite1.svg";
@@ -26,6 +26,28 @@ export default function ResponsiveComponent({
     const breakLine = useMediaQuery(theme.breakpoints.down("520"));
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
     const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
+    const goalTypographyStyles = useMemo(() => ({
+        fontFamily: "var(--English-font)",
+        fontSize: {
+          lg: is14Inch ? "42px" : is15Inch ? "45px" : "53px",
+          md: "38px",
+          sm: "35px",
+          xs: isExtraSmallMobile ? "16px" : "26px",
+        },
+        textAlign: dir === 'rtl' ? "right" : "left",
+        paddingRight: dir === 'ltr' ? {
+          lg: "20px",
+          md: "20px",
+          sm: "12px",
+          xs: "12px"
+        } : {
+          lg: "40px",
+          md: "40px",
+          sm: "32px",
+          xs: "32px"
+        }
+      }), [is14Inch, is15Inch, isExtraSmallMobile, dir]);
+      
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentServiceType(prev => {
@@ -35,7 +57,6 @@ export default function ResponsiveComponent({
                 return serviceTypes[nextIndex];
             });
         }, 1500);
-
         return () => clearInterval(interval);
     }, [serviceTypes]);
 
@@ -71,46 +92,22 @@ export default function ResponsiveComponent({
                 }}
             />
 
-            <Typography
-                sx={{
-                    fontFamily: "var(--English-font)",
-                    fontSize: {
-                        lg: is14Inch ? "42px" : is15Inch ? "45px" : "53px",
-                        md: "38px",
-                        sm: "35px",
-                        xs: isExtraSmallMobile ? "16px" : "26px",
-                    },
-                    textAlign: dir === 'rtl' ? "right" : "left",
-                    paddingRight: dir === 'ltr' ? {
-                        lg: "20px",
-                        md: "20px",
-                        sm: "12px",
-                        xs: "12px"
-                    } :
-                        {
-                            lg: "40px",
-                            md: "40px",
-                            sm: "32px",
-                            xs: "32px"
-                        }
-                    ,
+<Typography sx={goalTypographyStyles}>
+  {goalDescription}
+  {breakLine && <br />}
+  <AnimatedText
+    serviceColors={serviceColors}
+    nextServiceType={nextServiceType}
+    currentServiceType={currentServiceType}
+    isSmallScreen={isSmallScreen}
+    is15Inch={is15Inch}
+    is14Inch={is14Inch}
+    isExtraSmallMobile={isExtraSmallMobile}
+    data={data}
+    serviceTypes={serviceTypes}
+  />
+</Typography>
 
-                }}
-            >
-                {goalDescription}
-                {breakLine && <br />}
-                <AnimatedText
-                    serviceColors={serviceColors}
-                    nextServiceType={nextServiceType}
-                    currentServiceType={currentServiceType}
-                    isSmallScreen={isSmallScreen}
-                    is15Inch={is15Inch}
-                    is14Inch={is14Inch}
-                    isExtraSmallMobile={isExtraSmallMobile}
-                    data={data}
-                    serviceTypes={serviceTypes}
-                />
-            </Typography>
 
             <Typography
                 sx={{
