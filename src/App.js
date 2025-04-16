@@ -1,24 +1,24 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import { motion } from 'framer-motion';
 import Toggle from './components/toggleCompoent/toggle';
-import SoftwareSection from './pages/softwarePage';
-import Footer from './components/footer';
-import DesignAndBranding from './pages/design&branding';
 import LogoAnimation from './pages/LandingPage/logoaniamtion';
-import Academics from './pages/academics';
-import BasicModal from './components/contactUs/contactUs';
-import CoreIt from './pages/coreIt';
 import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
-import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
-import BlogDetails from './components/blogsAndNews/blogDetails';
 
+const BlogsAndNews = lazy(()=>import("./components/blogsAndNews/blogsAndNews"))
+const BlogDetails = lazy(()=>import("./components/blogsAndNews/blogDetails"))
+const Footer = lazy(()=>import("./components/footer"))
+const SoftwareSection = lazy(()=>import("./pages/softwarePage"))
+const CoreIt = lazy(()=>import("./pages/coreIt"))
+const Academics = lazy(()=>import("./pages/academics"))
+const DesignAndBranding = lazy(()=>import('./pages/design&branding'))
+const BasicModal = lazy(()=>import('./components/contactUs/contactUs'))
 
 const App = () => {
   if (process.env.NODE_ENV === 'development') {
@@ -32,7 +32,8 @@ const App = () => {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
-  const [themeColor, setThemeColors] = useState('')
+  const [themeColor, setThemeColor] = useState('')
+
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
   };
@@ -96,29 +97,32 @@ const App = () => {
           {logoAnimationComplete && (
             <>
               <motion.div
-                initial={location.pathname === '/' && { y: '100dvh', opacity: 0 }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                  background: themeColor,
-                }}
-                exit={{ y: '-100%', opacity: 0 }}
+               initial={{ scaleY: 0, originY: 1 }}
+               animate={{ scaleY: [0, 1],                  background: themeColor,
+               }} 
+               exit={{ scaleY: [0, 1.1, 0]}}
+     
                 transition={{
-                  duration: 1,
-                  ease: 'easeInOut',
-                  background: { duration: 0.3 },
+                  duration: 0.8,
+                  ease: [0.4, 0, 0.2, 1],
+                  times: [0, 0.5, 1],
                 }}
+      
                 style={{
-                  background: themeColor,
-                  minHeight: '100dvh',
-                  position: 'relative',
-                  zIndex: 2,
-                  animation: 'moveBackground 5s linear',
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: "100%",
+                  zIndex: 10,
+                  transformOrigin: "bottom",
+      
                 }}
               >
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen}  drawerOpen={drawerOpen} />
-                  <Routes>
+                 <Suspense fallback="loading">
+                 <Routes>
                     <Route
                       path='/'
                       element={
@@ -138,13 +142,19 @@ const App = () => {
                     <Route path='/blogs' element={<BlogsAndNews  setOpen={setOpen} />} />
                     <Route path="/blogs/:id" element={<BlogDetails  setOpen={setOpen} />} />
                   </Routes>
+                 </Suspense>
+                 
                   {location.pathname !== '/' && (
+                    <Suspense fallback=''>
                     <Footer />
+                    </Suspense>
                   )}
                 </>
               </motion.div>
-              <Toggle open={open} setThemeColor={setThemeColors} themeColor={themeColor} drawerOpen={drawerOpen} />
+              <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+              <Suspense fallback="loading">
               <BasicModal setOpen={setOpen} open={open} />
+              </Suspense>
             </>
           )}
         </ThemeLocalization>

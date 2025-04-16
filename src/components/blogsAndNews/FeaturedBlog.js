@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Typography, Paper, Grid } from '@mui/material';
-import blogImage from '../../assets/sectionsImages/blogsAndNews/blogsImage.svg';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 

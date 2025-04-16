@@ -211,6 +211,7 @@ const truncatedTitle =
           md: "25px",
           sm: "25px",
         },
+        height:"35px",
         transform: dir === "ltr" ? "unset" : "scaleX(-1)",
       }}
     />
