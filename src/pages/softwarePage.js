@@ -1,7 +1,11 @@
-import React, { Suspense, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import BusinessGoals from "../components/softwareSection/businessGoals";
 import Grid from "@mui/material/Grid";
+import ContactUsBtn from "../components/softwareSection/contactUsBtn";
 import { useLocation } from "react-router-dom";
+import WhatWeDo from "../components/whatweDo/whatWeDo";
+import SectionDescription from "../components/sectionDescription";
+import LayoutCards from "../components/layoutCards";
 import FrontEndSvg from "../assets/sectionsImages/frontEndImage";
 import BackEndSvg from "../assets/sectionsImages/backendImage";
 import FullStackSvg from "../assets/sectionsImages/fullstack";
@@ -9,17 +13,12 @@ import LowCodeSvg from "../assets/sectionsImages/lowcode";
 import CloudDevelopmentSvg from "../assets/sectionsImages/clouddevelopment";
 import { subServices } from "../services/websiteApis/services";
 import { motion } from "framer-motion"
+import OurTechnologies from "../components/softwareSection/Our technologies Section/ourTechnology";
+import LetsProject from "../components/letsProject";
+import SpaceNetLayout from "../components/spaceNetLayout";
 import { ServiceCategories } from "../services/websiteApis/serviceCategories";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-
-const ContactUsBtn = React.lazy(() => import("../components/softwareSection/contactUsBtn"));
-const WhatWeDo = React.lazy(() => import("../components/whatweDo/whatWeDo"));
-const SectionDescription = React.lazy(() => import("../components/sectionDescription"));
-const LayoutCards = React.lazy(() => import("../components/layoutCards"));
-const OurTechnologies = React.lazy(() => import("../components/softwareSection/Our technologies Section/ourTechnology"));
-const LetsProject = React.lazy(() => import("../components/letsProject"));
-const SpaceNetLayout = React.lazy(() => import("../components/spaceNetLayout"));
 
 const serviceColors = {
     "Website Development": "#9D89FC",
@@ -67,13 +66,14 @@ export default function SoftwareSection({ setOpen }) {
     const lastCardId = data.length > 0 ? data[data.length - 1].id : null;
     const pathname = useLocation()
     const id = pathname.pathname.split('/').filter(Boolean)
-    const technologiesDataImage = useMemo(() => [
+    const technologiesDataImage = [
         { id: 0, image: <FrontEndSvg hoveredcardid={hoveredcardid} itemID={5} /> },
         { id: 1, image: <BackEndSvg hoveredcardid={hoveredcardid} itemID={6} /> },
         { id: 2, image: <FullStackSvg hoveredcardid={hoveredcardid} itemID={7} /> },
         { id: 3, image: <LowCodeSvg hoveredcardid={hoveredcardid} itemID={8} /> },
         { id: 4, image: <CloudDevelopmentSvg hoveredcardid={hoveredcardid} itemID={9} /> },
-    ], [hoveredcardid]);
+
+    ];
     const [technologiesData, setTechnologiesData] = useState([])
 
     useEffect(() => {
@@ -142,8 +142,6 @@ export default function SoftwareSection({ setOpen }) {
                         serviceBgColor="#9D89FC"
                         data={data}
                     />
-                    <Suspense fallback="load">
-
                     <ContactUsBtn setOpen={setOpen} />
                     <WhatWeDo
                         setData={setData}
@@ -167,8 +165,6 @@ export default function SoftwareSection({ setOpen }) {
                         top="43px"
                     />
                     <OurTechnologies />
-                    </Suspense>
-
                 </Grid>
                 <LetsProject
                     text1={<>{t("software.gotGreat")}<br /> {t("software.Ready")} </>}

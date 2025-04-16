@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: var(--English-font),Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont,Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overscroll-behavior: none;
