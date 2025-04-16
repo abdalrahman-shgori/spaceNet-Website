@@ -76,7 +76,7 @@ export default function Academics({ setOpen }) {
                         academicsSection="first"
 
                     />
-                    <Suspense>
+                    <Suspense fallback="loading">
                     <OurCourses hoveredcardid={hoveredcardid} sethoveredcardid={sethoveredcardid} setEnroll={setEnroll} enroll={enroll} />
                     </Suspense>
                     <SectionDescription
@@ -85,11 +85,14 @@ export default function Academics({ setOpen }) {
                         top="80px"
                         academicsSection="sec"
                     />
+                    <Suspense fallback="loading">
                     <LayoutCards
                         technologiesData={data}
                         sethoveredcardid={sethoveredcardid}
                         hoveredcardid={hoveredcardid}
                     />
+                    </Suspense>
+                 
 
                 </Grid>
                 <WhichCourse />
