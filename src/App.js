@@ -6,19 +6,14 @@ import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import { motion } from 'framer-motion';
 import Toggle from './components/toggleCompoent/toggle';
-import SoftwareSection from './pages/softwarePage';
 import Footer from './components/footer';
-import DesignAndBranding from './pages/design&branding';
 import LogoAnimation from './pages/LandingPage/logoaniamtion';
-import Academics from './pages/academics';
 import BasicModal from './components/contactUs/contactUs';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-import CoreIt from './pages/coreIt';
 import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
-import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
-import BlogDetails from './components/blogsAndNews/blogDetails';
+
 
 
 const App = () => {
@@ -131,12 +126,7 @@ const App = () => {
                         />
                       }
                     />
-                    <Route path='/software' element={<SoftwareSection  setOpen={setOpen} />} />
-                    <Route path='/design-branding' element={<DesignAndBranding  setOpen={setOpen} />} />
-                    <Route path='/academics' element={<Academics  setOpen={setOpen} />} />
-                    <Route path='/core-it' element={<CoreIt  setOpen={setOpen} />} />
-                    <Route path='/blogs' element={<BlogsAndNews  setOpen={setOpen} />} />
-                    <Route path="/blogs/:id" element={<BlogDetails  setOpen={setOpen} />} />
+                  
                   </Routes>
                   {location.pathname !== '/' && (
                     <Footer />
