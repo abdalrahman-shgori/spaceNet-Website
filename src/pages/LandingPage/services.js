@@ -36,7 +36,7 @@ export default function Services({
         { name: "DESIGN & BRANDING", img: Union, url: "/design-branding" },
     ];
 
-   
+
     const handleClicks = (item) => {
         if (item.title === "ABOUT") {
             setHoveredServiceDescription("");
@@ -66,110 +66,118 @@ export default function Services({
 
     return (
         <>
-      
-                                  <Grid
-            ref={servicesRef}
-            sx={{
-                padding:
-                    dir === 'ltr' ?
-                        {
-                            lg: "0px 75px 0px 75px",
-                            md: '0px 75px 0px 75px',
-                            sm: "0px 45px 0px 25px",
-                            xs: "0px 0px 0px 25px"
-                        } :
-                        {
-                            lg: "0px 75px 0px 75px",
-                            md: '0px 75px 0px 75px',
-                            sm: "0px 25px 0px 45px",
-                            xs: "0px 25px 0px 0px"
-                        }
-                
-            }}
-        >
-          
 
             <Grid
-                ref={isTabScreen ? scrollRef : null}
-                container={isMobile ? false : true}
+                ref={servicesRef}
                 sx={{
-                    display: { lg: "unset", md: "unset", sm: "flex", xs: "flex" },
-                    flexDirection: { lg: "unset", md: "unset", sm: "row", xs: "row" },
-                    overflowX: "auto",
-                    overflowY: {
-                        lg: "unset",
-                        md: "unset",
-                        sm: "unset",
-                        xs: "hidden"
-                    },
-                    whiteSpace: "nowrap",
-                    paddingBottom: "10px",
-                    scrollbarWidth: "none",
-                    "&::-webkit-scrollbar": { display: "none" },
-                    userSelect: "none",
+                    padding:
+                        dir === 'ltr' ?
+                            {
+                                lg: "0px 75px 0px 75px",
+                                md: '0px 75px 0px 75px',
+                                sm: "0px 45px 0px 25px",
+                                xs: "0px 0px 0px 25px"
+                            } :
+                            {
+                                lg: "0px 75px 0px 75px",
+                                md: '0px 75px 0px 75px',
+                                sm: "0px 25px 0px 45px",
+                                xs: "0px 25px 0px 0px"
+                            }
+
                 }}
             >
-                  
-                {loading ? (
-                    Array(4).fill().map((_, index) => (
-                        <Skeleton
-                            key={index}
-                            animation="wave"
-                            sx={{
-                                height: { lg: "100px", md: "50px", sm: "50px", xs: "50px" },
-                                width: "100%",
-                                marginRight: "20px",
-                            }}
-                        />
-                    ))
-                ) : servicesList.length > 0 ? (
-                    servicesList
-                        .filter((item) => isMobile || item.title !== "ABOUT")
-                        .map((item, index) => (
-                            <>
-                                <ServicesOriginal
-                                    activeService={activeService}
-                                    setActiveService={setActiveService}
-                                    hoveredService={hoveredService}
-                                    setHoveredService={setHoveredService}
-                                    setHoveredServiceDescription={setHoveredServiceDescription}
-                                    setCapture={setCapture}
-                                    item={item}
-                                    index={index}
-                                    isMobile={isMobile}
-                                    isTabScreen={isTabScreen}
-                                    handleClicks={handleClicks}
-                                    theme={theme}
-                                    image={localServices[index]}
-                                    setOutOfServicesHover={setOutOfServicesHover}
-                                    componentRef={componentRef}
-                                    setIndexOfHoveredServices={setIndexOfHoveredServices}
-                                    indexOfHoveredServices={indexOfHoveredServices}
-                                />
-                                <ServicesMobile
-                                    activeService={activeService}
-                                    setActiveService={setActiveService}
-                                    hoveredService={hoveredService}
-                                    setHoveredService={setHoveredService}
-                                    setHoveredServiceDescription={setHoveredServiceDescription}
-                                    setCapture={setCapture}
-                                    item={item}
-                                    index={index}
-                                    isAboutActive={isAboutActive}
-                                    setIsAboutActive={setIsAboutActive}
-                                    componentRef={componentRef}
-                                    setIndexOfHoveredServices={setIndexOfHoveredServices}
-                                    indexOfHoveredServices={indexOfHoveredServices}
+                <Typography
+                    sx={{
+                        fontSize: { lg: "38px", md: "30px", sm: "30px" },
+                        fontFamily: "var(--English-font-Extralight), Arial, sans-serif",
+                        display: { sm: "block", xs: "none", md: "block" },
+                    }}
+                >
+                    {t("services.OurServices")}
+                </Typography>
 
-                                />
-                            </>
+                <Grid
+                    ref={isTabScreen ? scrollRef : null}
+                    container={isMobile ? false : true}
+                    sx={{
+                        display: { lg: "unset", md: "unset", sm: "flex", xs: "flex" },
+                        flexDirection: { lg: "unset", md: "unset", sm: "row", xs: "row" },
+                        overflowX: "auto",
+                        overflowY: {
+                            lg: "unset",
+                            md: "unset",
+                            sm: "unset",
+                            xs: "hidden"
+                        },
+                        whiteSpace: "nowrap",
+                        paddingBottom: "10px",
+                        scrollbarWidth: "none",
+                        "&::-webkit-scrollbar": { display: "none" },
+                        userSelect: "none",
+                    }}
+                >
+
+                    {loading ? (
+                        Array(4).fill().map((_, index) => (
+                            <Skeleton
+                                key={index}
+                                animation="wave"
+                                sx={{
+                                    height: { lg: "100px", md: "50px", sm: "50px", xs: "50px" },
+                                    width: "100%",
+                                    marginRight: "20px",
+                                }}
+                            />
                         ))
-                ) : (
-                    <Typography>No services available</Typography>
-                )}
+                    ) : servicesList.length > 0 ? (
+                        servicesList
+                            .filter((item) => isMobile || item.title !== "ABOUT")
+                            .map((item, index) => (
+                                <>
+                                    <ServicesOriginal
+                                        activeService={activeService}
+                                        setActiveService={setActiveService}
+                                        hoveredService={hoveredService}
+                                        setHoveredService={setHoveredService}
+                                        setHoveredServiceDescription={setHoveredServiceDescription}
+                                        setCapture={setCapture}
+                                        item={item}
+                                        index={index}
+                                        isMobile={isMobile}
+                                        isTabScreen={isTabScreen}
+                                        handleClicks={handleClicks}
+                                        theme={theme}
+                                        image={localServices[index]}
+                                        setOutOfServicesHover={setOutOfServicesHover}
+                                        componentRef={componentRef}
+                                        setIndexOfHoveredServices={setIndexOfHoveredServices}
+                                        indexOfHoveredServices={indexOfHoveredServices}
+                                    />
+                                    <ServicesMobile
+                                        activeService={activeService}
+                                        setActiveService={setActiveService}
+                                        hoveredService={hoveredService}
+                                        setHoveredService={setHoveredService}
+                                        setHoveredServiceDescription={setHoveredServiceDescription}
+                                        setCapture={setCapture}
+                                        item={item}
+                                        index={index}
+                                        isAboutActive={isAboutActive}
+                                        setIsAboutActive={setIsAboutActive}
+                                        componentRef={componentRef}
+                                        setIndexOfHoveredServices={setIndexOfHoveredServices}
+                                        indexOfHoveredServices={indexOfHoveredServices}
+
+                                    />
+                                </>
+                            ))
+                    ) : (
+                        <Typography>No services available</Typography>
+                    )}
+                </Grid>
             </Grid>
-        </Grid>
         </>
-       
+
     );
 }
