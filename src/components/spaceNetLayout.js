@@ -1,11 +1,15 @@
 import React from 'react';
-import { Box, Typography, Button, Stack } from '@mui/material';
 import logo from "../assets/sectionsImages/sapceLogo.svg";
 import { motion } from "framer-motion"
 import ArrowWight from "../assets/sectionsImages/spacenetLayoutArrow.svg";
 import spaceNet from "../assets/spacenetLogo/spaceNetLogoWhite.svg"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Stack from '@mui/material/Stack'
+
 const SpaceNetLayout = ({ setOpen }) => {
   const { i18n, t } = useTranslation()
   const companyLinks = [

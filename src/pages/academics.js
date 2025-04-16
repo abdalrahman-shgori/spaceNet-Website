@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import Grid  from "@mui/material/Grid";
 import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import SpaceNetLayout from "../components/spaceNetLayout";
 import { motion } from "framer-motion"

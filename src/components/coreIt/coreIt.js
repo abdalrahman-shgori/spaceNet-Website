@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback, useState } from "react";
 import Matter from "matter-js";
-import { useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import './coreit.css'
 import { useTranslation } from "react-i18next";
 const FallingItems = () => {

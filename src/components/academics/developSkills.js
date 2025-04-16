@@ -1,4 +1,3 @@
-import { Box, Button, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion"
 import designGradiant from "../../assets/sectionsImages/academics/designGradiant.svg"
@@ -6,6 +5,12 @@ import softwareGradiant from "../../assets/sectionsImages/academics/softwareGrad
 import networkGradiant from "../../assets/sectionsImages/academics/netwrokGradiant.svg"
 import DevelopBtn from "./developSkillsBtn";
 import { useTranslation } from "react-i18next";
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import {useTheme} from '@mui/material/styles'
 
 function DevelopSkills({ setOpen, setEnroll }) {
     const { i18n, t } = useTranslation()

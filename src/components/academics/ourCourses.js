@@ -1,4 +1,3 @@
-import { Box, Grid, Typography, Button } from "@mui/material";
 import React, { useMemo } from "react";
 import deployment from "../../assets/sectionsImages/coteIt/deployment.svg";
 import Consultancy from "../../assets/sectionsImages/coteIt/Consultancy.svg";
@@ -11,6 +10,10 @@ import { motion } from "framer-motion"
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ExploreLearning from "./exploreSections";
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Typography'
+import Box from '@mui/material/Box'
  function OurCourses({ hoveredcardid, sethoveredcardid, setEnroll }) {
     const location = useLocation()
     const text1Style = {

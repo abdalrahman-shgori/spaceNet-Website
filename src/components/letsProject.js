@@ -1,10 +1,11 @@
-import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import vector1White from "../assets/images/Vector1White.svg";
 import Vector1Black from "../assets/images/Vector1Black.svg";
 import vector2White from "../assets/images/Vector2White.svg";
 import vector2Black from "../assets/images/Vector2Black.svg";
-
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 import { motion } from "framer-motion"
 import { useLocation } from "react-router-dom";
 const text1Style = {

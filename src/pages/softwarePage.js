@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import BusinessGoals from "../components/softwareSection/businessGoals";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import ContactUsBtn from "../components/softwareSection/contactUsBtn";
 import { useLocation } from "react-router-dom";
 import WhatWeDo from "../components/whatweDo/whatWeDo";
@@ -39,37 +39,40 @@ export default function SoftwareSection({ setOpen }) {
     ];
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const [data, setData] = useState([])
-    const serviceTypes = Array.isArray(data) && data.length > 0
-        ? data.map((item) => lang === 'ar' ? item.title_ar : lang === 'ku' ? item.title_ku : item.title)
-        : serviceTypesMock;
-    const serviceColors = serviceTypes.reduce((colors, type, index) => {
-        const colorMapping = [
-            "#9D89FC",
-            "#E9FA50",
-            "#1CB786",
-            "#FF621F",
-        ];
-        if (index < colorMapping.length) {
-            colors[type] = colorMapping[index];
-        } else {
-            colors[type] = "#F5F5F5";
-        }
-        return colors;
-    }, {});
+    const serviceTypes = useMemo(() => {
+        return Array.isArray(data) && data.length > 0
+            ? data.map((item) =>
+                lang === 'ar' ? item.title_ar :
+                    lang === 'ku' ? item.title_ku :
+                        item.title)
+            : serviceTypesMock;
+    }, [data, lang, serviceTypesMock]);
+    const serviceColors = useMemo(() => {
+        return serviceTypes.reduce((colors, type, index) => {
+            const colorMapping = [
+                "#9D89FC",
+                "#E9FA50",
+                "#1CB786",
+                "#FF621F",
+            ];
+            colors[type] = index < colorMapping.length ? colorMapping[index] : "#F5F5F5";
+            return colors;
+        }, {});
+    }, [serviceTypes]);
+
     const [loading, setLoading] = useState(false)
     const [currentServiceType, setCurrentServiceType] = useState(serviceTypes[0]);
     const [nextServiceType, setNextServiceType] = useState(serviceTypes[1]);
     const lastCardId = data.length > 0 ? data[data.length - 1].id : null;
     const pathname = useLocation()
     const id = pathname.pathname.split('/').filter(Boolean)
-    const technologiesDataImage = [
+    const technologiesDataImage = useMemo(() => [
         { id: 0, image: <FrontEndSvg hoveredcardid={hoveredcardid} itemID={5} /> },
         { id: 1, image: <BackEndSvg hoveredcardid={hoveredcardid} itemID={6} /> },
         { id: 2, image: <FullStackSvg hoveredcardid={hoveredcardid} itemID={7} /> },
         { id: 3, image: <LowCodeSvg hoveredcardid={hoveredcardid} itemID={8} /> },
         { id: 4, image: <CloudDevelopmentSvg hoveredcardid={hoveredcardid} itemID={9} /> },
-
-    ];
+    ], [hoveredcardid]);
     const [technologiesData, setTechnologiesData] = useState([])
 
     useEffect(() => {

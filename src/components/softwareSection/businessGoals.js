@@ -3,10 +3,12 @@ import vector1 from "../../assets/sectionsImages/vectorSections1.svg";
 import vector2 from "../../assets/sectionsImages/vectorSections2.svg";
 import vectorWhite1 from "../../assets/sectionsImages/vectorSectionsWhite1.svg";
 import vectorWhite2 from "../../assets/sectionsImages/vectorSectionsWhite2.svg";
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import AnimatedText from "./aniamtionText";
 import { useTranslation } from "react-i18next";
-
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 export default function ResponsiveComponent({
     goalDescription,
     serviceTypes,
@@ -27,27 +29,27 @@ export default function ResponsiveComponent({
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
     const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
     const goalTypographyStyles = useMemo(() => ({
-        fontFamily:"var(--English-font), Arial, sans-serif",
+        fontFamily: "var(--English-font), Arial, sans-serif",
         fontSize: {
-          lg: is14Inch ? "42px" : is15Inch ? "45px" : "53px",
-          md: "38px",
-          sm: "35px",
-          xs: isExtraSmallMobile ? "16px" : "26px",
+            lg: is14Inch ? "42px" : is15Inch ? "45px" : "53px",
+            md: "38px",
+            sm: "35px",
+            xs: isExtraSmallMobile ? "16px" : "26px",
         },
         textAlign: dir === 'rtl' ? "right" : "left",
         paddingRight: dir === 'ltr' ? {
-          lg: "20px",
-          md: "20px",
-          sm: "12px",
-          xs: "12px"
+            lg: "20px",
+            md: "20px",
+            sm: "12px",
+            xs: "12px"
         } : {
-          lg: "40px",
-          md: "40px",
-          sm: "32px",
-          xs: "32px"
+            lg: "40px",
+            md: "40px",
+            sm: "32px",
+            xs: "32px"
         }
-      }), [is14Inch, is15Inch, isExtraSmallMobile, dir]);
-      
+    }), [is14Inch, is15Inch, isExtraSmallMobile, dir]);
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentServiceType(prev => {
@@ -92,26 +94,26 @@ export default function ResponsiveComponent({
                 }}
             />
 
-<Typography sx={goalTypographyStyles}>
-  {goalDescription}
-  {breakLine && <br />}
-  <AnimatedText
-    serviceColors={serviceColors}
-    nextServiceType={nextServiceType}
-    currentServiceType={currentServiceType}
-    isSmallScreen={isSmallScreen}
-    is15Inch={is15Inch}
-    is14Inch={is14Inch}
-    isExtraSmallMobile={isExtraSmallMobile}
-    data={data}
-    serviceTypes={serviceTypes}
-  />
-</Typography>
+            <Typography sx={goalTypographyStyles}>
+                {goalDescription}
+                {breakLine && <br />}
+                <AnimatedText
+                    serviceColors={serviceColors}
+                    nextServiceType={nextServiceType}
+                    currentServiceType={currentServiceType}
+                    isSmallScreen={isSmallScreen}
+                    is15Inch={is15Inch}
+                    is14Inch={is14Inch}
+                    isExtraSmallMobile={isExtraSmallMobile}
+                    data={data}
+                    serviceTypes={serviceTypes}
+                />
+            </Typography>
 
 
             <Typography
                 sx={{
-                    fontFamily:"var(--English-font), Arial, sans-serif",
+                    fontFamily: "var(--English-font), Arial, sans-serif",
                     fontSize: {
                         lg: is14Inch ? "42px" : is15Inch ? "45px" : "53px",
                         md: "38px",

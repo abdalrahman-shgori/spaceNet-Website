@@ -1,4 +1,3 @@
-import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import processImg from "../../assets/sectionsImages/design-branding/processImg.svg"
 import PSImg from "../../assets/sectionsImages/design-branding/photoshop.svg"
@@ -6,6 +5,9 @@ import figma from "../../assets/sectionsImages/design-branding/figma.svg"
 import adobeXd from "../../assets/sectionsImages/design-branding/adobeXd.svg"
 import AI from "../../assets/sectionsImages/design-branding/AI.svg"
 import { useTranslation } from "react-i18next";
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
 
 export default function CreatingSolution() {
   const { t, i18n } = useTranslation()

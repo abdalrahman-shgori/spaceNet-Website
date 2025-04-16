@@ -1,13 +1,16 @@
-import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import { useTheme } from '@mui/material/styles'
 export default function Crafting({
   designAndBrandingList,
   reset,
   scrollIndex,
   setScrollIndex,
-  data
 }) {
   const { t, i18n } = useTranslation()
   const dir = i18n.dir()

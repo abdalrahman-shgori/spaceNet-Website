@@ -1,9 +1,13 @@
-import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
- function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, technologiesDataImage }) {
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
+function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, technologiesDataImage }) {
   const location = useLocation()
   const pathname = location.pathname;
   const theme = useTheme()

@@ -1,6 +1,8 @@
-import { Box, Typography, useTheme } from "@mui/material";
 import React from "react";
 import { useLocation } from "react-router-dom";
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
 export default function SectionDescription({ text1, text2, top, academicsSection }) {
     const location = useLocation()
     const pathname = location.pathname

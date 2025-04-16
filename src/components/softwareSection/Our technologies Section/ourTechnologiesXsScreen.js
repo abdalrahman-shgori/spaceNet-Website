@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, Typography, Grid } from '@mui/material';
 import techImg from "../../../assets/sectionsImages/technologiesImage.svg"
 import meetImg from "../../../assets/sectionsImages/meetingImg.svg"
 import { motion } from "framer-motion"
 import { useTranslation } from 'react-i18next';
-
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 export default function OurTechnologiesXsScreen({ programmingLang }) {
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()

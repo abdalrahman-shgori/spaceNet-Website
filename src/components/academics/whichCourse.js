@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import back from "../../assets/sectionsImages/academics/first.svg"
 import front from "../../assets/sectionsImages/academics/second.svg"
 import firstMobile from "../../assets/sectionsImages/academics/firstMobile.svg"
@@ -8,6 +7,13 @@ import { motion } from "framer-motion"
 import Bracket from "../../assets/sectionsImages/academics/academicsBracket.";
 import { pageStyle, textStyle, cardTitle, bracketStyle, cardStyle, cardStyle2 } from "./whichcourseStyle";
 import { useTranslation } from "react-i18next";
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import {useTheme} from '@mui/material/styles'
+
  function WhichCourse() {
   const { i18n, t } = useTranslation()
   const dir = i18n.dir()

@@ -1,31 +1,31 @@
 @font-face {
     font-family: "English";
-    src: url(../fontFamily/Sora-Regular.ttf) format("woff2");
+    src: url(/public/fontFamily/Sora-Regular.ttf) format("truetype");
     font-display: swap;
 }
 @font-face {
     font-family: "SoraSemiBold";
-    src: url(../fontFamily/Sora-SemiBold.ttf) format("woff2");
+    src: url(/public/fontFamily/Sora-SemiBold.ttf) format("truetype");
     font-display: swap;
 }
 @font-face {
     font-family: "SoraSemiLight";
-    src: url(../fontFamily/Sora-Light.ttf) format("woff2");
+    src: url(/public/fontFamily/Sora-Light.ttf) format("truetype");
     font-display: swap;
 }
 @font-face {
     font-family: "SoraExtraLight";
-    src: url(../fontFamily/Sora-ExtraLight.ttf) format("woff2");
+    src: url(/public/fontFamily/Sora-ExtraLight.ttf) format("truetype");
     font-display: swap;
 }
 @font-face {
     font-family: "StintUltraCondensed";
-    src: url(../fontFamily/Sora-ExtraLight.ttf) format("woff2");
+    src: url(/public/fontFamily/Sora-ExtraLight.ttf) format("truetype");
     font-display: swap;
 }
 @font-face {
     font-family: "SoraThin";
-    src: url(../fontFamily/Sora-Thin.ttf) format("woff2");
+    src: url(/public/fontFamily/Sora-Thin.ttf) format("truetype");
     font-display: swap;
 }
 :root{

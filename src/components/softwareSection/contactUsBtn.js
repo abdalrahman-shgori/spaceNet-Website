@@ -1,9 +1,12 @@
-import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import Arrow from "../../assets/sectionsImages/contactusArrow.svg";
 import ArrowWight from "../../assets/sectionsImages/contactUsArrowWhite.svg";
 import { useTranslation } from "react-i18next";
-
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 export default function ContactUsBtn({ setOpen }) {
   const { t, i18n } = useTranslation()
   const dir = i18n.dir()

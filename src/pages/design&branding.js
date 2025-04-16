@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Crafting from "../components/designAndBranding/craftingAndDigital";
-import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import WhatWeDo from "../components/whatweDo/whatWeDo";
 import { subServices } from "../services/websiteApis/services";
 import SectionDescription from "../components/sectionDescription";
@@ -12,6 +11,10 @@ import CreatingSolution from "../components/designAndBranding/creatingSolutions"
 import { ServiceCategories } from "../services/websiteApis/serviceCategories";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import { useTheme } from '@mui/material/styles'
 
 const technologiesDataImage = [
     {
@@ -214,7 +217,6 @@ export default function DesignAndBranding({ setOpen }) {
                         scrollIndex={scrollIndex}
                         handleScroll={handleScroll}
                         setScrollIndex={setScrollIndex}
-                        data={data}
                     />
                     <WhatWeDo data={data} loading={loading} lastCardId={lastCardId} />
                     <SectionDescription

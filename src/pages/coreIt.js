@@ -1,6 +1,5 @@
 
-import React, { useEffect, useState } from "react";
-import { Box, Grid, Typography, useTheme } from "@mui/material";
+import React, { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { subServices } from "../services/websiteApis/services";
 import { motion } from "framer-motion"
@@ -16,6 +15,10 @@ import Security from "../assets/sectionsImages/coteIt/security";
 import ServicesSvg from "../assets/sectionsImages/coteIt/services";
 import SystemSvg from "../assets/sectionsImages/coteIt/system";
 import { useTranslation } from "react-i18next";
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import { useTheme } from '@mui/material/styles'
+import Box from '@mui/material/Box'
 
 const serviceTypesMock = [
     "Website Development",
@@ -23,8 +26,6 @@ const serviceTypesMock = [
     "Web App Development",
     "Desktop App Development"
 ];
-
-
 export default function CoreIt({ setOpen }) {
     const { t } = useTranslation()
     const [hoveredcardid, sethoveredcardid] = useState(null);
@@ -35,20 +36,19 @@ export default function CoreIt({ setOpen }) {
     const [loading, setLoading] = useState(false)
     const pathname = useLocation()
     const id = pathname.pathname.split('/').filter(Boolean)
-    const technologiesDataImage = [
+    const technologiesDataImage = useMemo(() => [
         { id: 0, image: <NetworkSolution hoveredcardid={hoveredcardid} itemID={5} /> },
         { id: 1, image: <Security hoveredcardid={hoveredcardid} itemID={6} /> },
         { id: 2, image: <SystemSvg hoveredcardid={hoveredcardid} itemID={7} /> },
         { id: 3, image: <ServicesSvg hoveredcardid={hoveredcardid} itemID={8} /> },
+    ], [hoveredcardid]);
 
-    ];
-    const technologiesData = [
+    const technologiesData = useMemo(() => [
         { id: 0, title: t("coreIt.NetworkSolutions"), description: t("coreIt.weOffer") },
         { id: 1, title: t("coreIt.SecuritySolutions"), description: t("coreIt.ourSecurity") },
         { id: 2, title: t("coreIt.SystemInfrastructure"), description: t("coreIt.ourSystem") },
         { id: 3, title: t("coreIt.ConsultancyServices"), description: t("coreIt.weAlsoOffer") },
-
-    ];
+    ], [t])
 
     useEffect(() => {
         setLoading(true)
