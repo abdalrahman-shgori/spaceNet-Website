@@ -98,7 +98,6 @@ export default function Services({
    {t("services.OurServices")}
 </Typography>
             )}
-           
 
             <Grid
                 ref={isTabScreen ? scrollRef : null}

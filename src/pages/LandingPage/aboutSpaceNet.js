@@ -73,6 +73,7 @@ export default function AboutSpaceNet({
         return () => clearInterval(intervalId);
     }, []);
 
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setInitialAnimation(false);
@@ -314,6 +315,8 @@ export default function AboutSpaceNet({
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.5 }}
+
+
                                     >
                                         <Typography
                                             sx={{
@@ -411,6 +414,7 @@ export default function AboutSpaceNet({
                                 </Typography>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
                                     <motion.div
+
                                         style={{
                                             position: 'absolute',
                                             bottom: "-22px",
