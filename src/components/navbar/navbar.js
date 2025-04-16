@@ -269,7 +269,6 @@ const NavBar = ({
                                         </Typography>
                                     </Box>
                                 </Box>
-
                             </Drawer>
                         </motion.div>
                         </Box>

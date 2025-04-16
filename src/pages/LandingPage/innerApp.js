@@ -52,13 +52,6 @@ const InnerApp = ({
   }, [isAboutActive]);
 
 
-  const [overflow, setOverFlow] = useState('hidden')
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setOverFlow('auto')
-    }, 3000);
-    return () => clearTimeout(timer)
-  }, [])
   return (
     <Grid
       sx={{
@@ -66,7 +59,7 @@ const InnerApp = ({
         overflow: 'hidden',
       }}
     >
-      {showContent && (
+   
         <>
           <motion.div
             className={!showLogo && 'root-container'}
@@ -84,21 +77,9 @@ const InnerApp = ({
               isAboutActive={isAboutActive}
               setIsAboutActive={setIsAboutActive}
             />
-            <Box
-              sx={{
-                display: {
-                  xl: "unset",
-                  lg: "none",
-                  md: "none",
-                  sm: "none",
-                  xs: "none"
-                }
-              }}
-            >
-            </Box>
+           
           </motion.div>
         </>
-      )}
     </Grid>
   );
 };

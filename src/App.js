@@ -12,7 +12,6 @@ import DesignAndBranding from './pages/design&branding';
 import LogoAnimation from './pages/LandingPage/logoaniamtion';
 import Academics from './pages/academics';
 import BasicModal from './components/contactUs/contactUs';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import CoreIt from './pages/coreIt';
 import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
@@ -48,44 +47,46 @@ const App = () => {
     }
   }, [logoAnimationComplete]);
 
-  useEffect(() => {
-    const handleOverflow = () => {
-      if (location.pathname === '/') {
-        document.body.style.overflow = 'hidden';
 
-        const timer = setTimeout(() => {
-          document.body.style.overflow = 'auto';
-        }, 3500);
+  // useEffect(() => {
+  //   const handleOverflow = () => {
+  //     if (location.pathname === '/') {
+  //       document.body.style.overflow = 'hidden';
 
-        return () => clearTimeout(timer);
-      } else {
-        document.body.style.overflow = 'auto';
-      }
-    };
-    handleOverflow();
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [location]);
+  //       const timer = setTimeout(() => {
+  //         document.body.style.overflow = 'auto';
+  //       }, 3500);
+
+  //       return () => clearTimeout(timer);
+  //     } else {
+  //       document.body.style.overflow = 'auto';
+  //     }
+  //   };
+  //   handleOverflow();
+  //   return () => {
+  //     document.body.style.overflow = 'auto';
+  //   };
+  // }, [location]);
 
   return (
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
       {location.pathname === '/' && (
-        <motion.div
-          initial={{ height: "100dvh" }}
-          animate={{ height: showContent ? "0%" : "100%" }}
-          transition={{ duration: 1 }}
-          style={{
-            background: '#051A2F',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 1,
-            transformOrigin: "bottom",
-          }}
-        >
+      <motion.div
+      initial={{ height: "100dvh" }}
+      animate={{ height: showContent ? "0" : "100dvh" }}
+      transition={{ duration: 1 }}
+      style={{
+        background: '#051A2F',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 1,
+        transformOrigin: "bottom",
+      }}
+    >
+    
           <LogoAnimation handleAnimationComplete={handleAnimationComplete} logoAnimationComplete={logoAnimationComplete} />
         </motion.div>
       )}
@@ -117,7 +118,6 @@ const App = () => {
               >
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen}  drawerOpen={drawerOpen} />
-                  <ScrollToTop />
                   <Routes>
                     <Route
                       path='/'

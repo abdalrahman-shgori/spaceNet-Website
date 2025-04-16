@@ -9,9 +9,8 @@ import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
 import { motion } from "framer-motion";
 import learnMoreArrow from "../../assets/images/learnMoreArrow.svg"
 import learnMoreArrowBlack from "../../assets/images/learnMoreArrowBlack.svg"
-
 import './about.css';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export default function AboutSpaceNet({
@@ -21,7 +20,6 @@ export default function AboutSpaceNet({
     capture,
     loading,
     outOfServicesHover,
-    servicesList,
     indexOfHoveredServices
 }) {
 
@@ -34,7 +32,6 @@ export default function AboutSpaceNet({
     const isTabScreen = useMediaQuery(theme.breakpoints.only("sm"));
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
     const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
-
     const [displayedText, setDisplayedText] = useState("");
     const timeoutRef = useRef([]);
     const [initialAnimation, setInitialAnimation] = useState(true);
@@ -72,11 +69,9 @@ export default function AboutSpaceNet({
                 }
             }, 3000);
         };
-
         const intervalId = setInterval(scrollContent, 50);
         return () => clearInterval(intervalId);
     }, []);
-
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -319,8 +314,6 @@ export default function AboutSpaceNet({
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.5 }}
-
-
                                     >
                                         <Typography
                                             sx={{
@@ -390,8 +383,6 @@ export default function AboutSpaceNet({
                                         sm: capture ? "auto" : '270px',
                                         xs: capture ? "auto" : '270px'
                                     },
-
-
                                 }}>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
 
@@ -410,8 +401,6 @@ export default function AboutSpaceNet({
                                         }}
                                     />
                                 )}
-
-
                                 <Typography
                                     ref={paragraphRef}
                                     sx={{
@@ -421,9 +410,7 @@ export default function AboutSpaceNet({
                                     {loading ? <Skeleton animation="wave" sx={{ height: "200px" }} /> : scrollingContent}
                                 </Typography>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
-
                                     <motion.div
-
                                         style={{
                                             position: 'absolute',
                                             bottom: "-22px",
@@ -525,64 +512,63 @@ export default function AboutSpaceNet({
                         animate={{ opacity: [0, 1] }}
                         transition={{ duration: 0.5, delay: 0.5 }}
                     >
-                    <Link
-  to={(() => {
-    if (indexOfHoveredServices === 1) {
-      return '/academics';
-    } else if (indexOfHoveredServices === 2) {
-      return '/core-it';
-    } else if (indexOfHoveredServices === 3) {
-      return '/software';
-    } else if (indexOfHoveredServices === 5) {
-      return '/design-branding';
-    }
-    return '#'; // Default case or fallback link
-  })()}
->
-                        <Box
-                            component="button"
-                            sx={{
-                                background:
-                                    indexOfHoveredServices === 1 ? "#FF9F31;" :
-                                        indexOfHoveredServices === 2 ? "#E9FA50" :
-                                            indexOfHoveredServices === 3 ? theme.palette.mode === 'light' ? "#051A2F" : "#9D89FC" :
-                                                indexOfHoveredServices === 5 ? "#1CB786" : "#E9FA50",
-
-                                border: "unset",
-                                padding: "8px 18px 8px 18px",
-                                borderRadius: "116px",
-                                display: {
-                                    lg: "none",
-                                    md: "none",
-                                    sm: "flex",
-                                    xs: "flex",
-                                },
-                                alignItems: "center",
-                                gap: "8px",
-                                marginTop: "20px",
-                                zIndex: "999999",
-
-                            }}
+                        <Link
+                            to={(() => {
+                                if (indexOfHoveredServices === 1) {
+                                    return '/academics';
+                                } else if (indexOfHoveredServices === 2) {
+                                    return '/core-it';
+                                } else if (indexOfHoveredServices === 3) {
+                                    return '/software';
+                                } else if (indexOfHoveredServices === 5) {
+                                    return '/design-branding';
+                                }
+                                return '#';
+                            })()}
                         >
-                            <Typography
+                            <Box
+                                component="button"
                                 sx={{
-                                    fontSize: "14px",
-                                    fontFamily: "var(--English-font), Arial, sans-serif",
-                                    color: indexOfHoveredServices === 2 ? "#000" : "#FFF",
+                                    background:
+                                        indexOfHoveredServices === 1 ? "#FF9F31;" :
+                                            indexOfHoveredServices === 2 ? "#E9FA50" :
+                                                indexOfHoveredServices === 3 ? theme.palette.mode === 'light' ? "#051A2F" : "#9D89FC" :
+                                                    indexOfHoveredServices === 5 ? "#1CB786" : "#E9FA50",
+
+                                    border: "unset",
+                                    padding: "8px 18px 8px 18px",
+                                    borderRadius: "116px",
+                                    display: {
+                                        lg: "none",
+                                        md: "none",
+                                        sm: "flex",
+                                        xs: "flex",
+                                    },
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    marginTop: "20px",
+                                    zIndex: "999999",
+
                                 }}
                             >
-                                {t("aboutSpaceNet.learnMore")}
-                            </Typography>
-                            <Box
-                                component="img"
-                                src={indexOfHoveredServices === 2 ? learnMoreArrowBlack : learnMoreArrow}
-                                sx={{
-                                    transform: dir === 'rtl' ? "scaleX(-1)" : 'unset'
-                                }}
-                            />
-                        </Box>
+                                <Typography
+                                    sx={{
+                                        fontSize: "14px",
+                                        fontFamily: "var(--English-font), Arial, sans-serif",
+                                        color: indexOfHoveredServices === 2 ? "#000" : "#FFF",
+                                    }}
+                                >
+                                    {t("aboutSpaceNet.learnMore")}
+                                </Typography>
+                                <Box
+                                    component="img"
+                                    src={indexOfHoveredServices === 2 ? learnMoreArrowBlack : learnMoreArrow}
+                                    sx={{
+                                        transform: dir === 'rtl' ? "scaleX(-1)" : 'unset'
+                                    }}
+                                />
+                            </Box>
                         </Link>
-                      
                     </motion.div>
                 )}
             </Grid>

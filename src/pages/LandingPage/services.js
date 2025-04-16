@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import Union from "../../assets/images/Union.svg";
 import ServicesMobile from "./servicesMobile";
 import ServicesOriginal from "./servicesOriginal";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export default function Services({
@@ -66,7 +65,9 @@ export default function Services({
     }, [isTabScreen, isMobile]);
 
     return (
-        <Grid
+        <>
+      
+                                  <Grid
             ref={servicesRef}
             sx={{
                 padding:
@@ -86,15 +87,18 @@ export default function Services({
                 ,
             }}
         >
-            <Typography
-                sx={{
-                    fontSize: { lg: "38px", md: "30px", sm: "30px" },
-                    fontFamily: "var(--English-font-Extralight)",
-                    display: { sm: "block", xs: "none", md: "block" },
-                }}
-            >
-                {t("services.OurServices")}
-            </Typography>
+            {!loading && (
+   <Typography
+   sx={{
+       fontSize: { lg: "38px", md: "30px", sm: "30px" },
+       fontFamily: "var(--English-font-Extralight), Arial, sans-serif",
+       display: { sm: "block", xs: "none", md: "block" },
+   }}
+>
+   {t("services.OurServices")}
+</Typography>
+            )}
+           
 
             <Grid
                 ref={isTabScreen ? scrollRef : null}
@@ -116,6 +120,7 @@ export default function Services({
                     userSelect: "none",
                 }}
             >
+                  
                 {loading ? (
                     Array(4).fill().map((_, index) => (
                         <Skeleton
@@ -175,5 +180,7 @@ export default function Services({
                 )}
             </Grid>
         </Grid>
+        </>
+       
     );
 }
