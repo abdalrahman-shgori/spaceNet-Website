@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { services as fetchServicesApi } from "../../services/websiteApis/services";
 import ServicesLogo from '../../assets/spacenetLogo/servicesLogo';
-import { Box, Grid } from '@mui/material';
+import Grid  from '@mui/material/Grid';
 import { motion } from 'framer-motion';
 import LandingPage from "../landingPage";
 const InnerApp = ({

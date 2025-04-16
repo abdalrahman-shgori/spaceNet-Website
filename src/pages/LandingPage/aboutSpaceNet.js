@@ -3,7 +3,6 @@ import Vector1Yellow from "../../assets/images/Vector1Yellow.svg";
 import vector1White from "../../assets/images/Vector1White.svg";
 import Vector2Yellow from "../../assets/images/Vector2Yellow.svg";
 import vector2White from "../../assets/images/Vector2White.svg";
-import { Box, Grid, Skeleton, Typography, useMediaQuery, useTheme } from "@mui/material";
 import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogoAbout.svg";
 import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
 import { motion } from "framer-motion";
@@ -12,6 +11,12 @@ import learnMoreArrowBlack from "../../assets/images/learnMoreArrowBlack.svg"
 import './about.css';
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import Skeleton from '@mui/material/Skeleton'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import {useTheme} from '@mui/material/styles'
 
 export default function AboutSpaceNet({
     activeService,

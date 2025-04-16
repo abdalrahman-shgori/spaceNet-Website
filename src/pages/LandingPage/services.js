@@ -1,9 +1,13 @@
-import { Grid, Typography, useTheme, useMediaQuery, Skeleton } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import Union from "../../assets/images/Union.svg";
 import ServicesMobile from "./servicesMobile";
 import ServicesOriginal from "./servicesOriginal";
 import { useTranslation } from "react-i18next";
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Skeleton from '@mui/material/Skeleton'
+import {useTheme} from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 export default function Services({
     activeService,

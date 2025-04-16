@@ -1,4 +1,3 @@
-import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import customCursor from "../../assets/images/internet.svg";
@@ -8,7 +7,10 @@ import design from "../../assets/images/design.svg";
 import UnionWhite from "../../assets/images/UnionWhite.svg";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import useMediaQuery from '@mui/material/useMediaQuery'
 export default function ServicesOriginal({
     activeService,
     item,

@@ -1,4 +1,3 @@
-import { Box, Grid, Typography, useTheme, useMediaQuery } from "@mui/material";
 import React, { useEffect,  useState } from "react";
 import { motion } from "framer-motion";
 import customCursor from "../../assets/images/internet.svg";
@@ -6,6 +5,12 @@ import academy from "../../assets/images/academy.svg";
 import software from "../../assets/images/software.svg";
 import design from "../../assets/images/design.svg";
 import { useTranslation } from "react-i18next";
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import {useTheme} from '@mui/material/styles'
+
 
 export default function ServicesMobile({
     activeService,
