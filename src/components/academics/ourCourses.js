@@ -75,6 +75,7 @@ import Box from '@mui/material/Box'
     };
 
     const btnStyle = {
+        display:"inline-block",
         background: "#000000",
         color: "#FFFFFF",
         borderRadius: "10px",
