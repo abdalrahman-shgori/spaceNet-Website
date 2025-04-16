@@ -1,18 +1,20 @@
 import { Grid } from "@mui/material";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import SpaceNetLayout from "../components/spaceNetLayout";
 import { motion } from "framer-motion"
 import LetsProject from "../components/letsProject";
 import WhichCourse from "../components/academics/whichCourse";
 import SectionDescription from "../components/sectionDescription";
-import LayoutCards from "../components/layoutCards";
-import OurCourses from "../components/academics/ourCourses";
 import DevelopSkillsText from "../components/academics/developSkillsText";
 import DevelopSkills from "../components/academics/developSkills";
 import AcademicsForm from "../components/academics/academicsFrom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import technologiesData from "../components/jsonData/technologiesData";
+
+const OurCourses=lazy(()=> import("../components/academics/ourCourses"))
+const LayoutCards=lazy(()=> import("../components/layoutCards"))
+
 export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const { t } = useTranslation()
@@ -74,7 +76,9 @@ export default function Academics({ setOpen }) {
                         academicsSection="first"
 
                     />
+                    <Suspense>
                     <OurCourses hoveredcardid={hoveredcardid} sethoveredcardid={sethoveredcardid} setEnroll={setEnroll} enroll={enroll} />
+                    </Suspense>
                     <SectionDescription
                         text1={t("academics.ourPerks")}
                         text2={t("academics.FullFeature")}

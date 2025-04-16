@@ -6,60 +6,32 @@ import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-export default function Toggle({ drawerOpen, setThemeColor, themeColor, open }) {
+export default function Toggle({ drawerOpen, setThemeColor, open }) {
     const { t } = useTranslation()
     const { toggleColorMode } = useColorMode();
-    const [isDarkMode, setIsDarkMode] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
-    const [dimension, setDimension] = useState("30%");
     const theme = useTheme();
     const location = useLocation();
     const { pathname } = location;
+    const { i18n } = useTranslation()
+    const dir = i18n.dir()
+    const [ballVisible, setBallVisible] = useState(false);
+
+    const xlgscreen = useMediaQuery(theme.breakpoints.only('xl'))
+    const lgscreen = useMediaQuery(theme.breakpoints.only('lg'))
+    const mdscreen = useMediaQuery(theme.breakpoints.only('md'))
+    const smscreen = useMediaQuery(theme.breakpoints.only('sm'))
+    const xsscreen = useMediaQuery(theme.breakpoints.only('xs'))
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
     const handleToggle = () => {
         toggleColorMode();
-        setIsDarkMode((prev) => !prev);
     };
-
-    const handleResize = () => {
-        if (window.innerHeight > 600) {
-            setDimension("450px");
-        } else {
-            setDimension("200px");
-        }
-    };
-
     useEffect(() => {
         const newThemeColor = pathname === '/'
             ? theme.palette.background.default :
             theme.palette.background.paper;
         setThemeColor(newThemeColor);
     }, [pathname, theme.palette.background.paper]);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsVisible(true);
-        }, 500);
-
-        return () => clearTimeout(timer);
-    }, []);
-
-    useEffect(() => {
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-    const xlgscreen = useMediaQuery(theme.breakpoints.only('xl'))
-    const lgscreen = useMediaQuery(theme.breakpoints.only('lg'))
-    const mdscreen = useMediaQuery(theme.breakpoints.only('md'))
-    const smscreen = useMediaQuery(theme.breakpoints.only('sm'))
-    const xsscreen = useMediaQuery(theme.breakpoints.only('xs'))
-
-    const [ballVisible, setBallVisible] = useState(false);
-
     useEffect(() => {
         const timer = setTimeout(() => {
             setBallVisible(true);
@@ -68,15 +40,6 @@ export default function Toggle({ drawerOpen, setThemeColor, themeColor, open }) 
         return () => clearTimeout(timer);
     }, []);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsVisible(true);
-        }, 1000);
-
-        return () => clearTimeout(timer);
-    }, [ballVisible]);
-    const { i18n } = useTranslation()
-    const dir = i18n.dir()
     return (
         <>
             {(pathname === '/' || drawerOpen) && (

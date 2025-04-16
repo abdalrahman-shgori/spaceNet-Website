@@ -33,7 +33,7 @@ const App = () => {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
-  const [themeColor, setThemeColor] = useState('')
+  const [themeColor, setThemeColors] = useState('')
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
   };
@@ -116,7 +116,7 @@ const App = () => {
                 }}
               >
                 <>
-                  <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+                  <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen}  drawerOpen={drawerOpen} />
                   <ScrollToTop />
                   <Routes>
                     <Route
@@ -125,26 +125,25 @@ const App = () => {
                         <InnerApp
                           showContent={showContent}
                           setShowContent={setShowContent}
-                          setThemeColor={setThemeColor}
                           draweOpen={drawerOpen}
                           setDrawerOpen={setDrawerOpen}
                           setOpen={setOpen}
                         />
                       }
                     />
-                    <Route path='/software' element={<SoftwareSection setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                    <Route path='/design-branding' element={<DesignAndBranding setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                    <Route path='/academics' element={<Academics setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                    <Route path='/core-it' element={<CoreIt setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                    <Route path='/blogs' element={<BlogsAndNews setThemeColor={setThemeColor} setOpen={setOpen} />} />
-                    <Route path="/blogs/:id" element={<BlogDetails setThemeColor={setThemeColor} setOpen={setOpen} />} />
+                    <Route path='/software' element={<SoftwareSection  setOpen={setOpen} />} />
+                    <Route path='/design-branding' element={<DesignAndBranding  setOpen={setOpen} />} />
+                    <Route path='/academics' element={<Academics  setOpen={setOpen} />} />
+                    <Route path='/core-it' element={<CoreIt  setOpen={setOpen} />} />
+                    <Route path='/blogs' element={<BlogsAndNews  setOpen={setOpen} />} />
+                    <Route path="/blogs/:id" element={<BlogDetails  setOpen={setOpen} />} />
                   </Routes>
                   {location.pathname !== '/' && (
                     <Footer />
                   )}
                 </>
               </motion.div>
-              <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+              <Toggle open={open} setThemeColor={setThemeColors} themeColor={themeColor} drawerOpen={drawerOpen} />
               <BasicModal setOpen={setOpen} open={open} />
             </>
           )}
