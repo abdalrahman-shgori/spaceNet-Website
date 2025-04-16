@@ -26,6 +26,8 @@ const App = () => {
     console.error = () => { };
   }
   const [open, setOpen] = React.useState(false);
+  const [showOverflow,setShowOverFlow]=useState(false)
+  console.log(showOverflow)
   const { i18n } = useTranslation();
   document.body.dir = i18n.dir();
   const location = useLocation();
@@ -97,8 +99,11 @@ const App = () => {
           {logoAnimationComplete && (
             <>
               <motion.div
-               initial={{ scaleY: 0, originY: 1 }}
-               animate={{ scaleY: [0, 1],                  background: themeColor,
+
+               initial={location.pathname === '/' &&{ height: 0, originY: 1 }}
+               animate={{
+                 height:"100dvh",       
+                            background: themeColor,
                }} 
                exit={{ scaleY: [0, 1.1, 0]}}
      
@@ -116,8 +121,14 @@ const App = () => {
                   height: "100%",
                   zIndex: 10,
                   transformOrigin: "bottom",
+                  overflow:showOverflow ? "auto" : "hidden"
       
                 }}
+                onUpdate={({ height }) => {
+                  if (height === '100dvh') {
+                      setShowOverFlow(true)
+                  } 
+              }}
               >
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen}  drawerOpen={drawerOpen} />
