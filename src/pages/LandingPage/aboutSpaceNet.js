@@ -230,6 +230,7 @@ export default function AboutSpaceNet({
                                     xs: "106px"
                                 },
                                 position: "absolute",
+
                                 transform: dir === 'rtl' ? "scaleX(-1)" : 'unset',
 
                             }}
@@ -309,8 +310,7 @@ export default function AboutSpaceNet({
                                                 md: "10px",
                                                 sm: "10px",
                                                 xs: "10px"
-                                            },
-                                            height:"60px"
+                                            }
 
                                         }}
                                     />
@@ -376,7 +376,6 @@ export default function AboutSpaceNet({
                                                 xs: "10px"
                                             },
                                             paddingRight: "20px",
-                                            height:"60px"
 
 
                                         }}
