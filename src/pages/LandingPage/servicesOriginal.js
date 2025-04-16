@@ -195,6 +195,8 @@ const truncatedTitle =
   {image && (
     <Box
       component="img"
+      loading="eager"
+      fetchPriority="high"
       src={
         indexOfHoveredServices === 3 &&
         index === 2 &&

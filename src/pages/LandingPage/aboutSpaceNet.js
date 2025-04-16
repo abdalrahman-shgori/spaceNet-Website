@@ -214,6 +214,8 @@ export default function AboutSpaceNet({
                     >
                         <Box
                             component='img'
+                            loading="eager"
+                            fetchPriority="high"
                             alt="bracket"
                             src={theme.palette.mode === 'light' ? vector1White : Vector1Yellow}
                             sx={{
@@ -295,6 +297,8 @@ export default function AboutSpaceNet({
                                 <>
                                     <Box
                                         component="img"
+                                        loading="eager"
+                                        fetchPriority="high"
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
                                         alt="SpaceNet Logo"
                                         sx={{
@@ -348,6 +352,8 @@ export default function AboutSpaceNet({
 
                                     <Box
                                         component="img"
+                                        loading="eager"
+                                        fetchPriority="high"
                                         src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
                                         alt="SpaceNet Logo"
                                         sx={{
@@ -480,6 +486,8 @@ export default function AboutSpaceNet({
                     >
                         <Box
                             component='img'
+                            loading="eager"
+                            fetchPriority="high"
                             alt="bracket"
                             src={theme.palette.mode === 'light' ? vector2White : Vector2Yellow}
                             sx={{
@@ -566,6 +574,8 @@ export default function AboutSpaceNet({
                                 </Typography>
                                 <Box
                                     component="img"
+                                    loading="eager"
+                                    fetchPriority="high"
                                     src={indexOfHoveredServices === 2 ? learnMoreArrowBlack : learnMoreArrow}
                                     sx={{
                                         transform: dir === 'rtl' ? "scaleX(-1)" : 'unset'

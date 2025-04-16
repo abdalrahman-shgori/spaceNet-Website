@@ -84,20 +84,10 @@ export default function Services({
                             sm: "0px 25px 0px 45px",
                             xs: "0px 25px 0px 0px"
                         }
-                ,
+                
             }}
         >
-            {!loading && (
-   <Typography
-   sx={{
-       fontSize: { lg: "38px", md: "30px", sm: "30px" },
-       fontFamily: "var(--English-font-Extralight), Arial, sans-serif",
-       display: { sm: "block", xs: "none", md: "block" },
-   }}
->
-   {t("services.OurServices")}
-</Typography>
-            )}
+          
 
             <Grid
                 ref={isTabScreen ? scrollRef : null}

@@ -115,6 +115,7 @@ export default function Toggle({ drawerOpen, setThemeColor, open }) {
             </Typography>
 
                 <Box
+                
                     sx={{
                         position: 'absolute',
                         bottom: theme.palette.mode === 'dark' ? '6px' : 'calc(100% - 28px)',
