@@ -85,7 +85,7 @@ const App = () => {
                   height: "100%",
                   zIndex: 10,
                   transformOrigin: "bottom",
-                  overflow: showOverflow ? "auto" : "hidden"
+                  overflow: location.pathname === '/' && showOverflow ? "auto" : "hidden"
 
                 }}
                 onUpdate={({ height }) => {
