@@ -197,7 +197,7 @@ export default function AboutSpaceNet({
             >
                 <Grid item xs={12} lg={12}>
                     <motion.div
-                        animate={
+                        animate={ 
                             dir === 'ltr' ?
                                 initialAnimation
                                     ? { y: [0, 120, 0], x: [0, 120, 0] }
@@ -421,7 +421,14 @@ export default function AboutSpaceNet({
                                         ...paragraphStyle
                                     }}
                                 >
-                                    {loading ? <Skeleton animation="wave" sx={{ height: "200px" }} /> : scrollingContent}
+                                    {loading ? <Skeleton animation="wave" sx={{
+                                        height: {
+                                            lg: is14Inch ? "220px" : is15Inch ? "240px" : '300px',
+                                            md: '220px',
+                                            sm: '220px',
+                                            xs: '220px',
+                                        }
+                                    }} /> : scrollingContent}
                                 </Typography>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
                                     <motion.div

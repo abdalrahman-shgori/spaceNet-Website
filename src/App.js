@@ -1,5 +1,5 @@
 
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import InnerApp from './pages/LandingPage/innerApp';
@@ -10,16 +10,23 @@ import LogoAnimation from './pages/LandingPage/logoaniamtion';
 import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
-import Loader from './components/loadingPage/loading';
+import SoftwareSection from "./pages/softwarePage"
+import DesignAndBranding from "./pages/design&branding"
+import Academics from "./pages/academics"
+import CoreIt from "./pages/coreIt"
+import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
+import BlogDetails from './components/blogsAndNews/blogDetails';
+import BasicModal from './components/contactUs/contactUs';
+import Footer from './components/footer';
 
-const SoftwareSection = lazy(() => import('./pages/softwarePage'))
-const Academics = lazy(() => import('./pages/academics'))
-const CoreIt = lazy(() => import('./pages/coreIt'))
-const DesignAndBranding = lazy(() => import('./pages/design&branding'))
-const BlogsAndNews = lazy(() => import('./components/blogsAndNews/blogsAndNews'))
-const BlogDetails = lazy(() => import('./components/blogsAndNews/blogDetails'))
-const BasicModal = lazy(() => import('./components/contactUs/contactUs'))
-const Footer = lazy(() => import('./components/footer'))
+// const SoftwareSection = lazy(() => import('./pages/softwarePage'))
+// const Academics = lazy(() => import('./pages/academics'))
+// const CoreIt = lazy(() => import('./pages/coreIt'))
+// const DesignAndBranding = lazy(() => import('./pages/design&branding'))
+// const BlogsAndNews = lazy(() => import('./components/blogsAndNews/blogsAndNews'))
+// const BlogDetails = lazy(() => import('./components/blogsAndNews/blogDetails'))
+// const BasicModal = lazy(() => import('./components/contactUs/contactUs'))
+// const Footer = lazy(() => import('./components/footer'))
 
 const App = () => {
   if (process.env.NODE_ENV === 'development') {
@@ -92,7 +99,6 @@ const App = () => {
               >
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} />
-                  <Suspense fallback={<Loader />}>
                     <Routes>
                       <Route
                         path='/'
@@ -113,19 +119,14 @@ const App = () => {
                       <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
                       <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} />
                     </Routes>
-                  </Suspense>
 
                   {location.pathname !== '/' && (
-                    <Suspense fallback={null}>
                       <Footer />
-                    </Suspense>
                   )}
                 </>
               </motion.div>
               <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-              <Suspense fallback={null}>
                 <BasicModal setOpen={setOpen} open={open} />
-              </Suspense>
             </>
           )}
         </ThemeLocalization>

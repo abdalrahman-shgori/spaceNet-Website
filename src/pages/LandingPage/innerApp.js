@@ -69,13 +69,7 @@ const InnerApp = ({
               duration: 1
             }}
           >
-            <LandingPage
-              loading={loading}
-              servicesList={servicesList}
-              setServicesList={setServicesList}
-              isAboutActive={isAboutActive}
-              setIsAboutActive={setIsAboutActive}
-            />
+          
            
           </motion.div>
         </>
