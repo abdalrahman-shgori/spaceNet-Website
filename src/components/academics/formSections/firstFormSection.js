@@ -6,8 +6,11 @@ import {
     unifiedInputStyle,
     inputFieldStyle
 } from '../formstyle';
-import { MenuItem, Select, InputBase, InputAdornment } from '@mui/material';
 import { useTranslation } from "react-i18next";
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import InputBase from '@mui/material/InputBase';
+import InputAdornment from '@mui/material/InputAdornment';
 
 export default function FirstFormSection({
     theme,

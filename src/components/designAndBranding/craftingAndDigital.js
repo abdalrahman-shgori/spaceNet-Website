@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import { useTheme } from '@mui/material/styles'
+import useTheme from '@mui/material/styles/useTheme';
 export default function Crafting({
   designAndBrandingList,
   reset,

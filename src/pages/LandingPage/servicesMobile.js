@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import {useTheme} from '@mui/material/styles'
+import useTheme from '@mui/material/styles/useTheme';
 
 
 export default function ServicesMobile({

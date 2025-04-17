@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import { useTheme } from '@mui/material/styles'
+import useTheme from '@mui/material/styles/useTheme';
 
 const technologiesDataImage = [
     {

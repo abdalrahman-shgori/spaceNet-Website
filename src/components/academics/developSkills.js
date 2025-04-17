@@ -10,11 +10,10 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import {useTheme} from '@mui/material/styles'
+import useTheme from '@mui/material/styles/useTheme';
 
 function DevelopSkills({ setOpen, setEnroll }) {
     const { i18n, t } = useTranslation()
-    const dir = i18n.dir()
     const [start, setStart] = useState(false)
     const theme = useTheme()
     const extraSmallScreen = useMediaQuery(theme.breakpoints.down("348"))

@@ -5,7 +5,6 @@ import Grid  from '@mui/material/Grid';
 import { motion } from 'framer-motion';
 import LandingPage from "../landingPage";
 const InnerApp = ({
-  showContent,
   showLogo,
 }) => {
   const [servicesList, setServicesList] = useState([]);

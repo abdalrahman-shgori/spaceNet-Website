@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
-import { useTheme } from '@mui/material/styles'
+import useTheme from '@mui/material/styles/useTheme';
 import useMediaQuery from '@mui/material/useMediaQuery'
 export default function ContactUsBtn({ setOpen }) {
   const { t, i18n } = useTranslation()

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import useTheme from '@mui/material/styles/useTheme';
 import { useColorMode } from '../../ThemeProvider';
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";

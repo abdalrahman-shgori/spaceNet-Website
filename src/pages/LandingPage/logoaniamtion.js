@@ -1,6 +1,6 @@
 import React from "react";
 import SvgGroup1 from "../../assets/logoAnimation/group1";
-import { Box } from "@mui/material";
+import Box from '@mui/material/Box';
 
 export default function LogoAnimation({
     handleAnimationComplete

@@ -9,10 +9,9 @@ import { pageStyle, textStyle, cardTitle, bracketStyle, cardStyle, cardStyle2 } 
 import { useTranslation } from "react-i18next";
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import {useTheme} from '@mui/material/styles'
+import useTheme from '@mui/material/styles/useTheme';
 
  function WhichCourse() {
   const { i18n, t } = useTranslation()

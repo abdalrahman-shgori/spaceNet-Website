@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useTranslation } from "react-i18next";
 import './LanguageSwitcher.css'
-import { Box, useTheme } from "@mui/material";
+import useTheme from '@mui/material/styles/useTheme';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';

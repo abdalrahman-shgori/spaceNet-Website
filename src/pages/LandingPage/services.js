@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Skeleton from '@mui/material/Skeleton'
-import {useTheme} from '@mui/material/styles'
+import useTheme from '@mui/material/styles/useTheme';
 import useMediaQuery from '@mui/material/useMediaQuery'
 
 export default function Services({
