@@ -1,6 +1,6 @@
 import {motion} from 'framer-motion'
 
-const transition = (OgComponent) => {
+const Transition = (OgComponent) => {
     return () => (
         <>
         <OgComponent/>
@@ -33,4 +33,4 @@ const transition = (OgComponent) => {
     
 }
 
-export default transition
+export default Transition

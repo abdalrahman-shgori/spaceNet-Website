@@ -1,8 +1,7 @@
 
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import { motion } from 'framer-motion';
 import Toggle from './components/toggleCompoent/toggle';
@@ -18,6 +17,8 @@ import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
 import BlogDetails from './components/blogsAndNews/blogDetails';
 import BasicModal from './components/contactUs/contactUs';
 import Footer from './components/footer';
+import InnerApp from './pages/LandingPage/innerApp';
+// const InnerApp = lazy(() => import('./pages/LandingPage/innerApp'))
 // const SoftwareSection = lazy(() => import('./pages/softwarePage'))
 // const Academics = lazy(() => import('./pages/academics'))
 // const CoreIt = lazy(() => import('./pages/coreIt'))
@@ -28,10 +29,7 @@ import Footer from './components/footer';
 // const Footer = lazy(() => import('./components/footer'))
 
 const App = () => {
-  if (process.env.NODE_ENV === 'development') {
-    console.warn = () => { };
-    console.error = () => { };
-  }
+ 
   const [open, setOpen] = React.useState(false);
   const [showOverflow, setShowOverFlow] = useState(false)
   const { i18n } = useTranslation();
@@ -54,7 +52,6 @@ const App = () => {
       setLogoAnimationComplete(true)
     }
   }, [logoAnimationComplete]);
-
 
   return (
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
@@ -87,8 +84,7 @@ const App = () => {
                   height: "100%",
                   zIndex: 10,
                   transformOrigin: "bottom",
-                  overflow:location.pathname === '/' ? showOverflow ? "auto" : "hidden" : 'unset'
-
+                  overflow: location.pathname === '/' ? showOverflow ? "auto" : "hidden" : 'unset'
                 }}
                 onUpdate={({ height }) => {
                   if (height === '100dvh') {
@@ -98,34 +94,33 @@ const App = () => {
               >
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} />
-                    <Routes>
-                      <Route
-                        path='/'
-                        element={
-                          <InnerApp
-                            showContent={showContent}
-                            setShowContent={setShowContent}
-                            draweOpen={drawerOpen}
-                            setDrawerOpen={setDrawerOpen}
-                            setOpen={setOpen}
-                          />
-                        }
-                      />
-                      <Route path='/software' element={<SoftwareSection setOpen={setOpen} />} />
-                      <Route path='/design-branding' element={<DesignAndBranding setOpen={setOpen} />} />
-                      <Route path='/academics' element={<Academics setOpen={setOpen} />} />
-                      <Route path='/core-it' element={<CoreIt setOpen={setOpen} />} />
-                      <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
-                      <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} />
-                    </Routes>
-
+                  <Routes>
+                    <Route
+                      path='/'
+                      element={
+                        <InnerApp
+                          showContent={showContent}
+                          setShowContent={setShowContent}
+                          draweOpen={drawerOpen}
+                          setDrawerOpen={setDrawerOpen}
+                          setOpen={setOpen}
+                        />
+                      }
+                    />
+                    <Route path='/software' element={<SoftwareSection setOpen={setOpen} />} />
+                    <Route path='/design-branding' element={<DesignAndBranding setOpen={setOpen} />} />
+                    <Route path='/academics' element={<Academics setOpen={setOpen} />} />
+                    <Route path='/core-it' element={<CoreIt setOpen={setOpen} />} />
+                    <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
+                    <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} />
+                  </Routes>
                   {location.pathname !== '/' && (
-                      <Footer />
+                    <Footer />
                   )}
                 </>
               </motion.div>
               <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-                <BasicModal setOpen={setOpen} open={open} />
+              <BasicModal setOpen={setOpen} open={open} />
             </>
           )}
         </ThemeLocalization>

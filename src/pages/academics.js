@@ -1,4 +1,4 @@
-import Grid  from "@mui/material/Grid";
+import Grid from "@mui/material/Grid";
 import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import SpaceNetLayout from "../components/spaceNetLayout";
 import { motion } from "framer-motion"
@@ -12,8 +12,8 @@ import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import technologiesData from "../components/jsonData/technologiesData";
 
-const OurCourses=lazy(()=> import("../components/academics/ourCourses"))
-const LayoutCards=lazy(()=> import("../components/layoutCards"))
+const OurCourses = lazy(() => import("../components/academics/ourCourses"))
+const LayoutCards = lazy(() => import("../components/layoutCards"))
 
 export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
@@ -77,7 +77,7 @@ export default function Academics({ setOpen }) {
 
                     />
                     <Suspense fallback="loading">
-                    <OurCourses hoveredcardid={hoveredcardid} sethoveredcardid={sethoveredcardid} setEnroll={setEnroll} enroll={enroll} />
+                        <OurCourses hoveredcardid={hoveredcardid} sethoveredcardid={sethoveredcardid} setEnroll={setEnroll} enroll={enroll} />
                     </Suspense>
                     <SectionDescription
                         text1={t("academics.ourPerks")}
@@ -86,13 +86,13 @@ export default function Academics({ setOpen }) {
                         academicsSection="sec"
                     />
                     <Suspense fallback="loading">
-                    <LayoutCards
-                        technologiesData={data}
-                        sethoveredcardid={sethoveredcardid}
-                        hoveredcardid={hoveredcardid}
-                    />
+                        <LayoutCards
+                            technologiesData={data}
+                            sethoveredcardid={sethoveredcardid}
+                            hoveredcardid={hoveredcardid}
+                        />
                     </Suspense>
-                 
+
 
                 </Grid>
                 <WhichCourse />

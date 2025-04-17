@@ -1,40 +1,46 @@
 @font-face {
     font-family: "English";
-    src: url(../fontFamily/Sora-Regular.woff2) ;
+    src: url(../fontFamily/Sora-Regular.woff2);
     font-display: swap;
 }
+
 @font-face {
     font-family: "SoraSemiBold";
     src: url(../fontFamily/Sora-SemiBold.woff2);
     font-display: swap;
 }
+
 @font-face {
     font-family: "SoraSemiLight";
-    src: url(../fontFamily/Sora-Light.woff2) ;
+    src: url(../fontFamily/Sora-Light.woff2);
     font-display: swap;
 }
+
 @font-face {
     font-family: "SoraExtraLight";
     src: url(../fontFamily/Sora-ExtraLight.woff2);
     font-display: swap;
 }
+
 @font-face {
     font-family: "StintUltraCondensed";
     src: url(../fontFamily/StintUltraCondensed-Regular.woff2);
     font-display: swap;
 }
+
 @font-face {
     font-family: "SoraThin";
-    src: url(../fontFamily/Sora-Thin.woff2) ;
+    src: url(../fontFamily/Sora-Thin.woff2);
     font-display: swap;
 }
-:root{
-    --English-font:'English';
-    --English-font-semibold:'SoraSemiBold';
-    --English-font-light:'SoraSemiLight';
-    --English-font-Extralight:'SoraExtraLight';
-    --English-font-SoraThin:'SoraThin';
-    --English-StintUltraCondensed:'StintUltraCondensed';
-    --Menu-Text-Color:#051A2F;
+
+:root {
+    --English-font: 'English';
+    --English-font-semibold: 'SoraSemiBold';
+    --English-font-light: 'SoraSemiLight';
+    --English-font-Extralight: 'SoraExtraLight';
+    --English-font-SoraThin: 'SoraThin';
+    --English-StintUltraCondensed: 'StintUltraCondensed';
+    --Menu-Text-Color: #051A2F;
 
 }

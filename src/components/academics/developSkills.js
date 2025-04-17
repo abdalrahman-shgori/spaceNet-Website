@@ -87,10 +87,8 @@ function DevelopSkills({ setOpen, setEnroll }) {
             sm: "31px",
             xs: "15px"
         },
-        fontFamily:"var(--English-font), Arial, sans-serif",
-        color: "#051A2F"
-
-
+        fontFamily: "var(--English-font), Arial, sans-serif",
+        color: "#051A2F",
     }
     const handleOpenContactUS = () => {
         setOpen(true)
@@ -215,34 +213,34 @@ function DevelopSkills({ setOpen, setEnroll }) {
                             </motion.div>
                         </Box>
 
-                       
+
                         <Typography
-  sx={{
-    fontSize: {
-      lg: "60px",
-      md: "40px",
-      sm: "30px",
-      xs: "27px"
-    },
-    textAlign: "center",
-    fontFamily: "var(--English-font), Arial, sans-serif",
-    padding: {
-      lg: "0px 90px",
-      md: "0px 90px",
-      sm: "0px 60px",
-      xs: "0px 40px"
-    },
-    lineHeight: {
-      lg: "65px",
-      md: "65px",
-      sm: "40px",
-      xs: "30px"
-    },
-    color: "#051A2F"
-  }}
->
-  {SkillsType[skills].title}
-</Typography>
+                            sx={{
+                                fontSize: {
+                                    lg: "60px",
+                                    md: "40px",
+                                    sm: "30px",
+                                    xs: "27px"
+                                },
+                                textAlign: "center",
+                                fontFamily: "var(--English-font), Arial, sans-serif",
+                                padding: {
+                                    lg: "0px 90px",
+                                    md: "0px 90px",
+                                    sm: "0px 60px",
+                                    xs: "0px 40px"
+                                },
+                                lineHeight: {
+                                    lg: "65px",
+                                    md: "65px",
+                                    sm: "40px",
+                                    xs: "30px"
+                                },
+                                color: "#051A2F"
+                            }}
+                        >
+                            {SkillsType[skills].title}
+                        </Typography>
 
                         <Box
                             sx={{
@@ -365,7 +363,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                                         xs: "17px"
                                     },
                                     fontFamily: "var(--English-font), Arial, sans-serif",
-                                    cursor:"pointer"
+                                    cursor: "pointer"
                                 }}
                             >
                                 {t("academics.RegisterNow")}
@@ -424,7 +422,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                             sm: "14px",
                             xs: "17px"
                         },
-                        textAlign:"center"
+                        textAlign: "center"
 
                     }}
                 >
