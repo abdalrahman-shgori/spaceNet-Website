@@ -66,6 +66,13 @@ export default function CoreIt({ setOpen }) {
     }, []);
 
     const theme = useTheme()
+      useEffect(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        }, [])
+    
     return (
         <>
             <Helmet>
