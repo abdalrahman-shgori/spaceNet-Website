@@ -434,4 +434,4 @@ function DevelopSkills({ setOpen, setEnroll }) {
     )
 }
 
-export default React.memo(DevelopSkills)
+export default DevelopSkills

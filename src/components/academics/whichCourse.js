@@ -425,4 +425,4 @@ import useTheme from '@mui/material/styles/useTheme';
   )
 }
 
-export default React.memo(WhichCourse)
+export default WhichCourse

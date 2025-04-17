@@ -74,7 +74,6 @@ const App = () => {
                   background: themeColor,
                 }}
                 exit={{ scaleY: [0, 1.1, 0] }}
-
                 transition={{
                   duration: 0.8,
                   ease: [0.4, 0, 0.2, 1],

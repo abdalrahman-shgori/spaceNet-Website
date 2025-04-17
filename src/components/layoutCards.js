@@ -311,4 +311,4 @@ function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, techno
     </>
   );
 }
-export default React.memo(LayoutCards);
+export default LayoutCards;

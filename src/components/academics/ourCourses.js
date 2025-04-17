@@ -14,7 +14,7 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Typography'
 import Box from '@mui/material/Box'
- function OurCourses({ hoveredcardid, sethoveredcardid, setEnroll }) {
+function OurCourses({ hoveredcardid, sethoveredcardid, setEnroll }) {
     const location = useLocation()
     const text1Style = {
         fontSize: {
@@ -76,7 +76,7 @@ import Box from '@mui/material/Box'
     };
 
     const btnStyle = {
-        display:"inline-block",
+        display: "inline-block",
         background: "#000000",
         color: "#FFFFFF",
         borderRadius: "10px",
@@ -99,7 +99,7 @@ import Box from '@mui/material/Box'
             xs: "13px"
         },
         fontFamily: "var(--English-font), Arial, sans-serif",
-        cursor:"pointer"
+        cursor: "pointer"
 
 
     };
@@ -107,25 +107,25 @@ import Box from '@mui/material/Box'
     const dir = i18n.dir()
     const coursesData = useMemo(() => {
         return location.pathname === '/core-it'
-          ? [
-              { id: 0, title1: "", title2: t("academics.design"), description: t("academics.ourDesign"), bg: "#F4F4F4", img: undefined },
-              { id: 1, img: designImg, bg: "#E9FA50" },
-              { id: 2, bg: "#FA6423", img: deployment },
-              { id: 3, title2: t("academics.Deployment"), description: t("academics.ourDeployment"), btnText: t("academics.enrollNow"), bg: "#F4F4F4", img: undefined },
-              { id: 4, title2: t("academics.Management"), description: t("academics.Ourmanagement"), btnText: t("academics.enrollNow"), bg: "#F4F4F4", img: undefined },
-              { id: 5, bg: "#1CB786", img: Consultancy }
+            ? [
+                { id: 0, title1: "", title2: t("academics.design"), description: t("academics.ourDesign"), bg: "#F4F4F4", img: undefined },
+                { id: 1, img: designImg, bg: "#E9FA50" },
+                { id: 2, bg: "#FA6423", img: deployment },
+                { id: 3, title2: t("academics.Deployment"), description: t("academics.ourDeployment"), btnText: t("academics.enrollNow"), bg: "#F4F4F4", img: undefined },
+                { id: 4, title2: t("academics.Management"), description: t("academics.Ourmanagement"), btnText: t("academics.enrollNow"), bg: "#F4F4F4", img: undefined },
+                { id: 5, bg: "#1CB786", img: Consultancy }
             ]
-          : [
-              { id: 0, title1: t("academics.startLearn"), title2: t("academics.DigitalDesign"), description: t("academics.dive"), btnText: t("academics.startLearn"), bg: "#FFFFFF", img: undefined },
-              { id: 1, img: complexProject, bg: "#1CB786" },
-              { id: 2, bg: "#9D89FC", img: Illustration },
-              { id: 3, title1: t("academics.startLearn"), title2: t("academics.SoftwareDevelopment"), description: t("academics.lunchTech"), btnText: t("academics.startLearn"), bg: "#FFFFFF", img: undefined },
-              { id: 4, title1: t("academics.startLearn"), title2: t("academics.Network"), description: t("academics.buildYourFuture"), btnText: t("academics.startLearn"), bg: "#FFFFFF", img: undefined },
-              { id: 5, bg: "#E9FA50", img: Network },
-              { id: 6, bg: "#FA6423", img: itManagment },
-              { id: 7, title1: t("academics.startLearn"), title2: t("academics.ITManagement"), description: t("academics.buildYourFuture"), btnText: t("academics.startLearn"), bg: "#FFFFFF", img: undefined }
+            : [
+                { id: 0, title1: t("academics.startLearn"), title2: t("academics.DigitalDesign"), description: t("academics.dive"), btnText: t("academics.startLearn"), bg: "#FFFFFF", img: undefined },
+                { id: 1, img: complexProject, bg: "#1CB786" },
+                { id: 2, bg: "#9D89FC", img: Illustration },
+                { id: 3, title1: t("academics.startLearn"), title2: t("academics.SoftwareDevelopment"), description: t("academics.lunchTech"), btnText: t("academics.startLearn"), bg: "#FFFFFF", img: undefined },
+                { id: 4, title1: t("academics.startLearn"), title2: t("academics.Network"), description: t("academics.buildYourFuture"), btnText: t("academics.startLearn"), bg: "#FFFFFF", img: undefined },
+                { id: 5, bg: "#E9FA50", img: Network },
+                { id: 6, bg: "#FA6423", img: itManagment },
+                { id: 7, title1: t("academics.startLearn"), title2: t("academics.ITManagement"), description: t("academics.buildYourFuture"), btnText: t("academics.startLearn"), bg: "#FFFFFF", img: undefined }
             ];
-      }, [location.pathname, t]);
+    }, [location.pathname, t]);
 
     const getBackgroundColor = (id) => {
         const colors = {
@@ -198,7 +198,7 @@ import Box from '@mui/material/Box'
                                 paddingRight: dir === 'ltr' && index % 2 === 0 ? "5.9px" : "0",
                                 paddingLeft: dir === 'rtl' && index % 2 === 0 ? "5.9px" : "0",
                                 maxHeight: "601px",
-                                overflow:"hidden",
+                                overflow: "hidden",
                             }}
                         >
                             {item.img !== undefined ? (
@@ -382,7 +382,6 @@ import Box from '@mui/material/Box'
                 ))}
             </Grid>
         </>
-
     );
 }
-export default React.memo(OurCourses)
+export default OurCourses

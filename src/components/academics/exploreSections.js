@@ -228,4 +228,4 @@ function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnrol
         </Grid>
     );
 }
-export default React.memo(ExploreLearning)
+export default ExploreLearning
