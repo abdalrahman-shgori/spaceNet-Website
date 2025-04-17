@@ -424,6 +424,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                             sm: "14px",
                             xs: "17px"
                         },
+                        textAlign:"center"
 
                     }}
                 >

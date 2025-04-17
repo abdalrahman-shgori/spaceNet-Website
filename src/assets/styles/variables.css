@@ -4,22 +4,19 @@
     font-display: swap;
 }
 @font-face {
-    font-family: "English";
+    font-family: "SoraSemiBold";
     src: url(../fontFamily/Sora-SemiBold.woff2);
     font-display: swap;
-    font-weight: 700;
-
 }
 @font-face {
-    font-family: "English";
+    font-family: "SoraSemiLight";
     src: url(../fontFamily/Sora-Light.woff2) ;
     font-display: swap;
 }
 @font-face {
-    font-family: "English";
+    font-family: "SoraExtraLight";
     src: url(../fontFamily/Sora-ExtraLight.woff2);
     font-display: swap;
-    font-weight: 700;
 }
 @font-face {
     font-family: "StintUltraCondensed";
