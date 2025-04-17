@@ -35,7 +35,8 @@ export default function Crafting({
   return (
     <Grid container
       sx={{
-        direction: "ltr"
+        direction: "ltr",
+        
       }}
     >
 

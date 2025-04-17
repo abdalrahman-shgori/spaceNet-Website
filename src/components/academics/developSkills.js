@@ -365,6 +365,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                                         xs: "17px"
                                     },
                                     fontFamily: "var(--English-font), Arial, sans-serif",
+                                    cursor:"pointer"
                                 }}
                             >
                                 {t("academics.RegisterNow")}

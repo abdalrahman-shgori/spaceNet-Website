@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 import 'react-phone-input-2/lib/style.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { format, getCountries, getCountryCallingCode } from 'libphonenumber-js';
+import {  getCountries, getCountryCallingCode } from 'libphonenumber-js';
 import FirstFormSection from './formSections/firstFormSection';
 import SecFormSection from './formSections/secFormSection';
 import { getCourses, postRegistration } from '../../services/websiteApis/services';

@@ -24,7 +24,7 @@ import Box from '@mui/material/Box'
             xs: "12px"
         },
         lineHeight: "auto",
-        fontFamily: "var(--English-font), Arial, sans-serif"
+        fontFamily: "var(--English-font), Arial, sans-serif",
     };
 
     const text2Style = {
@@ -54,7 +54,8 @@ import Box from '@mui/material/Box'
             sm: "236px",
             xs: "236px"
         },
-        width: "100%"
+        width: "100%",
+
     };
 
     const descriptionStyle = {
@@ -98,6 +99,8 @@ import Box from '@mui/material/Box'
             xs: "13px"
         },
         fontFamily: "var(--English-font), Arial, sans-serif",
+        cursor:"pointer"
+
 
     };
     const { t, i18n } = useTranslation()
