@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useLocation } from "react-router-dom";
 
 const LanguageSwitcher = () => {
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
     const theme=useTheme()
     const location=useLocation()
     const [anchorEl, setAnchorEl] = useState(null);
@@ -30,11 +30,7 @@ const LanguageSwitcher = () => {
             setAnchorEl(event.currentTarget);
         }
     };
-
-    const handleOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
+  
     const handleClose = () => {
         setAnchorEl(null);
     };

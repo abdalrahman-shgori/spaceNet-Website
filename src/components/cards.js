@@ -11,7 +11,7 @@ export default function Cards({
 }) {
     const [expandedCard, setExpandedCard] = useState(lastCardId);
     const containerRef = useRef(null);
-    const { i18n, t } = useTranslation()
+    const { i18n} = useTranslation()
     const lang = i18n.language
     const dir = i18n.dir()
     const handleCardClick = (id) => {

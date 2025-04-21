@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const BlogCard = ({ blog }) => {
-    const { t, i18n } = useTranslation();
+    const {i18n } = useTranslation();
     const lang = i18n.language;
     const navigate = useNavigate();
 

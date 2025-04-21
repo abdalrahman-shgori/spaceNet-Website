@@ -12,7 +12,7 @@ function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, techno
   const pathname = location.pathname;
   const theme = useTheme()
   const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down('354'))
-  const { i18n, t } = useTranslation()
+  const { i18n } = useTranslation()
   const dir = i18n.dir()
   const lang = i18n.language
   if (process.env.NODE_ENV === 'development') {
@@ -187,7 +187,6 @@ function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, techno
                         fontSize: "14px",
                         fontFamily: "var(--English-font), Arial, sans-serif",
                         marginTop: "20px",
-                        color: "#051A2F",
                         maxWidth: "574px",
                         width: "100%",
                         textAlign: pathname === '/academics' ? "center" : "unset",

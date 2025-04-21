@@ -13,7 +13,7 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import useTheme from '@mui/material/styles/useTheme';
 
 function DevelopSkills({ setOpen, setEnroll }) {
-    const { i18n, t } = useTranslation()
+    const {t } = useTranslation()
     const [start, setStart] = useState(false)
     const theme = useTheme()
     const extraSmallScreen = useMediaQuery(theme.breakpoints.down("348"))
@@ -338,7 +338,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                                     fontFamily: "var(--English-font), Arial, sans-serif",
                                     fontSize: {
                                         lg: "18.5px",
-                                        sm: "18.5px",
+                                        md: "18.5px",
                                         sm: "14px",
                                         xs: "17px"
                                     },
@@ -358,7 +358,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                                     padding: "13px 33px 13px 33px",
                                     fontSize: {
                                         lg: "18.5px",
-                                        sm: "18.5px",
+                                        md: "18.5px",
                                         sm: "14px",
                                         xs: "17px"
                                     },
@@ -398,7 +398,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                         fontFamily: "var(--English-font), Arial, sans-serif",
                         fontSize: {
                             lg: "18.5px",
-                            sm: "18.5px",
+                            md: "18.5px",
                             sm: "14px",
                             xs: "17px"
                         },
@@ -419,7 +419,7 @@ function DevelopSkills({ setOpen, setEnroll }) {
                         fontSize: {
                             lg: "18.5px",
                             sm: "18.5px",
-                            sm: "14px",
+                            md: "14px",
                             xs: "17px"
                         },
                         textAlign: "center"

@@ -10,7 +10,7 @@ import LinkedInSvg from '../../assets/socialMediaIcons/linkedIn';
 import PaintrestSvg from '../../assets/socialMediaIcons/paintrest';
 import WhatsAppSvg from '../../assets/socialMediaIcons/whatsApp';
 import SvgSpaceNetLogo from '../../assets/spacenetLogo/spacenet';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 

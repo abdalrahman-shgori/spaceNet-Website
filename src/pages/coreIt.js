@@ -168,7 +168,6 @@ export default function CoreIt({ setOpen }) {
                     />
 
                 </Box>
-
                 <LetsProject
                     text1={t("coreIt.WanttoBuild")}
                     text2={t("coreIt.ScheduleConsultation")}

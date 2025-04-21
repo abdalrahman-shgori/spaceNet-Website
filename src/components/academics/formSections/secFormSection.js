@@ -2,7 +2,6 @@ import React from "react";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
 import Radio from '@mui/material/Radio';
@@ -50,14 +49,6 @@ export default function SecFormSection({
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const lang = i18n.language
-
-    const handleSelection = (id) => {
-        if (selectedCourses.includes(id)) {
-            setSelectedCourses(selectedCourses.filter(courseId => courseId !== id));
-        } else {
-            setSelectedCourses([...selectedCourses, id]);
-        }
-    };
 
     return (
         <>

@@ -1,5 +1,5 @@
 import React from "react";
-import { FormControl, Grid, TextField, Box, Typography } from '@mui/material';
+import {Grid, TextField, Box, Typography } from '@mui/material';
 import {
     textFieldStyle,
     fieldTextStyle,
@@ -19,10 +19,8 @@ export default function FirstFormSection({
     countries,
     phoneNumber,
     handlePhoneChange,
-    selectedGender,
     handleChange,
     formData,
-    handleGenderChange,
     passwordError,
     handleConfirmPasswordChange,
     CheckCircleIcon,
@@ -32,7 +30,6 @@ export default function FirstFormSection({
 }) {
     const { t, i18n } = useTranslation()
     const dir = i18n.dir()
-
     const passwordsMatch = formData.password && formData.confirmPassword === formData.password;
 
     return (

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Grid, Typography, Pagination, Box, CircularProgress, useTheme } from '@mui/material';
 import FeaturedBlog from './FeaturedBlog';
-import mockData from './mock';
 import BlogCard from './BlogCard';
 import { getBlogs } from '../../services/websiteApis/services';
 

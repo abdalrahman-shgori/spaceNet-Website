@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 const FeaturedBlog = ({ blog }) => {
-    const { t, i18n } = useTranslation()
+    const { i18n } = useTranslation()
     const navigate = useNavigate();
     const lang = i18n.language
     const formatDate = (date, lang) => {

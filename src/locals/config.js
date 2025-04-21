@@ -1,4 +1,4 @@
-import { enUS, arSD, kuCKB } from "@mui/material/locale";
+import { enUS, arSD } from "@mui/material/locale";
 
 
 export const allLangs = [

@@ -6,7 +6,6 @@ import useTheme from '@mui/material/styles/useTheme';
 export default function SectionDescription({ text1, text2, top, academicsSection }) {
     const location = useLocation()
     const pathname = location.pathname
-    const theme = useTheme()
     const text1Style = {
 
         fontSize: {

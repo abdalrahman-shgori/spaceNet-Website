@@ -30,11 +30,9 @@ export default function ServicesOriginal({
 }) {
   const { i18n, t } = useTranslation()
   const dir = i18n.dir()
-  const [id, setId] = useState()
   const handleHover = () => {
     setHoveredService(i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title);
     setHoveredServiceDescription(i18n.language === 'ar' ? item.description_ar : i18n.language === 'ku' ? item.description_ku : item.description);
-    setId(item.id)
     setIndexOfHoveredServices(item.id)
     setCapture(true);
     setOutOfServicesHover(false)
