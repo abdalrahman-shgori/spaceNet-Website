@@ -1,5 +1,5 @@
 
-import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { subServices } from "../services/websiteApis/services";
 import { motion } from "framer-motion"
@@ -13,13 +13,12 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import useTheme from '@mui/material/styles/useTheme';
 import Box from '@mui/material/Box'
-const LayoutCards = lazy(() => import("../components/layoutCards"))
-const OurCourses = lazy(() => import("../components/academics/ourCourses"))
-
-const NetworkSolution = lazy(() => import("../assets/sectionsImages/coteIt/networkSolution"));
-const Security = lazy(() => import("../assets/sectionsImages/coteIt/security"));
-const ServicesSvg = lazy(() => import("../assets/sectionsImages/coteIt/services"));
-const SystemSvg = lazy(() => import("../assets/sectionsImages/coteIt/system"));
+import NetworkSolution from "../assets/sectionsImages/coteIt/networkSolution";
+import Security from "../assets/sectionsImages/coteIt/security";
+import ServicesSvg from "../assets/sectionsImages/coteIt/services";
+import SystemSvg from "../assets/sectionsImages/coteIt/system";
+import LayoutCards from "../components/layoutCards";
+import OurCourses from "../components/academics/ourCourses";
 
 const serviceTypesMock = [
     "Website Development",
@@ -143,9 +142,7 @@ export default function CoreIt({ setOpen }) {
                         top="0px"
 
                     />
-                    <Suspense fallback={null}>
                     <OurCourses />
-                    </Suspense>
                 </Box>
                 <Box
                     sx={{
@@ -163,14 +160,12 @@ export default function CoreIt({ setOpen }) {
                         text1={t("coreIt.WhatWeDesign")}
                         top="80px"
                     />
-                    <Suspense fallback={null}>
-                        <LayoutCards
-                            technologiesData={technologiesData}
-                            sethoveredcardid={sethoveredcardid}
-                            hoveredcardid={hoveredcardid}
-                            technologiesDataImage={technologiesDataImage}
-                        />
-                    </Suspense>
+                    <LayoutCards
+                        technologiesData={technologiesData}
+                        sethoveredcardid={sethoveredcardid}
+                        hoveredcardid={hoveredcardid}
+                        technologiesDataImage={technologiesDataImage}
+                    />
 
                 </Box>
 

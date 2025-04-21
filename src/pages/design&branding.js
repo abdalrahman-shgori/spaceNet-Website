@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Crafting from "../components/designAndBranding/craftingAndDigital";
 import WhatWeDo from "../components/whatweDo/whatWeDo";
 import { subServices } from "../services/websiteApis/services";
@@ -12,9 +12,10 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import useTheme from '@mui/material/styles/useTheme';
-const LayoutCards = lazy(() => import('../components/layoutCards'));
-const CreatingSolution = lazy(() => import('../components/designAndBranding/creatingSolutions'));
-const SpaceNetLayout = lazy(() => import('../components/spaceNetLayout'));
+import SpaceNetLayout from "../components/spaceNetLayout";
+import CreatingSolution from "../components/designAndBranding/creatingSolutions";
+import LayoutCards from "../components/layoutCards";
+
 
 const technologiesDataImage = [
     {
@@ -222,21 +223,17 @@ export default function DesignAndBranding({ setOpen }) {
                         text1={t("designAndBranding.elevateYourBrand")}
                         top="80px"
                     />
-                    <Suspense fallback={null}>
-                        <LayoutCards
-                            technologiesData={technologiesData}
-                            sethoveredcardid={sethoveredcardid}
-                            hoveredcardid={hoveredcardid}
-                            technologiesDataImage={technologiesDataImage}
-                        />
-                    </Suspense>
+                    <LayoutCards
+                        technologiesData={technologiesData}
+                        sethoveredcardid={sethoveredcardid}
+                        hoveredcardid={hoveredcardid}
+                        technologiesDataImage={technologiesDataImage}
+                    />
                     <SectionDescription
                         text1={<> {t("designAndBranding.designSolution")} <br /> {t("designAndBranding.Achieving")} </>}
                         top="43px"
                     />
-                    <Suspense fallback={null}>
-                        <CreatingSolution />
-                    </Suspense>
+                    <CreatingSolution />
                 </Grid>
                 <LetsProject
                     text1={<> {t("designAndBranding.gotGeat")} <br /> {t("designAndBranding.readyToBring")} </>}
@@ -247,9 +244,7 @@ export default function DesignAndBranding({ setOpen }) {
                     text2Color="#FFFFFF"
                     setOpen={setOpen}
                 />
-                <Suspense fallback={null}>
-                    <SpaceNetLayout setOpen={setOpen} />
-                </Suspense>
+                <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
         </>
     )

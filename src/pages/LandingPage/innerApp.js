@@ -58,7 +58,6 @@ const InnerApp = ({
         overflow: 'hidden',
       }}
     >
-   
         <>
           <motion.div
             className={!showLogo && 'root-container'}

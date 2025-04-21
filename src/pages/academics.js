@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Grid";
-import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import SpaceNetLayout from "../components/spaceNetLayout";
 import { motion } from "framer-motion"
 import LetsProject from "../components/letsProject";
@@ -9,11 +9,11 @@ import DevelopSkills from "../components/academics/developSkills";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import technologiesData from "../components/jsonData/technologiesData";
+import AcademicsForm from "../components/academics/academicsFrom";
+import WhichCourse from "../components/academics/whichCourse";
+import OurCourses from "../components/academics/ourCourses";
+import LayoutCards from "../components/layoutCards";
 
-const OurCourses = lazy(() => import("../components/academics/ourCourses"))
-const LayoutCards = lazy(() => import("../components/layoutCards"))
-const AcademicsForm = lazy(() => import("../components/academics/academicsFrom"))
-const WhichCourse = lazy(() => import("../components/academics/whichCourse"))
 
 export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
@@ -53,9 +53,7 @@ export default function Academics({ setOpen }) {
                     duration: 1
                 }}
             >
-                <Suspense fallback={null}>
-                    <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
-                </Suspense>
+                <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
                 <Grid className="root-container"
                     sx={{
                         padding: {
@@ -78,28 +76,20 @@ export default function Academics({ setOpen }) {
                         academicsSection="first"
 
                     />
-                    <Suspense fallback="loading">
-                        <OurCourses hoveredcardid={hoveredcardid} sethoveredcardid={sethoveredcardid} setEnroll={setEnroll} enroll={enroll} />
-                    </Suspense>
+                    <OurCourses hoveredcardid={hoveredcardid} sethoveredcardid={sethoveredcardid} setEnroll={setEnroll} enroll={enroll} />
                     <SectionDescription
                         text1={t("academics.ourPerks")}
                         text2={t("academics.FullFeature")}
                         top="80px"
                         academicsSection="sec"
                     />
-                    <Suspense fallback="loading">
-                        <LayoutCards
-                            technologiesData={data}
-                            sethoveredcardid={sethoveredcardid}
-                            hoveredcardid={hoveredcardid}
-                        />
-                    </Suspense>
-
-
+                    <LayoutCards
+                        technologiesData={data}
+                        sethoveredcardid={sethoveredcardid}
+                        hoveredcardid={hoveredcardid}
+                    />
                 </Grid>
-                <Suspense fallback={null}>
-                    <WhichCourse />
-                </Suspense>
+                <WhichCourse />
                 <LetsProject
                     text1={t("academics.Readytokickstart")}
                     // text2="A SpacenNet technology company can help you improve your idea and turn it into reality if you're facing a challenge"

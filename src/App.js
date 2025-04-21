@@ -18,18 +18,8 @@ import BlogDetails from './components/blogsAndNews/blogDetails';
 import BasicModal from './components/contactUs/contactUs';
 import Footer from './components/footer';
 import InnerApp from './pages/LandingPage/innerApp';
-// const InnerApp = lazy(() => import('./pages/LandingPage/innerApp'))
-// const SoftwareSection = lazy(() => import('./pages/softwarePage'))
-// const Academics = lazy(() => import('./pages/academics'))
-// const CoreIt = lazy(() => import('./pages/coreIt'))
-// const DesignAndBranding = lazy(() => import('./pages/design&branding'))
-// const BlogsAndNews = lazy(() => import('./components/blogsAndNews/blogsAndNews'))
-// const BlogDetails = lazy(() => import('./components/blogsAndNews/blogDetails'))
-// const BasicModal = lazy(() => import('./components/contactUs/contactUs'))
-// const Footer = lazy(() => import('./components/footer'))
 
 const App = () => {
- 
   const [open, setOpen] = React.useState(false);
   const [showOverflow, setShowOverFlow] = useState(false)
   const { i18n } = useTranslation();

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import BusinessGoals from "../components/softwareSection/businessGoals";
 import Grid from "@mui/material/Grid";
 import ContactUsBtn from "../components/softwareSection/contactUsBtn";
@@ -10,16 +10,15 @@ import { motion } from "framer-motion"
 import { ServiceCategories } from "../services/websiteApis/serviceCategories";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-
-const OurTechnologies = lazy(() => import('../components/softwareSection/Our technologies Section/ourTechnology'));
-const LetsProject = lazy(() => import('../components/letsProject'));
-const SpaceNetLayout = lazy(() => import('../components/spaceNetLayout'));
-const LayoutCards = lazy(() => import('../components/layoutCards'));
-const FrontEndSvg = lazy(() => import("../assets/sectionsImages/frontEndImage"));
-const BackEndSvg = lazy(() => import("../assets/sectionsImages/backendImage"));
-const FullStackSvg = lazy(() => import("../assets/sectionsImages/fullstack"));
-const LowCodeSvg = lazy(() => import("../assets/sectionsImages/lowcode"));
-const CloudDevelopmentSvg = lazy(() => import("../assets/sectionsImages/clouddevelopment"));
+import OurTechnologies from "../components/softwareSection/Our technologies Section/ourTechnology";
+import LetsProject from "../components/letsProject";
+import SpaceNetLayout from "../components/spaceNetLayout";
+import LayoutCards from "../components/layoutCards";
+import FrontEndSvg from "../assets/sectionsImages/frontEndImage";
+import BackEndSvg from "../assets/sectionsImages/backendImage";
+import FullStackSvg from "../assets/sectionsImages/fullstack";
+import LowCodeSvg from "../assets/sectionsImages/lowcode";
+import CloudDevelopmentSvg from "../assets/sectionsImages/clouddevelopment";
 
 const serviceColors = {
     "Website Development": "#9D89FC",
@@ -28,7 +27,6 @@ const serviceColors = {
     "Desktop App Development": "#FF621F"
 };
 export default function SoftwareSection({ setOpen }) {
-
 
     const { t, i18n } = useTranslation()
     const lang = i18n.language
@@ -160,23 +158,18 @@ export default function SoftwareSection({ setOpen }) {
                         text2={t("software.driveYour")}
                         top="80px"
                     />
-                    <Suspense>
                         <LayoutCards
                             technologiesData={technologiesData}
                             sethoveredcardid={sethoveredcardid}
                             hoveredcardid={hoveredcardid}
                             technologiesDataImage={technologiesDataImage}
                         />
-                    </Suspense>
                     <SectionDescription
                         text1={t("software.ourTechnology")}
                         top="43px"
                     />
-                    <Suspense fallback={null}>
                         <OurTechnologies />
-                    </Suspense>
                 </Grid>
-                <Suspense fallback={null}>
                     <LetsProject
                         text1={<>{t("software.gotGreat")}<br /> {t("software.Ready")} </>}
                         text2={t("software.letsMake")}
@@ -186,10 +179,7 @@ export default function SoftwareSection({ setOpen }) {
                         text2Color="#051A2F"
                         setOpen={setOpen}
                     />
-                </Suspense>
-                <Suspense fallback={null}>
                     <SpaceNetLayout setOpen={setOpen} />
-                </Suspense>
             </motion.div>
 
         </>
