@@ -18,15 +18,7 @@ import BlogDetails from './components/blogsAndNews/blogDetails';
 import BasicModal from './components/contactUs/contactUs';
 import Footer from './components/footer';
 import InnerApp from './pages/LandingPage/innerApp';
-// const InnerApp = lazy(() => import('./pages/LandingPage/innerApp'))
-// const SoftwareSection = lazy(() => import('./pages/softwarePage'))
-// const Academics = lazy(() => import('./pages/academics'))
-// const CoreIt = lazy(() => import('./pages/coreIt'))
-// const DesignAndBranding = lazy(() => import('./pages/design&branding'))
-// const BlogsAndNews = lazy(() => import('./components/blogsAndNews/blogsAndNews'))
-// const BlogDetails = lazy(() => import('./components/blogsAndNews/blogDetails'))
-// const BasicModal = lazy(() => import('./components/contactUs/contactUs'))
-// const Footer = lazy(() => import('./components/footer'))
+
 
 const App = () => {
  
@@ -43,15 +35,17 @@ const App = () => {
     setLogoAnimationComplete(true);
   };
   useEffect(() => {
-    if (logoAnimationComplete) {
-      setTimeout(() => {
-        setShowContent(true);
-      }, 0);
+    if (location.pathname !== '/') {
+      setLogoAnimationComplete(true);
     }
-    else if (location.pathname !== '/') {
-      setLogoAnimationComplete(true)
+  }, [location.pathname]);
+  
+  useEffect(() => {
+    if (logoAnimationComplete) {
+      setShowContent(true);
     }
   }, [logoAnimationComplete]);
+  
 
   return (
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
@@ -70,9 +64,9 @@ const App = () => {
                   background: themeColor,
                 }}
                 exit={{ scaleY: [0, 1.1, 0] }}
-
                 transition={{
-                  duration: 0.8,
+                  delay: 0.2,
+                  duration: 0.6,
                   ease: [0.4, 0, 0.2, 1],
                   times: [0, 0.5, 1],
                 }}
@@ -86,10 +80,8 @@ const App = () => {
                   transformOrigin: "bottom",
                   overflow: location.pathname === '/' ? showOverflow ? "auto" : "hidden" : 'unset'
                 }}
-                onUpdate={({ height }) => {
-                  if (height === '100dvh') {
-                    setShowOverFlow(true)
-                  }
+                onAnimationComplete={()=>{
+                  setShowOverFlow(true)
                 }}
               >
                 <>
@@ -119,8 +111,13 @@ const App = () => {
                   )}
                 </>
               </motion.div>
-              <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-              <BasicModal setOpen={setOpen} open={open} />
+              {showContent && (
+                <>
+ <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+ <BasicModal setOpen={setOpen} open={open} />
+                </>
+              )}
+             
             </>
           )}
         </ThemeLocalization>
