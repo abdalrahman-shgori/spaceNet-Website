@@ -104,7 +104,8 @@ const SpaceNetLayout = ({ setOpen }) => {
                     sm: "20px",
                     xs: "20px"
                   },
-                  fontFamily: "var(--English-font-semibold)"
+                  fontFamily: "var(--English-font)",
+                  fontWeight: "600",
                 }}
               >
                 {t("spacenetLayout.Company")}
@@ -133,34 +134,34 @@ const SpaceNetLayout = ({ setOpen }) => {
                       key={index}
                     >
                       <Link to={item.name !== t("spacenetLayout.CONTACTUS") && item.href}>
-                      <Button
-                      onClick={() => item.name === t("spacenetLayout.CONTACTUS") && setOpen(true)}
-                        key={index}
-                        variant="outlined"
-                        sx={{
-                          color: 'white',
-                          border: '2px solid #FFFFFF',
-                          borderRadius: '35px',
-                          '&:hover': { borderColor: 'white' },
-                          fontSize: {
-                            lg: "21px",
-                            md: "21px",
-                            sm: "18px",
-                            xs: "18px"
-                          },
-                          whiteSpace: 'nowrap',
-                          padding: {
-                            lg: "17px 22px 17px 22px",
-                            md: "17px 22px 17px 22px",
-                            sm: "11px 15px 11px 15px",
-                            xs: "11px 15px 11px 15px"
-                          }
-                        }}
-                      >
-                        {item.name} &nbsp; <img loading="lazy" alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
-                      </Button>
+                        <Button
+                          onClick={() => item.name === t("spacenetLayout.CONTACTUS") && setOpen(true)}
+                          key={index}
+                          variant="outlined"
+                          sx={{
+                            color: 'white',
+                            border: '2px solid #FFFFFF',
+                            borderRadius: '35px',
+                            '&:hover': { borderColor: 'white' },
+                            fontSize: {
+                              lg: "21px",
+                              md: "21px",
+                              sm: "18px",
+                              xs: "18px"
+                            },
+                            whiteSpace: 'nowrap',
+                            padding: {
+                              lg: "17px 22px 17px 22px",
+                              md: "17px 22px 17px 22px",
+                              sm: "11px 15px 11px 15px",
+                              xs: "11px 15px 11px 15px"
+                            }
+                          }}
+                        >
+                          {item.name} &nbsp; <img loading="lazy" alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
+                        </Button>
                       </Link>
-                   
+
                     </motion.div>
 
                   ))}
@@ -177,7 +178,8 @@ const SpaceNetLayout = ({ setOpen }) => {
                     sm: "20px",
                     xs: "20px"
                   },
-                  fontFamily: "var(--English-font-semibold)"
+                  fontFamily: "var(--English-font)",
+                  fontWeight: "600",
                 }}
               >
                 {t("spacenetLayout.Services")}
@@ -207,34 +209,34 @@ const SpaceNetLayout = ({ setOpen }) => {
                       key={index}
                     >
                       <Link to={item.href}>
-                      <Button
-                        key={index}
-                        variant="outlined"
-                        sx={{
-                          color: 'white',
-                          border: '2px solid #FFFFFF',
-                          borderRadius: '35px',
-                          '&:hover': { borderColor: 'white' },
-                          fontSize: {
-                            lg: "21px",
-                            md: "21px",
-                            sm: "18px",
-                            xs: "18px"
-                          },
-                          whiteSpace: 'nowrap',
-                          padding: {
-                            lg: "17px 22px 17px 22px",
-                            md: "17px 22px 17px 22px",
-                            sm: "11px 15px 11px 15px",
-                            xs: "11px 15px 11px 15px"
-                          }
+                        <Button
+                          key={index}
+                          variant="outlined"
+                          sx={{
+                            color: 'white',
+                            border: '2px solid #FFFFFF',
+                            borderRadius: '35px',
+                            '&:hover': { borderColor: 'white' },
+                            fontSize: {
+                              lg: "21px",
+                              md: "21px",
+                              sm: "18px",
+                              xs: "18px"
+                            },
+                            whiteSpace: 'nowrap',
+                            padding: {
+                              lg: "17px 22px 17px 22px",
+                              md: "17px 22px 17px 22px",
+                              sm: "11px 15px 11px 15px",
+                              xs: "11px 15px 11px 15px"
+                            }
 
-                        }}
-                      >
-                        {item.name} &nbsp; <img loading='lazy' alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
-                      </Button>
+                          }}
+                        >
+                          {item.name} &nbsp; <img loading='lazy' alt='arrow' style={{ transform: dir === 'rtl' && "scaleX(-1)" }} src={ArrowWight}></img>
+                        </Button>
                       </Link>
-                      
+
                     </motion.div>
 
                   ))}

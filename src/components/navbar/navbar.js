@@ -84,193 +84,194 @@ const NavBar = ({
                     }}
                 >
                     <SvgSpaceNetLogo />
-                    <Box sx={{display:"flex",alignItems:"center"}}>
-                    <LanguageSwitcher />
-                    <Box>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <LanguageSwitcher />
+                        <Box>
 
-            
-                        <Box sx={{ position: 'relative' }}>
-                            <IconButton
-                                edge="end"
-                                color="inherit"
-                                aria-label={isDrawerOpen ? "close menu" : "open menu"}
-                                onClick={() => toggleDrawer(!isDrawerOpen)}
-                                sx={{
-                                    padding: "0px !important",
-                                    margin: "0px !important",
-                                    transition: 'transform 0.3s ease',
-                                    transform: isDrawerOpen ? 'rotate(90deg)' : 'rotate(0)',
-                                    position: "relative",
-                                    left: dir === 'rtl' ? "-10px" : "10px"
-                                }}
-                            >
-                                <MenuRoundedIcon
+
+                            <Box sx={{ position: 'relative' }}>
+                                <IconButton
+                                    edge="end"
+                                    color="inherit"
+                                    aria-label={isDrawerOpen ? "close menu" : "open menu"}
+                                    onClick={() => toggleDrawer(!isDrawerOpen)}
                                     sx={{
-                                        width: {
-                                            lg: 35,
-                                            sm: 35,
-                                            xs: 35
-                                        },
-                                        height: {
-                                            lg: 35,
-                                            sm: 35,
-                                            xs: 35
-                                        },
-                                        color: pathname === '/' ? theme.palette.primary.BurgerMenu : theme.palette.text.BurgerMenu
-                                    }} />
-                            </IconButton>
-                        </Box>
-
-                        <motion.div
-
-
-                            initial={{ opacity: 0, x: isSmallScreen ? '-100%' : '100%' }}
-                            animate={{ opacity: isDrawerOpen ? 1 : 0, x: isDrawerOpen ? 0 : isSmallScreen ? '-100%' : '100%' }}
-                            transition={{ duration: 0.5 }}
-                        >
-
-                            <Drawer
-                                anchor={isSmallScreen ? dir === 'rtl' ? "right" : "left" : dir === 'rtl' ? "left" : "right"}
-                                open={isDrawerOpen}
-                                onClose={handleCloseDrawer}
-                                PaperProps={{
-                                    sx: {
-                                        width: isSmallScreen ? "80%" : isTabScreen ? '60%' : is14Inch ? "45%" : "42%",
-                                        height: '100%',
-                                        overflow: 'auto',
-                                        boxShadow: '0 0 20px rgba(0,0,0,0.1)',
-                                        background: "#fff",
-                                        clipPath: isSmallScreen ? 'none' :
-                                            dir === 'rtl' ?
-                                                'ellipse(100% 75% at 0% 50%)'
-                                                :
-                                                'ellipse(100% 75% at 100% 50%)',
-
-                                    },
-                                }}
-                            >
-
-                                <Box
-                                    sx={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        padding: '20px',
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        color: "#000",
-                                        position: 'relative',
-                                        height: '100%',
+                                        padding: "0px !important",
+                                        margin: "0px !important",
+                                        transition: 'transform 0.3s ease',
+                                        transform: isDrawerOpen ? 'rotate(90deg)' : 'rotate(0)',
+                                        position: "relative",
+                                        left: dir === 'rtl' ? "-10px" : "10px"
                                     }}
                                 >
-                                    <IconButton
-                                        onClick={handleCloseDrawer}
+                                    <MenuRoundedIcon
                                         sx={{
-                                            position: 'absolute',
-                                            top: '60px',
-                                            right: dir === 'ltr' && '55px',
-                                            left: dir === 'rtl' && '55px',
-                                            color: theme.palette.text.primary,
-                                            display: isSmallScreen ? "none" : "flex"
-                                        }}
-                                    >
-                                        <CloseRoundedIcon sx={{
                                             width: {
-
                                                 lg: 35,
+                                                sm: 35,
+                                                xs: 35
                                             },
                                             height: {
-
                                                 lg: 35,
+                                                sm: 35,
+                                                xs: 35
                                             },
-                                            color: "#000000"
+                                            color: pathname === '/' ? theme.palette.primary.BurgerMenu : theme.palette.text.BurgerMenu
                                         }} />
-                                    </IconButton>
+                                </IconButton>
+                            </Box>
 
-                                    <List sx={{ flexGrow: 1, marginTop: "50px" }}>
+                            <motion.div
 
-                                        {menuItems.map(({ text, route }, index) => (
-                                            <motion.div
-                                                key={index}
-                                                initial={{ opacity: 0, y: -20 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.3, delay: index * 0.1 }}
-                                            >
-                                                <Link to={route}>
-                                                <ListItem
-                                                    button
-                                                    onClick={() => {
-                                                        toggleDrawer(false);
-                                                        setDrawerOpen(false);
-                                                        if (text === t("navbar.CONTACTUS")) {
-                                                            setOpen(true)
-                                                        }
-                                                    }}
-                                                    sx={{
-                                                        display: 'flex',
-                                                        justifyContent: isSmallScreen ? "start" : 'center',
-                                                        '&:hover': {
-                                                            backgroundColor: 'transparent',
-                                                        },
-                                                    }}
-                                                >
-                                                    <Typography
-                                                        sx={{
-                                                            fontSize: {
-                                                                lg: is14Inch ? "40px" : "44px",
-                                                                md: "30px",
-                                                                sm: "28px",
-                                                                xs: ExtraSmallScreen ? "24px" : "28px",
-                                                            },
-                                                            color: "var(--Menu-Text-Color)",
-                                                            fontFamily: "var(--English-font-semibold)",
-                                                            textAlign: "center",
-                                                            transition: 'color 0.3s ease',
-                                                            '&:hover': {
-                                                                color: theme.palette.mode === 'light' ? "#9D89FC" : "#E9FA50",
-                                                            },
-                                                            cursor: "pointer",
-                                                            whiteSpace: "nowrap"
-                                                        }}
-                                                    >
-                                                        {text}
 
-                                                    </Typography>
-                                                </ListItem>
-                                                </Link>
-                                             
-                                            </motion.div>
-                                        ))}
-                                    </List>
+                                initial={{ opacity: 0, x: isSmallScreen ? '-100%' : '100%' }}
+                                animate={{ opacity: isDrawerOpen ? 1 : 0, x: isDrawerOpen ? 0 : isSmallScreen ? '-100%' : '100%' }}
+                                transition={{ duration: 0.5 }}
+                            >
 
-                                    <Box sx={{ display: 'flex', justifyContent: 'center', gap: ExtraSmallScreen ? "6px" : "13px", marginBottom: '10px' }}>
-                                        {socialMedia.map((item, index) => (
-                                            <Box
-                                                component="a"
-                                                key={index}
-                                                href={item.link}
-                                                target="_blank"
-                                                rel="noopener"
-                                                sx={{ color: item.color, cursor: "pointer" }}
-                                            >
-                                                {item.icon}
-                                            </Box>
-                                        ))}
-                                    </Box>
-                                    <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: "20px" }}>
-                                        <Typography
+                                <Drawer
+                                    anchor={isSmallScreen ? dir === 'rtl' ? "right" : "left" : dir === 'rtl' ? "left" : "right"}
+                                    open={isDrawerOpen}
+                                    onClose={handleCloseDrawer}
+                                    PaperProps={{
+                                        sx: {
+                                            width: isSmallScreen ? "80%" : isTabScreen ? '60%' : is14Inch ? "45%" : "42%",
+                                            height: '100%',
+                                            overflow: 'auto',
+                                            boxShadow: '0 0 20px rgba(0,0,0,0.1)',
+                                            background: "#fff",
+                                            clipPath: isSmallScreen ? 'none' :
+                                                dir === 'rtl' ?
+                                                    'ellipse(100% 75% at 0% 50%)'
+                                                    :
+                                                    'ellipse(100% 75% at 100% 50%)',
+
+                                        },
+                                    }}
+                                >
+
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            padding: '20px',
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            color: "#000",
+                                            position: 'relative',
+                                            height: '100%',
+                                        }}
+                                    >
+                                        <IconButton
+                                            onClick={handleCloseDrawer}
                                             sx={{
-                                                textDecoration: "underline",
-                                                color: "#000000",
-                                                fontSize: "16px",
-                                                fontFamily: "var(--English-font), Arial, sans-serif"
+                                                position: 'absolute',
+                                                top: '60px',
+                                                right: dir === 'ltr' && '55px',
+                                                left: dir === 'rtl' && '55px',
+                                                color: theme.palette.text.primary,
+                                                display: isSmallScreen ? "none" : "flex"
                                             }}
                                         >
-                                            {t("navbar.PrivacyPolicy")}
-                                        </Typography>
+                                            <CloseRoundedIcon sx={{
+                                                width: {
+
+                                                    lg: 35,
+                                                },
+                                                height: {
+
+                                                    lg: 35,
+                                                },
+                                                color: "#000000"
+                                            }} />
+                                        </IconButton>
+
+                                        <List sx={{ flexGrow: 1, marginTop: "50px" }}>
+
+                                            {menuItems.map(({ text, route }, index) => (
+                                                <motion.div
+                                                    key={index}
+                                                    initial={{ opacity: 0, y: -20 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                                                >
+                                                    <Link to={route}>
+                                                        <ListItem
+                                                            button
+                                                            onClick={() => {
+                                                                toggleDrawer(false);
+                                                                setDrawerOpen(false);
+                                                                if (text === t("navbar.CONTACTUS")) {
+                                                                    setOpen(true)
+                                                                }
+                                                            }}
+                                                            sx={{
+                                                                display: 'flex',
+                                                                justifyContent: isSmallScreen ? "start" : 'center',
+                                                                '&:hover': {
+                                                                    backgroundColor: 'transparent',
+                                                                },
+                                                            }}
+                                                        >
+                                                            <Typography
+                                                                sx={{
+                                                                    fontSize: {
+                                                                        lg: is14Inch ? "40px" : "44px",
+                                                                        md: "30px",
+                                                                        sm: "28px",
+                                                                        xs: ExtraSmallScreen ? "24px" : "28px",
+                                                                    },
+                                                                    color: "var(--Menu-Text-Color)",
+                                                                    fontFamily: "var(--English-font)",
+                                                                    fontWeight: "600",
+                                                                    textAlign: "center",
+                                                                    transition: 'color 0.3s ease',
+                                                                    '&:hover': {
+                                                                        color: theme.palette.mode === 'light' ? "#9D89FC" : "#E9FA50",
+                                                                    },
+                                                                    cursor: "pointer",
+                                                                    whiteSpace: "nowrap"
+                                                                }}
+                                                            >
+                                                                {text}
+
+                                                            </Typography>
+                                                        </ListItem>
+                                                    </Link>
+
+                                                </motion.div>
+                                            ))}
+                                        </List>
+
+                                        <Box sx={{ display: 'flex', justifyContent: 'center', gap: ExtraSmallScreen ? "6px" : "13px", marginBottom: '10px' }}>
+                                            {socialMedia.map((item, index) => (
+                                                <Box
+                                                    component="a"
+                                                    key={index}
+                                                    href={item.link}
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                    sx={{ color: item.color, cursor: "pointer" }}
+                                                >
+                                                    {item.icon}
+                                                </Box>
+                                            ))}
+                                        </Box>
+                                        <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: "20px" }}>
+                                            <Typography
+                                                sx={{
+                                                    textDecoration: "underline",
+                                                    color: "#000000",
+                                                    fontSize: "16px",
+                                                    fontFamily: "var(--English-font), Arial, sans-serif"
+                                                }}
+                                            >
+                                                {t("navbar.PrivacyPolicy")}
+                                            </Typography>
+                                        </Box>
                                     </Box>
-                                </Box>
-                            </Drawer>
-                        </motion.div>
+                                </Drawer>
+                            </motion.div>
                         </Box>
 
                     </Box>

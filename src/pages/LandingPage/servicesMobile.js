@@ -1,4 +1,4 @@
-import React, { useEffect,  useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import customCursor from "../../assets/images/internet.svg";
 import academy from "../../assets/images/academy.svg";
@@ -64,9 +64,9 @@ export default function ServicesMobile({
             setCapture(false);
         }, 200);
     };
-   useEffect(()=>{
-    setActiveServiceId(indexOfHoveredServices);
-   },[indexOfHoveredServices])
+    useEffect(() => {
+        setActiveServiceId(indexOfHoveredServices);
+    }, [indexOfHoveredServices])
     useEffect(() => {
         function handleClickOutside(event) {
             if (componentRef.current && !componentRef.current.contains(event.target)) {
@@ -113,7 +113,7 @@ export default function ServicesMobile({
         return "#F5F5F5";
     };
 
-   useEffect(() => {
+    useEffect(() => {
         if (item.id === activeServiceId && indexOfHoveredServices !== 0) {
             const localizedTitle = i18n.language === "ar"
                 ? item.title_ar
@@ -153,7 +153,7 @@ export default function ServicesMobile({
                     stiffness: 100,
                     delay: index * 0.5,
                 }}
-               
+
             >
                 <Box
                     onClick={() => handleClicks(item)}
@@ -218,7 +218,8 @@ export default function ServicesMobile({
                                 sm: "15px",
                                 xs: "15px",
                             },
-                            fontFamily: "var(--English-font-semibold)",
+                            fontFamily: "var(--English-font)",
+                            fontWeight: "600",
                             overflowY: "hidden",
                             whiteSpace: "nowrap",
                             textOverflow: "ellipsis",

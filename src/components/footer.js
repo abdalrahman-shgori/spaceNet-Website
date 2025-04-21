@@ -54,12 +54,13 @@ const Footer = () => {
             md={index === 2 ? 2 : 5}
             sm={index === 2 ? 2 : 5}
             xs={12}
-          
+
           >
             <Typography
               sx={{
                 fontSize: "25px",
-                fontFamily: "var(--English-font-semibold)",
+                fontFamily: "var(--English-font)",
+                fontWeight: "600",
                 marginTop: {
                   lg: "unset",
                   md: "unset",
@@ -67,10 +68,10 @@ const Footer = () => {
                   xs: index > 0 ? "28px" : "0px"
                 },
                 color: "#222222",
-               
-    
-                  
-              
+
+
+
+
 
               }}
             >
@@ -106,7 +107,7 @@ const Footer = () => {
 
                     </Link>
                     <img
-                    loading='lazy'
+                      loading='lazy'
                       src={arrow}
                       alt="arrow"
                       style={{ transform: dir === 'rtl' ? "scaleX(-1)" : "unset" }}
@@ -142,8 +143,8 @@ const Footer = () => {
                         sm: "210px",
                         xs: index !== 1 && idx !== 2 ? "190px" : "240px"
                       },
-                  direction:dir === 'rtl' && index === 0 && idx === 0 && 'ltr',
-                  textAlign:dir === 'rtl' &&"right"
+                      direction: dir === 'rtl' && index === 0 && idx === 0 && 'ltr',
+                      textAlign: dir === 'rtl' && "right"
 
                     }}
                   >
@@ -152,7 +153,7 @@ const Footer = () => {
                   </Typography>
                   {text.img && (
                     <img
-                    loading='lazy'
+                      loading='lazy'
                       src={text.img}
                       alt='arrow'
                       style={{ transform: dir === 'rtl' ? "scaleX(-1)" : "unset" }}

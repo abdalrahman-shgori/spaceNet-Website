@@ -109,7 +109,7 @@ export default function Toggle({ drawerOpen, setThemeColor, open }) {
                                 transform: 'translateX(-50%) rotate(-90deg)',
                                 color: drawerOpen === true && !isSmallScreen ? '#000000' : (theme.palette.mode === 'dark' ? '#FFFFFF' : '#051A2F'),
                                 fontWeight: "light",
-                                fontFamily: "var(--English-font-light)",
+                                fontFamily: "var(--English-font)",
                                 fontSize: "23px"
                             }}
                         >

@@ -13,7 +13,7 @@ import Box from '@mui/material/Box'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import useTheme from '@mui/material/styles/useTheme';
 
- function WhichCourse() {
+function WhichCourse() {
   const { i18n, t } = useTranslation()
   const dir = i18n.dir()
   const [cardAnimationStart, setCardAnimationStart] = useState(false)
@@ -130,10 +130,10 @@ import useTheme from '@mui/material/styles/useTheme';
           >
             {t("academics.Thepowerto")}
           </Typography>
-          <Box 
-          sx={{
-            direction:dir === 'ltr' ? "ltr" : 'rtl',
-          }}
+          <Box
+            sx={{
+              direction: dir === 'ltr' ? "ltr" : 'rtl',
+            }}
           >
             <motion.div
               animate={cardAnimationStart === true ? { y: [200, 0], opacity: [0, 1] } : { opacity: 0 }}
@@ -147,26 +147,26 @@ import useTheme from '@mui/material/styles/useTheme';
                 position: "absolute",
                 bottom: xl || lg || md ? -55 : sm ? -25 : xs ? -30 : '',
                 translateX:
-                dir === 'ltr' ?
-                 xl || lg || md ? "5.6%" 
-                 : sm ?
-                  spesificTabScreen ? "-5%" 
-                  : "3%" 
-                  : xs ? spesificSmallScreen 
-                  ? "-39%" : spesific2 ? "-45%" 
-                  : spesifico ? "-37%" 
-                  : ''
-                   : '' :
-                   xl || lg || md ? "5.6%" 
-                   : sm ?
-                    spesificTabScreen ? "19%" 
-                    : "19%" 
-                    : xs ? spesificSmallScreen 
-                    ? "69%" : spesific2 ? "45%" 
-                    : spesifico ? "37%" 
-                    : ''
-                     : '' 
-                   ,
+                  dir === 'ltr' ?
+                    xl || lg || md ? "5.6%"
+                      : sm ?
+                        spesificTabScreen ? "-5%"
+                          : "3%"
+                        : xs ? spesificSmallScreen
+                          ? "-39%" : spesific2 ? "-45%"
+                            : spesifico ? "-37%"
+                              : ''
+                          : '' :
+                    xl || lg || md ? "5.6%"
+                      : sm ?
+                        spesificTabScreen ? "19%"
+                          : "19%"
+                        : xs ? spesificSmallScreen
+                          ? "69%" : spesific2 ? "45%"
+                            : spesifico ? "37%"
+                              : ''
+                          : ''
+                ,
                 zIndex: 0,
                 width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "100%" : "100%",
                 height: xl ? "310px" : lg ? "310px" : md ? "300px" : sm ? "200px" : "50%",
@@ -183,7 +183,7 @@ import useTheme from '@mui/material/styles/useTheme';
                   maxWidth: "1400px",
                   width: "100%",
                   height: "100%",
-                  transform:dir === 'rtl' ? 'scaleX(-1)'  : 'unset'
+                  transform: dir === 'rtl' ? 'scaleX(-1)' : 'unset'
 
                 }}
               >
@@ -342,7 +342,8 @@ import useTheme from '@mui/material/styles/useTheme';
                   sm: "40px",
                   xs: "40px"
                 },
-                fontFamily: "var(--English-font-semibold)",
+                fontFamily: "var(--English-font)",
+                fontWeight: "600",
                 textAlign: dir === 'rtl' ? "right" : 'left'
               }}
             >
@@ -351,9 +352,9 @@ import useTheme from '@mui/material/styles/useTheme';
 
           </motion.div>
           <Box
-          sx={{
-            direction: dir === 'ltr' ? 'ltr' : 'rtl'
-          }}
+            sx={{
+              direction: dir === 'ltr' ? 'ltr' : 'rtl'
+            }}
           >
             <motion.div
               animate={cardAnimationStart === true ? { y: [200, 0], opacity: [0, 1] } : { opacity: 0 }}
@@ -366,37 +367,37 @@ import useTheme from '@mui/material/styles/useTheme';
                 display: test ? 'none' : 'unset',
                 position: "absolute",
                 bottom: xl || lg || md ? -150 : sm ? -130 : -80,
-                translateX: dir === 'ltr' 
-                ? xl || lg || md 
-                  ? "10%" 
-                  : sm 
-                    ? spesificTabScreen 
-                      ? "-4%" 
-                      : "4%" 
-                    : xs 
-                      ? spesificSmallScreen 
-                        ? "-30%" 
-                        : spesific2 
-                          ? "-38%" 
-                          : spesifico 
-                            ? "-30%" 
-                            : "-38%" 
-                      : ""
-                : xl || lg || md 
-                  ? "1.5%" 
-                  : sm 
-                    ? spesificTabScreen 
-                      ? "20%" 
-                      : "20%" 
-                    : xs 
-                      ? spesificSmallScreen 
-                        ? "60%" 
-                        : spesific2 
-                          ? "38%" 
-                          : spesifico 
-                            ? "31%" 
-                            : "38%"
-                      : "",
+                translateX: dir === 'ltr'
+                  ? xl || lg || md
+                    ? "10%"
+                    : sm
+                      ? spesificTabScreen
+                        ? "-4%"
+                        : "4%"
+                      : xs
+                        ? spesificSmallScreen
+                          ? "-30%"
+                          : spesific2
+                            ? "-38%"
+                            : spesifico
+                              ? "-30%"
+                              : "-38%"
+                        : ""
+                  : xl || lg || md
+                    ? "1.5%"
+                    : sm
+                      ? spesificTabScreen
+                        ? "20%"
+                        : "20%"
+                      : xs
+                        ? spesificSmallScreen
+                          ? "60%"
+                          : spesific2
+                            ? "38%"
+                            : spesifico
+                              ? "31%"
+                              : "38%"
+                        : "",
                 zIndex: 4,
                 width: xl ? "50%" : lg ? "50%" : md ? "50%" : sm ? "50%" : spesificSmallScreen ? "100%" : "100%",
                 height: xl ? "400px" : lg ? "400px" : md ? "400px" : sm ? "300px" : "55%",
@@ -411,7 +412,7 @@ import useTheme from '@mui/material/styles/useTheme';
                   maxWidth: "100%",
                   width: "100%",
                   height: "100%",
-                  transform:dir === 'rtl' ? 'scaleX(-1)'  : 'unset'
+                  transform: dir === 'rtl' ? 'scaleX(-1)' : 'unset'
 
                 }}
               >

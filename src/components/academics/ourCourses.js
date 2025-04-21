@@ -72,7 +72,8 @@ function OurCourses({ hoveredcardid, sethoveredcardid, setEnroll }) {
             xs: "18px"
         },
         color: "#000000",
-        fontFamily: "var(--English-font-light)",
+        fontWeight: "light",
+        fontFamily: "var(--English-font)",
     };
 
     const btnStyle = {

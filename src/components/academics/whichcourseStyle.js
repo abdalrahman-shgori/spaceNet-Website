@@ -44,7 +44,8 @@ export const textStyle = (test) => ({
     sm: "35px",
     xs: "35px"
   },
-  fontFamily: "var(--English-font-semibold)"
+  fontFamily: "var(--English-font)",
+  fontWeight: "600",
 
 })
 

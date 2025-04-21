@@ -329,7 +329,7 @@ export default function AboutSpaceNet({
                                     >
                                         <Typography
                                             sx={{
-                                                fontWeight: "bold",
+                                                fontWeight: "200",
                                                 fontSize: {
                                                     lg: is14Inch ? "30px" : is15Inch ? "33px" : "36px",
                                                     md: "24px",
@@ -337,7 +337,7 @@ export default function AboutSpaceNet({
                                                     xs: "18px"
                                                 },
                                                 paddingRight: "20px",
-                                                fontFamily: "var(--English-font-Extralight)",
+                                                fontFamily: "var(--English-font)",
                                                 color: indexOfHoveredServices === 1 ? "#FF9F31" :
                                                     indexOfHoveredServices === 2 ? "#E9FA50" :
                                                         indexOfHoveredServices === 3 ? (theme.palette.mode === 'light' ? "#011343" : "#9D89FC") :

@@ -49,7 +49,8 @@ const fieldTextStyle = {
         sm: "14px",
         xs: "14px"
     },
-    fontFamily: "var(--English-font-semibold)",
+    fontFamily: "var(--English-font)",
+    fontWeight: "600",
     lineHeight: {
         lg: "21px",
         md: "21px",
@@ -314,7 +315,8 @@ export default function BasicModal({ setOpen, open }) {
                                                         sm: "24px",
                                                         xs: "24px"
                                                     },
-                                                    fontFamily: "var(--English-font-semibold)",
+                                                    fontFamily: "var(--English-font)",
+                                                    fontWeight: "600",
                                                     textTransform: "capitalize",
                                                     color: "#000000"
                                                 }}
@@ -415,7 +417,8 @@ export default function BasicModal({ setOpen, open }) {
                                                         sm: "17px",
                                                         xs: "17px"
                                                     },
-                                                    fontFamily: "var(--English-font-semibold)",
+                                                    fontFamily: "var(--English-font)",
+                                                    fontWeight: "600",
                                                     color: "#051A2F",
                                                     lineHeight: {
                                                         lg: "21px",
@@ -451,7 +454,8 @@ export default function BasicModal({ setOpen, open }) {
                                             <Typography
                                                 sx={{
                                                     fontSize: { lg: '28px', md: '28px', sm: '24px', xs: '24px' },
-                                                    fontFamily: 'var(--English-font-semibold)',
+                                                    fontFamily: "var(--English-font)",
+                                                    fontWeight: "600",
                                                     textTransform: 'capitalize',
                                                     marginTop: { lg: 'unset', md: 'unset', sm: 'unset', xs: '67px' },
                                                     color: '#000000',
@@ -522,7 +526,8 @@ export default function BasicModal({ setOpen, open }) {
                                                             width: 'fit-content',
                                                             padding: { lg: '12px 27px', md: '12px 27px', sm: '12px 27px', xs: '9px 21px' },
                                                             fontSize: { lg: '17px', md: '17px', sm: '17px', xs: '13.5px' },
-                                                            fontFamily: 'var(--English-font-semibold)',
+                                                            fontFamily: "var(--English-font)",
+                                                            fontWeight: "600",
                                                             borderRadius: '34px',
                                                             textTransform: 'capitalize',
                                                         }}

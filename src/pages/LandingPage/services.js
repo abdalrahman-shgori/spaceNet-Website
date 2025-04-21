@@ -94,7 +94,8 @@ export default function Services({
                 <Typography
                     sx={{
                         fontSize: { lg: "38px", md: "30px", sm: "30px" },
-                        fontFamily: "var(--English-font-Extralight), Arial, sans-serif",
+                        fontFamily: "var(--English-font)",
+                        fontWeight:"200",
                         display: { sm: "block", xs: "none", md: "block" },
                     }}
                 >

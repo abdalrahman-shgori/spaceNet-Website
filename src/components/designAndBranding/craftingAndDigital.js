@@ -142,7 +142,8 @@ export default function Crafting({
                     sm: "32px",
                     xs: "36px"
                   },
-                  fontFamily: "var(--English-font-SoraThin)",
+                  fontFamily: "var(--English-font)",
+                  fontWeight:"100",
                   transform:
                     index === 0 ? "rotate(-5.28deg)" :
                       index === 1 ? "rotate(3.6deg)" :
@@ -209,7 +210,8 @@ export default function Crafting({
                 md: "40px",
                 xs: "24px"
               },
-              fontFamily: "var(--English-font-SoraThin)",
+              fontFamily: "var(--English-font)",
+              fontWeight:"100"
             }}
           >
             {t("designAndBranding.Experience")}

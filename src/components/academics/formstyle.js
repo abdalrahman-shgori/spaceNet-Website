@@ -18,7 +18,7 @@ export const textFieldStyle = (theme) => ({
         borderRadius: '85px',
         '& fieldset': {
             border: 'none',
-           background: 'transparent',
+            background: 'transparent',
 
         },
         '&:hover fieldset': {
@@ -62,7 +62,8 @@ export const fieldTextStyle = (theme) => ({
         sm: "15px",
         xs: "10.46px"
     },
-    fontFamily: "var(--English-font-semibold)",
+    fontFamily: "var(--English-font)",
+    fontWeight: "600",
     lineHeight: {
         lg: "21px",
         md: "21px",

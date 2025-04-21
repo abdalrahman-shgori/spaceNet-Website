@@ -741,7 +741,8 @@ export default function SecFormSection({
                                     sm: "17px",
                                     xs: "15.7px"
                                 },
-                                fontFamily: "var(--English-font-semibold)",
+                                fontFamily: "var(--English-font)",
+                                fontWeight: "600",
                                 borderRadius: "94px",
                                 textTransform: "capitalize",
                                 height: {

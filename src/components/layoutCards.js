@@ -149,7 +149,8 @@ function LayoutCards({ technologiesData, sethoveredcardid, hoveredcardid, techno
                           sm: "28px",
                           xs: "28px"
                         },
-                        fontFamily: "var(--English-font-semibold)",
+                        fontFamily: "var(--English-font)",
+                        fontWeight: "600",
                         marginTop: "50px",
                         color: hoveredcardid === item.id && location.pathname !== '/core-it' ? "#FFFFFF" : "#051A2F",
                         transition: "color 0.5s",
