@@ -3,17 +3,17 @@ import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import SpaceNetLayout from "../components/spaceNetLayout";
 import { motion } from "framer-motion"
 import LetsProject from "../components/letsProject";
-import WhichCourse from "../components/academics/whichCourse";
 import SectionDescription from "../components/sectionDescription";
 import DevelopSkillsText from "../components/academics/developSkillsText";
 import DevelopSkills from "../components/academics/developSkills";
-import AcademicsForm from "../components/academics/academicsFrom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 import technologiesData from "../components/jsonData/technologiesData";
 
 const OurCourses = lazy(() => import("../components/academics/ourCourses"))
 const LayoutCards = lazy(() => import("../components/layoutCards"))
+const AcademicsForm = lazy(() => import("../components/academics/academicsFrom"))
+const WhichCourse = lazy(() => import("../components/academics/whichCourse"))
 
 export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
@@ -53,7 +53,9 @@ export default function Academics({ setOpen }) {
                     duration: 1
                 }}
             >
-                <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
+                <Suspense fallback={null}>
+                    <AcademicsForm enroll={enroll} setEnroll={setEnroll} />
+                </Suspense>
                 <Grid className="root-container"
                     sx={{
                         padding: {
@@ -95,7 +97,9 @@ export default function Academics({ setOpen }) {
 
 
                 </Grid>
-                <WhichCourse />
+                <Suspense fallback={null}>
+                    <WhichCourse />
+                </Suspense>
                 <LetsProject
                     text1={t("academics.Readytokickstart")}
                     // text2="A SpacenNet technology company can help you improve your idea and turn it into reality if you're facing a challenge"

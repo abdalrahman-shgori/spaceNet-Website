@@ -1,5 +1,5 @@
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { subServices } from "../services/websiteApis/services";
 import { motion } from "framer-motion"
@@ -8,8 +8,6 @@ import SpaceNetLayout from "../components/spaceNetLayout";
 import { Helmet } from "react-helmet";
 import CoreItSection1 from "../components/coreIt/coreIt";
 import SectionDescription from "../components/sectionDescription";
-import LayoutCards from "../components/layoutCards";
-import OurCourses from "../components/academics/ourCourses";
 import NetworkSolution from "../assets/sectionsImages/coteIt/networkSolution";
 import Security from "../assets/sectionsImages/coteIt/security";
 import ServicesSvg from "../assets/sectionsImages/coteIt/services";
@@ -19,6 +17,8 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import useTheme from '@mui/material/styles/useTheme';
 import Box from '@mui/material/Box'
+const LayoutCards = lazy(() => import("../components/layoutCards"))
+const OurCourses = lazy(() => import("../components/academics/ourCourses"))
 
 const serviceTypesMock = [
     "Website Development",
@@ -66,13 +66,13 @@ export default function CoreIt({ setOpen }) {
     }, []);
 
     const theme = useTheme()
-      useEffect(() => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth',
-            });
-        }, [])
-    
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }, [])
+
     return (
         <>
             <Helmet>
@@ -142,7 +142,9 @@ export default function CoreIt({ setOpen }) {
                         top="0px"
 
                     />
+                    <Suspense fallback={null}>
                     <OurCourses />
+                    </Suspense>
                 </Box>
                 <Box
                     sx={{
@@ -160,12 +162,15 @@ export default function CoreIt({ setOpen }) {
                         text1={t("coreIt.WhatWeDesign")}
                         top="80px"
                     />
-                    <LayoutCards
-                        technologiesData={technologiesData}
-                        sethoveredcardid={sethoveredcardid}
-                        hoveredcardid={hoveredcardid}
-                        technologiesDataImage={technologiesDataImage}
-                    />
+                    <Suspense fallback={null}>
+                        <LayoutCards
+                            technologiesData={technologiesData}
+                            sethoveredcardid={sethoveredcardid}
+                            hoveredcardid={hoveredcardid}
+                            technologiesDataImage={technologiesDataImage}
+                        />
+                    </Suspense>
+
                 </Box>
 
                 <LetsProject

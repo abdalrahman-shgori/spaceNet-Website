@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import Crafting from "../components/designAndBranding/craftingAndDigital";
 import WhatWeDo from "../components/whatweDo/whatWeDo";
 import { subServices } from "../services/websiteApis/services";
 import SectionDescription from "../components/sectionDescription";
-import LayoutCards from "../components/layoutCards";
 import { motion } from "framer-motion"
 import LetsProject from "../components/letsProject";
-import SpaceNetLayout from "../components/spaceNetLayout";
-import CreatingSolution from "../components/designAndBranding/creatingSolutions";
 import { ServiceCategories } from "../services/websiteApis/serviceCategories";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
@@ -15,6 +12,9 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import useTheme from '@mui/material/styles/useTheme';
+const LayoutCards = lazy(() => import('../components/layoutCards'));
+const CreatingSolution = lazy(() => import('../components/designAndBranding/creatingSolutions'));
+const SpaceNetLayout = lazy(() => import('../components/spaceNetLayout'));
 
 const technologiesDataImage = [
     {
@@ -98,7 +98,6 @@ export default function DesignAndBranding({ setOpen }) {
     const theme = useTheme()
     const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
     const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
-
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState([])
     const lastCardId = data.length > 0 ? data[data.length - 1].id : null;
@@ -223,17 +222,21 @@ export default function DesignAndBranding({ setOpen }) {
                         text1={t("designAndBranding.elevateYourBrand")}
                         top="80px"
                     />
-                    <LayoutCards
-                        technologiesData={technologiesData}
-                        sethoveredcardid={sethoveredcardid}
-                        hoveredcardid={hoveredcardid}
-                        technologiesDataImage={technologiesDataImage}
-                    />
+                    <Suspense fallback={null}>
+                        <LayoutCards
+                            technologiesData={technologiesData}
+                            sethoveredcardid={sethoveredcardid}
+                            hoveredcardid={hoveredcardid}
+                            technologiesDataImage={technologiesDataImage}
+                        />
+                    </Suspense>
                     <SectionDescription
                         text1={<> {t("designAndBranding.designSolution")} <br /> {t("designAndBranding.Achieving")} </>}
                         top="43px"
                     />
-                    <CreatingSolution />
+                    <Suspense fallback={null}>
+                        <CreatingSolution />
+                    </Suspense>
                 </Grid>
                 <LetsProject
                     text1={<> {t("designAndBranding.gotGeat")} <br /> {t("designAndBranding.readyToBring")} </>}
@@ -244,7 +247,9 @@ export default function DesignAndBranding({ setOpen }) {
                     text2Color="#FFFFFF"
                     setOpen={setOpen}
                 />
-                <SpaceNetLayout setOpen={setOpen} />
+                <Suspense fallback={null}>
+                    <SpaceNetLayout setOpen={setOpen} />
+                </Suspense>
             </motion.div>
         </>
     )

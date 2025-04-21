@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import BusinessGoals from "../components/softwareSection/businessGoals";
 import Grid from "@mui/material/Grid";
 import ContactUsBtn from "../components/softwareSection/contactUsBtn";
 import { useLocation } from "react-router-dom";
 import WhatWeDo from "../components/whatweDo/whatWeDo";
 import SectionDescription from "../components/sectionDescription";
-import LayoutCards from "../components/layoutCards";
 import FrontEndSvg from "../assets/sectionsImages/frontEndImage";
 import BackEndSvg from "../assets/sectionsImages/backendImage";
 import FullStackSvg from "../assets/sectionsImages/fullstack";
@@ -13,12 +12,14 @@ import LowCodeSvg from "../assets/sectionsImages/lowcode";
 import CloudDevelopmentSvg from "../assets/sectionsImages/clouddevelopment";
 import { subServices } from "../services/websiteApis/services";
 import { motion } from "framer-motion"
-import OurTechnologies from "../components/softwareSection/Our technologies Section/ourTechnology";
-import LetsProject from "../components/letsProject";
-import SpaceNetLayout from "../components/spaceNetLayout";
 import { ServiceCategories } from "../services/websiteApis/serviceCategories";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+
+const OurTechnologies = lazy(() => import('../components/softwareSection/Our technologies Section/ourTechnology'));
+const LetsProject = lazy(() => import('../components/letsProject'));
+const SpaceNetLayout = lazy(() => import('../components/spaceNetLayout'));
+const LayoutCards = lazy(() => import('../components/layoutCards'));
 
 const serviceColors = {
     "Website Development": "#9D89FC",
@@ -104,12 +105,12 @@ export default function SoftwareSection({ setOpen }) {
             fetchServiceCategories();
         }
     }, []);
-  useEffect(() => {
-              window.scrollTo({
-                  top: 0,
-                  behavior: 'smooth',
-              });
-          }, [])
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }, [])
     return (
         <>
             <Helmet>
@@ -159,28 +160,36 @@ export default function SoftwareSection({ setOpen }) {
                         text2={t("software.driveYour")}
                         top="80px"
                     />
-                    <LayoutCards
-                        technologiesData={technologiesData}
-                        sethoveredcardid={sethoveredcardid}
-                        hoveredcardid={hoveredcardid}
-                        technologiesDataImage={technologiesDataImage}
-                    />
+                    <Suspense>
+                        <LayoutCards
+                            technologiesData={technologiesData}
+                            sethoveredcardid={sethoveredcardid}
+                            hoveredcardid={hoveredcardid}
+                            technologiesDataImage={technologiesDataImage}
+                        />
+                    </Suspense>
                     <SectionDescription
                         text1={t("software.ourTechnology")}
                         top="43px"
                     />
-                    <OurTechnologies />
+                    <Suspense fallback={null}>
+                        <OurTechnologies />
+                    </Suspense>
                 </Grid>
-                <LetsProject
-                    text1={<>{t("software.gotGreat")}<br /> {t("software.Ready")} </>}
-                    text2={t("software.letsMake")}
-                    btnText={t("software.letsTalk")}
-                    cardBg="#9D89FC"
-                    text1Color="#051A2F"
-                    text2Color="#051A2F"
-                    setOpen={setOpen}
-                />
-                <SpaceNetLayout setOpen={setOpen} />
+                <Suspense fallback={null}>
+                    <LetsProject
+                        text1={<>{t("software.gotGreat")}<br /> {t("software.Ready")} </>}
+                        text2={t("software.letsMake")}
+                        btnText={t("software.letsTalk")}
+                        cardBg="#9D89FC"
+                        text1Color="#051A2F"
+                        text2Color="#051A2F"
+                        setOpen={setOpen}
+                    />
+                </Suspense>
+                <Suspense fallback={null}>
+                    <SpaceNetLayout setOpen={setOpen} />
+                </Suspense>
             </motion.div>
 
         </>
