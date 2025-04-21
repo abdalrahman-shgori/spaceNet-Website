@@ -8,10 +8,6 @@ import SpaceNetLayout from "../components/spaceNetLayout";
 import { Helmet } from "react-helmet";
 import CoreItSection1 from "../components/coreIt/coreIt";
 import SectionDescription from "../components/sectionDescription";
-import NetworkSolution from "../assets/sectionsImages/coteIt/networkSolution";
-import Security from "../assets/sectionsImages/coteIt/security";
-import ServicesSvg from "../assets/sectionsImages/coteIt/services";
-import SystemSvg from "../assets/sectionsImages/coteIt/system";
 import { useTranslation } from "react-i18next";
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
@@ -19,6 +15,11 @@ import useTheme from '@mui/material/styles/useTheme';
 import Box from '@mui/material/Box'
 const LayoutCards = lazy(() => import("../components/layoutCards"))
 const OurCourses = lazy(() => import("../components/academics/ourCourses"))
+
+const NetworkSolution = lazy(() => import("../assets/sectionsImages/coteIt/networkSolution"));
+const Security = lazy(() => import("../assets/sectionsImages/coteIt/security"));
+const ServicesSvg = lazy(() => import("../assets/sectionsImages/coteIt/services"));
+const SystemSvg = lazy(() => import("../assets/sectionsImages/coteIt/system"));
 
 const serviceTypesMock = [
     "Website Development",

@@ -5,11 +5,6 @@ import ContactUsBtn from "../components/softwareSection/contactUsBtn";
 import { useLocation } from "react-router-dom";
 import WhatWeDo from "../components/whatweDo/whatWeDo";
 import SectionDescription from "../components/sectionDescription";
-import FrontEndSvg from "../assets/sectionsImages/frontEndImage";
-import BackEndSvg from "../assets/sectionsImages/backendImage";
-import FullStackSvg from "../assets/sectionsImages/fullstack";
-import LowCodeSvg from "../assets/sectionsImages/lowcode";
-import CloudDevelopmentSvg from "../assets/sectionsImages/clouddevelopment";
 import { subServices } from "../services/websiteApis/services";
 import { motion } from "framer-motion"
 import { ServiceCategories } from "../services/websiteApis/serviceCategories";
@@ -20,6 +15,11 @@ const OurTechnologies = lazy(() => import('../components/softwareSection/Our tec
 const LetsProject = lazy(() => import('../components/letsProject'));
 const SpaceNetLayout = lazy(() => import('../components/spaceNetLayout'));
 const LayoutCards = lazy(() => import('../components/layoutCards'));
+const FrontEndSvg = lazy(() => import("../assets/sectionsImages/frontEndImage"));
+const BackEndSvg = lazy(() => import("../assets/sectionsImages/backendImage"));
+const FullStackSvg = lazy(() => import("../assets/sectionsImages/fullstack"));
+const LowCodeSvg = lazy(() => import("../assets/sectionsImages/lowcode"));
+const CloudDevelopmentSvg = lazy(() => import("../assets/sectionsImages/clouddevelopment"));
 
 const serviceColors = {
     "Website Development": "#9D89FC",
