@@ -31,7 +31,6 @@ export default function Crafting({
       setScrollIndex((prev) => prev + 1)
     }
   }
-
   return (
     <Grid container
       sx={{
@@ -39,7 +38,6 @@ export default function Crafting({
         
       }}
     >
-
       <Grid item lg={3} md={3} sm={3} xs={12} container alignItems="center"
         sx={{
           justifyContent: {

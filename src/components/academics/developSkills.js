@@ -13,7 +13,7 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import useTheme from '@mui/material/styles/useTheme';
 
 function DevelopSkills({ setOpen, setEnroll }) {
-    const {t } = useTranslation()
+    const { t } = useTranslation()
     const [start, setStart] = useState(false)
     const theme = useTheme()
     const extraSmallScreen = useMediaQuery(theme.breakpoints.down("348"))
@@ -44,7 +44,6 @@ function DevelopSkills({ setOpen, setEnroll }) {
             img: networkGradiant
         },
     ], [t])
-
 
     const subCatStyle = {
         background: "#FFFFFF",

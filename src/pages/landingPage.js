@@ -43,7 +43,6 @@ export default function LandingPage({
 
     return (
         <Grid
-
             container
             sx={{
                 paddingTop: {

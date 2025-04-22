@@ -493,8 +493,6 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                                         handleAgeChange={handleAgeChange}
                                         age={age}
                                         loadingCourses={loadingCourses}
-
-
                                     />
                                 </Grid>
                             </Box>

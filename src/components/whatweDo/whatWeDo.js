@@ -4,7 +4,7 @@ import WhatWeDoText from "./whatWeDoText";
 import Cards from "../cards";
 import { useTranslation } from "react-i18next";
 
-export default function WhatWeDo({ setData, data, lastCardId, loading }) {
+export default function WhatWeDo({ data, lastCardId, loading }) {
     const { t } = useTranslation()
     return (
         <>

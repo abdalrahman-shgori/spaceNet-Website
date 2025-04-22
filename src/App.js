@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { startTransition, useEffect, useState,Suspense } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import NavBar from './components/navbar/navbar';
@@ -9,16 +9,19 @@ import LogoAnimation from './pages/LandingPage/logoaniamtion';
 import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
-import SoftwareSection from "./pages/softwarePage"
-import DesignAndBranding from "./pages/design&branding"
-import Academics from "./pages/academics"
-import CoreIt from "./pages/coreIt"
-import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
-import BlogDetails from './components/blogsAndNews/blogDetails';
 import BasicModal from './components/contactUs/contactUs';
 import Footer from './components/footer';
-import InnerApp from './pages/LandingPage/innerApp';
+import Loader from './components/loadingPage/loading';
+import LoaderWrapper from './components/delaySuspens';
 
+const SoftwareSection = React.lazy(() => import('./pages/softwarePage'));
+const DesignAndBranding = React.lazy(() => import('./pages/design&branding'));
+const Academics = React.lazy(() => import('./pages/academics'));
+const CoreIt = React.lazy(() => import('./pages/coreIt'));
+const InnerApp = React.lazy(() => import('./pages/LandingPage/innerApp'));
+
+// import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
+// import BlogDetails from './components/blogsAndNews/blogDetails';
 const App = () => {
   const [open, setOpen] = React.useState(false);
   const [showOverflow, setShowOverFlow] = useState(false)
@@ -32,16 +35,38 @@ const App = () => {
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
   };
+  // useEffect(() => {
+  //   if (logoAnimationComplete) {
+  //     setTimeout(() => {
+  //       setShowContent(true);
+  //     }, 0);
+  //   }
+  //   else if (location.pathname !== '/') {
+  //     setLogoAnimationComplete(true)
+  //   }
+  // }, [logoAnimationComplete]);
   useEffect(() => {
     if (logoAnimationComplete) {
-      setTimeout(() => {
-        setShowContent(true);
-      }, 0);
-    }
-    else if (location.pathname !== '/') {
-      setLogoAnimationComplete(true)
+      requestIdleCallback(() => {
+        startTransition(() => {
+          setShowContent(true);
+        });
+      });
+    } else if (location.pathname !== '/') {
+      setLogoAnimationComplete(true);
     }
   }, [logoAnimationComplete]);
+  
+  const DelayedFallback = () => {
+    const [show, setShow] = React.useState(false);
+    React.useEffect(() => {
+      const timer = setTimeout(() => setShow(true), 300);
+      return () => clearTimeout(timer);
+    }, []);
+  
+    return show ? <Loader/> : null;
+  };
+  
 
   return (
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
@@ -76,15 +101,20 @@ const App = () => {
                   transformOrigin: "bottom",
                   overflow: location.pathname === '/' ? showOverflow ? "auto" : "hidden" : 'unset'
                 }}
-                onUpdate={({ height }) => {
-                  if (height === '100dvh') {
-                    setShowOverFlow(true)
-                  }
+                // onUpdate={({ height }) => {
+                //   if (height === '100dvh') {
+                //     setShowOverFlow(true)
+                //   }
+                // }}
+                onAnimationComplete={()=>{
+                  setShowOverFlow(true)
                 }}
               >
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} />
-                  <Routes>
+                  <Suspense fallback={location.pathname !== '/' ? <Loader /> : null}>
+                <LoaderWrapper fallback={location.pathname !== '/' ? <Loader /> : null} minDuration={location.pathname !== '/' ? 2000 : 0}>
+                <Routes>
                     <Route
                       path='/'
                       element={
@@ -101,9 +131,13 @@ const App = () => {
                     <Route path='/design-branding' element={<DesignAndBranding setOpen={setOpen} />} />
                     <Route path='/academics' element={<Academics setOpen={setOpen} />} />
                     <Route path='/core-it' element={<CoreIt setOpen={setOpen} />} />
-                    <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
-                    <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} />
+                    {/* <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
+                    <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} /> */}
                   </Routes>
+                  </LoaderWrapper>
+                  </Suspense>
+              
+                  
                   {location.pathname !== '/' && (
                     <Footer />
                   )}

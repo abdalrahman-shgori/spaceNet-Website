@@ -185,8 +185,6 @@ export default function CreatingSolution() {
 
                       ))}
                     </Grid>
-
-
                   ) :
                     (
                       <Box

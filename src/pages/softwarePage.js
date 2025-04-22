@@ -148,7 +148,6 @@ export default function SoftwareSection({ setOpen }) {
                     />
                     <ContactUsBtn setOpen={setOpen} />
                     <WhatWeDo
-                        setData={setData}
                         data={data}
                         lastCardId={lastCardId}
                         loading={loading}

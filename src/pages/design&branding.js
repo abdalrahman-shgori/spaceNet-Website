@@ -88,7 +88,7 @@ const technologiesDataImage = [
 
 
 export default function DesignAndBranding({ setOpen }) {
-    const { t, i18n } = useTranslation()
+    const { t } = useTranslation()
     const designAndBrandingList = [
         { title: t("designAndBranding.DesignStrategy"), color: "#1CB786", rotate: "5.28deg" },
         { title: t("designAndBranding.WebMobileDesign"), color: "#E9FA50", rotate: "-3.6deg" },

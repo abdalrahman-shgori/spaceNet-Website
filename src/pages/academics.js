@@ -14,7 +14,6 @@ import WhichCourse from "../components/academics/whichCourse";
 import OurCourses from "../components/academics/ourCourses";
 import LayoutCards from "../components/layoutCards";
 
-
 export default function Academics({ setOpen }) {
     const [hoveredcardid, sethoveredcardid] = useState(null);
     const { t } = useTranslation()
@@ -31,19 +30,6 @@ export default function Academics({ setOpen }) {
         <>
             <Helmet>
                 <title>Academics</title>
-                <meta name="description" content="Explore our academics courses and bootcamps." />
-                <meta property="og:title" content="SPACENET Academics" />
-                <meta property="og:description" content="Learn new skills with SPACENET's lifetime access courses and bootcamps." />
-                <meta property="og:image" content="https://spacenetiq.com/academics-image.jpg" />
-                <meta property="og:url" content="https://spacenetiq.com/academics" />
-                <meta property="og:type" content="website" />
-                <meta property="og:locale" content="en_US" />
-                <meta property="og:site_name" content="SPACENET" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@spacenetiq" />
-                <meta name="twitter:title" content="Academics | SPACENET" />
-                <meta name="twitter:description" content="Explore our academics courses and bootcamps." />
-                <meta name="twitter:image" content="https://spacenetiq.com/academics-image.jpg" />
             </Helmet>
             <motion.div
                 initial={{ opacity: 0, y: 150 }}

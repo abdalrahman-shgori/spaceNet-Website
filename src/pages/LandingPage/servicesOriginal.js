@@ -28,7 +28,7 @@ export default function ServicesOriginal({
   setIndexOfHoveredServices,
   indexOfHoveredServices
 }) {
-  const { i18n, t } = useTranslation()
+  const { i18n} = useTranslation()
   const dir = i18n.dir()
   const handleHover = () => {
     setHoveredService(i18n.language === 'ar' ? item.title_ar : i18n.language === 'ku' ? item.title_ku : item.title);
@@ -52,7 +52,6 @@ export default function ServicesOriginal({
   };
   const is14Inch = useMediaQuery(theme.breakpoints.down("1223"));
   const is15Inch = useMediaQuery(theme.breakpoints.down("1390"));
-  // Outside the component or above the JSX
   const localizedTitle =
     i18n.language === "ar"
       ? item.title_ar

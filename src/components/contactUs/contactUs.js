@@ -164,7 +164,6 @@ export default function BasicModal({ setOpen, open }) {
                     initial={{ x: '-100vw' }}
                     animate={{ x: open ? 0 : "-100vw" }}
                     transition={{ duration: 0.5 }}
-
                 >
                     <Box sx={style}>
                         <Box sx={{ position: "relative" }}>
@@ -229,7 +228,7 @@ export default function BasicModal({ setOpen, open }) {
                                         lg: "64px",
                                         md: "48px",
                                         sm: "28px",
-                                        xs: "24px"
+                                        xs: "22px"
                                     },
                                     maxWidth: {
                                         lg: "980px",
@@ -251,8 +250,6 @@ export default function BasicModal({ setOpen, open }) {
                                 }}
                             >
                                 {t("ContactUs.weLove")}
-
-
                             </Typography>
 
                             <Box

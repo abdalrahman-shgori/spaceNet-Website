@@ -10,7 +10,6 @@ import ThemeProvider from './ThemeProvider';
 import { SettingsProvider } from './pagedirection';
 import './i18n'
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 root.render(
   <React.StrictMode>
     <SettingsProvider>
