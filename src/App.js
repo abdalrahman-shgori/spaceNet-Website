@@ -52,31 +52,29 @@ const App = () => {
         <ThemeLocalization>
           {logoAnimationComplete && (
             <>
-              <motion.div
-                initial={location.pathname === '/' && { y: '100dvh', opacity: 0 }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                  background: themeColor,
-                }}
-                exit={{ y: '-100%', opacity: 0 }}
-                transition={{
-                  duration: 1,
-                  ease: 'easeInOut',
-                  background: { duration: 0.3 },
-                }}
-                style={{
-                  background: themeColor,
-                  minHeight: '100dvh',
-                  position: 'relative',
-                  zIndex: 2,
-                  animation: 'moveBackground 5s linear',
-                  overflowY: location.pathname === '/' ? (showOverflow ? 'auto' : 'hidden') : 'scroll',
-                }}
-                onAnimationComplete={() => {
-                  setShowOverFlow(true);
-                }}
-              >
+                  <motion.div
+  initial={{ translateY: '100%' }}
+  animate={{ translateY: '0%' }}
+  exit={{ translateY: '100%' }}
+  transition={{
+    duration: 0.8,
+    ease: [0.4, 0, 0.2, 1],
+  }}
+  style={{
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: '100dvh',
+    zIndex: 10,
+    background: themeColor,
+    transformOrigin: 'bottom',
+    overflowY: location.pathname === '/' ? (showOverflow ? 'auto' : 'hidden') : 'scroll',
+  }}
+  onAnimationComplete={() => {
+    setShowOverFlow(true);
+  }}
+>
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} />
                   <Routes>
