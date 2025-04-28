@@ -91,7 +91,7 @@ export default function ContactUsBtn({ setOpen }) {
               component="img"
               alt="arrow"
               loading="eager"
-              fetchPriority="hight"
+              fetchPriority="high"
               src={theme.palette.mode === 'light' ? Arrow : ArrowWight}
               sx={{
                 width: {
