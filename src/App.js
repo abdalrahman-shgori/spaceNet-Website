@@ -1,5 +1,5 @@
 
-import React, { startTransition, useEffect, useState, Suspense } from 'react';
+import React, { startTransition, useEffect, useState,Suspense } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import NavBar from './components/navbar/navbar';
@@ -10,12 +10,14 @@ import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
 import BasicModal from './components/contactUs/contactUs';
+import Loader from './components/loadingPage/loading';
 import InnerApp from './pages/LandingPage/innerApp';
 import SoftwareSection from "./pages/softwarePage"
 import DesignAndBranding from "./pages/design&branding"
 import Academics from "./pages/academics"
 import CoreIt from "./pages/coreIt"
 import Footer from './components/footer';
+
 // import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
 // import BlogDetails from './components/blogsAndNews/blogDetails';
 const App = () => {
@@ -42,8 +44,8 @@ const App = () => {
       setLogoAnimationComplete(true);
     }
   }, [logoAnimationComplete]);
-
-
+  
+ 
   return (
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
       {location.pathname === '/' && (
@@ -53,30 +55,33 @@ const App = () => {
         <ThemeLocalization>
           {logoAnimationComplete && (
             <>
-              <motion.div
-                initial={location.pathname === '/' && { height: 0 }}
-                animate={location.pathname === '/' && { height: "100dvh" }}
-                transition={{
-                  duration: 0.8,
-                  ease: [0.4, 0, 0.2, 1],
-                }}
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: '100dvh',
-                  zIndex: 10,
-                  background: themeColor,
-                  transformOrigin: 'bottom',
-                  overflowY: location.pathname === '/' ? (showOverflow ? 'auto' : 'hidden') : 'scroll',
-                }}
-                onAnimationComplete={() => {
-                  setShowOverFlow(true);
-                }}
-              >
+      <motion.div
+  initial={{ translateY: '100%' }}
+  animate={{ translateY: '0%' }}
+  exit={{ translateY: '100%' }}
+  transition={{
+    duration: 0.8,
+    ease: [0.4, 0, 0.2, 1],
+  }}
+  style={{
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: '100dvh',
+    zIndex: 10,
+    background: themeColor,
+    transformOrigin: 'bottom',
+    overflowY: location.pathname === '/' ? (showOverflow ? 'auto' : 'hidden') : 'scroll',
+  }}
+  onAnimationComplete={() => {
+    setShowOverFlow(true);
+  }}
+>
+
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} />
+               
                   <Routes>
                     <Route
                       path='/'
@@ -97,9 +102,12 @@ const App = () => {
                     {/* <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
                     <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} /> */}
                   </Routes>
+               
+
+                  
                   {location.pathname !== '/' && (
                     <Suspense fallback={null}>
-                      <Footer />
+                    <Footer />
                     </Suspense>
                   )}
                 </>
