@@ -51,7 +51,6 @@ export default function ContactUsBtn({ setOpen }) {
 
 
         }}
-
       >
         <Box
           sx={{
@@ -91,6 +90,8 @@ export default function ContactUsBtn({ setOpen }) {
             <Box
               component="img"
               alt="arrow"
+              loading="eager"
+              fetchPriority="hight"
               src={theme.palette.mode === 'light' ? Arrow : ArrowWight}
               sx={{
                 width: {
