@@ -105,9 +105,20 @@
         "ITAdministration":"IT Administration",
         "Server":"Server Configuration & Management",
         "Virtualization":"Virtualization & Cloud Infrastructure",
-        "ExploreOur":"Explore Our Learning trucks"
+        "ExploreOur":"Explore Our Learning tracks",
 
-     
+        "uiUxDescription":"Want to create apps and websites people love to use? Learn UI/UX Design! You'll master making things look great (UI) and feel intuitive (UX).Start designing amazing experiences – find your UI/UX course now!",
+        "LogoDesignDescription":"Ready to make a mark? Learn Logo Design! You'll craft memorable visual identities that capture the essence of a brand. Create powerful symbols that stand out and communicate instantly.Find your Logo Design course today!",
+        "brandingDescription":"Ready to shape how the world sees a business? Dive into Branding Design! You'll go beyond logos to build the entire visual and emotional identity of a brand – its personality, voice, and how it connects with its audience.Explore Branding Design courses now!",
+       "FullstackDescription":"Ready to build complete web applications from the ground up? Become a Fullstack Developer! You'll master both the user interface users interact with (Front-End) and the server, database, and logic that power it all (Back-End).",
+       "FrontDescription":"Want to bring websites and web apps to life? Learn Front-End Development! You'll build the part of the web that users see and interact with, turning designs into responsive, engaging digital experiences using HTML, CSS, and JavaScript.",
+       "BackDescription":"Ready to power the web from behind the scenes? Learn Backend Development! You'll build and manage the server, databases, and application logic that make websites and apps function smoothly, securely, and efficiently.",
+       "NetworkDescription":"Shape the digital infrastructure that powers our world! Learn Network Architecture, Design, and Cloud. You'll design secure, scalable computer networks and integrate cutting-edge cloud solutions for optimal performance and reliability.",
+       "automationDescription":"Done with repetitive manual setup? Master Automation and Configuration Management! You'll use code and powerful tools to automatically build, configure, and manage IT systems consistently and at scale, boosting speed and reliability.",
+       "securityDescription":"Ensure your digital world is safe, sound, and speedy! Master Security, Monitoring, and Performance. You'll learn to defend against threats, keep a watchful eye on system health and activity, and optimize infrastructure for maximum efficiency and reliability.",
+       "itDescription":"Want to be the go-to tech expert? Learn IT Administration! You'll manage servers, networks, software, and user accounts, ensuring an organization's technology runs reliably and securely every day.",
+       "serverDescription":"Take control of the machines that run the digital world! Learn Server Configuration and Management. You'll master setting up, maintaining, securing, and optimizing servers to ensure peak performance and reliability for applications and services.",
+       "cloudDescription":"Build tomorrow's IT infrastructure today! Master Virtualization and Cloud Infrastructure. You'll learn how to create efficient, scalable systems by running multiple virtual machines on less hardware and harnessing the power of cloud platforms."
     },
     "software": {
         "AchieveBusiness": "Achieve your business goals with our",

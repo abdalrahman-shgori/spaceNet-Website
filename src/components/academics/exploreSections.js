@@ -41,24 +41,24 @@ function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnrol
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const contentMap = useMemo(() => ({
         1: [
-            { id: 0, img: uiux, title: t("academics.UI/UX"), borderColor: "#E9FA50" },
-            { id: 1, img: logoDesign, title: t("academics.LogoDesign"), borderColor: "#1CB786" },
-            { id: 2, img: branding, title: t("academics.BrandingDesign"), borderColor: "#FA6423" }
+            { id: 0, img: uiux, title: t("academics.UI/UX"), borderColor: "#E9FA50", description: t("academics.uiUxDescription") },
+            { id: 1, img: logoDesign, title: t("academics.LogoDesign"), borderColor: "#1CB786", description: t("academics.LogoDesignDescription") },
+            { id: 2, img: branding, title: t("academics.BrandingDesign"), borderColor: "#FA6423", description: t("academics.brandingDescription") }
         ],
         3: [
-            { img: fullStack, title: t("academics.FullstackDevelopment"), borderColor: "#E9FA50" },
-            { img: front, title: t("academics.FrontEndDevelopment"), borderColor: "#9D89FC" },
-            { img: back, title: t("academics.BackEndDevelopment"), borderColor: "#1CB786" }
+            { img: fullStack, title: t("academics.FullstackDevelopment"), borderColor: "#E9FA50", description: t("academics.FullstackDescription") },
+            { img: front, title: t("academics.FrontEndDevelopment"), borderColor: "#9D89FC", description: t("academics.FrontDescription") },
+            { img: back, title: t("academics.BackEndDevelopment"), borderColor: "#1CB786", description: t("academics.BackDescription") }
         ],
         5: [
-            { img: general, title: t("academics.GeneralNetwork"), borderColor: "#1CB786" },
-            { img: automation, title: t("academics.Automation"), borderColor: "#E9FA50" },
-            { img: security, title: t("academics.Security"), borderColor: "#FA6423" }
+            { img: general, title: t("academics.GeneralNetwork"), borderColor: "#1CB786", description: t("academics.NetworkDescription") },
+            { img: automation, title: t("academics.Automation"), borderColor: "#E9FA50", description: t("academics.automationDescription") },
+            { img: security, title: t("academics.Security"), borderColor: "#FA6423", description: t("academics.securityDescription") }
         ],
         default: [
-            { img: itAdmin, title: t("academics.ITAdministration"), borderColor: "#1CB786" },
-            { img: server, title: t("academics.Server"), borderColor: "#E9FA50" },
-            { img: cloud, title: t("academics.Virtualization"), borderColor: "#FA6423" }
+            { img: itAdmin, title: t("academics.ITAdministration"), borderColor: "#1CB786", description: t("academics.itDescription") },
+            { img: server, title: t("academics.Server"), borderColor: "#E9FA50", description: t("academics.serverDescription") },
+            { img: cloud, title: t("academics.Virtualization"), borderColor: "#FA6423", description: t("academics.cloudDescription") }
         ]
     }), [t]);
 
@@ -71,8 +71,8 @@ function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnrol
             img: item.img,
             title: item.title,
             borderColor: item.borderColor,
-            description:
-                'Learn to design hybrid networks using protocols like BGP, OSPF, and VXLAN, with secure connectivity through Direct Connect, ExpressRoute, and VPN Gateway. Master network optimization, redundancy, and automation for scalable, high-performance infrastructures, leveraging cloud services like AWS VPC, Azure Virtual Network, and Google Cloud VPC.'
+            description: item.description
+
         }));
     }, [itemid, t]);
 
@@ -81,18 +81,16 @@ function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnrol
             sx={{
                 background: `${bg}33`,
                 padding: {
-                    lg: "60px 42px 80px 37px",
                     md: "60px 42px 80px 37px",
                     sm: "52px 42px 52px 37px",
                     xs: "52px 24px 52px 24px"
                 },
                 borderRadius: {
-                    lg: "55px",
                     md: "55px",
                     sm: "30px",
                     xs: "30px"
                 },
-                marginTop: "24px"
+                marginTop: "24px",
             }}
         >
             <Typography
@@ -110,11 +108,12 @@ function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnrol
             </Typography>
             <Grid container spacing={2.5} mt="24px">
                 {explore.map((item, index) => (
-                    <Grid item lg={4} md={6} sm={6} xs={12} key={item.id}>
+                    <Grid item lg={4} md={6} sm={6} xs={12} key={item.id} >
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.8 }}
+                            style={{ height: '100%' }}
                         >
                             <Box
                                 sx={{
@@ -151,21 +150,9 @@ function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnrol
                                         component="img"
                                         loading="lazy"
                                         sx={{
-                                            maxWidth: {
-                                                md:"70px",
-                                                sm: "60px",
-                                                xs: "60px"
-                                            },
-                                            minWidth: {
-                                                md:"70px",
-                                                sm: "60px",
-                                                xs: "60px"
-                                            },
-                                            minHeight: {
-                                                md:"70px",
-                                                sm: "60px",
-                                                xs: "60px"
-                                            },
+                                            maxWidth: { md: "70px", sm: "60px", xs: "60px" },
+                                            minWidth: { md: "70px", sm: "60px", xs: "60px" },
+                                            minHeight: { md: "70px", sm: "60px", xs: "60px" },
                                             border: `6px solid ${item.borderColor}`,
                                             borderRadius: "10px",
                                         }}
@@ -174,50 +161,36 @@ function ExploreLearning({ hoveredcardid, sethoveredcardid, bg, itemid, setEnrol
                                     <Typography
                                         sx={{
                                             fontFamily: "var(--English-font), Arial, sans-serif",
-                                            fontSize: {
-                                                lg: "28px",
-                                                md: "28px",
-                                                sm: "22px",
-                                                xs: "18px",
-                                            },
-                                            maxWidth: {
-                                                sm: itemid !== 5 && itemid !== 7 ? "205px" : "100%",
-                                                xs: "100%"
-                                            },
-                                            lineHeight: {
-                                                sm: "32px",
-                                                xs: "24px"
-                                            },
+                                            fontSize: { lg: "28px", md: "26px", sm: "22px", xs: "18px" },
+                                            maxWidth: { sm: itemid !== 5 && itemid !== 7 ? "200px" : "100%", xs: "100%" },
+                                            lineHeight: { sm: "32px", xs: "24px" },
                                             color: hoveredcardid === index && itemid !== 5 ? "white !important" : "#051A2F",
-
+                                            wordBreak: "break-word"
                                         }}
                                     >
                                         {item.title}
                                     </Typography>
                                 </Box>
+
                                 <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1, gap: "28px" }}>
                                     <Typography
                                         sx={{
-                                            mb: 2,
                                             fontFamily: "var(--English-font), Arial, sans-serif",
-                                            fontSize: {
-                                                lg: "17.75px",
-                                                md: "15.75px",
-                                                sm: "14px",
-                                                xs: "14px"
-                                            },
-                                            lineHeight: {
-                                                lg: "28px",
-                                                md: "28px",
-                                                sm: "18px",
-                                                xs: "18px"
-                                            },
+                                            fontWeight: "300",
+                                            fontSize: { xl: "20px", lg: "17.75px", md: "15.75px", sm: "14px", xs: "14px" },
+                                            lineHeight: { lg: "28px", md: "28px", sm: "18px", xs: "18px" },
                                             color: hoveredcardid === index && itemid !== 5 ? "white !important" : "#051A2F",
-                                        }}>
+                                            flexGrow: 1,
+                                            display: "flex",
+                                            alignItems: "flex-start",
+                                        }}
+                                    >
                                         {item.description}
                                     </Typography>
                                     <Box sx={{ mt: "auto" }}>
-                                        <Button onClick={() => setEnroll(true)} sx={btnStyle}>{t("academics.enrollNow")}</Button>
+                                        <Button onClick={() => setEnroll(true)} sx={btnStyle}>
+                                            {t("academics.enrollNow")}
+                                        </Button>
                                     </Box>
                                 </Box>
                             </Box>

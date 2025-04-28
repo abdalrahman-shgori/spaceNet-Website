@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppBar, Toolbar, IconButton, Box, List, ListItem, Typography, useTheme, useMediaQuery, Drawer } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next';
 
 const NavBar = ({
     setDrawerOpen,
-    setOpen
+    setOpen,
 }) => {
     const { t } = useTranslation()
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -52,10 +52,13 @@ const NavBar = ({
         toggleDrawer(false);
         setDrawerOpen(false);
     };
+  
     const is14Inch = useMediaQuery(theme.breakpoints.down("1390"));
     const ExtraSmallScreen = useMediaQuery(theme.breakpoints.down("360"));
     const { i18n } = useTranslation()
     const dir = i18n.dir()
+
+ 
     return (
         <>
             <AppBar

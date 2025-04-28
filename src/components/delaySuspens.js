@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const LoaderWrapper = ({ children, minDuration = 1000, fallback }) => {
+const LoaderWrapper = ({ children, minDuration = 500, fallback }) => {
   const [timePassed, setTimePassed] = useState(false);
   const [componentReady, setComponentReady] = useState(false);
   const location = useLocation();
