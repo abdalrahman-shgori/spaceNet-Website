@@ -53,9 +53,11 @@ const App = () => {
           {logoAnimationComplete && (
             <>
                   <motion.div
-  initial={{ translateY: '100%' }}
-  animate={{ translateY: '0%' }}
-  exit={{ translateY: '100%' }}
+      initial={location.pathname === '/' && { height: 0, originY: 1 }}
+      animate={{
+        height: "100dvh",
+      }}
+      exit={{ scaleY: [0, 1.1, 0] }}
   transition={{
     duration: 0.8,
     ease: [0.4, 0, 0.2, 1],
