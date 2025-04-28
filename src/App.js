@@ -53,7 +53,7 @@ const App = () => {
           {logoAnimationComplete && (
             <>
                   <motion.div
-      initial={location.pathname === '/' && { height: 0, originY: 1 }}
+      initial={location.pathname === '/' && { height: 0 }}
       animate={{
         height: "100dvh",
       }}
@@ -71,7 +71,7 @@ const App = () => {
     zIndex: 10,
     background: themeColor,
     transformOrigin: 'bottom',
-    overflowY: location.pathname === '/' ? (showOverflow ? 'auto' : 'hidden') : 'scroll',
+    overflowY: location.pathname === '/' ? (showOverflow ? 'auto' : 'hidden') : "unset"
   }}
   onAnimationComplete={() => {
     setShowOverFlow(true);
