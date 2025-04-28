@@ -137,10 +137,7 @@ export default function DesignAndBranding({ setOpen }) {
         };
     }, [scrollIndex, isScrolling]);
     useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
+    
         document.body.style.overflow = "hidden";
 
         if (reset) {
@@ -158,6 +155,13 @@ export default function DesignAndBranding({ setOpen }) {
         };
 
     }, [scrollIndex, reset, designAndBrandingList.length]);
+
+    useEffect(()=>{
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    },[])
     useEffect(() => {
         setLoading(true)
         const fetchSubServices = async () => {
