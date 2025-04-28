@@ -10,15 +10,12 @@ import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
 import BasicModal from './components/contactUs/contactUs';
-import Loader from './components/loadingPage/loading';
-import LoaderWrapper from './components/delaySuspens';
-const SoftwareSection = React.lazy(() => import('./pages/softwarePage'));
-const DesignAndBranding = React.lazy(() => import('./pages/design&branding'));
-const Academics = React.lazy(() => import('./pages/academics'));
-const CoreIt = React.lazy(() => import('./pages/coreIt'));
-const InnerApp = React.lazy(() => import('./pages/LandingPage/innerApp'));
-const Footer = React.lazy(() => import('./components/footer'));
-
+import InnerApp from './pages/LandingPage/innerApp';
+import SoftwareSection from "./pages/softwarePage"
+import DesignAndBranding from "./pages/design&branding"
+import Academics from "./pages/academics"
+import CoreIt from "./pages/coreIt"
+import Footer from './components/footer';
 // import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
 // import BlogDetails from './components/blogsAndNews/blogDetails';
 const App = () => {
@@ -45,16 +42,6 @@ const App = () => {
       setLogoAnimationComplete(true);
     }
   }, [logoAnimationComplete]);
-  
-  const DelayedFallback = () => {
-    const [show, setShow] = React.useState(false);
-    React.useEffect(() => {
-      const timer = setTimeout(() => setShow(true), 300);
-      return () => clearTimeout(timer);
-    }, []);
-  
-    return show ? <Loader/> : null;
-  };
   
  
   return (
@@ -92,9 +79,7 @@ const App = () => {
 
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} />
-                  <LoaderWrapper fallback={location.pathname !== '/' ? <Loader /> : null} >
                
-                  <Suspense fallback={location.pathname !== '/' ? <Loader /> : null}>
                   <Routes>
                     <Route
                       path='/'
@@ -116,8 +101,6 @@ const App = () => {
                     <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} /> */}
                   </Routes>
                
-                  </Suspense>
-                                </LoaderWrapper>
 
                   
                   {location.pathname !== '/' && (
