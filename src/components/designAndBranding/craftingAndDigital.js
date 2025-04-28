@@ -141,7 +141,7 @@ export default function Crafting({
                     xs: "36px"
                   },
                   fontFamily: "var(--English-font)",
-                  fontWeight:"100",
+                  fontWeight:"200",
                   transform:
                     index === 0 ? "rotate(-5.28deg)" :
                       index === 1 ? "rotate(3.6deg)" :
