@@ -209,7 +209,7 @@ export default function Crafting({
                 xs: "24px"
               },
               fontFamily: "var(--English-font)",
-              fontWeight:"100"
+              fontWeight:"200"
             }}
           >
             {t("designAndBranding.Experience")}
