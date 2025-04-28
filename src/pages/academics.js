@@ -30,7 +30,6 @@ export default function Academics({ setOpen }) {
     });
 }, []);
 
-
     return (
         <>
             <Helmet>

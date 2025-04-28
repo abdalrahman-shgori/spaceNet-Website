@@ -137,7 +137,7 @@ export default function DesignAndBranding({ setOpen }) {
         };
     }, [scrollIndex, isScrolling]);
     useEffect(() => {
-    
+
         document.body.style.overflow = "hidden";
 
         if (reset) {
@@ -156,12 +156,7 @@ export default function DesignAndBranding({ setOpen }) {
 
     }, [scrollIndex, reset, designAndBrandingList.length]);
 
-    useEffect(()=>{
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    },[])
+
     useEffect(() => {
         setLoading(true)
         const fetchSubServices = async () => {
@@ -187,6 +182,15 @@ export default function DesignAndBranding({ setOpen }) {
             }
         };
         fetchServiceCategories();
+    }, []);
+    useEffect(() => {
+        if ('scrollRestoration' in window.history) {
+            window.history.scrollRestoration = 'manual';
+        }
+        window.scrollTo({
+            top: 0,
+            behavior: 'auto',
+        });
     }, []);
     return (
         <>

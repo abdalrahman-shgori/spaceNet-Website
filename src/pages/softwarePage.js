@@ -104,11 +104,14 @@ export default function SoftwareSection({ setOpen }) {
         }
     }, []);
     useEffect(() => {
+        if ('scrollRestoration' in window.history) {
+            window.history.scrollRestoration = 'manual';
+        }
         window.scrollTo({
             top: 0,
-            behavior: 'smooth',
+            behavior: 'auto',
         });
-    }, [])
+    }, []);
     return (
         <>
             <Helmet>
@@ -157,28 +160,28 @@ export default function SoftwareSection({ setOpen }) {
                         text2={t("software.driveYour")}
                         top="80px"
                     />
-                        <LayoutCards
-                            technologiesData={technologiesData}
-                            sethoveredcardid={sethoveredcardid}
-                            hoveredcardid={hoveredcardid}
-                            technologiesDataImage={technologiesDataImage}
-                        />
+                    <LayoutCards
+                        technologiesData={technologiesData}
+                        sethoveredcardid={sethoveredcardid}
+                        hoveredcardid={hoveredcardid}
+                        technologiesDataImage={technologiesDataImage}
+                    />
                     <SectionDescription
                         text1={t("software.ourTechnology")}
                         top="43px"
                     />
-                        <OurTechnologies />
+                    <OurTechnologies />
                 </Grid>
-                    <LetsProject
-                        text1={<>{t("software.gotGreat")}<br /> {t("software.Ready")} </>}
-                        text2={t("software.letsMake")}
-                        btnText={t("software.letsTalk")}
-                        cardBg="#9D89FC"
-                        text1Color="#051A2F"
-                        text2Color="#051A2F"
-                        setOpen={setOpen}
-                    />
-                    <SpaceNetLayout setOpen={setOpen} />
+                <LetsProject
+                    text1={<>{t("software.gotGreat")}<br /> {t("software.Ready")} </>}
+                    text2={t("software.letsMake")}
+                    btnText={t("software.letsTalk")}
+                    cardBg="#9D89FC"
+                    text1Color="#051A2F"
+                    text2Color="#051A2F"
+                    setOpen={setOpen}
+                />
+                <SpaceNetLayout setOpen={setOpen} />
             </motion.div>
 
         </>
