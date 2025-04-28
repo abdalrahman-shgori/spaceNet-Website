@@ -33,13 +33,12 @@ const App = () => {
   };
   useEffect(() => {
     if (logoAnimationComplete) {
-      requestIdleCallback(() => {
-        startTransition(() => {
-          setShowContent(true);
-        });
-      });
-    } else if (location.pathname !== '/') {
-      setLogoAnimationComplete(true);
+      setTimeout(() => {
+        setShowContent(true);
+      }, 0);
+    }
+    else if (location.pathname !== '/') {
+      setLogoAnimationComplete(true)
     }
   }, [logoAnimationComplete]);
 
@@ -54,21 +53,24 @@ const App = () => {
           {logoAnimationComplete && (
             <>
               <motion.div
-                initial={location.pathname === '/' && { height: 0 }}
-                animate={location.pathname === '/' && { height: "100dvh" }}
+                initial={location.pathname === '/' && { y: '100dvh', opacity: 0 }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  background: themeColor,
+                }}
+                exit={{ y: '-100%', opacity: 0 }}
                 transition={{
-                  duration: 0.8,
-                  ease: [0.4, 0, 0.2, 1],
+                  duration: 1,
+                  ease: 'easeInOut',
+                  background: { duration: 0.3 },
                 }}
                 style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: '100dvh',
-                  zIndex: 10,
                   background: themeColor,
-                  transformOrigin: 'bottom',
+                  minHeight: '100dvh',
+                  position: 'relative',
+                  zIndex: 2,
+                  animation: 'moveBackground 5s linear',
                   overflowY: location.pathname === '/' ? (showOverflow ? 'auto' : 'hidden') : 'scroll',
                 }}
                 onAnimationComplete={() => {
