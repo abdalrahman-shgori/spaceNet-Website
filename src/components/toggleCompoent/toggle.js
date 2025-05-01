@@ -27,14 +27,14 @@ export default function Toggle({ drawerOpen, setThemeColor, open }) {
     const handleToggle = () => {
         toggleColorMode();
     };
-    
+
     useEffect(() => {
         const newThemeColor = pathname === '/'
             ? theme.palette.background.default :
             theme.palette.background.paper;
         setThemeColor(newThemeColor);
     }, [pathname, theme.palette.background.paper]);
-    
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setBallVisible(true);
@@ -45,6 +45,7 @@ export default function Toggle({ drawerOpen, setThemeColor, open }) {
 
     return (
         <>
+            {(pathname === '/' || drawerOpen) && (
                 <motion.div
                     animate={dir === 'rtl' ? { x: [-100, 0], opacity: [0, 1] } : { x: [100, 0], opacity: [0, 1] }}
                     transition={{ delay: drawerOpen ? 0.2 : 0.5 }}
@@ -65,9 +66,7 @@ export default function Toggle({ drawerOpen, setThemeColor, open }) {
                                                 smscreen ? '210px' :
                                                     xsscreen && '280px',
                                 zIndex: 9999,
-                                display: open ? "none" : "block",
-                                visibility: pathname === '/' || drawerOpen ? 'visible' : 'hidden' 
-
+                                display: open && "none",
                             } :
                             {
                                 position: 'fixed',
@@ -84,10 +83,7 @@ export default function Toggle({ drawerOpen, setThemeColor, open }) {
                                                 smscreen ? '210px' :
                                                     xsscreen && '280px',
                                 zIndex: 9999,
-                                display: open ? "none" : "block",
-                                visibility: pathname === '/' || drawerOpen ? 'visible' : 'hidden' 
-
-
+                                display: open && "none",
                             }
                     }
                 >
@@ -135,10 +131,11 @@ export default function Toggle({ drawerOpen, setThemeColor, open }) {
                                     transition: 'bottom 0.3s ease',
                                 }}
                             />
-
                         )}
                     </Box>
                 </motion.div>
+            )}
+
         </>
     );
 }
