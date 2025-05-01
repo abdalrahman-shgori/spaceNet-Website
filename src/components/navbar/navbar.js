@@ -24,6 +24,8 @@ const NavBar = ({
     const location = useLocation();
     const { pathname } = location;
 
+   
+
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isTabScreen = useMediaQuery(theme.breakpoints.only('md'));
     const menuItems = [
@@ -73,7 +75,7 @@ const NavBar = ({
                         md: '55px 75px 0px 75px',
                         sm: '45px 25px 0px 25px',
                         xs: '25px 25px 0px 25px'
-                    }
+                    },
                 }}
             >
                 <Toolbar
@@ -125,8 +127,6 @@ const NavBar = ({
                             </Box>
 
                             <motion.div
-
-
                                 initial={{ opacity: 0, x: isSmallScreen ? '-100%' : '100%' }}
                                 animate={{ opacity: isDrawerOpen ? 1 : 0, x: isDrawerOpen ? 0 : isSmallScreen ? '-100%' : '100%' }}
                                 transition={{ duration: 0.5 }}

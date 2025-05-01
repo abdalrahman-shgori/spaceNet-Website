@@ -1,4 +1,3 @@
-
 import React, { startTransition, useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
 import { Route, Routes, useLocation } from 'react-router-dom';
@@ -58,25 +57,25 @@ const App = () => {
         height: "100dvh",
       }}
       exit={{ scaleY: [0, 1.1, 0] }}
-  transition={{
-    duration: 0.8,
-    ease: [0.4, 0, 0.2, 1],
-  }}
-  style={{
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: '100dvh',
-    zIndex: 10,
-    background: themeColor,
-    transformOrigin: 'bottom',
-    overflowY: location.pathname === '/' ? (showOverflow ? 'auto' : 'hidden') : "unset"
-  }}
-  onAnimationComplete={() => {
-    setShowOverFlow(true);
-  }}
->
+      transition={{
+        duration: 0.8,
+        ease: [0.4, 0, 0.2, 1],
+      }}
+      style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: '100dvh',
+        zIndex: 10,
+        background: themeColor,
+        transformOrigin: 'bottom',
+          overflowY: drawerOpen ? 'auto' : (location.pathname === '/' && (showOverflow ? 'auto' : 'hidden'))
+      }}
+      onAnimationComplete={() => {
+        setShowOverFlow(true);
+      }}
+    >
                 <>
                   <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} />
                   <Routes>
