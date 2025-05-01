@@ -41,7 +41,7 @@ const App = () => {
     }
   }, [logoAnimationComplete]);
 
-
+ 
   return (
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
       {location.pathname === '/' && (

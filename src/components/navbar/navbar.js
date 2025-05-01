@@ -178,7 +178,6 @@ const NavBar = ({
                                         >
                                             <CloseRoundedIcon sx={{
                                                 width: {
-
                                                     lg: 35,
                                                 },
                                                 height: {
