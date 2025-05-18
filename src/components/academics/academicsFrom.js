@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
-import { Grid, useTheme, Snackbar } from '@mui/material';
+import { Grid, useTheme, Snackbar, Button, CircularProgress } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { motion } from "framer-motion"
@@ -253,12 +253,12 @@ export default function AcademicsForm({ setEnroll, enroll }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!formData.email || !formData.password || !formData.name || !formData.phone || !formData.age || !formData.gender || !formData.courses.length || !formData.type || !formData.language || !formData.day || !formData.time) {
-            setSnackbarMessage(t("formAcademics.PleaseFillAll"));
-            setSnackbarSeverity('warning');
-            setSnackbarOpen(true);
-            return;
-        }
+        // if (!formData.email || !formData.password || !formData.name || !formData.phone || !formData.age || !formData.gender || !formData.courses.length || !formData.type || !formData.language || !formData.day || !formData.time) {
+        //     setSnackbarMessage(t("formAcademics.PleaseFillAll"));
+        //     setSnackbarSeverity('warning');
+        //     setSnackbarOpen(true);
+        //     return;
+        // }
         const passwordError = validatePasswordStrength(formData.password);
         if (passwordError) {
             setSnackbarMessage(passwordError);
@@ -450,6 +450,7 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                                     }
                                 }}
                             >
+                                <form onSubmit={handleSubmit}>
                                 <Grid container>
                                     <FirstFormSection
                                         theme={theme}
@@ -495,6 +496,54 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                                         loadingCourses={loadingCourses}
                                     />
                                 </Grid>
+                                <Box
+                        sx={{
+                            marginTop: {
+                                lg: "30px",
+                                md: "30px",
+                                sm: "30px",
+                                xs: "16px"
+                            }
+                        }}
+                    >
+                        <Button
+                            type="submit"
+                            sx={{
+                                bgcolor: theme.palette.mode === "dark" ? "#FFFFFF" : '#000',
+                                color: theme.palette.mode === "dark" ? "#051A2F" : '#FFFFFF',
+                                width: "fit-content",
+                                padding: {
+                                    lg: "22px 52px 22px 52px",
+                                    md: "22px 52px 22px 52px",
+                                    sm: "22px 52px 22px 52px",
+                                    xs: "9px 21px 9px 21px"
+                                },
+                                fontSize: {
+                                    lg: "23px",
+                                    md: "23px",
+                                    sm: "17px",
+                                    xs: "15.7px"
+                                },
+                                fontFamily: "var(--English-font)",
+                                fontWeight: "600",
+                                borderRadius: "94px",
+                                textTransform: "capitalize",
+                                height: {
+                                    lg: "64px",
+                                    md: "64px",
+                                    sm: "64px",
+                                    xs: "44px"
+                                },
+                                display:"flex",
+                                justifyContent:"end",
+                                marginInlineStart:"auto"
+                            }}>
+                            {loading ? <CircularProgress style={{ color: "#fff" }} size={24} color="inherit" /> : t("formAcademics.Submit")}
+
+                        </Button>
+                    </Box>
+                                </form>
+                              
                             </Box>
                         </Grid>
                     </Box>

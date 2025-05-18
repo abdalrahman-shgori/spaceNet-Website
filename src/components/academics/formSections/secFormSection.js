@@ -119,6 +119,7 @@ export default function SecFormSection({
                                     onChange={handleAgeChange}
                                     type='text'
                                     fullWidth
+                                    required
                                     placeholder={t("formAcademics.YourAge")}
                                     sx={{
                                         ...textFieldStyle(theme),
@@ -145,6 +146,7 @@ export default function SecFormSection({
                                 </Typography>
                                 <FormControl fullWidth>
                                     <Select
+                                        required
                                         sx={{
                                             ...textFieldStyle(theme),
                                             '& .MuiSelect-icon': {
@@ -287,19 +289,31 @@ export default function SecFormSection({
                         <Typography sx={{ ...fieldTextStyle(theme) }}>
                             {t("formAcademics.CourseType")}
                         </Typography>
-                        <RadioGroup row value={selectedCourseType} onChange={handleCourseTypeChange}>
-                            <FormControlLabel sx={{
-                                ...radioStyle(theme),
-                                marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                            }} value="online" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Online")} />
-                            <FormControlLabel sx={{
-                                ...radioStyle(theme),
-                                marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                            }} value="classroom" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Classroom")} />
-                            <FormControlLabel sx={{ ...radioStyle(theme) }} value="bootcamp" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Bootcamp")} />
-                        </RadioGroup>
+                        <FormControl>
+                            <RadioGroup row value={selectedCourseType} onChange={handleCourseTypeChange}>
+                                <FormControlLabel sx={{
+                                    ...radioStyle(theme),
+                                    marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                    marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                                }} value="online" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Online")} />
+                                <FormControlLabel sx={{
+                                    ...radioStyle(theme),
+                                    marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                    marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                                }} value="classroom" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Classroom")} />
+                                <FormControlLabel sx={{ ...radioStyle(theme) }} value="bootcamp" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Bootcamp")} />
+                            </RadioGroup>
+                            <input
+                                type="text"
+                                tabIndex={-1}
+                                autoComplete="off"
+                                style={{ opacity: 0, height: 0, position: 'absolute' }}
+                                value={selectedCourseType}
+                                onChange={() => { }}
+                                required
+                            />
+                        </FormControl>
+
                     </Box>
                     <Box
                         sx={{
@@ -312,27 +326,40 @@ export default function SecFormSection({
                         }}
                     >
                         <Typography sx={{ ...fieldTextStyle(theme) }}>{t("formAcademics.Languages")}</Typography>
-                        <RadioGroup row value={selectedLanguage} onChange={handleLanguageChange}>
-                            <FormControlLabel sx={{
-                                ...radioStyle(theme),
-                                marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                            }}
-                                value="kurdish" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Kurdish")} />
-                            <FormControlLabel sx={{
-                                ...radioStyle(theme),
-                                marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
-                            }} value="english" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.English")} />
-                            <FormControlLabel sx={radioStyle(theme)} value="arabic" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Arabic")} />
-                        </RadioGroup>
+                        <FormControl>
+                            <RadioGroup row value={selectedLanguage} onChange={handleLanguageChange}>
+                                <FormControlLabel sx={{
+                                    ...radioStyle(theme),
+                                    marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                    marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                                }}
+                                    value="kurdish" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Kurdish")} />
+                                <FormControlLabel sx={{
+                                    ...radioStyle(theme),
+                                    marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
+                                    marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                                }} value="english" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.English")} />
+                                <FormControlLabel sx={radioStyle(theme)} value="arabic" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Arabic")} />
+                            </RadioGroup>
+
+                            <input
+                                type="text"
+                                tabIndex={-1}
+                                autoComplete="off"
+                                style={{ opacity: 0, height: 0, position: 'absolute' }}
+                                value={selectedLanguage}
+                                onChange={() => { }}
+                                required
+                            />
+                        </FormControl>
+
                     </Box>
                     <Box
                     >
                         <Typography sx={{ ...fieldTextStyle(theme) }}>
                             {t("formAcademics.Whichservices")}
                         </Typography>
-                        <FormControl fullWidth
+                        <FormControl fullWidth required
                             sx={{
                                 padding: dir === 'ltr' ? {
                                     lg: "unset",
@@ -540,74 +567,84 @@ export default function SecFormSection({
                             <Typography sx={{ ...fieldTextStyle(theme) }}>
                                 {t("formAcademics.StartDay")}
                             </Typography>
-                            <LocalizationProvider dateAdapter={AdapterDateFns}
-
-                            >
-                                <DatePicker
-                                    name="time"
+                            <FormControl required>
+                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                    <DatePicker
+                                        name="date"
+                                        value={selectedDate}
+                                        onChange={handleDateChange}
+                                        sx={{
+                                            height: {
+                                                lg: "58px",
+                                                md: "58px",
+                                                sm: "58px",
+                                                xs: "39px"
+                                            },
+                                            ...textFieldStyle(theme),
+                                            '& input': {},
+                                            '& .css-elo8k2-MuiInputAdornment-root': {
+                                                margin: "0 !important",
+                                                paddingRight: dir === 'ltr' && {
+                                                    lg: "18.55px",
+                                                    md: "12.55px",
+                                                    sm: "18.55px",
+                                                    xs: "12px"
+                                                },
+                                                paddingLeft: dir === 'rtl' && {
+                                                    lg: "18.55px",
+                                                    md: "12.55px",
+                                                    sm: "18.55px",
+                                                    xs: "12px"
+                                                },
+                                            },
+                                            "& .css-15guoxn": {
+                                                padding: 0,
+                                                paddingRight: "12px"
+                                            },
+                                            '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
+                                                padding: 0,
+                                            },
+                                            '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
+                                                padding: "0",
+                                                paddingLeft: {
+                                                    lg: "18.55px",
+                                                    md: "12.55px",
+                                                    sm: "18.55px",
+                                                    xs: "12px"
+                                                },
+                                            },
+                                            '& .MuiOutlinedInput-root:hover': {
+                                                backgroundColor: 'transparent',
+                                            },
+                                            '& .MuiButtonBase-root:hover': {
+                                                backgroundColor: 'transparent',
+                                            }
+                                        }}
+                                        slots={{
+                                            openPickerIcon: CalenderIcon
+                                        }}
+                                        desktopModeMediaQuery="(min-width: 0px)"
+                                        renderInput={(params) => (
+                                            <TextField
+                                                {...params}
+                                                InputProps={{
+                                                    ...params.InputProps,
+                                                }}
+                                            />
+                                        )}
+                                    />
+                                </LocalizationProvider>
+                                <input
+                                    type="text"
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                    style={{ opacity: 0, height: 0, position: 'absolute' }}
                                     value={selectedDate}
                                     onChange={handleDateChange}
-                                    sx={{
-                                        height: {
-                                            lg: "58px",
-                                            md: "58px",
-                                            sm: "58px",
-                                            xs: "39px"
-                                        },
-                                        ...textFieldStyle(theme),
-                                        '& input': {},
-                                        '& .css-elo8k2-MuiInputAdornment-root': {
-                                            margin: "0 !important",
-                                            paddingRight: dir === 'ltr' && {
-                                                lg: "18.55px",
-                                                md: "12.55px",
-                                                sm: "18.55px",
-                                                xs: "12px"
-                                            },
-                                            paddingLeft: dir === 'rtl' && {
-                                                lg: "18.55px",
-                                                md: "12.55px",
-                                                sm: "18.55px",
-                                                xs: "12px"
-                                            },
-                                        },
-                                        "& .css-15guoxn": {
-                                            padding: 0,
-                                            paddingRight: "12px"
-                                        },
-                                        '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
-                                            padding: 0,
-                                        },
-                                        '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
-                                            padding: "0",
-                                            paddingLeft: {
-                                                lg: "18.55px",
-                                                md: "12.55px",
-                                                sm: "18.55px",
-                                                xs: "12px"
-                                            },
-                                        },
-                                        '& .MuiOutlinedInput-root:hover': {
-                                            backgroundColor: 'transparent',
-                                        },
-                                        '& .MuiButtonBase-root:hover': {
-                                            backgroundColor: 'transparent',
-                                        }
-                                    }}
-                                    slots={{
-                                        openPickerIcon: CalenderIcon
-                                    }}
-                                    desktopModeMediaQuery="(min-width: 0px)"
-                                    renderInput={(params) => (
-                                        <TextField
-                                            {...params}
-                                            InputProps={{
-                                                ...params.InputProps,
-                                            }}
-                                        />
-                                    )}
+                                    required
                                 />
-                            </LocalizationProvider>
+                            </FormControl>
+
                         </Box>
 
 
@@ -624,129 +661,99 @@ export default function SecFormSection({
                             <Typography sx={{ ...fieldTextStyle(theme) }}>
                                 {t("formAcademics.Time")}
                             </Typography>
-                            <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <TimePicker
+                            <FormControl required>
+                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                    <TimePicker
+                                        name="time"
+                                        value={selectedTime}
+                                        onChange={handleTimeChange}
+                                        sx={{
+                                            height: {
+                                                lg: "58px",
+                                                md: "58px",
+                                                sm: "58px",
+                                                xs: "39px"
+                                            },
+                                            ...textFieldStyle(theme),
+                                            '& input': {
+                                                margin: "0 !important",
+
+                                            },
+                                            '& .css-elo8k2-MuiInputAdornment-root': {
+                                                margin: "0 !important",
+
+                                            },
+                                            '& .css-elo8k2-MuiInputAdornment-root': {
+                                                margin: "0 !important",
+                                                padding: "0",
+                                                paddingRight: dir === 'ltr' && {
+                                                    lg: "18.55px",
+                                                    md: "12.55px",
+                                                    sm: "18.55px",
+                                                    xs: "12px"
+                                                },
+                                                paddingLeft: dir === 'rtl' && {
+                                                    lg: "18.55px",
+                                                    md: "12.55px",
+                                                    sm: "18.55px",
+                                                    xs: "12px"
+                                                },
+
+
+                                            },
+                                            '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
+                                                padding: 0,
+
+                                            },
+                                            "& .css-15guoxn": {
+                                                padding: 0,
+                                                paddingRight: "12px"
+
+                                            },
+                                            '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
+                                                padding: "0",
+                                                paddingLeft: {
+                                                    lg: "18.55px",
+                                                    md: "12.55px",
+                                                    sm: "18.55px",
+                                                    xs: "12px"
+                                                },
+                                            },
+                                            '& .MuiOutlinedInput-root:hover': {
+                                                backgroundColor: 'transparent',
+                                            },
+                                            '& .MuiButtonBase-root:hover': {
+                                                backgroundColor: 'transparent',
+                                            }
+                                        }}
+                                        slots={{
+
+                                            openPickerIcon: TimePickerIcon
+                                        }}
+                                        desktopModeMediaQuery="(min-width: 0px)"
+                                        renderInput={(params) => (
+                                            <TextField
+                                                {...params}
+                                                sx={textFieldStyle(theme)}
+                                            />
+                                        )}
+                                    />
+                                </LocalizationProvider>
+                                <input
+                                    type="text"
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                    style={{ opacity: 0, height: 0, position: 'absolute' }}
                                     value={selectedTime}
                                     onChange={handleTimeChange}
-                                    sx={{
-                                        height: {
-                                            lg: "58px",
-                                            md: "58px",
-                                            sm: "58px",
-                                            xs: "39px"
-                                        },
-                                        ...textFieldStyle(theme),
-                                        '& input': {
-                                            margin: "0 !important",
-
-                                        },
-                                        '& .css-elo8k2-MuiInputAdornment-root': {
-                                            margin: "0 !important",
-
-                                        },
-                                        '& .css-elo8k2-MuiInputAdornment-root': {
-                                            margin: "0 !important",
-                                            padding: "0",
-                                            paddingRight: dir === 'ltr' && {
-                                                lg: "18.55px",
-                                                md: "12.55px",
-                                                sm: "18.55px",
-                                                xs: "12px"
-                                            },
-                                            paddingLeft: dir === 'rtl' && {
-                                                lg: "18.55px",
-                                                md: "12.55px",
-                                                sm: "18.55px",
-                                                xs: "12px"
-                                            },
-
-
-                                        },
-                                        '& .css-oeq6yz-MuiButtonBase-root-MuiIconButton-root': {
-                                            padding: 0,
-
-                                        },
-                                        "& .css-15guoxn": {
-                                            padding: 0,
-                                            paddingRight: "12px"
-
-                                        },
-                                        '& .css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input': {
-                                            padding: "0",
-                                            paddingLeft: {
-                                                lg: "18.55px",
-                                                md: "12.55px",
-                                                sm: "18.55px",
-                                                xs: "12px"
-                                            },
-                                        },
-                                        '& .MuiOutlinedInput-root:hover': {
-                                            backgroundColor: 'transparent',
-                                        },
-                                        '& .MuiButtonBase-root:hover': {
-                                            backgroundColor: 'transparent',
-                                        }
-                                    }}
-                                    slots={{
-
-                                        openPickerIcon: TimePickerIcon
-                                    }}
-                                    desktopModeMediaQuery="(min-width: 0px)"
-                                    renderInput={(params) => (
-                                        <TextField
-                                            {...params}
-                                            sx={textFieldStyle(theme)}
-                                        />
-                                    )}
+                                    required
                                 />
-                            </LocalizationProvider>
+                            </FormControl>
+
                         </Box>
 
                     </Grid>
-                    <Box
-                        sx={{
-                            marginTop: {
-                                lg: "30px",
-                                md: "30px",
-                                sm: "30px",
-                                xs: "16px"
-                            }
-                        }}
-                    >
-                        <Button
-                            onClick={handleSubmit}
 
-                            sx={{
-                                bgcolor: theme.palette.mode === "dark" ? "#FFFFFF" : '#000',
-                                color: theme.palette.mode === "dark" ? "#051A2F" : '#FFFFFF',
-                                width: "fit-content",
-                                padding: {
-                                    lg: "22px 52px 22px 52px",
-                                    md: "22px 52px 22px 52px",
-                                    sm: "22px 52px 22px 52px",
-                                    xs: "9px 21px 9px 21px"
-                                },
-                                fontSize: {
-                                    lg: "23px",
-                                    md: "23px",
-                                    sm: "17px",
-                                    xs: "15.7px"
-                                },
-                                fontFamily: "var(--English-font)",
-                                fontWeight: "600",
-                                borderRadius: "94px",
-                                textTransform: "capitalize",
-                                height: {
-                                    lg: "64px",
-                                    md: "64px",
-                                    sm: "64px",
-                                    xs: "44px"
-                                },
-                            }}>
-                            {loading ? <CircularProgress style={{ color: "#fff" }} size={24} color="inherit" /> : t("formAcademics.Submit")}
-
-                        </Button>
-                    </Box>
                 </Box>
             </Grid>
         </>

@@ -51,6 +51,13 @@ export const textFieldStyle = (theme) => ({
             sm: "58px",
             xs: "40px"
         },
+        '& input:-webkit-autofill': {
+            boxShadow: '0 0 0 10px transparent inset',
+      WebkitBoxShadow: '0 0 0 10px transparent inset',
+            transition: 'background-color 5000s ease-in-out 0s',
+            WebkitTextFillColor: '#29547E !important',
+
+          }
     },
 });
 
@@ -179,5 +186,12 @@ export const inputFieldStyle = (theme) => ({
         md: "15px",
         sm: "15px",
         xs: "11px"
-    }
+    },
+    '& input:-webkit-autofill': {
+        boxShadow: '0 0 0 10px transparent inset',
+  WebkitBoxShadow: '0 0 0 10px transparent inset',
+        transition: 'background-color 5000s ease-in-out 0s',
+        WebkitTextFillColor: '#29547E !important',
+
+      }
 })

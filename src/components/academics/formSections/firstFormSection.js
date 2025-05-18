@@ -71,7 +71,7 @@ export default function FirstFormSection({
                             required
                             placeholder={t("formAcademics.YourName")}
                             sx={{
-                                ...textFieldStyle(theme)
+                                ...textFieldStyle(theme),
                             }}
                         />
 
@@ -164,6 +164,7 @@ export default function FirstFormSection({
                                 type="number"
                                 value={phoneNumber}
                                 onChange={handlePhoneChange}
+                                required
                                 name="phone"
                                 fullWidth
                                 sx={{
@@ -202,9 +203,11 @@ export default function FirstFormSection({
 
                         <TextField
                             name="email"
+                            type="email"
                             value={formData.email}
                             onChange={handleChange}
                             fullWidth
+                            required
                             placeholder={t("formAcademics.YourEmail")}
                             sx={{
                                 ...textFieldStyle(theme)
@@ -232,6 +235,7 @@ export default function FirstFormSection({
                         sx={{
                             ...textFieldStyle(theme)
                         }}
+                        
                     />
 
                     <Typography sx={{ ...fieldTextStyle(theme) }}>
