@@ -26,11 +26,13 @@ export default function Crafting({
       setScrollIndex(0)
     }
   }, [scrollIndex])
+  
   const click = () => {
     if (reset) {
       setScrollIndex((prev) => prev + 1)
     }
   }
+ 
   return (
     <Grid container
       sx={{
@@ -78,7 +80,6 @@ export default function Crafting({
               sm: "300px",
               xs: "320px"
             },
-            overflowY: "hidden",
             paddingRight: "0px",
             paddingLeft: "50px",
             overflow: "hidden",

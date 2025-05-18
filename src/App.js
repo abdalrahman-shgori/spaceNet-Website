@@ -6,7 +6,6 @@ import { Route, Router, Routes, useLocation } from 'react-router-dom';
 import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import { motion } from 'framer-motion';
-import { useTheme } from '@mui/material';
 import Toggle from './components/toggleCompoent/toggle';
 import SoftwareSection from './pages/softwarePage';
 import Footer from './components/footer';
@@ -85,7 +84,6 @@ const App = () => {
           <LogoAnimation handleAnimationComplete={handleAnimationComplete} logoAnimationComplete={logoAnimationComplete} />
         </motion.div>
       )}
-
 <ThemeSettings>
 <ThemeLocalization>
       {logoAnimationComplete && (
@@ -134,6 +132,7 @@ const App = () => {
                     {/* <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
                     <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} /> */}
                   </Routes>
+          
            
               {location.pathname !== '/' && (
                 <Footer />

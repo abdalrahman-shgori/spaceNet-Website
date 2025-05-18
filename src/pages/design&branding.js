@@ -136,25 +136,8 @@ export default function DesignAndBranding({ setOpen }) {
             window.removeEventListener('keydown', handleKeydown);
         };
     }, [scrollIndex, isScrolling]);
-    useEffect(() => {
-
-        document.body.style.overflow = "hidden";
-
-        if (reset) {
-            document.body.style.overflow = "auto";
-        }
-
-        if (scrollIndex === designAndBrandingList.length) {
-            setTimeout(() => {
-                setReset(true);
-            }, 0);
-        }
-
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-
-    }, [scrollIndex, reset, designAndBrandingList.length]);
+    
+    
 
 
     useEffect(() => {
@@ -192,7 +175,27 @@ export default function DesignAndBranding({ setOpen }) {
             behavior: 'auto',
         });
     }, []);
-   
+  
+   useEffect(() => {
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
+
+        if (reset) {
+            document.body.style.overflow = "auto";
+            document.documentElement.style.overflow = "auto";
+
+        }
+        if (scrollIndex === designAndBrandingList.length) {
+            setTimeout(() => {
+                setReset(true);
+            }, 0);
+        }
+        return () => {
+            document.body.style.overflow = "auto";
+            document.documentElement.style.overflow = "auto";
+        };
+
+    }, [scrollIndex, reset, designAndBrandingList.length]);
     return (
         <>
             <Helmet>
@@ -209,6 +212,7 @@ export default function DesignAndBranding({ setOpen }) {
                     duration: 1
                 }}
             >
+                
                 <Grid
                     className="root-container"
                     sx={{
