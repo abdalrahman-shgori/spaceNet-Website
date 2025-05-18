@@ -4,6 +4,8 @@ import ServicesLogo from '../../assets/spacenetLogo/servicesLogo';
 import Grid  from '@mui/material/Grid';
 import { motion } from 'framer-motion';
 import LandingPage from "../landingPage";
+import { Helmet } from "react-helmet";
+
 const InnerApp = ({
   showLogo,
 }) => {
@@ -52,12 +54,18 @@ const InnerApp = ({
 
 
   return (
-    <Grid
-      sx={{
-        background: showLogo ? '#051A2F' : 'transparent',
-        overflow: 'hidden',
-      }}
-    >
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>SPACENET</title>
+        <link rel="canonical" href="https://spacenetiq" />
+      </Helmet>
+      <Grid
+        sx={{
+          background: showLogo ? '#051A2F' : 'transparent',
+          overflow: 'hidden',
+        }}
+      >
         <>
           <motion.div
             className={!showLogo && 'root-container'}
@@ -78,8 +86,9 @@ const InnerApp = ({
            
           </motion.div>
         </>
-    </Grid>
+      </Grid>
+    </>
   );
 };
 
-export default InnerApp
+export default InnerApp;
