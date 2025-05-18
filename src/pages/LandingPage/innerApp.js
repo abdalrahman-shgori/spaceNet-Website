@@ -58,7 +58,7 @@ const InnerApp = ({
       <Helmet>
         <meta charSet="utf-8" />
         <title>SPACENET</title>
-        <link rel="canonical" href="https://spacenetiq" />
+        <link rel="canonical" href="https://spacenetiq.com" />
       </Helmet>
       <Grid
         sx={{
