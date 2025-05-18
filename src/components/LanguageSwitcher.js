@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import { useTranslation } from "react-i18next";
 import './LanguageSwitcher.css'
 import useTheme from '@mui/material/styles/useTheme';
@@ -96,6 +96,7 @@ const LanguageSwitcher = () => {
                     <Menu
                         sx={{
                             cursor: "pointer",
+                        
                         }}
                         anchorEl={anchorEl}
                         open={Boolean(anchorEl)}
@@ -108,6 +109,7 @@ const LanguageSwitcher = () => {
                             vertical: 'bottom',
                             horizontal: 'center',
                         }}
+                        disableScrollLock
                     >
                         {selectLanguage === "en" ? (
                             <>
