@@ -88,7 +88,6 @@ export const radioStyle = (theme) => ({
         sm: "6px",
         xs: "4px"
     },
-
     margin: "0 0px",
 
     '& .MuiRadio-root': {
@@ -99,7 +98,6 @@ export const radioStyle = (theme) => ({
             sm: "30px",
             xs: "10px"
         },
-
 
         '&.Mui-checked': {
             color: theme.palette.mode === "dark" ? "#FFFFFF" : '#051A2F',
@@ -128,10 +126,22 @@ export const radioStyle = (theme) => ({
     display: "flex",
     alignItems: "center",
     padding: {
-        lg: "10px 14px 10px 8px",
-        md: "10px 20px 10px 8px",
-        sm: "10px 20px 10px 8px",
-        xs: "0px 10px 0px 8px"
+        lg: "10px 0px 10px 0px " ,
+        md: "10px 0px 10px 0px",
+        sm: "10px 0px 10px 0px",
+        xs: "0px 0px 0px 0px"
+    },
+    paddingInlineEnd:{
+        lg: "14px" ,
+        md: "14px",
+        sm: "14px",
+        xs: "14px"
+    },
+    paddingInlineStart:{
+        lg: "8px" ,
+        md: "8px",
+        sm: "8px",
+        xs: "8px"
     },
     height: {
         lg: "58px",

@@ -205,14 +205,15 @@ export default function SecFormSection({
                                                 xs: "40px"
                                             },
                                             '& .MuiSelect-select': {
-                                                paddingRight: dir === 'rtl' && "44px !important",
                                                 fontSize: {
                                                     lg: "15px",
                                                     md: "15px",
                                                     sm: "15px",
                                                     xs: "11px"
                                                 },
-                                                color: "#29547E"
+                                                color: "#29547E",
+                                                paddingRight: dir === 'rtl' ? {sm:"44px !important",xs:"32px !important"} : undefined,   
+
 
                                             },
                                         }}
@@ -293,13 +294,11 @@ export default function SecFormSection({
                             <RadioGroup row value={selectedCourseType} onChange={handleCourseTypeChange}>
                                 <FormControlLabel sx={{
                                     ...radioStyle(theme),
-                                    marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                    marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                                    marginInlineEnd: { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
                                 }} value="online" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Online")} />
                                 <FormControlLabel sx={{
                                     ...radioStyle(theme),
-                                    marginRight: dir === 'ltr' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
-                                    marginLeft: dir === 'rtl' && { lg: "10px", md: "8px", sm: "10px", xs: "7px" }
+                                    marginInlineEnd: { lg: "10px", md: "8px", sm: "10px", xs: "7px" },
                                 }} value="classroom" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Classroom")} />
                                 <FormControlLabel sx={{ ...radioStyle(theme) }} value="bootcamp" control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: { lg: 22, md: 22, sm: 20, xs: 15 } } }} />} label={t("formAcademics.Bootcamp")} />
                             </RadioGroup>
@@ -427,8 +426,7 @@ export default function SecFormSection({
                                     '& .MuiSelect-select': {
                                         color: theme.palette.mode === "dark" ? "#FFFFFF" : '#29547E',
                                         fontSize: { lg: "15px", md: "15px", sm: "15px", xs: "11px" },
-                                        paddingRight: dir === 'rtl' ? "44px !important" : undefined,
-                                    },
+                                        paddingRight: dir === 'rtl' ? {sm:"44px !important",xs:"32px !important"} : undefined,                                       },
                                     height: { lg: "58px", md: "58px", sm: "58px", xs: "40px" },
                                     border: '1px solid #051A2F',
                                     '& .MuiMenuItem-root.Mui-selected': {

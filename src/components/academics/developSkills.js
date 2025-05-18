@@ -383,7 +383,8 @@ function DevelopSkills({ setOpen, setEnroll }) {
                     width: "fit-content",
                     justifyContent: "center",
                     margin: "0 auto",
-                    paddingBottom: "100px"
+                    paddingBottom: "100px",
+                    textAlign:"center"
                 }}
             >
                 <Button

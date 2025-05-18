@@ -21,6 +21,7 @@ const style = {
     width: "100%",
     bgcolor: 'background.paper',
     overflowY: "auto",
+    overflowX:"hidden",
     padding: {
         lg: "74px 0px 0px 0px",
         md: "74px 20px 0px 20px",
