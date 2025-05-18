@@ -65,6 +65,8 @@ export default function AcademicsForm({ setEnroll, enroll }) {
         password: '',
         confirmPassword: "",
     });
+    const {i18n}=useTranslation()
+    const dir = i18n.dir()
     const [data, setData] = useState()
     const handleClose = () => setEnroll(false);
     const handleAgeChange = (e) => {
@@ -503,7 +505,12 @@ export default function AcademicsForm({ setEnroll, enroll }) {
                                 md: "30px",
                                 sm: "30px",
                                 xs: "16px"
-                            }
+                            },
+                          paddingInlineEnd:{
+                            md:"unset",
+                            sm:"45px",
+                            xs:"45px"
+                          }
                         }}
                     >
                         <Button

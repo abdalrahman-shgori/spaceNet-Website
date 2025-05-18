@@ -26,7 +26,6 @@ export default function FirstFormSection({
     CheckCircleIcon,
     ErrorIcon
 
-
 }) {
     const { t, i18n } = useTranslation()
     const dir = i18n.dir()
