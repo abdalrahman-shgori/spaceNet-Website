@@ -48,7 +48,7 @@ export default function Toggle({ drawerOpen, setThemeColor, open }) {
             {(pathname === '/' || drawerOpen) && (
                 <motion.div
                     animate={dir === 'rtl' ? { x: [-100, 0], opacity: [0, 1] } : { x: [100, 0], opacity: [0, 1] }}
-                    transition={{ delay: drawerOpen ? 0.2 : 0.5 }}
+                    transition={{ delay: drawerOpen ? 0.2 : 1 }}
                     style={
                         dir === 'ltr' ?
                             {

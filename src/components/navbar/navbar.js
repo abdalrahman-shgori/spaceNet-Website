@@ -17,6 +17,8 @@ import { useTranslation } from 'react-i18next';
 const NavBar = ({
     setDrawerOpen,
     setOpen,
+    anchorEl,
+    setAnchorEl
 }) => {
     const { t } = useTranslation()
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -90,7 +92,7 @@ const NavBar = ({
                 >
                     <SvgSpaceNetLogo />
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <LanguageSwitcher />
+                        <LanguageSwitcher anchorEl={anchorEl} setAnchorEl={setAnchorEl}/>
                         <Box>
 
 

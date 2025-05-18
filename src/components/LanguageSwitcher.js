@@ -35,7 +35,8 @@ const LanguageSwitcher = () => {
         setAnchorEl(null);
     };
 
-
+   
+    
     return (
         <>
             <Box sx={{
@@ -109,7 +110,7 @@ const LanguageSwitcher = () => {
                             vertical: 'bottom',
                             horizontal: 'center',
                         }}
-                        disableScrollLock
+                   
                     >
                         {selectLanguage === "en" ? (
                             <>

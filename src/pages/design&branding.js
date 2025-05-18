@@ -192,6 +192,7 @@ export default function DesignAndBranding({ setOpen }) {
             behavior: 'auto',
         });
     }, []);
+   
     return (
         <>
             <Helmet>

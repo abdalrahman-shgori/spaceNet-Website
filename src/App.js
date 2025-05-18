@@ -1,32 +1,32 @@
-import React, { startTransition, useEffect, useState } from 'react';
+
+
+import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Router, Routes, useLocation } from 'react-router-dom';
+import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import { motion } from 'framer-motion';
+import { useTheme } from '@mui/material';
 import Toggle from './components/toggleCompoent/toggle';
-import LogoAnimation from './pages/LandingPage/logoaniamtion';
-import ThemeSettings from './pagedirection/ThemeSettings';
-import ThemeLocalization from './locals/ThemeLocalization';
-import { useTranslation } from 'react-i18next';
-import BasicModal from './components/contactUs/contactUs';
-import InnerApp from './pages/LandingPage/innerApp';
-import SoftwareSection from "./pages/softwarePage"
-import DesignAndBranding from "./pages/design&branding"
-import Academics from "./pages/academics"
-import CoreIt from "./pages/coreIt"
+import SoftwareSection from './pages/softwarePage';
 import Footer from './components/footer';
-// import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
-// import BlogDetails from './components/blogsAndNews/blogDetails';
+import DesignAndBranding from './pages/design&branding';
+import LogoAnimation from './pages/LandingPage/logoaniamtion';
+import Academics from './pages/academics';
+import BasicModal from './components/contactUs/contactUs';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import CoreIt from './pages/coreIt';
+
+
 const App = () => {
   const [open, setOpen] = React.useState(false);
-  const [showOverflow, setShowOverFlow] = useState(false)
-  const { i18n } = useTranslation();
-  document.body.dir = i18n.dir();
+
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
   const [themeColor, setThemeColor] = useState('')
+  const theme = useTheme()
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
   };
@@ -41,44 +41,77 @@ const App = () => {
     }
   }, [logoAnimationComplete]);
 
- 
+  useEffect(() => {
+    const handleOverflow = () => {
+      if (location.pathname === '/') {
+        document.body.style.overflow = 'hidden';
+
+        const timer = setTimeout(() => {
+          document.body.style.overflow = 'auto';
+        }, 3500);
+
+        return () => clearTimeout(timer);
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    };
+    handleOverflow();
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [location]);
+
   return (
+    
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
       {location.pathname === '/' && (
-        <LogoAnimation handleAnimationComplete={handleAnimationComplete} logoAnimationComplete={logoAnimationComplete} />
+        <motion.div
+          initial={{ height: "100dvh" }}
+          animate={{ height: showContent ? "0%" : "100%" }}
+          transition={{ duration: 1 }}
+          style={{
+            background: '#051A2F',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 1,
+            transformOrigin: "bottom",
+          }}
+        >
+          <LogoAnimation handleAnimationComplete={handleAnimationComplete} logoAnimationComplete={logoAnimationComplete} />
+        </motion.div>
       )}
-      <ThemeSettings>
-        <ThemeLocalization>
-          {logoAnimationComplete && (
+
+
+      {logoAnimationComplete && (
+        <>
+          <motion.div
+            initial={location.pathname === '/' && { y: '100dvh', opacity: 0 }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              background: themeColor,
+            }}
+            exit={{ y: '-100%', opacity: 0 }}
+            transition={{
+              duration: 1,
+              ease: 'easeInOut',
+              background: { duration: 0.3 },
+            }}
+            style={{
+              background: themeColor,
+              minHeight: '100dvh',
+              position: 'relative',
+              zIndex: 2,
+              animation: 'moveBackground 5s linear',
+            }}
+          >
             <>
-                  <motion.div
-      initial={location.pathname === '/' && { height: 0 }}
-      animate={{
-        height: "100dvh",
-      }}
-      exit={{ scaleY: [0, 1.1, 0] }}
-      transition={{
-        duration: 0.8,
-        ease: [0.4, 0, 0.2, 1],
-      }}
-      style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: '100dvh',
-        zIndex: 10,
-        background: themeColor,
-        transformOrigin: 'bottom',
-          overflowY: drawerOpen ? 'auto' : (location.pathname === '/' && (showOverflow ? 'auto' : 'hidden'))
-      }}
-      onAnimationComplete={() => {
-        setShowOverFlow(true);
-      }}
-    >
-                <>
-                  <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} />
-                  <Routes>
+            <NavBar setOpen={setOpen} showContent={showContent} setDrawerOpen={setDrawerOpen} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+             <ScrollToTop/>
+             <Routes>
                     <Route
                       path='/'
                       element={
@@ -98,17 +131,16 @@ const App = () => {
                     {/* <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
                     <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} /> */}
                   </Routes>
-                  {location.pathname !== '/' && (
-                      <Footer />
-                  )}
-                </>
-              </motion.div>
-              <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
-              <BasicModal setOpen={setOpen} open={open} />
+           
+              {location.pathname !== '/' && (
+                <Footer />
+              )}
             </>
-          )}
-        </ThemeLocalization>
-      </ThemeSettings>
+          </motion.div>
+          <Toggle open={open} setThemeColor={setThemeColor} themeColor={themeColor} drawerOpen={drawerOpen} />
+          <BasicModal setOpen={setOpen} open={open} />
+        </>
+      )}
     </ThemeProvider>
   );
 };
