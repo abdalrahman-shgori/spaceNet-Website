@@ -16,17 +16,19 @@ import Academics from './pages/academics';
 import BasicModal from './components/contactUs/contactUs';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import CoreIt from './pages/coreIt';
-
+import ThemeSettings from './pagedirection/ThemeSettings';
+import ThemeLocalization from './locals/ThemeLocalization';
+import { useTranslation } from 'react-i18next';
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
-
+  const { i18n } = useTranslation();
+  document.body.dir = i18n.dir();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
   const [themeColor, setThemeColor] = useState('')
-  const theme = useTheme()
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
   };
@@ -84,7 +86,8 @@ const App = () => {
         </motion.div>
       )}
 
-
+<ThemeSettings>
+<ThemeLocalization>
       {logoAnimationComplete && (
         <>
           <motion.div
@@ -141,6 +144,8 @@ const App = () => {
           <BasicModal setOpen={setOpen} open={open} />
         </>
       )}
+       </ThemeLocalization>
+      </ThemeSettings>
     </ThemeProvider>
   );
 };
