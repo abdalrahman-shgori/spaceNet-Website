@@ -17,7 +17,8 @@ import Box from '@mui/material/Box'
 import Skeleton from '@mui/material/Skeleton'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import useTheme from '@mui/material/styles/useTheme';
-
+import AboutSpaceNetParagraph from "./components/aboutSpaceNetParagraph";
+import ParagraphStyle from "./components/paragraph.style";
 export default function AboutSpaceNet({
     activeService,
     hoveredService,
@@ -27,7 +28,6 @@ export default function AboutSpaceNet({
     outOfServicesHover,
     indexOfHoveredServices
 }) {
-
     const { i18n, t } = useTranslation()
     const dir = i18n.dir()
     const theme = useTheme();
@@ -87,7 +87,6 @@ export default function AboutSpaceNet({
         return () => clearTimeout(timer);
     }, []);
 
-
     const scrollingContent = (
         <>
             {hoveredServiceDescription ? (
@@ -96,75 +95,12 @@ export default function AboutSpaceNet({
                 </>
             ) : (
                 <>
-                    <span className="scrolling-content"
-                        style={{
-                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
-                            marginTop: isTabScreen ? "15%" : "25%",
-                            textAlign: "center"
-                        }}
-                    >
-                        {t("aboutSpaceNet.about")}
-                    </span>
-                    <span className="scrolling-content"
-                        style={{
-                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
-                            textAlign: "center"
-
-                        }}
-                    >
-                        {t("aboutSpaceNet.about")}
-                    </span>
-                    <span className="scrolling-content"
-                        style={{
-                            paddingBottom: is15Inch || is14Inch ? "18px" : "24px",
-                            textAlign: "center"
-
-                        }}
-                    >
-                        {t("aboutSpaceNet.about")}
-                    </span>
-                    <span className="scrolling-content" style={{ textAlign: "center" }}>
-                        {t("aboutSpaceNet.about")}
-                    </span>
+                <AboutSpaceNetParagraph is14Inch={is14Inch} is15Inch={is15Inch} isTabScreen={isTabScreen}/>
                 </>
             )}
         </>
     );
-    const paragraphStyle = {
-        fontSize: {
-            lg: capture ? is14Inch || is15Inch ? '20px'
-                : '24px'
-                : is14Inch || is15Inch ? "24px" :
-                    "27px",
-            md: capture ? '18px' : "22px",
-            sm: capture ? '16px' : "20px",
-            xs: '15px',
-        },
-        fontFamily: 'var(--English-font)',
-        overflow: 'auto',
-        maxHeight: {
-            lg: is14Inch ? "220px" : is15Inch ? "240px" : '300px',
-            md: '220px',
-            sm: '220px',
-            xs: '220px',
-        },
-        paddingRight: '10px',
-        paddingTop: {
-            lg: is14Inch || is15Inch ? "0px" : capture ? "0px" : '10px',
-            md: '0px',
-            sm: '4px',
-            xs: '4px'
-        },
-        position: 'relative',
-        '&::-webkit-scrollbar': { display: 'none' },
-        scrollbarWidth: 'none',
-        display: 'flex',
-        flexDirection: 'column',
-        textAlign: dir === 'rtl' ? 'right' : 'left',
-        zIndex: 2,
-    }
-
-
+    const paragraphStyle =ParagraphStyle({capture:capture,is14Inch:is14Inch,is15Inch:is15Inch,dir:dir})
     return (
         <>
             <Grid container
@@ -235,9 +171,7 @@ export default function AboutSpaceNet({
                                     xs: "106px"
                                 },
                                 position: "absolute",
-
                                 transform: dir === 'rtl' ? "scaleX(-1)" : 'unset',
-
                             }}
                         />
                     </motion.div>
@@ -278,8 +212,7 @@ export default function AboutSpaceNet({
                                         md: "30px",
                                         sm: "30px",
                                         xs: "30px"
-                                    }
-                                ,
+                                    } ,
                                 paddingLeft: dir === 'ltr' ? {
                                     lg: is14Inch ? "40px" :
                                         is15Inch ? "45px" : "45px",
@@ -316,7 +249,6 @@ export default function AboutSpaceNet({
                                                 sm: "10px",
                                                 xs: "10px"
                                             }
-
                                         }}
                                     />
                                     <motion.div
@@ -324,8 +256,6 @@ export default function AboutSpaceNet({
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.5 }}
-
-
                                     >
                                         <Typography
                                             sx={{
@@ -347,14 +277,11 @@ export default function AboutSpaceNet({
                                         >
                                             {displayedText !== "ABOUT" && displayedText}
                                         </Typography>
-
                                     </motion.div>
-
                                 </>
 
                             ) : (
                                 <>
-
                                     <Box
                                         component="img"
                                         loading="eager"
@@ -381,13 +308,10 @@ export default function AboutSpaceNet({
                                                 xs: "10px"
                                             },
                                             paddingRight: "20px",
-
-
                                         }}
                                     />
                                 </>
                             )}
-
                             <Box
                                 sx={{
                                     position: 'relative',
@@ -432,7 +356,6 @@ export default function AboutSpaceNet({
                                 </Typography>
                                 {(hoveredService === '' || activeService === 'ABOUT' && isMobile) && (
                                     <motion.div
-
                                         style={{
                                             position: 'absolute',
                                             bottom: "-22px",
@@ -492,7 +415,6 @@ export default function AboutSpaceNet({
                                             : isTabScreen ? { y: [0, -80, 0], x: [0, 80, 0] } :
                                                 { y: [0, -120, 0], x: [0, 120, 0] }
                                         : outOfServicesHover ? { y: [0, -80, 0], x: [0, 80, 0] } : { y: 0, x: 0 }
-
                         }
                         transition={{ duration: initialAnimation ? 0.4 : 0.5, delay: initialAnimation ? 0.5 : 0 }}
                     >
@@ -558,7 +480,6 @@ export default function AboutSpaceNet({
                                             indexOfHoveredServices === 2 ? "#E9FA50" :
                                                 indexOfHoveredServices === 3 ? theme.palette.mode === 'light' ? "#051A2F" : "#9D89FC" :
                                                     indexOfHoveredServices === 5 ? "#1CB786" : "#E9FA50",
-
                                     border: "unset",
                                     padding: "8px 18px 8px 18px",
                                     borderRadius: "116px",

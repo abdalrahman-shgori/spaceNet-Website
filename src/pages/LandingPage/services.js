@@ -40,7 +40,6 @@ export default function Services({
         { name: "DESIGN & BRANDING", img: Union, url: "/design-branding" },
     ];
 
-
     const handleClicks = (item) => {
         if (item.title === "ABOUT") {
             setHoveredServiceDescription("");
@@ -70,7 +69,6 @@ export default function Services({
 
     return (
         <>
-
             <Grid
                 ref={servicesRef}
                 sx={{
@@ -101,7 +99,6 @@ export default function Services({
                 >
                     {t("services.OurServices")}
                 </Typography>
-
                 <Grid
                     ref={isTabScreen ? scrollRef : null}
                     container={isMobile ? false : true}
@@ -122,7 +119,6 @@ export default function Services({
                         userSelect: "none",
                     }}
                 >
-
                     {loading ? (
                         Array(4).fill().map((_, index) => (
                             <Skeleton

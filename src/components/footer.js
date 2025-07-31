@@ -54,7 +54,6 @@ const Footer = () => {
             md={index === 2 ? 2 : 5}
             sm={index === 2 ? 2 : 5}
             xs={12}
-
           >
             <Typography
               sx={{
@@ -68,11 +67,6 @@ const Footer = () => {
                   xs: index > 0 ? "28px" : "0px"
                 },
                 color: "#222222",
-
-
-
-
-
               }}
             >
               {section.title}
@@ -116,7 +110,6 @@ const Footer = () => {
                 ))}
               </Grid>
             ) : (
-
               section.content.map((text, idx) => (
                 <Grid
                   key={idx}

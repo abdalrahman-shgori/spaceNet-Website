@@ -62,8 +62,6 @@ export default function Crafting({
             textAlign: "end",
           }}
         >
-
-
           {t("designAndBranding.Crafty")}
         </Typography>
       </Grid>

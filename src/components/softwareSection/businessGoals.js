@@ -110,8 +110,6 @@ export default function ResponsiveComponent({
                     serviceTypes={serviceTypes}
                 />
             </Typography>
-
-
             <Typography
                 sx={{
                     fontFamily: "var(--English-font), Arial, sans-serif",

@@ -18,6 +18,7 @@ import CoreIt from './pages/coreIt';
 import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
+import ReactGA from "react-ga4";
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
@@ -28,6 +29,8 @@ const App = () => {
   const [showContent, setShowContent] = useState(false);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
   const [themeColor, setThemeColor] = useState('')
+  const TRACKING_ID = "G-EZ7X8Z76Y6"; 
+  ReactGA.initialize(TRACKING_ID);
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
   };
@@ -62,6 +65,10 @@ const App = () => {
     };
   }, [location]);
 
+  useEffect(() => {
+    // Sends page_view on route change
+    ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
+  }, [location]);
   return (
     
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
