@@ -40,8 +40,9 @@
 } */
 
 :root {
-    --English-font: 'English';
-    /* --English-StintUltraCondensed: 'StintUltraCondensed'; */
-    --Menu-Text-Color: #051A2F;
+	--English-font: 'English';
+	--font-family: var(--English-font);
+	/* --English-StintUltraCondensed: 'StintUltraCondensed'; */
+	--Menu-Text-Color: #051A2F;
 
 }

@@ -58,6 +58,7 @@ export default function LandingPage({
         >
 
             <Grid item lg={6} md={6} sm={12} xs={12} sx={{
+                paddingBottom: {md:"12px",xs:"0px"}
             }}>
                 <Services
                     hoveredService={hoveredService}
