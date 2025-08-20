@@ -10,7 +10,9 @@ export default function LandingPage({
     setServicesList,
     loading,
     isAboutActive,
-    setIsAboutActive
+    setIsAboutActive,
+    logoAnimationComplete,
+    showContent
 }) {
     const theme = useTheme()
     const [hoveredService, setHoveredService] = useState("");
@@ -56,7 +58,6 @@ export default function LandingPage({
         >
 
             <Grid item lg={6} md={6} sm={12} xs={12} sx={{
-                paddingBottom: "12px"
             }}>
                 <Services
                     hoveredService={hoveredService}
@@ -77,6 +78,8 @@ export default function LandingPage({
                     scrollRef={scrollRef}
                     setIndexOfHoveredServices={setIndexOfHoveredServices}
                     indexOfHoveredServices={indexOfHoveredServices}
+                    logoAnimationComplete={logoAnimationComplete}
+                    showContent={showContent}
                 />
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>

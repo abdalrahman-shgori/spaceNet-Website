@@ -1,6 +1,5 @@
 import { axiosInstance, axiosInstanceForm } from "../baseUrl";
 
-
 export const services = async (lang) => {
   try {
     const response = await axiosInstance.get(`/services`, {

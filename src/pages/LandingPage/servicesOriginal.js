@@ -26,7 +26,8 @@ export default function ServicesOriginal({
   setOutOfServicesHover,
   setActiveService,
   setIndexOfHoveredServices,
-  indexOfHoveredServices
+  indexOfHoveredServices,
+  logoAnimationComplete,
 }) {
   const { i18n} = useTranslation()
   const dir = i18n.dir()
@@ -136,13 +137,13 @@ export default function ServicesOriginal({
     >
 
       <motion.div
-        initial={{ opacity: 0, y: 30, rotate: 10 }}
-        animate={{ opacity: 1, y: 0, rotate: 0 }}
+        initial={logoAnimationComplete ? { opacity: 0, y: 30, rotate: 10 } : false}
+        animate={logoAnimationComplete ? { opacity: 1, y: 0, rotate: 0 } : undefined}
         transition={{
           duration: 0.6,
           type: "spring",
           stiffness: 100,
-          delay: index * 0.5,
+          delay:index  * 0.5,
         }}
         onMouseEnter={() => {
           if (!isMobile && !isTabScreen) {

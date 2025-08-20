@@ -54,8 +54,8 @@ export default function Toggle({ drawerOpen, setThemeColor, open }) {
                             {
                                 position: 'fixed',
                                 right:
-                                    xlgscreen ? "55px" :
-                                        lgscreen ? "55px" :
+                                    xlgscreen ? "65px" :
+                                        lgscreen ? "68px" :
                                             mdscreen ? "55px" :
                                                 smscreen ? "10px" :
                                                     xsscreen && "12px",

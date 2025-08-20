@@ -23,7 +23,9 @@ export default function Services({
     setOutOfServicesHover,
     scrollRef,
     setIndexOfHoveredServices,
-    indexOfHoveredServices
+    indexOfHoveredServices,
+    logoAnimationComplete,
+    showContent
 }) {
     const componentRef = useRef(null);
     const { i18n, t } = useTranslation()
@@ -154,6 +156,7 @@ export default function Services({
                                         componentRef={componentRef}
                                         setIndexOfHoveredServices={setIndexOfHoveredServices}
                                         indexOfHoveredServices={indexOfHoveredServices}
+                                        logoAnimationComplete={logoAnimationComplete}
                                     />
                                     <ServicesMobile
                                         activeService={activeService}

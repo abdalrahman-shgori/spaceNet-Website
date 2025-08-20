@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SvgGroup1 from "../../assets/logoAnimation/group1";
 import Box from '@mui/material/Box';
 import { useTheme } from "@mui/material";
+import { prefetchServices } from "../../services/websiteApis/servicesCache";
 
 export default function LogoAnimation({
     handleAnimationComplete,
     logoAnimationComplete
 }) {
 const theme=useTheme()
+
+    useEffect(() => {
+        prefetchServices().catch(() => {});
+    }, []);
+
     return (
         <Box 
         sx={{

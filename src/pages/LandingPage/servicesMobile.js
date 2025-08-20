@@ -139,8 +139,11 @@ export default function ServicesMobile({
                     lg: "none",
                     md: "none",
                     sm: "none",
-                    xs: "unset"
+                    xs: "flex"
                 },
+                justifyContent:"center",
+                alignItems:"center",
+                height:"60px"
             }}
         >
             <motion.div
@@ -153,7 +156,6 @@ export default function ServicesMobile({
                     stiffness: 100,
                     delay: index * 0.5,
                 }}
-
             >
                 <Box
                     onClick={() => handleClicks(item)}

@@ -19,6 +19,8 @@ import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
 import ReactGA from "react-ga4";
+import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
+import BlogDetails from './components/blogsAndNews/blogDetails';
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
@@ -69,6 +71,7 @@ const App = () => {
     // Sends page_view on route change
     ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
   }, [location]);
+  
   return (
     
     <ThemeProvider logoAnimationComplete={logoAnimationComplete}>
@@ -129,6 +132,7 @@ const App = () => {
                           draweOpen={drawerOpen}
                           setDrawerOpen={setDrawerOpen}
                           setOpen={setOpen}
+                          logoAnimationComplete={logoAnimationComplete}
                         />
                       }
                     />
@@ -136,7 +140,7 @@ const App = () => {
                     <Route path='/design-branding' element={<DesignAndBranding setOpen={setOpen} />} />
                     <Route path='/academics' element={<Academics setOpen={setOpen} />} />
                     <Route path='/core-it' element={<CoreIt setOpen={setOpen} />} />
-                    {/* <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
+                     {/* <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
                     <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} /> */}
                   </Routes>
           
