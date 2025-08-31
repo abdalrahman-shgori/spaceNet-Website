@@ -1,15 +1,34 @@
 {
-  "short_name": "SPACENET WEBSITE",
-  "name": "SPACENETIQ",
+  "short_name": "SPACENET",
+  "name": "SPACENET - Your All-in-one Tech Partner",
+  "description": "SPACENET provides software development, IT solutions, network services, and technology courses. Transform your business with our comprehensive tech expertise.",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "any",
       "type": "image/x-icon"
+    },
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "favIcon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#E9FA50",
+  "background_color": "#0A0A0A",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "education", "technology"],
+  "lang": "en"
 }
