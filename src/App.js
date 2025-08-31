@@ -21,6 +21,8 @@ import { useTranslation } from 'react-i18next';
 import ReactGA from "react-ga4";
 import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
 import BlogDetails from './components/blogsAndNews/blogDetails';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
@@ -140,8 +142,10 @@ const App = () => {
                     <Route path='/design-branding' element={<DesignAndBranding setOpen={setOpen} />} />
                     <Route path='/academics' element={<Academics setOpen={setOpen} />} />
                     <Route path='/core-it' element={<CoreIt setOpen={setOpen} />} />
-                     {/* <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} />
-                    <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} /> */}
+                    <Route path='/terms' element={<Terms />} />
+                    <Route path='/privacy' element={<Privacy />} />
+                     {/* <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} /> */}
+                    {/* <Route path="/blogs/:id" element={<BlogDetails setOpen={setOpen} />} /> */}
                   </Routes>
           
            

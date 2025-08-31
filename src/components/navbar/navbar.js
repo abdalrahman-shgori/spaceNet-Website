@@ -261,7 +261,12 @@ const NavBar = ({
                                                 </Box>
                                             ))}
                                         </Box>
-                                        <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: "20px" }}>
+                                        <Box
+                                          onClick={() => {
+                                            toggleDrawer(false);
+                                            setDrawerOpen(false);
+                                        }}
+                                        component={Link} to="/privacy" sx={{ display: 'flex', justifyContent: 'center', marginBottom: "20px" }}>
                                             <Typography
                                                 sx={{
                                                     textDecoration: "underline",

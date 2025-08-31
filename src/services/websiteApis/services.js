@@ -93,3 +93,23 @@ export const getBlogs = async () => {
   }
 };
 
+export const getPrivacy = async (lang) => {
+  try {
+    const config = lang ? { headers: { 'Accept-Language': lang } } : undefined;
+    const response = await axiosInstance.get(`/privacy`, config);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getTerms = async (lang) => {
+  try {
+    const config = lang ? { headers: { 'Accept-Language': lang } } : undefined;
+    const response = await axiosInstance.get(`/terms`, config);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+

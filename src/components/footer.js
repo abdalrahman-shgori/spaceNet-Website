@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Grid, Typography, Link } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import arrow from "../assets/sectionsImages/footerArrow.svg";
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t, i18n } = useTranslation()
@@ -29,8 +30,8 @@ const Footer = () => {
     {
       title: t("Footer.legal"),
       content: [
-        { name: t("Footer.Privacy"), img: arrow },
-        { name: t("Footer.terms"), img: arrow },
+        { name: t("Footer.Privacy"), img: arrow, link: '/privacy' },
+        { name: t("Footer.terms"), img: arrow, link: '/terms' },
       ],
     },
   ];
@@ -84,17 +85,17 @@ const Footer = () => {
                     }}
                   >
                     <Link
-                      href={social.link}
+                      to={social.link}
                       target="_blank"
                       rel="noopener"
                       underline="none"
-                      sx={{
+                      style={{
                         fontSize: "16px",
                         fontFamily: "var(--English-font), Arial, sans-serif",
                         color: "#222222",
                         display: "flex",
                         alignItems: "center",
-                        width: dir === 'rtl' ? "60px" : "90px"
+                        width: dir === 'rtl' ? "60px" : "90px",
                       }}
                     >
                       {social.name}
@@ -124,26 +125,54 @@ const Footer = () => {
                     alignItems: "center"
                   }}
                 >
-                  <Typography
-                    key={idx}
-                    sx={{
-                      fontSize: "16px",
-                      fontFamily: "var(--English-font), Arial, sans-serif",
-                      color: "#222222",
-                      width: {
-                        lg: index !== 1 && idx !== 2 ? "190px" : "240px",
-                        md: index !== 1 && idx !== 2 ? "190px" : "240px",
-                        sm: "210px",
-                        xs: index !== 1 && idx !== 2 ? "190px" : "240px"
-                      },
-                      direction: dir === 'rtl' && index === 0 && idx === 0 && 'ltr',
-                      textAlign: dir === 'rtl' && "right"
+                  {text.link ? (
+                    <Link
+                      to={text.link}
+                    
+                    >
+                      <Typography
+                      underline="none"
 
-                    }}
-                  >
-                    {text.name}
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: "var(--English-font), Arial, sans-serif",
+                          color: "#222222",
+                          width: {
+                            lg: index !== 1 && idx !== 2 ? "75px" : "240px",
+                            md: index !== 1 && idx !== 2 ? "75px" : "240px",
+                            sm: "210px",
+                            xs: index !== 1 && idx !== 2 ? "75px" : "240px"
+                          },
+                          direction: dir === 'rtl' && index === 0 && idx === 0 && 'ltr',
+                          textAlign: dir === 'rtl' && "right"
+                        }}
+                      >
+                      {text.name}
+                        
+                      </Typography>
+                    </Link>
+                  ) : (
+                    <Typography
+                      key={idx}
+                      sx={{
+                        fontSize: "16px",
+                        fontFamily: "var(--English-font), Arial, sans-serif",
+                        color: "#222222",
+                        width: {
+                          lg: index !== 1 && idx !== 2 ? "190px" : "240px",
+                          md: index !== 1 && idx !== 2 ? "190px" : "240px",
+                          sm: "210px",
+                          xs: index !== 1 && idx !== 2 ? "190px" : "240px"
+                        },
+                        direction: dir === 'rtl' && index === 0 && idx === 0 && 'ltr',
+                        textAlign: dir === 'rtl' && "right"
 
-                  </Typography>
+                      }}
+                    >
+                      {text.name}
+
+                    </Typography>
+                  )}
                   {text.img && (
                     <img
                       loading='lazy'
