@@ -3,6 +3,7 @@ import { getTerms } from '../services/websiteApis/services';
 import PolicyLayout from '../components/policy/PolicyLayout';
 import { useTranslation } from 'react-i18next';
 import useLocales from '../locals/useLocales';
+import { Helmet } from 'react-helmet';
 
 const Terms = () => {
   const [content, setContent] = useState('');
@@ -36,6 +37,12 @@ const Terms = () => {
   }, [i18n.language]);
 
   return (
+    <>
+       <Helmet>
+                <meta charSet="utf-8" />
+                <title>Terms</title>
+                <link rel="canonical" href="https://spacenetiq/terms" />
+            </Helmet>
     <PolicyLayout
       title={t("Footer.terms")}
       loading={loading}
@@ -43,6 +50,8 @@ const Terms = () => {
       contentHtml={content}
       updatedAt={updatedAt}
     />
+    </>
+    
   );
 };
 

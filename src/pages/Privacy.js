@@ -3,6 +3,7 @@ import { getPrivacy } from '../services/websiteApis/services';
 import PolicyLayout from '../components/policy/PolicyLayout';
 import useLocales from '../locals/useLocales';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet';
 
 const Privacy = () => {
   const [content, setContent] = useState('');
@@ -37,13 +38,21 @@ const Privacy = () => {
   }, [i18n.language]);
 
   return (
-    <PolicyLayout
+    <>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>Privacy</title>
+                <link rel="canonical" href="https://spacenetiq/privacy" />
+            </Helmet>
+     <PolicyLayout
       title={t("navbar.PrivacyPolicy")}
       loading={loading}
       error={error}
       contentHtml={content}
       updatedAt={updatedAt}
     />
+    </>
+   
   );
 };
 
