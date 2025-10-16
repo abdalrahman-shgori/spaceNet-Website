@@ -11,20 +11,20 @@ const Footer = () => {
     {
       title: t("Footer.ReachUs"),
       content: [
-        { name: '+964 (0) 750 555 0558', img: '' },
-        { name: 'www.spacenetiq.com', img: arrow },
-        { name: t("Footer.tower") }
+        { name: '+964 (0) 750 555 0558', img: '' ,url: 'https://wa.me/9647505550558'},
+        { name: 'www.spacecraftiq.com', img: arrow,url: 'https://www.spacecraftiq.com' },
+        { name: t("Footer.tower"),url: 'https://www.spacecraftiq.com' }
 
       ],
     },
     {
       title: t("Footer.SocialMedia"),
       content: [
-        { name: t("Footer.Instagram"), link: 'https://www.instagram.com/spacenetiq/profilecard/?igsh=MWYxc2dldmFzamV2OQ==' },
+        { name: t("Footer.Instagram"), link: 'https://www.instagram.com/spacecraft.iq/?igsh=MTczbGI1anM3NjdmbA%3D%3D#' },
         { name: t("Footer.Whatsapp"), link: 'https://wa.me/9647505550558' },
         { name: t("Footer.Facebook"), link: 'https://www.facebook.com/share/19yTYEYifS/?mibextid=wwXIfr' },
-        { name: t("Footer.Linkedln"), link: 'https://www.linkedin.com/company/spacenetiq/' },
-        { name: t("Footer.Pinterest"), link: 'https://www.pinterest.com/spacenetiq/' },
+        { name: t("Footer.Linkedln"), link: 'https://www.linkedin.com/company/spacecraftiq' },
+        { name: t("Footer.Pinterest"), link: 'https://www.pinterest.com/spacecraftiq/' },
       ],
     },
     {
@@ -99,7 +99,6 @@ const Footer = () => {
                       }}
                     >
                       {social.name}
-
                     </Link>
                     <img
                       loading='lazy'
@@ -128,7 +127,6 @@ const Footer = () => {
                   {text.link ? (
                     <Link
                       to={text.link}
-                    
                     >
                       <Typography
                       underline="none"
@@ -152,6 +150,12 @@ const Footer = () => {
                       </Typography>
                     </Link>
                   ) : (
+                    <Link
+                    to={text.url}
+                    target="_blank"
+                    rel="noopener"
+                    underline="none"
+                    >
                     <Typography
                       key={idx}
                       sx={{
@@ -159,10 +163,10 @@ const Footer = () => {
                         fontFamily: "var(--English-font), Arial, sans-serif",
                         color: "#222222",
                         width: {
-                          lg: index !== 1 && idx !== 2 ? "190px" : "240px",
-                          md: index !== 1 && idx !== 2 ? "190px" : "240px",
+                          lg: index !== 1 && idx !== 2 ? "200px" : "240px",
+                          md: index !== 1 && idx !== 2 ? "200px" : "240px",
                           sm: "210px",
-                          xs: index !== 1 && idx !== 2 ? "190px" : "240px"
+                          xs: index !== 1 && idx !== 2 ? "200px" : "240px"
                         },
                         direction: dir === 'rtl' && index === 0 && idx === 0 && 'ltr',
                         textAlign: dir === 'rtl' && "right"
@@ -172,6 +176,8 @@ const Footer = () => {
                       {text.name}
 
                     </Typography>
+                    </Link>
+
                   )}
                   {text.img && (
                     <img

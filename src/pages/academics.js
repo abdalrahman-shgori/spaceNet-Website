@@ -35,7 +35,7 @@ export default function Academics({ setOpen }) {
             <Helmet>
                 <title>Academics</title>
                 <meta charSet="utf-8" />
-        <link rel="canonical" href="https://spacenetiq.com/academics" />
+        <link rel="canonical" href="https://spacecraftiq.com/academics" />
             </Helmet>
             <motion.div
                 initial={{ opacity: 0, y: 150 }}

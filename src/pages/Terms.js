@@ -20,7 +20,7 @@ const Terms = () => {
         const lang = i18n.language || 'en';
         const res = await getTerms(lang);
         if (!mounted) return;
-        const description =i18n.language === 'en' ? res?.data?.description : i18n.language === 'ar' ? res?.data?.description_ar : res?.data?.description_ku ;
+        const description =res?.data;
         const updated = res?.data?.updated_at || '';
         setContent(description);
         setUpdatedAt(updated ? new Date(updated).toLocaleDateString() : '');

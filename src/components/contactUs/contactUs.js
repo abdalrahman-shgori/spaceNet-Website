@@ -37,9 +37,9 @@ const style = {
 
 const socialMedia = [
     { icon: <FaceBookSvg />, link: "https://www.facebook.com/share/19yTYEYifS/?mibextid=wwXIfr", },
-    { icon: <InstaSvg />, link: "https://www.instagram.com/spacenetiq/profilecard/?igsh=MWYxc2dldmFzamV2OQ==", },
-    { icon: <LinkedInSvg />, link: "https://www.linkedin.com/company/spacenetiq/", },
-    { icon: <PaintrestSvg />, link: "https://www.pinterest.com/spacenetiq/", },
+    { icon: <InstaSvg />, link: "https://www.instagram.com/spacecraft.iq?igsh=MTczbGI1anM3NjdmbA==", },
+    { icon: <LinkedInSvg />, link: "https://www.linkedin.com/company/spacecraftiq", },
+    { icon: <PaintrestSvg />, link: "https://www.pinterest.com/spacecraftiq/", },
     { icon: <WhatsAppSvg />, link: "https://wa.me/9647505550558", },
 ];
 const fieldTextStyle = {
@@ -97,7 +97,7 @@ const textFieldStyle = {
 export default function BasicModal({ setOpen, open }) {
     const { t } = useTranslation()
     const contactUsWays = [
-        { id: 0, img: EmailIcon, title: "info@spacenetiq.com" },
+        { id: 0, img: EmailIcon, title: "info@spacecraftiq.com" },
         { id: 1, img: CallIcon, title: "+964 (0) 750 555 0558" },
         { id: 2, img: LocationIncon, title: <> {t("ContactUs.empire")} <br /> {t("ContactUs.building")} </> },
     ]
@@ -349,7 +349,10 @@ export default function BasicModal({ setOpen, open }) {
                                                     md: "44px",
                                                     sm: "44px",
                                                     xs: "50px"
-                                                }
+                                                },
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                gap: "8px",
                                             }}
                                         >
                                             {contactUsWays.map((item, index) => (
@@ -364,13 +367,7 @@ export default function BasicModal({ setOpen, open }) {
                                                             sm: "7px",
                                                             xs: "7px"
                                                         },
-                                                        marginTop: {
-                                                            lg: index === 1 ? "9px" : index === 2 && "1px",
-                                                            md: index === 1 ? "9px" : index === 2 && "1px",
-                                                            sm: index === 1 ? "7px" : index === 2 && "5px",
-                                                            xs: index === 1 ? "7px" : index === 2 && "5px"
-                                                        },
-
+                                                     
                                                     }}
                                                 >
                                                     <img loading='lazy' src={item.img} />

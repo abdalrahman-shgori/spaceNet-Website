@@ -1,4 +1,4 @@
-# WhatsApp Preview Fix Guide for SPACENET Website
+# WhatsApp Preview Fix Guide for SPACECRAFT Website
 
 ## Problem
 Your website URL was not showing proper previews (icon and description) when shared on WhatsApp and other social media platforms.
@@ -62,10 +62,10 @@ After updating your website:
 
 ### Open Graph Tags (Facebook, WhatsApp, LinkedIn)
 ```html
-<meta property="og:title" content="SPACENET - Your All-in-one Tech Partner" />
+<meta property="og:title" content="SPACECRAFT - Your All-in-one Tech Partner" />
 <meta property="og:description" content="..." />
 <meta property="og:image" content="og-image.png" />
-<meta property="og:url" content="https://spacenetiq.com" />
+<meta property="og:url" content="https://spacecraftiq.com" />
 ```
 
 ### Twitter Card Tags
@@ -103,10 +103,10 @@ After updating your website:
 
 ## Expected Result
 After implementing these changes, when you share your website URL on WhatsApp, you should see:
-- ✅ Website title: "SPACENET - Your All-in-one Tech Partner"
-- ✅ Description: "SPACENET - Your All-in-one tech partner. We provide software development, IT solutions, network services, and technology courses..."
+- ✅ Website title: "SPACECRAFT - Your All-in-one Tech Partner"
+- ✅ Description: "SPACECRAFT - Your All-in-one tech partner. We provide software development, IT solutions, network services, and technology courses..."
 - ✅ Preview image: Your branded og-image.png
-- ✅ Website URL: spacenetiq.com
+- ✅ Website URL: spacecraftiq.com
 
 ## Support
 If you continue to have issues after implementing these changes:

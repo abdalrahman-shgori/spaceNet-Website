@@ -3,8 +3,8 @@ import Vector1Yellow from "../../assets/images/Vector1Yellow.svg";
 import vector1White from "../../assets/images/Vector1White.svg";
 import Vector2Yellow from "../../assets/images/Vector2Yellow.svg";
 import vector2White from "../../assets/images/Vector2White.svg";
-import spaceNetLogo from "../../assets/spacenetLogo/spaceNetLogoAbout.svg";
-import spaceNetLogoWhite from "../../assets/spacenetLogo/spaceNetLogoWhite.svg";
+import spaceCraftLogoWhite from "../../assets/spaceCraftLogo/spaceCraftLogoWhite.svg";
+import spaceCraftLogo from "../../assets/spaceCraftLogo/spaceCraftLogo.svg";
 import { motion } from "framer-motion";
 import learnMoreArrow from "../../assets/images/learnMoreArrow.svg"
 import learnMoreArrowBlack from "../../assets/images/learnMoreArrowBlack.svg"
@@ -95,12 +95,12 @@ export default function AboutSpaceNet({
                 </>
             ) : (
                 <>
-                <AboutSpaceNetParagraph is14Inch={is14Inch} is15Inch={is15Inch} isTabScreen={isTabScreen}/>
+                    <AboutSpaceNetParagraph is14Inch={is14Inch} is15Inch={is15Inch} isTabScreen={isTabScreen} />
                 </>
             )}
         </>
     );
-    const paragraphStyle =ParagraphStyle({capture:capture,is14Inch:is14Inch,is15Inch:is15Inch,dir:dir})
+    const paragraphStyle = ParagraphStyle({ capture: capture, is14Inch: is14Inch, is15Inch: is15Inch, dir: dir })
     return (
         <>
             <Grid container
@@ -133,7 +133,7 @@ export default function AboutSpaceNet({
             >
                 <Grid item xs={12} lg={12}>
                     <motion.div
-                        animate={ 
+                        animate={
                             dir === 'ltr' ?
                                 initialAnimation
                                     ? { y: [0, 120, 0], x: [0, 120, 0] }
@@ -212,7 +212,7 @@ export default function AboutSpaceNet({
                                         md: "30px",
                                         sm: "30px",
                                         xs: "30px"
-                                    } ,
+                                    },
                                 paddingLeft: dir === 'ltr' ? {
                                     lg: is14Inch ? "40px" :
                                         is15Inch ? "45px" : "45px",
@@ -237,7 +237,7 @@ export default function AboutSpaceNet({
                                         component="img"
                                         loading="eager"
                                         fetchPriority="high"
-                                        src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
+                                        src={ThemeCheck === "light" ? spaceCraftLogoWhite : spaceCraftLogo}
                                         alt="SpaceNet Logo"
                                         sx={{
                                             width: { lg: is14Inch ? "250px" : is15Inch ? "260px" : "260px", md: "187px", sm: "179px", xs: "179px" },
@@ -286,7 +286,7 @@ export default function AboutSpaceNet({
                                         component="img"
                                         loading="eager"
                                         fetchPriority="high"
-                                        src={ThemeCheck === "light" ? spaceNetLogoWhite : spaceNetLogo}
+                                        src={ThemeCheck === "light" ? spaceCraftLogoWhite : spaceCraftLogo}
                                         alt="SpaceNet Logo"
                                         sx={{
                                             width: {

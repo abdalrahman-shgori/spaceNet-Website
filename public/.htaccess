@@ -2,13 +2,13 @@
   RewriteEngine On
 
   # Redirect www to non-www and force HTTPS
-  RewriteCond %{HTTP_HOST} ^www\.spacenetiq\.com [NC]
-  RewriteRule ^(.*)$ https://spacenetiq.com/$1 [L,R=301]
+  RewriteCond %{HTTP_HOST} ^www\.spacecraftiq\.com [NC]
+  RewriteRule ^(.*)$ https://spacecraftiq.com/$1 [L,R=301]
 
   # Force HTTPS if not already
   RewriteCond %{HTTPS} off
-  RewriteCond %{HTTP_HOST} ^spacenetiq\.com [NC]
-  RewriteRule ^(.*)$ https://spacenetiq.com/$1 [L,R=301]
+  RewriteCond %{HTTP_HOST} ^spacecraftiq\.com [NC]
+  RewriteRule ^(.*)$ https://spacecraftiq.com/$1 [L,R=301]
 
   # Existing rules
   RewriteBase /

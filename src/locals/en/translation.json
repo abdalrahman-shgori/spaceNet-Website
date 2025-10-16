@@ -1,7 +1,7 @@
 {
     "Footer": {
         "ReachUs": "Reach Us",
-        "tower": "Empire business towers Building T4, floor 13, office 3.",
+        "tower": "Italian City 1-Rotana street-Villa 284",
         "SocialMedia": "Social Media",
         "Privacy": "Privacy",
         "terms": "Terms",
@@ -12,7 +12,7 @@
         "Pinterest": "Pinterest",
         "legal": "Legal",
         "Copyright": "Copyright @2025",
-        "developedBy": "Developed By: SpaceNetiq.com"
+        "developedBy": "Developed By: SpaceCraftiq.com"
     },
     "aboutSpaceNet": {
         "about": "We are a tech solutions company aiming to redefine technology standards in our region with high quality services and cutting-edge solutions. we offer various services in technology such as: Network Solutions, Software Development, Digital Design and Academic and Professional Training. with many more services to come in the near future. we aim to fulfill the needs of the entire market from affordable options for small businesses to high-end solutions for large businesses. all at the highest possible industry standards and practices. Become our partner!",
@@ -166,8 +166,8 @@
         "CLOSE": "CLOSE",
         "Messagesent": "Message sent successfully!",
         "YourMessage": "Your Message",
-        "empire": "empire business towers",
-        "building": "building T4, floor 13, office 3.",
+        "empire": "Italian City 1-Rotana street-Villa 284",
+        "building": " ",
         "SendMessage": "Send A Message",
         "Allfields": "All fields are required"
     },

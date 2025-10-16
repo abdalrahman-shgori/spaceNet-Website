@@ -71,8 +71,8 @@ const InnerApp = ({ showLogo,logoAnimationComplete }) => {
 		<>
 			<Helmet>
 				<meta charSet="utf-8" />
-				<title>SPACENET</title>
-				<link rel="canonical" href="https://spacenetiq.com" />
+				<title>SPACECRAFT</title>
+				<link rel="canonical" href="https://spacecraftiq.com" />
 			</Helmet>
 			<Grid
 				sx={{

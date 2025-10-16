@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from "../assets/sectionsImages/sapceLogo.svg";
+import logo from "../assets/sectionsImages/spaceCraftLogo.svg";
 import { motion } from "framer-motion"
 import ArrowWight from "../assets/sectionsImages/spacenetLayoutArrow.svg";
-import spaceNet from "../assets/spacenetLogo/spaceNetLogoWhite.svg"
+import spaceNet from "../assets/spaceCraftLogo/spaceCraftLogoWhite.svg"
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Typography from '@mui/material/Typography'

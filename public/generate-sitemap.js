@@ -7,7 +7,7 @@ async function getFetch() {
   return nodeFetch;
 }
 
-const API_URL = 'https://admin.spacenetiq.com/api/articles'; // Replace with your backend endpoint
+const API_URL = 'https://admin.spacenetiq.com/api/articles'; 
 
 async function generateSitemap() {
   try {
@@ -26,12 +26,12 @@ async function generateSitemap() {
     const nowIso = new Date().toISOString();
 
     const urls = [
-      { loc: 'https://spacenetiq.com/', lastmod: nowIso },
-      { loc: 'https://spacenetiq.com/academics', lastmod: nowIso },
-      { loc: 'https://spacenetiq.com/core-it', lastmod: nowIso },
-      { loc: 'https://spacenetiq.com/software', lastmod: nowIso },
-      { loc: 'https://spacenetiq.com/design-branding', lastmod: nowIso },
-      { loc: 'https://spacenetiq.com/blogs', lastmod: nowIso },
+      { loc: 'https://spacecraftiq.com/', lastmod: nowIso },
+      { loc: 'https://spacecraftiq.com/academics', lastmod: nowIso },
+      { loc: 'https://spacecraftiq.com/core-it', lastmod: nowIso },
+      { loc: 'https://spacecraftiq.com/software', lastmod: nowIso },
+      { loc: 'https://spacecraftiq.com/design-branding', lastmod: nowIso },
+      { loc: 'https://spacecraftiq.com/blogs', lastmod: nowIso },
       ...blogItems.map(item => {
         const attributes = item?.attributes || {};
         const slugOrId = attributes.slug || item.slug || item.id;
@@ -50,7 +50,7 @@ async function generateSitemap() {
         }
 
         return {
-          loc: `https://spacenetiq.com/blogs/${slugOrId}`,
+          loc: `https://spacecraftiq.com/blogs/${slugOrId}`,
           lastmod
         };
       })
