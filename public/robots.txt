@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 Crawl-delay: 10
-Sitemap: https://spacenetiq.com/sitemap.xml
+Sitemap: https://spacecraftiq.com/sitemap.xml
