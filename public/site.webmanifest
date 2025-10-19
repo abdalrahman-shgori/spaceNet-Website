@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "spaceCraft",
+  "short_name": "spaceCraft",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

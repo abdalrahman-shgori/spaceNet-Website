@@ -24,6 +24,7 @@ import BlogDetails from './components/blogsAndNews/blogDetails';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 
+
 const App = () => {
   const [open, setOpen] = React.useState(false);
   const { i18n } = useTranslation();
