@@ -23,11 +23,12 @@
     "react-i18next": "^13.5.0",
     "react-phone-input-2": "^2.15.1",
     "react-router-dom": "^6.27.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "stylis-plugin-rtl": "^2.1.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prebuild": "node scripts/generate-build-meta.js",
     "start": "react-scripts start",
     "build": "react-scripts build && npm run build:sitemap",
     "build:sitemap": "node public/generate-sitemap.js",

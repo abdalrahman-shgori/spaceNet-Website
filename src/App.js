@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import ThemeProvider from './ThemeProvider';
-import { Route, Router, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import InnerApp from './pages/LandingPage/innerApp';
 import NavBar from './components/navbar/navbar';
 import { motion } from 'framer-motion';
@@ -19,8 +19,7 @@ import ThemeSettings from './pagedirection/ThemeSettings';
 import ThemeLocalization from './locals/ThemeLocalization';
 import { useTranslation } from 'react-i18next';
 import ReactGA from "react-ga4";
-import BlogsAndNews from './components/blogsAndNews/blogsAndNews';
-import BlogDetails from './components/blogsAndNews/blogDetails';
+
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 
@@ -143,6 +142,7 @@ const App = () => {
                     <Route path='/design-branding' element={<DesignAndBranding setOpen={setOpen} />} />
                     <Route path='/academics' element={<Academics setOpen={setOpen} />} />
                     <Route path='/core-it' element={<CoreIt setOpen={setOpen} />} />
+                    
                     <Route path='/terms' element={<Terms />} />
                     <Route path='/privacy' element={<Privacy />} />
                      {/* <Route path='/blogs' element={<BlogsAndNews setOpen={setOpen} />} /> */}
