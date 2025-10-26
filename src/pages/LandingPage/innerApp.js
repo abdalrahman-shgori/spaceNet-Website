@@ -7,7 +7,7 @@ import LandingPage from "../landingPage";
 import { Helmet } from "react-helmet";
 import { getServicesCache, setServicesCache } from "../../services/websiteApis/servicesCache";
 
-const InnerApp = ({ showLogo,logoAnimationComplete }) => {
+const InnerApp = ({ showLogo, logoAnimationComplete, onAnimationComplete }) => {
 	const [servicesList, setServicesList] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [isAboutActive, setIsAboutActive] = useState(true);
@@ -86,6 +86,7 @@ const InnerApp = ({ showLogo,logoAnimationComplete }) => {
 					animate={{ opacity: 1, y: 0 }}
 					exit={{ opacity: 0, y: 0 }}
 					transition={{ duration: 1 }}
+					onAnimationComplete={() => onAnimationComplete && onAnimationComplete()}
 				>
 					<LandingPage
 						loading={loading}

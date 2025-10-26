@@ -32,11 +32,16 @@ const App = () => {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showContent, setShowContent] = useState(false);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
+  const [pageAnimationComplete, setPageAnimationComplete] = useState(false);
   const [themeColor, setThemeColor] = useState('')
   const TRACKING_ID = "G-EZ7X8Z76Y6"; 
   ReactGA.initialize(TRACKING_ID);
   const handleAnimationComplete = () => {
     setLogoAnimationComplete(true);
+  };
+
+  const handlePageAnimationComplete = () => {
+    setPageAnimationComplete(true);
   };
   useEffect(() => {
     if (logoAnimationComplete) {
@@ -50,24 +55,24 @@ const App = () => {
   }, [logoAnimationComplete]);
 
   useEffect(() => {
-    const handleOverflow = () => {
-      if (location.pathname === '/') {
-        document.body.style.overflow = 'hidden';
-
-        const timer = setTimeout(() => {
-          document.body.style.overflow = 'auto';
-        }, 3500);
-
-        return () => clearTimeout(timer);
-      } else {
+    if (location.pathname === '/') {
+      // Hide overflow initially on landing page
+      document.body.style.overflow = 'hidden';
+      
+      // Enable overflow only when both animations are complete
+      if (showContent && pageAnimationComplete) {
         document.body.style.overflow = 'auto';
       }
-    };
-    handleOverflow();
+    } else {
+      // For other pages, always show overflow
+      document.body.style.overflow = 'auto';
+      setPageAnimationComplete(true);
+    }
+
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [location]);
+  }, [location, showContent, pageAnimationComplete]);
 
   useEffect(() => {
     // Sends page_view on route change
@@ -135,6 +140,7 @@ const App = () => {
                           setDrawerOpen={setDrawerOpen}
                           setOpen={setOpen}
                           logoAnimationComplete={logoAnimationComplete}
+                          onAnimationComplete={handlePageAnimationComplete}
                         />
                       }
                     />

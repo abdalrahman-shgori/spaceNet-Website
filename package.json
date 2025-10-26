@@ -28,7 +28,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "prebuild": "node scripts/generate-build-meta.js",
     "start": "react-scripts start",
     "build": "react-scripts build && npm run build:sitemap",
     "build:sitemap": "node public/generate-sitemap.js",
